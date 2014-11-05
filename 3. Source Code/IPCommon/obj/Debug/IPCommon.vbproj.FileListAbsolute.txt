@@ -1,0 +1,195 @@
+I:\Working\00. BKI_QLTS\03. Sourcecode\IPCommon\bin\IPCommon.dll
+I:\Working\00. BKI_QLTS\03. Sourcecode\IPCommon\bin\IPCommon.pdb
+I:\Working\00. BKI_QLTS\03. Sourcecode\IPCommon\bin\IPCommon.xml
+I:\Working\00. BKI_QLTS\03. Sourcecode\IPCommon\bin\C1.Common.dll
+I:\Working\00. BKI_QLTS\03. Sourcecode\IPCommon\bin\C1.Win.C1FlexGrid.Classic.dll
+I:\Working\00. BKI_QLTS\03. Sourcecode\IPCommon\bin\C1.Win.C1FlexGrid.dll
+I:\Working\00. BKI_QLTS\03. Sourcecode\IPCommon\bin\CrystalDecisions.CrystalReports.Engine.dll
+I:\Working\00. BKI_QLTS\03. Sourcecode\IPCommon\bin\CrystalDecisions.ReportSource.dll
+I:\Working\00. BKI_QLTS\03. Sourcecode\IPCommon\bin\CrystalDecisions.Shared.dll
+I:\Working\00. BKI_QLTS\03. Sourcecode\IPCommon\bin\CrystalDecisions.Web.dll
+I:\Working\00. BKI_QLTS\03. Sourcecode\IPCommon\bin\CrystalDecisions.Windows.Forms.dll
+I:\Working\00. BKI_QLTS\03. Sourcecode\IPCommon\bin\CrystalReportPluginLib.dll
+I:\Working\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\ResolveAssemblyReference.cache
+I:\Working\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IP.Core.IPCommon.ctlButton2.resources
+I:\Working\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IP.Core.IPCommon.ctlButton3.resources
+I:\Working\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IP.Core.IPCommon.ctlClock.resources
+I:\Working\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IP.Core.IPCommon.MessageForms.MsgButtonYes_No_Cancel.resources
+I:\Working\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IP.Core.IPCommon.MessageForms.MsgBtn_Yes_No.resources
+I:\Working\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IP.Core.IPCommon.DataGrid_Custom.resources
+I:\Working\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IP.Core.IPCommon.f370_REPORT_VIEW.resources
+I:\Working\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IP.Core.IPCommon.frmEditText.resources
+I:\Working\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IP.Core.IPCommon.frmIcons.resources
+I:\Working\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IP.Core.IPCommon.frmSearchDate.resources
+I:\Working\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IP.Core.IPCommon.frmSearchNumeric.resources
+I:\Working\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IP.Core.IPCommon.frmSearchString.resources
+I:\Working\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IP.Core.IPCommon.MessageForms.MsgBoxForm_Yes_No.resources
+I:\Working\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IP.Core.IPCommon.MessageForms.MsgBoxFormYes_No_Cancel.resources
+I:\Working\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IP.Core.IPCommon.MessageForms.MsgBoxForm_OK.resources
+I:\Working\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\ResGen.read.1.tlog
+I:\Working\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\ResGen.write.1.tlog
+I:\Working\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IPCommon.dll
+I:\Working\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IPCommon.xml
+I:\Working\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IPCommon.pdb
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\bin\IPCommon.dll
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\bin\IPCommon.pdb
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\bin\IPCommon.xml
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\bin\C1.Common.dll
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\bin\C1.Win.C1FlexGrid.Classic.dll
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\bin\C1.Win.C1FlexGrid.dll
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\bin\CrystalDecisions.CrystalReports.Engine.dll
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\bin\CrystalDecisions.ReportSource.dll
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\bin\CrystalDecisions.Shared.dll
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\bin\CrystalDecisions.Web.dll
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\bin\CrystalDecisions.Windows.Forms.dll
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\bin\CrystalReportPluginLib.dll
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\ResolveAssemblyReference.cache
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IP.Core.IPCommon.ctlButton2.resources
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IP.Core.IPCommon.ctlButton3.resources
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IP.Core.IPCommon.ctlClock.resources
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IP.Core.IPCommon.MessageForms.MsgButtonYes_No_Cancel.resources
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IP.Core.IPCommon.MessageForms.MsgBtn_Yes_No.resources
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IP.Core.IPCommon.DataGrid_Custom.resources
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IP.Core.IPCommon.f370_REPORT_VIEW.resources
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IP.Core.IPCommon.frmEditText.resources
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IP.Core.IPCommon.frmIcons.resources
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IP.Core.IPCommon.frmSearchDate.resources
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IP.Core.IPCommon.frmSearchNumeric.resources
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IP.Core.IPCommon.frmSearchString.resources
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IP.Core.IPCommon.MessageForms.MsgBoxForm_Yes_No.resources
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IP.Core.IPCommon.MessageForms.MsgBoxFormYes_No_Cancel.resources
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IP.Core.IPCommon.MessageForms.MsgBoxForm_OK.resources
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\ResGen.read.1.tlog
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\ResGen.write.1.tlog
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IPCommon.dll
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IPCommon.xml
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IPCommon.pdb
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\bin\IPCommon.dll
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\bin\IPCommon.pdb
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\bin\IPCommon.xml
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\bin\C1.Common.dll
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\bin\C1.Win.C1FlexGrid.Classic.dll
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\bin\C1.Win.C1FlexGrid.dll
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\bin\CrystalDecisions.CrystalReports.Engine.dll
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\bin\CrystalDecisions.ReportSource.dll
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\bin\CrystalDecisions.Shared.dll
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\bin\CrystalDecisions.Web.dll
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\bin\CrystalDecisions.Windows.Forms.dll
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\bin\CrystalReportPluginLib.dll
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\ResolveAssemblyReference.cache
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IP.Core.IPCommon.ctlButton2.resources
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IP.Core.IPCommon.ctlButton3.resources
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IP.Core.IPCommon.ctlClock.resources
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IP.Core.IPCommon.MessageForms.MsgButtonYes_No_Cancel.resources
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IP.Core.IPCommon.MessageForms.MsgBtn_Yes_No.resources
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IP.Core.IPCommon.DataGrid_Custom.resources
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IP.Core.IPCommon.f370_REPORT_VIEW.resources
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IP.Core.IPCommon.frmEditText.resources
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IP.Core.IPCommon.frmIcons.resources
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IP.Core.IPCommon.frmSearchDate.resources
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IP.Core.IPCommon.frmSearchNumeric.resources
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IP.Core.IPCommon.frmSearchString.resources
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IP.Core.IPCommon.MessageForms.MsgBoxForm_Yes_No.resources
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IP.Core.IPCommon.MessageForms.MsgBoxFormYes_No_Cancel.resources
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IP.Core.IPCommon.MessageForms.MsgBoxForm_OK.resources
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\ResGen.read.1.tlog
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\ResGen.write.1.tlog
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IPCommon.dll
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IPCommon.xml
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IPCommon.pdb
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\bin\IPCommon.dll
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\bin\IPCommon.pdb
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\bin\IPCommon.xml
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\bin\C1.Common.dll
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\bin\C1.Win.C1FlexGrid.Classic.dll
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\bin\C1.Win.C1FlexGrid.dll
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\bin\CrystalDecisions.CrystalReports.Engine.dll
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\bin\CrystalDecisions.ReportSource.dll
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\bin\CrystalDecisions.Shared.dll
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\bin\CrystalDecisions.Web.dll
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\bin\CrystalDecisions.Windows.Forms.dll
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\bin\CrystalReportPluginLib.dll
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IP.Core.IPCommon.ctlButton2.resources
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IP.Core.IPCommon.ctlButton3.resources
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IP.Core.IPCommon.ctlClock.resources
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IP.Core.IPCommon.MessageForms.MsgButtonYes_No_Cancel.resources
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IP.Core.IPCommon.MessageForms.MsgBtn_Yes_No.resources
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IP.Core.IPCommon.DataGrid_Custom.resources
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IP.Core.IPCommon.f370_REPORT_VIEW.resources
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IP.Core.IPCommon.frmEditText.resources
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IP.Core.IPCommon.frmIcons.resources
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IP.Core.IPCommon.frmSearchDate.resources
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IP.Core.IPCommon.frmSearchNumeric.resources
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IP.Core.IPCommon.frmSearchString.resources
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IP.Core.IPCommon.MessageForms.MsgBoxForm_Yes_No.resources
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IP.Core.IPCommon.MessageForms.MsgBoxFormYes_No_Cancel.resources
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IP.Core.IPCommon.MessageForms.MsgBoxForm_OK.resources
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IPCommon.vbproj.GenerateResource.Cache
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IPCommon.dll
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IPCommon.xml
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IPCommon.pdb
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IPCommon.vbprojResolveAssemblyReference.cache
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\IPCommon\bin\IPCommon.dll
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\IPCommon\bin\IPCommon.pdb
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\IPCommon\bin\IPCommon.xml
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\IPCommon\bin\C1.Common.dll
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\IPCommon\bin\C1.Win.C1FlexGrid.Classic.dll
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\IPCommon\bin\C1.Win.C1FlexGrid.dll
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\IPCommon\bin\CrystalDecisions.CrystalReports.Engine.dll
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\IPCommon\bin\CrystalDecisions.ReportSource.dll
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\IPCommon\bin\CrystalDecisions.Shared.dll
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\IPCommon\bin\CrystalDecisions.Web.dll
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\IPCommon\bin\CrystalDecisions.Windows.Forms.dll
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\IPCommon\bin\CrystalReportPluginLib.dll
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IPCommon.vbprojResolveAssemblyReference.cache
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IP.Core.IPCommon.ctlButton2.resources
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IP.Core.IPCommon.ctlButton3.resources
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IP.Core.IPCommon.ctlClock.resources
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IP.Core.IPCommon.MessageForms.MsgButtonYes_No_Cancel.resources
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IP.Core.IPCommon.MessageForms.MsgBtn_Yes_No.resources
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IP.Core.IPCommon.DataGrid_Custom.resources
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IP.Core.IPCommon.f370_REPORT_VIEW.resources
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IP.Core.IPCommon.frmEditText.resources
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IP.Core.IPCommon.frmIcons.resources
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IP.Core.IPCommon.frmSearchDate.resources
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IP.Core.IPCommon.frmSearchNumeric.resources
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IP.Core.IPCommon.frmSearchString.resources
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IP.Core.IPCommon.MessageForms.MsgBoxForm_Yes_No.resources
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IP.Core.IPCommon.MessageForms.MsgBoxFormYes_No_Cancel.resources
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IP.Core.IPCommon.MessageForms.MsgBoxForm_OK.resources
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IPCommon.vbproj.GenerateResource.Cache
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IPCommon.dll
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IPCommon.xml
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\IPCommon\obj\Debug\IPCommon.pdb
+E:\0. Working\1. Project\New folder (3)\3. Source Code\IPCommon\bin\IPCommon.dll
+E:\0. Working\1. Project\New folder (3)\3. Source Code\IPCommon\bin\IPCommon.pdb
+E:\0. Working\1. Project\New folder (3)\3. Source Code\IPCommon\bin\IPCommon.xml
+E:\0. Working\1. Project\New folder (3)\3. Source Code\IPCommon\bin\C1.Common.dll
+E:\0. Working\1. Project\New folder (3)\3. Source Code\IPCommon\bin\C1.Win.C1FlexGrid.Classic.dll
+E:\0. Working\1. Project\New folder (3)\3. Source Code\IPCommon\bin\C1.Win.C1FlexGrid.dll
+E:\0. Working\1. Project\New folder (3)\3. Source Code\IPCommon\bin\CrystalDecisions.CrystalReports.Engine.dll
+E:\0. Working\1. Project\New folder (3)\3. Source Code\IPCommon\bin\CrystalDecisions.ReportSource.dll
+E:\0. Working\1. Project\New folder (3)\3. Source Code\IPCommon\bin\CrystalDecisions.Shared.dll
+E:\0. Working\1. Project\New folder (3)\3. Source Code\IPCommon\bin\CrystalDecisions.Web.dll
+E:\0. Working\1. Project\New folder (3)\3. Source Code\IPCommon\bin\CrystalDecisions.Windows.Forms.dll
+E:\0. Working\1. Project\New folder (3)\3. Source Code\IPCommon\bin\CrystalReportPluginLib.dll
+E:\0. Working\1. Project\New folder (3)\3. Source Code\IPCommon\obj\Debug\IPCommon.vbprojResolveAssemblyReference.cache
+E:\0. Working\1. Project\New folder (3)\3. Source Code\IPCommon\obj\Debug\IP.Core.IPCommon.ctlButton2.resources
+E:\0. Working\1. Project\New folder (3)\3. Source Code\IPCommon\obj\Debug\IP.Core.IPCommon.ctlButton3.resources
+E:\0. Working\1. Project\New folder (3)\3. Source Code\IPCommon\obj\Debug\IP.Core.IPCommon.ctlClock.resources
+E:\0. Working\1. Project\New folder (3)\3. Source Code\IPCommon\obj\Debug\IP.Core.IPCommon.MessageForms.MsgButtonYes_No_Cancel.resources
+E:\0. Working\1. Project\New folder (3)\3. Source Code\IPCommon\obj\Debug\IP.Core.IPCommon.MessageForms.MsgBtn_Yes_No.resources
+E:\0. Working\1. Project\New folder (3)\3. Source Code\IPCommon\obj\Debug\IP.Core.IPCommon.DataGrid_Custom.resources
+E:\0. Working\1. Project\New folder (3)\3. Source Code\IPCommon\obj\Debug\IP.Core.IPCommon.f370_REPORT_VIEW.resources
+E:\0. Working\1. Project\New folder (3)\3. Source Code\IPCommon\obj\Debug\IP.Core.IPCommon.frmEditText.resources
+E:\0. Working\1. Project\New folder (3)\3. Source Code\IPCommon\obj\Debug\IP.Core.IPCommon.frmIcons.resources
+E:\0. Working\1. Project\New folder (3)\3. Source Code\IPCommon\obj\Debug\IP.Core.IPCommon.frmSearchDate.resources
+E:\0. Working\1. Project\New folder (3)\3. Source Code\IPCommon\obj\Debug\IP.Core.IPCommon.frmSearchNumeric.resources
+E:\0. Working\1. Project\New folder (3)\3. Source Code\IPCommon\obj\Debug\IP.Core.IPCommon.frmSearchString.resources
+E:\0. Working\1. Project\New folder (3)\3. Source Code\IPCommon\obj\Debug\IP.Core.IPCommon.MessageForms.MsgBoxForm_Yes_No.resources
+E:\0. Working\1. Project\New folder (3)\3. Source Code\IPCommon\obj\Debug\IP.Core.IPCommon.MessageForms.MsgBoxFormYes_No_Cancel.resources
+E:\0. Working\1. Project\New folder (3)\3. Source Code\IPCommon\obj\Debug\IP.Core.IPCommon.MessageForms.MsgBoxForm_OK.resources
+E:\0. Working\1. Project\New folder (3)\3. Source Code\IPCommon\obj\Debug\IPCommon.vbproj.GenerateResource.Cache
+E:\0. Working\1. Project\New folder (3)\3. Source Code\IPCommon\obj\Debug\IPCommon.dll
+E:\0. Working\1. Project\New folder (3)\3. Source Code\IPCommon\obj\Debug\IPCommon.xml
+E:\0. Working\1. Project\New folder (3)\3. Source Code\IPCommon\obj\Debug\IPCommon.pdb
