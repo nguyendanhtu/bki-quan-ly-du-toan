@@ -1,0 +1,399 @@
+﻿/* DEFAULTS
+----------------------------------------------------------*/
+
+body
+{
+    background: #b6b7bc;
+    font-size: .80em;
+    font-family: "Helvetica Neue" , "Lucida Grande" , "Segoe UI" , Arial, Helvetica, Verdana, sans-serif;
+    margin: 0px;
+    padding: 0px;
+    color: #696969;
+}
+
+a:link, a:visited
+{
+    color: #034af3;
+}
+
+a:hover
+{
+    color: #1d60ff;
+    text-decoration: none;
+}
+
+a:active
+{
+    color: #034af3;
+}
+
+p
+{
+    margin-bottom: 10px;
+    line-height: 1.6em;
+}
+
+
+/* HEADINGS   
+----------------------------------------------------------*/
+
+h1, h2, h3, h4, h5, h6
+{
+    font-size: 1.5em;
+    color: #666666;
+    font-variant: small-caps;
+    text-transform: none;
+    font-weight: 200;
+    margin-bottom: 0px;
+}
+
+h1
+{
+    font-size: 1.6em;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
+
+h2
+{
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+h3
+{
+    font-size: 1.2em;
+}
+
+h4
+{
+    font-size: 1.1em;
+}
+
+h5, h6
+{
+    font-size: 1em;
+}
+
+/* this rule styles <h1> and <h2> tags that are the 
+first child of the left and right table columns */
+.rightColumn > h1, .rightColumn > h2, .leftColumn > h1, .leftColumn > h2
+{
+    margin-top: 0px;
+}
+
+
+/* PRIMARY LAYOUT ELEMENTS   
+----------------------------------------------------------*/
+
+.page
+{
+    width: 100%;
+    background-color: #fff;
+    margin: 20px auto 0px auto;
+    border: 1px solid #496077;
+}
+
+.header
+{
+    position: relative;
+    margin: 0px;
+    margin-top: -20px;
+    padding: 0px;
+    background: #3563c1;
+    width: 100%;
+}
+
+.header h1
+{
+    font-weight: 700;
+    margin: 0px;
+    padding: 0px 0px 0px 20px;
+    color: #f9f9f9;
+    border: none;
+    line-height: 2em;
+    font-size: 1.4em;
+}
+
+.main
+{
+    padding: 0px 12px;
+    margin: 12px 8px 8px 8px;
+    min-height: 420px;
+    clear: both;
+}
+
+.leftCol
+{
+    padding: 6px 0px;
+    margin: 12px 8px 8px 8px;
+    width: 200px;
+    min-height: 200px;
+}
+
+.footer
+{
+    color: #4e5766;
+    padding: 8px 0px 0px 0px;
+    margin: 0px auto;
+    text-align: center;
+    line-height: normal;
+}
+
+
+/* TAB MENU   
+----------------------------------------------------------*/
+body
+{
+    font-size: 0.85em;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+#wapper ul
+{
+    margin: 0;
+    margin-top: 0px;
+    padding: 7px 6px 0;
+    background: #007ccf url(../Images/overlay.png) repeat-x 0 -110px;
+    line-height: 100%; /*border-radius: 1em;*/
+    font: normal 0.533333em Arial, Helvetica, sans-serif; /*-webkit-border-radius: 5px;   -moz-border-radius: 5px;   border-radius: 5px;*/
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+    width: auto;
+}
+#wapper li
+{
+    margin: -4px 5px;
+    padding: 0 0 8px;
+    float: left;
+    position: relative;
+    list-style: none;
+}
+#wapper a, #wapper a:link
+{
+    font-weight: bold;
+    font-size: 12px;
+    color: #e7e5e5;
+    text-decoration: none;
+    display: block;
+    padding: 5px 12px;
+    margin: 0; /*border-radius: 5px;   -webkit-border-radius: 5px;   -moz-border-radius: 5px;*/
+}
+#wapper a:hover
+{
+    background: #000;
+    color: #fff;
+}
+#wapper .active a, #wapper li:hover > a
+{
+    background: #039aff url(../Images/overlay.png) repeat-x 0 -40px;
+    background: #666666 url(../Images/overlay.png) repeat-x 0 -40px;
+    color: #444; /*border-top: solid 1px  #f8f8f8;*/
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+#wapper ul ul li a:link
+{
+    border-bottom: 1px dashed Gray;
+    font-weight: bold;
+    margin: -6px -4px -3px -3px;
+}
+#wapper ul ul li:hover a, #wapper li:hover li a
+{
+    background: none;
+    color: #666;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+}
+#wapper li:hover li
+{
+    background: #d2e5f2;
+    border: none;
+    color: #666;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+}
+#wapper ul ul a:hover
+{
+    background: #007ccf url(../Images/overlay.png) repeat-x 0 -100px !important;
+    color: #fff !important; /*-webkit-border-radius: 5px;   -moz-border-radius: 5px;   border-radius: 5px;*/
+}
+#wapper li:hover > ul, #wapper li li:hover > ul, #wapper li li li:hover > ul
+{
+    display: block;
+}
+#wapper li:hover > ul ul ul ul
+{
+    display: none;
+}
+#wapper ul ul
+{
+    display: none;
+    margin: 0;
+    padding: 0;
+    width: 180px;
+    position: absolute;
+    top: 32px;
+    left: 0;
+    background: url(../Images/overlay.png) repeat-x 0 0;
+    border: none;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+#wapper ul ul li ul
+{
+    top: 46px;
+}
+
+#wapper li ul ul
+{
+    left: 185px;
+    margin: -40px 0px 0px -5px;
+}
+#wapper ul ul li
+{
+    float: none;
+    margin: 0;
+    padding: 3px;
+}
+#wapper ul ul a, #wapper ul ul a:link
+{
+    border-bottom: 1px dashed Gray;
+    font-weight: normal;
+    font-size: 11px;
+}
+#wapper ul:after
+{
+    content: '.';
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+* html #wapper ul
+{
+    height: 1%;
+}
+
+/* FORM ELEMENTS   
+----------------------------------------------------------*/
+
+fieldset
+{
+    margin: 1em 0px;
+    padding: 1em;
+    border: 1px solid #ccc;
+}
+
+fieldset p
+{
+    margin: 2px 12px 10px 10px;
+}
+
+fieldset.login label, fieldset.register label, fieldset.changePassword label
+{
+    display: block;
+}
+
+fieldset label.inline
+{
+    display: inline;
+}
+
+legend
+{
+    font-size: 1.1em;
+    font-weight: 600;
+    padding: 2px 4px 8px 4px;
+}
+
+input.textEntry
+{
+    width: 320px;
+    border: 1px solid #ccc;
+}
+
+input.passwordEntry
+{
+    width: 320px;
+    border: 1px solid #ccc;
+}
+
+div.accountInfo
+{
+    width: 42%;
+}
+
+/* MISC  
+----------------------------------------------------------*/
+
+.clear
+{
+    clear: both;
+}
+
+.title
+{
+    display: block;
+    float: left;
+    text-align: left;
+    width: auto;
+}
+
+.loginDisplay
+{
+    font-size: 1.1em;
+    display: inline;
+    text-align: right;
+    padding: 10px;
+    color: white;
+    float: right;
+}
+
+.loginDisplay a:link
+{
+    color: white;
+}
+
+.loginDisplay a:visited
+{
+    color: white;
+}
+
+.loginDisplay a:hover
+{
+    color: white;
+}
+
+.failureNotification
+{
+    font-size: 1.2em;
+    color: Red;
+}
+
+.bold
+{
+    font-weight: bold;
+}
+
+.submitButton
+{
+    text-align: right;
+    padding-right: 10px;
+}
+
+/*  Default page*/
+
+.title_ttql
+{
+    font-weight: bold;
+    color: #FFFFFF;
+    background-color: #2991D6;
+    font-size: medium;
+}

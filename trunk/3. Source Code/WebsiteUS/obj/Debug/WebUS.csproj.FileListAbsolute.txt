@@ -1,0 +1,180 @@
+I:\Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\WebUS.dll
+I:\Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\WebUS.pdb
+I:\Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\C1.Common.dll
+I:\Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\C1.Win.C1FlexGrid.Classic.dll
+I:\Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\C1.Win.C1FlexGrid.dll
+I:\Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\C1.Win.C1Input.dll
+I:\Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\IPCommon.dll
+I:\Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\IPData.dll
+I:\Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\IPUserService.dll
+I:\Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\WebDS.dll
+I:\Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\CrystalDecisions.Shared.dll
+I:\Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\CrystalDecisions.Windows.Forms.dll
+I:\Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
+I:\Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\IPBusinessService.dll
+I:\Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\IPException.dll
+I:\Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\CrystalDecisions.ReportSource.dll
+I:\Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\IPCommon.pdb
+I:\Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\IPCommon.xml
+I:\Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\IPData.pdb
+I:\Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\IPData.xml
+I:\Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\IPUserService.pdb
+I:\Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\IPUserService.xml
+I:\Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\WebDS.pdb
+I:\Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\IPBusinessService.pdb
+I:\Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\IPBusinessService.xml
+I:\Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\IPException.pdb
+I:\Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\IPException.xml
+I:\Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\obj\Debug\ResolveAssemblyReference.cache
+I:\Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\obj\Debug\WebUS.dll
+I:\Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\obj\Debug\WebUS.pdb
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\WebUS.dll
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\WebUS.pdb
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\C1.Common.dll
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\C1.Win.C1FlexGrid.Classic.dll
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\C1.Win.C1FlexGrid.dll
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\C1.Win.C1Input.dll
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\IPCommon.dll
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\IPData.dll
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\IPUserService.dll
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\WebDS.dll
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\CrystalDecisions.Shared.dll
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\CrystalDecisions.Windows.Forms.dll
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\IPBusinessService.dll
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\IPException.dll
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\CrystalDecisions.ReportSource.dll
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\IPCommon.pdb
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\IPCommon.xml
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\IPData.pdb
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\IPData.xml
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\IPUserService.pdb
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\IPUserService.xml
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\WebDS.pdb
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\IPBusinessService.pdb
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\IPBusinessService.xml
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\IPException.pdb
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\IPException.xml
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\obj\Debug\ResolveAssemblyReference.cache
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\obj\Debug\WebUS.dll
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\obj\Debug\WebUS.pdb
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\WebUS.dll
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\WebUS.pdb
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\C1.Common.dll
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\C1.Win.C1FlexGrid.Classic.dll
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\C1.Win.C1FlexGrid.dll
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\C1.Win.C1Input.dll
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\IPCommon.dll
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\IPData.dll
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\IPUserService.dll
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\WebDS.dll
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\CrystalDecisions.Shared.dll
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\CrystalDecisions.Windows.Forms.dll
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\IPBusinessService.dll
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\IPException.dll
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\CrystalDecisions.ReportSource.dll
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\IPCommon.pdb
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\IPCommon.xml
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\IPData.pdb
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\IPData.xml
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\IPUserService.pdb
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\IPUserService.xml
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\WebDS.pdb
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\IPBusinessService.pdb
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\IPBusinessService.xml
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\IPException.pdb
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\IPException.xml
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\obj\Debug\ResolveAssemblyReference.cache
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\obj\Debug\WebUS.dll
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\obj\Debug\WebUS.pdb
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\WebUS.dll
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\WebUS.pdb
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\C1.Common.dll
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\C1.Win.C1FlexGrid.Classic.dll
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\C1.Win.C1FlexGrid.dll
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\C1.Win.C1Input.dll
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\IPCommon.dll
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\IPData.dll
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\IPUserService.dll
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\WebDS.dll
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\CrystalDecisions.Shared.dll
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\CrystalDecisions.Windows.Forms.dll
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\IPBusinessService.dll
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\IPException.dll
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\CrystalDecisions.ReportSource.dll
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\IPCommon.pdb
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\IPCommon.xml
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\IPData.pdb
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\IPData.xml
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\IPUserService.pdb
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\IPUserService.xml
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\WebDS.pdb
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\IPBusinessService.pdb
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\IPBusinessService.xml
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\IPException.pdb
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\IPException.xml
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\obj\Debug\WebUS.csprojResolveAssemblyReference.cache
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\obj\Debug\WebUS.dll
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\WebsiteUS\obj\Debug\WebUS.pdb
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\WebUS.dll
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\WebUS.pdb
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\C1.Common.dll
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\C1.Win.C1FlexGrid.Classic.dll
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\C1.Win.C1FlexGrid.dll
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\C1.Win.C1Input.dll
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\IPCommon.dll
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\IPData.dll
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\IPUserService.dll
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\WebDS.dll
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\CrystalDecisions.Shared.dll
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\CrystalDecisions.Windows.Forms.dll
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\IPBusinessService.dll
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\IPException.dll
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\CrystalDecisions.ReportSource.dll
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\IPCommon.pdb
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\IPCommon.xml
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\IPData.pdb
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\IPData.xml
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\IPUserService.pdb
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\IPUserService.xml
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\WebDS.pdb
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\IPBusinessService.pdb
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\IPBusinessService.xml
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\IPException.pdb
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\WebsiteUS\bin\Debug\IPException.xml
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\WebsiteUS\obj\Debug\WebUS.csprojResolveAssemblyReference.cache
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\WebsiteUS\obj\Debug\WebUS.dll
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\WebsiteUS\obj\Debug\WebUS.pdb
+E:\0. Working\1. Project\New folder (3)\3. Source Code\WebsiteUS\obj\Debug\WebUS.csprojResolveAssemblyReference.cache
+E:\0. Working\1. Project\New folder (3)\3. Source Code\WebsiteUS\bin\Debug\WebUS.dll
+E:\0. Working\1. Project\New folder (3)\3. Source Code\WebsiteUS\bin\Debug\WebUS.pdb
+E:\0. Working\1. Project\New folder (3)\3. Source Code\WebsiteUS\bin\Debug\C1.Common.dll
+E:\0. Working\1. Project\New folder (3)\3. Source Code\WebsiteUS\bin\Debug\C1.Win.C1FlexGrid.Classic.dll
+E:\0. Working\1. Project\New folder (3)\3. Source Code\WebsiteUS\bin\Debug\C1.Win.C1FlexGrid.dll
+E:\0. Working\1. Project\New folder (3)\3. Source Code\WebsiteUS\bin\Debug\C1.Win.C1Input.dll
+E:\0. Working\1. Project\New folder (3)\3. Source Code\WebsiteUS\bin\Debug\IPCommon.dll
+E:\0. Working\1. Project\New folder (3)\3. Source Code\WebsiteUS\bin\Debug\IPData.dll
+E:\0. Working\1. Project\New folder (3)\3. Source Code\WebsiteUS\bin\Debug\IPUserService.dll
+E:\0. Working\1. Project\New folder (3)\3. Source Code\WebsiteUS\bin\Debug\WebDS.dll
+E:\0. Working\1. Project\New folder (3)\3. Source Code\WebsiteUS\bin\Debug\CrystalDecisions.Shared.dll
+E:\0. Working\1. Project\New folder (3)\3. Source Code\WebsiteUS\bin\Debug\CrystalDecisions.Windows.Forms.dll
+E:\0. Working\1. Project\New folder (3)\3. Source Code\WebsiteUS\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
+E:\0. Working\1. Project\New folder (3)\3. Source Code\WebsiteUS\bin\Debug\IPBusinessService.dll
+E:\0. Working\1. Project\New folder (3)\3. Source Code\WebsiteUS\bin\Debug\IPException.dll
+E:\0. Working\1. Project\New folder (3)\3. Source Code\WebsiteUS\bin\Debug\CrystalDecisions.ReportSource.dll
+E:\0. Working\1. Project\New folder (3)\3. Source Code\WebsiteUS\bin\Debug\IPCommon.pdb
+E:\0. Working\1. Project\New folder (3)\3. Source Code\WebsiteUS\bin\Debug\IPCommon.xml
+E:\0. Working\1. Project\New folder (3)\3. Source Code\WebsiteUS\bin\Debug\IPData.pdb
+E:\0. Working\1. Project\New folder (3)\3. Source Code\WebsiteUS\bin\Debug\IPData.xml
+E:\0. Working\1. Project\New folder (3)\3. Source Code\WebsiteUS\bin\Debug\IPUserService.pdb
+E:\0. Working\1. Project\New folder (3)\3. Source Code\WebsiteUS\bin\Debug\IPUserService.xml
+E:\0. Working\1. Project\New folder (3)\3. Source Code\WebsiteUS\bin\Debug\WebDS.pdb
+E:\0. Working\1. Project\New folder (3)\3. Source Code\WebsiteUS\bin\Debug\IPBusinessService.pdb
+E:\0. Working\1. Project\New folder (3)\3. Source Code\WebsiteUS\bin\Debug\IPBusinessService.xml
+E:\0. Working\1. Project\New folder (3)\3. Source Code\WebsiteUS\bin\Debug\IPException.pdb
+E:\0. Working\1. Project\New folder (3)\3. Source Code\WebsiteUS\bin\Debug\IPException.xml
+E:\0. Working\1. Project\New folder (3)\3. Source Code\WebsiteUS\obj\Debug\WebUS.dll
+E:\0. Working\1. Project\New folder (3)\3. Source Code\WebsiteUS\obj\Debug\WebUS.pdb

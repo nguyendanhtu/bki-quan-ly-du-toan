@@ -1,0 +1,126 @@
+I:\Working\00. BKI_QLTS\03. Sourcecode\IPExcelReport\bin\IPExcelReport.dll
+I:\Working\00. BKI_QLTS\03. Sourcecode\IPExcelReport\bin\IPExcelReport.pdb
+I:\Working\00. BKI_QLTS\03. Sourcecode\IPExcelReport\bin\IPExcelReport.xml
+I:\Working\00. BKI_QLTS\03. Sourcecode\IPExcelReport\bin\C1.Win.C1FlexGrid.dll
+I:\Working\00. BKI_QLTS\03. Sourcecode\IPExcelReport\bin\Interop.Excel.dll
+I:\Working\00. BKI_QLTS\03. Sourcecode\IPExcelReport\bin\Interop.Microsoft.Office.Core.dll
+I:\Working\00. BKI_QLTS\03. Sourcecode\IPExcelReport\bin\Interop.Office.dll
+I:\Working\00. BKI_QLTS\03. Sourcecode\IPExcelReport\bin\IPCommon.dll
+I:\Working\00. BKI_QLTS\03. Sourcecode\IPExcelReport\bin\C1.Win.C1FlexGrid.Classic.dll
+I:\Working\00. BKI_QLTS\03. Sourcecode\IPExcelReport\bin\CrystalDecisions.Shared.dll
+I:\Working\00. BKI_QLTS\03. Sourcecode\IPExcelReport\bin\CrystalDecisions.Windows.Forms.dll
+I:\Working\00. BKI_QLTS\03. Sourcecode\IPExcelReport\bin\CrystalDecisions.CrystalReports.Engine.dll
+I:\Working\00. BKI_QLTS\03. Sourcecode\IPExcelReport\bin\C1.Common.dll
+I:\Working\00. BKI_QLTS\03. Sourcecode\IPExcelReport\bin\CrystalDecisions.ReportSource.dll
+I:\Working\00. BKI_QLTS\03. Sourcecode\IPExcelReport\bin\IPCommon.pdb
+I:\Working\00. BKI_QLTS\03. Sourcecode\IPExcelReport\bin\IPCommon.xml
+I:\Working\00. BKI_QLTS\03. Sourcecode\IPExcelReport\obj\Debug\ResolveAssemblyReference.cache
+I:\Working\00. BKI_QLTS\03. Sourcecode\IPExcelReport\obj\Debug\IPExcelReport.dll.licenses
+I:\Working\00. BKI_QLTS\03. Sourcecode\IPExcelReport\obj\Debug\IPExcelReport.dll
+I:\Working\00. BKI_QLTS\03. Sourcecode\IPExcelReport\obj\Debug\IPExcelReport.xml
+I:\Working\00. BKI_QLTS\03. Sourcecode\IPExcelReport\obj\Debug\IPExcelReport.pdb
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\IPExcelReport\bin\IPExcelReport.dll
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\IPExcelReport\bin\IPExcelReport.pdb
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\IPExcelReport\bin\IPExcelReport.xml
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\IPExcelReport\bin\C1.Win.C1FlexGrid.dll
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\IPExcelReport\bin\Interop.Excel.dll
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\IPExcelReport\bin\Interop.Microsoft.Office.Core.dll
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\IPExcelReport\bin\Interop.Office.dll
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\IPExcelReport\bin\IPCommon.dll
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\IPExcelReport\bin\C1.Win.C1FlexGrid.Classic.dll
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\IPExcelReport\bin\CrystalDecisions.Shared.dll
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\IPExcelReport\bin\CrystalDecisions.Windows.Forms.dll
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\IPExcelReport\bin\CrystalDecisions.CrystalReports.Engine.dll
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\IPExcelReport\bin\C1.Common.dll
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\IPExcelReport\bin\CrystalDecisions.ReportSource.dll
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\IPExcelReport\bin\IPCommon.pdb
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\IPExcelReport\bin\IPCommon.xml
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\IPExcelReport\obj\Debug\ResolveAssemblyReference.cache
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\IPExcelReport\obj\Debug\IPExcelReport.dll.licenses
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\IPExcelReport\obj\Debug\IPExcelReport.dll
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\IPExcelReport\obj\Debug\IPExcelReport.xml
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\IPExcelReport\obj\Debug\IPExcelReport.pdb
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\IPExcelReport\bin\IPExcelReport.dll
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\IPExcelReport\bin\IPExcelReport.pdb
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\IPExcelReport\bin\IPExcelReport.xml
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\IPExcelReport\bin\C1.Win.C1FlexGrid.dll
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\IPExcelReport\bin\Interop.Excel.dll
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\IPExcelReport\bin\Interop.Microsoft.Office.Core.dll
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\IPExcelReport\bin\Interop.Office.dll
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\IPExcelReport\bin\IPCommon.dll
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\IPExcelReport\bin\C1.Win.C1FlexGrid.Classic.dll
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\IPExcelReport\bin\CrystalDecisions.Shared.dll
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\IPExcelReport\bin\CrystalDecisions.Windows.Forms.dll
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\IPExcelReport\bin\CrystalDecisions.CrystalReports.Engine.dll
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\IPExcelReport\bin\C1.Common.dll
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\IPExcelReport\bin\CrystalDecisions.ReportSource.dll
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\IPExcelReport\bin\IPCommon.pdb
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\IPExcelReport\bin\IPCommon.xml
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\IPExcelReport\obj\Debug\ResolveAssemblyReference.cache
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\IPExcelReport\obj\Debug\IPExcelReport.dll.licenses
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\IPExcelReport\obj\Debug\IPExcelReport.dll
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\IPExcelReport\obj\Debug\IPExcelReport.xml
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\IPExcelReport\obj\Debug\IPExcelReport.pdb
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\IPExcelReport\bin\IPExcelReport.dll
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\IPExcelReport\bin\IPExcelReport.pdb
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\IPExcelReport\bin\IPExcelReport.xml
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\IPExcelReport\bin\C1.Win.C1FlexGrid.dll
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\IPExcelReport\bin\Interop.Excel.dll
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\IPExcelReport\bin\Interop.Microsoft.Office.Core.dll
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\IPExcelReport\bin\Interop.Office.dll
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\IPExcelReport\bin\IPCommon.dll
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\IPExcelReport\bin\C1.Win.C1FlexGrid.Classic.dll
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\IPExcelReport\bin\CrystalDecisions.Shared.dll
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\IPExcelReport\bin\CrystalDecisions.Windows.Forms.dll
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\IPExcelReport\bin\CrystalDecisions.CrystalReports.Engine.dll
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\IPExcelReport\bin\C1.Common.dll
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\IPExcelReport\bin\CrystalDecisions.ReportSource.dll
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\IPExcelReport\bin\IPCommon.pdb
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\IPExcelReport\bin\IPCommon.xml
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\IPExcelReport\obj\Debug\IPExcelReport.vbprojResolveAssemblyReference.cache
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\IPExcelReport\obj\Debug\IPExcelReport.dll.licenses
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\IPExcelReport\obj\Debug\IPExcelReport.dll
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\IPExcelReport\obj\Debug\IPExcelReport.xml
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\IPExcelReport\obj\Debug\IPExcelReport.pdb
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\IPExcelReport\bin\IPExcelReport.dll
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\IPExcelReport\bin\IPExcelReport.pdb
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\IPExcelReport\bin\IPExcelReport.xml
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\IPExcelReport\bin\C1.Win.C1FlexGrid.dll
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\IPExcelReport\bin\Interop.Excel.dll
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\IPExcelReport\bin\Interop.Microsoft.Office.Core.dll
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\IPExcelReport\bin\Interop.Office.dll
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\IPExcelReport\bin\IPCommon.dll
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\IPExcelReport\bin\C1.Win.C1FlexGrid.Classic.dll
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\IPExcelReport\bin\CrystalDecisions.Shared.dll
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\IPExcelReport\bin\CrystalDecisions.Windows.Forms.dll
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\IPExcelReport\bin\CrystalDecisions.CrystalReports.Engine.dll
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\IPExcelReport\bin\C1.Common.dll
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\IPExcelReport\bin\CrystalDecisions.ReportSource.dll
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\IPExcelReport\bin\IPCommon.pdb
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\IPExcelReport\bin\IPCommon.xml
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\IPExcelReport\obj\Debug\IPExcelReport.vbprojResolveAssemblyReference.cache
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\IPExcelReport\obj\Debug\IPExcelReport.dll.licenses
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\IPExcelReport\obj\Debug\IPExcelReport.dll
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\IPExcelReport\obj\Debug\IPExcelReport.xml
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\IPExcelReport\obj\Debug\IPExcelReport.pdb
+E:\0. Working\1. Project\New folder (3)\3. Source Code\IPExcelReport\bin\IPExcelReport.dll
+E:\0. Working\1. Project\New folder (3)\3. Source Code\IPExcelReport\bin\IPExcelReport.pdb
+E:\0. Working\1. Project\New folder (3)\3. Source Code\IPExcelReport\bin\IPExcelReport.xml
+E:\0. Working\1. Project\New folder (3)\3. Source Code\IPExcelReport\bin\C1.Win.C1FlexGrid.dll
+E:\0. Working\1. Project\New folder (3)\3. Source Code\IPExcelReport\bin\Interop.Excel.dll
+E:\0. Working\1. Project\New folder (3)\3. Source Code\IPExcelReport\bin\Interop.Microsoft.Office.Core.dll
+E:\0. Working\1. Project\New folder (3)\3. Source Code\IPExcelReport\bin\Interop.Office.dll
+E:\0. Working\1. Project\New folder (3)\3. Source Code\IPExcelReport\bin\IPCommon.dll
+E:\0. Working\1. Project\New folder (3)\3. Source Code\IPExcelReport\bin\C1.Win.C1FlexGrid.Classic.dll
+E:\0. Working\1. Project\New folder (3)\3. Source Code\IPExcelReport\bin\CrystalDecisions.Shared.dll
+E:\0. Working\1. Project\New folder (3)\3. Source Code\IPExcelReport\bin\CrystalDecisions.Windows.Forms.dll
+E:\0. Working\1. Project\New folder (3)\3. Source Code\IPExcelReport\bin\CrystalDecisions.CrystalReports.Engine.dll
+E:\0. Working\1. Project\New folder (3)\3. Source Code\IPExcelReport\bin\C1.Common.dll
+E:\0. Working\1. Project\New folder (3)\3. Source Code\IPExcelReport\bin\CrystalDecisions.ReportSource.dll
+E:\0. Working\1. Project\New folder (3)\3. Source Code\IPExcelReport\bin\IPCommon.pdb
+E:\0. Working\1. Project\New folder (3)\3. Source Code\IPExcelReport\bin\IPCommon.xml
+E:\0. Working\1. Project\New folder (3)\3. Source Code\IPExcelReport\obj\Debug\IPExcelReport.vbprojResolveAssemblyReference.cache
+E:\0. Working\1. Project\New folder (3)\3. Source Code\IPExcelReport\obj\Debug\IPExcelReport.dll.licenses
+E:\0. Working\1. Project\New folder (3)\3. Source Code\IPExcelReport\obj\Debug\IPExcelReport.dll
+E:\0. Working\1. Project\New folder (3)\3. Source Code\IPExcelReport\obj\Debug\IPExcelReport.xml
+E:\0. Working\1. Project\New folder (3)\3. Source Code\IPExcelReport\obj\Debug\IPExcelReport.pdb

@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DS_V_HT_USER_DV_QUAN_LY" targetNamespace="http://tempuri.org/DS_V_HT_USER_DV_QUAN_LY.xsd" xmlns:mstns="http://tempuri.org/DS_V_HT_USER_DV_QUAN_LY.xsd" xmlns="http://tempuri.org/DS_V_HT_USER_DV_QUAN_LY.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="TRMConnectionString4" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="TRMConnectionString4 (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.WebDS.Properties.Settings.GlobalReference.Default.TRMConnectionString4" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="V_HT_USER_DV_QUAN_LYTableAdapter" GeneratorDataComponentClassName="V_HT_USER_DV_QUAN_LYTableAdapter" Name="V_HT_USER_DV_QUAN_LY" UserDataComponentName="V_HT_USER_DV_QUAN_LYTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="TRMConnectionString4 (Settings)" DbObjectName="TRM.dbo.V_HT_USER_DV_QUAN_LY" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT ID, ID_NGUOI_SU_DUNG, TEN_NGUOI_SU_DUNG, ID_DV_QUAN_LY, TEN_DV_QUAN_LY FROM dbo.V_HT_USER_DV_QUAN_LY</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ID" DataSetColumn="ID" />
+              <Mapping SourceColumn="ID_NGUOI_SU_DUNG" DataSetColumn="ID_NGUOI_SU_DUNG" />
+              <Mapping SourceColumn="TEN_NGUOI_SU_DUNG" DataSetColumn="TEN_NGUOI_SU_DUNG" />
+              <Mapping SourceColumn="ID_DV_QUAN_LY" DataSetColumn="ID_DV_QUAN_LY" />
+              <Mapping SourceColumn="TEN_DV_QUAN_LY" DataSetColumn="TEN_DV_QUAN_LY" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DS_V_HT_USER_DV_QUAN_LY" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DS_V_HT_USER_DV_QUAN_LY" msprop:Generator_UserDSName="DS_V_HT_USER_DV_QUAN_LY">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="V_HT_USER_DV_QUAN_LY" msprop:Generator_TableClassName="V_HT_USER_DV_QUAN_LYDataTable" msprop:Generator_TableVarName="tableV_HT_USER_DV_QUAN_LY" msprop:Generator_TablePropName="V_HT_USER_DV_QUAN_LY" msprop:Generator_RowDeletingName="V_HT_USER_DV_QUAN_LYRowDeleting" msprop:Generator_UserTableName="V_HT_USER_DV_QUAN_LY" msprop:Generator_RowChangingName="V_HT_USER_DV_QUAN_LYRowChanging" msprop:Generator_RowEvHandlerName="V_HT_USER_DV_QUAN_LYRowChangeEventHandler" msprop:Generator_RowDeletedName="V_HT_USER_DV_QUAN_LYRowDeleted" msprop:Generator_RowEvArgName="V_HT_USER_DV_QUAN_LYRowChangeEvent" msprop:Generator_RowChangedName="V_HT_USER_DV_QUAN_LYRowChanged" msprop:Generator_RowClassName="V_HT_USER_DV_QUAN_LYRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:decimal" />
+              <xs:element name="ID_NGUOI_SU_DUNG" msprop:Generator_ColumnVarNameInTable="columnID_NGUOI_SU_DUNG" msprop:Generator_ColumnPropNameInRow="ID_NGUOI_SU_DUNG" msprop:Generator_ColumnPropNameInTable="ID_NGUOI_SU_DUNGColumn" msprop:Generator_UserColumnName="ID_NGUOI_SU_DUNG" type="xs:decimal" />
+              <xs:element name="TEN_NGUOI_SU_DUNG" msprop:Generator_ColumnVarNameInTable="columnTEN_NGUOI_SU_DUNG" msprop:Generator_ColumnPropNameInRow="TEN_NGUOI_SU_DUNG" msprop:Generator_ColumnPropNameInTable="TEN_NGUOI_SU_DUNGColumn" msprop:Generator_UserColumnName="TEN_NGUOI_SU_DUNG">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ID_DV_QUAN_LY" msprop:Generator_ColumnVarNameInTable="columnID_DV_QUAN_LY" msprop:Generator_ColumnPropNameInRow="ID_DV_QUAN_LY" msprop:Generator_ColumnPropNameInTable="ID_DV_QUAN_LYColumn" msprop:Generator_UserColumnName="ID_DV_QUAN_LY" type="xs:decimal" />
+              <xs:element name="TEN_DV_QUAN_LY" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTEN_DV_QUAN_LY" msprop:Generator_ColumnPropNameInRow="TEN_DV_QUAN_LY" msprop:Generator_ColumnPropNameInTable="TEN_DV_QUAN_LYColumn" msprop:Generator_UserColumnName="TEN_DV_QUAN_LY" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:V_HT_USER_DV_QUAN_LY" />
+      <xs:field xpath="mstns:ID" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>
