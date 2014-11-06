@@ -42,10 +42,10 @@ public partial class SiteMaster : System.Web.UI.MasterPage
                         // Lấy toàn bộ các menu cấp 1 được cấp quyền và được hiển thị
                         rptMainMenu.DataSource = m_ds_ht_chuc_nang.HT_CHUC_NANG.Select("CHUC_NANG_PARENT_ID IS NULL AND HIEN_THI_YN='Y'", "VI_TRI");
                         rptMainMenu.DataBind();
-                        if (!Person.check_user_have_menu())
-                        {
-                            Response.Redirect("/QuanLyDuToan/Default.aspx", false);
-                        }
+                        //if (!Person.check_user_have_menu())
+                        //{
+                        //    Response.Redirect("/QuanLyDuToan/Default.aspx", false);
+                        //}
                     }
                 }
                 else
