@@ -58,7 +58,7 @@
                             <table cellspacing="0" cellpadding="2" style="width: 99%;" border="0">
                                 <tr>
                                     <td style="width: 15%"></td>
-                                    <td colspan="2">
+                                    <td colspan="2" align="left">
                                         <asp:RadioButton ID="m_rdb_kh_dau_nam" runat="server" CssClass="cssManField" ForeColor="Blue" Text="KH đầu năm" GroupName="loai" Checked="true" />
                                         <asp:RadioButton ID="m_rdb_bo_sung" runat="server" CssClass="cssManField" ForeColor="Blue" Text="Bổ sung" GroupName="loai" />
                                         <asp:RadioButton ID="m_rdb_dieu_chinh" runat="server" CssClass="cssManField" ForeColor="Blue" Text="Điều chỉnh" GroupName="loai" />
@@ -78,13 +78,15 @@
                                                         <asp:Button ID="m_cmd_ctx_them_ql" Text="Thêm QL" runat="server" CssClass="cssButton" Height="24px" Width="98px" />
                                                     </td>
                                                 </tr>
-                                                <tr><tdstyle="width: 30%" align="right">
+                                                
+                                                    <tr><td style="width: 30%" align="right">
                                                     <span class="cssManField">Số tiền</span>
-                                                    </tdstyle="width:>
+                                                    </td>
                                                     <td>
-                                                        <asp:TextBox ID="m_txt_ctx_so_tien" runat="server" CssClass="cssTextBox" Width="60%" placeholder="Số tiền"></asp:TextBox>
+                                                        <asp:TextBox ID="TextBox1" runat="server" CssClass="cssTextBox" Width="60%" placeholder="Số tiền"></asp:TextBox>
                                                     </td>
                                                 </tr>
+                                                
                                                 <tr> <td style="width: 30%" align="right">
                                                     <span class="cssManField">Số tiền KH giao</span>
                                                     </td>
@@ -126,7 +128,7 @@
                                                     <span class="cssManField">Số tiền</span>
                                                     </td>
                                                     <td>
-                                                        <asp:TextBox ID="m_txt_cktx_so_tien" runat="server" CssClass="cssTextBox" Width="60%" placeholder="Số tiền"></asp:TextBox>
+                                                        <asp:TextBox ID="m_txt_cktx_so_tien" runat="server" CssClass="cssTextBox" Width="50%" placeholder="Số tiền" ></asp:TextBox>
                                                     </td>
                                                 </tr>
                                                 <tr> <td style="width: 30%" align="right">
@@ -167,16 +169,15 @@
                     </td>
                 </tr>
                 <tr>
-                    <td style="width=30%">
-                        <span>Từ khóa</span>
+                    <td style="width:30%" align="right">
+                        <span class="cssManField">Từ khóa</span>
                     </td>
-                    <td style="width=40%">    
-                        <asp:TextBox ID="m_txt_tu_khoa" runat="server" CssClass="cssTextBox" Width="30%" ></asp:TextBox>
-                    </td>
-                    <td style="width=10%">
+                    <td style="width:40%">    
+                        <asp:TextBox ID="m_txt_tu_khoa" runat="server" CssClass="cssTextBox" Width="60%" ></asp:TextBox>
+                    </td><td align="left">
                         <asp:Button ID="m_cmd_tim_kiem" Text="Tìm kiếm" runat="server" CssClass="cssButton" Height="24px" Width="98px" />
                     </td>
-                    <td style="width=20%">
+                    <td style="width=20%" align="right">
                         <asp:Button ID="m_cmd_xem_bao_cao_du_toan" Text="Xem báo cáo dự toán" runat="server" CssClass="cssButton" Height="24px" Width="130px" />
                     </td>
                 </tr>
