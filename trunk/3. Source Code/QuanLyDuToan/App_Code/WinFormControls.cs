@@ -14,6 +14,7 @@ using IP.Core.IPData.DBNames;
 
 using System.Web.UI.WebControls;
 using System.Data;
+using WebDS.CDBNames;
 
 
 namespace IP.Core.WinFormControls
@@ -30,6 +31,75 @@ namespace IP.Core.WinFormControls
             //
 
         }
+
+        #region Data Structures
+        public enum LOAI_QUYET_DINH
+        {
+            GIAO_VON = 0,
+            GIAO_KE_HOACH = 1,
+            TAT_CA = 2
+        }
+        public enum LOAI_DU_AN
+        {
+            QUOC_LO = 0,
+            KHAC = 1,
+        }
+        #endregion
+
+        #region Quan ly du toan
+        public static void load_data_to_cbo_quyet_dinh_by_loai_quyet_dinh(
+            LOAI_QUYET_DINH ip_loai_quyet_dinh
+            , DropDownList op_ddl_quyet_dinh)
+        {
+            DS_GD_QUYET_DINH v_ds = new DS_GD_QUYET_DINH();
+            US_GD_QUYET_DINH v_us = new US_GD_QUYET_DINH();
+            string v_str_querry = "";
+            if (ip_loai_quyet_dinh == LOAI_QUYET_DINH.GIAO_VON)
+                v_str_querry = "where id_loai_quyet_dinh= " + ID_LOAI_QUYET_DINH.GIAO_VON;
+            else if (ip_loai_quyet_dinh == LOAI_QUYET_DINH.GIAO_KE_HOACH)
+                v_str_querry = "where id_loai_quyet_dinh= " + ID_LOAI_QUYET_DINH.GIAO_KE_HOACH;
+            else if (ip_loai_quyet_dinh == LOAI_QUYET_DINH.TAT_CA)
+                v_str_querry = "";
+            v_str_querry+=" order by ngay_thang";
+            v_us.FillDataset(v_ds, v_str_querry);
+            for (int v = 0; v < v_ds.GD_QUYET_DINH.Count; v++)
+            {
+                v_ds.Tables[0].Rows[v][GD_QUYET_DINH.NOI_DUNG] =
+                    v_ds.Tables[0].Rows[v][GD_QUYET_DINH.SO_QUYET_DINH] + " " + v_ds.Tables[0].Rows[v][GD_QUYET_DINH.NOI_DUNG];
+                v_ds.AcceptChanges();
+            }
+            op_ddl_quyet_dinh.DataTextField = GD_QUYET_DINH.NOI_DUNG;
+            op_ddl_quyet_dinh.DataValueField = GD_QUYET_DINH.ID;
+            op_ddl_quyet_dinh.DataSource = v_ds.GD_QUYET_DINH;
+            op_ddl_quyet_dinh.DataBind();
+        }
+        //public static void load_data_to_cbo_du_an_cong_trinh(
+        //    LOAI_QUYET_DINH ip_loai_quyet_dinh
+        //    , DropDownList op_ddl_quyet_dinh)
+        //{
+        //    DS_GD_QUYET_DINH v_ds = new DS_GD_QUYET_DINH();
+        //    US_GD_QUYET_DINH v_us = new US_GD_QUYET_DINH();
+        //    string v_str_querry = "";
+        //    if (ip_loai_quyet_dinh == LOAI_QUYET_DINH.GIAO_VON)
+        //        v_str_querry = "where id_loai_quyet_dinh= " + ID_LOAI_QUYET_DINH.GIAO_VON;
+        //    else if (ip_loai_quyet_dinh == LOAI_QUYET_DINH.GIAO_KE_HOACH)
+        //        v_str_querry = "where id_loai_quyet_dinh= " + ID_LOAI_QUYET_DINH.GIAO_KE_HOACH;
+        //    else if (ip_loai_quyet_dinh == LOAI_QUYET_DINH.TAT_CA)
+        //        v_str_querry = "";
+        //    v_str_querry += " order by ngay_thang";
+        //    v_us.FillDataset(v_ds, v_str_querry);
+        //    for (int v = 0; v < v_ds.GD_QUYET_DINH.Count; v++)
+        //    {
+        //        v_ds.Tables[0].Rows[v][GD_QUYET_DINH.NOI_DUNG] =
+        //            v_ds.Tables[0].Rows[v][GD_QUYET_DINH.SO_QUYET_DINH] + " " + v_ds.Tables[0].Rows[i][GD_QUYET_DINH.NOI_DUNG];
+        //        v_ds.AcceptChanges();
+        //    }
+        //    op_ddl_quyet_dinh.DataTextField = GD_QUYET_DINH.NOI_DUNG;
+        //    op_ddl_quyet_dinh.DataValueField = GD_QUYET_DINH.ID;
+        //    op_ddl_quyet_dinh.DataSource = v_ds.GD_QUYET_DINH;
+        //    op_ddl_quyet_dinh.DataBind();
+        //}
+        #endregion
 
         #region Public Interfaces
         public enum eTAT_CA
@@ -49,10 +119,13 @@ namespace IP.Core.WinFormControls
             TRANG_THAI_TAI_SAN_KHAC
                 ,
             LOAI_HINH_DON_VI
-                , PHAN_LOAI_TAI_SAN
-            , LOAI_BAO_CAO
-            , TINH_TRANG_TAI_SAN
-            , LY_DO_TANG_GIAM_TS
+                ,
+            PHAN_LOAI_TAI_SAN
+                ,
+            LOAI_BAO_CAO
+                ,
+            TINH_TRANG_TAI_SAN
+                , LY_DO_TANG_GIAM_TS
         }
 
         public enum eLOAI_TANG_GIAM_TAI_SAN
@@ -61,7 +134,7 @@ namespace IP.Core.WinFormControls
             , GIAM_TAI_SAN
         }
 
-       
+
         public static void load_data_to_cbo_loai_hinh_don_vi(
             eLOAI_TU_DIEN ip_e_trang_thai_tai_san
            , eTAT_CA ip_e_tat_ca
@@ -165,12 +238,12 @@ namespace IP.Core.WinFormControls
                     break;
             }
 
-            string v_str_query = "WHERE GHI_CHU LIKE N'%2%'" 
+            string v_str_query = "WHERE GHI_CHU LIKE N'%2%'"
                 + " AND ID_LOAI_TU_DIEN IN"
-                + " (SELECT ID FROM CM_DM_LOAI_TD WHERE MA_LOAI = '" + v_str_loai_trang_thai + "')" ;
-            
+                + " (SELECT ID FROM CM_DM_LOAI_TD WHERE MA_LOAI = '" + v_str_loai_trang_thai + "')";
+
             v_us_dm_tu_dien.FillDataset(v_ds_dm_tu_dien, v_str_query);
-            ip_obj_cbo_trang_thai.DataSource = v_ds_dm_tu_dien.CM_DM_TU_DIEN;   
+            ip_obj_cbo_trang_thai.DataSource = v_ds_dm_tu_dien.CM_DM_TU_DIEN;
             ip_obj_cbo_trang_thai.DataTextField = CM_DM_TU_DIEN.TEN;
             ip_obj_cbo_trang_thai.DataValueField = CM_DM_TU_DIEN.ID;
             ip_obj_cbo_trang_thai.DataBind();
@@ -205,11 +278,11 @@ namespace IP.Core.WinFormControls
                 + " (SELECT ID FROM CM_DM_LOAI_TD WHERE MA_LOAI = '" + v_str_loai_trang_thai + "')";
 
             v_us_dm_tu_dien.FillDataset(v_ds_dm_tu_dien, v_str_query);
-            ip_obj_cbo_trang_thai.DataSource = v_ds_dm_tu_dien.CM_DM_TU_DIEN;   
+            ip_obj_cbo_trang_thai.DataSource = v_ds_dm_tu_dien.CM_DM_TU_DIEN;
             ip_obj_cbo_trang_thai.DataTextField = CM_DM_TU_DIEN.TEN;
             ip_obj_cbo_trang_thai.DataValueField = CM_DM_TU_DIEN.ID;
             ip_obj_cbo_trang_thai.DataBind();
-            
+
         }
 
         public static void load_data_to_cbo_don_vi_chu_quan(
@@ -231,7 +304,7 @@ namespace IP.Core.WinFormControls
             v_us_dm_don_vi.FillDataset(
                 v_ds_dm_don_vi
                 , ID_LOAI_DON_VI.DV_CHU_QUAN
-                
+
                 , v_dc_id_bo_tinh
                 , CONST_QLDB.ID_TAT_CA
                 , v_str_user_name);
@@ -260,7 +333,7 @@ namespace IP.Core.WinFormControls
             v_us_dm_don_vi.FillDataset(
                 v_ds_dm_don_vi
                 , ID_LOAI_DON_VI.BO_TINH
-                
+
                 , CONST_QLDB.ID_TAT_CA
                 , CONST_QLDB.ID_TAT_CA
                 , v_str_user_name);
@@ -324,7 +397,7 @@ namespace IP.Core.WinFormControls
         }
 
         public static void load_data_to_cbo_don_vi_su_dung(
-            
+
             string ip_str_id_don_vi_chu_quan
             , string ip_str_id_bo_tinh
              , eTAT_CA ip_e_tat_ca
@@ -346,13 +419,13 @@ namespace IP.Core.WinFormControls
             DS_DM_DON_VI v_ds_dm_don_vi = new DS_DM_DON_VI();
 
             string v_str_user_name = HttpContext.Current.Session[SESSION.UserName].ToString();
-            
+
             decimal v_dc_id_don_vi_chu_quan = CIPConvert.ToDecimal(ip_str_id_don_vi_chu_quan);
             decimal v_dc_id_bo_tinh = CIPConvert.ToDecimal(ip_str_id_bo_tinh);
             v_us_dm_don_vi.FillDataset(
                 v_ds_dm_don_vi
                 , ID_LOAI_DON_VI.DV_SU_DUNG
-                
+
                 , v_dc_id_don_vi_chu_quan
                 , v_dc_id_bo_tinh
                 , v_str_user_name);

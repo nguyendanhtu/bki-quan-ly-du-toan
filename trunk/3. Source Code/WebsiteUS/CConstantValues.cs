@@ -4,6 +4,22 @@ using System.Text;
 
 namespace WebUS
 {
+    public class ID_LOAI_QUYET_DINH
+    {
+        public const decimal GIAO_KE_HOACH = 647;
+        public const decimal GIAO_VON = 648;
+    }
+    public class ID_LOAI_DU_AN
+    {
+        public const decimal QUOC_LO = 649;
+        public const decimal KHAC = 650;
+    }
+    public class ID_LOAI_GIAO_DICH
+    {
+        public const decimal KH_DAU_NAM = 652;
+        public const decimal BO_SUNG = 653;
+        public const decimal DIEU_CHINH = 654;
+    }
     public class TEN_BAO_CAO
     {
         //BAO CAO OTO

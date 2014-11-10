@@ -21,10 +21,10 @@
                         <asp:Panel ID="m_pnl_thong_tin_ve_qd_giao_von" GroupingText="Thông tin về QĐ giao vốn" runat="server">
                             <table cellspacing="0" cellpadding="2" style="width: 99%;" border="0">
                                 <tr>
-                                    <td style="width: 30%" align="right">
+                                    <td style="width: 15%" align="right">
                                         <span class="cssManField">Số QĐ</span>
                                     </td>
-                                    <td style="width: 70%">
+                                    <td style="width: 85%">
                                         <asp:TextBox ID="m_txt_so_qd" runat="server" CssClass="cssTextBox" Width="20%"></asp:TextBox>
                                         <asp:DropDownList ID="m_ddl_quyet_dinh" runat="server" Width="30%"></asp:DropDownList>
                                         <asp:Button ID="m_cmd_chon_qd_da_nhap" Text="Chọn QĐ đã nhập" runat="server" CssClass="cssButton" Height="24px" Width="98px" />
@@ -43,7 +43,8 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td colspan="2" align="center">
+                                    <td></td>
+                                    <td colspan="1" align="left">
                                         <asp:Button ID="m_cmd_luu_qd" Text="Lưu QĐ" runat="server" CssClass="cssButton" Height="24px" Width="98px" />
                                         <asp:Button ID="m_cmd_nhap_qd_moi" Text="Nhập QĐ mới" runat="server" CssClass="cssButton" Height="24px" Width="98px" />
                                     </td>
