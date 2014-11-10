@@ -11,4 +11,8 @@ public partial class DuToan_f204_nhap_giao_ke_hoach_1 : System.Web.UI.Page
     {
 
     }
+    protected void m_grv_SelectedIndexChanged(object sender, EventArgs e)
+    {
+
+    }
 }
