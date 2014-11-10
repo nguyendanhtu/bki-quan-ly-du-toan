@@ -1,7 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="f604_gd_khoan_muc_chi.aspx.cs" Inherits="DuToan_f604_gd_khoan_muc_chi" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="f604_dm_quyet_dinh.aspx.cs" Inherits="DuToan_f604_dm_quyet_dinh" %>
+
 <%@ Register Namespace="System.Web.UI" Assembly="System.Web.Extensions, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35"
     TagPrefix="asp" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">
+<asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="Server">
     <asp:ScriptManager ID="ScriptManager1" runat="server">
@@ -11,7 +12,7 @@
             <table cellspacing="0" cellpadding="2" style="width: 99%;" class="cssTable" border="0">
                 <tr>
                     <td class="cssPageTitleBG" colspan="4">
-                        <asp:Label ID="m_lbl_title" runat="server" Text="Quản lý danh sách nguồn chi" CssClass="cssPageTitle"></asp:Label>
+                        <asp:Label ID="m_lbl_title" runat="server" Text="Cập nhật thông tin quyết định" CssClass="cssPageTitle"></asp:Label>
                         <span class="expand-collapse-text"></span>
                     </td>
                 </tr>
@@ -23,22 +24,41 @@
                     </td>
                 </tr>
                 <tr>
+                    <td align="right" style="width: 30%">
+                        <span class="cssManField">Loại quyết định</span>
+                    </td>
+                    <td style="width: 70%">
+                        <asp:RadioButton ID="m_rdb_giao_ke_hoach" runat="server" CssClass="cssManField" ForeColor="Blue" Text="Giao kế hoạch" GroupName="loai" Checked="true" />
+                        <asp:RadioButton ID="m_rdb_giao_von" runat="server" CssClass="cssManField" ForeColor="Blue" Text="Giao vốn" GroupName="loai" />
+                    </td>
+
+                </tr>
+                <tr>
                     <td align="right">
-                        <span class="cssManField">Dự toán</span>
+                        <span class="cssManField">Số quyết định</span>
                     </td>
                     <td>
-                        <asp:DropDownList ID="m_cbo_du_toan" runat="server" CssClass="cssDorpdownlist"></asp:DropDownList>
-                    </td>
+                        <asp:TextBox ID="m_txt_so_quyet_dinh" runat="server" Width="50%" CssClass="cssTextBox" placeholder="Xây cầu xyz"></asp:TextBox></td>
+                </tr>
+                <tr>
+
                     <td align="right">
-                        <span class="cssManField">Loại</span>
+                        <span class="cssManField">Nội dung</span>
                     </td>
                     <td>
-                        <asp:TextBox ID="m_txt_loai" runat="server" CssClass="cssTextBox" placeholder="Kinh phí thường xuyên"></asp:TextBox></td>
+                        <asp:TextBox ID="m_txt_noi_dung" runat="server" Width="80%" CssClass="cssTextBox" placehoder=""></asp:TextBox></td>
+                </tr>
+                <tr>
+                    <td align="right">
+                        <span class="cssManField">Ngày tháng</span>
+                    </td>
+                    <td>
+                        <asp:TextBox ID="m_txt_ngay_thang" runat="server" Width="50%" CssClass="cssTextBox" placeholder="dd/mm/yyyy"></asp:TextBox></td>
                 </tr>
                 <tr>
                     <td></td>
                     <td>
-                        <asp:Button ID="m_cmd_insert" Text="Thêm mới" runat="server" CssClass="cssButton" Height="24px" Width="98px" />
+                        <asp:Button ID="m_cmd_insert" Text="Thêm quyết định" runat="server" CssClass="cssButton" Height="24px" Width="98px" />
                         <asp:Button ID="m_cmd_update" Text="Cập nhật" runat="server" CssClass="cssButton" Height="24px" Width="98px" />
                         <asp:Button ID="m_cmd_cancel" Text="Xoá trắng" runat="server" CssClass="cssButton" Height="24px" Width="98px" />
 
@@ -48,7 +68,7 @@
             <table cellspacing="0" cellpadding="2" style="width: 99%;" class="cssTable" border="0">
                 <tr>
                     <td class="cssPageTitleBG" colspan="4">
-                        <asp:Label ID="m_lbl_grid_title" runat="server" Text="Danh sách nguồn chi" CssClass="cssPageTitle"></asp:Label>
+                        <asp:Label ID="m_lbl_grid_title" runat="server" Text="Danh sách quyết định" CssClass="cssPageTitle"></asp:Label>
                         <span class="expand-collapse-text"></span>
                     </td>
                 </tr>
@@ -60,8 +80,8 @@
                 <tr>
                     <td colspan="4" align="center">
                         <asp:GridView ID="m_grv" runat="server" AllowPaging="True" AutoGenerateColumns="False"
-                            CssClass="cssGrid" Width="100%" DataKeyNames="ID" CellPadding="0" ForeColor="#333333"
-                            AllowSorting="True" PageSize="30" ShowHeader="true" 
+                            CssClass="cssGrid" Width="100%" CellPadding="0" ForeColor="#333333"
+                            AllowSorting="True" PageSize="30" ShowHeader="true"
                             EmptyDataText="Không có dữ liệu phù hợp">
                             <AlternatingRowStyle BackColor="White" />
                             <EditRowStyle BackColor="#7C6F57" />
@@ -78,8 +98,10 @@
                                         <%# Container.DataItemIndex + 1 %>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                <asp:BoundField DataField="TEN" HeaderText="Tên đầy đủ" />
-                                <asp:BoundField DataField="TEN_NGAN" HeaderText="Loại" />
+                                <asp:BoundField DataField="so_quyet_dinh" HeaderText="Đơn vị" />
+                                <asp:BoundField DataField="noi_dung" HeaderText="Nội dung" />
+                                <asp:BoundField DataField="loai" HeaderText="Loại" />
+                                <asp:BoundField DataField="ngay_thang" HeaderText="Ngày tháng" />
                             </Columns>
                         </asp:GridView>
                     </td>
@@ -103,6 +125,4 @@
         </ProgressTemplate>
     </asp:UpdateProgress>
 </asp:Content>
-
-
 

@@ -12,7 +12,7 @@
             <table cellspacing="0" cellpadding="2" style="width: 99%;" class="cssTable" border="0">
                 <tr>
                     <td class="cssPageTitleBG" colspan="4">
-                        <asp:Label ID="m_lbl_title" runat="server" Text="Cập nhật thông tin dự án, công trình" CssClass="cssPageTitle"></asp:Label>
+                        <asp:Label ID="m_lbl_title" runat="server" Text="Cập nhật thông tin dự án, quốc lộ" CssClass="cssPageTitle"></asp:Label>
                         <span class="expand-collapse-text"></span>
                     </td>
                 </tr>
@@ -24,31 +24,29 @@
                     </td>
                 </tr>
                 <tr>
-                    <td align="right" style="width:25%">
-                        <span class="cssManField">Đơn vị</span>
+                    <td align="right" style="width: 30%">
+                        <span class="cssManField">Loại</span>
                     </td>
-                    <td style="width:25%">
-                        <asp:DropDownList ID="m_cbo_don_vi" runat="server" CssClass="cssDorpdownlist"
-                            OnSelectedIndexChanged="m_cbo_don_vi_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
+                    <td style="width: 70%">
+                        <asp:RadioButton ID="m_rdb_quoc_lo" runat="server" CssClass="cssManField" ForeColor="Blue" Text="Quốc lộ" GroupName="loai" Checked="true" />
+                        <asp:RadioButton ID="m_rdb_khac" runat="server" CssClass="cssManField" ForeColor="Blue" Text="Khác" GroupName="loai" />
                     </td>
-                    <td align="right" style="width:20%">
-                        <span class="cssManField">Tên dự án, công trình</span>
-                    </td>
-                    <td style="width:30%">
-                        <asp:TextBox ID="m_txt_ten_du_an" runat="server" CssClass="cssTextBox" placeholder="Xây cầu xyz"></asp:TextBox></td>
+
                 </tr>
-                 <tr>
+                <tr>
                     <td align="right">
-                        <span class="cssManField">Thời hạn</span>
+                        <span class="cssManField">Tên quốc lộ, dự án</span>
                     </td>
                     <td>
-                        <asp:TextBox ID="m" runat="server" CssClass="cssTextBox" placeholder=""></asp:TextBox></td>
-                    </td>
+                        <asp:TextBox ID="m_txt_ten_du_an" runat="server" Width="80%" CssClass="cssTextBox" placeholder="Xây cầu xyz"></asp:TextBox></td>
+                </tr>
+                <tr>
+
                     <td align="right">
                         <span class="cssManField">Ghi chú</span>
                     </td>
                     <td>
-                        <asp:TextBox ID="TextBox1" runat="server" CssClass="cssTextBox" placehoder=""></asp:TextBox></td>
+                        <asp:TextBox ID="TextBox1" runat="server" Width="80%" CssClass="cssTextBox" placehoder=""></asp:TextBox></td>
                 </tr>
                 <tr>
                     <td></td>
@@ -63,7 +61,7 @@
             <table cellspacing="0" cellpadding="2" style="width: 99%;" class="cssTable" border="0">
                 <tr>
                     <td class="cssPageTitleBG" colspan="4">
-                        <asp:Label ID="m_lbl_grid_title" runat="server" Text="Danh sách dự án" CssClass="cssPageTitle"></asp:Label>
+                        <asp:Label ID="m_lbl_grid_title" runat="server" Text="Danh sách dự án, quốc lộ" CssClass="cssPageTitle"></asp:Label>
                         <span class="expand-collapse-text"></span>
                     </td>
                 </tr>
@@ -95,7 +93,6 @@
                                 </asp:TemplateField>
                                 <asp:BoundField DataField="ten_don_vi" HeaderText="Đơn vị" />
                                 <asp:BoundField DataField="ten_du_an" HeaderText="Tên dự án, công trình" />
-                                <asp:BoundField DataField="thoi_han" HeaderText="Thời hạn" />
                                 <asp:BoundField DataField="ghi_chu" HeaderText="Ghi chú" />
                             </Columns>
                         </asp:GridView>
