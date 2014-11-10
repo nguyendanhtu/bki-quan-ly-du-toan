@@ -17,12 +17,14 @@ public partial class Quantri_F811_QuanLyChucNang : System.Web.UI.Page
 {
 
     #region Public Interfaces
-    public string mapping_yn(object ip_obj_str_yn) {
+    public string mapping_yn(object ip_obj_str_yn)
+    {
         if (CIPConvert.ToStr(ip_obj_str_yn).Equals("Y")) return "Có";
         return "Không";
     }
 
-    public string mapping_chuc_nang_parrent_by_id(object ip_dc_chuc_nang_parrent_id) {
+    public string mapping_chuc_nang_parrent_by_id(object ip_dc_chuc_nang_parrent_id)
+    {
 
         return "";
     }
@@ -35,8 +37,10 @@ public partial class Quantri_F811_QuanLyChucNang : System.Web.UI.Page
     #endregion
 
     #region Private Methods
-    private void set_control_by_form_mode(){
-        switch (m_e_form_mode) {
+    private void set_control_by_form_mode()
+    {
+        switch (m_e_form_mode)
+        {
             case DataEntryFormMode.InsertDataState:
                 m_cmd_cap_nhat.Visible = false;
                 m_cmd_tao_moi.Visible = true;
@@ -55,7 +59,15 @@ public partial class Quantri_F811_QuanLyChucNang : System.Web.UI.Page
                 break;
         }
     }
-
+    private void load_data_to_grid_by_tu_khoa()
+    {
+        DS_HT_CHUC_NANG v_ds = new DS_HT_CHUC_NANG();
+        US_HT_CHUC_NANG v_us = new US_HT_CHUC_NANG();
+        v_us.FillDatasetByTuKhoa(m_txt_tim_kiem.Text.Trim(), v_ds);
+        m_grv_dm_chuc_nang_he_thong.DataSource = v_ds.HT_CHUC_NANG;
+        //report_count_rows(m_lbl_title, v_ds.HT_CHUC_NANG.Count, "Danh sách chức năng");
+        m_grv_dm_chuc_nang_he_thong.DataBind();
+    }
 
     private void load_data_2_grid(decimal ip_dc_id_parent)
     {
@@ -88,7 +100,7 @@ public partial class Quantri_F811_QuanLyChucNang : System.Web.UI.Page
         {
             m_cbo_chuc_nang_cap_1.Items.Add(new ListItem(CIPConvert.ToStr(v_ds_ht_chuc_nang.HT_CHUC_NANG.Rows[v_i][HT_CHUC_NANG.TEN_CHUC_NANG]), CIPConvert.ToStr(v_ds_ht_chuc_nang.HT_CHUC_NANG.Rows[v_i][HT_CHUC_NANG.ID])));
         }
-      
+
     }
     private void load_data_2_us_by_id(int ip_i_row_index)
     {
@@ -109,7 +121,7 @@ public partial class Quantri_F811_QuanLyChucNang : System.Web.UI.Page
     {
         for (int v_i = 0; v_i < 15; v_i++)
         {
-            m_cbo_vi_tri.Items.Add(new ListItem((v_i+1).ToString(), (v_i+1).ToString()));
+            m_cbo_vi_tri.Items.Add(new ListItem((v_i + 1).ToString(), (v_i + 1).ToString()));
         }
     }
     private void delete_dm_chuc_nang(int ip_i_row_index)
@@ -131,7 +143,12 @@ public partial class Quantri_F811_QuanLyChucNang : System.Web.UI.Page
     {
         m_us_ht_chuc_nang.strTEN_CHUC_NANG = m_txt_ten_chuc_nang.Text.Trim();
         m_us_ht_chuc_nang.strURL_FORM = m_txt_url_form.Text.Trim();
-        m_us_ht_chuc_nang.dcCHUC_NANG_PARENT_ID =CIPConvert.ToDecimal(m_cbo_chuc_nang_cha.SelectedValue);
+        if (m_cbo_chuc_nang_cha.SelectedIndex == 0)
+        {
+            m_us_ht_chuc_nang.SetCHUC_NANG_PARENT_IDNull();
+        }
+        else
+            m_us_ht_chuc_nang.dcCHUC_NANG_PARENT_ID = CIPConvert.ToDecimal(m_cbo_chuc_nang_cha.SelectedValue);
         if (m_rdl_su_dung_yn.Items[0].Selected) m_us_ht_chuc_nang.strTRANG_THAI_YN = "Y";
         else m_us_ht_chuc_nang.strTRANG_THAI_YN = "N";
         if (m_rdl_hien_thi_yn.Items[0].Selected) m_us_ht_chuc_nang.strHIEN_THI_YN = "Y";
@@ -149,12 +166,15 @@ public partial class Quantri_F811_QuanLyChucNang : System.Web.UI.Page
     }
     #endregion
 
-    
+
 
     #region Events
 
-    protected void Page_Load(object sender, EventArgs e) {
-        if (!IsPostBack) {
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        this.Form.DefaultButton = m_cmd_tim_kiem.UniqueID;
+        if (!IsPostBack)
+        {
             load_data_2_cbo_parent();
             load_data_2_cbo_chuc_nang_search();
             load_data_2_cbo_vi_tri();
@@ -316,5 +336,19 @@ public partial class Quantri_F811_QuanLyChucNang : System.Web.UI.Page
             CSystemLog_301.ExceptionHandle(this, v_e);
         }
     }
+    protected void m_cmd_tim_kiem_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            //m_txt_tim_kiem.Focus();
+            load_data_to_grid_by_tu_khoa();
+
+        }
+        catch (Exception v_e)
+        {
+            CSystemLog_301.ExceptionHandle(v_e);
+        }
+    }
     #endregion
+
 }
