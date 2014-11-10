@@ -24,6 +24,11 @@ public class Person
         return CIPConvert.ToDecimal(v_obj_id);
     }
 
+    public static decimal get_id_don_vi()
+    {
+        US_DM_DON_VI v_us = new US_DM_DON_VI();
+        return v_us.get_id_don_vi_by_id_user(get_user_id());
+    }
     public static string get_user_name()
     {
         object v_obj_username = HttpContext.Current.Session[SESSION.UserName];
