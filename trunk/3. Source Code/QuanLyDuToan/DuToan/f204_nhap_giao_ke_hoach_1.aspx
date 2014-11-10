@@ -171,11 +171,11 @@
                         <span class="cssManField">Từ khóa</span>
                     </td>
                     <td style="width:50%">
-                        <asp:TextBox ID="m_txt_tu_khoa" CssClass="cssTextBox" Width="55%" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="m_txt_tu_khoa" CssClass="cssTextBox" Width="60%" runat="server"></asp:TextBox>
                         <asp:Button ID="m_cmd_tim_kiem" CssClass="cssButton" Width="98px" runat="server" Text="Tìm kiếm" />
                     </td>
-                    <td style="30%">
-                        <asp:Button IID="m_cmd_xem_bao_cao_du_toan" runat="server" CssClass="cssButton" Text="Xem báo cáo dự toán" />
+                    <td style="30%" align="right">
+                        <asp:Button IID="m_cmd_xem_bao_cao_du_toan" runat="server" CssClass="cssButton" Text="Xem báo cáo dự toán" OnClick="Unnamed1_Click" />
                     </td>
                 </tr>
                 <tr>

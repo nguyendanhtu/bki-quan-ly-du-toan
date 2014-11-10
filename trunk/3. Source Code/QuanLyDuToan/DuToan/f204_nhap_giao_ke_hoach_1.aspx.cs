@@ -15,4 +15,8 @@ public partial class DuToan_f204_nhap_giao_ke_hoach_1 : System.Web.UI.Page
     {
 
     }
+    protected void Unnamed1_Click(object sender, EventArgs e)
+    {
+
+    }
 }
