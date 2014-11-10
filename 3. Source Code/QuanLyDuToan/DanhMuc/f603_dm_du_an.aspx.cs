@@ -9,7 +9,7 @@ using WebDS.CDBNames;
 using IP.Core.IPUserService;
 using IP.Core.IPData;
 using System.Data;
-public partial class DuToan_f603_dm_du_an : System.Web.UI.Page
+public partial class DanhMuc_f603_dm_du_an : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
