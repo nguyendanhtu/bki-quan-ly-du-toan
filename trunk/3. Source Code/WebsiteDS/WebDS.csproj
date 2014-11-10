@@ -59,6 +59,11 @@
   <ItemGroup>
     <Compile Include="CDBNames.cs" />
     <Compile Include="CValidatePaymentStates.cs" />
+    <Compile Include="DM_UY_NHIEM_CHI.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DM_UY_NHIEM_CHI.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DS_CM_COMPANY_INFO.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -74,10 +79,45 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DS_DM_DON_VI.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DS_DM_DU_AN_CONG_TRINH.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_DM_DU_AN_CONG_TRINH.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DS_DM_LOAI_DON_VI.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_DM_LOAI_DON_VI.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DS_GD_GIAO_KH.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_GD_GIAO_KH.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DS_GD_GIAO_VON.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_GD_GIAO_VON.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DS_GD_QUYET_DINH.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_GD_QUYET_DINH.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DS_GD_UY_NHIEM_CHI.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_GD_UY_NHIEM_CHI.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DS_HT_CHUC_NANG1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DS_HT_CHUC_NANG.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DS_HT_LICH_SU_QLDT.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_HT_LICH_SU_QLDT.xsd</DependentUpon>
     </Compile>
     <Compile Include="DS_HT_LOG_LOGIN.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -118,6 +158,17 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="DM_UY_NHIEM_CHI.xsc">
+      <DependentUpon>DM_UY_NHIEM_CHI.xsd</DependentUpon>
+    </None>
+    <None Include="DM_UY_NHIEM_CHI.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DM_UY_NHIEM_CHI.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DM_UY_NHIEM_CHI.xss">
+      <DependentUpon>DM_UY_NHIEM_CHI.xsd</DependentUpon>
+    </None>
     <None Include="DS_CM_COMPANY_INFO.xsc">
       <DependentUpon>DS_CM_COMPANY_INFO.xsd</DependentUpon>
     </None>
@@ -151,6 +202,72 @@
     <None Include="DS_DM_DON_VI.xss">
       <DependentUpon>DS_DM_DON_VI.xsd</DependentUpon>
     </None>
+    <None Include="DS_DM_DU_AN_CONG_TRINH.xsc">
+      <DependentUpon>DS_DM_DU_AN_CONG_TRINH.xsd</DependentUpon>
+    </None>
+    <None Include="DS_DM_DU_AN_CONG_TRINH.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_DM_DU_AN_CONG_TRINH.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DS_DM_DU_AN_CONG_TRINH.xss">
+      <DependentUpon>DS_DM_DU_AN_CONG_TRINH.xsd</DependentUpon>
+    </None>
+    <None Include="DS_DM_LOAI_DON_VI.xsc">
+      <DependentUpon>DS_DM_LOAI_DON_VI.xsd</DependentUpon>
+    </None>
+    <None Include="DS_DM_LOAI_DON_VI.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_DM_LOAI_DON_VI.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DS_DM_LOAI_DON_VI.xss">
+      <DependentUpon>DS_DM_LOAI_DON_VI.xsd</DependentUpon>
+    </None>
+    <None Include="DS_GD_GIAO_KH.xsc">
+      <DependentUpon>DS_GD_GIAO_KH.xsd</DependentUpon>
+    </None>
+    <None Include="DS_GD_GIAO_KH.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_GD_GIAO_KH.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DS_GD_GIAO_KH.xss">
+      <DependentUpon>DS_GD_GIAO_KH.xsd</DependentUpon>
+    </None>
+    <None Include="DS_GD_GIAO_VON.xsc">
+      <DependentUpon>DS_GD_GIAO_VON.xsd</DependentUpon>
+    </None>
+    <None Include="DS_GD_GIAO_VON.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_GD_GIAO_VON.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DS_GD_GIAO_VON.xss">
+      <DependentUpon>DS_GD_GIAO_VON.xsd</DependentUpon>
+    </None>
+    <None Include="DS_GD_QUYET_DINH.xsc">
+      <DependentUpon>DS_GD_QUYET_DINH.xsd</DependentUpon>
+    </None>
+    <None Include="DS_GD_QUYET_DINH.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_GD_QUYET_DINH.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DS_GD_QUYET_DINH.xss">
+      <DependentUpon>DS_GD_QUYET_DINH.xsd</DependentUpon>
+    </None>
+    <None Include="DS_GD_UY_NHIEM_CHI.xsc">
+      <DependentUpon>DS_GD_UY_NHIEM_CHI.xsd</DependentUpon>
+    </None>
+    <None Include="DS_GD_UY_NHIEM_CHI.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_GD_UY_NHIEM_CHI.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DS_GD_UY_NHIEM_CHI.xss">
+      <DependentUpon>DS_GD_UY_NHIEM_CHI.xsd</DependentUpon>
+    </None>
     <None Include="DS_HT_CHUC_NANG.xsc">
       <DependentUpon>DS_HT_CHUC_NANG.xsd</DependentUpon>
     </None>
@@ -161,6 +278,17 @@
     </None>
     <None Include="DS_HT_CHUC_NANG.xss">
       <DependentUpon>DS_HT_CHUC_NANG.xsd</DependentUpon>
+    </None>
+    <None Include="DS_HT_LICH_SU_QLDT.xsc">
+      <DependentUpon>DS_HT_LICH_SU_QLDT.xsd</DependentUpon>
+    </None>
+    <None Include="DS_HT_LICH_SU_QLDT.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_HT_LICH_SU_QLDT.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DS_HT_LICH_SU_QLDT.xss">
+      <DependentUpon>DS_HT_LICH_SU_QLDT.xsd</DependentUpon>
     </None>
     <None Include="DS_HT_LOG_LOGIN.xsc">
       <DependentUpon>DS_HT_LOG_LOGIN.xsd</DependentUpon>

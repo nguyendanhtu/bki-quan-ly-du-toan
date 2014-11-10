@@ -77,7 +77,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="US_CM_COMPANY_INFO.cs" />
     <Compile Include="US_DM_DON_VI.cs" />
+    <Compile Include="US_DM_DU_AN_CONG_TRINH.cs" />
+    <Compile Include="US_DM_LOAI_DON_VI.cs" />
+    <Compile Include="US_GD_GIAO_KH.cs" />
+    <Compile Include="US_GD_GIAO_VON.cs" />
+    <Compile Include="US_GD_QUYET_DINH.cs" />
+    <Compile Include="US_GD_UY_NHIEM_CHI.cs" />
     <Compile Include="US_HT_CHUC_NANG.cs" />
+    <Compile Include="US_HT_LICH_SU_QLDT.cs" />
     <Compile Include="US_HT_LOG_LOGIN.cs" />
     <Compile Include="US_HT_QUAN_HE_SU_DUNG_DU_LIEU.cs" />
     <Compile Include="US_HT_QUYEN_GROUP.cs" />
