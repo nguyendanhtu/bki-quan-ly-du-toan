@@ -175,6 +175,7 @@ namespace WebUS
         {
             pm_objDR["ID_LOAI_GIAO_DICH"] = System.Convert.DBNull;
         }
+
         #endregion
         #region "Init Functions"
         public US_GD_GIAO_VON()

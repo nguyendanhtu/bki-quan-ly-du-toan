@@ -59,11 +59,6 @@
   <ItemGroup>
     <Compile Include="CDBNames.cs" />
     <Compile Include="CValidatePaymentStates.cs" />
-    <Compile Include="DM_UY_NHIEM_CHI.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DM_UY_NHIEM_CHI.xsd</DependentUpon>
-    </Compile>
     <Compile Include="DS_CM_COMPANY_INFO.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -88,6 +83,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DS_DM_LOAI_DON_VI.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DS_DM_UY_NHIEM_CHI.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_DM_UY_NHIEM_CHI.xsd</DependentUpon>
     </Compile>
     <Compile Include="DS_GD_GIAO_KH.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -158,17 +158,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="DM_UY_NHIEM_CHI.xsc">
-      <DependentUpon>DM_UY_NHIEM_CHI.xsd</DependentUpon>
-    </None>
-    <None Include="DM_UY_NHIEM_CHI.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DM_UY_NHIEM_CHI.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="DM_UY_NHIEM_CHI.xss">
-      <DependentUpon>DM_UY_NHIEM_CHI.xsd</DependentUpon>
-    </None>
     <None Include="DS_CM_COMPANY_INFO.xsc">
       <DependentUpon>DS_CM_COMPANY_INFO.xsd</DependentUpon>
     </None>
@@ -223,6 +212,17 @@
     </None>
     <None Include="DS_DM_LOAI_DON_VI.xss">
       <DependentUpon>DS_DM_LOAI_DON_VI.xsd</DependentUpon>
+    </None>
+    <None Include="DS_DM_UY_NHIEM_CHI.xsc">
+      <DependentUpon>DS_DM_UY_NHIEM_CHI.xsd</DependentUpon>
+    </None>
+    <None Include="DS_DM_UY_NHIEM_CHI.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_DM_UY_NHIEM_CHI.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DS_DM_UY_NHIEM_CHI.xss">
+      <DependentUpon>DS_DM_UY_NHIEM_CHI.xsd</DependentUpon>
     </None>
     <None Include="DS_GD_GIAO_KH.xsc">
       <DependentUpon>DS_GD_GIAO_KH.xsd</DependentUpon>
