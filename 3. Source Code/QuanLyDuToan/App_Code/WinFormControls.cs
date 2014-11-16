@@ -39,6 +39,7 @@ namespace IP.Core.WinFormControls
             GIAO_KE_HOACH = 1,
             TAT_CA = 2
         }
+
         public enum LOAI_DU_AN
         {
             QUOC_LO = 0,
@@ -73,32 +74,30 @@ namespace IP.Core.WinFormControls
             op_ddl_quyet_dinh.DataSource = v_ds.GD_QUYET_DINH;
             op_ddl_quyet_dinh.DataBind();
         }
-        //public static void load_data_to_cbo_du_an_cong_trinh(
-        //    LOAI_QUYET_DINH ip_loai_quyet_dinh
-        //    , DropDownList op_ddl_quyet_dinh)
-        //{
-        //    DS_GD_QUYET_DINH v_ds = new DS_GD_QUYET_DINH();
-        //    US_GD_QUYET_DINH v_us = new US_GD_QUYET_DINH();
-        //    string v_str_querry = "";
-        //    if (ip_loai_quyet_dinh == LOAI_QUYET_DINH.GIAO_VON)
-        //        v_str_querry = "where id_loai_quyet_dinh= " + ID_LOAI_QUYET_DINH.GIAO_VON;
-        //    else if (ip_loai_quyet_dinh == LOAI_QUYET_DINH.GIAO_KE_HOACH)
-        //        v_str_querry = "where id_loai_quyet_dinh= " + ID_LOAI_QUYET_DINH.GIAO_KE_HOACH;
-        //    else if (ip_loai_quyet_dinh == LOAI_QUYET_DINH.TAT_CA)
-        //        v_str_querry = "";
-        //    v_str_querry += " order by ngay_thang";
-        //    v_us.FillDataset(v_ds, v_str_querry);
-        //    for (int v = 0; v < v_ds.GD_QUYET_DINH.Count; v++)
-        //    {
-        //        v_ds.Tables[0].Rows[v][GD_QUYET_DINH.NOI_DUNG] =
-        //            v_ds.Tables[0].Rows[v][GD_QUYET_DINH.SO_QUYET_DINH] + " " + v_ds.Tables[0].Rows[i][GD_QUYET_DINH.NOI_DUNG];
-        //        v_ds.AcceptChanges();
-        //    }
-        //    op_ddl_quyet_dinh.DataTextField = GD_QUYET_DINH.NOI_DUNG;
-        //    op_ddl_quyet_dinh.DataValueField = GD_QUYET_DINH.ID;
-        //    op_ddl_quyet_dinh.DataSource = v_ds.GD_QUYET_DINH;
-        //    op_ddl_quyet_dinh.DataBind();
-        //}
+        public static void load_data_to_cbo_du_an_cong_trinh(
+            LOAI_DU_AN ip_loai_du_an
+            , DropDownList op_ddl_quyet_dinh)
+        {
+            DS_DM_DU_AN_CONG_TRINH v_ds = new DS_DM_DU_AN_CONG_TRINH();
+            US_DM_DU_AN_CONG_TRINH v_us = new US_DM_DU_AN_CONG_TRINH();
+            string v_str_querry = "";
+            if (ip_loai_du_an == LOAI_DU_AN.QUOC_LO)
+                v_str_querry = "where id_loai_du_an_cong_trinh= " + ID_LOAI_DU_AN.QUOC_LO;
+            else if (ip_loai_du_an == LOAI_DU_AN.KHAC)
+                v_str_querry = "where id_loai_du_an_cong_trinh= " + ID_LOAI_DU_AN.KHAC;
+            v_str_querry += " order by ngay_thang";
+            v_us.FillDataset(v_ds, v_str_querry);
+            //for (int v = 0; v < v_ds.DM_DU_AN_CONG_TRINH.Count; v++)
+            //{
+            //    v_ds.Tables[0].Rows[v][GD_QUYET_DINH.NOI_DUNG] =
+            //        v_ds.Tables[0].Rows[v][GD_QUYET_DINH.SO_QUYET_DINH] + " " + v_ds.Tables[0].Rows[i][GD_QUYET_DINH.NOI_DUNG];
+            //    v_ds.AcceptChanges();
+            //}
+            op_ddl_quyet_dinh.DataTextField = DM_DU_AN_CONG_TRINH.TEN_DU_AN_CONG_TRINH;
+            op_ddl_quyet_dinh.DataValueField = DM_DU_AN_CONG_TRINH.ID;
+            op_ddl_quyet_dinh.DataSource = v_ds.DM_DU_AN_CONG_TRINH;
+            op_ddl_quyet_dinh.DataBind();
+        }
         #endregion
 
         #region Public Interfaces
