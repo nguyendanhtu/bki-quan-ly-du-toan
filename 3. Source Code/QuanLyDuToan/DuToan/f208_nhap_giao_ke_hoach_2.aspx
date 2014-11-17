@@ -14,7 +14,7 @@
     <table cellspacing="0" cellpadding="2" style="width: 99%;" class="cssTable" border="0">
         <tr>
             <td class="cssPageTitleBG">
-                <asp:Label ID="m_lbl_title_gia_von_ns" runat="server" Text="Nhập Giao vốn" CssClass="cssPageTitle"></asp:Label>
+                <asp:Label ID="m_lbl_title_nhap_giao_ke_hoach" runat="server" Text="Nhập Giao kế hoạch" CssClass="cssPageTitle"></asp:Label>
                 <span class="expand-collapse-text"></span>
             </td>
         </tr>
@@ -147,7 +147,7 @@
     <table cellspacing="0" cellpadding="2" style="width: 99%;" class="cssTable" border="0">
         <tr>
             <td class="cssPageTitleBG" colspan="3">
-                <asp:Label ID="m_lbl_title_chi_tiet_giao_von" runat="server" Text="Chi tiết Giao vốn" CssClass="cssPageTitle"></asp:Label>
+                <asp:Label ID="m_lbl_title_chi_tiet_giao_ke_hoach" runat="server" Text="Chi tiết Giao kế hoạch" CssClass="cssPageTitle"></asp:Label>
                 <span class="expand-collapse-text"></span>
             </td>
         </tr>
