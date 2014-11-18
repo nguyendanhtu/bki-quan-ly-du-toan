@@ -20,20 +20,20 @@
             <table cellspacing="0" cellpadding="2" style="width: 99%;" class="cssTable" border="0">
                 <tr>
                     <td class="auto-style1" colspan="4">
-                        <asp:Label ID="m_lbl_nhap_giao_von" runat="server" Text="Nhập giao vốn" CssClass="cssPageTitle"></asp:Label>
+                        <asp:Label ID="m_lbl_nhap_giao_von_ngan_sach_nha_nuoc" runat="server" Text="Nhập giao vốn-Ngân sách nhà nước" CssClass="cssPageTitle"></asp:Label>
                         <span class="expand-collapse-text"></span>
                     </td>
                 </tr>
                 <tr>
                     <td colspan="4">
-                        <asp:Panel ID="m_pnl_thong_tin_ve_qd_giao_von" GroupingText="Thông tin về QĐ giao vốn" runat="server">
+                        <asp:Panel ID="m_pnl_thong_tin_ve_qd_giao_ke_hoach" GroupingText="Thông tin về QĐ giao kế hoạch" runat="server">
                             <table cellspacing="0" cellpadding="2" style="width: 99%;" border="0">
                                 <tr>
                                     <td style="width: 15%" align="right">
                                         <span class="cssManField">Số QĐ</span>
                                     </td>
                                     <td style="width: 85%">
-                                        <asp:TextBox ID="m_txt_so_qd" runat="server" CssClass="cssTextBox" Width="20%"></asp:TextBox>
+                                        <asp:TextBox ID="m_txt_so_qd" runat="server" CssClass="cssTextBox" Width="20%" placeholder="Vd: 371/QĐ-BGTVT"></asp:TextBox>
                                         <asp:DropDownList ID="m_ddl_quyet_dinh" runat="server" Width="30%"></asp:DropDownList>
                                         <asp:Button ID="m_cmd_chon_qd_da_nhap" Text="Chọn QĐ đã nhập" runat="server" CssClass="cssButton" Height="24px" Width="98px" />
                                     </td>
@@ -67,7 +67,7 @@
                             <table cellspacing="0" cellpadding="2" style="width: 99%;" border="0">
                                 <tr>
                                     <td style="width: 10%"></td>
-                                    <td colspan="2" align="left">
+                                    <td colspan="4" align="left">
                                         <asp:RadioButton ID="m_rdb_kh_dau_nam" runat="server" CssClass="cssManField" ForeColor="Blue" Text="KH đầu năm" GroupName="loai" Checked="true" />
                                         <asp:RadioButton ID="m_rdb_bo_sung" runat="server" CssClass="cssManField" ForeColor="Blue" Text="Bổ sung" GroupName="loai" />
                                         <asp:RadioButton ID="m_rdb_dieu_chinh" runat="server" CssClass="cssManField" ForeColor="Blue" Text="Điều chỉnh" GroupName="loai" />
@@ -76,33 +76,42 @@
                                 <tr>
                                     
                                     
-                                    <td colspan="2" style="width: 99%">
+                                    <td colspan="4" style="width: 99%">
                                         <asp:Panel ID="m_pnl_chon_khoan_muc_chi" runat="server" GroupingText="Chọn khoản mục chi">
                                             <table cellspacing="0" cellpadding="2" style="width: 99%;" border="0">
                                                 <tr>
-                                                    <td style="width: 43%" align="right">
-                                                        <span class="cssManField">Mục</span>
+                                                    <td style="width: 20%" align="right">
+                                                        <span class="cssManField">Mục  </span>
                                                     </td>
-                                                    <td style="width: 57%">
+                                                    <td style="width: 30%" align="left">
                                                         <asp:DropDownList ID="m_ddl_muc" runat="server" Width="30%"></asp:DropDownList>
-
-
+                                                    </td>
+                                                    <td style="width:10%" align="center">
+                                                        <span class="cssManField">Chương</span>
+                                                    </td>
+                                                    <td style="width:40%" align="left">
+                                                        <asp:Label ID="m_lbl_chuong" runat="server" ForeColor="blue"></asp:Label>
                                                     </td>
                                                 </tr>
-                                                <tr><td style="width: 30%" align="right">
+                                                <tr>
+                                                    <td align="right">
+                                                        <span class="cssManField">Loại  </span>
+                                                    </td>
+                                                    <td align="left">
+                                                        <asp:Label ID="m_lbl_loai" runat="server" ForeColor="Blue"></asp:Label>
+                                                    </td>
+                                                    <td align="center">
+                                                        <span class="cssManField">Khoản</span>
+                                                    </td>
+                                                    <td align="left">
+                                                        <asp:Label ID="m_lbl_khoan" runat="server" ForeColor="Blue"></asp:Label>
+                                                    </td>
+                                                </tr>
+                                                <tr><td align="right">
                                                     <span class="cssManField">Số tiền</span>
                                                     </td>
                                                     <td>
                                                         <asp:TextBox ID="m_txt_so_tien" runat="server" CssClass="cssTextBox" Width="30%" placeholder="Số tiền" ></asp:TextBox>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td style="width: 30%" align="right">
-                                                        <span class="cssManField">Nguồn</span>
-                                                    </td>
-                                                    <td>
-                                                        <asp:RadioButton ID="m_rdb_quy_bao_tri" runat="server" CssClass="cssManField" ForeColor="Blue" Text="Quỹ bảo trì" GroupName="loai2" checked="true"/>
-                                                        <asp:RadioButton ID="m_rdb_ngan_sach" runat="server" CssClass="cssManField" ForeColor="Blue" Text="Ngân sách" GroupName="loai2" />
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -140,6 +149,16 @@
                     <td style="width=20%" align="right">
                         <asp:Button ID="m_cmd_xem_bao_cao_du_toan" Text="Xem báo cáo dự toán" runat="server" CssClass="cssButton" Height="24px" Width="130px" />
                     </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td align="right">
+                        <span class="cssManField">Tổng</span>
+                    </td>
+                    <td align="center">
+                        <asp:Label ID="m_lbl_tong" runat="server" ForeColor="Blue"></asp:Label>
+                    </td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td colspan="4">
@@ -185,11 +204,12 @@
                                     </ItemTemplate>
                                     <ItemStyle HorizontalAlign="Center"></ItemStyle>
                                 </asp:TemplateField>
-                                <asp:BoundField DataField="nam_du_toan" HeaderText="Năm dự toán" />
-                                <asp:BoundField DataField="lan" HeaderText="Lần" />
-                                <asp:BoundField DataField="cong_trinh_du_an" HeaderText="Công trình, dự án" />
+                                <asp:BoundField DataField="chuong" HeaderText="Chương" />
+                                <asp:BoundField DataField="loai" HeaderText="Loại" />
+                                <asp:BoundField DataField="khoan" HeaderText="Khoản" />
+                                <asp:BoundField DataField="muc" HeaderText="Mục" />
                                 <asp:BoundField DataField="so_tien" HeaderText="Số tiền" />
-                                <asp:BoundField DataField="loai_du_an" HeaderText="Loại dự án" />
+                                <asp:BoundField DataField="loai_du_toan" HeaderText="Loại dự toán" />
                                 <asp:BoundField DataField="quyet_dinh" HeaderText="Quyết định" />
                             </Columns>
                         </asp:GridView>
