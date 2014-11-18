@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="f204_nhap_giao_ke_hoach_1.aspx.cs" Inherits="DuToan_f204_nhap_giao_ke_hoach_1" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="f204_nhap_giao_ke_hoach_qbt.aspx.cs" Inherits="DuToan_f204_nhap_giao_ke_hoach_1" %>
 
 <%@ Register Namespace="System.Web.UI" Assembly="System.Web.Extensions, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35"
     TagPrefix="asp" %>
