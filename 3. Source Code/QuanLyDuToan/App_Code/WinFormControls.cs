@@ -48,6 +48,10 @@ namespace IP.Core.WinFormControls
         #endregion
 
         #region Quan ly du toan
+        public static void get_cout_grid_row(Label ip_lbl_name, string ip_str_default_text, int ip_int_count_row)
+        {
+            ip_lbl_name.Text = ip_str_default_text + " (Có " + ip_int_count_row + " bản ghi)";
+        }   
         public static void load_data_to_cbo_quyet_dinh_by_loai_quyet_dinh(
             LOAI_QUYET_DINH ip_loai_quyet_dinh
             , DropDownList op_ddl_quyet_dinh)
@@ -61,7 +65,7 @@ namespace IP.Core.WinFormControls
                 v_str_querry = "where id_loai_quyet_dinh= " + ID_LOAI_QUYET_DINH.GIAO_KE_HOACH;
             else if (ip_loai_quyet_dinh == LOAI_QUYET_DINH.TAT_CA)
                 v_str_querry = "";
-            v_str_querry+=" order by ngay_thang";
+            v_str_querry+=" order by ngay_thang desc";
             v_us.FillDataset(v_ds, v_str_querry);
             for (int v = 0; v < v_ds.GD_QUYET_DINH.Count; v++)
             {
@@ -73,6 +77,7 @@ namespace IP.Core.WinFormControls
             op_ddl_quyet_dinh.DataValueField = GD_QUYET_DINH.ID;
             op_ddl_quyet_dinh.DataSource = v_ds.GD_QUYET_DINH;
             op_ddl_quyet_dinh.DataBind();
+            op_ddl_quyet_dinh.Items.Insert(0, new ListItem("---Chọn quyết định---", "-1"));
         }
         public static void load_data_to_cbo_du_an_cong_trinh(
             LOAI_DU_AN ip_loai_du_an
@@ -80,23 +85,25 @@ namespace IP.Core.WinFormControls
         {
             DS_DM_DU_AN_CONG_TRINH v_ds = new DS_DM_DU_AN_CONG_TRINH();
             US_DM_DU_AN_CONG_TRINH v_us = new US_DM_DU_AN_CONG_TRINH();
+            string v_str_data_default = "";
             string v_str_querry = "";
             if (ip_loai_du_an == LOAI_DU_AN.QUOC_LO)
+            {
                 v_str_querry = "where id_loai_du_an_cong_trinh= " + ID_LOAI_DU_AN.QUOC_LO;
+                v_str_data_default = "---Chọn quốc lộ---";
+            }
             else if (ip_loai_du_an == LOAI_DU_AN.KHAC)
+            {
                 v_str_querry = "where id_loai_du_an_cong_trinh= " + ID_LOAI_DU_AN.KHAC;
-            v_str_querry += " order by ngay_thang";
+                v_str_data_default = "---Chọn dự án---";
+            }
             v_us.FillDataset(v_ds, v_str_querry);
-            //for (int v = 0; v < v_ds.DM_DU_AN_CONG_TRINH.Count; v++)
-            //{
-            //    v_ds.Tables[0].Rows[v][GD_QUYET_DINH.NOI_DUNG] =
-            //        v_ds.Tables[0].Rows[v][GD_QUYET_DINH.SO_QUYET_DINH] + " " + v_ds.Tables[0].Rows[i][GD_QUYET_DINH.NOI_DUNG];
-            //    v_ds.AcceptChanges();
-            //}
             op_ddl_quyet_dinh.DataTextField = DM_DU_AN_CONG_TRINH.TEN_DU_AN_CONG_TRINH;
             op_ddl_quyet_dinh.DataValueField = DM_DU_AN_CONG_TRINH.ID;
             op_ddl_quyet_dinh.DataSource = v_ds.DM_DU_AN_CONG_TRINH;
             op_ddl_quyet_dinh.DataBind();
+            op_ddl_quyet_dinh.Items.Insert(0, new ListItem(v_str_data_default, "0"));
+
         }
         #endregion
 

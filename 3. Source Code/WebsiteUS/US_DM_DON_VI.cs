@@ -234,10 +234,11 @@ namespace WebUS
         public decimal get_id_don_vi_by_id_user(decimal ip_dc_id_user)
         {
             CStoredProc v_sp = new CStoredProc("pr_get_id_don_vi_by_id_user");
-            SqlParameter v_sql_para = new SqlParameter();
+            Decimal v_dc_id_don_vi = 0;
             v_sp.addDecimalInputParam("@ip_dc_id_user",ip_dc_id_user);
-            v_sp.addDecimalOutputParam("@ip_dc_id_don_vi", v_sql_para);
-            return CIPConvert.ToDecimal(v_sql_para.Value);
+            v_sp.addDecimalOutputParam("@ip_dc_id_don_vi", v_dc_id_don_vi);
+            v_sp.ExecuteCommand(this);
+            return v_dc_id_don_vi;
         }
         public bool check_is_having_ma_don_vi(string ip_str_ma_don_vi)
         {

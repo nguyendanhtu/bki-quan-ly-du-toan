@@ -26,13 +26,18 @@
                         <asp:Panel ID="m_pnl_thong_tin_ve_qd_giao_ke_hoach" GroupingText="Thông tin về QĐ giao kế hoạch" runat="server">
                             <table cellspacing="0" cellpadding="2" style="width: 99%;" border="0">
                                 <tr>
+                                    <td colspan="2">
+                                        <asp:Label ID="m_lbl_mess_qd" runat="server" CssClass="cssManField"></asp:Label>
+                                    </td>
+                                </tr>
+                                <tr>
                                     <td style="width: 15%" align="right">
                                         <span class="cssManField">Số QĐ</span>
                                     </td>
                                     <td style="width: 85%" align="left">
                                         <asp:TextBox ID="m_txt_so_qd" runat="server" CssClass="cssTextBox" Width="20%"></asp:TextBox>
-                                        <asp:DropDownList ID="m_ddl_quyet_dinh" runat="server" Width="30%"></asp:DropDownList>
-                                        <asp:Button ID="m_cmd_chon_qd_da_nhap" Text="Chọn QĐ đã nhập" runat="server" CssClass="cssButton" Height="24px" Width="98px" />
+                                        <asp:DropDownList ID="m_ddl_quyet_dinh" runat="server" Width="21%" Visible="false" OnSelectedIndexChanged="m_ddl_quyet_dinh_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
+                                        <asp:Button ID="m_cmd_chon_qd_da_nhap" Text="Chọn QĐ" OnClick="m_cmd_chon_qd_da_nhap_Click" runat="server" CssClass="cssButton" Height="24px" Width="98px" />
                                     </td>
                                 </tr>
                                 <tr>
@@ -50,8 +55,10 @@
                                 <tr>
                                     <td></td>
                                     <td colspan="1" align="left">
-                                        <asp:Button ID="m_cmd_luu_qd" Text="Lưu QĐ" runat="server" CssClass="cssButton" Height="24px" Width="98px" />
-                                        <asp:Button ID="m_cmd_nhap_qd_moi" Text="Nhập QĐ mới" runat="server" CssClass="cssButton" Height="24px" Width="98px" />
+                                        <asp:Button ID="m_cmd_luu_qd" Text="Lưu QĐ" runat="server" CssClass="cssButton" Height="24px" Width="98px" OnClick="m_cmd_luu_qd_Click" />
+                                        <asp:Button ID="m_cmd_nhap_qd_moi" Text="Nhập QĐ mới" runat="server" CssClass="cssButton" Height="24px" Width="98px" OnClick="m_cmd_nhap_qd_moi_Click" />
+                                        <asp:HiddenField ID="m_hdf_id_quyet_dinh" runat="server" />
+                                        <asp:HiddenField ID="m_hdf_form_mode" runat="server" />
                                     </td>
                                 </tr>
                             </table>
@@ -59,15 +66,21 @@
                     </td>
                 </tr>
                 <tr>
-                    <td >
+                    <td>
                         <asp:Panel ID="m_pnl" runat="server" GroupingText="Chi tiết">
                             <table cellspacing="0" cellpadding="2" style="width: 99%;" border="0">
                                 <tr>
+                                    <td colspan="2">
+                                        <asp:Label ID="m_lbl_mess_detail" runat="server" CssClass="cssManField"></asp:Label>
+                                    </td>
+                                </tr>
+                                <tr>
                                     <td style="width: 15%"></td>
                                     <td colspan="2">
-                                        <asp:RadioButton ID="m_rdb_kh_dau_nam" runat="server" CssClass="cssManField" ForeColor="Blue" Text="KH đầu năm" GroupName="loai" Checked="true" />
-                                        <asp:RadioButton ID="m_rdb_bo_sung" runat="server" CssClass="cssManField" ForeColor="Blue" Text="Bổ sung" GroupName="loai" />
-                                        <asp:RadioButton ID="m_rdb_dieu_chinh" runat="server" CssClass="cssManField" ForeColor="Blue" Text="Điều chỉnh" GroupName="loai" />
+                                        <asp:RadioButton ID="m_rdb_kh_dau_nam" runat="server" CssClass="cssManField" ForeColor="Blue" Text="KH đầu năm" GroupName="loai" Checked="true" AutoPostBack="true" OnCheckedChanged="m_rdb_kh_dau_nam_CheckedChanged" />
+                                        <asp:RadioButton ID="m_rdb_bo_sung" runat="server" CssClass="cssManField" ForeColor="Blue" Text="Bổ sung" GroupName="loai" AutoPostBack="true"/>
+                                        <asp:RadioButton ID="m_rdb_dieu_chinh" runat="server" CssClass="cssManField" ForeColor="Blue" Text="Điều chỉnh" GroupName="loai" AutoPostBack="true"/>
+                                        <asp:HiddenField ID="m_hdf_id_giao_kh" runat="server" />
                                     </td>
                                 </tr>
                                 <tr>
@@ -98,16 +111,17 @@
                                                         <span class="cssManField">Nguồn</span>
                                                     </td>
                                                     <td style="width: 70%" align="left">
-                                                        <asp:RadioButton ID="m_rdb_ctx_quy_bao_tri" runat="server" CssClass="cssManField" ForeColor="Blue" Text="Quỹ bảo trì" GroupName="loai" Checked="true" />
-                                                        <asp:RadioButton ID="m_rdb_ctx_ngan_sach" runat="server" CssClass="cssManField" ForeColor="Blue" Text="Ngân sách" GroupName="loai" />
+                                                        <asp:RadioButton ID="m_rdb_ctx_quy_bao_tri" runat="server" CssClass="cssManField" ForeColor="Blue" Text="Quỹ bảo trì" GroupName="loai_tx" Checked="true" />
+                                                        <asp:RadioButton ID="m_rdb_ctx_ngan_sach" runat="server" CssClass="cssManField" ForeColor="Blue" Text="Ngân sách" GroupName="loai_tx" />
                                                     </td>
                                                 </tr>
                                                 <tr>
 
                                                     <td colspan="2" align="center">
-                                                        <asp:Button ID="m_cmd_ctx_insert" Text="Thêm" runat="server" CssClass="cssButton" Height="24px" Width="98px" />
-                                                        <asp:Button ID="m_cmd_ctx_update" Text="Cập nhật" runat="server" CssClass="cssButton" Height="24px" Width="98px" />
-                                                        <asp:Button ID="m_cmd_ctx_delete" Text="Xóa trắng" runat="server" CssClass="cssButton" Height="24px" Width="98px" />
+                                                        <asp:Button ID="m_cmd_ctx_insert" Text="Thêm" runat="server" CssClass="cssButton" Height="24px" Width="98px" OnClick="m_cmd_ctx_insert_Click" />
+                                                        <asp:Button ID="m_cmd_ctx_update" Text="Cập nhật" runat="server" CssClass="cssButton" Height="24px" Width="98px" OnClick="m_cmd_ctx_update_Click" />
+                                                        <asp:Button ID="m_cmd_ctx_delete" Text="Xóa trắng" runat="server" CssClass="cssButton" Height="24px" Width="98px" OnClick="m_cmd_ctx_cancel_Click" />
+                                                        <asp:HiddenField ID="m_hdf_id_quoc_lo" runat="server" />
                                                     </td>
                                                 </tr>
                                             </table>
@@ -122,7 +136,8 @@
                                                     </td>
                                                     <td style="width: 70%" align="left">
                                                         <asp:TextBox ID="m_txt_ten_du_an" runat="server" CssClass="cssTextBox" placeholder="Dự án a" Width="50%"></asp:TextBox>
-                                                        <asp:DropDownList ID="m_cbo_du_an" runat="server" Width="50%" Visible="false"></asp:DropDownList>
+                                                        <asp:DropDownList ID="m_ddl_du_an" runat="server" Width="51%" Visible="false" AutoPostBack="true" OnSelectedIndexChanged="m_ddl_du_an_SelectedIndexChanged"></asp:DropDownList>
+                                                        <asp:Button ID="m_cmd_chon_du_an" runat="server" Text="Chọn dự án" OnClick="m_cmd_chon_du_an_Click"  Width="98px" Height="24px"  CssClass="cssButton" />
 
                                                     </td>
                                                 </tr>
@@ -139,16 +154,17 @@
                                                         <span class="cssManField">Nguồn</span>
                                                     </td>
                                                     <td style="width: 70%" align="left">
-                                                        <asp:RadioButton ID="m_rdb_cktx_quy_bao_tri" runat="server" CssClass="cssManField" ForeColor="Blue" Text="Quỹ bảo trì" GroupName="loai" Checked="true" />
-                                                        <asp:RadioButton ID="m_rdb_cktx_ngan_sach" runat="server" CssClass="cssManField" ForeColor="Blue" Text="Ngân sách" GroupName="loai" />
+                                                        <asp:RadioButton ID="m_rdb_cktx_quy_bao_tri" runat="server" CssClass="cssManField" ForeColor="Blue" Text="Quỹ bảo trì" GroupName="loai_ktx" Checked="true" />
+                                                        <asp:RadioButton ID="m_rdb_cktx_ngan_sach" runat="server" CssClass="cssManField" ForeColor="Blue" Text="Ngân sách" GroupName="loai_ktx" />
                                                     </td>
                                                 </tr>
                                                 <tr>
 
                                                     <td colspan="2" align="center">
-                                                        <asp:Button ID="m_cmd_cktx_insert" Text="Thêm" runat="server" CssClass="cssButton" Height="24px" Width="98px" />
-                                                        <asp:Button ID="m_cmd_cktx_update" Text="Cập nhật" runat="server" CssClass="cssButton" Height="24px" Width="98px" />
-                                                        <asp:Button ID="m_cmd_cktx_cancel" Text="Xóa trắng" runat="server" CssClass="cssButton" Height="24px" Width="98px" />
+                                                        <asp:Button ID="m_cmd_cktx_insert" Text="Thêm" runat="server" CssClass="cssButton" Height="24px" Width="98px" OnClick="m_cmd_cktx_insert_Click" />
+                                                        <asp:Button ID="m_cmd_cktx_update" Text="Cập nhật" runat="server" CssClass="cssButton" Height="24px" Width="98px" OnClick="m_cmd_cktx_update_Click" />
+                                                        <asp:Button ID="m_cmd_cktx_cancel" Text="Xóa trắng" runat="server" CssClass="cssButton" Height="24px" Width="98px" OnClick="m_cmd_cktx_cancel_Click" />
+                                                        <asp:HiddenField ID="m_hdf_id_du_an" runat="server" />
                                                     </td>
                                                 </tr>
                                             </table>
@@ -176,7 +192,7 @@
                         <asp:Button ID="m_cmd_tim_kiem" CssClass="cssButton" Width="98px" Height="24px" runat="server" Text="Tìm kiếm" />
                     </td>
                     <td style="width: 30%" align="right">
-                        <asp:Button ID="m_cmd_xem_bao_cao_du_toan" runat="server" CssClass="cssButton"  Height="24px" Text="Xem báo cáo dự toán" />
+                        <asp:Button ID="m_cmd_xem_bao_cao_du_toan" runat="server" CssClass="cssButton" Height="24px" Text="Xem báo cáo dự toán" />
                     </td>
                 </tr>
                 <tr>
@@ -189,7 +205,11 @@
                         <asp:GridView ID="m_grv" runat="server" AllowPaging="True" AutoGenerateColumns="False"
                             CssClass="cssGrid" Width="100%" CellPadding="0" ForeColor="#333333"
                             AllowSorting="True" PageSize="30" ShowHeader="true"
-                            EmptyDataText="Không có dữ liệu phù hợp">
+                            DataKeyNames="ID"
+                            EmptyDataText="Không có dữ liệu phù hợp"
+                            OnRowEditing="m_grv_RowEditing"
+                            OnRowDeleting="m_grv_RowDeleting"
+                            OnPageIndexChanging="m_grv_PageIndexChanging">
                             <AlternatingRowStyle BackColor="White" />
                             <EditRowStyle BackColor="#7C6F57" />
                             <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
@@ -208,27 +228,22 @@
                                 <asp:TemplateField HeaderText="Xóa" HeaderStyle-Width="2%">
                                     <ItemTemplate>
                                         <asp:LinkButton ID="lbt_delete" runat="server" CausesValidation="false"
-                                            CommandName="Delete" ToolTip="Xóa" OnClientClick="return confirm ('Bạn có thực sự muốn xóa bản ghi này?')">
+                                            CommandName="Edit" ToolTip="Xóa" OnClientClick="return confirm ('Bạn có thực sự muốn xóa bản ghi này?')">
                      <img alt="Xóa" src="../Images/Button/deletered.png" />
                                         </asp:LinkButton>
                                     </ItemTemplate>
                                     <ItemStyle HorizontalAlign="Center"></ItemStyle>
                                 </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Sửa" HeaderStyle-Width="2%">
-                                    <ItemTemplate>
-                                        <asp:LinkButton ID="lbt_delete" runat="server" CausesValidation="false"
-                                            CommandName="Update" ToolTip="Sửa">
-                     <img alt="Xóa" src="../Images/Button/edit.png" />
-                                        </asp:LinkButton>
-                                    </ItemTemplate>
-                                    <ItemStyle HorizontalAlign="Center"></ItemStyle>
-                                </asp:TemplateField>
-                                <asp:BoundField DataField="nam_du_toan" HeaderText="Năm dự toán" />
+
+                                <asp:CommandField ItemStyle-Width="3%" EditText="Sửa" EditImageUrl="../Images/Button/edit.png"
+                                    ShowEditButton="true" ButtonType="Image" HeaderText="Sửa" ItemStyle-HorizontalAlign="Center"
+                                    HeaderStyle-HorizontalAlign="Center" />
+                                <%-- <asp:BoundField DataField="nam_du_toan" HeaderText="Năm dự toán" />
                                 <asp:BoundField DataField="lan" HeaderText="Lần" />
-                                <asp:BoundField DataField="cong_trinh_du_an" HeaderText="Công trình, dự án" />
+                                <asp:BoundField DataField="cong_trinh_du_an" HeaderText="Công trình, dự án" />--%>
                                 <asp:BoundField DataField="so_tien" HeaderText="Số tiền" />
-                                <asp:BoundField DataField="loai_du_an" HeaderText="Loại dự án" />
-                                <asp:BoundField DataField="quyet_dinh" HeaderText="Quyết định" />
+                                <%--<asp:BoundField DataField="loai_du_an" HeaderText="Loại dự án" />
+                                <asp:BoundField DataField="quyet_dinh" HeaderText="Quyết định" />--%>
                             </Columns>
                         </asp:GridView>
                     </td>
