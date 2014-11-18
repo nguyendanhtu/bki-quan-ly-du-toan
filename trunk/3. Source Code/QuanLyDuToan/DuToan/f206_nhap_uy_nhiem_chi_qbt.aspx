@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="f206_nhap_uy_nhiem_chi.aspx.cs" Inherits="DuToan_f206_nhap_uy_nhiem_chi" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="f206_nhap_uy_nhiem_chi_qbt.aspx.cs" Inherits="DuToan_f206_nhap_uy_nhiem_chi" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="Server">
 </asp:Content>
