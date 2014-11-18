@@ -27,7 +27,24 @@ public class Person
     public static decimal get_id_don_vi()
     {
         US_DM_DON_VI v_us = new US_DM_DON_VI();
-        return v_us.get_id_don_vi_by_id_user(get_user_id());
+        DS_DM_DON_VI v_ds = new DS_DM_DON_VI();
+        System.Data.SqlClient.SqlCommand v_cmd=new System.Data.SqlClient.SqlCommand();
+        v_cmd.CommandType=System.Data.CommandType.Text;
+        v_cmd.CommandText = @"SELECT
+                                dv.*
+                                FROM 
+                                HT_USER_GROUP ug,
+                                dm_don_vi dv,
+                                ht_nguoi_su_dung nsd
+                                WHERE 
+                                ug.[DESCRIPTION] LIKE N'%'+dv.TEN_DON_VI+'%'
+                                AND ug.id	=nsd.ID_USER_GROUP
+                                and nsd.id=" + Person.get_user_id();
+        v_us.FillDatasetByCommand(v_ds, v_cmd);
+        decimal v_dc_id_don_vi = 0;
+        if (v_ds.DM_DON_VI.Count > 0)
+            v_dc_id_don_vi = CIPConvert.ToDecimal(v_ds.Tables[0].Rows[0][WebDS.CDBNames.DM_DON_VI.ID]);
+        return v_dc_id_don_vi;
     }
     public static string get_user_name()
     {

@@ -100,8 +100,8 @@
                                 </asp:TemplateField>
                                 <asp:BoundField DataField="so_quyet_dinh" HeaderText="Đơn vị" />
                                 <asp:BoundField DataField="noi_dung" HeaderText="Nội dung" />
-                                <asp:BoundField DataField="loai" HeaderText="Loại" />
-                                <asp:BoundField DataField="ngay_thang" HeaderText="Ngày tháng" />
+                                <%--<asp:BoundField DataField="loai" HeaderText="Loại" />--%>
+                                <asp:BoundField DataField="ngay_thang" DataFormatString="{0:dd/MM/yyyy}" HeaderText="Ngày tháng" />
                             </Columns>
                         </asp:GridView>
                     </td>
