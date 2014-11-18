@@ -20,7 +20,7 @@
             <table cellspacing="0" cellpadding="2" style="width: 99%;" class="cssTable" border="0">
                 <tr>
                     <td class="auto-style1" colspan="4">
-                        <asp:Label ID="m_lbl_nhap_giao_von_ngan_sach_nha_nuoc" runat="server" Text="Nhập giao vốn-Ngân sách nhà nước" CssClass="cssPageTitle"></asp:Label>
+                        <asp:Label ID="m_lbl_nhap_giao_von_ngan_sach_nha_nuoc" runat="server" Text="Nhập giao vốn-Ngân sách Nhà nước" CssClass="cssPageTitle"></asp:Label>
                         <span class="expand-collapse-text"></span>
                     </td>
                 </tr>
