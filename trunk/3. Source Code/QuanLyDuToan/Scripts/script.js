@@ -1,12 +1,12 @@
 ﻿$(document).ready(function () {
 
     //Thu gọn/mở rộng giao diện
-    $(".initial-expand").hide();
+    //$(".initial-expand").hide();
 
-    $("td.cssPageTitleBG").click(function () {
-        $(this).children(".expand-collapse-text").toggle();
-        $(this).parent("tr").siblings("tr").toggle();
-    });
+    //$("td.cssPageTitleBG").click(function () {
+    //    $(this).children(".expand-collapse-text").toggle();
+    //    $(this).parent("tr").siblings("tr").toggle();
+    //});
 
     //Content boxes expand/collapse 2
     /*$("span.expand-collapse-text").click(function () {

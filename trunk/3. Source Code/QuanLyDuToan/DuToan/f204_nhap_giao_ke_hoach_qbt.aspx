@@ -18,7 +18,7 @@
                 <tr>
                     <td class="cssPageTitleBG" colspan="4">
                         <asp:Label ID="m_lbl_title" runat="server" Text="Nhập giao kế hoạch" CssClass="cssPageTitle"></asp:Label>
-                        <span class="expand-collapse-text"></span>
+                        <%--<span class="expand-collapse-text"></span>--%>
                     </td>
                 </tr>
                 <tr>
@@ -106,15 +106,7 @@
                                                         <asp:TextBox ID="m_txt_ctx_so_tien" runat="server" CssClass="cssTextBox" Width="50%"></asp:TextBox>
                                                     </td>
                                                 </tr>
-                                                <tr>
-                                                    <td style="width: 30%" align="right">
-                                                        <span class="cssManField">Nguồn</span>
-                                                    </td>
-                                                    <td style="width: 70%" align="left">
-                                                        <asp:RadioButton ID="m_rdb_ctx_quy_bao_tri" runat="server" CssClass="cssManField" ForeColor="Blue" Text="Quỹ bảo trì" GroupName="loai_tx" Checked="true" />
-                                                        <asp:RadioButton ID="m_rdb_ctx_ngan_sach" runat="server" CssClass="cssManField" ForeColor="Blue" Text="Ngân sách" GroupName="loai_tx" />
-                                                    </td>
-                                                </tr>
+                                                
                                                 <tr>
 
                                                     <td colspan="2" align="center">
@@ -149,15 +141,7 @@
                                                         <asp:TextBox ID="m_txt_cktx_so_tien" runat="server" CssClass="cssTextBox" Width="50%"></asp:TextBox>
                                                     </td>
                                                 </tr>
-                                                <tr>
-                                                    <td style="width: 30%" align="right">
-                                                        <span class="cssManField">Nguồn</span>
-                                                    </td>
-                                                    <td style="width: 70%" align="left">
-                                                        <asp:RadioButton ID="m_rdb_cktx_quy_bao_tri" runat="server" CssClass="cssManField" ForeColor="Blue" Text="Quỹ bảo trì" GroupName="loai_ktx" Checked="true" />
-                                                        <asp:RadioButton ID="m_rdb_cktx_ngan_sach" runat="server" CssClass="cssManField" ForeColor="Blue" Text="Ngân sách" GroupName="loai_ktx" />
-                                                    </td>
-                                                </tr>
+                                                
                                                 <tr>
 
                                                     <td colspan="2" align="center">
@@ -180,7 +164,7 @@
                 <tr>
                     <td class="cssPageTitleBG" colspan="3">
                         <asp:Label ID="m_lbl_grid_title" runat="server" Text="Chi tiết Giao kế hoạch" CssClass="cssPageTitle"></asp:Label>
-                        <span class="expand-collapse-text"></span>
+                        <%--<span class="expand-collapse-text"></span>--%>
                     </td>
                 </tr>
                 <tr>
@@ -197,7 +181,7 @@
                 </tr>
                 <tr>
                     <td colspan="3">
-                        <asp:Label ID="m_lbl_mess" runat="server" CssClass="cssManField"></asp:Label>
+                        <asp:Label ID="m_lbl_mess_grid" runat="server" CssClass="cssManField"></asp:Label>
                     </td>
                 </tr>
                 <tr>
@@ -228,7 +212,7 @@
                                 <asp:TemplateField HeaderText="Xóa" HeaderStyle-Width="2%">
                                     <ItemTemplate>
                                         <asp:LinkButton ID="lbt_delete" runat="server" CausesValidation="false"
-                                            CommandName="Edit" ToolTip="Xóa" OnClientClick="return confirm ('Bạn có thực sự muốn xóa bản ghi này?')">
+                                            CommandName="Delete" ToolTip="Xóa" OnClientClick="return confirm ('Bạn có thực sự muốn xóa bản ghi này?')">
                      <img alt="Xóa" src="../Images/Button/deletered.png" />
                                         </asp:LinkButton>
                                     </ItemTemplate>

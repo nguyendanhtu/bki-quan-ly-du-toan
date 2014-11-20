@@ -102,7 +102,7 @@ namespace IP.Core.WinFormControls
             op_ddl_quyet_dinh.DataValueField = DM_DU_AN_CONG_TRINH.ID;
             op_ddl_quyet_dinh.DataSource = v_ds.DM_DU_AN_CONG_TRINH;
             op_ddl_quyet_dinh.DataBind();
-            op_ddl_quyet_dinh.Items.Insert(0, new ListItem(v_str_data_default, "0"));
+            op_ddl_quyet_dinh.Items.Insert(0, new ListItem(v_str_data_default, "-1"));
 
         }
         #endregion
