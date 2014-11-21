@@ -51,21 +51,22 @@ namespace IP.Core.WinFormControls
         public static void get_cout_grid_row(Label ip_lbl_name, string ip_str_default_text, int ip_int_count_row)
         {
             ip_lbl_name.Text = ip_str_default_text + " (Có " + ip_int_count_row + " bản ghi)";
-        }   
+        }
         public static void load_data_to_cbo_quyet_dinh_by_loai_quyet_dinh(
             LOAI_QUYET_DINH ip_loai_quyet_dinh
             , DropDownList op_ddl_quyet_dinh)
         {
+            decimal v_dc_id_don_vi = Person.get_id_don_vi();
             DS_GD_QUYET_DINH v_ds = new DS_GD_QUYET_DINH();
             US_GD_QUYET_DINH v_us = new US_GD_QUYET_DINH();
             string v_str_querry = "";
             if (ip_loai_quyet_dinh == LOAI_QUYET_DINH.GIAO_VON)
-                v_str_querry = "where id_loai_quyet_dinh= " + ID_LOAI_QUYET_DINH.GIAO_VON;
+                v_str_querry = "where id_don_vi=" + v_dc_id_don_vi + " and id_loai_quyet_dinh= " + ID_LOAI_QUYET_DINH.GIAO_VON;
             else if (ip_loai_quyet_dinh == LOAI_QUYET_DINH.GIAO_KE_HOACH)
-                v_str_querry = "where id_loai_quyet_dinh= " + ID_LOAI_QUYET_DINH.GIAO_KE_HOACH;
+                v_str_querry = "where id_don_vi=" + v_dc_id_don_vi + " and id_loai_quyet_dinh= " + ID_LOAI_QUYET_DINH.GIAO_KE_HOACH;
             else if (ip_loai_quyet_dinh == LOAI_QUYET_DINH.TAT_CA)
-                v_str_querry = "";
-            v_str_querry+=" order by ngay_thang desc";
+                v_str_querry = "where id_don_vi=" + v_dc_id_don_vi;
+            v_str_querry += " order by ngay_thang desc";
             v_us.FillDataset(v_ds, v_str_querry);
             for (int v = 0; v < v_ds.GD_QUYET_DINH.Count; v++)
             {
@@ -85,6 +86,7 @@ namespace IP.Core.WinFormControls
         {
             DS_DM_DU_AN_CONG_TRINH v_ds = new DS_DM_DU_AN_CONG_TRINH();
             US_DM_DU_AN_CONG_TRINH v_us = new US_DM_DU_AN_CONG_TRINH();
+            decimal v_dc_id_don_vi = Person.get_id_don_vi();
             string v_str_data_default = "";
             string v_str_querry = "";
             if (ip_loai_du_an == LOAI_DU_AN.QUOC_LO)
@@ -94,7 +96,7 @@ namespace IP.Core.WinFormControls
             }
             else if (ip_loai_du_an == LOAI_DU_AN.KHAC)
             {
-                v_str_querry = "where id_loai_du_an_cong_trinh= " + ID_LOAI_DU_AN.KHAC;
+                v_str_querry = "where id_don_vi=" + v_dc_id_don_vi + " and id_loai_du_an_cong_trinh= " + ID_LOAI_DU_AN.KHAC;
                 v_str_data_default = "---Chọn dự án---";
             }
             v_us.FillDataset(v_ds, v_str_querry);
@@ -105,6 +107,56 @@ namespace IP.Core.WinFormControls
             op_ddl_quyet_dinh.Items.Insert(0, new ListItem(v_str_data_default, "-1"));
 
         }
+        public static decimal getTongTienKH(
+            DateTime ip_dat_ngay_thang
+            , string ip_str_is_nguon_ns_yn
+            , decimal ip_dc_id_loai_du_an)
+        {
+            decimal op_dc_so_tien = 0;
+            DateTime v_dat_dau_nam = ip_dat_ngay_thang;
+            v_dat_dau_nam = v_dat_dau_nam.AddDays(-v_dat_dau_nam.Day + 1);
+            v_dat_dau_nam = v_dat_dau_nam.AddMonths(-v_dat_dau_nam.Month + 1);
+            DateTime v_dat_cuoi_nam = v_dat_dau_nam.AddYears(1);
+            US_GD_GIAO_KH v_us=new WebUS.US_GD_GIAO_KH();
+            op_dc_so_tien = v_us.getTongTienKH(Person.get_id_don_vi(), v_dat_dau_nam, v_dat_cuoi_nam, ip_str_is_nguon_ns_yn, ip_dc_id_loai_du_an);
+            return op_dc_so_tien;
+        }
+        public static void load_data_to_cbo_du_an_cong_trinh_from_giao_kh(LOAI_DU_AN ip_loai_du_an
+            ,DateTime ip_dat_tu_ngay
+            ,DateTime ip_dat_den_ngay
+            ,string ip_str_tu_khoa
+            , DropDownList op_ddl_quyet_dinh)
+        {
+            DS_DM_DU_AN_CONG_TRINH v_ds = new DS_DM_DU_AN_CONG_TRINH();
+            US_DM_DU_AN_CONG_TRINH v_us = new US_DM_DU_AN_CONG_TRINH();
+            decimal v_dc_id_don_vi = Person.get_id_don_vi();
+            decimal v_dc_id_loai_cong_trinh = ID_LOAI_DU_AN.QUOC_LO;
+            string v_str_data_default = "";
+            string v_str_querry = "";
+            if (ip_loai_du_an == LOAI_DU_AN.QUOC_LO)
+            {
+                v_dc_id_loai_cong_trinh = ID_LOAI_DU_AN.QUOC_LO;
+                v_str_data_default = "---Chọn quốc lộ---";
+            }
+            else if (ip_loai_du_an == LOAI_DU_AN.KHAC)
+            {
+                v_dc_id_loai_cong_trinh = ID_LOAI_DU_AN.KHAC;
+                v_str_data_default = "---Chọn dự án---";
+            }
+            v_us.getDuAnCongTrinhGiaoKHByDate(v_ds
+                , v_dc_id_don_vi
+                , v_dc_id_loai_cong_trinh
+                , ip_dat_tu_ngay
+                , ip_dat_den_ngay
+                , ip_str_tu_khoa);
+            op_ddl_quyet_dinh.DataTextField = DM_DU_AN_CONG_TRINH.TEN_DU_AN_CONG_TRINH;
+            op_ddl_quyet_dinh.DataValueField = DM_DU_AN_CONG_TRINH.ID;
+            op_ddl_quyet_dinh.DataSource = v_ds.DM_DU_AN_CONG_TRINH;
+            op_ddl_quyet_dinh.DataBind();
+            op_ddl_quyet_dinh.Items.Insert(0, new ListItem(v_str_data_default, "-1"));
+
+        }
+
         #endregion
 
         #region Public Interfaces

@@ -33,9 +33,49 @@ public partial class DuToan_f204_nhap_giao_ke_hoach_1 : System.Web.UI.Page
     #endregion //Members
 
     #region Private Methods
+    private void reload_data_to_ddl()
+    {
+        if (m_rdb_kh_dau_nam.Checked == true)
+        {
+            m_txt_ten_du_an.Visible = true;
+            m_ddl_du_an.Visible = false;
+            m_txt_ten_du_an.Enabled = true;
+            m_txt_ten_du_an.Text = "";
+            m_hdf_id_du_an.Value = "";
+            load_data_to_cbo_quoc_lo();
+            load_data_to_du_an();
+        }
+        else
+        {
+            m_txt_ten_du_an.Visible = false;
+            m_ddl_du_an.Visible = true;
+            load_data_cong_trinh_du_an_giao_kh_to_ddl(m_ddl_du_an, WinFormControls.LOAI_DU_AN.KHAC);
+            load_data_cong_trinh_du_an_giao_kh_to_ddl(m_ddl_tuyen_quoc_lo, WinFormControls.LOAI_DU_AN.QUOC_LO);
+        }
+    }
     private void load_data_to_cbo_quyet_dinh()
     {
         WinFormControls.load_data_to_cbo_quyet_dinh_by_loai_quyet_dinh(WinFormControls.LOAI_QUYET_DINH.GIAO_KE_HOACH, m_ddl_quyet_dinh);
+    }
+    private void load_data_cong_trinh_du_an_giao_kh_to_ddl(DropDownList op_ddl, WinFormControls.LOAI_DU_AN ip_loai_du_an)
+    {
+        if (m_hdf_id_quyet_dinh.Value.Trim().Equals("") | m_hdf_id_quyet_dinh.Value.Trim().Equals("-1"))     
+        {
+            op_ddl.Items.Clear();
+        }
+        else
+        {
+            US_GD_QUYET_DINH v_us_quyet_dinh=new US_GD_QUYET_DINH(CIPConvert.ToDecimal(m_hdf_id_quyet_dinh.Value));
+            DateTime v_dat_dau_nam=v_us_quyet_dinh.datNGAY_THANG;
+            v_dat_dau_nam=v_dat_dau_nam.AddDays(-v_dat_dau_nam.Day+1);
+            v_dat_dau_nam=v_dat_dau_nam.AddMonths(-v_dat_dau_nam.Month+1);
+            DateTime v_dat_cuoi_nam=v_dat_dau_nam.AddYears(1);
+            WinFormControls.load_data_to_cbo_du_an_cong_trinh_from_giao_kh(ip_loai_du_an
+                , v_dat_dau_nam
+                , v_dat_cuoi_nam
+                , ""
+                , op_ddl);
+        }
     }
     private void load_data_to_cbo_quoc_lo()
     {
@@ -203,12 +243,13 @@ public partial class DuToan_f204_nhap_giao_ke_hoach_1 : System.Web.UI.Page
     {
         try
         {
-            m_ds.Clear();
+            DS_V_GD_GIAO_KH v_ds = new DS_V_GD_GIAO_KH();
+            US_V_GD_GIAO_KH v_us = new US_V_GD_GIAO_KH();
             if (!m_hdf_id_quyet_dinh.Value.Trim().Equals(""))
             {
-                m_us.FillDataset(m_ds,"where id_quyet_dinh="+m_hdf_id_quyet_dinh.Value+" and id_don_vi="+Person.get_id_don_vi());
+                v_us.FillDataset(v_ds, "where id_quyet_dinh=" + m_hdf_id_quyet_dinh.Value + " and id_don_vi=" + Person.get_id_don_vi());
             }
-            m_grv.DataSource = m_ds.GD_GIAO_KH;
+            m_grv.DataSource = v_ds.V_GD_GIAO_KH;
             m_grv.DataBind();
             if (!m_hdf_id_giao_kh.Value.Equals(""))
             {
@@ -216,7 +257,7 @@ public partial class DuToan_f204_nhap_giao_ke_hoach_1 : System.Web.UI.Page
                 for (int i = 0; i < m_grv.Rows.Count; i++)
                     if (CIPConvert.ToDecimal(m_grv.DataKeys[i].Value) == CIPConvert.ToDecimal(m_hdf_id_giao_kh.Value)) m_grv.SelectedIndex = i;
             }
-            WinFormControls.get_cout_grid_row(m_lbl_grid_title, "DANH SÁCH NHÓM NGHIỆP VỤ", m_ds.GD_GIAO_KH.Count);
+            WinFormControls.get_cout_grid_row(m_lbl_grid_title, "Chi tiết giao kế hoạch", v_ds.V_GD_GIAO_KH.Count);
 
         }
         catch (Exception v_e)
@@ -523,6 +564,8 @@ public partial class DuToan_f204_nhap_giao_ke_hoach_1 : System.Web.UI.Page
         m_txt_ngay_thang.Visible = false;
         m_cmd_luu_qd.Visible = false;
 
+        reload_data_to_ddl();
+
     }
     protected void m_ddl_quyet_dinh_SelectedIndexChanged(object sender, EventArgs e)
     {
@@ -540,6 +583,7 @@ public partial class DuToan_f204_nhap_giao_ke_hoach_1 : System.Web.UI.Page
         m_txt_noi_dung.Text = v_us.strNOI_DUNG;
         m_txt_ngay_thang.Text = CIPConvert.ToStr(v_us.datNGAY_THANG, "dd/MM/yyyy");
 
+        reload_data_to_ddl();
         load_data_to_grid();
     }
     protected void m_cmd_nhap_qd_moi_Click(object sender, EventArgs e)
@@ -550,11 +594,18 @@ public partial class DuToan_f204_nhap_giao_ke_hoach_1 : System.Web.UI.Page
         m_txt_so_qd.Enabled = true;
         m_txt_noi_dung.Enabled = true;
         m_txt_ngay_thang.Enabled = true;
+
+        m_txt_so_qd.Visible = true;
+        m_txt_noi_dung.Visible = true;
+        m_txt_ngay_thang.Visible = true;
+
         m_cmd_luu_qd.Visible = true;
 
         m_txt_so_qd.Text = "";
         m_txt_noi_dung.Text = "";
         m_txt_ngay_thang.Text = "";
+
+        reload_data_to_ddl();
     }
     protected void m_cmd_luu_qd_Click(object sender, EventArgs e)
     {
@@ -605,11 +656,10 @@ public partial class DuToan_f204_nhap_giao_ke_hoach_1 : System.Web.UI.Page
         m_lbl_mess_qd.Text = "Lưu QĐ thành công!";
         //set id to hiddenfield
         m_hdf_id_quyet_dinh.Value = v_us.dcID.ToString();
+
+        reload_data_to_ddl();
+        load_data_to_grid();
     }
-    #endregion
-
-
-
 
     protected void m_cmd_chon_du_an_Click(object sender, EventArgs e)
     {
@@ -620,9 +670,16 @@ public partial class DuToan_f204_nhap_giao_ke_hoach_1 : System.Web.UI.Page
     }
     protected void m_rdb_kh_dau_nam_CheckedChanged(object sender, EventArgs e)
     {
-        if (m_rdb_kh_dau_nam.Checked == true)
-        {
-
-        }
+        reload_data_to_ddl();
     }
+    protected void m_rdb_bo_sung_CheckedChanged(object sender, EventArgs e)
+    {
+        reload_data_to_ddl();
+    }
+    protected void m_rdb_dieu_chinh_CheckedChanged(object sender, EventArgs e)
+    {
+        reload_data_to_ddl();
+    }
+    #endregion
+   
 }

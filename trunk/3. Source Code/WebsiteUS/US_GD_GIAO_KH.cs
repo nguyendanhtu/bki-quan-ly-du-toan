@@ -13,7 +13,7 @@ using IP.Core.IPUserService;
 using System.Data.SqlClient;
 using System.Data;
 using WebDS;
-
+using WebDS.CDBNames;
 
 namespace WebUS
 {
@@ -201,6 +201,33 @@ namespace WebUS
             v_cmdSQL = v_objMkCmd.getSelectCmd();
             this.FillDatasetByCommand(pm_objDS, v_cmdSQL);
             pm_objDR = getRowClone(pm_objDS.Tables[pm_strTableName].Rows[0]);
+        }
+        #endregion
+
+        #region Additional
+        public decimal getTongTienKH(
+            decimal ip_dc_id_don_vi
+            , DateTime ip_dat_tu_ngay
+            , DateTime ip_dat_den_ngay
+            , string ip_str_is_nguon_ns_yn
+            , decimal ip_dc_id_loai_du_an)
+        {
+            decimal op_dc_tong_tien=0;
+            DS_GD_GIAO_KH v_ds = new DS_GD_GIAO_KH();
+            v_ds.Clear();
+            v_ds.EnforceConstraints = false;
+            CStoredProc v_sp = new CStoredProc("pr_GD_GIAO_KH_tong_so_tien");
+            v_sp.addDecimalInputParam("@ip_dc_id_don_vi", ip_dc_id_don_vi);
+            v_sp.addDatetimeInputParam("@ip_dat_tu_ngay", ip_dat_tu_ngay);
+            v_sp.addDatetimeInputParam("@ip_dat_den_ngay", ip_dat_den_ngay);
+            v_sp.addNVarcharInputParam("@ip_str_is_nguon_ns_yn", ip_str_is_nguon_ns_yn);
+            v_sp.addDecimalInputParam("@ip_dc_id_loai_du_an", ip_dc_id_loai_du_an);
+            v_sp.fillDataSetByCommand(this, v_ds);
+            for (int i = 0; i < v_ds.Tables[0].Rows.Count; i++)
+            {
+                op_dc_tong_tien += CIPConvert.ToDecimal(v_ds.Tables[0].Rows[i][GD_GIAO_KH.SO_TIEN]);
+            }
+            return op_dc_tong_tien;
         }
         #endregion
     }

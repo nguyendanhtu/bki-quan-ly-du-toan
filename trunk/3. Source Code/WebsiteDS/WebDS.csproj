@@ -144,6 +144,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DS_HT_USER_GROUP.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DS_V_GD_GIAO_KH.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_V_GD_GIAO_KH.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DS_V_GD_GIAO_VON.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_V_GD_GIAO_VON.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DS_V_HT_USER_DV_QUAN_LY.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -344,6 +354,28 @@
     </None>
     <None Include="DS_HT_USER_GROUP.xss">
       <DependentUpon>DS_HT_USER_GROUP.xsd</DependentUpon>
+    </None>
+    <None Include="DS_V_GD_GIAO_KH.xsc">
+      <DependentUpon>DS_V_GD_GIAO_KH.xsd</DependentUpon>
+    </None>
+    <None Include="DS_V_GD_GIAO_KH.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_V_GD_GIAO_KH.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DS_V_GD_GIAO_KH.xss">
+      <DependentUpon>DS_V_GD_GIAO_KH.xsd</DependentUpon>
+    </None>
+    <None Include="DS_V_GD_GIAO_VON.xsc">
+      <DependentUpon>DS_V_GD_GIAO_VON.xsd</DependentUpon>
+    </None>
+    <None Include="DS_V_GD_GIAO_VON.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_V_GD_GIAO_VON.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DS_V_GD_GIAO_VON.xss">
+      <DependentUpon>DS_V_GD_GIAO_VON.xsd</DependentUpon>
     </None>
     <None Include="DS_V_HT_USER_DV_QUAN_LY.xsc">
       <DependentUpon>DS_V_HT_USER_DV_QUAN_LY.xsd</DependentUpon>
