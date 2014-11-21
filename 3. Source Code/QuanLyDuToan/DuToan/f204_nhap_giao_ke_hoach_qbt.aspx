@@ -2,6 +2,7 @@
 
 <%@ Register Namespace="System.Web.UI" Assembly="System.Web.Extensions, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35"
     TagPrefix="asp" %>
+<%@ Import Namespace="IP.Core.IPCommon" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="Server">
     <style type="text/css">
         .auto-style1 {
@@ -78,8 +79,8 @@
                                     <td style="width: 15%"></td>
                                     <td colspan="2">
                                         <asp:RadioButton ID="m_rdb_kh_dau_nam" runat="server" CssClass="cssManField" ForeColor="Blue" Text="KH đầu năm" GroupName="loai" Checked="true" AutoPostBack="true" OnCheckedChanged="m_rdb_kh_dau_nam_CheckedChanged" />
-                                        <asp:RadioButton ID="m_rdb_bo_sung" runat="server" CssClass="cssManField" ForeColor="Blue" Text="Bổ sung" GroupName="loai" AutoPostBack="true"/>
-                                        <asp:RadioButton ID="m_rdb_dieu_chinh" runat="server" CssClass="cssManField" ForeColor="Blue" Text="Điều chỉnh" GroupName="loai" AutoPostBack="true"/>
+                                        <asp:RadioButton ID="m_rdb_bo_sung" runat="server" CssClass="cssManField" ForeColor="Blue" Text="Bổ sung" GroupName="loai" AutoPostBack="true" OnCheckedChanged="m_rdb_bo_sung_CheckedChanged"/>
+                                        <asp:RadioButton ID="m_rdb_dieu_chinh" runat="server" CssClass="cssManField" ForeColor="Blue" Text="Điều chỉnh" GroupName="loai" AutoPostBack="true" OnCheckedChanged="m_rdb_dieu_chinh_CheckedChanged"/>
                                         <asp:HiddenField ID="m_hdf_id_giao_kh" runat="server" />
                                     </td>
                                 </tr>
@@ -222,12 +223,16 @@
                                 <asp:CommandField ItemStyle-Width="3%" EditText="Sửa" EditImageUrl="../Images/Button/edit.png"
                                     ShowEditButton="true" ButtonType="Image" HeaderText="Sửa" ItemStyle-HorizontalAlign="Center"
                                     HeaderStyle-HorizontalAlign="Center" />
-                                <%-- <asp:BoundField DataField="nam_du_toan" HeaderText="Năm dự toán" />
-                                <asp:BoundField DataField="lan" HeaderText="Lần" />
-                                <asp:BoundField DataField="cong_trinh_du_an" HeaderText="Công trình, dự án" />--%>
-                                <asp:BoundField DataField="so_tien" HeaderText="Số tiền" />
-                                <%--<asp:BoundField DataField="loai_du_an" HeaderText="Loại dự án" />
-                                <asp:BoundField DataField="quyet_dinh" HeaderText="Quyết định" />--%>
+                                <asp:BoundField DataField="ten_du_an_cong_trinh" HeaderText="Công trình, dự án" />
+                                <asp:TemplateField  HeaderText="Số tiền" ItemStyle-HorizontalAlign="Right">
+                                    <ItemTemplate>
+                                        <asp:Label ID="m_lbl_so_tien_grid" runat="server" 
+                                            CssClass="cssManField" ForeColor="Blue"
+                                            Text='<%#CIPConvert.ToStr(Eval("SO_TIEN"),"#,###,##") %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:BoundField DataField="ten" HeaderText="Loại dự án" />
+                                <asp:BoundField DataField="so_quyet_dinh" HeaderText="Quyết định" />
                             </Columns>
                         </asp:GridView>
                     </td>

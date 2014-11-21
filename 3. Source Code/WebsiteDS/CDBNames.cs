@@ -6,6 +6,48 @@ using System.Text;
 namespace WebDS.CDBNames
 {
     #region Quan ly du toan
+    public class V_GD_GIAO_VON
+    {
+        public const string ID = "ID";
+        public const string ID_DON_VI = "ID_DON_VI";
+        public const string ID_QUYET_DINH = "ID_QUYET_DINH";
+        public const string ID_DU_AN_CONG_TRINH = "ID_DU_AN_CONG_TRINH";
+        public const string SO_TIEN = "SO_TIEN";
+        public const string IS_NGUON_NS_YN = "IS_NGUON_NS_YN";
+        public const string ID_LOAI_GIAO_DICH = "ID_LOAI_GIAO_DICH";
+        public const string ID_CHUONG = "ID_CHUONG";
+        public const string ID_KHOAN = "ID_KHOAN";
+        public const string ID_MUC = "ID_MUC";
+        public const string SO_QUYET_DINH = "SO_QUYET_DINH";
+        public const string NOI_DUNG = "NOI_DUNG";
+        public const string NGAY_THANG = "NGAY_THANG";
+        public const string TEN_DU_AN_CONG_TRINH = "TEN_DU_AN_CONG_TRINH";
+        public const string ID_LOAI_DU_AN_CONG_TRINH = "ID_LOAI_DU_AN_CONG_TRINH";
+        public const string TEN_NGAN = "TEN_NGAN";
+        public const string TEN = "TEN";
+    }
+
+    public class V_GD_GIAO_KH
+    {
+        public const string ID = "ID";
+        public const string ID_QUYET_DINH = "ID_QUYET_DINH";
+        public const string ID_DON_VI = "ID_DON_VI";
+        public const string ID_DU_AN_CONG_TRINH = "ID_DU_AN_CONG_TRINH";
+        public const string SO_TIEN = "SO_TIEN";
+        public const string IS_NGUON_NS_YN = "IS_NGUON_NS_YN";
+        public const string ID_LOAI_GIAO_DICH = "ID_LOAI_GIAO_DICH";
+        public const string ID_CHUONG = "ID_CHUONG";
+        public const string ID_KHOAN = "ID_KHOAN";
+        public const string ID_MUC = "ID_MUC";
+        public const string SO_QUYET_DINH = "SO_QUYET_DINH";
+        public const string NOI_DUNG = "NOI_DUNG";
+        public const string NGAY_THANG = "NGAY_THANG";
+        public const string TEN_DU_AN_CONG_TRINH = "TEN_DU_AN_CONG_TRINH";
+        public const string ID_LOAI_DU_AN_CONG_TRINH = "ID_LOAI_DU_AN_CONG_TRINH";
+        public const string TEN_NGAN = "TEN_NGAN";
+        public const string TEN = "TEN";
+    }
+
     public class GD_QUYET_DINH
     {
         public const string ID = "ID";
@@ -49,7 +91,11 @@ namespace WebDS.CDBNames
         public const string ID_UNC = "ID_UNC";
         public const string NOI_DUNG = "NOI_DUNG";
         public const string GHI_CHU = "GHI_CHU";
+        public const string ID_CHUONG = "ID_CHUONG";
+        public const string ID_KHOAN = "ID_KHOAN";
+        public const string ID_MUC = "ID_MUC";
     }
+
 
     public class GD_GIAO_KH
     {
@@ -60,7 +106,11 @@ namespace WebDS.CDBNames
         public const string SO_TIEN = "SO_TIEN";
         public const string IS_NGUON_NS_YN = "IS_NGUON_NS_YN";
         public const string ID_LOAI_GIAO_DICH = "ID_LOAI_GIAO_DICH";
+        public const string ID_CHUONG = "ID_CHUONG";
+        public const string ID_KHOAN = "ID_KHOAN";
+        public const string ID_MUC = "ID_MUC";
     }
+
 
     public class GD_GIAO_VON
     {
@@ -71,7 +121,11 @@ namespace WebDS.CDBNames
         public const string SO_TIEN = "SO_TIEN";
         public const string IS_NGUON_NS_YN = "IS_NGUON_NS_YN";
         public const string ID_LOAI_GIAO_DICH = "ID_LOAI_GIAO_DICH";
+        public const string ID_CHUONG = "ID_CHUONG";
+        public const string ID_KHOAN = "ID_KHOAN";
+        public const string ID_MUC = "ID_MUC";
     }
+
 
     public class HT_LICH_SU_QLDT
     {

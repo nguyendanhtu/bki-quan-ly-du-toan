@@ -20,16 +20,21 @@ public class Person
 
     public static decimal get_user_id()
     {
+        decimal v_dc_id_user_id = 0;
         object v_obj_id = HttpContext.Current.Session[SESSION.UserID];
-        return CIPConvert.ToDecimal(v_obj_id);
+        if (HttpContext.Current.Session[SESSION.UserID]!=null)
+        {
+            v_dc_id_user_id=CIPConvert.ToDecimal(v_obj_id);
+        }
+        return v_dc_id_user_id;
     }
 
     public static decimal get_id_don_vi()
     {
         US_DM_DON_VI v_us = new US_DM_DON_VI();
         DS_DM_DON_VI v_ds = new DS_DM_DON_VI();
-        System.Data.SqlClient.SqlCommand v_cmd=new System.Data.SqlClient.SqlCommand();
-        v_cmd.CommandType=System.Data.CommandType.Text;
+        System.Data.SqlClient.SqlCommand v_cmd = new System.Data.SqlClient.SqlCommand();
+        v_cmd.CommandType = System.Data.CommandType.Text;
         v_cmd.CommandText = @"SELECT
                                 dv.*
                                 FROM 
