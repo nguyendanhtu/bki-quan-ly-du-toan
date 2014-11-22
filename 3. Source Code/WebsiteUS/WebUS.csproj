@@ -76,6 +76,7 @@
     <Compile Include="CHelperCore.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="US_CM_COMPANY_INFO.cs" />
+    <Compile Include="US_DM_CHUONG_LOAI_KHOAN_MUC.cs" />
     <Compile Include="US_DM_DON_VI.cs" />
     <Compile Include="US_DM_DU_AN_CONG_TRINH.cs" />
     <Compile Include="US_DM_LOAI_DON_VI.cs" />
@@ -94,6 +95,7 @@
     <Compile Include="US_HT_USER_GROUP.cs" />
     <Compile Include="US_V_GD_GIAO_KH.cs" />
     <Compile Include="US_V_GD_GIAO_VON.cs" />
+    <Compile Include="US_V_GD_UY_NHIEM_CHI.cs" />
     <Compile Include="US_V_HT_USER_DV_QUAN_LY.cs" />
   </ItemGroup>
   <ItemGroup>

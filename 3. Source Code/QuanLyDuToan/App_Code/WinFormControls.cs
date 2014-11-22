@@ -52,6 +52,23 @@ namespace IP.Core.WinFormControls
         {
             ip_lbl_name.Text = ip_str_default_text + " (Có " + ip_int_count_row + " bản ghi)";
         }
+        public static void load_data_to_cbo_dm_uy_nhiem_chi(DropDownList op_ddl)
+        {
+            US_DM_UY_NHIEM_CHI v_us = new WebUS.US_DM_UY_NHIEM_CHI();
+            DS_DM_UY_NHIEM_CHI v_ds = new DS_DM_UY_NHIEM_CHI();
+            v_us.FillDataset(v_ds, "where id_don_vi=" + Person.get_id_don_vi() + " order by ngay_thang desc");
+            for (int i = 0; i < v_ds.DM_UY_NHIEM_CHI.Count; i++)
+            {
+                v_ds.Tables[0].Rows[i][DM_UY_NHIEM_CHI.SO_UNC] =
+                   CIPConvert.ToStr(v_ds.Tables[0].Rows[i][DM_UY_NHIEM_CHI.NGAY_THANG],"dd/MM/yyyy")+" " + v_ds.Tables[0].Rows[i][DM_UY_NHIEM_CHI.SO_UNC];
+                v_ds.AcceptChanges();
+            }
+            op_ddl.DataTextField = DM_UY_NHIEM_CHI.SO_UNC;
+            op_ddl.DataValueField = DM_UY_NHIEM_CHI.ID;
+            op_ddl.DataSource = v_ds.DM_UY_NHIEM_CHI;
+            op_ddl.DataBind();
+            op_ddl.Items.Insert(0, new ListItem("---Chọn UNC---", "-1"));
+        }
         public static void load_data_to_cbo_quyet_dinh_by_loai_quyet_dinh(
             LOAI_QUYET_DINH ip_loai_quyet_dinh
             , DropDownList op_ddl_quyet_dinh)
@@ -122,9 +139,9 @@ namespace IP.Core.WinFormControls
             return op_dc_so_tien;
         }
         public static void load_data_to_cbo_du_an_cong_trinh_from_giao_kh(LOAI_DU_AN ip_loai_du_an
-            ,DateTime ip_dat_tu_ngay
-            ,DateTime ip_dat_den_ngay
-            ,string ip_str_tu_khoa
+            , DateTime ip_dat_tu_ngay
+            , DateTime ip_dat_den_ngay
+            , string ip_str_tu_khoa
             , DropDownList op_ddl_quyet_dinh)
         {
             DS_DM_DU_AN_CONG_TRINH v_ds = new DS_DM_DU_AN_CONG_TRINH();
@@ -132,7 +149,6 @@ namespace IP.Core.WinFormControls
             decimal v_dc_id_don_vi = Person.get_id_don_vi();
             decimal v_dc_id_loai_cong_trinh = ID_LOAI_DU_AN.QUOC_LO;
             string v_str_data_default = "";
-            string v_str_querry = "";
             if (ip_loai_du_an == LOAI_DU_AN.QUOC_LO)
             {
                 v_dc_id_loai_cong_trinh = ID_LOAI_DU_AN.QUOC_LO;
@@ -156,6 +172,42 @@ namespace IP.Core.WinFormControls
             op_ddl_quyet_dinh.Items.Insert(0, new ListItem(v_str_data_default, "-1"));
 
         }
+        public static void load_data_to_cbo_du_an_cong_trinh_from_giao_von(LOAI_DU_AN ip_loai_du_an
+            , DateTime ip_dat_tu_ngay
+            , DateTime ip_dat_den_ngay
+            , string ip_str_tu_khoa
+            , DropDownList op_ddl_quyet_dinh)
+        {
+            DS_DM_DU_AN_CONG_TRINH v_ds = new DS_DM_DU_AN_CONG_TRINH();
+            US_DM_DU_AN_CONG_TRINH v_us = new US_DM_DU_AN_CONG_TRINH();
+            decimal v_dc_id_don_vi = Person.get_id_don_vi();
+            decimal v_dc_id_loai_cong_trinh = ID_LOAI_DU_AN.QUOC_LO;
+            string v_str_data_default = "";
+            if (ip_loai_du_an == LOAI_DU_AN.QUOC_LO)
+            {
+                v_dc_id_loai_cong_trinh = ID_LOAI_DU_AN.QUOC_LO;
+                v_str_data_default = "---Chọn quốc lộ---";
+            }
+            else if (ip_loai_du_an == LOAI_DU_AN.KHAC)
+            {
+                v_dc_id_loai_cong_trinh = ID_LOAI_DU_AN.KHAC;
+                v_str_data_default = "---Chọn dự án---";
+            }
+            v_us.getDuAnCongTrinhGiaoVonByDate(v_ds
+                , v_dc_id_don_vi
+                , v_dc_id_loai_cong_trinh
+                , ip_dat_tu_ngay
+                , ip_dat_den_ngay
+                , ip_str_tu_khoa);
+            op_ddl_quyet_dinh.DataTextField = DM_DU_AN_CONG_TRINH.TEN_DU_AN_CONG_TRINH;
+            op_ddl_quyet_dinh.DataValueField = DM_DU_AN_CONG_TRINH.ID;
+            op_ddl_quyet_dinh.DataSource = v_ds.DM_DU_AN_CONG_TRINH;
+            op_ddl_quyet_dinh.DataBind();
+            op_ddl_quyet_dinh.Items.Insert(0, new ListItem(v_str_data_default, "-1"));
+
+        }
+
+
 
         #endregion
 

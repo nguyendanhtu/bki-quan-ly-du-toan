@@ -6,6 +6,39 @@ using System.Text;
 namespace WebDS.CDBNames
 {
     #region Quan ly du toan
+    public class V_GD_UY_NHIEM_CHI
+    {
+        public const string ID = "ID";
+        public const string ID_DON_VI = "ID_DON_VI";
+        public const string ID_DU_AN_CONG_TRINH = "ID_DU_AN_CONG_TRINH";
+        public const string SO_TIEN = "SO_TIEN";
+        public const string IS_NGUON_NS_YN = "IS_NGUON_NS_YN";
+        public const string ID_UNC = "ID_UNC";
+        public const string NOI_DUNG = "NOI_DUNG";
+        public const string GHI_CHU = "GHI_CHU";
+        public const string ID_CHUONG = "ID_CHUONG";
+        public const string ID_KHOAN = "ID_KHOAN";
+        public const string ID_MUC = "ID_MUC";
+        public const string NGAY_THANG = "NGAY_THANG";
+        public const string SO_UNC = "SO_UNC";
+        public const string DIA_CHI = "DIA_CHI";
+        public const string KHO_BAC_NHA_NUOC = "KHO_BAC_NHA_NUOC";
+        public const string MA_TKKT = "MA_TKKT";
+        public const string MA_DVQHNS = "MA_DVQHNS";
+        public const string MA_CTMT_DA_HTCT = "MA_CTMT_DA_HTCT";
+        public const string TEN_DU_AN_CONG_TRINH = "TEN_DU_AN_CONG_TRINH";
+        public const string ID_LOAI_DU_AN_CONG_TRINH = "ID_LOAI_DU_AN_CONG_TRINH";
+    }
+
+    public class DM_CHUONG_LOAI_KHOAN_MUC
+    {
+        public const string ID = "ID";
+        public const string ID_CHA = "ID_CHA";
+        public const string TEN = "TEN";
+        public const string MA_SO = "MA_SO";
+        public const string ID_LOAI = "ID_LOAI";
+    }
+
     public class V_GD_GIAO_VON
     {
         public const string ID = "ID";

@@ -2,7 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" >
     <head>
-		<title>Đăng nhập DRVN-QLTS</title>
+		<title>Đăng nhập DRVN-QLDT</title>
         <link href="../Styles/Login.css" rel="stylesheet" type="text/css" />
 	    <style type="text/css">
             .style1
@@ -42,7 +42,7 @@
 		                        <td align="center" 
                                     style="background-image:url('../Images/Dialog/top-mid.png'); height:35px !important;width:340;" 
                                     valign="middle" >
-			                        <asp:label id="lblPageTitle" Runat="server" CssClass="cssTitleLogin" Text="ĐĂNG NHẬP QUẢN LÝ TÀI SẢN" />
+			                        <asp:label id="lblPageTitle" Runat="server" CssClass="cssTitleLogin" Text="ĐĂNG NHẬP QUẢN LÝ DỰ TOÁN" />
 		                        </td>
 		                        <td valign="top" style="width:7px;height:35px;background-image:url(../Images/Dialog/top-right.png);background-position:right;"></td>
 	                        </tr>

@@ -81,13 +81,14 @@
                                                 <span class="cssManField">Chương</span>
                                             </td>
                                             <td style="width:30%">
-                                                <asp:DropDownList ID="m_ddl_chuong" runat="server" CssClass="cssDorpdownlist"></asp:DropDownList>
+                                                <asp:DropDownList ID="m_ddl_chuong" runat="server" Width="90%" CssClass="cssDorpdownlist"></asp:DropDownList>
                                             </td>
                                             <td style="width:10%" align="right">
                                                 <span class="cssManField">Loại</span>
                                             </td>
                                             <td style="width:35%">
-                                                <asp:DropDownList ID="m_ddl_loai" runat="server" CssClass="cssDorpdownlist"></asp:DropDownList>
+                                                <asp:DropDownList ID="m_ddl_loai"  Width="90%" runat="server" CssClass="cssDorpdownlist"
+                                                    AutoPostBack="true" OnSelectedIndexChanged="m_ddl_loai_SelectedIndexChanged"></asp:DropDownList>
                                             </td>
                                         </tr>
                                         <tr>
@@ -95,13 +96,13 @@
                                                 <span class="cssManField">Khoản</span>
                                             </td>
                                             <td style="width:30%">
-                                                <asp:DropDownList ID="m_ddl_khoan" runat="server" CssClass="cssDorpdownlist"></asp:DropDownList>
+                                                <asp:DropDownList ID="m_ddl_khoan"  Width="90%" runat="server" CssClass="cssDorpdownlist"></asp:DropDownList>
                                             </td>
                                             <td style="width:10%" align="right">
                                                 <span class="cssManField">Mục</span>
                                             </td>
                                             <td style="width:30%">
-                                                <asp:DropDownList ID="m_ddl_muc" runat="server" CssClass="cssDorpdownlist"></asp:DropDownList>
+                                                <asp:DropDownList ID="m_ddl_muc" Width="90%" runat="server" CssClass="cssDorpdownlist"></asp:DropDownList>
                                             </td>
                                         </tr>
                                         <tr>
@@ -112,15 +113,6 @@
 
                                                 <asp:TextBox ID="m_txt_so_tien" runat="server" CssClass="cssTextBox" placeholder="Số tiền" Width="50%"></asp:TextBox>
 
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td style="width:30%" align="right">
-                                                <span class="cssManField">Nguồn</span>
-                                            </td>
-                                            <td>
-                                                <asp:RadioButton ID="m_cmd_quy_bao_tri" runat="server" CssClass="cssManField" ForeColor="Black" Text="Quỹ bảo trì" GroupName="loai" Checked="true" />
-                                                <asp:RadioButton ID="m_cmd_ngan_sach" runat="server" CssClass="cssManField" ForeColor="Black" Text="Ngân sách" GroupName="loai" />
                                             </td>
                                         </tr>
                                         <tr>
