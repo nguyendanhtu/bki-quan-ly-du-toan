@@ -198,6 +198,72 @@ namespace WebUS
             pm_objDR["GHI_CHU"] = System.Convert.DBNull;
         }
 
+        public decimal dcID_CHUONG
+        {
+            get
+            {
+                return CNull.RowNVLDecimal(pm_objDR, "ID_CHUONG", IPConstants.c_DefaultDecimal);
+            }
+            set
+            {
+                pm_objDR["ID_CHUONG"] = value;
+            }
+        }
+
+        public bool IsID_CHUONGNull()
+        {
+            return pm_objDR.IsNull("ID_CHUONG");
+        }
+
+        public void SetID_CHUONGNull()
+        {
+            pm_objDR["ID_CHUONG"] = System.Convert.DBNull;
+        }
+
+        public decimal dcID_KHOAN
+        {
+            get
+            {
+                return CNull.RowNVLDecimal(pm_objDR, "ID_KHOAN", IPConstants.c_DefaultDecimal);
+            }
+            set
+            {
+                pm_objDR["ID_KHOAN"] = value;
+            }
+        }
+
+        public bool IsID_KHOANNull()
+        {
+            return pm_objDR.IsNull("ID_KHOAN");
+        }
+
+        public void SetID_KHOANNull()
+        {
+            pm_objDR["ID_KHOAN"] = System.Convert.DBNull;
+        }
+
+        public decimal dcID_MUC
+        {
+            get
+            {
+                return CNull.RowNVLDecimal(pm_objDR, "ID_MUC", IPConstants.c_DefaultDecimal);
+            }
+            set
+            {
+                pm_objDR["ID_MUC"] = value;
+            }
+        }
+
+        public bool IsID_MUCNull()
+        {
+            return pm_objDR.IsNull("ID_MUC");
+        }
+
+        public void SetID_MUCNull()
+        {
+            pm_objDR["ID_MUC"] = System.Convert.DBNull;
+        }
+
         #endregion
         #region "Init Functions"
         public US_GD_UY_NHIEM_CHI()

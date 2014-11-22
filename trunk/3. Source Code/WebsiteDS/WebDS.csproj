@@ -69,6 +69,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DS_CM_DM_LOAI_TU_DIEN.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DS_DM_CHUONG_LOAI_KHOAN_MUC.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_DM_CHUONG_LOAI_KHOAN_MUC.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DS_DM_DON_VI.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -83,6 +88,10 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DS_DM_LOAI_DON_VI.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DS_DM_UY_NHIEM_CHI.cs">
+      <DependentUpon>DS_DM_UY_NHIEM_CHI.xsd</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="DS_DM_UY_NHIEM_CHI.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -154,6 +163,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DS_V_GD_GIAO_VON.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DS_V_GD_UY_NHIEM_CHI.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_V_GD_UY_NHIEM_CHI.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DS_V_HT_USER_DV_QUAN_LY.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -189,6 +203,17 @@
     </None>
     <None Include="DS_CM_DM_LOAI_TU_DIEN.xss">
       <DependentUpon>DS_CM_DM_LOAI_TU_DIEN.xsd</DependentUpon>
+    </None>
+    <None Include="DS_DM_CHUONG_LOAI_KHOAN_MUC.xsc">
+      <DependentUpon>DS_DM_CHUONG_LOAI_KHOAN_MUC.xsd</DependentUpon>
+    </None>
+    <None Include="DS_DM_CHUONG_LOAI_KHOAN_MUC.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_DM_CHUONG_LOAI_KHOAN_MUC.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DS_DM_CHUONG_LOAI_KHOAN_MUC.xss">
+      <DependentUpon>DS_DM_CHUONG_LOAI_KHOAN_MUC.xsd</DependentUpon>
     </None>
     <None Include="DS_DM_DON_VI.xsc">
       <DependentUpon>DS_DM_DON_VI.xsd</DependentUpon>
@@ -376,6 +401,17 @@
     </None>
     <None Include="DS_V_GD_GIAO_VON.xss">
       <DependentUpon>DS_V_GD_GIAO_VON.xsd</DependentUpon>
+    </None>
+    <None Include="DS_V_GD_UY_NHIEM_CHI.xsc">
+      <DependentUpon>DS_V_GD_UY_NHIEM_CHI.xsd</DependentUpon>
+    </None>
+    <None Include="DS_V_GD_UY_NHIEM_CHI.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_V_GD_UY_NHIEM_CHI.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DS_V_GD_UY_NHIEM_CHI.xss">
+      <DependentUpon>DS_V_GD_UY_NHIEM_CHI.xsd</DependentUpon>
     </None>
     <None Include="DS_V_HT_USER_DV_QUAN_LY.xsc">
       <DependentUpon>DS_V_HT_USER_DV_QUAN_LY.xsd</DependentUpon>

@@ -4,6 +4,13 @@ using System.Text;
 
 namespace WebUS
 {
+    public class ID_CHUONG_LOAI_KHOAN_MUC
+    {
+        public const decimal CHUONG = 655;
+        public const decimal LOAI = 656;
+        public const decimal KHOAN = 657;
+        public const decimal MUC = 658;
+    }
     public class ID_LOAI_QUYET_DINH
     {
         public const decimal GIAO_KE_HOACH = 647;

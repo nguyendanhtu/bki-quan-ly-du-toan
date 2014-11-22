@@ -176,6 +176,21 @@ namespace WebUS
             v_sp.addDatetimeInputParam("@ip_dat_den_ngay", ip_dat_den_ngay);
             v_sp.fillDataSetByCommand(this, op_ds);
         }
+        public void getDuAnCongTrinhGiaoVonByDate(DS_DM_DU_AN_CONG_TRINH op_ds
+            , decimal ip_dc_id_don_vi
+            , decimal ip_dc_id_loai_cong_trinh
+            , DateTime ip_dat_tu_ngay
+            , DateTime ip_dat_den_ngay
+            , string ip_str_tu_khoa)
+        {
+            CStoredProc v_sp = new CStoredProc("pr_dm_du_an_giao_von_search_by_date");
+            v_sp.addDecimalInputParam("@ip_dc_id_don_vi", ip_dc_id_don_vi);
+            v_sp.addDecimalInputParam("@ip_dc_id_loai_du_an", ip_dc_id_loai_cong_trinh);
+            v_sp.addNVarcharInputParam("@ip_str_tu_khoa", ip_str_tu_khoa);
+            v_sp.addDatetimeInputParam("@ip_dat_tu_ngay", ip_dat_tu_ngay);
+            v_sp.addDatetimeInputParam("@ip_dat_den_ngay", ip_dat_den_ngay);
+            v_sp.fillDataSetByCommand(this, op_ds);
+        }
         #endregion
     }
 }
