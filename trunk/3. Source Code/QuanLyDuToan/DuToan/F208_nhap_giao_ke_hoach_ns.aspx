@@ -37,8 +37,8 @@
                                     </td>
                                     <td style="width: 85%" align="left">
                                         <asp:TextBox ID="m_txt_so_qd" runat="server" CssClass="cssTextBox" Width="20%"></asp:TextBox>
-                                        <asp:DropDownList ID="m_ddl_quyet_dinh" runat="server" Width="21%" Visible="false" OnSelectedIndexChanged="m_ddl_quyet_dinh_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
-                                        <asp:Button ID="m_cmd_chon_qd_da_nhap" Text="Chọn QĐ" OnClick="m_cmd_chon_qd_da_nhap_Click" runat="server" CssClass="cssButton" Height="24px" Width="98px" />
+                                        <asp:DropDownList ID="m_ddl_quyet_dinh" runat="server" Width="21%" Visible="false" CssClass="cssDorpdownlist" ></asp:DropDownList>
+                                        <asp:Button ID="m_cmd_chon_qd_da_nhap" Text="Chọn QĐ" runat="server" CssClass="cssButton" Height="24px" Width="98px" />
                                     </td>
                                 </tr>
                                 <tr>
@@ -89,27 +89,37 @@
                                                     <td style="width: 30%">
                                                         <asp:DropDownList ID="m_ddl_chuong" runat="server" Width="90%" CssClass="cssDorpdownlist"></asp:DropDownList>
                                                     </td>
-                                                    <td style="width: 10%" align="right">
-                                                        <span class="cssManField">Loại</span>
-                                                    </td>
-                                                    <td style="width: 35%">
-                                                        <asp:DropDownList ID="m_ddl_loai" Width="90%" runat="server" CssClass="cssDorpdownlist"
-                                                            AutoPostBack="true" OnSelectedIndexChanged="m_ddl_loai_SelectedIndexChanged">
-                                                        </asp:DropDownList>
-                                                    </td>
+                                                    <td style="width: 10%" align="right"></td>
+                                                        
                                                 </tr>
                                                 <tr>
                                                     <td style="width: 30%" align="right">
+                                                        <span class="cssManField">Loại</span>
+                                                    </td>
+                                                    <td style="width: 30%">
+                                                        <asp:DropDownList ID="m_ddl_loai" Width="90%" runat="server" CssClass="cssDorpdownlist">
+                                                        </asp:DropDownList>
+                                                    </td>
+                                                    <td style="width: 10%" align="right">
                                                         <span class="cssManField">Khoản</span>
                                                     </td>
                                                     <td style="width: 30%">
                                                         <asp:DropDownList ID="m_ddl_khoan" Width="90%" runat="server" CssClass="cssDorpdownlist"></asp:DropDownList>
                                                     </td>
-                                                    <td style="width: 10%" align="right">
+                                                    
+                                                </tr>
+                                                <tr>
+                                                    <td style="width: 30%" align="right">
                                                         <span class="cssManField">Mục</span>
                                                     </td>
                                                     <td style="width: 30%">
                                                         <asp:DropDownList ID="m_ddl_muc" Width="90%" runat="server" CssClass="cssDorpdownlist"></asp:DropDownList>
+                                                    </td>
+                                                    <td style="width: 10%" align="right">
+                                                        <span class="cssManField">Tiểu mục</span>
+                                                    </td>
+                                                    <td>
+                                                        <asp:DropDownList ID="m_ddl_tieu_muc" Width="90%" runat="server" CssClass="cssDorpdownlist"></asp:DropDownList>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -118,7 +128,7 @@
                                                     </td>
                                                     <td>
 
-                                                        <asp:TextBox ID="m_txt_so_tien" runat="server" CssClass="cssTextBox" placeholder="Số tiền" Width="50%"></asp:TextBox>
+                                                        <asp:TextBox ID="m_txt_so_tien" runat="server" CssClass="cssTextBox" placeholder="Số tiền" Width="70%"></asp:TextBox>
 
                                                     </td>
                                                 </tr>
