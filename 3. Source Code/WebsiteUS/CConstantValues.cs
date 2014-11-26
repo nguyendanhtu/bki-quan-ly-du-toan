@@ -10,6 +10,7 @@ namespace WebUS
         public const decimal LOAI = 656;
         public const decimal KHOAN = 657;
         public const decimal MUC = 658;
+		public const decimal TIEU_MUC = 659;
     }
     public class ID_LOAI_QUYET_DINH
     {

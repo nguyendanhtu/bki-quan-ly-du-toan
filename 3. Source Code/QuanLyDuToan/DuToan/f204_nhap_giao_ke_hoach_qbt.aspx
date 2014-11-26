@@ -18,13 +18,13 @@
             <table cellspacing="0" cellpadding="2" style="width: 99%;" class="cssTable" border="0">
                 <tr>
                     <td class="cssPageTitleBG" colspan="4">
-                        <asp:Label ID="m_lbl_title" runat="server" Text="Nhập giao kế hoạch" CssClass="cssPageTitle"></asp:Label>
+                        <asp:Label ID="m_lbl_title" runat="server" Text="Nhập giao kế hoạch - Nguồn Quỹ bảo trì" CssClass="cssPageTitle"></asp:Label>
                         <%--<span class="expand-collapse-text"></span>--%>
                     </td>
                 </tr>
                 <tr>
                     <td colspan="4">
-                        <asp:Panel ID="m_pnl_thong_tin_ve_qd_giao_ke_hoach" GroupingText="Thông tin về QĐ giao kế hoạch" runat="server">
+                        <asp:Panel ID="m_pnl_thong_tin_ve_qd_giao_ke_hoach" GroupingText="Thông tin chung" runat="server">
                             <table cellspacing="0" cellpadding="2" style="width: 99%;" border="0">
                                 <tr>
                                     <td colspan="2">
@@ -68,7 +68,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <asp:Panel ID="m_pnl" runat="server" GroupingText="Chi tiết">
+                        <asp:Panel ID="m_pnl" runat="server" GroupingText="Nội dung chi tiết">
                             <table cellspacing="0" cellpadding="2" style="width: 99%;" border="0">
                                 <tr>
                                     <td colspan="2">
