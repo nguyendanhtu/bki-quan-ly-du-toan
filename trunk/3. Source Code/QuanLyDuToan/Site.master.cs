@@ -32,7 +32,9 @@ public partial class SiteMaster : System.Web.UI.MasterPage
             {
                 if (Session[SESSION.AccounLoginYN].ToString().Equals("Y"))
                 {
-                    m_lhk_user_name.Text = "Xin chào anh(chị): " + Session[SESSION.UserFullName].ToString();
+					if (Session[SESSION.UserID]==null) return;
+					US_DM_DON_VI v_us = new US_DM_DON_VI(Person.get_id_don_vi());
+					m_lhk_user_name.Text = "Đơn vị: " + v_us.strTEN_DON_VI;
                     m_str_user_name = CIPConvert.ToStr(Session[SESSION.UserName]);
 
 
