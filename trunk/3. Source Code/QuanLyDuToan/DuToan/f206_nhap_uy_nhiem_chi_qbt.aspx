@@ -22,135 +22,43 @@
                     <td>
                         <asp:Panel ID="m_pnl_thong_tin_thong_tin_uy_nhiem_chi" GroupingText="Thông tin ủy nhiệm chi" runat="server" ForeColor="Blue">
                             <table cellspacing="0" cellpadding="2" style="width: 99%;" border="0">
-                                <tr>
-                                    <td colspan="2">
-                                        <asp:Label ID="m_lbl_mess_master" runat="server" CssClass="cssManField"></asp:Label></td>
+                                <tr> 
+                                    <td align="left" colspan="3">
+                                          <span class="cssManField">Đơn vị trả tiền:  </span>
+                                         <asp:Label ID="m_lbl_don_vi_tra_tien" runat="server" ForeColor="blue"></asp:Label>
+                                     </td>
                                 </tr>
                                 <tr>
-                                    <td style="width: 25%" align="right">
-                                        <span class="cssManField">Đơn vị trả tiền</span>
-                                    </td>
-                                    <td style="width: 75%">
-                                        <span class="cssManField" style="color: blue">Sở giao thông vận tải Hải Dương</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td align="right">
-                                        <span class="cssManField">Địa chỉ</span>
-                                    </td>
-                                    <td>
-                                        <asp:TextBox ID="m_txt_dia_chi" runat="server" placeholder="Nhập địa chỉ" CssClass="cssTextBox" Width="70%"></asp:TextBox>
-                                    </td>
-
-                                </tr>
-                                <tr>
-                                    <td align="right">
-                                        <span class="cssManField">Số UNC</span>
-                                    </td>
-                                    <td>
-                                        <asp:TextBox ID="m_txt_so_unc" runat="server" placeholder="59Qtu" CssClass="cssTextBox" Width="18%"></asp:TextBox>
-                                        <asp:Button ID="m_cmd_chon_unc" runat="server" Text="Chọn UNC" 
-                                            CssClass="cssButton" Width="98px" Height="24px" 
-                                            OnClick="m_cmd_chon_unc_Click"/>
-                                        <asp:DropDownList ID="m_ddl_unc" Visible="false" runat="server" Width="20%"
-                                            OnSelectedIndexChanged="m_ddl_unc_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
-                                        <span class="cssManField">Ngày tháng</span>
-                                        <asp:TextBox ID="m_txt_ngay_thang" runat="server" placeholder="dd/mm/yyyy" CssClass="cssTextBox" Width="14.5%"></asp:TextBox>
+                                    <td align="left" colspan="3">
+                                        <span class="cssManField">Địa chỉ:  </span>
+                                        <asp:TextBox ID="m_txt_dia_chi" runat="server" CssClass="cssTextBox" Width="95%" placeholder="Nhập địa chỉ"></asp:TextBox>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td align="right">
-                                        <span class="cssManField">Tại kho bạc Nhà nước (NH)</span>
-                                    </td>
-                                    <td>
-                                        <asp:TextBox ID="m_txt_tai_kho_bac_nn" runat="server" CssClass="cssTextBox" Width="70%"></asp:TextBox>
+                                    <td align="left" colspan="3">
+                                        <span class="cssManField">Tại Kho bạc Nhà nước(NH):  </span>
+                                        <asp:TextBox ID="m_txt_tai_kho_bac_nha_nuoc" runat="server" CssClass="cssTextBox" Width="86%"></asp:TextBox>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td align="right">
-                                        <span class="cssManField">Mã TKKT</span>
+                                    <td align="left" style="width:30%">
+                                        <span class="cssManField">Mã TKKT:  </span>
+                                        <asp:TextBox ID="m_txt_ma_tkkt" runat="server" CssClass="cssTextBox" Width="70%"></asp:TextBox>
+                                    </td> 
+                                    <td align="left" style="width:30%">   
+                                        <span class="cssManField">Mã ĐVQHNS:  </span>
+                                        <asp:TextBox ID="m_txt_ma_dvqhns" runat="server" CssClass="cssTextBox" Width="70%"></asp:TextBox>
                                     </td>
-                                    <td>
-                                        <asp:TextBox ID="m_txt_ma_tkkt" runat="server" CssClass="cssTextBox" Width="15%"></asp:TextBox>
-                                        <span class="cssManField">Mã ĐVQHNS</span>
-                                        <asp:TextBox ID="m_txt_ma_dvqhns" runat="server" CssClass="cssTextBox" Width="15%"></asp:TextBox>
-                                        <span class="cssManField">Mã CTMT, DA và HTCT</span>
-                                        <asp:TextBox ID="m_txt_ma_ctmt_da_htct" runat="server" CssClass="cssTextBox" Width="14.5%"></asp:TextBox>
+                                    <td align="left" style="width:40%">
+                                        <span class="cssManField">Mã CTMT, DA và HTCT:  </span>
+                                        <asp:TextBox ID="m_txt_ma_ctmt_da_va_htct" runat="server" CssClass="cssTextBox" Width="70%"></asp:TextBox>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td></td>
-                                    <td>
-                                        <asp:Button ID="m_cmd_luu_unc" runat="server" Text="Lưu UNC" CssClass="cssButton" Width="98px" Height="24px"
-                                            OnClick="m_cmd_luu_unc_Click" />
-                                        <asp:Button ID="m_cmd_nhap_moi_unc" runat="server" Text="Nhập mới UNC" CssClass="cssButton" Width="98px" Height="24px"
-                                            OnClick="m_cmd_nhap_moi_unc_Click" />
-                                        <asp:HiddenField ID="m_hdf_id_dm_uy_nhiem_chi" runat="server" />
-                                        <asp:HiddenField ID="m_hdf_form_mode" runat="server" />
-                                    </td>
-                                </tr>
-                            </table>
-                        </asp:Panel>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <asp:Panel ID="m_pnl_Khoan_thanh_toan" GroupingText="Khoản thanh toán" runat="server" ForeColor="Blue">
-                            <table cellspacing="0" cellpadding="2" style="width: 99%;" border="0">
-                                <tr>
-                                    <td colspan="2">
-                                        <asp:Label ID="m_lbl_mess_detail" runat="server" CssClass="cssManField"></asp:Label></td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>
-                                        <asp:RadioButton ID="m_rdb_chi_thuong_xuyen" runat="server" CssClass="cssManField" ForeColor="Blue" Text="Chi thường xuyên"
-                                             GroupName="loai" Checked="true" OnCheckedChanged="m_rdb_chi_thuong_xuyen_CheckedChanged" AutoPostBack="true"/>
-                                        <asp:RadioButton ID="m_rdb_chi_khong_thuong_xuyen" runat="server" CssClass="cssManField" AutoPostBack="true"
-                                            ForeColor="Blue" Text="Chi không thường xuyên" GroupName="loai" OnCheckedChanged="m_rdb_chi_khong_thuong_xuyen_CheckedChanged"/>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td style="width: 25%" align="right">
-                                        <span class="cssManField">Nội dung</span>
-                                    </td>
-                                    <td style="width: 75%">
-
-                                        <asp:DropDownList ID="m_ddl_quoc_lo" runat="server" CssClass="cssDorpdownlist" Width="21%"
-                                            AutoPostBack="true" OnSelectedIndexChanged="m_ddl_quoc_lo_SelectedIndexChanged"></asp:DropDownList>
-                                         <asp:DropDownList ID="m_ddl_du_an" runat="server" CssClass="cssDorpdownlist" Width="21%"
-                                             AutoPostBack="true" OnSelectedIndexChanged="m_ddl_du_an_SelectedIndexChanged"></asp:DropDownList>
-
-                                    </td>
-                                </tr>
-                                
-                                <tr>
-                                    <td style="width: 25%" align="right">
-                                        <span class="cssManField">Số tiền</span>
-                                    </td>
-                                    <td>
-                                        <asp:TextBox ID="m_txt_so_tien" runat="server" CssClass="cssTextBox" Width="20%" placeholder="Số tiền"></asp:TextBox>
-                                    </td>
-                                </tr>
-                                  <tr>
-                                    <td style="width: 25%" align="right">
-                                        <span class="cssManField">Ghi chú</span>
-                                    </td>
-                                    <td>
-                                        <asp:TextBox ID="m_txt_ghi_chu" runat="server" CssClass="cssTextBox" Width="40%" placeholder="Ghi rõ nội dung thanh toán"></asp:TextBox>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>
-                                        <asp:Button ID="m_cmd_ctx_insert" Text="Thêm" runat="server" CssClass="cssButton" Height="24px" Width="98px" 
-                                            OnClick="m_cmd_ctx_insert_Click"/>
-                                        <asp:Button ID="m_cmd_ctx_update" Text="Cập nhật" runat="server" CssClass="cssButton" Height="24px" Width="98px" 
-                                            OnClick="m_cmd_ctx_update_Click"/>
-                                        <asp:Button ID="m_cmd_ctx_cancel" Text="Xóa trắng" runat="server" CssClass="cssButton" Height="24px" Width="98px"
-                                            OnClick="m_cmd_ctx_cancel_Click" />
-                                        <asp:HiddenField ID="m_hdf_id_gd_uy_nhiem_chi" runat="server" />
-                                        <asp:HiddenField ID="m_hdf_id_du_an_cong_trinh" runat="server" />
+                                    <td align="left" colspan="2">
+                                        <asp:Button ID="m_cmd_unc" Text="Lưu UNC" runat="server" CssClass="cssButton" Height="24px" Width="98px" />
+                                        <asp:Button ID="m_cmd_nhap_moi_unc" Text="Nhập mới UNC" runat="server" CssClass="cssButton" Height="24px" Width="98px" />
                                     </td>
                                 </tr>
                             </table>
@@ -234,6 +142,281 @@
                         </asp:GridView>
                     </td>
                 </tr>
+                 <tr>
+                    <td colspan="2">
+                        <asp:Panel ID="m_pnl_trong_do" runat="server" GroupingText="Trong đó">
+                        <asp:Panel ID="m_pnl_nop_thue" runat="server" GroupingText="Nộp thuế">
+                        <table cellspacing="0" cellpadding="2" style="width: 99%;" border="0">
+                            <tr>
+                                <td colspan="3">
+                                    <span class="cssManField">Tên đơn vị(Người nộp thuế):  </span>
+                                    <asp:TextBox ID="m_txt_ten_don_vi" runat="server" CssClass="cssTextBox" Width="79%"></asp:TextBox>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width:30%">
+                                    <span class="cssManField">Mã số thuế:</span>
+                                    <asp:TextBox ID="m_txt_ma_so_thue" runat="server" CssClass="cssTextBox" Width="60%"></asp:TextBox>
+                                </td>
+                                <td style="width:30%">
+                                    <span class="cssManField">Mã NDKT:</span>
+                                    <asp:TextBox ID="m_txt_ma_ndkt" runat="server" CssClass="cssTextBox" Width="65%"></asp:TextBox>
+                                </td>
+                                <td style="width:40%">
+                                    <span class="cssManField">Mã chương:</span>
+                                    <asp:TextBox ID="m_txt_ma_chuong" runat="server" CssClass="cssTextBox" Width="74%"></asp:TextBox>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <span class="cssManField">Cơ quan quản lý thu:</span>
+                                    <asp:TextBox ID="m_txt_co_quan_quan_ly_thu" runat="server" CssClass="cssTextBox" Width="70%"></asp:TextBox>
+                                </td>
+                                <td>
+                                    <span class="cssManField">Mã CQ thu:</span>
+                                    <asp:TextBox ID="m_txt_ma_cq_thu" runat="server" CssClass="cssTextBox" Width="76%"></asp:TextBox>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">
+                                    <span class="cssManField">KBNN hạch toán thu:</span>
+                                    <asp:TextBox ID="m_txt_kbnn_hach_toan_thu" runat="server" CssClass="cssTextBox" Width="84%"></asp:TextBox>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">
+                                    <span class="cssManField">Số tiền nộp thuế (ghi bằng chữ):</span>
+                                    <asp:TextBox ID="m_txt_so_tien_nop_thue" runat="server" CssClass="cssTextBox" Width="76%"></asp:TextBox>
+                                </td>
+                            </tr>
+                        </table>
+                        </asp:Panel>
+                        <asp:Panel ID="m_pnl_thanh_toan_cho_don_vi_huong" runat="server" GroupingText="Thanh toán cho đơn vị hưởng">
+                            <table cellspacing="0" cellpadding="2" style="width: 99%;" border="0">
+                                <tr>
+                                    <td colspan="3">
+                                        <span class="cssManField">Đơn vị nhận tiền:</span>
+                                        <asp:TextBox ID="m_txt_don_vi_nhan_tien" runat="server" CssClass="cssTextBox" Width="87%"></asp:TextBox>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="width:30%">
+                                        <span class="cssManField">Mã ĐVQHNS:</span>
+                                        <asp:TextBox ID="m_txt_ma_dvqhns_1" runat="server" CssClass="cssTextBox" Width="65%"></asp:TextBox>
+                                    </td>
+                                    <td colspan="2">
+                                        <span class="cssManField">Địa chỉ:</span>
+                                        <asp:TextBox ID="m_txt_dia_chi_1" runat="server" CssClass="cssTextBox" Width="91%"></asp:TextBox>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="width:30%">
+                                        <span class="cssManField">Tài khoản:</span>
+                                        <asp:TextBox ID="m_txt_tai_khoan" runat="server" CssClass="cssTextBox" Width="70%"></asp:TextBox>
+                                    </td>
+                                    <td style="width:35%">
+                                        <span class="cssManField">Mã CTMT, DA, và HTCT:</span>
+                                        <asp:TextBox ID="m_txt_ma_ctmt_da_va_htct_1" runat="server" CssClass="cssTextBox" Width="50%"></asp:TextBox>
+                                    </td>
+                                    <td style="width:35%">
+                                        <span class="cssManField">Tại KBNN:</span>
+                                        <asp:TextBox ID="m_txt_tai_kbnn" runat="server" CssClass="cssTextBox" Width="77%"></asp:TextBox>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3">
+                                        <span class="cssManField">Số tiền thanh toán cho đơn vị hưởng (ghi bằng chữ):</span>
+                                        <asp:TextBox ID="m_txt_so_tien_thanh_toan_cho_don_vi_huong_ghi_bang_chu" runat="server" CssClass="cssTextBox" Width="62%"></asp:TextBox>
+                                    </td>
+                                </tr>
+                            </table>
+                        </asp:Panel>
+                        </asp:Panel>
+                    </td>
+                    <td colspan="2">
+                        <asp:Panel ID="n_pnl_kbnn_a_ghi" runat="server" GroupingText="KBNN A GHI">
+                            <asp:Panel ID="n_pnl_1_nop_thue" runat="server" GroupingText="1. Nộp thuế:">
+                                <table cellspacing="0" cellpadding="2" style="width: 99%;" border="0">
+                                    <tr>
+                                        <td>
+                                            <span class="cssManField">Nợ TK:</span>
+                                            <asp:TextBox ID="m_txt_no_tk_1" runat="server" CssClass="cssTextBox" Width="85%"></asp:TextBox>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="cssManField">Có TK:</span>
+                                            <asp:TextBox ID="m_txt_co_tk_1" runat="server" CssClass="cssTextBox" Width="85%"></asp:TextBox>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="cssManField">Nợ TK:</span>
+                                            <asp:TextBox ID="m_txt_no_tk_2" runat="server" CssClass="cssTextBox" Width="85%"></asp:TextBox>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="cssManField">Có TK:</span>
+                                            <asp:TextBox ID="m_txt_co_tk_2" runat="server" CssClass="cssTextBox" Width="85%"></asp:TextBox>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="cssManField">Mã CQ thu:</span>
+                                            <asp:TextBox ID="m_txt_ma_cq_thu_nop_thue" runat="server" CssClass="cssTextBox" Width="77%"></asp:TextBox>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="cssManField">Mã ĐBHC:</span>
+                                            <asp:TextBox ID="m_txt_ma_dbhc" runat="server" CssClass="cssTextBox" Width="78%"></asp:TextBox>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </asp:Panel>
+                            <asp:Panel ID="m_pnl_2_thanh_toan_cho_dv_huong" runat="server" GroupingText="2. Thanh toán cho ĐV hưởng:">
+                                <table cellspacing="0" cellpadding="2" style="width: 99%;" border="0">
+                                     <tr>
+                                        <td>
+                                            <span class="cssManField">Nợ TK:</span>
+                                            <asp:TextBox ID="m_txt_no_tk_3" runat="server" CssClass="cssTextBox" Width="85%"></asp:TextBox>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="cssManField">Có TK: </span>
+                                            <asp:TextBox ID="m_txt_co_tk_3" runat="server" CssClass="cssTextBox" Width="85%"></asp:TextBox>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </asp:Panel>
+                        </asp:Panel>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4">
+                        <table cellspacing="0" cellpadding="2" style="width: 99%;" border="1">
+                            <tr>
+                                <td style="width:40%" align="center">
+                                    <table table cellspacing="0" cellpadding="1" style="width: 100%;" border="1">
+                                        <tr>
+                                            <td colspan="2" align="center">
+                                                <span>ĐƠN VỊ TRẢ TIỀN</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width:50%" align="center">
+                                                <span class="cssManField">Kế toán trưởng</span>
+                                                <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+                                            </td>
+                                            <td style="width:50%" align="center">
+                                                <span class="cssManField">Chủ tài khoản</span>
+                                                <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+                                            </td>
+                                        </tr>
+                                      </table>
+                                 </td>
+                                <td style="width:60%" align="center">
+                                    <table cellspacing="0" cellpadding="0" style="width: 100%;" border="1">
+                                        <tr>
+                                            <td colspan="5" align="center">
+                                                <span>KBNN A</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width:50%" align="center" colspan="2" >
+                                                <span class="cssManField">BỘ PHẬN KIỂM SOÁT CHI ngày</span>
+                                            </td>
+                                            <td style="width:50%" align="center" colspan="3">
+                                                <span class="cssManField">BỘ PHẬN KIỂM SOÁT GHI SỔ ngày </span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width:25%" align="center">
+                                                <span class="cssManField">Kiểm soát</span>
+                                                <br /><br /><br /><br /><br /><br /><br /><br /><br />
+                                            </td>
+                                            <td style="width:25%" align="center">
+                                                <span class="cssManField">Phụ trách</span>
+                                                <br /><br /><br /><br /><br /><br /><br /><br /><br />
+                                            </td>
+                                            <td style="width:15%" align="center">
+                                                <span class="cssManField">Kế toán</span>
+                                                <br /><br /><br /><br /><br /><br /><br /><br /><br />
+                                            </td>
+                                            <td style="width:20%" align="center">
+                                                <span class="cssManField">Kế toán trưởng</span>
+                                                <br /><br /><br /><br /><br /><br /><br /><br /><br />
+                                            </td><td style="width:15%" align="center">
+                                                <span class="cssManField">Giám đốc</span>
+                                                <br /><br /><br /><br /><br /><br /><br /><br /><br />
+                                            </td>
+                                        </tr>
+                                      </table>
+                                </td>     
+                            </tr>
+                            
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                                <td colspan="4">
+                                    <table cellspacing="0" cellpadding="0" style="width: 99%;" border="1">
+                                        <tr>
+                                            <td style="width:50%">
+                                                <table cellspacing="0" cellpadding="0" style="width: 100%;" border="0">
+                                                    <tr>
+                                                        <td colspan="3" align="center">
+                                                            <span>NGÂN HÀNG A GHI SỔ NGÀY</span>
+                                                            <asp:TextBox ID="m_txt_ngan_hang_a_ghi_so_ngay" runat="server" CssClass="cssTextBox" Width="30%" BorderColor="White"></asp:TextBox>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="center" style="width:30%">
+                                                            <span>Kế toán</span>
+                                                            <br /><br /><br /><br /><br /><br /><br />
+                                                        </td>
+                                                        <td align="center" style="width:40%">
+                                                            <span>Kế toán trưởng</span>
+                                                            <br /><br /><br /><br /><br /><br /><br />
+                                                        </td>
+                                                        <td align="center" style="width:30%">
+                                                            <span>Giám đốc</span>
+                                                            <br /><br /><br /><br /><br /><br /><br />
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                            <td style="width:50%">
+                                                <table cellspacing="0" cellpadding="0" style="width: 100%;" border="0">
+                                                    <tr>
+                                                        <td colspan="3" align="center">
+                                                            <span>NGÂN HÀNG B GHI SỔ NGÀY</span>
+                                                            <asp:TextBox ID="TextBox1" runat="server" CssClass="cssTextBox" Width="30%" BorderColor="White"></asp:TextBox>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="center" style="width:30%">
+                                                            <span>Kế toán</span>
+                                                            <br /><br /><br /><br /><br /><br /><br />
+                                                        </td>
+                                                        <td align="center" style="width:40%">
+                                                            <span>Kế toán trưởng</span>
+                                                            <br /><br /><br /><br /><br /><br /><br />
+                                                        </td>
+                                                        <td align="center" style="width:30%">
+                                                            <span>Giám đốc</span>
+                                                            <br /><br /><br /><br /><br /><br /><br />
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+
             </table>
         </ContentTemplate>
         <Triggers>
