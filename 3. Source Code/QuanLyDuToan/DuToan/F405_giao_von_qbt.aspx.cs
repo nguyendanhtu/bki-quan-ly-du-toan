@@ -177,6 +177,10 @@ public partial class DuToan_F405_giao_von : System.Web.UI.Page
         }
         m_us.dcID_QUYET_DINH = CIPConvert.ToDecimal(m_hdf_id_quyet_dinh.Value);
         m_us.dcID_DON_VI = Person.get_id_don_vi();
+		m_us.SetID_CHUONGNull();
+		m_us.SetID_KHOANNull();
+		m_us.SetID_MUCNull();
+		m_us.SetID_TIEU_MUCNull();
     }
     private void us_object_to_form()
     {

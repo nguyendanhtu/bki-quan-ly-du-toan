@@ -86,7 +86,8 @@
 										<asp:Panel ID="m_pnl_chon_muc_khoan_chi" GroupingText="Chọn mục khoản chi" runat="server" ForeColor="Blue">
 											<table style="width: 99%">
 												<tr>
-													<td colspan="4"><asp:Label ID="m_lbl_mess_detail" runat="server" CssClass="cssManField"></asp:Label></td>
+													<td colspan="4">
+														<asp:Label ID="m_lbl_mess_detail" runat="server" CssClass="cssManField"></asp:Label></td>
 												</tr>
 												<tr>
 													<td style="width: 15%" align="right">
@@ -147,8 +148,8 @@
 
 													<td>
 
-														<asp:Button ID="m_cmd_insert" runat="server" CssClass="cssButton" Height="24px" Text="Thêm" Width="98px" OnClick="m_cmd_insert_Click"/>
-														<asp:Button ID="m_cmd_update" runat="server" CssClass="cssButton" Height="24px" Text="Cập nhật" Width="98px" OnClick="m_cmd_update_Click"/>
+														<asp:Button ID="m_cmd_insert" runat="server" CssClass="cssButton" Height="24px" Text="Thêm" Width="98px" OnClick="m_cmd_insert_Click" />
+														<asp:Button ID="m_cmd_update" runat="server" CssClass="cssButton" Height="24px" Text="Cập nhật" Width="98px" OnClick="m_cmd_update_Click" />
 														<asp:Button ID="m_cmd_cancel" runat="server" CssClass="cssButton" Height="24px" Text="Xóa trắng" Width="98px" OnClick="m_cmd_cancel_Click" />
 														<asp:HiddenField ID="m_hdf_id_giao_kh" runat="server" />
 													</td>
@@ -176,7 +177,7 @@
 					</td>
 				</tr>
 				<tr>
-					
+
 					<td align="right" style="width: 20%">
 						<span class="cssManField">Từ khóa</span>
 					</td>
@@ -192,9 +193,13 @@
 				<tr>
 					<td colspan="3" align="center">
 						<asp:GridView ID="m_grv" runat="server" AllowPaging="True" AutoGenerateColumns="False"
+							DataKeyNames="ID"
 							CssClass="cssGrid" Width="100%" CellPadding="0" ForeColor="#333333"
 							AllowSorting="True" PageSize="30" ShowHeader="true"
-							EmptyDataText="Không có dữ liệu phù hợp">
+							EmptyDataText="Không có dữ liệu phù hợp"
+							OnRowEditing="m_grv_RowEditing"
+							OnRowDeleting="m_grv_RowDeleting"
+							OnPageIndexChanging="m_grv_PageIndexChanging">
 							<AlternatingRowStyle BackColor="White" />
 							<EditRowStyle BackColor="#7C6F57" />
 							<FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
@@ -219,21 +224,18 @@
 									</ItemTemplate>
 									<ItemStyle HorizontalAlign="Center"></ItemStyle>
 								</asp:TemplateField>
-								<asp:TemplateField HeaderText="Sửa" HeaderStyle-Width="2%">
-									<ItemTemplate>
-										<asp:LinkButton ID="lbt_delete" runat="server" CausesValidation="false"
-											CommandName="Update" ToolTip="Sửa">
-                     <img alt="Xóa" src="../Images/Button/edit.png" />
-										</asp:LinkButton>
-									</ItemTemplate>
-									<ItemStyle HorizontalAlign="Center"></ItemStyle>
-								</asp:TemplateField>
-								<asp:BoundField DataField="nam_du_toan" HeaderText="Năm dự toán" />
+
+								<asp:CommandField ItemStyle-Width="3%" EditText="Sửa" EditImageUrl="../Images/Button/edit.png"
+									ShowEditButton="true" ButtonType="Image" HeaderText="Sửa" ItemStyle-HorizontalAlign="Center"
+									HeaderStyle-HorizontalAlign="Center" />
+								<asp:BoundField DataField="so_tien" HeaderText="Số tiền" />
+								<asp:BoundField DataField="ghi_chu" HeaderText="Ghi chú" />
+								<%--<asp:BoundField DataField="nam_du_toan" HeaderText="Năm dự toán" />
 								<asp:BoundField DataField="lan" HeaderText="Lần" />
 								<asp:BoundField DataField="du_an_cong_trinh" HeaderText="Công trình, dự án" />
-								<asp:BoundField DataField="so_tien" HeaderText="Số tiền" />
+								
 								<asp:BoundField DataField="loai_du_an" HeaderText="Loại dự án" />
-								<asp:BoundField DataField="quyet_dinh" HeaderText="Quyết định" />
+								<asp:BoundField DataField="quyet_dinh" HeaderText="Quyết định" />--%>
 							</Columns>
 						</asp:GridView>
 					</td>

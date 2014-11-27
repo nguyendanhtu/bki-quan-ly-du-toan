@@ -264,6 +264,27 @@ namespace WebUS
 			pm_objDR["GHI_CHU"] = System.Convert.DBNull;
 		}
 
+		public decimal dcID_TIEU_MUC
+		{
+			get
+			{
+				return CNull.RowNVLDecimal(pm_objDR, "ID_TIEU_MUC", IPConstants.c_DefaultDecimal);
+			}
+			set
+			{
+				pm_objDR["ID_TIEU_MUC"] = value;
+			}
+		}
+
+		public bool IsID_TIEU_MUCNull()
+		{
+			return pm_objDR.IsNull("ID_TIEU_MUC");
+		}
+
+		public void SetID_TIEU_MUCNull()
+		{
+			pm_objDR["ID_TIEU_MUC"] = System.Convert.DBNull;
+		}
 		#endregion
 		#region "Init Functions"
 		public US_GD_GIAO_VON()
