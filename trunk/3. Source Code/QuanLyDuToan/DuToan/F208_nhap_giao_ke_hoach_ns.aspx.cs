@@ -9,6 +9,7 @@ using WebUS;
 using WebDS;
 using WebDS.CDBNames;
 using IP.Core.WinFormControls;
+using System.Data;
 
 public partial class DuToan_f209_giao_von_ns : System.Web.UI.Page
 {
@@ -157,10 +158,17 @@ public partial class DuToan_f209_giao_von_ns : System.Web.UI.Page
 	}
 	private void load_data_to_grid()
 	{
-		US_GD_GIAO_KH v_us = new US_GD_GIAO_KH();
-		DS_GD_GIAO_KH v_ds = new DS_GD_GIAO_KH();
-		v_us.FillDataset(v_ds, "where id_chuong is not null");
-		m_grv.DataSource = v_ds.GD_GIAO_KH;
+		US_V_GD_GIAO_KH v_us = new US_V_GD_GIAO_KH();
+		DS_V_GD_GIAO_KH v_ds = new DS_V_GD_GIAO_KH();
+		if (m_hdf_id_quyet_dinh.Value.Trim().Equals("")|m_hdf_id_quyet_dinh.Value.Trim().Equals("-1"))
+		{
+			m_grv.DataSource = v_ds.V_GD_GIAO_KH;
+			m_grv.DataBind();
+			return;
+		}
+		v_us.FillDataset(v_ds, "where id_chuong is not null and id_quyet_dinh="+m_hdf_id_quyet_dinh.Value
+			+"and is_nguon_ns_yn='Y'");
+		m_grv.DataSource = v_ds.V_GD_GIAO_KH;
 		m_grv.DataBind();
 	}
 
@@ -196,6 +204,16 @@ public partial class DuToan_f209_giao_von_ns : System.Web.UI.Page
 		{
 			m_hdf_form_mode.Value = "2";
 		}
+	}
+	public string format_so_tien(string ip_str_so_tien)
+	{
+		string op_str_so_tien = "";
+		if (ip_str_so_tien.Trim().Equals("") | ip_str_so_tien.Trim().Equals("-1"))
+		{
+			op_str_so_tien = "";
+		}
+		else op_str_so_tien = CIPConvert.ToStr(CIPConvert.ToDecimal(ip_str_so_tien), "#,###,##");
+		return op_str_so_tien;
 	}
 
 	#region Save Data
@@ -278,7 +296,7 @@ public partial class DuToan_f209_giao_von_ns : System.Web.UI.Page
 		if (m_rdb_kh_dau_nam.Checked == true) m_us.dcID_LOAI_GIAO_DICH = ID_LOAI_GIAO_DICH.KH_DAU_NAM;
 		else if (m_rdb_dieu_chinh.Checked == true) m_us.dcID_LOAI_GIAO_DICH = ID_LOAI_GIAO_DICH.DIEU_CHINH;
 		else if (m_rdb_bo_sung.Checked == true) m_us.dcID_LOAI_GIAO_DICH = ID_LOAI_GIAO_DICH.BO_SUNG;
-		m_us.strIS_NGUON_NS_YN = "N";//Nguon mac dinh la Quy bao tri
+		m_us.strIS_NGUON_NS_YN = "Y";//Nguon mac dinh la Ngan sach
 		m_us.dcSO_TIEN = CIPConvert.ToDecimal(m_txt_so_tien.Text.Trim());
 
 		m_us.dcID_QUYET_DINH = CIPConvert.ToDecimal(m_hdf_id_quyet_dinh.Value);
@@ -310,6 +328,26 @@ public partial class DuToan_f209_giao_von_ns : System.Web.UI.Page
 		}
 		m_txt_so_tien.Text = m_us.dcSO_TIEN.ToString();
 		m_txt_ghi_chu.Text = m_us.strGHI_CHU;
+
+		if (m_us.dcID_LOAI_GIAO_DICH==ID_LOAI_GIAO_DICH.KH_DAU_NAM)
+		{
+			m_rdb_kh_dau_nam.Checked = true;
+			m_rdb_dieu_chinh.Checked = false;
+			m_rdb_bo_sung.Checked = false;
+		}
+		else if (m_us.dcID_LOAI_GIAO_DICH == ID_LOAI_GIAO_DICH.BO_SUNG)
+		{
+			m_rdb_kh_dau_nam.Checked = false;
+			m_rdb_dieu_chinh.Checked = false;
+			m_rdb_bo_sung.Checked = true;
+		}
+		else
+		{
+			m_rdb_kh_dau_nam.Checked = false;
+			m_rdb_dieu_chinh.Checked = true;
+			m_rdb_bo_sung.Checked = false;
+		}
+
 		//set quyet dinh
 		US_GD_QUYET_DINH v_us_quyet_dinh = new US_GD_QUYET_DINH(m_us.dcID_QUYET_DINH);
 		m_txt_so_qd.Text = v_us_quyet_dinh.strSO_QUYET_DINH;
@@ -583,56 +621,63 @@ public partial class DuToan_f209_giao_von_ns : System.Web.UI.Page
 
 
 
-	protected void m_grv_RowDeleting(object sender, GridViewDeleteEventArgs e)
+
+	protected void m_grv_PageIndexChanging(object sender, GridViewPageEventArgs e)
 	{
 		try
 		{
-			m_lbl_mess_grid.Text = "";
-			set_form_mode(LOAI_FORM.XOA);
-			m_hdf_id_giao_kh.Value = CIPConvert.ToStr(m_grv.DataKeys[e.RowIndex].Value);
-			if (!check_validate_is_ok()) return;
-			delete_by_ID();
+			m_grv.PageIndex = e.NewPageIndex;
+			m_grv.SelectedIndex = -1;
+			load_data_to_grid();
+			if (!m_hdf_id_giao_kh.Value.Equals(""))
+			{
+				m_grv.SelectedIndex = -1;
+				for (int i = 0; i < m_grv.Rows.Count; i++)
+					if (CIPConvert.ToDecimal(m_grv.DataKeys[i].Value) == CIPConvert.ToDecimal(m_hdf_id_giao_kh.Value)) m_grv.SelectedIndex = i;
+			}
 		}
 		catch (Exception v_e)
 		{
-			CSystemLog_301.ExceptionHandle(v_e);
+			m_lbl_mess_grid.Text = v_e.ToString();
 		}
+		
 	}
-	protected void m_grv_PageIndexChanging(object sender, GridViewPageEventArgs e)
-	{
-		m_grv.PageIndex = e.NewPageIndex;
-		m_grv.SelectedIndex = -1;
-		load_data_to_grid();
-		if (!m_hdf_id_giao_kh.Value.Equals(""))
-		{
-			m_grv.SelectedIndex = -1;
-			for (int i = 0; i < m_grv.Rows.Count; i++)
-				if (CIPConvert.ToDecimal(m_grv.DataKeys[i].Value) == CIPConvert.ToDecimal(m_hdf_id_giao_kh.Value)) m_grv.SelectedIndex = i;
-		}
-	}
-	protected void m_grv_RowEditing(object sender, GridViewEditEventArgs e)
+
+
+
+
+	protected void m_grv_RowCommand(object sender, GridViewCommandEventArgs e)
 	{
 		try
 		{
-			m_lbl_mess_grid.Text = "";
-			xoa_trang();
-			//format button by form mode - update
-			m_cmd_update.Visible = true;
-			m_cmd_insert.Visible = false;
-			//reset control
+			m_hdf_id_giao_kh.Value = CIPConvert.ToStr(e.CommandArgument);
+			GridViewRow gvr = (GridViewRow)(((LinkButton)e.CommandSource).NamingContainer);
+			if (e.CommandName == "Sua")
+			{
+				m_lbl_mess_grid.Text = "";
+				xoa_trang();
+				//format button by form mode - update
+				m_cmd_update.Visible = true;
+				m_cmd_insert.Visible = false;
+				//reset control
 
-
-			m_grv.SelectedIndex = e.NewEditIndex;
-			m_hdf_id_giao_kh.Value = CIPConvert.ToStr(m_grv.DataKeys[e.NewEditIndex].Value);
-			set_form_mode(LOAI_FORM.SUA);
-			us_object_to_form();
+				m_grv.SelectedIndex = gvr.RowIndex;
+				set_form_mode(LOAI_FORM.SUA);
+				m_hdf_id_giao_kh.Value = CIPConvert.ToStr(e.CommandArgument);
+				us_object_to_form();
+			}
+			else if (e.CommandName == "Xoa")
+			{
+				m_lbl_mess_grid.Text = "";
+				m_hdf_id_giao_kh.Value = CIPConvert.ToStr(e.CommandArgument);
+				set_form_mode(LOAI_FORM.XOA);
+				if (!check_validate_is_ok()) return;
+				delete_by_ID();
+			}
 		}
-		catch (System.Exception v_e)
+		catch (Exception v_e)
 		{
-			CSystemLog_301.ExceptionHandle(this, v_e);
+			m_lbl_mess_grid.Text = v_e.ToString();
 		}
 	}
-
-
-	
 }

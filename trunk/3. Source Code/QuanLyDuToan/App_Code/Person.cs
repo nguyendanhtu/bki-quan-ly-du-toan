@@ -31,24 +31,10 @@ public class Person
 
     public static decimal get_id_don_vi()
     {
-        US_DM_DON_VI v_us = new US_DM_DON_VI();
-        DS_DM_DON_VI v_ds = new DS_DM_DON_VI();
-        System.Data.SqlClient.SqlCommand v_cmd = new System.Data.SqlClient.SqlCommand();
-        v_cmd.CommandType = System.Data.CommandType.Text;
-        v_cmd.CommandText = @"SELECT
-                                dv.*
-                                FROM 
-                                HT_USER_GROUP ug,
-                                dm_don_vi dv,
-                                ht_nguoi_su_dung nsd
-                                WHERE 
-                                ug.[DESCRIPTION] LIKE N'%'+dv.TEN_DON_VI+'%'
-                                AND ug.id	=nsd.ID_USER_GROUP
-                                and nsd.id=" + Person.get_user_id();
-        v_us.FillDatasetByCommand(v_ds, v_cmd);
-        decimal v_dc_id_don_vi = 0;
-        if (v_ds.DM_DON_VI.Count > 0)
-            v_dc_id_don_vi = CIPConvert.ToDecimal(v_ds.Tables[0].Rows[0][WebDS.CDBNames.DM_DON_VI.ID]);
+		decimal v_dc_id_don_vi = 0;
+		US_HT_NGUOI_SU_DUNG v_us_nsd = new US_HT_NGUOI_SU_DUNG(get_user_id());
+		US_HT_USER_GROUP v_us_ug = new US_HT_USER_GROUP(v_us_nsd.dcID_USER_GROUP);
+		v_dc_id_don_vi = v_us_ug.dcID_DON_VI;
         return v_dc_id_don_vi;
     }
     public static string get_user_name()
@@ -84,6 +70,7 @@ public class Person
         {
             if (get_chuc_nang_without_query() == "Default.aspx") return true;
             if (get_chuc_nang_without_query().Contains("MessageError.aspx")) return true;
+			if (get_chuc_nang_without_query().Contains("print")) return true;
 
 
             if (CIPConvert.ToDecimal(v_obj_id_user_login) == -1)

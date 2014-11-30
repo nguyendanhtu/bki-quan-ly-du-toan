@@ -197,8 +197,7 @@
 							CssClass="cssGrid" Width="100%" CellPadding="0" ForeColor="#333333"
 							AllowSorting="True" PageSize="30" ShowHeader="true"
 							EmptyDataText="Không có dữ liệu phù hợp"
-							OnRowEditing="m_grv_RowEditing"
-							OnRowDeleting="m_grv_RowDeleting"
+							OnRowCommand="m_grv_RowCommand"
 							OnPageIndexChanging="m_grv_PageIndexChanging">
 							<AlternatingRowStyle BackColor="White" />
 							<EditRowStyle BackColor="#7C6F57" />
@@ -210,32 +209,39 @@
 							<SelectedRowStyle CssClass="cssSelectedRow" BackColor="#C5BBAF" Font-Bold="True"
 								ForeColor="#333333"></SelectedRowStyle>
 							<Columns>
-								<asp:TemplateField HeaderText="STT" ItemStyle-HorizontalAlign="Center" HeaderStyle-Width="2%">
-									<ItemTemplate>
-										<%# Container.DataItemIndex + 1 %>
-									</ItemTemplate>
-								</asp:TemplateField>
-								<asp:TemplateField HeaderText="Xóa" HeaderStyle-Width="2%">
-									<ItemTemplate>
-										<asp:LinkButton ID="lbt_delete" runat="server" CausesValidation="false"
-											CommandName="Delete" ToolTip="Xóa" OnClientClick="return confirm ('Bạn có thực sự muốn xóa bản ghi này?')">
+								<asp:TemplateField HeaderText="STT" ItemStyle-HorizontalAlign="Center" HeaderStyle-Width="2%" HeaderStyle-Height="40px">
+                                    <ItemTemplate>
+                                        <%# Container.DataItemIndex + 1 %>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Xóa" HeaderStyle-Width="2%">
+                                    <ItemTemplate>
+                                        <asp:LinkButton ID="m_lbl_delete" runat="server" CausesValidation="false" CommandArgument='<%#Eval("ID")%>'
+                                            CommandName="Xoa" ToolTip="Xóa" OnClientClick="return confirm ('Bạn có thực sự muốn xóa bản ghi này?')">
                      <img alt="Xóa" src="../Images/Button/deletered.png" />
-										</asp:LinkButton>
-									</ItemTemplate>
-									<ItemStyle HorizontalAlign="Center"></ItemStyle>
-								</asp:TemplateField>
-
-								<asp:CommandField ItemStyle-Width="3%" EditText="Sửa" EditImageUrl="../Images/Button/edit.png"
-									ShowEditButton="true" ButtonType="Image" HeaderText="Sửa" ItemStyle-HorizontalAlign="Center"
-									HeaderStyle-HorizontalAlign="Center" />
-								<asp:BoundField DataField="so_tien" HeaderText="Số tiền" />
+                                        </asp:LinkButton>
+                                    </ItemTemplate>
+                                    <ItemStyle HorizontalAlign="Center"></ItemStyle>
+                                </asp:TemplateField>
+								<asp:TemplateField HeaderText="Sửa" HeaderStyle-Width="2%">
+                                    <ItemTemplate>
+                                        <asp:LinkButton ID="m_lbl_update" runat="server" CausesValidation="false" CommandArgument='<%#Eval("ID")%>'
+                                            CommandName="Sua" ToolTip="Sửa">
+                     <img alt="Xóa" src="../Images/Button/edit.png" />
+                                        </asp:LinkButton>
+                                    </ItemTemplate>
+                                    <ItemStyle HorizontalAlign="Center"></ItemStyle>
+                                </asp:TemplateField>
+                                <asp:BoundField DataField="display" HeaderText="Công trình, dự án" />
+                                <asp:TemplateField  HeaderText="Số tiền" ItemStyle-HorizontalAlign="Right">
+                                    <ItemTemplate>
+                                        <asp:Label ID="m_lbl_so_tien_grid" runat="server" 
+                                            CssClass="cssManField" ForeColor="Blue"
+                                            Text='<%#format_so_tien(Eval("SO_TIEN").ToString()) %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:BoundField DataField="ten" HeaderText="Loại" />
 								<asp:BoundField DataField="ghi_chu" HeaderText="Ghi chú" />
-								<%--<asp:BoundField DataField="nam_du_toan" HeaderText="Năm dự toán" />
-								<asp:BoundField DataField="lan" HeaderText="Lần" />
-								<asp:BoundField DataField="du_an_cong_trinh" HeaderText="Công trình, dự án" />
-								
-								<asp:BoundField DataField="loai_du_an" HeaderText="Loại dự án" />
-								<asp:BoundField DataField="quyet_dinh" HeaderText="Quyết định" />--%>
 							</Columns>
 						</asp:GridView>
 					</td>

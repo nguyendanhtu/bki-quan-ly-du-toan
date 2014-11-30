@@ -309,9 +309,9 @@ namespace WebDS {
             
             private global::System.Data.DataColumn columnNGAY_THANG;
             
-            private global::System.Data.DataColumn columnTEN_DU_AN_CONG_TRINH;
-            
             private global::System.Data.DataColumn columnID_LOAI_DU_AN_CONG_TRINH;
+            
+            private global::System.Data.DataColumn columnDISPLAY;
             
             private global::System.Data.DataColumn columnTEN_NGAN;
             
@@ -472,17 +472,17 @@ namespace WebDS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn TEN_DU_AN_CONG_TRINHColumn {
+            public global::System.Data.DataColumn ID_LOAI_DU_AN_CONG_TRINHColumn {
                 get {
-                    return this.columnTEN_DU_AN_CONG_TRINH;
+                    return this.columnID_LOAI_DU_AN_CONG_TRINH;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn ID_LOAI_DU_AN_CONG_TRINHColumn {
+            public global::System.Data.DataColumn DISPLAYColumn {
                 get {
-                    return this.columnID_LOAI_DU_AN_CONG_TRINH;
+                    return this.columnDISPLAY;
                 }
             }
             
@@ -540,6 +540,7 @@ namespace WebDS {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public V_GD_GIAO_VONRow AddV_GD_GIAO_VONRow(
+                        decimal ID, 
                         decimal ID_DON_VI, 
                         decimal ID_QUYET_DINH, 
                         decimal ID_DU_AN_CONG_TRINH, 
@@ -554,13 +555,13 @@ namespace WebDS {
                         string SO_QUYET_DINH, 
                         string NOI_DUNG, 
                         System.DateTime NGAY_THANG, 
-                        string TEN_DU_AN_CONG_TRINH, 
                         decimal ID_LOAI_DU_AN_CONG_TRINH, 
+                        string DISPLAY, 
                         string TEN_NGAN, 
                         string TEN) {
                 V_GD_GIAO_VONRow rowV_GD_GIAO_VONRow = ((V_GD_GIAO_VONRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        null,
+                        ID,
                         ID_DON_VI,
                         ID_QUYET_DINH,
                         ID_DU_AN_CONG_TRINH,
@@ -575,20 +576,13 @@ namespace WebDS {
                         SO_QUYET_DINH,
                         NOI_DUNG,
                         NGAY_THANG,
-                        TEN_DU_AN_CONG_TRINH,
                         ID_LOAI_DU_AN_CONG_TRINH,
+                        DISPLAY,
                         TEN_NGAN,
                         TEN};
                 rowV_GD_GIAO_VONRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowV_GD_GIAO_VONRow);
                 return rowV_GD_GIAO_VONRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public V_GD_GIAO_VONRow FindByID(decimal ID) {
-                return ((V_GD_GIAO_VONRow)(this.Rows.Find(new object[] {
-                            ID})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -629,8 +623,8 @@ namespace WebDS {
                 this.columnSO_QUYET_DINH = base.Columns["SO_QUYET_DINH"];
                 this.columnNOI_DUNG = base.Columns["NOI_DUNG"];
                 this.columnNGAY_THANG = base.Columns["NGAY_THANG"];
-                this.columnTEN_DU_AN_CONG_TRINH = base.Columns["TEN_DU_AN_CONG_TRINH"];
                 this.columnID_LOAI_DU_AN_CONG_TRINH = base.Columns["ID_LOAI_DU_AN_CONG_TRINH"];
+                this.columnDISPLAY = base.Columns["DISPLAY"];
                 this.columnTEN_NGAN = base.Columns["TEN_NGAN"];
                 this.columnTEN = base.Columns["TEN"];
             }
@@ -668,22 +662,15 @@ namespace WebDS {
                 base.Columns.Add(this.columnNOI_DUNG);
                 this.columnNGAY_THANG = new global::System.Data.DataColumn("NGAY_THANG", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNGAY_THANG);
-                this.columnTEN_DU_AN_CONG_TRINH = new global::System.Data.DataColumn("TEN_DU_AN_CONG_TRINH", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTEN_DU_AN_CONG_TRINH);
                 this.columnID_LOAI_DU_AN_CONG_TRINH = new global::System.Data.DataColumn("ID_LOAI_DU_AN_CONG_TRINH", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnID_LOAI_DU_AN_CONG_TRINH);
+                this.columnDISPLAY = new global::System.Data.DataColumn("DISPLAY", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDISPLAY);
                 this.columnTEN_NGAN = new global::System.Data.DataColumn("TEN_NGAN", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTEN_NGAN);
                 this.columnTEN = new global::System.Data.DataColumn("TEN", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTEN);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnID}, true));
-                this.columnID.AutoIncrement = true;
-                this.columnID.AutoIncrementSeed = -1;
-                this.columnID.AutoIncrementStep = -1;
                 this.columnID.AllowDBNull = false;
-                this.columnID.ReadOnly = true;
-                this.columnID.Unique = true;
                 this.columnID_DON_VI.AllowDBNull = false;
                 this.columnID_QUYET_DINH.AllowDBNull = false;
                 this.columnSO_TIEN.AllowDBNull = false;
@@ -696,9 +683,8 @@ namespace WebDS {
                 this.columnNOI_DUNG.AllowDBNull = false;
                 this.columnNOI_DUNG.MaxLength = 250;
                 this.columnNGAY_THANG.AllowDBNull = false;
-                this.columnTEN_DU_AN_CONG_TRINH.AllowDBNull = false;
-                this.columnTEN_DU_AN_CONG_TRINH.MaxLength = 250;
-                this.columnID_LOAI_DU_AN_CONG_TRINH.AllowDBNull = false;
+                this.columnDISPLAY.AllowDBNull = false;
+                this.columnDISPLAY.MaxLength = 370;
                 this.columnTEN_NGAN.AllowDBNull = false;
                 this.columnTEN_NGAN.MaxLength = 250;
                 this.columnTEN.AllowDBNull = false;
@@ -1040,23 +1026,29 @@ namespace WebDS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string TEN_DU_AN_CONG_TRINH {
+            public decimal ID_LOAI_DU_AN_CONG_TRINH {
                 get {
-                    return ((string)(this[this.tableV_GD_GIAO_VON.TEN_DU_AN_CONG_TRINHColumn]));
+                    try {
+                        return ((decimal)(this[this.tableV_GD_GIAO_VON.ID_LOAI_DU_AN_CONG_TRINHColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ID_LOAI_DU_AN_CONG_TRINH\' in table \'V_GD_GIAO_VON\' is DBNul" +
+                                "l.", e);
+                    }
                 }
                 set {
-                    this[this.tableV_GD_GIAO_VON.TEN_DU_AN_CONG_TRINHColumn] = value;
+                    this[this.tableV_GD_GIAO_VON.ID_LOAI_DU_AN_CONG_TRINHColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public decimal ID_LOAI_DU_AN_CONG_TRINH {
+            public string DISPLAY {
                 get {
-                    return ((decimal)(this[this.tableV_GD_GIAO_VON.ID_LOAI_DU_AN_CONG_TRINHColumn]));
+                    return ((string)(this[this.tableV_GD_GIAO_VON.DISPLAYColumn]));
                 }
                 set {
-                    this[this.tableV_GD_GIAO_VON.ID_LOAI_DU_AN_CONG_TRINHColumn] = value;
+                    this[this.tableV_GD_GIAO_VON.DISPLAYColumn] = value;
                 }
             }
             
@@ -1152,6 +1144,18 @@ namespace WebDS {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetID_TIEU_MUCNull() {
                 this[this.tableV_GD_GIAO_VON.ID_TIEU_MUCColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsID_LOAI_DU_AN_CONG_TRINHNull() {
+                return this.IsNull(this.tableV_GD_GIAO_VON.ID_LOAI_DU_AN_CONG_TRINHColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetID_LOAI_DU_AN_CONG_TRINHNull() {
+                this[this.tableV_GD_GIAO_VON.ID_LOAI_DU_AN_CONG_TRINHColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1329,8 +1333,8 @@ namespace WebDS.DS_V_GD_GIAO_VONTableAdapters {
             tableMapping.ColumnMappings.Add("SO_QUYET_DINH", "SO_QUYET_DINH");
             tableMapping.ColumnMappings.Add("NOI_DUNG", "NOI_DUNG");
             tableMapping.ColumnMappings.Add("NGAY_THANG", "NGAY_THANG");
-            tableMapping.ColumnMappings.Add("TEN_DU_AN_CONG_TRINH", "TEN_DU_AN_CONG_TRINH");
             tableMapping.ColumnMappings.Add("ID_LOAI_DU_AN_CONG_TRINH", "ID_LOAI_DU_AN_CONG_TRINH");
+            tableMapping.ColumnMappings.Add("DISPLAY", "DISPLAY");
             tableMapping.ColumnMappings.Add("TEN_NGAN", "TEN_NGAN");
             tableMapping.ColumnMappings.Add("TEN", "TEN");
             this._adapter.TableMappings.Add(tableMapping);
@@ -1349,7 +1353,7 @@ namespace WebDS.DS_V_GD_GIAO_VONTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT ID, ID_DON_VI, ID_QUYET_DINH, ID_DU_AN_CONG_TRINH, SO_TIEN, IS_NGUON_NS_YN, ID_LOAI_GIAO_DICH, ID_CHUONG, ID_KHOAN, ID_MUC, GHI_CHU, ID_TIEU_MUC, SO_QUYET_DINH, NOI_DUNG, NGAY_THANG, TEN_DU_AN_CONG_TRINH, ID_LOAI_DU_AN_CONG_TRINH, TEN_NGAN, TEN FROM dbo.V_GD_GIAO_VON";
+            this._commandCollection[0].CommandText = @"SELECT ID, ID_DON_VI, ID_QUYET_DINH, ID_DU_AN_CONG_TRINH, SO_TIEN, IS_NGUON_NS_YN, ID_LOAI_GIAO_DICH, ID_CHUONG, ID_KHOAN, ID_MUC, GHI_CHU, ID_TIEU_MUC, SO_QUYET_DINH, NOI_DUNG, NGAY_THANG, ID_LOAI_DU_AN_CONG_TRINH, DISPLAY, TEN_NGAN, TEN FROM dbo.V_GD_GIAO_VON";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         

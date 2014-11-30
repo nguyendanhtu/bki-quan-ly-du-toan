@@ -15,110 +15,137 @@ using System.Data;
 using WebDS;
 
 
-namespace WebUS{
-
-public class US_HT_USER_GROUP : US_Object
+namespace WebUS
 {
-	private const string c_TableName = "HT_USER_GROUP";
-#region "Public Properties"
-	public decimal dcID 
+
+	public class US_HT_USER_GROUP : US_Object
 	{
-		get
+		private const string c_TableName = "HT_USER_GROUP";
+		#region "Public Properties"
+		public decimal dcID
 		{
-			return CNull.RowNVLDecimal(pm_objDR, "ID", IPConstants.c_DefaultDecimal);
+			get
+			{
+				return CNull.RowNVLDecimal(pm_objDR, "ID", IPConstants.c_DefaultDecimal);
+			}
+			set
+			{
+				pm_objDR["ID"] = value;
+			}
 		}
-		set	
+
+		public bool IsIDNull()
 		{
-			pm_objDR["ID"] = value;
+			return pm_objDR.IsNull("ID");
 		}
-	}
 
-	public bool IsIDNull()	{
-		return pm_objDR.IsNull("ID");
-	}
-
-	public void SetIDNull() {
-		pm_objDR["ID"] = System.Convert.DBNull;
-	}
-
-	public string strUSER_GROUP_NAME 
-	{
-		get 
+		public void SetIDNull()
 		{
-			return CNull.RowNVLString(pm_objDR, "USER_GROUP_NAME", IPConstants.c_DefaultString);
+			pm_objDR["ID"] = System.Convert.DBNull;
 		}
-		set 
+
+		public string strUSER_GROUP_NAME
 		{
-			pm_objDR["USER_GROUP_NAME"] = value;
+			get
+			{
+				return CNull.RowNVLString(pm_objDR, "USER_GROUP_NAME", IPConstants.c_DefaultString);
+			}
+			set
+			{
+				pm_objDR["USER_GROUP_NAME"] = value;
+			}
 		}
-	}
 
-	public bool IsUSER_GROUP_NAMENull() 
-	{
-		return pm_objDR.IsNull("USER_GROUP_NAME");
-	}
-
-	public void SetUSER_GROUP_NAMENull() {
-		pm_objDR["USER_GROUP_NAME"] = System.Convert.DBNull;
-	}
-
-	public string strDESCRIPTION 
-	{
-		get 
+		public bool IsUSER_GROUP_NAMENull()
 		{
-			return CNull.RowNVLString(pm_objDR, "DESCRIPTION", IPConstants.c_DefaultString);
+			return pm_objDR.IsNull("USER_GROUP_NAME");
 		}
-		set 
+
+		public void SetUSER_GROUP_NAMENull()
 		{
-			pm_objDR["DESCRIPTION"] = value;
+			pm_objDR["USER_GROUP_NAME"] = System.Convert.DBNull;
 		}
+
+		public string strDESCRIPTION
+		{
+			get
+			{
+				return CNull.RowNVLString(pm_objDR, "DESCRIPTION", IPConstants.c_DefaultString);
+			}
+			set
+			{
+				pm_objDR["DESCRIPTION"] = value;
+			}
+		}
+
+		public bool IsDESCRIPTIONNull()
+		{
+			return pm_objDR.IsNull("DESCRIPTION");
+		}
+
+		public void SetDESCRIPTIONNull()
+		{
+			pm_objDR["DESCRIPTION"] = System.Convert.DBNull;
+		}
+
+		public decimal dcID_DON_VI
+		{
+			get
+			{
+				return CNull.RowNVLDecimal(pm_objDR, "ID_DON_VI", IPConstants.c_DefaultDecimal);
+			}
+			set
+			{
+				pm_objDR["ID_DON_VI"] = value;
+			}
+		}
+
+		public bool IsID_DON_VINull()
+		{
+			return pm_objDR.IsNull("ID_DON_VI");
+		}
+
+		public void SetID_DON_VINull()
+		{
+			pm_objDR["ID_DON_VI"] = System.Convert.DBNull;
+		}
+
+		#endregion
+
+		#region "Init Functions"
+		public US_HT_USER_GROUP()
+		{
+			pm_objDS = new DS_HT_USER_GROUP();
+			pm_strTableName = c_TableName;
+			pm_objDR = pm_objDS.Tables[pm_strTableName].NewRow();
+		}
+
+		public US_HT_USER_GROUP(DataRow i_objDR)
+			: this()
+		{
+			this.DataRow2Me(i_objDR);
+		}
+
+		public US_HT_USER_GROUP(decimal i_dbID)
+		{
+			pm_objDS = new DS_HT_USER_GROUP();
+			pm_strTableName = c_TableName;
+			IMakeSelectCmd v_objMkCmd = new CMakeAndSelectCmd(pm_objDS, c_TableName);
+			v_objMkCmd.AddCondition("ID", i_dbID, eKieuDuLieu.KieuNumber, eKieuSoSanh.Bang);
+			SqlCommand v_cmdSQL;
+			v_cmdSQL = v_objMkCmd.getSelectCmd();
+			this.FillDatasetByCommand(pm_objDS, v_cmdSQL);
+			pm_objDR = getRowClone(pm_objDS.Tables[pm_strTableName].Rows[0]);
+		}
+		#endregion
+		#region "Addtional"
+		public void Insert_nhom_nguoi_dung()
+		{
+			CStoredProc v_cstore = new CStoredProc("pr_HT_USER_GROUP_Insert");
+			v_cstore.addNVarcharInputParam("@USER_GROUP_NAME", this.strUSER_GROUP_NAME);
+			v_cstore.addNVarcharInputParam("@DESCRIPTION", this.strDESCRIPTION);
+			v_cstore.ExecuteCommand(this);
+		}
+		#endregion
 	}
-
-	public bool IsDESCRIPTIONNull() 
-	{
-		return pm_objDR.IsNull("DESCRIPTION");
-	}
-
-	public void SetDESCRIPTIONNull() {
-		pm_objDR["DESCRIPTION"] = System.Convert.DBNull;
-	}
-
-#endregion
-#region "Init Functions"
-	public US_HT_USER_GROUP() 
-	{
-		pm_objDS = new DS_HT_USER_GROUP();
-		pm_strTableName = c_TableName;
-		pm_objDR = pm_objDS.Tables[pm_strTableName].NewRow();
-	}
-
-	public US_HT_USER_GROUP(DataRow i_objDR): this()
-	{
-		this.DataRow2Me(i_objDR);
-	}
-
-	public US_HT_USER_GROUP(decimal i_dbID) 
-	{
-		pm_objDS = new DS_HT_USER_GROUP();
-		pm_strTableName = c_TableName;
-		IMakeSelectCmd v_objMkCmd = new CMakeAndSelectCmd(pm_objDS, c_TableName);
-		v_objMkCmd.AddCondition("ID", i_dbID, eKieuDuLieu.KieuNumber, eKieuSoSanh.Bang);
-		SqlCommand v_cmdSQL;
-		v_cmdSQL = v_objMkCmd.getSelectCmd();
-		this.FillDatasetByCommand(pm_objDS, v_cmdSQL);
-		pm_objDR = getRowClone(pm_objDS.Tables[pm_strTableName].Rows[0]);
-	}
-#endregion
-
-    #region "Addtional"
-    public void Insert_nhom_nguoi_dung() {
-        CStoredProc v_cstore = new CStoredProc("pr_HT_USER_GROUP_Insert");
-        v_cstore.addNVarcharInputParam("@USER_GROUP_NAME", this.strUSER_GROUP_NAME);
-        v_cstore.addNVarcharInputParam("@DESCRIPTION", this.strDESCRIPTION);
-        v_cstore.ExecuteCommand(this);
-    }
-    #endregion
-
-
-}
 }

@@ -242,6 +242,50 @@ namespace WebUS
 			pm_objDR["ID_MUC"] = System.Convert.DBNull;
 		}
 
+		public string strGHI_CHU
+		{
+			get
+			{
+				return CNull.RowNVLString(pm_objDR, "GHI_CHU", IPConstants.c_DefaultString);
+			}
+			set
+			{
+				pm_objDR["GHI_CHU"] = value;
+			}
+		}
+
+		public bool IsGHI_CHUNull()
+		{
+			return pm_objDR.IsNull("GHI_CHU");
+		}
+
+		public void SetGHI_CHUNull()
+		{
+			pm_objDR["GHI_CHU"] = System.Convert.DBNull;
+		}
+
+		public decimal dcID_TIEU_MUC
+		{
+			get
+			{
+				return CNull.RowNVLDecimal(pm_objDR, "ID_TIEU_MUC", IPConstants.c_DefaultDecimal);
+			}
+			set
+			{
+				pm_objDR["ID_TIEU_MUC"] = value;
+			}
+		}
+
+		public bool IsID_TIEU_MUCNull()
+		{
+			return pm_objDR.IsNull("ID_TIEU_MUC");
+		}
+
+		public void SetID_TIEU_MUCNull()
+		{
+			pm_objDR["ID_TIEU_MUC"] = System.Convert.DBNull;
+		}
+
 		public string strSO_QUYET_DINH
 		{
 			get
@@ -308,28 +352,6 @@ namespace WebUS
 			pm_objDR["NGAY_THANG"] = System.Convert.DBNull;
 		}
 
-		public string strTEN_DU_AN_CONG_TRINH
-		{
-			get
-			{
-				return CNull.RowNVLString(pm_objDR, "TEN_DU_AN_CONG_TRINH", IPConstants.c_DefaultString);
-			}
-			set
-			{
-				pm_objDR["TEN_DU_AN_CONG_TRINH"] = value;
-			}
-		}
-
-		public bool IsTEN_DU_AN_CONG_TRINHNull()
-		{
-			return pm_objDR.IsNull("TEN_DU_AN_CONG_TRINH");
-		}
-
-		public void SetTEN_DU_AN_CONG_TRINHNull()
-		{
-			pm_objDR["TEN_DU_AN_CONG_TRINH"] = System.Convert.DBNull;
-		}
-
 		public decimal dcID_LOAI_DU_AN_CONG_TRINH
 		{
 			get
@@ -350,6 +372,28 @@ namespace WebUS
 		public void SetID_LOAI_DU_AN_CONG_TRINHNull()
 		{
 			pm_objDR["ID_LOAI_DU_AN_CONG_TRINH"] = System.Convert.DBNull;
+		}
+
+		public string strDISPLAY
+		{
+			get
+			{
+				return CNull.RowNVLString(pm_objDR, "DISPLAY", IPConstants.c_DefaultString);
+			}
+			set
+			{
+				pm_objDR["DISPLAY"] = value;
+			}
+		}
+
+		public bool IsDISPLAYNull()
+		{
+			return pm_objDR.IsNull("DISPLAY");
+		}
+
+		public void SetDISPLAYNull()
+		{
+			pm_objDR["DISPLAY"] = System.Convert.DBNull;
 		}
 
 		public string strTEN_NGAN
@@ -396,27 +440,6 @@ namespace WebUS
 			pm_objDR["TEN"] = System.Convert.DBNull;
 		}
 
-		public decimal dcID_TIEU_MUC
-		{
-			get
-			{
-				return CNull.RowNVLDecimal(pm_objDR, "ID_TIEU_MUC", IPConstants.c_DefaultDecimal);
-			}
-			set
-			{
-				pm_objDR["ID_TIEU_MUC"] = value;
-			}
-		}
-
-		public bool IsID_TIEU_MUCNull()
-		{
-			return pm_objDR.IsNull("ID_TIEU_MUC");
-		}
-
-		public void SetID_TIEU_MUCNull()
-		{
-			pm_objDR["ID_TIEU_MUC"] = System.Convert.DBNull;
-		}
 		#endregion
 		#region "Init Functions"
 		public US_V_GD_GIAO_KH()
