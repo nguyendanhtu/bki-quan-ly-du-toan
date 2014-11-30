@@ -79,6 +79,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DS_DM_DON_VI.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DS_DM_DU_AN_CONG_TRINH.cs">
+      <DependentUpon>DS_DM_DU_AN_CONG_TRINH.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DS_DM_DU_AN_CONG_TRINH.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -88,6 +91,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DS_DM_LOAI_DON_VI.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DS_DM_THONG_TIN_DON_VI.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_DM_THONG_TIN_DON_VI.xsd</DependentUpon>
     </Compile>
     <Compile Include="DS_DM_UY_NHIEM_CHI.cs">
       <DependentUpon>DS_DM_UY_NHIEM_CHI.xsd</DependentUpon>
@@ -148,10 +156,19 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DS_HT_QUYEN_USER.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DS_HT_USER_GROUP.cs">
+      <DependentUpon>DS_HT_USER_GROUP.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="DS_HT_USER_GROUP.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DS_HT_USER_GROUP.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DS_V_DM_UY_NHIEM_CHI.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_V_DM_UY_NHIEM_CHI.xsd</DependentUpon>
     </Compile>
     <Compile Include="DS_V_GD_GIAO_KH.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -247,6 +264,17 @@
     </None>
     <None Include="DS_DM_LOAI_DON_VI.xss">
       <DependentUpon>DS_DM_LOAI_DON_VI.xsd</DependentUpon>
+    </None>
+    <None Include="DS_DM_THONG_TIN_DON_VI.xsc">
+      <DependentUpon>DS_DM_THONG_TIN_DON_VI.xsd</DependentUpon>
+    </None>
+    <None Include="DS_DM_THONG_TIN_DON_VI.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_DM_THONG_TIN_DON_VI.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DS_DM_THONG_TIN_DON_VI.xss">
+      <DependentUpon>DS_DM_THONG_TIN_DON_VI.xsd</DependentUpon>
     </None>
     <None Include="DS_DM_UY_NHIEM_CHI.xsc">
       <DependentUpon>DS_DM_UY_NHIEM_CHI.xsd</DependentUpon>
@@ -379,6 +407,17 @@
     </None>
     <None Include="DS_HT_USER_GROUP.xss">
       <DependentUpon>DS_HT_USER_GROUP.xsd</DependentUpon>
+    </None>
+    <None Include="DS_V_DM_UY_NHIEM_CHI.xsc">
+      <DependentUpon>DS_V_DM_UY_NHIEM_CHI.xsd</DependentUpon>
+    </None>
+    <None Include="DS_V_DM_UY_NHIEM_CHI.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_V_DM_UY_NHIEM_CHI.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DS_V_DM_UY_NHIEM_CHI.xss">
+      <DependentUpon>DS_V_DM_UY_NHIEM_CHI.xsd</DependentUpon>
     </None>
     <None Include="DS_V_GD_GIAO_KH.xsc">
       <DependentUpon>DS_V_GD_GIAO_KH.xsd</DependentUpon>

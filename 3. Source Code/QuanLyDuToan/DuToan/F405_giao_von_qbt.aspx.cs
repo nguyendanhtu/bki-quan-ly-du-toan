@@ -9,6 +9,7 @@ using WebUS;
 using IP.Core.IPException;
 using IP.Core.IPCommon;
 using IP.Core.WinFormControls;
+using System.Data;
 
 public partial class DuToan_F405_giao_von : System.Web.UI.Page
 {
@@ -222,10 +223,13 @@ public partial class DuToan_F405_giao_von : System.Web.UI.Page
         US_V_GD_GIAO_VON v_us = new US_V_GD_GIAO_VON();
         if (!m_hdf_id_quyet_dinh.Value.Trim().Equals(""))
         {
-            v_us.FillDataset(v_ds, "where id_quyet_dinh=" + m_hdf_id_quyet_dinh.Value + " and id_don_vi=" + Person.get_id_don_vi());
+            v_us.FillDataset(v_ds, "where id_quyet_dinh=" + m_hdf_id_quyet_dinh.Value + 
+				" and id_don_vi=" + Person.get_id_don_vi()+
+				"and id_chuong is null");
         }
-        m_grv.DataSource = v_ds.V_GD_GIAO_VON;
-        m_grv.DataBind();
+		DataSet v_ds_tree_new = get_tree_dataset(v_ds);
+		m_grv.DataSource = v_ds_tree_new.Tables[0];
+		m_grv.DataBind();
         if (!m_hdf_id_giao_kh.Value.Equals(""))
         {
             m_grv.SelectedIndex = -1;
@@ -311,6 +315,74 @@ public partial class DuToan_F405_giao_von : System.Web.UI.Page
         m_lbl_mess_grid.Text = "Xoá bản ghi thành công!";
     }
     #endregion
+	private DataSet get_tree_dataset(DS_V_GD_GIAO_VON ip_ds)
+	{
+		DataSet op_ds = new DataSet();
+		DataTable v_dt = new DataTable();
+		v_dt.Columns.Add(V_GD_GIAO_KH.ID);
+		v_dt.Columns.Add(V_GD_GIAO_KH.DISPLAY);
+		v_dt.Columns.Add(V_GD_GIAO_KH.SO_TIEN);
+		v_dt.Columns.Add(V_GD_GIAO_KH.TEN);
+		op_ds.Tables.Add(v_dt);
+		op_ds.AcceptChanges();
+		//chi khong thuong xuyen
+		DataRow v_dr_chi_ktx = v_dt.NewRow();
+		v_dr_chi_ktx[V_GD_GIAO_KH.ID] = "-1";
+		v_dr_chi_ktx[V_GD_GIAO_KH.DISPLAY] = "I - Chi không thường xuyên";
+		v_dr_chi_ktx[V_GD_GIAO_KH.SO_TIEN] = "-1";
+		v_dr_chi_ktx[V_GD_GIAO_KH.TEN] = "";
+		op_ds.Tables[0].Rows.Add(v_dr_chi_ktx);
+		op_ds.AcceptChanges();
+		for (int i = 0; i < ip_ds.V_GD_GIAO_VON.Count; i++)
+		{
+			if (CIPConvert.ToDecimal(ip_ds.Tables[0].Rows[i][V_GD_GIAO_KH.ID_LOAI_DU_AN_CONG_TRINH]) == ID_LOAI_DU_AN.KHAC)
+			{
+				DataRow v_dr = v_dt.NewRow();
+				v_dr[V_GD_GIAO_KH.ID] = ip_ds.Tables[0].Rows[i][V_GD_GIAO_KH.ID].ToString();
+				v_dr[V_GD_GIAO_KH.DISPLAY] = ".............." + ip_ds.Tables[0].Rows[i][V_GD_GIAO_KH.DISPLAY].ToString();
+				v_dr[V_GD_GIAO_KH.SO_TIEN] = CIPConvert.ToStr(ip_ds.Tables[0].Rows[i][V_GD_GIAO_KH.SO_TIEN], "#,###,##");
+				v_dr[V_GD_GIAO_KH.TEN] = ip_ds.Tables[0].Rows[i][V_GD_GIAO_KH.TEN].ToString();
+				op_ds.Tables[0].Rows.Add(v_dr);
+				op_ds.AcceptChanges();
+			}
+
+		}
+		//chi thuong xuyen
+		DataRow v_dr_chi_tx = v_dt.NewRow();
+		v_dr_chi_tx[V_GD_GIAO_KH.ID] = "-1";
+		v_dr_chi_tx[V_GD_GIAO_KH.DISPLAY] = "II - Chi thường xuyên";
+		v_dr_chi_tx[V_GD_GIAO_KH.SO_TIEN] = "-1";
+		v_dr_chi_tx[V_GD_GIAO_KH.TEN] = "";
+		op_ds.Tables[0].Rows.Add(v_dr_chi_tx);
+		op_ds.AcceptChanges();
+		for (int i = 0; i < ip_ds.V_GD_GIAO_VON.Count; i++)
+		{
+			if (CIPConvert.ToDecimal(ip_ds.Tables[0].Rows[i][V_GD_GIAO_KH.ID_LOAI_DU_AN_CONG_TRINH]) == ID_LOAI_DU_AN.QUOC_LO)
+			{
+				DataRow v_dr = v_dt.NewRow();
+				v_dr[V_GD_GIAO_KH.ID] = ip_ds.Tables[0].Rows[i][V_GD_GIAO_KH.ID].ToString();
+				v_dr[V_GD_GIAO_KH.DISPLAY] = ".............." + ip_ds.Tables[0].Rows[i][V_GD_GIAO_KH.DISPLAY].ToString();
+				v_dr[V_GD_GIAO_KH.SO_TIEN] = CIPConvert.ToStr(ip_ds.Tables[0].Rows[i][V_GD_GIAO_KH.SO_TIEN], "#,###,##");
+				v_dr[V_GD_GIAO_KH.TEN] = ip_ds.Tables[0].Rows[i][V_GD_GIAO_KH.TEN].ToString();
+				op_ds.Tables[0].Rows.Add(v_dr);
+				op_ds.AcceptChanges();
+			}
+
+		}
+
+		return op_ds;
+	}
+
+	public string format_so_tien(string ip_str_so_tien)
+	{
+		string op_str_so_tien = "";
+		if (ip_str_so_tien.Trim().Equals("") | ip_str_so_tien.Trim().Equals("-1"))
+		{
+			op_str_so_tien = "";
+		}
+		else op_str_so_tien = CIPConvert.ToStr(ip_str_so_tien, "#,##0");
+		return op_str_so_tien;
+	}
 
     #region Event
     protected void Page_Load(object sender, EventArgs e)
@@ -342,21 +414,7 @@ public partial class DuToan_F405_giao_von : System.Web.UI.Page
     }
 
 
-    protected void m_grv_RowDeleting(object sender, GridViewDeleteEventArgs e)
-    {
-        try
-        {
-            m_lbl_mess_grid.Text = "";
-            set_form_mode(LOAI_FORM.XOA);
-            m_hdf_id_giao_kh.Value = CIPConvert.ToStr(m_grv.DataKeys[e.RowIndex].Value);
-            if (!check_validate_is_ok("")) return;
-            delete_dm_han_muc_by_ID();
-        }
-        catch (Exception v_e)
-        {
-            CSystemLog_301.ExceptionHandle(v_e);
-        }
-    }
+
     protected void m_grv_PageIndexChanging(object sender, GridViewPageEventArgs e)
     {
         m_grv.PageIndex = e.NewPageIndex;
@@ -369,34 +427,7 @@ public partial class DuToan_F405_giao_von : System.Web.UI.Page
                 if (CIPConvert.ToDecimal(m_grv.DataKeys[i].Value) == CIPConvert.ToDecimal(m_hdf_id_giao_kh.Value)) m_grv.SelectedIndex = i;
         }
     }
-    protected void m_grv_RowEditing(object sender, GridViewEditEventArgs e)
-    {
-        try
-        {
-            m_lbl_mess_grid.Text = "";
-            xoa_trang();
-            //format button by form mode - update
-            m_cmd_ctx_update.Visible = true;
-            m_cmd_cktx_update.Visible = true;
-            m_cmd_ctx_insert.Visible = false;
-            m_cmd_cktx_insert.Visible = false;
-            //reset control
-            m_ddl_du_an.SelectedValue = "-1";
-            m_ddl_tuyen_quoc_lo.SelectedValue = "-1";
-            m_txt_cktx_so_tien.Text = "";
-            m_txt_ctx_so_tien.Text = "";
-
-
-            m_grv.SelectedIndex = e.NewEditIndex;
-            m_hdf_id_giao_kh.Value = CIPConvert.ToStr(m_grv.DataKeys[e.NewEditIndex].Value);
-            set_form_mode(LOAI_FORM.SUA);
-            us_object_to_form();
-        }
-        catch (System.Exception v_e)
-        {
-            CSystemLog_301.ExceptionHandle(this, v_e);
-        }
-    }
+    
 
     protected void m_cmd_ctx_insert_Click(object sender, EventArgs e)
     {
@@ -625,6 +656,82 @@ public partial class DuToan_F405_giao_von : System.Web.UI.Page
     {
         reload_data_to_ddl();
     }
+
+
+	
+	protected void m_grv_RowDataBound(object sender, GridViewRowEventArgs e)
+	{
+		if (e.Row.RowType == DataControlRowType.DataRow)
+		{
+			LinkButton m_lbl_delete = (LinkButton)e.Row.FindControl("m_lbl_delete");
+			LinkButton m_lbl_update = (LinkButton)e.Row.FindControl("m_lbl_update");
+			if (m_lbl_delete != null)
+			{
+				if (m_lbl_delete.CommandArgument.Trim().Equals("-1"))
+				{
+					m_lbl_delete.Visible = false;
+				}
+				else
+				{
+					m_lbl_delete.Visible = true;
+				}
+			}
+			if (m_lbl_update != null)
+			{
+				if (m_lbl_update.CommandArgument.Trim().Equals("-1"))
+				{
+					m_lbl_update.Visible = false;
+				}
+				else
+				{
+					m_lbl_update.Visible = true;
+				}
+			}
+		}
+	}
+	protected void m_grv_RowCommand(object sender, GridViewCommandEventArgs e)
+	{
+		try
+		{
+			if (e.CommandName == "Sua")
+			{
+				m_lbl_mess_grid.Text = "";
+				xoa_trang();
+				//format button by form mode - update
+				m_cmd_ctx_update.Visible = true;
+				m_cmd_cktx_update.Visible = true;
+				m_cmd_ctx_insert.Visible = false;
+				m_cmd_cktx_insert.Visible = false;
+				//reset control
+				m_ddl_du_an.SelectedValue = "-1";
+				m_ddl_tuyen_quoc_lo.SelectedValue = "-1";
+				m_txt_cktx_so_tien.Text = "";
+				m_txt_ctx_so_tien.Text = "";
+
+				//set select row in gridview
+				GridViewRow gvr = (GridViewRow)(((LinkButton)e.CommandSource).NamingContainer);
+				m_grv.SelectedIndex = gvr.RowIndex;
+
+				m_hdf_id_giao_kh.Value = CIPConvert.ToStr(e.CommandArgument);
+				//m_grv.SelectedIndex = m_grv.SelectedRow.RowIndex;
+				set_form_mode(LOAI_FORM.SUA);
+				us_object_to_form();
+			}
+			else if (e.CommandName == "Xoa")
+			{
+				m_lbl_mess_grid.Text = "";
+				set_form_mode(LOAI_FORM.XOA);
+				m_hdf_id_giao_kh.Value = CIPConvert.ToStr(e.CommandArgument);
+				if (!check_validate_is_ok("")) return;
+				delete_dm_han_muc_by_ID();
+			}
+		}
+		catch (Exception v_e)
+		{
+			m_lbl_grid_title.Text = v_e.ToString();
+		}
+
+	}
 
 
     #endregion
