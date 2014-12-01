@@ -587,7 +587,6 @@ namespace WebDS {
                 this.columnIS_NGUON_NS_YN.AllowDBNull = false;
                 this.columnIS_NGUON_NS_YN.MaxLength = 1;
                 this.columnID_UNC.AllowDBNull = false;
-                this.columnNOI_DUNG.AllowDBNull = false;
                 this.columnNOI_DUNG.MaxLength = 250;
                 this.columnGHI_CHU.MaxLength = 250;
             }
@@ -805,7 +804,12 @@ namespace WebDS {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string NOI_DUNG {
                 get {
-                    return ((string)(this[this.tableGD_UY_NHIEM_CHI.NOI_DUNGColumn]));
+                    try {
+                        return ((string)(this[this.tableGD_UY_NHIEM_CHI.NOI_DUNGColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NOI_DUNG\' in table \'GD_UY_NHIEM_CHI\' is DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tableGD_UY_NHIEM_CHI.NOI_DUNGColumn] = value;
@@ -919,6 +923,18 @@ namespace WebDS {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetID_DU_AN_CONG_TRINHNull() {
                 this[this.tableGD_UY_NHIEM_CHI.ID_DU_AN_CONG_TRINHColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNOI_DUNGNull() {
+                return this.IsNull(this.tableGD_UY_NHIEM_CHI.NOI_DUNGColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNOI_DUNGNull() {
+                this[this.tableGD_UY_NHIEM_CHI.NOI_DUNGColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1362,7 +1378,7 @@ SELECT ID, ID_DON_VI, ID_DU_AN_CONG_TRINH, SO_TIEN_NOP_THUE, IS_NGUON_NS_YN, ID_
             }
             this.Adapter.DeleteCommand.Parameters[6].Value = ((decimal)(Original_ID_UNC));
             if ((Original_NOI_DUNG == null)) {
-                throw new global::System.ArgumentNullException("Original_NOI_DUNG");
+                this.Adapter.DeleteCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[7].Value = ((string)(Original_NOI_DUNG));
@@ -1452,7 +1468,7 @@ SELECT ID, ID_DON_VI, ID_DU_AN_CONG_TRINH, SO_TIEN_NOP_THUE, IS_NGUON_NS_YN, ID_
             }
             this.Adapter.InsertCommand.Parameters[4].Value = ((decimal)(ID_UNC));
             if ((NOI_DUNG == null)) {
-                throw new global::System.ArgumentNullException("NOI_DUNG");
+                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.InsertCommand.Parameters[5].Value = ((string)(NOI_DUNG));
@@ -1556,7 +1572,7 @@ SELECT ID, ID_DON_VI, ID_DU_AN_CONG_TRINH, SO_TIEN_NOP_THUE, IS_NGUON_NS_YN, ID_
             }
             this.Adapter.UpdateCommand.Parameters[4].Value = ((decimal)(ID_UNC));
             if ((NOI_DUNG == null)) {
-                throw new global::System.ArgumentNullException("NOI_DUNG");
+                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(NOI_DUNG));
@@ -1616,7 +1632,7 @@ SELECT ID, ID_DON_VI, ID_DU_AN_CONG_TRINH, SO_TIEN_NOP_THUE, IS_NGUON_NS_YN, ID_
             }
             this.Adapter.UpdateCommand.Parameters[18].Value = ((decimal)(Original_ID_UNC));
             if ((Original_NOI_DUNG == null)) {
-                throw new global::System.ArgumentNullException("Original_NOI_DUNG");
+                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(Original_NOI_DUNG));

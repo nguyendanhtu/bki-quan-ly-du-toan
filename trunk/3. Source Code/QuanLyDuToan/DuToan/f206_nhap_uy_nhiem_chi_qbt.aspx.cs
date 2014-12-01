@@ -432,6 +432,7 @@ public partial class DuToan_f206_nhap_uy_nhiem_chi : System.Web.UI.Page
 
 		m_hdf_id_dm_uy_nhiem_chi.Value = "-1";
 		m_ddl_unc.Visible = false;
+		m_txt_so_unc.Visible = true;
 		m_cmd_luu_unc.Visible = true;
 		//info dm unc
 		m_txt_nt_ten_don_vi.Text = "";
@@ -496,7 +497,7 @@ public partial class DuToan_f206_nhap_uy_nhiem_chi : System.Web.UI.Page
 
 	protected void m_cmd_chon_unc_Click(object sender, EventArgs e)
 	{
-
+		m_txt_so_unc.Visible = false;
 		m_ddl_unc.Visible = true;
 		load_data_to_cbo_dm_uy_nhiem_chi();
 		load_data_du_an_cong_trinh_by_loai();
@@ -509,8 +510,10 @@ public partial class DuToan_f206_nhap_uy_nhiem_chi : System.Web.UI.Page
 	{
 		load_data_du_an_cong_trinh_by_loai();
 	}
+
 	protected void m_ddl_unc_SelectedIndexChanged(object sender, EventArgs e)
 	{
+		m_txt_so_unc.Visible = true;
 		if (m_ddl_unc.SelectedValue == "-1" | m_ddl_unc.SelectedValue == "")
 		{
 			m_hdf_id_dm_uy_nhiem_chi.Value = "-1";
@@ -629,6 +632,7 @@ public partial class DuToan_f206_nhap_uy_nhiem_chi : System.Web.UI.Page
 			m_cmd_print.Visible = true;
 		}
 	}
+
 	protected void m_ddl_quoc_lo_SelectedIndexChanged(object sender, EventArgs e)
 	{
 		m_hdf_id_du_an_cong_trinh.Value = "-1";

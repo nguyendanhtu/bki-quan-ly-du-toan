@@ -13,7 +13,7 @@
 			<table cellspacing="0" cellpadding="2" style="width: 99%;" class="cssTable" border="0">
 				<tr>
 					<td class="cssPageTitleBG">
-						<asp:Label ID="m_lbl_title_nhap_uy_nhiem_chi" runat="server" Text="Nhập ủy nhiệm chi" CssClass="cssPageTitle"></asp:Label>
+						<asp:Label ID="m_lbl_title_nhap_uy_nhiem_chi" runat="server" Text="Nhập ủy nhiệm chi - Nguồn Quỹ bảo trì" CssClass="cssPageTitle"></asp:Label>
 						
 					</td>
 				</tr>
@@ -21,18 +21,20 @@
 				<tr>
 					<td>
 						<asp:Panel ID="m_pnl_thong_tin_thong_tin_uy_nhiem_chi" GroupingText="Thông tin ủy nhiệm chi" runat="server" ForeColor="Blue">
-							<table cellspacing="0" cellpadding="2" style="width: 99%;" border="0">
+							<table cellspacing="0" cellpadding="2" style="width: 100%;" border="0">
 								<tr>
 									<td colspan="2">
 										<asp:Label ID="m_lbl_mess_master" runat="server" CssClass="cssManField"></asp:Label></td>
 								</tr>
 								<tr>
-									<td style="width: 25%" align="right">
+									<td style="width: 10%" align="right">
 										<span class="cssManField">Đơn vị trả tiền</span>
 									</td>
-									<td style="width: 75%">
+									<td style="width: 30%">
 										<asp:Label ID="m_lbl_don_vi_tra_tien" runat="server" CssClass="cssManField" ForeColor="Blue"></asp:Label>
 									</td>
+									<td style="width: 15%"></td>
+									<td style="width: 20%"></td>
 								</tr>
 								<tr>
 									<td align="right">
@@ -48,15 +50,19 @@
 										<span class="cssManField">Số UNC</span>
 									</td>
 									<td>
-										<asp:TextBox ID="m_txt_so_unc" runat="server" placeholder="59Qtu" CssClass="cssTextBox" Width="18%"></asp:TextBox>
+										<asp:TextBox ID="m_txt_so_unc" runat="server" placeholder="59Qtu" CssClass="cssTextBox" Width="40%"></asp:TextBox>
+										<asp:DropDownList ID="m_ddl_unc" Visible="false" runat="server" Width="41%"
+											OnSelectedIndexChanged="m_ddl_unc_SelectedIndexChanged" AutoPostBack="true">
+										</asp:DropDownList>
 										<asp:Button ID="m_cmd_chon_unc" runat="server" Text="Chọn UNC"
 											CssClass="cssButton" Width="98px" Height="24px"
 											OnClick="m_cmd_chon_unc_Click" />
-										<asp:DropDownList ID="m_ddl_unc" Visible="false" runat="server" Width="20%"
-											OnSelectedIndexChanged="m_ddl_unc_SelectedIndexChanged" AutoPostBack="true">
-										</asp:DropDownList>
+									</td>
+									<td align="right">
 										<span class="cssManField">Ngày tháng</span>
-										<asp:TextBox ID="m_txt_ngay_thang" runat="server" placeholder="dd/mm/yyyy" CssClass="cssTextBox" Width="14.5%"></asp:TextBox>
+									</td>
+									<td>
+										<asp:TextBox ID="m_txt_ngay_thang" runat="server" placeholder="dd/mm/yyyy" CssClass="cssTextBox" Width="40%"></asp:TextBox>
 									</td>
 								</tr>
 								<tr>
@@ -75,8 +81,10 @@
 										<asp:Label ID="m_lbl_ma_tkkt" runat="server" CssClass="cssManField" ForeColor="Blue"></asp:Label>
 										<span class="cssManField">&nbsp;&nbsp; Mã ĐVQHNS:</span>
 										<asp:Label ID="m_lbl_ma_dvqhns" runat="server" CssClass="cssManField" ForeColor="Blue"></asp:Label>
-										<span class="cssManField">&nbsp;&nbsp; Mã CTMT, DA và HTCT:</span>
-										<asp:TextBox ID="m_txt_ma_ctmt_da_htct" runat="server" CssClass="cssTextBox"></asp:TextBox>
+										</td>
+									<td align="right"><span class="cssManField">&nbsp;&nbsp; Mã CTMT, DA và HTCT:</span></td>
+									<td>
+										<asp:TextBox ID="m_txt_ma_ctmt_da_htct" Width="40%" runat="server" CssClass="cssTextBox"></asp:TextBox>
 									</td>
 								</tr>
 								<tr>
@@ -97,7 +105,7 @@
 				<tr>
 					<td>
 						<asp:Panel ID="m_pnl_Khoan_thanh_toan" GroupingText="Khoản thanh toán" runat="server" ForeColor="Blue">
-							<table cellspacing="0" cellpadding="2" style="width: 99%;" border="0">
+							<table cellspacing="0" cellpadding="2" style="width: 100%;" border="0">
 								<tr>
 									<td colspan="4">
 										<asp:Label ID="m_lbl_mess_detail" runat="server" CssClass="cssManField"></asp:Label></td>
@@ -112,15 +120,15 @@
 									</td>
 								</tr>
 								<tr>
-									<td style="width: 25%" align="right">
+									<td align="right">
 										<span class="cssManField">Nội dung</span>
 									</td>
 									<td colspan="1">
 
-										<asp:DropDownList ID="m_ddl_quoc_lo" runat="server" CssClass="cssDorpdownlist" Width="90%"
+										<asp:DropDownList ID="m_ddl_quoc_lo" runat="server" CssClass="cssDorpdownlist" Width="89.5%"
 											AutoPostBack="true" OnSelectedIndexChanged="m_ddl_quoc_lo_SelectedIndexChanged">
 										</asp:DropDownList>
-										<asp:DropDownList ID="m_ddl_du_an" runat="server" CssClass="cssDorpdownlist" Width="90%"
+										<asp:DropDownList ID="m_ddl_du_an" runat="server" CssClass="cssDorpdownlist" Width="89.5%"
 											AutoPostBack="true" OnSelectedIndexChanged="m_ddl_du_an_SelectedIndexChanged">
 										</asp:DropDownList>
 
@@ -128,25 +136,25 @@
 								</tr>
 
 								<tr>
-									<td align="right">
+									<td align="right"  style="width: 10%">
 										<span class="cssManField">Số tiền nộp thuế</span>
 									</td>
 									<td style="width: 30%">
-										<asp:TextBox ID="m_txt_so_tien_nop_thue" runat="server" CssClass="cssTextBox" Width="89%"></asp:TextBox>
+										<asp:TextBox ID="m_txt_so_tien_nop_thue" runat="server" CssClass="cssTextBox" Width="40%"></asp:TextBox>
 									</td>
 									<td align="right" style="width: 15%">
 										<span class="cssManField">Số tiền thanh toán cho đơn vị hưởng</span>
 									</td>
-									<td>
-										<asp:TextBox ID="m_txt_so_tien_thanh_toan_cho_dv_huong" runat="server" CssClass="cssTextBox" Width="89%"></asp:TextBox>
+									<td style="width: 20%">
+										<asp:TextBox ID="m_txt_so_tien_thanh_toan_cho_dv_huong" runat="server" CssClass="cssTextBox" Width="40%"></asp:TextBox>
 									</td>
 								</tr>
 								<tr>
 									<td align="right">
 										<span class="cssManField">Ghi chú</span>
 									</td>
-									<td colspan="3">
-										<asp:TextBox ID="m_txt_ghi_chu" runat="server" CssClass="cssTextBox" Width="95.6%" placeholder="Ghi rõ nội dung thanh toán"></asp:TextBox>
+									<td colspan="1">
+										<asp:TextBox ID="m_txt_ghi_chu" runat="server" TextMode="MultiLine"  CssClass="cssTextBox" Width="89%" placeholder="Ghi rõ nội dung thanh toán"></asp:TextBox>
 									</td>
 								</tr>
 								<tr>
