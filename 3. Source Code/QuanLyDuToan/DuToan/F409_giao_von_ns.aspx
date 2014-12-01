@@ -81,14 +81,14 @@
 									</td>
 								</tr>
 								<tr>
-									<td style="width: 10%"></td>
-									<td colspan="4" align="left">
+									<td style="width: 15%"></td>
+									<td colspan="3" align="left">
 										<asp:RadioButton ID="m_rdb_kh_dau_nam" runat="server" CssClass="cssManField" ForeColor="Blue" Text="KH đầu năm" GroupName="loai" Checked="true" />
 										<asp:RadioButton ID="m_rdb_bo_sung" runat="server" CssClass="cssManField" ForeColor="Blue" Text="Bổ sung" GroupName="loai" />
 										<asp:RadioButton ID="m_rdb_dieu_chinh" runat="server" CssClass="cssManField" ForeColor="Blue" Text="Điều chỉnh" GroupName="loai" />
 									</td>
 								</tr>
-								
+
 								<tr>
 									<td colspan="4" style="width: 99%">
 										<asp:Panel ID="m_pnl_chon_khoan_muc_chi" runat="server" GroupingText="Chọn khoản mục chi">
@@ -153,101 +153,70 @@
 										</asp:Panel>
 									</td>
 								</tr>
+								<tr>
+									<td colspan="4">
+										<asp:Label ID="m_lbl_mess_grid" runat="server" CssClass="cssManField"></asp:Label>
+									</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td colspan="3" align="center">
+										<asp:GridView ID="m_grv" runat="server" AllowPaging="True" AutoGenerateColumns="False"
+											DataKeyNames="ID"
+											CssClass="cssGrid" Width="100%" CellPadding="0" ForeColor="#333333"
+											AllowSorting="True" PageSize="30" ShowHeader="true"
+											EmptyDataText="Không có dữ liệu phù hợp"
+											OnRowCommand="m_grv_RowCommand"
+											OnPageIndexChanging="m_grv_PageIndexChanging">
+											<AlternatingRowStyle BackColor="White" />
+											<EditRowStyle BackColor="#7C6F57" />
+											<FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
+											<HeaderStyle BackColor="#810c15" Font-Bold="True" ForeColor="White" />
+											<PagerSettings Position="TopAndBottom" />
+											<PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
+											<RowStyle BackColor="#E3EAEB" />
+											<SelectedRowStyle CssClass="cssSelectedRow" BackColor="#C5BBAF" Font-Bold="True"
+												ForeColor="#333333"></SelectedRowStyle>
+											<Columns>
+												<asp:TemplateField HeaderText="STT" ItemStyle-HorizontalAlign="Center" HeaderStyle-Width="2%" HeaderStyle-Height="40px">
+													<ItemTemplate>
+														<%# Container.DataItemIndex + 1 %>
+													</ItemTemplate>
+												</asp:TemplateField>
+												<asp:TemplateField HeaderText="Xóa" HeaderStyle-Width="2%">
+													<ItemTemplate>
+														<asp:LinkButton ID="m_lbl_delete" runat="server" CausesValidation="false" CommandArgument='<%#Eval("ID")%>'
+															CommandName="Xoa" ToolTip="Xóa" OnClientClick="return confirm ('Bạn có thực sự muốn xóa bản ghi này?')">
+                     <img alt="Xóa" src="../Images/Button/deletered.png" />
+														</asp:LinkButton>
+													</ItemTemplate>
+													<ItemStyle HorizontalAlign="Center"></ItemStyle>
+												</asp:TemplateField>
+												<asp:TemplateField HeaderText="Sửa" HeaderStyle-Width="2%">
+													<ItemTemplate>
+														<asp:LinkButton ID="m_lbl_update" runat="server" CausesValidation="false" CommandArgument='<%#Eval("ID")%>'
+															CommandName="Sua" ToolTip="Sửa">
+                     <img alt="Xóa" src="../Images/Button/edit.png" />
+														</asp:LinkButton>
+													</ItemTemplate>
+													<ItemStyle HorizontalAlign="Center"></ItemStyle>
+												</asp:TemplateField>
+												<asp:BoundField DataField="display" HeaderText="Công trình, dự án" />
+												<asp:TemplateField HeaderText="Số tiền" ItemStyle-HorizontalAlign="Right">
+													<ItemTemplate>
+														<asp:Label ID="m_lbl_so_tien_grid" runat="server"
+															CssClass="cssManField" ForeColor="Blue"
+															Text='<%#format_so_tien(Eval("SO_TIEN").ToString()) %>'></asp:Label>
+													</ItemTemplate>
+												</asp:TemplateField>
+												<asp:BoundField DataField="ten" HeaderText="Loại" />
+												<asp:BoundField DataField="ghi_chu" HeaderText="Ghi chú" />
+											</Columns>
+										</asp:GridView>
+									</td>
+								</tr>
 							</table>
 						</asp:Panel>
-					</td>
-				</tr>
-			</table>
-			<table cellspacing="0" cellpadding="2" style="width: 99%;" class="cssTable" border="0">
-				<tr>
-					<td class="cssPageTitleBG" colspan="4">
-						<asp:Label ID="m_lbl_chi_tiet_giao_von" runat="server" Text="Chi tiết giao vốn" CssClass="cssPageTitle"></asp:Label>
-						<span class="expand-collapse-text"></span>
-					</td>
-				</tr>
-				<tr>
-					<td style="width: 30%" align="right">
-						<span class="cssManField">Từ khóa</span>
-					</td>
-					<td style="width: 40%">
-						<asp:TextBox ID="m_txt_tu_khoa" runat="server" CssClass="cssTextBox" Width="60%"></asp:TextBox>
-					</td>
-					<td align="left">
-						<asp:Button ID="m_cmd_tim_kiem" Text="Tìm kiếm" runat="server" CssClass="cssButton" Height="24px" Width="98px" />
-					</td>
-					<td style="width=20%" align="right">
-						<asp:Button ID="m_cmd_xem_bao_cao_du_toan" Text="Xem báo cáo dự toán" runat="server" CssClass="cssButton" Height="24px" Width="130px" />
-					</td>
-				</tr>
-				<tr>
-					<td></td>
-					<td align="right">
-						<span class="cssManField">Tổng</span>
-					</td>
-					<td align="center">
-						<asp:Label ID="m_lbl_tong" runat="server" ForeColor="Blue"></asp:Label>
-					</td>
-					<td></td>
-				</tr>
-				<tr>
-					<td colspan="4">
-						<asp:Label ID="m_lbl_mess_grid" runat="server" CssClass="cssManField"></asp:Label>
-					</td>
-				</tr>
-				<tr>
-					<td colspan="4" align="center">
-						<asp:GridView ID="m_grv" runat="server" AllowPaging="True" AutoGenerateColumns="False"
-							DataKeyNames="ID"
-							CssClass="cssGrid" Width="100%" CellPadding="0" ForeColor="#333333"
-							AllowSorting="True" PageSize="30" ShowHeader="true"
-							EmptyDataText="Không có dữ liệu phù hợp"
-							OnRowCommand="m_grv_RowCommand"
-							OnPageIndexChanging="m_grv_PageIndexChanging">
-							<AlternatingRowStyle BackColor="White" />
-							<EditRowStyle BackColor="#7C6F57" />
-							<FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
-							<HeaderStyle BackColor="#810c15" Font-Bold="True" ForeColor="White" />
-							<PagerSettings Position="TopAndBottom" />
-							<PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
-							<RowStyle BackColor="#E3EAEB" />
-							<SelectedRowStyle CssClass="cssSelectedRow" BackColor="#C5BBAF" Font-Bold="True"
-								ForeColor="#333333"></SelectedRowStyle>
-							<Columns>
-								<asp:TemplateField HeaderText="STT" ItemStyle-HorizontalAlign="Center" HeaderStyle-Width="2%" HeaderStyle-Height="40px">
-                                    <ItemTemplate>
-                                        <%# Container.DataItemIndex + 1 %>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Xóa" HeaderStyle-Width="2%">
-                                    <ItemTemplate>
-                                        <asp:LinkButton ID="m_lbl_delete" runat="server" CausesValidation="false" CommandArgument='<%#Eval("ID")%>'
-                                            CommandName="Xoa" ToolTip="Xóa" OnClientClick="return confirm ('Bạn có thực sự muốn xóa bản ghi này?')">
-                     <img alt="Xóa" src="../Images/Button/deletered.png" />
-                                        </asp:LinkButton>
-                                    </ItemTemplate>
-                                    <ItemStyle HorizontalAlign="Center"></ItemStyle>
-                                </asp:TemplateField>
-								<asp:TemplateField HeaderText="Sửa" HeaderStyle-Width="2%">
-                                    <ItemTemplate>
-                                        <asp:LinkButton ID="m_lbl_update" runat="server" CausesValidation="false" CommandArgument='<%#Eval("ID")%>'
-                                            CommandName="Sua" ToolTip="Sửa">
-                     <img alt="Xóa" src="../Images/Button/edit.png" />
-                                        </asp:LinkButton>
-                                    </ItemTemplate>
-                                    <ItemStyle HorizontalAlign="Center"></ItemStyle>
-                                </asp:TemplateField>
-                                <asp:BoundField DataField="display" HeaderText="Công trình, dự án" />
-                                <asp:TemplateField  HeaderText="Số tiền" ItemStyle-HorizontalAlign="Right">
-                                    <ItemTemplate>
-                                        <asp:Label ID="m_lbl_so_tien_grid" runat="server" 
-                                            CssClass="cssManField" ForeColor="Blue"
-                                            Text='<%#format_so_tien(Eval("SO_TIEN").ToString()) %>'></asp:Label>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:BoundField DataField="ten" HeaderText="Loại" />
-								<asp:BoundField DataField="ghi_chu" HeaderText="Ghi chú" />
-							</Columns>
-						</asp:GridView>
 					</td>
 				</tr>
 			</table>
