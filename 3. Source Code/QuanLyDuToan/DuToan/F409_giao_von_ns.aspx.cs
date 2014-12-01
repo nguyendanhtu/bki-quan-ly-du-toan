@@ -15,7 +15,10 @@ public partial class DuToan_F409_giao_von_ns : System.Web.UI.Page
 {
 	protected void Page_Load(object sender, EventArgs e)
 	{
-
+		if (!IsPostBack)
+		{
+			set_inital_form_load();
+		}
 	}
 
 	#region Public Interface
@@ -31,13 +34,19 @@ public partial class DuToan_F409_giao_von_ns : System.Web.UI.Page
 	}
 	#endregion
 
+	private void set_inital_form_load()
+	{
+		load_data_to_cbo_muc_tieu_muc();
 
+		xoa_trang();
+	}
 
 	private void load_data_to_cbo_muc_tieu_muc()
 	{
 		if (m_hdf_id_quyet_dinh.Value.Equals("") | m_hdf_id_quyet_dinh.Value.Trim().Equals("-1"))
 		{
-
+			m_ddl_muc.Items.Clear();
+			m_ddl_muc.Items.Insert(0, new ListItem("---Chọn Mục hoặc Tiểu mục---", "-1"));
 			return;
 		}
 		US_GD_QUYET_DINH v_us_qd = new US_GD_QUYET_DINH(CIPConvert.ToDecimal(m_hdf_id_quyet_dinh.Value));
