@@ -107,7 +107,14 @@
                                                         <asp:TextBox ID="m_txt_ctx_so_tien" runat="server" CssClass="cssTextBox" Width="50%"></asp:TextBox>
                                                     </td>
                                                 </tr>
-                                                
+                                                <tr>
+                                                    <td style="width: 30%" align="right">
+                                                        <span class="cssManField">Nội dung</span>
+                                                    </td>
+                                                    <td style="width: 70%" align="left">
+                                                        <asp:TextBox ID="m_txt_ctx_noi_dung" TextMode="MultiLine" runat="server" CssClass="cssTextBox" Width="100%"></asp:TextBox>
+                                                    </td>
+                                                </tr>
                                                 <tr>
 
                                                     <td colspan="2" align="center">
@@ -142,7 +149,14 @@
                                                         <asp:TextBox ID="m_txt_cktx_so_tien" runat="server" CssClass="cssTextBox" Width="50%"></asp:TextBox>
                                                     </td>
                                                 </tr>
-                                                
+                                                <tr>
+                                                    <td style="width: 30%" align="right">
+                                                        <span class="cssManField">Nội dung</span>
+                                                    </td>
+                                                    <td style="width: 70%" align="left">
+                                                        <asp:TextBox ID="m_txt_cktx_noi_dung" TextMode="MultiLine" runat="server" CssClass="cssTextBox" Width="100%"></asp:TextBox>
+                                                    </td>
+                                                </tr>
                                                 <tr>
 
                                                     <td colspan="2" align="center">
@@ -230,6 +244,7 @@
                                     <ItemStyle HorizontalAlign="Center"></ItemStyle>
                                 </asp:TemplateField>
                                 <asp:BoundField DataField="display" HeaderText="Công trình, dự án" />
+								<asp:BoundField DataField="ghi_chu" HeaderText="Nội dung" />
                                 <asp:TemplateField  HeaderText="Số tiền" ItemStyle-HorizontalAlign="Right">
                                     <ItemTemplate>
                                         <asp:Label ID="m_lbl_so_tien_grid" runat="server" 

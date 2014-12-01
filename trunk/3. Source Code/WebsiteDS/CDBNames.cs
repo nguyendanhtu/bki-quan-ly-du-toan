@@ -6,6 +6,27 @@ using System.Text;
 namespace WebDS.CDBNames
 {
     #region Quan ly du toan
+	public class RPT_BC_TINH_HINH_GIAI_NGAN
+	{
+		public const string STT = "STT";
+		public const string NOI_DUNG = "NOI_DUNG";
+		public const string KH_QBT = "KH_QBT";
+		public const string KH_NS = "KH_NS";
+		public const string KH_TONG = "KH_TONG";
+		public const string DN_QBT_TRONG_THANG = "DN_QBT_TRONG_THANG";
+		public const string DN_QBT_LUY_KE = "DN_QBT_LUY_KE";
+		public const string DN_NS_TRONG_THANG = "DN_NS_TRONG_THANG";
+		public const string DN_NS_LUY_KE = "DN_NS_LUY_KE";
+		public const string DTT_QBT_TRONG_THANG = "DTT_QBT_TRONG_THANG";
+		public const string DTT_QBT_LUY_KE = "DTT_QBT_LUY_KE";
+		public const string DTT_NS_TRONG_THANG = "DTT_NS_TRONG_THANG";
+		public const string DTT_NS_LUY_KE = "DTT_NS_LUY_KE";
+		public const string CN_QBT = "CN_QBT";
+		public const string CN_NS = "CN_NS";
+		public const string ID_DON_VI = "ID_DON_VI";
+		public const string LEVEL = "LEVEL";
+	}
+
 	public class V_DM_UY_NHIEM_CHI
 	{
 		public const string ID = "ID";

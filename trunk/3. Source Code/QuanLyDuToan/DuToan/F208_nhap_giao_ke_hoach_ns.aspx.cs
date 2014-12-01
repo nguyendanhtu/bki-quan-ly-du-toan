@@ -275,6 +275,12 @@ public partial class DuToan_f209_giao_von_ns : System.Web.UI.Page
 				m_ddl_chuong.Focus();
 				v_b_result = false;
 			}
+			if (!CValidateTextBox.IsValid(m_txt_ghi_chu,DataType.StringType,allowNull.NO))
+			{
+				m_lbl_mess_detail.Text += "\n Bạn phải Nhập nội dung!";
+				m_txt_ghi_chu.Focus();
+				v_b_result = false;
+			}
 
 
 		}
