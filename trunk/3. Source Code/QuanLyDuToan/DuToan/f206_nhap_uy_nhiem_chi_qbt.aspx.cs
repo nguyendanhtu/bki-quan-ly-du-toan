@@ -202,7 +202,7 @@ public partial class DuToan_f206_nhap_uy_nhiem_chi : System.Web.UI.Page
 				for (int i = 0; i < m_grv.Rows.Count; i++)
 					if (CIPConvert.ToDecimal(m_grv.DataKeys[i].Value) == CIPConvert.ToDecimal(m_hdf_id_gd_uy_nhiem_chi.Value)) m_grv.SelectedIndex = i;
 			}
-			WinFormControls.get_cout_grid_row(m_lbl_grid_title, "Danh sách khoản thanh toán", v_ds.V_GD_UY_NHIEM_CHI.Count);
+			//WinFormControls.get_cout_grid_row(m_lbl_grid_title, "Danh sách khoản thanh toán", v_ds.V_GD_UY_NHIEM_CHI.Count);
 
 		}
 		catch (Exception v_e)
@@ -222,48 +222,11 @@ public partial class DuToan_f206_nhap_uy_nhiem_chi : System.Web.UI.Page
 		v_dt.Columns.Add(V_GD_UY_NHIEM_CHI.NOI_DUNG);
 		op_ds.Tables.Add(v_dt);
 		op_ds.AcceptChanges();
-		//chi khong thuong xuyen
-		DataRow v_dr_chi_ktx = v_dt.NewRow();
-		v_dr_chi_ktx[V_GD_UY_NHIEM_CHI.ID] = "-1";
-		v_dr_chi_ktx[V_GD_UY_NHIEM_CHI.DISPLAY] = "I - Chi không thường xuyên";
-		v_dr_chi_ktx[V_GD_UY_NHIEM_CHI.SO_TIEN_NOP_THUE] = "";
-		v_dr_chi_ktx[V_GD_UY_NHIEM_CHI.SO_TIEN_TT_CHO_DV_HUONG] = "";
-		v_dr_chi_ktx["TONG_SO_TIEN"] = "";
-		op_ds.Tables[0].Rows.Add(v_dr_chi_ktx);
-		op_ds.AcceptChanges();
-		for (int i = 0; i < ip_ds.V_GD_UY_NHIEM_CHI.Count; i++)
-		{
-			if (CIPConvert.ToDecimal(ip_ds.Tables[0].Rows[i][V_GD_UY_NHIEM_CHI.ID_LOAI_DU_AN_CONG_TRINH]) == ID_LOAI_DU_AN.KHAC)
-			{
-				DataRow v_dr = v_dt.NewRow();
-				v_dr[V_GD_UY_NHIEM_CHI.ID] = ip_ds.Tables[0].Rows[i][V_GD_UY_NHIEM_CHI.ID].ToString();
-				v_dr[V_GD_UY_NHIEM_CHI.DISPLAY] = ".............." + ip_ds.Tables[0].Rows[i][V_GD_UY_NHIEM_CHI.DISPLAY].ToString();
-				if (ip_ds.Tables[0].Rows[i][V_GD_UY_NHIEM_CHI.SO_TIEN_NOP_THUE] == null
-					| ip_ds.Tables[0].Rows[i][V_GD_UY_NHIEM_CHI.SO_TIEN_NOP_THUE].ToString().Trim() == ""
-					| ip_ds.Tables[0].Rows[i][V_GD_UY_NHIEM_CHI.SO_TIEN_NOP_THUE].ToString().Trim() == "0")
-					v_dr[V_GD_UY_NHIEM_CHI.SO_TIEN_NOP_THUE] = "0";
-				else v_dr[V_GD_UY_NHIEM_CHI.SO_TIEN_NOP_THUE] = CIPConvert.ToStr(ip_ds.Tables[0].Rows[i][V_GD_UY_NHIEM_CHI.SO_TIEN_NOP_THUE], "#,###,##");
-				if (ip_ds.Tables[0].Rows[i][V_GD_UY_NHIEM_CHI.SO_TIEN_TT_CHO_DV_HUONG] == null
-					| ip_ds.Tables[0].Rows[i][V_GD_UY_NHIEM_CHI.SO_TIEN_TT_CHO_DV_HUONG].ToString().Trim() == ""
-					| ip_ds.Tables[0].Rows[i][V_GD_UY_NHIEM_CHI.SO_TIEN_TT_CHO_DV_HUONG].ToString().Trim() == "0")
-					v_dr[V_GD_UY_NHIEM_CHI.SO_TIEN_TT_CHO_DV_HUONG] = "0";
-				else v_dr[V_GD_UY_NHIEM_CHI.SO_TIEN_TT_CHO_DV_HUONG] = ip_ds.Tables[0].Rows[i][V_GD_UY_NHIEM_CHI.SO_TIEN_TT_CHO_DV_HUONG].ToString();
-				if (v_dr[V_GD_UY_NHIEM_CHI.SO_TIEN_TT_CHO_DV_HUONG]=="0"&& v_dr[V_GD_UY_NHIEM_CHI.SO_TIEN_NOP_THUE]=="0")
-				{
-					v_dr["TONG_SO_TIEN"]="0";
-				}
-				else v_dr["TONG_SO_TIEN"] = CIPConvert.ToStr(CIPConvert.ToDecimal(v_dr[V_GD_UY_NHIEM_CHI.SO_TIEN_NOP_THUE].ToString().Replace(",", ""))
-					+ CIPConvert.ToDecimal(v_dr[V_GD_UY_NHIEM_CHI.SO_TIEN_TT_CHO_DV_HUONG].ToString().Replace(",", "")), "#,###,##");
-				v_dr[V_GD_UY_NHIEM_CHI.NOI_DUNG] = ip_ds.Tables[0].Rows[i][V_GD_UY_NHIEM_CHI.NOI_DUNG];
-				op_ds.Tables[0].Rows.Add(v_dr);
-				op_ds.AcceptChanges();
-			}
 
-		}
 		//chi thuong xuyen
 		DataRow v_dr_chi_tx = v_dt.NewRow();
 		v_dr_chi_tx[V_GD_UY_NHIEM_CHI.ID] = "-1";
-		v_dr_chi_tx[V_GD_UY_NHIEM_CHI.DISPLAY] = "II - Chi thường xuyên";
+		v_dr_chi_tx[V_GD_UY_NHIEM_CHI.DISPLAY] = "I - Chi thường xuyên";
 		v_dr_chi_tx[V_GD_UY_NHIEM_CHI.SO_TIEN_NOP_THUE] = "";
 		v_dr_chi_tx[V_GD_UY_NHIEM_CHI.SO_TIEN_TT_CHO_DV_HUONG] = "";
 		v_dr_chi_tx["TONG_SO_TIEN"] = "";
@@ -298,6 +261,46 @@ public partial class DuToan_f206_nhap_uy_nhiem_chi : System.Web.UI.Page
 			}
 
 		}
+
+		//chi khong thuong xuyen
+		DataRow v_dr_chi_ktx = v_dt.NewRow();
+		v_dr_chi_ktx[V_GD_UY_NHIEM_CHI.ID] = "-1";
+		v_dr_chi_ktx[V_GD_UY_NHIEM_CHI.DISPLAY] = "II - Chi không thường xuyên";
+		v_dr_chi_ktx[V_GD_UY_NHIEM_CHI.SO_TIEN_NOP_THUE] = "";
+		v_dr_chi_ktx[V_GD_UY_NHIEM_CHI.SO_TIEN_TT_CHO_DV_HUONG] = "";
+		v_dr_chi_ktx["TONG_SO_TIEN"] = "";
+		op_ds.Tables[0].Rows.Add(v_dr_chi_ktx);
+		op_ds.AcceptChanges();
+		for (int i = 0; i < ip_ds.V_GD_UY_NHIEM_CHI.Count; i++)
+		{
+			if (CIPConvert.ToDecimal(ip_ds.Tables[0].Rows[i][V_GD_UY_NHIEM_CHI.ID_LOAI_DU_AN_CONG_TRINH]) == ID_LOAI_DU_AN.KHAC)
+			{
+				DataRow v_dr = v_dt.NewRow();
+				v_dr[V_GD_UY_NHIEM_CHI.ID] = ip_ds.Tables[0].Rows[i][V_GD_UY_NHIEM_CHI.ID].ToString();
+				v_dr[V_GD_UY_NHIEM_CHI.DISPLAY] = ".............." + ip_ds.Tables[0].Rows[i][V_GD_UY_NHIEM_CHI.DISPLAY].ToString();
+				if (ip_ds.Tables[0].Rows[i][V_GD_UY_NHIEM_CHI.SO_TIEN_NOP_THUE] == null
+					| ip_ds.Tables[0].Rows[i][V_GD_UY_NHIEM_CHI.SO_TIEN_NOP_THUE].ToString().Trim() == ""
+					| ip_ds.Tables[0].Rows[i][V_GD_UY_NHIEM_CHI.SO_TIEN_NOP_THUE].ToString().Trim() == "0")
+					v_dr[V_GD_UY_NHIEM_CHI.SO_TIEN_NOP_THUE] = "0";
+				else v_dr[V_GD_UY_NHIEM_CHI.SO_TIEN_NOP_THUE] = CIPConvert.ToStr(ip_ds.Tables[0].Rows[i][V_GD_UY_NHIEM_CHI.SO_TIEN_NOP_THUE], "#,###,##");
+				if (ip_ds.Tables[0].Rows[i][V_GD_UY_NHIEM_CHI.SO_TIEN_TT_CHO_DV_HUONG] == null
+					| ip_ds.Tables[0].Rows[i][V_GD_UY_NHIEM_CHI.SO_TIEN_TT_CHO_DV_HUONG].ToString().Trim() == ""
+					| ip_ds.Tables[0].Rows[i][V_GD_UY_NHIEM_CHI.SO_TIEN_TT_CHO_DV_HUONG].ToString().Trim() == "0")
+					v_dr[V_GD_UY_NHIEM_CHI.SO_TIEN_TT_CHO_DV_HUONG] = "0";
+				else v_dr[V_GD_UY_NHIEM_CHI.SO_TIEN_TT_CHO_DV_HUONG] = ip_ds.Tables[0].Rows[i][V_GD_UY_NHIEM_CHI.SO_TIEN_TT_CHO_DV_HUONG].ToString();
+				if (v_dr[V_GD_UY_NHIEM_CHI.SO_TIEN_TT_CHO_DV_HUONG]=="0"&& v_dr[V_GD_UY_NHIEM_CHI.SO_TIEN_NOP_THUE]=="0")
+				{
+					v_dr["TONG_SO_TIEN"]="0";
+				}
+				else v_dr["TONG_SO_TIEN"] = CIPConvert.ToStr(CIPConvert.ToDecimal(v_dr[V_GD_UY_NHIEM_CHI.SO_TIEN_NOP_THUE].ToString().Replace(",", ""))
+					+ CIPConvert.ToDecimal(v_dr[V_GD_UY_NHIEM_CHI.SO_TIEN_TT_CHO_DV_HUONG].ToString().Replace(",", "")), "#,###,##");
+				v_dr[V_GD_UY_NHIEM_CHI.NOI_DUNG] = ip_ds.Tables[0].Rows[i][V_GD_UY_NHIEM_CHI.NOI_DUNG];
+				op_ds.Tables[0].Rows.Add(v_dr);
+				op_ds.AcceptChanges();
+			}
+
+		}
+		
 
 		return op_ds;
 	}
@@ -755,7 +758,7 @@ public partial class DuToan_f206_nhap_uy_nhiem_chi : System.Web.UI.Page
 		}
 		catch (Exception v_e)
 		{
-			m_lbl_grid_title.Text = v_e.ToString();
+			m_lbl_mess_grid.Text = v_e.ToString();
 		}
 	}
 	protected void m_cmd_save_info_unc_Click(object sender, EventArgs e)

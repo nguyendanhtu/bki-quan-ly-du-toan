@@ -409,7 +409,7 @@ public partial class DuToan_F410_nhap_uy_nhiem_chi_ns : System.Web.UI.Page
 				for (int i = 0; i < m_grv.Rows.Count; i++)
 					if (CIPConvert.ToDecimal(m_grv.DataKeys[i].Value) == CIPConvert.ToDecimal(m_hdf_id_gd_uy_nhiem_chi.Value)) m_grv.SelectedIndex = i;
 			}
-			WinFormControls.get_cout_grid_row(m_lbl_grid_title, "Danh sách khoản thanh toán", v_ds.V_GD_UY_NHIEM_CHI.Count);
+			//WinFormControls.get_cout_grid_row(m_lbl_grid_title, "Danh sách khoản thanh toán", v_ds.V_GD_UY_NHIEM_CHI.Count);
 
 		}
 		catch (Exception v_e)
@@ -720,7 +720,7 @@ public partial class DuToan_F410_nhap_uy_nhiem_chi_ns : System.Web.UI.Page
 		}
 		catch (Exception v_e)
 		{
-			m_lbl_grid_title.Text = v_e.ToString();
+			m_lbl_mess_grid.Text = v_e.ToString();
 		}
 	}
 
