@@ -1,0 +1,66 @@
+I:\Working\00. BKI_QLTS\03. Sourcecode\IPData\bin\IPData.dll.config
+I:\Working\00. BKI_QLTS\03. Sourcecode\IPData\bin\IPData.dll
+I:\Working\00. BKI_QLTS\03. Sourcecode\IPData\bin\IPData.pdb
+I:\Working\00. BKI_QLTS\03. Sourcecode\IPData\bin\IPData.xml
+I:\Working\00. BKI_QLTS\03. Sourcecode\IPData\obj\Debug\ResolveAssemblyReference.cache
+I:\Working\00. BKI_QLTS\03. Sourcecode\IPData\obj\Debug\IPData.dll
+I:\Working\00. BKI_QLTS\03. Sourcecode\IPData\obj\Debug\IPData.xml
+I:\Working\00. BKI_QLTS\03. Sourcecode\IPData\obj\Debug\IPData.pdb
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\IPData\bin\IPData.dll.config
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\IPData\bin\IPData.dll
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\IPData\bin\IPData.pdb
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\IPData\bin\IPData.xml
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\IPData\obj\Debug\ResolveAssemblyReference.cache
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\IPData\obj\Debug\IPData.dll
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\IPData\obj\Debug\IPData.xml
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\IPData\obj\Debug\IPData.pdb
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\IPData\bin\IPData.dll.config
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\IPData\bin\IPData.dll
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\IPData\bin\IPData.pdb
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\IPData\bin\IPData.xml
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\IPData\obj\Debug\ResolveAssemblyReference.cache
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\IPData\obj\Debug\IPData.dll
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\IPData\obj\Debug\IPData.xml
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\IPData\obj\Debug\IPData.pdb
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\IPData\bin\IPData.dll.config
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\IPData\bin\IPData.dll
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\IPData\bin\IPData.pdb
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\IPData\bin\IPData.xml
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\IPData\obj\Debug\IPData.dll
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\IPData\obj\Debug\IPData.xml
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\IPData\obj\Debug\IPData.pdb
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\IPData\bin\IPData.dll.config
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\IPData\bin\IPData.dll
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\IPData\bin\IPData.pdb
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\IPData\bin\IPData.xml
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\IPData\obj\Debug\IPData.dll
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\IPData\obj\Debug\IPData.xml
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\IPData\obj\Debug\IPData.pdb
+E:\0. Working\1. Project\New folder (3)\3. Source Code\IPData\bin\IPData.dll.config
+E:\0. Working\1. Project\New folder (3)\3. Source Code\IPData\bin\IPData.dll
+E:\0. Working\1. Project\New folder (3)\3. Source Code\IPData\bin\IPData.pdb
+E:\0. Working\1. Project\New folder (3)\3. Source Code\IPData\bin\IPData.xml
+E:\0. Working\1. Project\New folder (3)\3. Source Code\IPData\obj\Debug\IPData.dll
+E:\0. Working\1. Project\New folder (3)\3. Source Code\IPData\obj\Debug\IPData.xml
+E:\0. Working\1. Project\New folder (3)\3. Source Code\IPData\obj\Debug\IPData.pdb
+E:\0. Working\1. Project\0. QLDT\3. Source Code\IPData\bin\IPData.dll.config
+E:\0. Working\1. Project\0. QLDT\3. Source Code\IPData\bin\IPData.dll
+E:\0. Working\1. Project\0. QLDT\3. Source Code\IPData\bin\IPData.pdb
+E:\0. Working\1. Project\0. QLDT\3. Source Code\IPData\bin\IPData.xml
+E:\0. Working\1. Project\0. QLDT\3. Source Code\IPData\obj\Debug\IPData.dll
+E:\0. Working\1. Project\0. QLDT\3. Source Code\IPData\obj\Debug\IPData.xml
+E:\0. Working\1. Project\0. QLDT\3. Source Code\IPData\obj\Debug\IPData.pdb
+D:\0. Working\1. Project\0. QLDT\3. Source Code\IPData\bin\IPData.dll.config
+D:\0. Working\1. Project\0. QLDT\3. Source Code\IPData\bin\IPData.dll
+D:\0. Working\1. Project\0. QLDT\3. Source Code\IPData\bin\IPData.pdb
+D:\0. Working\1. Project\0. QLDT\3. Source Code\IPData\bin\IPData.xml
+D:\0. Working\1. Project\0. QLDT\3. Source Code\IPData\obj\Debug\IPData.dll
+D:\0. Working\1. Project\0. QLDT\3. Source Code\IPData\obj\Debug\IPData.xml
+D:\0. Working\1. Project\0. QLDT\3. Source Code\IPData\obj\Debug\IPData.pdb
+D:\0. Working\1. Project\0. QLDT\3. Source Code - Copy\IPData\bin\IPData.dll.config
+D:\0. Working\1. Project\0. QLDT\3. Source Code - Copy\IPData\bin\IPData.dll
+D:\0. Working\1. Project\0. QLDT\3. Source Code - Copy\IPData\bin\IPData.pdb
+D:\0. Working\1. Project\0. QLDT\3. Source Code - Copy\IPData\bin\IPData.xml
+D:\0. Working\1. Project\0. QLDT\3. Source Code - Copy\IPData\obj\Debug\IPData.dll
+D:\0. Working\1. Project\0. QLDT\3. Source Code - Copy\IPData\obj\Debug\IPData.xml
+D:\0. Working\1. Project\0. QLDT\3. Source Code - Copy\IPData\obj\Debug\IPData.pdb

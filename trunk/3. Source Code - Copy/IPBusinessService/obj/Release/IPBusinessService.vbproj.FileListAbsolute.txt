@@ -1,0 +1,8 @@
+D:\0. Working\1. Project\0. QLDT\3. Source Code - Copy\IPBusinessService\bin\IPBusinessService.dll
+D:\0. Working\1. Project\0. QLDT\3. Source Code - Copy\IPBusinessService\bin\IPBusinessService.xml
+D:\0. Working\1. Project\0. QLDT\3. Source Code - Copy\IPBusinessService\bin\IPException.dll
+D:\0. Working\1. Project\0. QLDT\3. Source Code - Copy\IPBusinessService\bin\IPException.pdb
+D:\0. Working\1. Project\0. QLDT\3. Source Code - Copy\IPBusinessService\bin\IPException.xml
+D:\0. Working\1. Project\0. QLDT\3. Source Code - Copy\IPBusinessService\obj\Release\IPBusinessService.vbprojResolveAssemblyReference.cache
+D:\0. Working\1. Project\0. QLDT\3. Source Code - Copy\IPBusinessService\obj\Release\IPBusinessService.dll
+D:\0. Working\1. Project\0. QLDT\3. Source Code - Copy\IPBusinessService\obj\Release\IPBusinessService.xml

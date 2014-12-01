@@ -5,12 +5,10 @@
 <Database id="ref-4">BKI_QLDT</Database>
 <Username id="ref-5">sa</Username>
 <Password id="ref-6">sa</Password>
-<Path id="ref-7">D:\</Path>
-<Tablename id="ref-8">CM_DM_LOAI_TD</Tablename>
+<Path id="ref-7">C:\Users\TuDM\Desktop\US</Path>
+<Tablename id="ref-8">RPT_BC_TINH_HINH_GIAI_NGAN</Tablename>
 <NguoiTao id="ref-9">TuDM</NguoiTao>
 </a1:FormInfo>
 </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
-nvelope>
-:Body>
-</SOAP-ENV:Envelope>
+ope>
