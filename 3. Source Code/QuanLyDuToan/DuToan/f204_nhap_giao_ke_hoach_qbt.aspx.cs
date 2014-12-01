@@ -123,6 +123,12 @@ public partial class DuToan_f204_nhap_giao_ke_hoach_qbt : System.Web.UI.Page
 					m_ddl_tuyen_quoc_lo.Focus();
 					v_b_result = false;
 				}
+				if(!CValidateTextBox.IsValid(m_txt_ctx_noi_dung,DataType.StringType,allowNull.NO))
+				{
+					m_lbl_mess_detail.Text += "\n Bạn phải Nhập nội dung!";
+					m_txt_ctx_noi_dung.Focus();
+					v_b_result = false;
+				}
 			}
 			else if (ip_str_ctx_yn.Trim().ToUpper() == "N")
 			{
@@ -136,6 +142,12 @@ public partial class DuToan_f204_nhap_giao_ke_hoach_qbt : System.Web.UI.Page
 				{
 					m_lbl_mess_detail.Text += "\n Bạn phải nhập Số tiền!";
 					m_txt_cktx_so_tien.Focus();
+					v_b_result = false;
+				}
+				if(!CValidateTextBox.IsValid(m_txt_cktx_noi_dung,DataType.StringType,allowNull.NO))
+				{
+					m_lbl_mess_detail.Text += "\n Bạn phải Nhập nội dung!";
+					m_txt_cktx_noi_dung.Focus();
 					v_b_result = false;
 				}
 			}
@@ -195,11 +207,13 @@ public partial class DuToan_f204_nhap_giao_ke_hoach_qbt : System.Web.UI.Page
 		{
 			m_us.dcID_DU_AN_CONG_TRINH = CIPConvert.ToDecimal(m_ddl_tuyen_quoc_lo.SelectedValue);
 			m_us.dcSO_TIEN = CIPConvert.ToDecimal(m_txt_ctx_so_tien.Text.Trim());
+			m_us.strGHI_CHU = m_txt_ctx_noi_dung.Text;
 		}
 		else
 		{
 			m_us.dcID_DU_AN_CONG_TRINH = CIPConvert.ToDecimal(m_ddl_du_an.SelectedValue);
 			m_us.dcSO_TIEN = CIPConvert.ToDecimal(m_txt_cktx_so_tien.Text.Trim());
+			m_us.strGHI_CHU = m_txt_cktx_noi_dung.Text;
 		}
 		m_us.dcID_QUYET_DINH = CIPConvert.ToDecimal(m_hdf_id_quyet_dinh.Value);
 		m_us.dcID_DON_VI = Person.get_id_don_vi();
@@ -216,6 +230,7 @@ public partial class DuToan_f204_nhap_giao_ke_hoach_qbt : System.Web.UI.Page
 		{
 			m_ddl_tuyen_quoc_lo.SelectedValue = m_us.dcID_DU_AN_CONG_TRINH.ToString();
 			m_txt_ctx_so_tien.Text = CIPConvert.ToStr(m_us.dcSO_TIEN);
+			m_txt_ctx_noi_dung.Text = m_us.strGHI_CHU;
 
 		}
 		else
@@ -225,6 +240,7 @@ public partial class DuToan_f204_nhap_giao_ke_hoach_qbt : System.Web.UI.Page
 			m_txt_cktx_so_tien.Text = CIPConvert.ToStr(m_us.dcSO_TIEN);
 			m_ddl_du_an.Visible = true;
 			m_txt_ten_du_an.Visible = false;
+			m_txt_cktx_noi_dung.Text = m_us.strGHI_CHU;
 
 		}
 		//set quyet dinh
@@ -304,6 +320,8 @@ public partial class DuToan_f204_nhap_giao_ke_hoach_qbt : System.Web.UI.Page
 		m_cmd_ctx_update.Visible = false;
 		m_cmd_ctx_insert.Visible = true;
 
+		m_txt_cktx_noi_dung.Text = "";
+		m_txt_ctx_noi_dung.Text = "";
 
 		m_cmd_cktx_update.Visible = false;
 		m_cmd_cktx_insert.Visible = true;
@@ -374,6 +392,7 @@ public partial class DuToan_f204_nhap_giao_ke_hoach_qbt : System.Web.UI.Page
 		v_dt.Columns.Add(V_GD_GIAO_KH.DISPLAY);
 		v_dt.Columns.Add(V_GD_GIAO_KH.SO_TIEN);
 		v_dt.Columns.Add(V_GD_GIAO_KH.TEN);
+		v_dt.Columns.Add(V_GD_GIAO_KH.GHI_CHU);
 		op_ds.Tables.Add(v_dt);
 		op_ds.AcceptChanges();
 		//chi khong thuong xuyen
@@ -393,6 +412,7 @@ public partial class DuToan_f204_nhap_giao_ke_hoach_qbt : System.Web.UI.Page
 				v_dr[V_GD_GIAO_KH.DISPLAY] = ".............." + ip_ds.Tables[0].Rows[i][V_GD_GIAO_KH.DISPLAY].ToString();
 				v_dr[V_GD_GIAO_KH.SO_TIEN] = CIPConvert.ToStr(ip_ds.Tables[0].Rows[i][V_GD_GIAO_KH.SO_TIEN], "#,###,##");
 				v_dr[V_GD_GIAO_KH.TEN] = ip_ds.Tables[0].Rows[i][V_GD_GIAO_KH.TEN].ToString();
+				v_dr[V_GD_GIAO_KH.GHI_CHU] = ip_ds.Tables[0].Rows[i][V_GD_GIAO_KH.GHI_CHU].ToString();
 				op_ds.Tables[0].Rows.Add(v_dr);
 				op_ds.AcceptChanges();
 			}
@@ -404,6 +424,7 @@ public partial class DuToan_f204_nhap_giao_ke_hoach_qbt : System.Web.UI.Page
 		v_dr_chi_tx[V_GD_GIAO_KH.DISPLAY] = "II - Chi thường xuyên";
 		v_dr_chi_tx[V_GD_GIAO_KH.SO_TIEN] = "-1";
 		v_dr_chi_tx[V_GD_GIAO_KH.TEN] = "";
+		v_dr_chi_tx[V_GD_GIAO_KH.GHI_CHU] = "";
 		op_ds.Tables[0].Rows.Add(v_dr_chi_tx);
 		op_ds.AcceptChanges();
 		for (int i = 0; i < ip_ds.V_GD_GIAO_KH.Count; i++)
@@ -415,6 +436,7 @@ public partial class DuToan_f204_nhap_giao_ke_hoach_qbt : System.Web.UI.Page
 				v_dr[V_GD_GIAO_KH.DISPLAY] = ".............." + ip_ds.Tables[0].Rows[i][V_GD_GIAO_KH.DISPLAY].ToString();
 				v_dr[V_GD_GIAO_KH.SO_TIEN] = CIPConvert.ToStr(ip_ds.Tables[0].Rows[i][V_GD_GIAO_KH.SO_TIEN], "#,###,##");
 				v_dr[V_GD_GIAO_KH.TEN] = ip_ds.Tables[0].Rows[i][V_GD_GIAO_KH.TEN].ToString();
+				v_dr[V_GD_GIAO_KH.GHI_CHU] = ip_ds.Tables[0].Rows[i][V_GD_GIAO_KH.GHI_CHU].ToString();
 				op_ds.Tables[0].Rows.Add(v_dr);
 				op_ds.AcceptChanges();
 			}

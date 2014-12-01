@@ -137,7 +137,7 @@
 														<asp:TextBox ID="m_txt_so_tien" runat="server" CssClass="cssTextBox csscurrency" placeholder="Số tiền" Width="50%"></asp:TextBox>
 													</td>
 													<td align="right">
-														<span class="cssManField">Ghi chú</span>
+														<span class="cssManField">Nội dung</span>
 													</td>
 													<td>
 														<asp:TextBox ID="m_txt_ghi_chu" Width="89%" runat="server" CssClass="cssTextBox" TextMode="MultiLine"></asp:TextBox>
@@ -233,6 +233,7 @@
                                     <ItemStyle HorizontalAlign="Center"></ItemStyle>
                                 </asp:TemplateField>
                                 <asp:BoundField DataField="display" HeaderText="Công trình, dự án" />
+								<asp:BoundField DataField="ghi_chu" HeaderText="Nội dung" />
                                 <asp:TemplateField  HeaderText="Số tiền" ItemStyle-HorizontalAlign="Right">
                                     <ItemTemplate>
                                         <asp:Label ID="m_lbl_so_tien_grid" runat="server" 
@@ -241,7 +242,6 @@
                                     </ItemTemplate>
                                 </asp:TemplateField>
                                 <asp:BoundField DataField="ten" HeaderText="Loại" />
-								<asp:BoundField DataField="ghi_chu" HeaderText="Ghi chú" />
 							</Columns>
 						</asp:GridView>
 					</td>
