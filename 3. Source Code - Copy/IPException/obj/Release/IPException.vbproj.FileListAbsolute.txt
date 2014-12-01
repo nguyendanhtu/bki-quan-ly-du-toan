@@ -1,0 +1,4 @@
+D:\0. Working\1. Project\0. QLDT\3. Source Code - Copy\IPException\bin\IPException.dll
+D:\0. Working\1. Project\0. QLDT\3. Source Code - Copy\IPException\bin\IPException.xml
+D:\0. Working\1. Project\0. QLDT\3. Source Code - Copy\IPException\obj\Release\IPException.dll
+D:\0. Working\1. Project\0. QLDT\3. Source Code - Copy\IPException\obj\Release\IPException.xml

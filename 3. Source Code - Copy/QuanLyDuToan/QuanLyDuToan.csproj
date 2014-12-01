@@ -1,0 +1,711 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CE830744-54AB-4297-A72D-537F0E16D48F}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>QuanLyDuToan</RootNamespace>
+    <AssemblyName>QuanLyDuToan</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Account\Login.aspx" />
+    <Content Include="Account\Logout.aspx" />
+    <None Include="Properties\PublishProfiles\QuanLyDuToan.pubxml" />
+    <None Include="Scripts\jquery-1.4.1-vsdoc.js" />
+    <Content Include="Account\ChangePassword.aspx" />
+    <Content Include="Account\Default.aspx" />
+    <Content Include="BaoCao\F601_bao_cao_tinh_hinh_giai_ngan.aspx" />
+    <Content Include="ChucNang\F600_print_unc_qbt.aspx" />
+    <Content Include="DanhMuc\F101_Dictionary.aspx" />
+    <Content Include="DanhMuc\f603_dm_du_an.aspx" />
+    <Content Include="DanhMuc\f604_dm_quyet_dinh.aspx" />
+    <Content Include="DanhMuc\F901_Danh_muc_don_vi.aspx" />
+    <Content Include="DanhMuc\TempWebForm.aspx" />
+    <Content Include="Default.aspx" />
+    <Content Include="DuToan\f204_nhap_giao_ke_hoach_qbt.aspx" />
+    <Content Include="DuToan\f206_nhap_uy_nhiem_chi_qbt.aspx" />
+    <Content Include="DuToan\F208_nhap_giao_ke_hoach_ns.aspx" />
+    <Content Include="DuToan\F405_giao_von_qbt.aspx" />
+    <Content Include="DuToan\F407_bao_cao_tinh_hinh_giai_ngan.aspx" />
+    <Content Include="DuToan\F409_giao_von_ns.aspx" />
+    <Content Include="DuToan\F410_nhap_uy_nhiem_chi_ns.aspx" />
+    <Content Include="Images\BGLanguage\close.gif" />
+    <Content Include="Images\BGLanguage\Logout.gif" />
+    <Content Include="Images\BGLanguage\Top1.gif" />
+    <Content Include="Images\BGLanguage\Top2.gif" />
+    <Content Include="Images\BGLanguage\Top3.gif" />
+    <Content Include="Images\Button\Arrowhead-01.png" />
+    <Content Include="Images\Button\Arrowhead-Down-01.png" />
+    <Content Include="Images\Button\BGButton.jpg" />
+    <Content Include="Images\Button\Cancel.gif" />
+    <Content Include="Images\Button\Delete.gif" />
+    <Content Include="Images\Button\deletered.png" />
+    <Content Include="Images\Button\detail.png" />
+    <Content Include="Images\Button\Edit.gif" />
+    <Content Include="Images\Button\edit.png" />
+    <Content Include="Images\Button\green_dollar.png" />
+    <Content Include="Images\Button\Insert.gif" />
+    <Content Include="Images\Button\NoDelete.gif" />
+    <Content Include="Images\Button\Update.gif" />
+    <Content Include="Images\Button\Views.gif" />
+    <Content Include="Images\Button\Xembaocao.jpg" />
+    <Content Include="Images\cal.gif" />
+    <Content Include="Images\Dialog\alpha.png" />
+    <Content Include="Images\Dialog\bottom-left.png" />
+    <Content Include="Images\Dialog\bottom-mid.png" />
+    <Content Include="Images\Dialog\bottom-right.png" />
+    <Content Include="Images\Dialog\bottom.gif" />
+    <Content Include="Images\Dialog\bottom_content.gif" />
+    <Content Include="Images\Dialog\bottom_left.gif" />
+    <Content Include="Images\Dialog\bottom_right.gif" />
+    <Content Include="Images\Dialog\close-down.png" />
+    <Content Include="Images\Dialog\close-hover.png" />
+    <Content Include="Images\Dialog\close.gif" />
+    <Content Include="Images\Dialog\close.png" />
+    <Content Include="Images\Dialog\left.gif" />
+    <Content Include="Images\Dialog\left.png" />
+    <Content Include="Images\Dialog\MasterLock.jpg" />
+    <Content Include="Images\Dialog\right.gif" />
+    <Content Include="Images\Dialog\right.png" />
+    <Content Include="Images\Dialog\spacer.gif" />
+    <Content Include="Images\Dialog\top-left.png" />
+    <Content Include="Images\Dialog\top-mid.png" />
+    <Content Include="Images\Dialog\top-right.png" />
+    <Content Include="Images\Dialog\top.gif" />
+    <Content Include="Images\Dialog\top_left.gif" />
+    <Content Include="Images\Dialog\top_right.gif" />
+    <Content Include="Images\Grid\asc.gif" />
+    <Content Include="Images\Grid\attachment.gif" />
+    <Content Include="Images\Grid\desc.gif" />
+    <Content Include="Images\Grid\flag_blue.gif" />
+    <Content Include="Images\Grid\flag_green.gif" />
+    <Content Include="Images\Grid\flag_none.gif" />
+    <Content Include="Images\Grid\flag_red.gif" />
+    <Content Include="Images\Grid\grid_footer_bg.gif" />
+    <Content Include="Images\Grid\grid_headerBg.gif" />
+    <Content Include="Images\Grid\grid_header_bg.gif" />
+    <Content Include="Images\Grid\grid_popup_bg.gif" />
+    <Content Include="Images\Grid\grid_popup_footer_bg.gif" />
+    <Content Include="Images\Grid\grid_postfooter1.gif" />
+    <Content Include="Images\Grid\grid_postfooter2.gif" />
+    <Content Include="Images\Grid\grid_postfooter3.gif" />
+    <Content Include="Images\Grid\grid_preheader.gif" />
+    <Content Include="Images\Grid\grid_preheader1.gif" />
+    <Content Include="Images\Grid\grid_preheader2.gif" />
+    <Content Include="Images\Grid\grid_preheader3.gif" />
+    <Content Include="Images\Grid\grid_selected_item_bg.gif" />
+    <Content Include="Images\Grid\group_asc.gif" />
+    <Content Include="Images\Grid\group_desc.gif" />
+    <Content Include="Images\Grid\header1stCell_bg.gif" />
+    <Content Include="Images\Grid\header_activeBg.gif" />
+    <Content Include="Images\Grid\header_bg.gif" />
+    <Content Include="Images\Grid\header_hoverBg.gif" />
+    <Content Include="Images\Grid\header_rowBg.gif" />
+    <Content Include="Images\Grid\pager\first.gif" />
+    <Content Include="Images\Grid\pager\first_hover.gif" />
+    <Content Include="Images\Grid\pager\last.gif" />
+    <Content Include="Images\Grid\pager\last_hover.gif" />
+    <Content Include="Images\Grid\pager\next.gif" />
+    <Content Include="Images\Grid\pager\next_hover.gif" />
+    <Content Include="Images\Grid\pager\prev.gif" />
+    <Content Include="Images\Grid\pager\prev_hover.gif" />
+    <Content Include="Images\Grid\pager\slider_bg.gif" />
+    <Content Include="Images\Grid\pager\slider_grip.gif" />
+    <Content Include="Images\Grid\pager\slider_grip_hover.gif" />
+    <Content Include="Images\Grid\pager\slider_loaded_bg.gif" />
+    <Content Include="Images\Grid\priority_low.gif" />
+    <Content Include="Images\Grid\spacer.gif" />
+    <Content Include="Images\Grid\spinner.gif" />
+    <Content Include="Images\Grid\topItem_col.gif" />
+    <Content Include="Images\Grid\topItem_exp.gif" />
+    <Content Include="Images\heading_bg.gif" />
+    <Content Include="Images\lines\dash.gif" />
+    <Content Include="Images\lines\dashminus.gif" />
+    <Content Include="Images\lines\dashplus.gif" />
+    <Content Include="Images\lines\i.gif" />
+    <Content Include="Images\lines\l.gif" />
+    <Content Include="Images\lines\lminus.gif" />
+    <Content Include="Images\lines\lplus.gif" />
+    <Content Include="Images\lines\minus.gif" />
+    <Content Include="Images\lines\noexpand.gif" />
+    <Content Include="Images\lines\plus.gif" />
+    <Content Include="Images\lines\r.gif" />
+    <Content Include="Images\lines\rminus.gif" />
+    <Content Include="Images\lines\rplus.gif" />
+    <Content Include="Images\lines\t.gif" />
+    <Content Include="Images\lines\tminus.gif" />
+    <Content Include="Images\lines\tplus.gif" />
+    <Content Include="Images\ListTran\down.gif" />
+    <Content Include="Images\ListTran\left.gif" />
+    <Content Include="Images\ListTran\leftAll.gif" />
+    <Content Include="Images\ListTran\right.gif" />
+    <Content Include="Images\ListTran\rightAll.gif" />
+    <Content Include="Images\ListTran\up.gif" />
+    <Content Include="Images\loadingBar.gif" />
+    <Content Include="Images\Login\arrow.png" />
+    <Content Include="Images\Login\bg.png" />
+    <Content Include="Images\MenuTop\BGMenuTop.jpg" />
+    <Content Include="Images\MenuTop\BGMenuTopSelect.jpg" />
+    <Content Include="Images\MenuTop\BGMenuTopSelectLeft.jpg" />
+    <Content Include="Images\MenuTop\BGMenuTopSelectRight.jpg" />
+    <Content Include="Images\MenuTop\tab_left_icon.gif" />
+    <Content Include="Images\MenuTop\tab_right_icon.gif" />
+    <Content Include="Images\MenuTop\tcdb.jpg" />
+    <Content Include="Images\News\grid_header_bg.gif" />
+    <Content Include="Images\News\heading_bg.gif" />
+    <Content Include="Images\NoImages.gif" />
+    <Content Include="Images\overlay.png" />
+    <Content Include="Images\pager\can-truc.jpg" />
+    <Content Include="Images\pager\cau_my_thuan.jpg" />
+    <Content Include="Images\pager\dat.jpg" />
+    <Content Include="Images\pager\dat1.jpg" />
+    <Content Include="Images\pager\first.gif" />
+    <Content Include="Images\pager\first_hover.gif" />
+    <Content Include="Images\pager\last.gif" />
+    <Content Include="Images\pager\last_hover.gif" />
+    <Content Include="Images\pager\loading.gif" />
+    <Content Include="Images\pager\loading2.gif" />
+    <Content Include="Images\pager\loading3.gif" />
+    <Content Include="Images\pager\next.gif" />
+    <Content Include="Images\pager\next_hover.gif" />
+    <Content Include="Images\pager\nha.jpg" />
+    <Content Include="Images\pager\nha1.jpg" />
+    <Content Include="Images\pager\oto.jpg" />
+    <Content Include="Images\pager\oto1.jpg" />
+    <Content Include="Images\pager\prev.gif" />
+    <Content Include="Images\pager\prev_hover.gif" />
+    <Content Include="Images\pager\slider_bg.gif" />
+    <Content Include="Images\pager\slider_grip.gif" />
+    <Content Include="Images\pager\slider_grip_hover.gif" />
+    <Content Include="Images\pager\slider_loaded_bg.gif" />
+    <Content Include="Images\Snap\all_windows.gif" />
+    <Content Include="Images\Snap\all_windowsActive.gif" />
+    <Content Include="Images\Snap\all_windowsHover.gif" />
+    <Content Include="Images\Snap\clear.gif" />
+    <Content Include="Images\Snap\collapsed_toggleExpand.gif" />
+    <Content Include="Images\Snap\collapsed_toggleExpandActive.gif" />
+    <Content Include="Images\Snap\collapsed_toggleExpandHover.gif" />
+    <Content Include="Images\Snap\collapsed_toggleMinimize.gif" />
+    <Content Include="Images\Snap\collapsed_toggleMinimizeActive.gif" />
+    <Content Include="Images\Snap\collapsed_toggleMinimizeHover.gif" />
+    <Content Include="Images\Snap\itemHoverBg.gif" />
+    <Content Include="Images\Snap\snap_headerBg.gif" />
+    <Content Include="Images\Snap\snap_headerCollapsedBg.gif" />
+    <Content Include="Images\Snap\snap_icon.gif" />
+    <Content Include="Images\Snap\toggle_expand.gif" />
+    <Content Include="Images\Snap\toggle_expandActive.gif" />
+    <Content Include="Images\Snap\toggle_expandHover.gif" />
+    <Content Include="Images\Snap\toggle_minimize.gif" />
+    <Content Include="Images\Snap\toggle_minimizeActive.gif" />
+    <Content Include="Images\Snap\toggle_minimizeHover.gif" />
+    <Content Include="Images\spinner.gif" />
+    <Content Include="Images\Toolbar\bg-color\default.png" />
+    <Content Include="Images\Toolbar\bg-color\disabled.png" />
+    <Content Include="Images\Toolbar\bg-color\down.png" />
+    <Content Include="Images\Toolbar\bg-color\expanded.png" />
+    <Content Include="Images\Toolbar\bg-color\hover.png" />
+    <Content Include="Images\Toolbar\bold.png" />
+    <Content Include="Images\Toolbar\bullets.png" />
+    <Content Include="Images\Toolbar\center.png" />
+    <Content Include="Images\Toolbar\copy.png" />
+    <Content Include="Images\Toolbar\cut.png" />
+    <Content Include="Images\Toolbar\decrease-indent.png" />
+    <Content Include="Images\Toolbar\delete-cell.png" />
+    <Content Include="Images\Toolbar\delete-col.png" />
+    <Content Include="Images\Toolbar\delete-row.png" />
+    <Content Include="Images\Toolbar\find.png" />
+    <Content Include="Images\Toolbar\font-color\default.png" />
+    <Content Include="Images\Toolbar\font-color\disabled.png" />
+    <Content Include="Images\Toolbar\font-color\down.png" />
+    <Content Include="Images\Toolbar\font-color\expanded.png" />
+    <Content Include="Images\Toolbar\font-color\hover.png" />
+    <Content Include="Images\Toolbar\form-button.png" />
+    <Content Include="Images\Toolbar\form-checkbox.png" />
+    <Content Include="Images\Toolbar\form-hidden.png" />
+    <Content Include="Images\Toolbar\form-password.png" />
+    <Content Include="Images\Toolbar\form-radio.png" />
+    <Content Include="Images\Toolbar\form-reset.png" />
+    <Content Include="Images\Toolbar\form-select.png" />
+    <Content Include="Images\Toolbar\form-submit.png" />
+    <Content Include="Images\Toolbar\form-textarea.png" />
+    <Content Include="Images\Toolbar\form-textbox.png" />
+    <Content Include="Images\Toolbar\form.png" />
+    <Content Include="Images\Toolbar\hr.png" />
+    <Content Include="Images\Toolbar\hyperlink.png" />
+    <Content Include="Images\Toolbar\image-manager.png" />
+    <Content Include="Images\Toolbar\increase-indent.png" />
+    <Content Include="Images\Toolbar\insert-col-left.png" />
+    <Content Include="Images\Toolbar\insert-col-right.png" />
+    <Content Include="Images\Toolbar\insert-row-above.png" />
+    <Content Include="Images\Toolbar\insert-row-below.png" />
+    <Content Include="Images\Toolbar\insert-symbol.png" />
+    <Content Include="Images\Toolbar\insert-table.png" />
+    <Content Include="Images\Toolbar\italic.png" />
+    <Content Include="Images\Toolbar\justify.png" />
+    <Content Include="Images\Toolbar\left.png" />
+    <Content Include="Images\Toolbar\media.png" />
+    <Content Include="Images\Toolbar\merge-cells-down.png" />
+    <Content Include="Images\Toolbar\merge-cells-right.png" />
+    <Content Include="Images\Toolbar\new.png" />
+    <Content Include="Images\Toolbar\numbering.png" />
+    <Content Include="Images\Toolbar\options.png" />
+    <Content Include="Images\Toolbar\paste.png" />
+    <Content Include="Images\Toolbar\print.png" />
+    <Content Include="Images\Toolbar\redo.png" />
+    <Content Include="Images\Toolbar\remove-link.png" />
+    <Content Include="Images\Toolbar\right.png" />
+    <Content Include="Images\Toolbar\save.png" />
+    <Content Include="Images\Toolbar\spellcheck.png" />
+    <Content Include="Images\Toolbar\split-cell-h.png" />
+    <Content Include="Images\Toolbar\split-cell-v.png" />
+    <Content Include="Images\Toolbar\strikethrough.png" />
+    <Content Include="Images\Toolbar\underline.png" />
+    <Content Include="Images\Toolbar\undo.png" />
+    <Content Include="Images\Toolbar\word-paste.png" />
+    <Content Include="Images\Toolbar\_background.png" />
+    <Content Include="Images\Toolbar\_blank.png" />
+    <Content Include="Images\Toolbar\_dropdown.png" />
+    <Content Include="Images\Toolbar\_grip.png" />
+    <Content Include="Images\Toolbar\_redo.png" />
+    <Content Include="Images\Toolbar\_separator.png" />
+    <Content Include="Images\TreeMenu\col.gif" />
+    <Content Include="Images\TreeMenu\deleted.gif" />
+    <Content Include="Images\TreeMenu\edit.gif" />
+    <Content Include="Images\TreeMenu\exp.gif" />
+    <Content Include="Images\TreeMenu\folder.gif" />
+    <Content Include="Images\TreeMenu\folders.gif" />
+    <Content Include="Images\TreeMenu\margin_down.gif" />
+    <Content Include="Images\TreeMenu\margin_up.gif" />
+    <Content Include="Images\TreeMenu\spacer.gif" />
+    <Content Include="Images\TreeView\asc.gif" />
+    <Content Include="Images\TreeView\ascx.gif" />
+    <Content Include="Images\TreeView\aspx.gif" />
+    <Content Include="Images\TreeView\config.gif" />
+    <Content Include="Images\TreeView\cs.gif" />
+    <Content Include="Images\TreeView\css.gif" />
+    <Content Include="Images\TreeView\desc.gif" />
+    <Content Include="Images\TreeView\dll.gif" />
+    <Content Include="Images\TreeView\file.gif" />
+    <Content Include="Images\TreeView\folder.gif" />
+    <Content Include="Images\TreeView\folder_open.gif" />
+    <Content Include="Images\TreeView\grid_header_bg.gif" />
+    <Content Include="Images\TreeView\grid_header_hover_bg.gif" />
+    <Content Include="Images\TreeView\heading_bg.gif" />
+    <Content Include="Images\TreeView\image.gif" />
+    <Content Include="Images\TreeView\js.gif" />
+    <Content Include="Images\TreeView\node_bg.gif" />
+    <Content Include="Images\TreeView\reorder.gif" />
+    <Content Include="Images\TreeView\root.gif" />
+    <Content Include="Images\TreeView\scroller\bottom.gif" />
+    <Content Include="Images\TreeView\scroller\down.gif" />
+    <Content Include="Images\TreeView\scroller\down_disabled.gif" />
+    <Content Include="Images\TreeView\scroller\scroller_bg.gif" />
+    <Content Include="Images\TreeView\scroller\scroll_gripBg.gif" />
+    <Content Include="Images\TreeView\scroller\top.gif" />
+    <Content Include="Images\TreeView\scroller\up.gif" />
+    <Content Include="Images\TreeView\scroller\up_disabled.gif" />
+    <Content Include="Images\TreeView\selected_item_bg.gif" />
+    <Content Include="Images\TreeView\spinner.gif" />
+    <Content Include="Images\TreeView\user.gif" />
+    <Content Include="Images\TreeView\vb.gif" />
+    <Content Include="Images\TreeView\xml.gif" />
+    <Content Include="lang\calendar-en.js" />
+    <Content Include="MessageError.aspx" />
+    <Content Include="Quantri\F800_Users.aspx" />
+    <Content Include="Quantri\F810_PhanQuyenUserGroup.aspx" />
+    <Content Include="Quantri\F811_QuanLyChucNang.aspx" />
+    <Content Include="Quantri\F812_QuanLyNhomQuyen.aspx" />
+    <Content Include="Quantri\F815_PhanQuyenSuDungDuLieuUserGroup.aspx" />
+    <Content Include="Reports\Templates\Readme.txt" />
+    <Content Include="Scripts\jquery-1.4.1.js" />
+    <Content Include="Scripts\jquery-1.4.1.min.js" />
+    <Content Include="Scripts\jquery-ui.min.js" />
+    <Content Include="Scripts\menu.js" />
+    <Content Include="Scripts\PopCalendar.js" />
+    <Content Include="Scripts\script.js" />
+    <Content Include="src\calendar.js" />
+    <Content Include="Styles\Admin.css" />
+    <Content Include="Styles\jquery-ui.css" />
+    <Content Include="Styles\Login.css" />
+    <Content Include="Styles\Site.css" />
+    <Content Include="Styles\style.css" />
+    <Content Include="themes\aqua.css" />
+    <Content Include="themes\aqua\active-bg.gif" />
+    <Content Include="themes\aqua\dark-bg.gif" />
+    <Content Include="themes\aqua\hover-bg.gif" />
+    <Content Include="themes\aqua\menuarrow.gif" />
+    <Content Include="themes\aqua\normal-bg.gif" />
+    <Content Include="themes\aqua\rowhover-bg.gif" />
+    <Content Include="themes\aqua\status-bg.gif" />
+    <Content Include="themes\aqua\title-bg.gif" />
+    <Content Include="themes\aqua\today-bg.gif" />
+    <Content Include="themes\bluexp.css" />
+    <Content Include="themes\fancyblue.css" />
+    <Content Include="themes\fancyblue\bg_all3.gif" />
+    <Content Include="themes\fancyblue\bg_body.gif" />
+    <Content Include="themes\fancyblue\bg_button.gif" />
+    <Content Include="themes\fancyblue\bg_button_hover.gif" />
+    <Content Include="themes\fancyblue\bg_footer.gif" />
+    <Content Include="themes\fancyblue\bg_title.gif" />
+    <Content Include="themes\fancyblue\bg_wn.gif" />
+    <Content Include="themes\fancyblue\test.gif" />
+    <Content Include="themes\forest.css" />
+    <Content Include="themes\forest\bg_body.gif" />
+    <Content Include="themes\forest\bg_button.gif" />
+    <Content Include="themes\forest\bg_button_hover.gif" />
+    <Content Include="themes\forest\bg_footer.gif" />
+    <Content Include="themes\forest\bg_title.gif" />
+    <Content Include="themes\forest\bg_wn.gif" />
+    <Content Include="themes\green.css" />
+    <Content Include="themes\greengrass.css" />
+    <Content Include="themes\icons\calendar1.gif" />
+    <Content Include="themes\icons\calendar2.gif" />
+    <Content Include="themes\icons\calendar3.gif" />
+    <Content Include="themes\icons\calendar4.gif" />
+    <Content Include="themes\icons\calendar5.gif" />
+    <Content Include="themes\icons\calendar6.gif" />
+    <Content Include="themes\img.gif" />
+    <Content Include="themes\layouts\big.css" />
+    <Content Include="themes\layouts\huge.css" />
+    <Content Include="themes\layouts\layout-2d.css" />
+    <Content Include="themes\layouts\layout-3d.css" />
+    <Content Include="themes\layouts\layout-common.css" />
+    <Content Include="themes\layouts\small.css" />
+    <Content Include="themes\layouts\tiny.css" />
+    <Content Include="themes\maroon.css" />
+    <Content Include="themes\menuarrow.gif" />
+    <Content Include="themes\menuarrow.png" />
+    <Content Include="themes\menuarrow2.gif" />
+    <Content Include="themes\scroller-down-hover.gif" />
+    <Content Include="themes\scroller-down.gif" />
+    <Content Include="themes\scroller-up-hover.gif" />
+    <Content Include="themes\scroller-up.gif" />
+    <Content Include="themes\system.css" />
+    <Content Include="themes\win2k.css" />
+    <Content Include="themes\winter.css" />
+    <Content Include="themes\winxp.css" />
+    <Content Include="themes\wood.css" />
+    <Content Include="themes\wood\bg_all3.gif" />
+    <Content Include="themes\wood\bg_body.gif" />
+    <Content Include="themes\wood\bg_button.gif" />
+    <Content Include="themes\wood\bg_footer.gif" />
+    <Content Include="themes\yellow.css" />
+    <Content Include="Web.config" />
+    <Content Include="src\calendar.php" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Account\ChangePassword.aspx.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\ChangePassword.aspx.designer.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Code\CSystemMessage.cs" />
+    <Compile Include="App_Code\WinformReport.cs" />
+    <Compile Include="App_Code\WinformControls.cs" />
+    <Compile Include="App_Code\Person.cs" />
+    <Compile Include="BaoCao\F601_bao_cao_tinh_hinh_giai_ngan.aspx.cs">
+      <DependentUpon>F601_bao_cao_tinh_hinh_giai_ngan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BaoCao\F601_bao_cao_tinh_hinh_giai_ngan.aspx.designer.cs">
+      <DependentUpon>F601_bao_cao_tinh_hinh_giai_ngan.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ChucNang\F600_print_unc_qbt.aspx.cs">
+      <DependentUpon>F600_print_unc_qbt.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ChucNang\F600_print_unc_qbt.aspx.designer.cs">
+      <DependentUpon>F600_print_unc_qbt.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DanhMuc\F101_Dictionary.aspx.cs">
+      <DependentUpon>F101_Dictionary.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DanhMuc\F101_Dictionary.aspx.designer.cs">
+      <DependentUpon>F101_Dictionary.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DanhMuc\f603_dm_du_an.aspx.cs">
+      <DependentUpon>f603_dm_du_an.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DanhMuc\f603_dm_du_an.aspx.designer.cs">
+      <DependentUpon>f603_dm_du_an.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DanhMuc\f604_dm_quyet_dinh.aspx.cs">
+      <DependentUpon>f604_dm_quyet_dinh.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DanhMuc\f604_dm_quyet_dinh.aspx.designer.cs">
+      <DependentUpon>f604_dm_quyet_dinh.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DanhMuc\F901_Danh_muc_don_vi.aspx.cs">
+      <DependentUpon>F901_Danh_muc_don_vi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DanhMuc\F901_Danh_muc_don_vi.aspx.designer.cs">
+      <DependentUpon>F901_Danh_muc_don_vi.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DanhMuc\TempWebForm.aspx.cs">
+      <DependentUpon>TempWebForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DanhMuc\TempWebForm.aspx.designer.cs">
+      <DependentUpon>TempWebForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DuToan\f204_nhap_giao_ke_hoach_qbt.aspx.cs">
+      <DependentUpon>f204_nhap_giao_ke_hoach_qbt.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DuToan\f204_nhap_giao_ke_hoach_qbt.aspx.designer.cs">
+      <DependentUpon>f204_nhap_giao_ke_hoach_qbt.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DuToan\f206_nhap_uy_nhiem_chi_qbt.aspx.cs">
+      <DependentUpon>f206_nhap_uy_nhiem_chi_qbt.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DuToan\f206_nhap_uy_nhiem_chi_qbt.aspx.designer.cs">
+      <DependentUpon>f206_nhap_uy_nhiem_chi_qbt.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DuToan\F208_nhap_giao_ke_hoach_ns.aspx.cs">
+      <DependentUpon>F208_nhap_giao_ke_hoach_ns.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DuToan\F208_nhap_giao_ke_hoach_ns.aspx.designer.cs">
+      <DependentUpon>F208_nhap_giao_ke_hoach_ns.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DuToan\F405_giao_von_qbt.aspx.cs">
+      <DependentUpon>F405_giao_von_qbt.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DuToan\F405_giao_von_qbt.aspx.designer.cs">
+      <DependentUpon>F405_giao_von_qbt.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DuToan\F407_bao_cao_tinh_hinh_giai_ngan.aspx.cs">
+      <DependentUpon>F407_bao_cao_tinh_hinh_giai_ngan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DuToan\F407_bao_cao_tinh_hinh_giai_ngan.aspx.designer.cs">
+      <DependentUpon>F407_bao_cao_tinh_hinh_giai_ngan.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DuToan\F409_giao_von_ns.aspx.cs">
+      <DependentUpon>F409_giao_von_ns.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DuToan\F409_giao_von_ns.aspx.designer.cs">
+      <DependentUpon>F409_giao_von_ns.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DuToan\F410_nhap_uy_nhiem_chi_ns.aspx.cs">
+      <DependentUpon>F410_nhap_uy_nhiem_chi_ns.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DuToan\F410_nhap_uy_nhiem_chi_ns.aspx.designer.cs">
+      <DependentUpon>F410_nhap_uy_nhiem_chi_ns.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MessageError.aspx.cs">
+      <DependentUpon>MessageError.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MessageError.aspx.designer.cs">
+      <DependentUpon>MessageError.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Quantri\F800_Users.aspx.cs">
+      <DependentUpon>F800_Users.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Quantri\F800_Users.aspx.designer.cs">
+      <DependentUpon>F800_Users.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Quantri\F810_PhanQuyenUserGroup.aspx.cs">
+      <DependentUpon>F810_PhanQuyenUserGroup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Quantri\F810_PhanQuyenUserGroup.aspx.designer.cs">
+      <DependentUpon>F810_PhanQuyenUserGroup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Quantri\F811_QuanLyChucNang.aspx.cs">
+      <DependentUpon>F811_QuanLyChucNang.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Quantri\F811_QuanLyChucNang.aspx.designer.cs">
+      <DependentUpon>F811_QuanLyChucNang.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Quantri\F812_QuanLyNhomQuyen.aspx.cs">
+      <DependentUpon>F812_QuanLyNhomQuyen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Quantri\F812_QuanLyNhomQuyen.aspx.designer.cs">
+      <DependentUpon>F812_QuanLyNhomQuyen.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Quantri\F815_PhanQuyenSuDungDuLieuUserGroup.aspx.cs">
+      <DependentUpon>F815_PhanQuyenSuDungDuLieuUserGroup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Quantri\F815_PhanQuyenSuDungDuLieuUserGroup.aspx.designer.cs">
+      <DependentUpon>F815_PhanQuyenSuDungDuLieuUserGroup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="ExportExcel\" />
+    <Folder Include="Reports\Output\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Site.Master" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IPBusinessService\IPBusinessService.vbproj">
+      <Project>{73ca732c-2cfb-4a14-b0b9-f43763b1c2f3}</Project>
+      <Name>IPBusinessService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IPCommon\IPCommon.vbproj">
+      <Project>{2a74f1d1-c0ee-41fe-a708-a83b285accf2}</Project>
+      <Name>IPCommon</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IPData\IPData.vbproj">
+      <Project>{9acedd70-fda2-44d8-a004-3a7eaf86a954}</Project>
+      <Name>IPData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IPException\IPException.vbproj">
+      <Project>{b73156c2-7034-4dea-a308-5e1782ff8db4}</Project>
+      <Name>IPException</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IPSystemAdmin\IPSystemAdmin.vbproj">
+      <Project>{455cd3a5-79ba-480a-b9bd-d4a7dda397a8}</Project>
+      <Name>IPSystemAdmin</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IPUserService\IPUserService.vbproj">
+      <Project>{b490ea92-2990-4cbb-b58b-12901afcccb5}</Project>
+      <Name>IPUserService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebsiteDS\WebDS.csproj">
+      <Project>{f5d819ba-1743-4c56-b6f3-682281528c06}</Project>
+      <Name>WebDS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebsiteUS\WebUS.csproj">
+      <Project>{07e0d691-3694-4d86-9301-8954c940d1e8}</Project>
+      <Name>WebUS</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:14773/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

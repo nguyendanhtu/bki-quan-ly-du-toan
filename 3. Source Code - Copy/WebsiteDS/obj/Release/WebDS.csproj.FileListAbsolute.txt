@@ -1,0 +1,5 @@
+D:\0. Working\1. Project\0. QLDT\3. Source Code - Copy\WebsiteDS\bin\Release\WebDS.dll.config
+D:\0. Working\1. Project\0. QLDT\3. Source Code - Copy\WebsiteDS\bin\Release\WebDS.dll
+D:\0. Working\1. Project\0. QLDT\3. Source Code - Copy\WebsiteDS\bin\Release\WebDS.pdb
+D:\0. Working\1. Project\0. QLDT\3. Source Code - Copy\WebsiteDS\obj\Release\WebDS.dll
+D:\0. Working\1. Project\0. QLDT\3. Source Code - Copy\WebsiteDS\obj\Release\WebDS.pdb

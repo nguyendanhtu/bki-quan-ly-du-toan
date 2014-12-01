@@ -1,0 +1,115 @@
+I:\Working\00. BKI_QLTS\03. Sourcecode\IPWordReport\bin\IP.Core.IPWordReport.dll
+I:\Working\00. BKI_QLTS\03. Sourcecode\IPWordReport\bin\IP.Core.IPWordReport.pdb
+I:\Working\00. BKI_QLTS\03. Sourcecode\IPWordReport\bin\IP.Core.IPWordReport.xml
+I:\Working\00. BKI_QLTS\03. Sourcecode\IPWordReport\bin\Interop.Word.dll
+I:\Working\00. BKI_QLTS\03. Sourcecode\IPWordReport\bin\Interop.Microsoft.Office.Core.dll
+I:\Working\00. BKI_QLTS\03. Sourcecode\IPWordReport\bin\Interop.VBIDE.dll
+I:\Working\00. BKI_QLTS\03. Sourcecode\IPWordReport\obj\Debug\ResolveAssemblyReference.cache
+I:\Working\00. BKI_QLTS\03. Sourcecode\IPWordReport\obj\Debug\Interop.Microsoft.Office.Core.dll
+I:\Working\00. BKI_QLTS\03. Sourcecode\IPWordReport\obj\Debug\Interop.VBIDE.dll
+I:\Working\00. BKI_QLTS\03. Sourcecode\IPWordReport\obj\Debug\IPWordReport.vbproj.ResolveComReference.cache
+I:\Working\00. BKI_QLTS\03. Sourcecode\IPWordReport\obj\Debug\IP.Core.IPWordReport.dll
+I:\Working\00. BKI_QLTS\03. Sourcecode\IPWordReport\obj\Debug\IP.Core.IPWordReport.xml
+I:\Working\00. BKI_QLTS\03. Sourcecode\IPWordReport\obj\Debug\IP.Core.IPWordReport.pdb
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\IPWordReport\bin\IP.Core.IPWordReport.dll
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\IPWordReport\bin\IP.Core.IPWordReport.pdb
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\IPWordReport\bin\IP.Core.IPWordReport.xml
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\IPWordReport\bin\Interop.Word.dll
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\IPWordReport\bin\Interop.VBIDE.dll
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\IPWordReport\bin\Interop.Microsoft.Office.Core.dll
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\IPWordReport\obj\Debug\ResolveAssemblyReference.cache
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\IPWordReport\obj\Debug\Interop.Microsoft.Office.Core.dll
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\IPWordReport\obj\Debug\Interop.VBIDE.dll
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\IPWordReport\obj\Debug\IPWordReport.vbproj.ResolveComReference.cache
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\IPWordReport\obj\Debug\IP.Core.IPWordReport.dll
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\IPWordReport\obj\Debug\IP.Core.IPWordReport.xml
+I:\0. Working\00. BKI_QLTS\03. Sourcecode\IPWordReport\obj\Debug\IP.Core.IPWordReport.pdb
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\IPWordReport\bin\IP.Core.IPWordReport.dll
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\IPWordReport\bin\IP.Core.IPWordReport.pdb
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\IPWordReport\bin\IP.Core.IPWordReport.xml
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\IPWordReport\bin\Interop.Word.dll
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\IPWordReport\bin\Interop.VBIDE.dll
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\IPWordReport\bin\Interop.Microsoft.Office.Core.dll
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\IPWordReport\obj\Debug\ResolveAssemblyReference.cache
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\IPWordReport\obj\Debug\Interop.Microsoft.Office.Core.dll
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\IPWordReport\obj\Debug\Interop.VBIDE.dll
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\IPWordReport\obj\Debug\IPWordReport.vbproj.ResolveComReference.cache
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\IPWordReport\obj\Debug\IP.Core.IPWordReport.dll
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\IPWordReport\obj\Debug\IP.Core.IPWordReport.xml
+F:\0. Working\00. BKI_QLTS\03. Sourcecode\IPWordReport\obj\Debug\IP.Core.IPWordReport.pdb
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\IPWordReport\bin\IP.Core.IPWordReport.dll
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\IPWordReport\bin\IP.Core.IPWordReport.pdb
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\IPWordReport\bin\IP.Core.IPWordReport.xml
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\IPWordReport\bin\Interop.Word.dll
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\IPWordReport\bin\Interop.Microsoft.Office.Core.dll
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\IPWordReport\bin\Interop.VBIDE.dll
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\IPWordReport\obj\Debug\Interop.Microsoft.Office.Core.dll
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\IPWordReport\obj\Debug\Interop.VBIDE.dll
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\IPWordReport\obj\Debug\IPWordReport.vbproj.ResolveComReference.cache
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\IPWordReport\obj\Debug\IP.Core.IPWordReport.dll
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\IPWordReport\obj\Debug\IP.Core.IPWordReport.xml
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\IPWordReport\obj\Debug\IP.Core.IPWordReport.pdb
+G:\0. Working\00. BKI_QLTS\03. Sourcecode\IPWordReport\obj\Debug\IPWordReport.vbprojResolveAssemblyReference.cache
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\IPWordReport\bin\IP.Core.IPWordReport.dll
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\IPWordReport\bin\IP.Core.IPWordReport.pdb
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\IPWordReport\bin\IP.Core.IPWordReport.xml
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\IPWordReport\bin\Interop.Word.dll
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\IPWordReport\bin\Interop.VBIDE.dll
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\IPWordReport\bin\Interop.Microsoft.Office.Core.dll
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\IPWordReport\obj\Debug\IPWordReport.vbprojResolveAssemblyReference.cache
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\IPWordReport\obj\Debug\Interop.Microsoft.Office.Core.dll
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\IPWordReport\obj\Debug\Interop.VBIDE.dll
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\IPWordReport\obj\Debug\IPWordReport.vbproj.ResolveComReference.cache
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\IPWordReport\obj\Debug\IP.Core.IPWordReport.dll
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\IPWordReport\obj\Debug\IP.Core.IPWordReport.xml
+E:\0. Working\1. Project\00. BKI_QLTS\03. Sourcecode\IPWordReport\obj\Debug\IP.Core.IPWordReport.pdb
+E:\0. Working\1. Project\New folder (3)\3. Source Code\IPWordReport\bin\IP.Core.IPWordReport.dll
+E:\0. Working\1. Project\New folder (3)\3. Source Code\IPWordReport\bin\IP.Core.IPWordReport.pdb
+E:\0. Working\1. Project\New folder (3)\3. Source Code\IPWordReport\bin\IP.Core.IPWordReport.xml
+E:\0. Working\1. Project\New folder (3)\3. Source Code\IPWordReport\bin\Interop.Word.dll
+E:\0. Working\1. Project\New folder (3)\3. Source Code\IPWordReport\bin\Interop.VBIDE.dll
+E:\0. Working\1. Project\New folder (3)\3. Source Code\IPWordReport\bin\Interop.Microsoft.Office.Core.dll
+E:\0. Working\1. Project\New folder (3)\3. Source Code\IPWordReport\obj\Debug\IPWordReport.vbprojResolveAssemblyReference.cache
+E:\0. Working\1. Project\New folder (3)\3. Source Code\IPWordReport\obj\Debug\Interop.Microsoft.Office.Core.dll
+E:\0. Working\1. Project\New folder (3)\3. Source Code\IPWordReport\obj\Debug\Interop.VBIDE.dll
+E:\0. Working\1. Project\New folder (3)\3. Source Code\IPWordReport\obj\Debug\IPWordReport.vbproj.ResolveComReference.cache
+E:\0. Working\1. Project\New folder (3)\3. Source Code\IPWordReport\obj\Debug\IP.Core.IPWordReport.dll
+E:\0. Working\1. Project\New folder (3)\3. Source Code\IPWordReport\obj\Debug\IP.Core.IPWordReport.xml
+E:\0. Working\1. Project\New folder (3)\3. Source Code\IPWordReport\obj\Debug\IP.Core.IPWordReport.pdb
+E:\0. Working\1. Project\0. QLDT\3. Source Code\IPWordReport\bin\IP.Core.IPWordReport.dll
+E:\0. Working\1. Project\0. QLDT\3. Source Code\IPWordReport\bin\IP.Core.IPWordReport.pdb
+E:\0. Working\1. Project\0. QLDT\3. Source Code\IPWordReport\bin\IP.Core.IPWordReport.xml
+E:\0. Working\1. Project\0. QLDT\3. Source Code\IPWordReport\bin\Interop.Word.dll
+E:\0. Working\1. Project\0. QLDT\3. Source Code\IPWordReport\bin\Interop.Microsoft.Office.Core.dll
+E:\0. Working\1. Project\0. QLDT\3. Source Code\IPWordReport\bin\Interop.VBIDE.dll
+E:\0. Working\1. Project\0. QLDT\3. Source Code\IPWordReport\obj\Debug\Interop.Microsoft.Office.Core.dll
+E:\0. Working\1. Project\0. QLDT\3. Source Code\IPWordReport\obj\Debug\Interop.VBIDE.dll
+E:\0. Working\1. Project\0. QLDT\3. Source Code\IPWordReport\obj\Debug\IPWordReport.vbproj.ResolveComReference.cache
+E:\0. Working\1. Project\0. QLDT\3. Source Code\IPWordReport\obj\Debug\IP.Core.IPWordReport.dll
+E:\0. Working\1. Project\0. QLDT\3. Source Code\IPWordReport\obj\Debug\IP.Core.IPWordReport.xml
+E:\0. Working\1. Project\0. QLDT\3. Source Code\IPWordReport\obj\Debug\IP.Core.IPWordReport.pdb
+D:\0. Working\1. Project\0. QLDT\3. Source Code\IPWordReport\bin\IP.Core.IPWordReport.dll
+D:\0. Working\1. Project\0. QLDT\3. Source Code\IPWordReport\bin\IP.Core.IPWordReport.pdb
+D:\0. Working\1. Project\0. QLDT\3. Source Code\IPWordReport\bin\IP.Core.IPWordReport.xml
+D:\0. Working\1. Project\0. QLDT\3. Source Code\IPWordReport\bin\Interop.Word.dll
+D:\0. Working\1. Project\0. QLDT\3. Source Code\IPWordReport\bin\Interop.VBIDE.dll
+D:\0. Working\1. Project\0. QLDT\3. Source Code\IPWordReport\bin\Interop.Microsoft.Office.Core.dll
+D:\0. Working\1. Project\0. QLDT\3. Source Code\IPWordReport\obj\Debug\Interop.Microsoft.Office.Core.dll
+D:\0. Working\1. Project\0. QLDT\3. Source Code\IPWordReport\obj\Debug\Interop.VBIDE.dll
+D:\0. Working\1. Project\0. QLDT\3. Source Code\IPWordReport\obj\Debug\IPWordReport.vbproj.ResolveComReference.cache
+D:\0. Working\1. Project\0. QLDT\3. Source Code\IPWordReport\obj\Debug\IP.Core.IPWordReport.dll
+D:\0. Working\1. Project\0. QLDT\3. Source Code\IPWordReport\obj\Debug\IP.Core.IPWordReport.xml
+D:\0. Working\1. Project\0. QLDT\3. Source Code\IPWordReport\obj\Debug\IP.Core.IPWordReport.pdb
+D:\0. Working\1. Project\0. QLDT\3. Source Code - Copy\IPWordReport\bin\IP.Core.IPWordReport.dll
+D:\0. Working\1. Project\0. QLDT\3. Source Code - Copy\IPWordReport\bin\IP.Core.IPWordReport.pdb
+D:\0. Working\1. Project\0. QLDT\3. Source Code - Copy\IPWordReport\bin\IP.Core.IPWordReport.xml
+D:\0. Working\1. Project\0. QLDT\3. Source Code - Copy\IPWordReport\bin\Interop.Word.dll
+D:\0. Working\1. Project\0. QLDT\3. Source Code - Copy\IPWordReport\bin\Interop.VBIDE.dll
+D:\0. Working\1. Project\0. QLDT\3. Source Code - Copy\IPWordReport\bin\Interop.Microsoft.Office.Core.dll
+D:\0. Working\1. Project\0. QLDT\3. Source Code - Copy\IPWordReport\obj\Debug\IPWordReport.vbprojResolveAssemblyReference.cache
+D:\0. Working\1. Project\0. QLDT\3. Source Code - Copy\IPWordReport\obj\Debug\Interop.Microsoft.Office.Core.dll
+D:\0. Working\1. Project\0. QLDT\3. Source Code - Copy\IPWordReport\obj\Debug\Interop.VBIDE.dll
+D:\0. Working\1. Project\0. QLDT\3. Source Code - Copy\IPWordReport\obj\Debug\IPWordReport.vbproj.ResolveComReference.cache
+D:\0. Working\1. Project\0. QLDT\3. Source Code - Copy\IPWordReport\obj\Debug\IP.Core.IPWordReport.dll
+D:\0. Working\1. Project\0. QLDT\3. Source Code - Copy\IPWordReport\obj\Debug\IP.Core.IPWordReport.xml
+D:\0. Working\1. Project\0. QLDT\3. Source Code - Copy\IPWordReport\obj\Debug\IP.Core.IPWordReport.pdb
