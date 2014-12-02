@@ -28,7 +28,7 @@
                     <div class="loginDisplay">
                         <asp:HyperLink ID="m_lhk_user_name" runat="server" CssClass="accountInfo">m_lhk_user_name</asp:HyperLink>
                         &nbsp;&nbsp;&nbsp;
-                    <asp:HyperLink ID="m_lnk_logout" runat="server" CssClass="accountInfo" NavigateUrl="/QuanLyDuToan/Account/Logout.aspx">Đăng xuất</asp:HyperLink>
+                    <asp:HyperLink ID="m_lnk_logout" runat="server" CssClass="accountInfo" NavigateUrl="/Account/Logout.aspx">Đăng xuất</asp:HyperLink>
                     </div>
                 </div>
             </div>
