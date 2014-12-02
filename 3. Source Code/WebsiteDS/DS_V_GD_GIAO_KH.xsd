@@ -12,7 +12,7 @@
               <DbSource ConnectionRef="BKI_QLDTConnectionString (Settings)" DbObjectName="BKI_QLDT.dbo.V_GD_GIAO_KH" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT ID, ID_QUYET_DINH, ID_DON_VI, ID_DU_AN_CONG_TRINH, SO_TIEN, IS_NGUON_NS_YN, ID_LOAI_GIAO_DICH, ID_CHUONG, ID_KHOAN, ID_MUC, GHI_CHU, ID_TIEU_MUC, SO_QUYET_DINH, NOI_DUNG, NGAY_THANG, ID_LOAI_DU_AN_CONG_TRINH, DISPLAY, TEN_NGAN, TEN FROM dbo.V_GD_GIAO_KH</CommandText>
+                    <CommandText>SELECT ID, ID_QUYET_DINH, ID_DON_VI, ID_DU_AN_CONG_TRINH, SO_TIEN_QUY_BT, SO_TIEN_NS, IS_NGUON_NS_YN, ID_LOAI_GIAO_DICH, ID_CHUONG, ID_KHOAN, ID_MUC, GHI_CHU, ID_TIEU_MUC, SO_QUYET_DINH, NOI_DUNG, NGAY_THANG, ID_LOAI_DU_AN_CONG_TRINH, DISPLAY, TEN_NGAN, TEN FROM dbo.V_GD_GIAO_KH</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -23,7 +23,8 @@
               <Mapping SourceColumn="ID_QUYET_DINH" DataSetColumn="ID_QUYET_DINH" />
               <Mapping SourceColumn="ID_DON_VI" DataSetColumn="ID_DON_VI" />
               <Mapping SourceColumn="ID_DU_AN_CONG_TRINH" DataSetColumn="ID_DU_AN_CONG_TRINH" />
-              <Mapping SourceColumn="SO_TIEN" DataSetColumn="SO_TIEN" />
+              <Mapping SourceColumn="SO_TIEN_QUY_BT" DataSetColumn="SO_TIEN_QUY_BT" />
+              <Mapping SourceColumn="SO_TIEN_NS" DataSetColumn="SO_TIEN_NS" />
               <Mapping SourceColumn="IS_NGUON_NS_YN" DataSetColumn="IS_NGUON_NS_YN" />
               <Mapping SourceColumn="ID_LOAI_GIAO_DICH" DataSetColumn="ID_LOAI_GIAO_DICH" />
               <Mapping SourceColumn="ID_CHUONG" DataSetColumn="ID_CHUONG" />
@@ -56,7 +57,8 @@
               <xs:element name="ID_QUYET_DINH" msprop:Generator_ColumnVarNameInTable="columnID_QUYET_DINH" msprop:Generator_ColumnPropNameInRow="ID_QUYET_DINH" msprop:Generator_ColumnPropNameInTable="ID_QUYET_DINHColumn" msprop:Generator_UserColumnName="ID_QUYET_DINH" type="xs:decimal" />
               <xs:element name="ID_DON_VI" msprop:Generator_ColumnVarNameInTable="columnID_DON_VI" msprop:Generator_ColumnPropNameInRow="ID_DON_VI" msprop:Generator_ColumnPropNameInTable="ID_DON_VIColumn" msprop:Generator_UserColumnName="ID_DON_VI" type="xs:decimal" />
               <xs:element name="ID_DU_AN_CONG_TRINH" msprop:Generator_ColumnVarNameInTable="columnID_DU_AN_CONG_TRINH" msprop:Generator_ColumnPropNameInRow="ID_DU_AN_CONG_TRINH" msprop:Generator_ColumnPropNameInTable="ID_DU_AN_CONG_TRINHColumn" msprop:Generator_UserColumnName="ID_DU_AN_CONG_TRINH" type="xs:decimal" minOccurs="0" />
-              <xs:element name="SO_TIEN" msprop:Generator_ColumnVarNameInTable="columnSO_TIEN" msprop:Generator_ColumnPropNameInRow="SO_TIEN" msprop:Generator_ColumnPropNameInTable="SO_TIENColumn" msprop:Generator_UserColumnName="SO_TIEN" type="xs:decimal" />
+              <xs:element name="SO_TIEN_QUY_BT" msprop:Generator_ColumnVarNameInTable="columnSO_TIEN_QUY_BT" msprop:Generator_ColumnPropNameInRow="SO_TIEN_QUY_BT" msprop:Generator_ColumnPropNameInTable="SO_TIEN_QUY_BTColumn" msprop:Generator_UserColumnName="SO_TIEN_QUY_BT" type="xs:decimal" minOccurs="0" />
+              <xs:element name="SO_TIEN_NS" msprop:Generator_ColumnVarNameInTable="columnSO_TIEN_NS" msprop:Generator_ColumnPropNameInRow="SO_TIEN_NS" msprop:Generator_ColumnPropNameInTable="SO_TIEN_NSColumn" msprop:Generator_UserColumnName="SO_TIEN_NS" type="xs:decimal" />
               <xs:element name="IS_NGUON_NS_YN" msprop:Generator_ColumnVarNameInTable="columnIS_NGUON_NS_YN" msprop:Generator_ColumnPropNameInRow="IS_NGUON_NS_YN" msprop:Generator_ColumnPropNameInTable="IS_NGUON_NS_YNColumn" msprop:Generator_UserColumnName="IS_NGUON_NS_YN">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
