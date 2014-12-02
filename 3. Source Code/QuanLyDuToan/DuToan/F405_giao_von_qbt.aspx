@@ -134,11 +134,19 @@
 													</td>
 												</tr>
 												<tr>
-													<td style="width: 30%" align="right">
-														<span class="cssManField">Số tiền</span>
+													<td style="width: 40%" align="right">
+														<span class="cssManField">Số tiền ngân sách</span>
 													</td>
 													<td>
-														<asp:TextBox ID="m_txt_cktx_so_tien" runat="server" CssClass="cssTextBox" Width="50%" placeholder="Số tiền"></asp:TextBox>
+														<asp:TextBox ID="m_txt_cktx_so_tien_ngan_sach" runat="server" CssClass="cssTextBox" Width="50%" placeholder="Số tiền ngân sách"></asp:TextBox>
+													</td>
+												</tr>
+                                                <tr>
+													<td style="width: 40%" align="right">
+														<span class="cssManField">Số tiền bảo trì</span>
+													</td>
+													<td>
+														<asp:TextBox ID="m_txt_cktx_so_tien_bao_tri" runat="server" CssClass="cssTextBox" Width="50%" placeholder="Số tiền bảo trì"></asp:TextBox>
 													</td>
 												</tr>
 												<tr>

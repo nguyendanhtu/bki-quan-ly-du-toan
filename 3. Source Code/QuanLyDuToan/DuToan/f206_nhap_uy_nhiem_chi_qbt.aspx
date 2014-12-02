@@ -180,7 +180,7 @@
 													<Columns>
 														<asp:TemplateField HeaderText="Loại">
 															<FooterTemplate>
-																<asp:RadioButton ID="m_rdb_grid_ctx" AutoPostBack="true" runat="server" Text="Chi TX" GroupName="grid_loai" OnCheckedChanged="m_rdb_grid_ctx_CheckedChanged" />
+																<asp:RadioButton ID="m_rdb_grid_ctx" AutoPostBack="true" runat="server" Text="Chi TX" GroupName="grid_loai" />
 																<br />
 																<asp:RadioButton ID="m_rdb_grid_cktx" AutoPostBack="true" runat="server" Text="Chi không TX" GroupName="grid_loai" OnCheckedChanged="m_rdb_grid_cktx_CheckedChanged" />
 															</FooterTemplate>
