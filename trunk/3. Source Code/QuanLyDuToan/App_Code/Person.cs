@@ -27,6 +27,10 @@ namespace QuanLyDuToan.App_Code
 			{
 				v_dc_id_user_id = CIPConvert.ToDecimal(v_obj_id);
 			}
+			else
+			{
+				HttpContext.Current.Response.Redirect("/Account/Login.aspx");
+			}
 			return v_dc_id_user_id;
 		}
 
