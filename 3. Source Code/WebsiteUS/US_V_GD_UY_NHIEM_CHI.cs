@@ -352,50 +352,6 @@ namespace WebUS
 			pm_objDR["SO_UNC"] = System.Convert.DBNull;
 		}
 
-		public string strDIA_CHI
-		{
-			get
-			{
-				return CNull.RowNVLString(pm_objDR, "DIA_CHI", IPConstants.c_DefaultString);
-			}
-			set
-			{
-				pm_objDR["DIA_CHI"] = value;
-			}
-		}
-
-		public bool IsDIA_CHINull()
-		{
-			return pm_objDR.IsNull("DIA_CHI");
-		}
-
-		public void SetDIA_CHINull()
-		{
-			pm_objDR["DIA_CHI"] = System.Convert.DBNull;
-		}
-
-		public string strKHO_BAC_NHA_NUOC
-		{
-			get
-			{
-				return CNull.RowNVLString(pm_objDR, "KHO_BAC_NHA_NUOC", IPConstants.c_DefaultString);
-			}
-			set
-			{
-				pm_objDR["KHO_BAC_NHA_NUOC"] = value;
-			}
-		}
-
-		public bool IsKHO_BAC_NHA_NUOCNull()
-		{
-			return pm_objDR.IsNull("KHO_BAC_NHA_NUOC");
-		}
-
-		public void SetKHO_BAC_NHA_NUOCNull()
-		{
-			pm_objDR["KHO_BAC_NHA_NUOC"] = System.Convert.DBNull;
-		}
-
 		public string strMA_TKKT
 		{
 			get
