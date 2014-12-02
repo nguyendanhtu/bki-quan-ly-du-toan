@@ -147,7 +147,8 @@ namespace WebDS.CDBNames
 		public const string ID_QUYET_DINH = "ID_QUYET_DINH";
 		public const string ID_DON_VI = "ID_DON_VI";
 		public const string ID_DU_AN_CONG_TRINH = "ID_DU_AN_CONG_TRINH";
-		public const string SO_TIEN = "SO_TIEN";
+        public const string SO_TIEN_QUY_BT = "SO_TIEN_QUY_BT";
+        public const string SO_TIEN_NS = "SO_TIEN_NS";
 		public const string IS_NGUON_NS_YN = "IS_NGUON_NS_YN";
 		public const string ID_LOAI_GIAO_DICH = "ID_LOAI_GIAO_DICH";
 		public const string ID_CHUONG = "ID_CHUONG";
