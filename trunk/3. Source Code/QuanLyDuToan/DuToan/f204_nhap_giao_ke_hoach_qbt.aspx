@@ -2,14 +2,25 @@
 
 <%@ Import Namespace="IP.Core.IPCommon" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="Server">
-	<style type="text/css">
-		.auto-style1 {
-			color: red;
-		}
-	</style>
+    <script type="text/javascript">
+        function tinhtongchitx() {
+            var so_tien_ns = $('#<%=m_txt_ctx_so_tien_ns.ClientID%>').value;
+            var so_tien_qbt = $('#<%=m_txt_ctx_so_tien_qbt.ClientID%>').value;
+            m_lbl_tong_chi_tx.innerHTML = so_tien_ns + so_tien_qbt;
+        }
+        $(document).ready(function () {
+            $("#<%=m_txt_ctx_so_tien_ns.ClientID%>").change(function () {
+                tinhtongchitx();
+            });
+
+            $("#<%=m_txt_ctx_so_tien_qbt.ClientID%>").change(function () {
+                tinhtongchitx();
+            });
+        });
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="Server">
-	<asp:ScriptManager ID="ScriptManager1" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server">
 	</asp:ScriptManager>
 	<asp:UpdatePanel ID="UpdatePanel1" runat="server">
 		<ContentTemplate>
@@ -99,10 +110,26 @@
 												</tr>
 												<tr>
 													<td style="width: 30%" align="right">
-														<span class="cssManField">Số tiền</span>
+														<span class="cssManField">Số tiền ngân sách (1)</span>
 													</td>
 													<td style="width: 70%" align="left">
-														<asp:TextBox ID="m_txt_ctx_so_tien" runat="server" CssClass="cssTextBox" Width="50%"></asp:TextBox>
+														<asp:TextBox ID="m_txt_ctx_so_tien_ns" runat="server" CssClass="cssTextBox" Width="50%" AutoPostBack="false"></asp:TextBox>
+													</td>
+												</tr>
+                                                <tr>
+													<td style="width: 30%" align="right">
+														<span class="cssManField">Số tiền quỹ bảo trì (2)</span>
+													</td>
+													<td style="width: 70%" align="left">
+														<asp:TextBox ID="m_txt_ctx_so_tien_qbt" runat="server" CssClass="cssTextBox" Width="50%" AutoPostBack="false"></asp:TextBox>
+													</td>
+												</tr>
+                                                <tr>
+													<td style="width: 30%" align="right">
+														<span class="cssManField">Tổng (3) = (1) + (2)</span>
+													</td>
+													<td style="width: 70%" align="left">
+														<label class="cssManField" style="text-align:right" ID="m_lbl_tong_chi_tx">0</label>
 													</td>
 												</tr>
 												<tr>
@@ -141,10 +168,26 @@
 												</tr>
 												<tr>
 													<td style="width: 30%" align="right">
-														<span class="cssManField">Số tiền</span>
+														<span class="cssManField">Số tiền ngân sách (1)</span>
 													</td>
 													<td style="width: 70%" align="left">
-														<asp:TextBox ID="m_txt_cktx_so_tien" runat="server" CssClass="cssTextBox" Width="50%"></asp:TextBox>
+														<asp:TextBox ID="m_txt_cktx_so_tien_ns" runat="server" CssClass="cssTextBox" Width="50%"></asp:TextBox>
+													</td>
+												</tr>
+                                                <tr>
+													<td style="width: 30%" align="right">
+														<span class="cssManField">Số tiền quỹ bảo trì (2)</span>
+													</td>
+													<td style="width: 70%" align="left">
+														<asp:TextBox ID="m_txt_cktx_so_tien_qbt" runat="server" CssClass="cssTextBox" Width="50%"></asp:TextBox>
+													</td>
+												</tr>
+                                                <tr>
+													<td style="width: 30%" align="right">
+														<span class="cssManField">Tổng (3) = (1) + (2)</span>
+													</td>
+													<td style="width: 70%" align="left">
+														<label class="cssManField" style="text-align:right" ID="m_lbl_tong_chi_ktx">0</label>
 													</td>
 												</tr>
 												<tr>

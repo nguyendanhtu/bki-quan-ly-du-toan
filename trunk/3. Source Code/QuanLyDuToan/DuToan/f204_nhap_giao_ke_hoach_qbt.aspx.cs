@@ -111,10 +111,10 @@ namespace QuanLyDuToan.DuToan
 				}
 				if (ip_str_ctx_yn.Trim().ToUpper() == "Y")
 				{
-					if (m_txt_ctx_so_tien.Text == "")
+					if (m_txt_ctx_so_tien_ns.Text == "")
 					{
 						m_lbl_mess_detail.Text += "\n Bạn phải nhập Số tiền!";
-						m_txt_ctx_so_tien.Focus();
+						m_txt_ctx_so_tien_ns.Focus();
 						v_b_result = false;
 					}
 					if (m_ddl_tuyen_quoc_lo.SelectedValue == "-1")
@@ -138,10 +138,10 @@ namespace QuanLyDuToan.DuToan
 						m_txt_ten_du_an.Focus();
 						v_b_result = false;
 					}
-					if (m_txt_cktx_so_tien.Text == "")
+					if (m_txt_cktx_so_tien_ns.Text == "")
 					{
 						m_lbl_mess_detail.Text += "\n Bạn phải nhập Số tiền!";
-						m_txt_cktx_so_tien.Focus();
+						m_txt_cktx_so_tien_ns.Focus();
 						v_b_result = false;
 					}
 					if (!CValidateTextBox.IsValid(m_txt_cktx_noi_dung, DataType.StringType, allowNull.NO))
@@ -206,13 +206,15 @@ namespace QuanLyDuToan.DuToan
 			if (ip_str_ctx_yn.Trim().ToUpper() == "Y")
 			{
 				m_us.dcID_DU_AN_CONG_TRINH = CIPConvert.ToDecimal(m_ddl_tuyen_quoc_lo.SelectedValue);
-				m_us.dcSO_TIEN = CIPConvert.ToDecimal(m_txt_ctx_so_tien.Text.Trim());
+				m_us.dcSO_TIEN_NS = CIPConvert.ToDecimal(m_txt_ctx_so_tien_ns.Text.Trim());
+                m_us.dcSO_TIEN_QUY_BT = CIPConvert.ToDecimal(m_txt_ctx_so_tien_qbt.Text.Trim());
 				m_us.strGHI_CHU = m_txt_ctx_noi_dung.Text;
 			}
 			else
 			{
 				m_us.dcID_DU_AN_CONG_TRINH = CIPConvert.ToDecimal(m_ddl_du_an.SelectedValue);
-				m_us.dcSO_TIEN = CIPConvert.ToDecimal(m_txt_cktx_so_tien.Text.Trim());
+				m_us.dcSO_TIEN_NS = CIPConvert.ToDecimal(m_txt_cktx_so_tien_ns.Text.Trim());
+                m_us.dcSO_TIEN_QUY_BT = CIPConvert.ToDecimal(m_txt_cktx_so_tien_qbt.Text.Trim());
 				m_us.strGHI_CHU = m_txt_cktx_noi_dung.Text;
 			}
 			m_us.dcID_QUYET_DINH = CIPConvert.ToDecimal(m_hdf_id_quyet_dinh.Value);
@@ -229,7 +231,8 @@ namespace QuanLyDuToan.DuToan
 			if (v_us_du_an_cong_trinh.dcID_LOAI_DU_AN_CONG_TRINH == ID_LOAI_DU_AN.QUOC_LO)
 			{
 				m_ddl_tuyen_quoc_lo.SelectedValue = m_us.dcID_DU_AN_CONG_TRINH.ToString();
-				m_txt_ctx_so_tien.Text = CIPConvert.ToStr(m_us.dcSO_TIEN);
+				m_txt_ctx_so_tien_ns.Text = CIPConvert.ToStr(m_us.dcSO_TIEN_NS);
+                m_txt_ctx_so_tien_qbt.Text = CIPConvert.ToStr(m_us.dcSO_TIEN_QUY_BT);
 				m_txt_ctx_noi_dung.Text = m_us.strGHI_CHU;
 
 			}
@@ -237,7 +240,8 @@ namespace QuanLyDuToan.DuToan
 			{
 				m_ddl_du_an.SelectedValue = m_us.dcID_DU_AN_CONG_TRINH.ToString();
 				m_txt_ten_du_an.Text = m_ddl_du_an.SelectedItem.Text;
-				m_txt_cktx_so_tien.Text = CIPConvert.ToStr(m_us.dcSO_TIEN);
+				m_txt_cktx_so_tien_ns.Text = CIPConvert.ToStr(m_us.dcSO_TIEN_NS);
+                m_txt_cktx_so_tien_qbt.Text = CIPConvert.ToStr(m_us.dcSO_TIEN_QUY_BT);
 				m_ddl_du_an.Visible = true;
 				m_txt_ten_du_an.Visible = false;
 				m_txt_cktx_noi_dung.Text = m_us.strGHI_CHU;
@@ -311,8 +315,8 @@ namespace QuanLyDuToan.DuToan
 			//m_hdf_id_quyet_dinh.Value = "";
 			//m_hdf_id_du_an.Value = "";
 
-			m_txt_ctx_so_tien.Text = "";
-			m_txt_cktx_so_tien.Text = "";
+			m_txt_ctx_so_tien_ns.Text = "";
+			m_txt_cktx_so_tien_ns.Text = "";
 
 			//m_ddl_tuyen_quoc_lo.SelectedValue = "-1";
 			//m_ddl_du_an.SelectedValue = "-1";
@@ -547,8 +551,8 @@ namespace QuanLyDuToan.DuToan
 					//reset control
 					m_ddl_du_an.SelectedValue = "-1";
 					m_ddl_tuyen_quoc_lo.SelectedValue = "-1";
-					m_txt_cktx_so_tien.Text = "";
-					m_txt_ctx_so_tien.Text = "";
+					m_txt_cktx_so_tien_ns.Text = "";
+					m_txt_ctx_so_tien_ns.Text = "";
 
 					//set select row in gridview
 					GridViewRow gvr = (GridViewRow)(((LinkButton)e.CommandSource).NamingContainer);
@@ -609,7 +613,7 @@ namespace QuanLyDuToan.DuToan
 				m_lbl_mess_detail.Text = "";
 				m_lbl_mess_qd.Text = "";
 				xoa_trang();
-				m_txt_ctx_so_tien.Text = "";
+				m_txt_ctx_so_tien_ns.Text = "";
 				m_ddl_tuyen_quoc_lo.SelectedValue = "-1";
 			}
 			catch (Exception v_e)
@@ -626,7 +630,7 @@ namespace QuanLyDuToan.DuToan
 				set_form_mode(LOAI_FORM.THEM);
 				save_data("N");
 				m_txt_ten_du_an.Text = "";
-				m_txt_cktx_so_tien.Text = "";
+				m_txt_cktx_so_tien_ns.Text = "";
 			}
 			catch (Exception v_e)
 			{
@@ -656,7 +660,7 @@ namespace QuanLyDuToan.DuToan
 				m_txt_ten_du_an.Enabled = true;
 				m_txt_ten_du_an.Visible = true;
 				m_ddl_du_an.Visible = false;
-				m_txt_cktx_so_tien.Text = "";
+				m_txt_cktx_so_tien_ns.Text = "";
 
 				m_hdf_id_du_an.Value = "";
 				xoa_trang();
