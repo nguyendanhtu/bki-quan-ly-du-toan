@@ -110,26 +110,26 @@ namespace WebUS
 			pm_objDR["KHO_BAC"] = System.Convert.DBNull;
 		}
 
-		public string strMA_TKKT
+		public string strMA_TKKT1
 		{
 			get
 			{
-				return CNull.RowNVLString(pm_objDR, "MA_TKKT", IPConstants.c_DefaultString);
+				return CNull.RowNVLString(pm_objDR, "MA_TKKT1", IPConstants.c_DefaultString);
 			}
 			set
 			{
-				pm_objDR["MA_TKKT"] = value;
+				pm_objDR["MA_TKKT1"] = value;
 			}
 		}
 
-		public bool IsMA_TKKTNull()
+		public bool IsMA_TKKT1Null()
 		{
-			return pm_objDR.IsNull("MA_TKKT");
+			return pm_objDR.IsNull("MA_TKKT1");
 		}
 
-		public void SetMA_TKKTNull()
+		public void SetMA_TKKT1Null()
 		{
-			pm_objDR["MA_TKKT"] = System.Convert.DBNull;
+			pm_objDR["MA_TKKT1"] = System.Convert.DBNull;
 		}
 
 		public string strMA_DVQHNS
@@ -152,6 +152,28 @@ namespace WebUS
 		public void SetMA_DVQHNSNull()
 		{
 			pm_objDR["MA_DVQHNS"] = System.Convert.DBNull;
+		}
+
+		public string strMA_TKKT2
+		{
+			get
+			{
+				return CNull.RowNVLString(pm_objDR, "MA_TKKT2", IPConstants.c_DefaultString);
+			}
+			set
+			{
+				pm_objDR["MA_TKKT2"] = value;
+			}
+		}
+
+		public bool IsMA_TKKT2Null()
+		{
+			return pm_objDR.IsNull("MA_TKKT2");
+		}
+
+		public void SetMA_TKKT2Null()
+		{
+			pm_objDR["MA_TKKT2"] = System.Convert.DBNull;
 		}
 
 		#endregion

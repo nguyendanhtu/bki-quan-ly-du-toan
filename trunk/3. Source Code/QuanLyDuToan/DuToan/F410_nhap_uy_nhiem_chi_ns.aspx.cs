@@ -89,7 +89,7 @@ namespace QuanLyDuToan.DuToan
 			US_DM_THONG_TIN_DON_VI v_us = new US_DM_THONG_TIN_DON_VI(Person.get_id_don_vi(), Person.get_id_don_vi());
 			m_lbl_dia_chi.Text = v_us.strDIA_CHI;
 			m_lbl_tai_kho_bac_nha_nuoc.Text = v_us.strKHO_BAC;
-			m_lbl_ma_tkkt.Text = v_us.strMA_TKKT;
+			m_lbl_ma_tkkt.Text = "";
 			m_lbl_ma_dvqhns.Text = v_us.strMA_DVQHNS;
 			m_txt_so_unc.Text = "";
 			m_txt_ngay_thang.Text = "";
@@ -503,7 +503,7 @@ namespace QuanLyDuToan.DuToan
 			US_DM_THONG_TIN_DON_VI v_us_ttdv = new US_DM_THONG_TIN_DON_VI(Person.get_id_don_vi(), Person.get_id_don_vi());
 			m_lbl_dia_chi.Text = v_us_ttdv.strDIA_CHI;
 			m_lbl_tai_kho_bac_nha_nuoc.Text = v_us_ttdv.strKHO_BAC;
-			m_lbl_ma_tkkt.Text = v_us_ttdv.strMA_TKKT;
+			m_lbl_ma_tkkt.Text = v_us_ttdv.strMA_TKKT1;
 			m_lbl_ma_dvqhns.Text = v_us_ttdv.strMA_DVQHNS;
 		}
 		private void load_data_to_cbo_dm_uy_nhiem_chi()
@@ -536,10 +536,11 @@ namespace QuanLyDuToan.DuToan
 					m_cmd_print.Visible = true;
 				}
 				US_DM_UY_NHIEM_CHI v_us = new US_DM_UY_NHIEM_CHI(CIPConvert.ToDecimal(m_hdf_id_dm_uy_nhiem_chi.Value));
-				m_lbl_dia_chi.Text = v_us.strDIA_CHI;
+				US_DM_THONG_TIN_DON_VI v_us_thong_tin_don_vi = new US_DM_THONG_TIN_DON_VI(Person.get_id_don_vi(), Person.get_id_don_vi());
+				m_lbl_dia_chi.Text = v_us_thong_tin_don_vi.strDIA_CHI;
 				m_txt_so_unc.Text = v_us.strSO_UNC;
 				m_txt_ngay_thang.Text = CIPConvert.ToStr(v_us.datNGAY_THANG, "dd/MM/yyyy");
-				m_lbl_tai_kho_bac_nha_nuoc.Text = v_us.strKHO_BAC_NHA_NUOC;
+				m_lbl_tai_kho_bac_nha_nuoc.Text = v_us_thong_tin_don_vi.strKHO_BAC;
 				m_lbl_ma_tkkt.Text = v_us.strMA_TKKT;
 				m_lbl_ma_dvqhns.Text = v_us.strMA_DVQHNS;
 				m_txt_ma_ctmt_da_htct.Text = v_us.strMA_CTMT_DA_HTCT;
@@ -613,8 +614,8 @@ namespace QuanLyDuToan.DuToan
 
 			// insert gd quyet dinh
 			v_us.dcID_DON_VI = Person.get_id_don_vi();
-			v_us.strDIA_CHI = m_lbl_dia_chi.Text.Trim();
-			v_us.strKHO_BAC_NHA_NUOC = m_lbl_tai_kho_bac_nha_nuoc.Text.Trim();
+			//v_us.strDIA_CHI = m_lbl_dia_chi.Text.Trim();
+			//v_us.strKHO_BAC_NHA_NUOC = m_lbl_tai_kho_bac_nha_nuoc.Text.Trim();
 			v_us.strMA_CTMT_DA_HTCT = m_txt_ma_ctmt_da_htct.Text.Trim();
 			v_us.strMA_DVQHNS = m_lbl_ma_dvqhns.Text.Trim();
 			v_us.strMA_TKKT = m_lbl_ma_tkkt.Text.Trim();
