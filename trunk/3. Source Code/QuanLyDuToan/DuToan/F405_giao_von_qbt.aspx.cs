@@ -331,7 +331,7 @@ namespace QuanLyDuToan.DuToan
             DataTable v_dt = new DataTable();
             v_dt.Columns.Add(V_GD_GIAO_KH.ID);
             v_dt.Columns.Add(V_GD_GIAO_KH.DISPLAY);
-            v_dt.Columns.Add(V_GD_GIAO_KH.SO_TIEN);
+            v_dt.Columns.Add(V_GD_GIAO_KH.SO_TIEN_NS);
             v_dt.Columns.Add(V_GD_GIAO_KH.TEN);
             op_ds.Tables.Add(v_dt);
             op_ds.AcceptChanges();
@@ -340,7 +340,7 @@ namespace QuanLyDuToan.DuToan
             DataRow v_dr_chi_tx = v_dt.NewRow();
             v_dr_chi_tx[V_GD_GIAO_KH.ID] = "-1";
             v_dr_chi_tx[V_GD_GIAO_KH.DISPLAY] = "I - Chi thường xuyên";
-            v_dr_chi_tx[V_GD_GIAO_KH.SO_TIEN] = "-1";
+            v_dr_chi_tx[V_GD_GIAO_KH.SO_TIEN_NS] = "-1";
             v_dr_chi_tx[V_GD_GIAO_KH.TEN] = "";
             op_ds.Tables[0].Rows.Add(v_dr_chi_tx);
             op_ds.AcceptChanges();
@@ -351,7 +351,7 @@ namespace QuanLyDuToan.DuToan
                     DataRow v_dr = v_dt.NewRow();
                     v_dr[V_GD_GIAO_KH.ID] = ip_ds.Tables[0].Rows[i][V_GD_GIAO_KH.ID].ToString();
                     v_dr[V_GD_GIAO_KH.DISPLAY] = ".............." + ip_ds.Tables[0].Rows[i][V_GD_GIAO_KH.DISPLAY].ToString();
-                    v_dr[V_GD_GIAO_KH.SO_TIEN] = CIPConvert.ToStr(ip_ds.Tables[0].Rows[i][V_GD_GIAO_KH.SO_TIEN], "#,###,##");
+                    v_dr[V_GD_GIAO_KH.SO_TIEN_NS] = CIPConvert.ToStr(ip_ds.Tables[0].Rows[i][V_GD_GIAO_KH.SO_TIEN_NS], "#,###,##");
                     v_dr[V_GD_GIAO_KH.TEN] = ip_ds.Tables[0].Rows[i][V_GD_GIAO_KH.TEN].ToString();
                     op_ds.Tables[0].Rows.Add(v_dr);
                     op_ds.AcceptChanges();
@@ -362,7 +362,7 @@ namespace QuanLyDuToan.DuToan
             DataRow v_dr_chi_ktx = v_dt.NewRow();
             v_dr_chi_ktx[V_GD_GIAO_KH.ID] = "-1";
             v_dr_chi_ktx[V_GD_GIAO_KH.DISPLAY] = "II - Chi không thường xuyên";
-            v_dr_chi_ktx[V_GD_GIAO_KH.SO_TIEN] = "-1";
+            v_dr_chi_ktx[V_GD_GIAO_KH.SO_TIEN_NS] = "-1";
             v_dr_chi_ktx[V_GD_GIAO_KH.TEN] = "";
             op_ds.Tables[0].Rows.Add(v_dr_chi_ktx);
             op_ds.AcceptChanges();
@@ -373,7 +373,7 @@ namespace QuanLyDuToan.DuToan
                     DataRow v_dr = v_dt.NewRow();
                     v_dr[V_GD_GIAO_KH.ID] = ip_ds.Tables[0].Rows[i][V_GD_GIAO_KH.ID].ToString();
                     v_dr[V_GD_GIAO_KH.DISPLAY] = ".............." + ip_ds.Tables[0].Rows[i][V_GD_GIAO_KH.DISPLAY].ToString();
-                    v_dr[V_GD_GIAO_KH.SO_TIEN] = CIPConvert.ToStr(ip_ds.Tables[0].Rows[i][V_GD_GIAO_KH.SO_TIEN], "#,###,##");
+                    v_dr[V_GD_GIAO_KH.SO_TIEN_NS] = CIPConvert.ToStr(ip_ds.Tables[0].Rows[i][V_GD_GIAO_KH.SO_TIEN_NS], "#,###,##");
                     v_dr[V_GD_GIAO_KH.TEN] = ip_ds.Tables[0].Rows[i][V_GD_GIAO_KH.TEN].ToString();
                     op_ds.Tables[0].Rows.Add(v_dr);
                     op_ds.AcceptChanges();
