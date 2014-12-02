@@ -16,7 +16,16 @@ namespace QuanLyDuToan.DuToan
 	public partial class F405_giao_von_qbt : System.Web.UI.Page
 	{
 		#region Public Interface
-
+        public string format_so_tien(string ip_str_so_tien)
+        {
+            string op_str_so_tien = "";
+            if (ip_str_so_tien.Trim().Equals("") | ip_str_so_tien.Trim().Equals("-1"))
+            {
+                op_str_so_tien = "";
+            }
+            else op_str_so_tien = CIPConvert.ToStr(ip_str_so_tien, "#,##0");
+            return op_str_so_tien;
+        }
 		#endregion
 
 		#region Data Structure
@@ -171,12 +180,12 @@ namespace QuanLyDuToan.DuToan
 			if (ip_str_ctx_yn.Trim().ToUpper() == "Y")
 			{
 				m_us.dcID_DU_AN_CONG_TRINH = CIPConvert.ToDecimal(m_ddl_tuyen_quoc_lo.SelectedValue);
-				m_us.dcSO_TIEN = CIPConvert.ToDecimal(m_txt_ctx_so_tien.Text.Trim());
+				m_us.dcSO_TIEN_NS = CIPConvert.ToDecimal(m_txt_ctx_so_tien.Text.Trim());
 			}
 			else
 			{
 				m_us.dcID_DU_AN_CONG_TRINH = CIPConvert.ToDecimal(m_ddl_du_an.SelectedValue);
-				m_us.dcSO_TIEN = CIPConvert.ToDecimal(m_txt_cktx_so_tien.Text.Trim());
+                m_us.dcSO_TIEN_NS = CIPConvert.ToDecimal(m_txt_cktx_so_tien_ngan_sach.Text.Trim());
 			}
 			m_us.dcID_QUYET_DINH = CIPConvert.ToDecimal(m_hdf_id_quyet_dinh.Value);
 			m_us.dcID_DON_VI = Person.get_id_don_vi();
@@ -192,13 +201,13 @@ namespace QuanLyDuToan.DuToan
 			if (v_us_du_an_cong_trinh.dcID_LOAI_DU_AN_CONG_TRINH == ID_LOAI_DU_AN.QUOC_LO)
 			{
 				m_ddl_tuyen_quoc_lo.SelectedValue = m_us.dcID_DU_AN_CONG_TRINH.ToString();
-				m_txt_ctx_so_tien.Text = CIPConvert.ToStr(m_us.dcSO_TIEN);
+                m_txt_ctx_so_tien.Text = CIPConvert.ToStr(m_us.dcSO_TIEN_NS);
 
 			}
 			else
 			{
 				m_ddl_du_an.SelectedValue = m_us.dcID_DU_AN_CONG_TRINH.ToString();
-				m_txt_cktx_so_tien.Text = CIPConvert.ToStr(m_us.dcSO_TIEN);
+				m_txt_cktx_so_tien_ngan_sach.Text = CIPConvert.ToStr(m_us.dcSO_TIEN_NS);
 				m_ddl_du_an.Visible = true;
 
 			}
@@ -275,7 +284,7 @@ namespace QuanLyDuToan.DuToan
 			//m_hdf_id_du_an.Value = "";
 
 			m_txt_ctx_so_tien.Text = "";
-			m_txt_cktx_so_tien.Text = "";
+			m_txt_cktx_so_tien_ngan_sach.Text = "";
 
 			//m_ddl_tuyen_quoc_lo.SelectedValue = "-1";
 			//m_ddl_du_an.SelectedValue = "-1";
@@ -316,76 +325,65 @@ namespace QuanLyDuToan.DuToan
 			load_data_to_grid();
 			m_lbl_mess_grid.Text = "Xoá bản ghi thành công!";
 		}
+        private DataSet get_tree_dataset(DS_V_GD_GIAO_VON ip_ds)
+        {
+            DataSet op_ds = new DataSet();
+            DataTable v_dt = new DataTable();
+            v_dt.Columns.Add(V_GD_GIAO_KH.ID);
+            v_dt.Columns.Add(V_GD_GIAO_KH.DISPLAY);
+            v_dt.Columns.Add(V_GD_GIAO_KH.SO_TIEN);
+            v_dt.Columns.Add(V_GD_GIAO_KH.TEN);
+            op_ds.Tables.Add(v_dt);
+            op_ds.AcceptChanges();
+
+            //chi thuong xuyen
+            DataRow v_dr_chi_tx = v_dt.NewRow();
+            v_dr_chi_tx[V_GD_GIAO_KH.ID] = "-1";
+            v_dr_chi_tx[V_GD_GIAO_KH.DISPLAY] = "I - Chi thường xuyên";
+            v_dr_chi_tx[V_GD_GIAO_KH.SO_TIEN] = "-1";
+            v_dr_chi_tx[V_GD_GIAO_KH.TEN] = "";
+            op_ds.Tables[0].Rows.Add(v_dr_chi_tx);
+            op_ds.AcceptChanges();
+            for (int i = 0; i < ip_ds.V_GD_GIAO_VON.Count; i++)
+            {
+                if (CIPConvert.ToDecimal(ip_ds.Tables[0].Rows[i][V_GD_GIAO_KH.ID_LOAI_DU_AN_CONG_TRINH]) == ID_LOAI_DU_AN.QUOC_LO)
+                {
+                    DataRow v_dr = v_dt.NewRow();
+                    v_dr[V_GD_GIAO_KH.ID] = ip_ds.Tables[0].Rows[i][V_GD_GIAO_KH.ID].ToString();
+                    v_dr[V_GD_GIAO_KH.DISPLAY] = ".............." + ip_ds.Tables[0].Rows[i][V_GD_GIAO_KH.DISPLAY].ToString();
+                    v_dr[V_GD_GIAO_KH.SO_TIEN] = CIPConvert.ToStr(ip_ds.Tables[0].Rows[i][V_GD_GIAO_KH.SO_TIEN], "#,###,##");
+                    v_dr[V_GD_GIAO_KH.TEN] = ip_ds.Tables[0].Rows[i][V_GD_GIAO_KH.TEN].ToString();
+                    op_ds.Tables[0].Rows.Add(v_dr);
+                    op_ds.AcceptChanges();
+                }
+
+            }
+            //chi khong thuong xuyen
+            DataRow v_dr_chi_ktx = v_dt.NewRow();
+            v_dr_chi_ktx[V_GD_GIAO_KH.ID] = "-1";
+            v_dr_chi_ktx[V_GD_GIAO_KH.DISPLAY] = "II - Chi không thường xuyên";
+            v_dr_chi_ktx[V_GD_GIAO_KH.SO_TIEN] = "-1";
+            v_dr_chi_ktx[V_GD_GIAO_KH.TEN] = "";
+            op_ds.Tables[0].Rows.Add(v_dr_chi_ktx);
+            op_ds.AcceptChanges();
+            for (int i = 0; i < ip_ds.V_GD_GIAO_VON.Count; i++)
+            {
+                if (CIPConvert.ToDecimal(ip_ds.Tables[0].Rows[i][V_GD_GIAO_KH.ID_LOAI_DU_AN_CONG_TRINH]) == ID_LOAI_DU_AN.KHAC)
+                {
+                    DataRow v_dr = v_dt.NewRow();
+                    v_dr[V_GD_GIAO_KH.ID] = ip_ds.Tables[0].Rows[i][V_GD_GIAO_KH.ID].ToString();
+                    v_dr[V_GD_GIAO_KH.DISPLAY] = ".............." + ip_ds.Tables[0].Rows[i][V_GD_GIAO_KH.DISPLAY].ToString();
+                    v_dr[V_GD_GIAO_KH.SO_TIEN] = CIPConvert.ToStr(ip_ds.Tables[0].Rows[i][V_GD_GIAO_KH.SO_TIEN], "#,###,##");
+                    v_dr[V_GD_GIAO_KH.TEN] = ip_ds.Tables[0].Rows[i][V_GD_GIAO_KH.TEN].ToString();
+                    op_ds.Tables[0].Rows.Add(v_dr);
+                    op_ds.AcceptChanges();
+                }
+
+            }
+            return op_ds;
+        }
 		#endregion
-		private DataSet get_tree_dataset(DS_V_GD_GIAO_VON ip_ds)
-		{
-			DataSet op_ds = new DataSet();
-			DataTable v_dt = new DataTable();
-			v_dt.Columns.Add(V_GD_GIAO_KH.ID);
-			v_dt.Columns.Add(V_GD_GIAO_KH.DISPLAY);
-			v_dt.Columns.Add(V_GD_GIAO_KH.SO_TIEN);
-			v_dt.Columns.Add(V_GD_GIAO_KH.TEN);
-			op_ds.Tables.Add(v_dt);
-			op_ds.AcceptChanges();
-
-			//chi thuong xuyen
-			DataRow v_dr_chi_tx = v_dt.NewRow();
-			v_dr_chi_tx[V_GD_GIAO_KH.ID] = "-1";
-			v_dr_chi_tx[V_GD_GIAO_KH.DISPLAY] = "I - Chi thường xuyên";
-			v_dr_chi_tx[V_GD_GIAO_KH.SO_TIEN] = "-1";
-			v_dr_chi_tx[V_GD_GIAO_KH.TEN] = "";
-			op_ds.Tables[0].Rows.Add(v_dr_chi_tx);
-			op_ds.AcceptChanges();
-			for (int i = 0; i < ip_ds.V_GD_GIAO_VON.Count; i++)
-			{
-				if (CIPConvert.ToDecimal(ip_ds.Tables[0].Rows[i][V_GD_GIAO_KH.ID_LOAI_DU_AN_CONG_TRINH]) == ID_LOAI_DU_AN.QUOC_LO)
-				{
-					DataRow v_dr = v_dt.NewRow();
-					v_dr[V_GD_GIAO_KH.ID] = ip_ds.Tables[0].Rows[i][V_GD_GIAO_KH.ID].ToString();
-					v_dr[V_GD_GIAO_KH.DISPLAY] = ".............." + ip_ds.Tables[0].Rows[i][V_GD_GIAO_KH.DISPLAY].ToString();
-					v_dr[V_GD_GIAO_KH.SO_TIEN] = CIPConvert.ToStr(ip_ds.Tables[0].Rows[i][V_GD_GIAO_KH.SO_TIEN], "#,###,##");
-					v_dr[V_GD_GIAO_KH.TEN] = ip_ds.Tables[0].Rows[i][V_GD_GIAO_KH.TEN].ToString();
-					op_ds.Tables[0].Rows.Add(v_dr);
-					op_ds.AcceptChanges();
-				}
-
-			}
-			//chi khong thuong xuyen
-			DataRow v_dr_chi_ktx = v_dt.NewRow();
-			v_dr_chi_ktx[V_GD_GIAO_KH.ID] = "-1";
-			v_dr_chi_ktx[V_GD_GIAO_KH.DISPLAY] = "II - Chi không thường xuyên";
-			v_dr_chi_ktx[V_GD_GIAO_KH.SO_TIEN] = "-1";
-			v_dr_chi_ktx[V_GD_GIAO_KH.TEN] = "";
-			op_ds.Tables[0].Rows.Add(v_dr_chi_ktx);
-			op_ds.AcceptChanges();
-			for (int i = 0; i < ip_ds.V_GD_GIAO_VON.Count; i++)
-			{
-				if (CIPConvert.ToDecimal(ip_ds.Tables[0].Rows[i][V_GD_GIAO_KH.ID_LOAI_DU_AN_CONG_TRINH]) == ID_LOAI_DU_AN.KHAC)
-				{
-					DataRow v_dr = v_dt.NewRow();
-					v_dr[V_GD_GIAO_KH.ID] = ip_ds.Tables[0].Rows[i][V_GD_GIAO_KH.ID].ToString();
-					v_dr[V_GD_GIAO_KH.DISPLAY] = ".............." + ip_ds.Tables[0].Rows[i][V_GD_GIAO_KH.DISPLAY].ToString();
-					v_dr[V_GD_GIAO_KH.SO_TIEN] = CIPConvert.ToStr(ip_ds.Tables[0].Rows[i][V_GD_GIAO_KH.SO_TIEN], "#,###,##");
-					v_dr[V_GD_GIAO_KH.TEN] = ip_ds.Tables[0].Rows[i][V_GD_GIAO_KH.TEN].ToString();
-					op_ds.Tables[0].Rows.Add(v_dr);
-					op_ds.AcceptChanges();
-				}
-
-			}
-			return op_ds;
-		}
-
-		public string format_so_tien(string ip_str_so_tien)
-		{
-			string op_str_so_tien = "";
-			if (ip_str_so_tien.Trim().Equals("") | ip_str_so_tien.Trim().Equals("-1"))
-			{
-				op_str_so_tien = "";
-			}
-			else op_str_so_tien = CIPConvert.ToStr(ip_str_so_tien, "#,##0");
-			return op_str_so_tien;
-		}
-
+		
 		#region Event
 		protected void Page_Load(object sender, EventArgs e)
 		{
@@ -480,7 +478,7 @@ namespace QuanLyDuToan.DuToan
 				m_lbl_mess_detail.Text = "";
 				set_form_mode(LOAI_FORM.THEM);
 				save_data("N");
-				m_txt_cktx_so_tien.Text = "";
+				m_txt_cktx_so_tien_ngan_sach.Text = "";
 			}
 			catch (Exception v_e)
 			{
@@ -506,7 +504,7 @@ namespace QuanLyDuToan.DuToan
 			{
 				m_lbl_mess_detail.Text = "";
 				m_lbl_mess_qd.Text = "";
-				m_txt_cktx_so_tien.Text = "";
+				m_txt_cktx_so_tien_ngan_sach.Text = "";
 				m_ddl_du_an.SelectedValue = "-1";
 				m_hdf_id_du_an.Value = "";
 				xoa_trang();
@@ -706,7 +704,7 @@ namespace QuanLyDuToan.DuToan
 					//reset control
 					m_ddl_du_an.SelectedValue = "-1";
 					m_ddl_tuyen_quoc_lo.SelectedValue = "-1";
-					m_txt_cktx_so_tien.Text = "";
+					m_txt_cktx_so_tien_ngan_sach.Text = "";
 					m_txt_ctx_so_tien.Text = "";
 
 					//set select row in gridview

@@ -323,7 +323,7 @@ namespace QuanLyDuToan.DuToan
 			else if (m_rdb_dieu_chinh.Checked == true) m_us.dcID_LOAI_GIAO_DICH = ID_LOAI_GIAO_DICH.DIEU_CHINH;
 			else if (m_rdb_bo_sung.Checked == true) m_us.dcID_LOAI_GIAO_DICH = ID_LOAI_GIAO_DICH.BO_SUNG;
 			m_us.strIS_NGUON_NS_YN = "Y";//Nguon mac dinh la Ngan sach
-			m_us.dcSO_TIEN = CIPConvert.ToDecimal(m_txt_so_tien.Text.Trim());
+			m_us.dcSO_TIEN_NS = CIPConvert.ToDecimal(m_txt_so_tien.Text.Trim());
 
 			//get id chuong, loai, khoan, muc from ddl_muc - id_mix
 			string v_str_mix = m_ddl_muc.SelectedValue;
@@ -364,7 +364,7 @@ namespace QuanLyDuToan.DuToan
 			m_ddl_muc.SelectedValue = get_id_mix_from_id_gd(m_us.dcID);
 			load_info_chuong_loai_khoan_muc_from_id_gd(m_ddl_muc.SelectedValue);
 			//chua lam
-			m_txt_so_tien.Text = m_us.dcSO_TIEN.ToString();
+			m_txt_so_tien.Text = m_us.dcSO_TIEN_NS.ToString();
 			m_txt_ghi_chu.Text = m_us.strGHI_CHU;
 
 			if (m_us.dcID_LOAI_GIAO_DICH == ID_LOAI_GIAO_DICH.KH_DAU_NAM)
