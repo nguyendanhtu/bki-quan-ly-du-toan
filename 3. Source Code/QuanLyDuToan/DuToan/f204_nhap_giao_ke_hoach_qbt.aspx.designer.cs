@@ -220,13 +220,22 @@ namespace QuanLyDuToan.DuToan {
         protected global::System.Web.UI.WebControls.Button m_cmd_them_ql;
         
         /// <summary>
-        /// m_txt_ctx_so_tien control.
+        /// m_txt_ctx_so_tien_ns control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox m_txt_ctx_so_tien;
+        protected global::System.Web.UI.WebControls.TextBox m_txt_ctx_so_tien_ns;
+        
+        /// <summary>
+        /// m_txt_ctx_so_tien_qbt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox m_txt_ctx_so_tien_qbt;
         
         /// <summary>
         /// m_txt_ctx_noi_dung control.
@@ -310,13 +319,22 @@ namespace QuanLyDuToan.DuToan {
         protected global::System.Web.UI.WebControls.Button m_cmd_chon_du_an;
         
         /// <summary>
-        /// m_txt_cktx_so_tien control.
+        /// m_txt_cktx_so_tien_ns control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox m_txt_cktx_so_tien;
+        protected global::System.Web.UI.WebControls.TextBox m_txt_cktx_so_tien_ns;
+        
+        /// <summary>
+        /// m_txt_cktx_so_tien_qbt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox m_txt_cktx_so_tien_qbt;
         
         /// <summary>
         /// m_txt_cktx_noi_dung control.
