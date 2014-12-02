@@ -331,7 +331,11 @@ namespace WebUS
 			v_sp.fillDataSetByCommand(this, v_ds);
 			for (int i = 0; i < v_ds.Tables[0].Rows.Count; i++)
 			{
-				op_dc_tong_tien += CIPConvert.ToDecimal(v_ds.Tables[0].Rows[i][GD_GIAO_KH.SO_TIEN]);
+                if (v_ds.Tables[0].Rows[i][GD_GIAO_KH.SO_TIEN_NS] != null && v_ds.Tables[0].Rows[i][GD_GIAO_KH.SO_TIEN_QUY_BT] != null)
+                {   
+                    op_dc_tong_tien += CIPConvert.ToDecimal(v_ds.Tables[0].Rows[i][GD_GIAO_KH.SO_TIEN_NS]) + CIPConvert.ToDecimal(v_ds.Tables[0].Rows[i][GD_GIAO_KH.SO_TIEN_QUY_BT]);
+                }
+				
 			}
 			return op_dc_tong_tien;
 		}
