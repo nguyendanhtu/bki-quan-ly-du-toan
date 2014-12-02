@@ -1,3 +1,6 @@
 ﻿namespace WebDS
 {
 }
+namespace WebDS
+{
+}

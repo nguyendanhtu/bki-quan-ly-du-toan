@@ -186,6 +186,7 @@ namespace QuanLyDuToan.App_Code
 				v_dc_id_loai_cong_trinh = ID_LOAI_DU_AN.KHAC;
 				v_str_data_default = "---Chọn dự án---";
 			}
+			v_ds.EnforceConstraints = false;
 			v_us.getDuAnCongTrinhGiaoVonByDate(v_ds
 				, v_dc_id_don_vi
 				, v_dc_id_loai_cong_trinh

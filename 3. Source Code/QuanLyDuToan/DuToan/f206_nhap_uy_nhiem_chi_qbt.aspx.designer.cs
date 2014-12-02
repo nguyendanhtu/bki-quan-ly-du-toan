@@ -31,22 +31,13 @@ namespace QuanLyDuToan.DuToan {
         protected global::System.Web.UI.UpdatePanel UpdatePanel1;
         
         /// <summary>
-        /// m_lbl_title_nhap_uy_nhiem_chi control.
+        /// m_txt_ngay_thang control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label m_lbl_title_nhap_uy_nhiem_chi;
-        
-        /// <summary>
-        /// m_pnl_thong_tin_thong_tin_uy_nhiem_chi control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel m_pnl_thong_tin_thong_tin_uy_nhiem_chi;
+        protected global::System.Web.UI.WebControls.TextBox m_txt_ngay_thang;
         
         /// <summary>
         /// m_lbl_mess_master control.
@@ -103,13 +94,13 @@ namespace QuanLyDuToan.DuToan {
         protected global::System.Web.UI.WebControls.Button m_cmd_chon_unc;
         
         /// <summary>
-        /// m_txt_ngay_thang control.
+        /// m_cmd_nhap_moi_unc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox m_txt_ngay_thang;
+        protected global::System.Web.UI.WebControls.Button m_cmd_nhap_moi_unc;
         
         /// <summary>
         /// m_lbl_tai_kho_bac_nha_nuoc control.
@@ -157,15 +148,6 @@ namespace QuanLyDuToan.DuToan {
         protected global::System.Web.UI.WebControls.Button m_cmd_luu_unc;
         
         /// <summary>
-        /// m_cmd_nhap_moi_unc control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button m_cmd_nhap_moi_unc;
-        
-        /// <summary>
         /// m_hdf_id_dm_uy_nhiem_chi control.
         /// </summary>
         /// <remarks>
@@ -182,15 +164,6 @@ namespace QuanLyDuToan.DuToan {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField m_hdf_form_mode;
-        
-        /// <summary>
-        /// m_pnl_Khoan_thanh_toan control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel m_pnl_Khoan_thanh_toan;
         
         /// <summary>
         /// m_lbl_mess_detail control.
@@ -310,6 +283,15 @@ namespace QuanLyDuToan.DuToan {
         protected global::System.Web.UI.WebControls.HiddenField m_hdf_id_du_an_cong_trinh;
         
         /// <summary>
+        /// m_grv_unc control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView m_grv_unc;
+        
+        /// <summary>
         /// m_lbl_mess_grid control.
         /// </summary>
         /// <remarks>
@@ -326,15 +308,6 @@ namespace QuanLyDuToan.DuToan {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView m_grv;
-        
-        /// <summary>
-        /// m_pnl_trong_do control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel m_pnl_trong_do;
         
         /// <summary>
         /// m_lbl_mess_info_unc control.
