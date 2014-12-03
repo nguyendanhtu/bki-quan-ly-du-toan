@@ -100,6 +100,7 @@
     <Compile Include="US_V_GD_GIAO_VON.cs" />
     <Compile Include="US_V_GD_UY_NHIEM_CHI.cs" />
     <Compile Include="US_V_HT_USER_DV_QUAN_LY.cs" />
+    <Compile Include="US_V_RPT_GD_GIAO_VON.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\IPCommon\IPCommon.vbproj">
