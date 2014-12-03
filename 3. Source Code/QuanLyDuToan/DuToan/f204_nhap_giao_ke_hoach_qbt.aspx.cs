@@ -274,7 +274,7 @@ namespace QuanLyDuToan.DuToan
 				{
 					v_us.FillDataset(v_ds, "where id_quyet_dinh=" + m_hdf_id_quyet_dinh.Value +
 						" and id_don_vi=" + Person.get_id_don_vi() +
-						"and is_nguon_ns_yn='N'");
+                        "and is_nguon_ns_yn='N' and ID_LOAI_DU_AN_CONG_TRINH IS NOT NULL");
 				}
 				DataSet v_ds_tree_new = get_tree_dataset(v_ds);
 				m_grv.DataSource = v_ds_tree_new.Tables[0];

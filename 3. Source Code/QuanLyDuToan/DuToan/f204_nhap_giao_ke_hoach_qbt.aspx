@@ -3,18 +3,33 @@
 <%@ Import Namespace="IP.Core.IPCommon" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="Server">
     <script type="text/javascript">
-        function tinhtongchitx() {
-            var so_tien_ns = $('#<%=m_txt_ctx_so_tien_ns.ClientID%>').value;
-            var so_tien_qbt = $('#<%=m_txt_ctx_so_tien_qbt.ClientID%>').value;
-            m_lbl_tong_chi_tx.innerHTML = so_tien_ns + so_tien_qbt;
-        }
         $(document).ready(function () {
+            function tinhTongChiTx() {
+                var so_tien_ns = parseInt(document.getElementById('<%=m_txt_ctx_so_tien_ns.ClientID%>').value);
+                var so_tien_qbt = parseInt(document.getElementById('<%=m_txt_ctx_so_tien_qbt.ClientID%>').value);
+                m_lbl_tong_chi_tx.innerHTML = so_tien_ns + so_tien_qbt;
+            }
+
+            function tinhTongChiKtx() {
+                var so_tien_ns = parseInt(document.getElementById('<%=m_txt_cktx_so_tien_ns.ClientID%>').value);
+                var so_tien_qbt = parseInt(document.getElementById('<%=m_txt_cktx_so_tien_qbt.ClientID%>').value);
+                m_lbl_tong_chi_ktx.innerHTML = so_tien_ns + so_tien_qbt;
+            }
+
             $("#<%=m_txt_ctx_so_tien_ns.ClientID%>").change(function () {
-                tinhtongchitx();
+                tinhTongChiTx();
             });
 
             $("#<%=m_txt_ctx_so_tien_qbt.ClientID%>").change(function () {
-                tinhtongchitx();
+                tinhTongChiTx();
+            });
+
+            $("#<%=m_txt_cktx_so_tien_ns.ClientID%>").change(function () {
+                tinhTongChiKtx();
+            });
+
+            $("#<%=m_txt_cktx_so_tien_qbt.ClientID%>").change(function () {
+                tinhTongChiKtx();
             });
         });
     </script>
@@ -266,7 +281,7 @@
 													<ItemTemplate>
 														<asp:Label ID="m_lbl_so_tien_grid" runat="server"
 															CssClass="cssManField" ForeColor="Blue"
-															Text='<%#format_so_tien(Eval("SO_TIEN").ToString()) %>'></asp:Label>
+															Text='<%#format_so_tien(Eval("SO_TIEN_NS").ToString()) %>'></asp:Label>
 													</ItemTemplate>
 												</asp:TemplateField>
 												<asp:BoundField DataField="ten" HeaderText="Loại" />

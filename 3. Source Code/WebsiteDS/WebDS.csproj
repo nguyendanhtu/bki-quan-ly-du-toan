@@ -195,6 +195,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DS_V_HT_USER_DV_QUAN_LY.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DS_V_RPT_GD_GIAO_VON.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_V_RPT_GD_GIAO_VON.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -478,6 +483,17 @@
     </None>
     <None Include="DS_V_HT_USER_DV_QUAN_LY.xss">
       <DependentUpon>DS_V_HT_USER_DV_QUAN_LY.xsd</DependentUpon>
+    </None>
+    <None Include="DS_V_RPT_GD_GIAO_VON.xsc">
+      <DependentUpon>DS_V_RPT_GD_GIAO_VON.xsd</DependentUpon>
+    </None>
+    <None Include="DS_V_RPT_GD_GIAO_VON.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_V_RPT_GD_GIAO_VON.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DS_V_RPT_GD_GIAO_VON.xss">
+      <DependentUpon>DS_V_RPT_GD_GIAO_VON.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
