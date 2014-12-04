@@ -26,13 +26,23 @@ namespace QuanLyDuToan.BaoCao
 		}
 		protected void Page_Load(object sender, EventArgs e)
 		{
-			if (!IsPostBack)
+			try
 			{
-				//if (check_validate_data_is_ok())
-				//{
-				//	load_data_to_grid();
-				//}
+				if (!IsPostBack)
+				{
+					DateTime v_dat_now = DateTime.Now;
+					DateTime v_dat_dau_nam = v_dat_now.AddDays(-v_dat_now.Day + 1);
+					v_dat_dau_nam = v_dat_dau_nam.AddMonths(-v_dat_dau_nam.Month + 1);
+					m_txt_tu_ngay.Text = CIPConvert.ToStr(v_dat_dau_nam, "dd/MM/yyyy");
+					m_txt_den_ngay.Text = CIPConvert.ToStr(v_dat_now, "dd/MM/yyyy");
+					load_data_to_grid();
+				}
 			}
+			catch (Exception v_e)
+			{
+				CSystemLog_301.ExceptionHandle(this, v_e);
+			}
+			
 		}
 
 		private void load_data_to_grid()
@@ -75,7 +85,7 @@ namespace QuanLyDuToan.BaoCao
 			}
 			catch (Exception v_e)
 			{
-				m_lbl_mess.Text = v_e.ToString();
+				CSystemLog_301.ExceptionHandle(this, v_e);
 			}
 
 		}
