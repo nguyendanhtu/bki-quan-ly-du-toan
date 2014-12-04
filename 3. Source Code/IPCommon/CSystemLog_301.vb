@@ -53,7 +53,7 @@ Public Class CSystemLog_301
             ' nếu có nhu cầu cụ thể sẽ chuyển sang dạng strategy
 			'WriteToLog(i_exp)
             Dim v_str_msg As String = i_exp.Message
-            v_str_msg = v_str_msg.Replace(Chr(10), "")
+			'v_str_msg = v_str_msg.Replace(Chr(10), "")
 
             Select Case m_strRunMode
 				Case IPConstants.C_RUNMODE_TEST
