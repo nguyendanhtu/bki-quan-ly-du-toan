@@ -170,11 +170,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DS_RPT_BC_TINH_HINH_GIAI_NGAN.xsd</DependentUpon>
     </Compile>
-    <Compile Include="DS_V_DM_UY_NHIEM_CHI.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DS_V_DM_UY_NHIEM_CHI.xsd</DependentUpon>
-    </Compile>
     <Compile Include="DS_V_GD_GIAO_KH.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -428,17 +423,6 @@
     </None>
     <None Include="DS_RPT_BC_TINH_HINH_GIAI_NGAN.xss">
       <DependentUpon>DS_RPT_BC_TINH_HINH_GIAI_NGAN.xsd</DependentUpon>
-    </None>
-    <None Include="DS_V_DM_UY_NHIEM_CHI.xsc">
-      <DependentUpon>DS_V_DM_UY_NHIEM_CHI.xsd</DependentUpon>
-    </None>
-    <None Include="DS_V_DM_UY_NHIEM_CHI.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DS_V_DM_UY_NHIEM_CHI.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="DS_V_DM_UY_NHIEM_CHI.xss">
-      <DependentUpon>DS_V_DM_UY_NHIEM_CHI.xsd</DependentUpon>
     </None>
     <None Include="DS_V_GD_GIAO_KH.xsc">
       <DependentUpon>DS_V_GD_GIAO_KH.xsd</DependentUpon>
