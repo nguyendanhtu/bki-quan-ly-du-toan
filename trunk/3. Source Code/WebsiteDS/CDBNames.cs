@@ -33,8 +33,6 @@ namespace WebDS.CDBNames
 		public const string ID_DON_VI = "ID_DON_VI";
 		public const string NGAY_THANG = "NGAY_THANG";
 		public const string SO_UNC = "SO_UNC";
-		public const string DIA_CHI = "DIA_CHI";
-		public const string KHO_BAC_NHA_NUOC = "KHO_BAC_NHA_NUOC";
 		public const string MA_TKKT = "MA_TKKT";
 		public const string MA_DVQHNS = "MA_DVQHNS";
 		public const string MA_CTMT_DA_HTCT = "MA_CTMT_DA_HTCT";
@@ -60,6 +58,7 @@ namespace WebDS.CDBNames
 		public const string SO_TIEN_TT_CHO_DV_HUONG = "SO_TIEN_TT_CHO_DV_HUONG";
 		public const string DISPLAY = "DISPLAY";
 	}
+
 
 	public class GET_MUC_TIEU_MUC
 	{
