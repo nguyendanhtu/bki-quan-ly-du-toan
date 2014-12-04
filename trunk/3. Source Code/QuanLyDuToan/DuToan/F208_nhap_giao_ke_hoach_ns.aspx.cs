@@ -14,6 +14,23 @@ namespace QuanLyDuToan.DuToan
 {
 	public partial class F208_nhap_giao_ke_hoach_ns : System.Web.UI.Page
 	{
+		#region Public Methods
+		public string format_so_tien(string ip_str_so_tien)
+		{
+			string op_str_so_tien = "";
+			if (ip_str_so_tien.Trim().Equals("") | ip_str_so_tien.Trim().Equals("-1"))
+			{
+				op_str_so_tien = "";
+			}
+			else if (ip_str_so_tien.Trim().Equals("0"))
+			{
+				op_str_so_tien = "0";
+			}
+			else op_str_so_tien = CIPConvert.ToStr(CIPConvert.ToDecimal(ip_str_so_tien), "#,###,##");
+			return op_str_so_tien;
+		}
+		#endregion
+
 		protected void Page_Load(object sender, EventArgs e)
 		{
 			if (!IsPostBack)
@@ -48,7 +65,9 @@ namespace QuanLyDuToan.DuToan
 			m_ddl_chuong.DataTextField = DM_CHUONG_LOAI_KHOAN_MUC.TEN;
 			m_ddl_chuong.DataSource = v_ds_dm_chuong_loai_khoan_muc.DM_CHUONG_LOAI_KHOAN_MUC;
 			m_ddl_chuong.DataBind();
-			m_ddl_chuong.Items.Insert(0, new ListItem("---Chọn Chương---", "-1"));
+			//m_ddl_chuong.Items.Insert(0, new ListItem("---Chọn Chương---", "-1"));
+			m_ddl_chuong.SelectedValue = ID_CHUONG.BO_GIAO_THONG_VAN_TAI.ToString() ;
+			m_ddl_chuong.Enabled = false;
 		}
 		private void load_data_to_ddl_loai()
 		{
@@ -206,16 +225,7 @@ namespace QuanLyDuToan.DuToan
 				m_hdf_form_mode.Value = "2";
 			}
 		}
-		public string format_so_tien(string ip_str_so_tien)
-		{
-			string op_str_so_tien = "";
-			if (ip_str_so_tien.Trim().Equals("") | ip_str_so_tien.Trim().Equals("-1"))
-			{
-				op_str_so_tien = "";
-			}
-			else op_str_so_tien = CIPConvert.ToStr(CIPConvert.ToDecimal(ip_str_so_tien), "#,###,##");
-			return op_str_so_tien;
-		}
+		
 
 		#region Save Data
 		//private methods
@@ -368,28 +378,21 @@ namespace QuanLyDuToan.DuToan
 		}
 		private void xoa_trang()
 		{
-			//m_lbl_mess_qd.Text = "";
-			//m_lbl_mess.Text = "";
-			//m_lbl_mess_detail.Text = "";
+
 
 			set_form_mode(LOAI_FORM.THEM);
 			m_grv.SelectedIndex = -1;
 
 			m_hdf_id_giao_kh.Value = "";
-			//m_hdf_id_quoc_lo.Value = "";
-			//m_hdf_id_quyet_dinh.Value = "";
-			//m_hdf_id_du_an.Value = "";
+
 
 			m_txt_so_tien.Text = "";
 			m_txt_ghi_chu.Text = "";
 
-			//m_ddl_tuyen_quoc_lo.SelectedValue = "-1";
-			//m_ddl_du_an.SelectedValue = "-1";
+
 
 			m_cmd_update.Visible = false;
 			m_cmd_insert.Visible = true;
-
-			m_ddl_chuong.SelectedValue = "-1";
 			m_ddl_loai.SelectedValue = "-1";
 			load_data_to_ddl_khoan();
 			m_ddl_muc.SelectedValue = "-1";

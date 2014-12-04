@@ -115,6 +115,7 @@ namespace QuanLyDuToan.App_Code
 			op_ddl_quyet_dinh.Items.Insert(0, new ListItem(v_str_data_default, "-1"));
 
 		}
+
 		public static decimal getTongTienKH(
 			DateTime ip_dat_ngay_thang
 			, string ip_str_is_nguon_ns_yn

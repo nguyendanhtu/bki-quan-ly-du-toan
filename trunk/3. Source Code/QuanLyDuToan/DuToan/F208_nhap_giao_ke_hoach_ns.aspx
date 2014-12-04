@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="F208_nhap_giao_ke_hoach_ns.aspx.cs" Inherits="QuanLyDuToan.DuToan.F208_nhap_giao_ke_hoach_ns" %>
 
 <%@ Import Namespace="IP.Core.IPCommon" %>
+<%@ Import Namespace="WebDS.CDBNames" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="Server">
 	<style type="text/css">
 		.auto-style1 {
@@ -13,11 +14,10 @@
 	</asp:ScriptManager>
 	<asp:UpdatePanel ID="UpdatePanel1" runat="server">
 		<ContentTemplate>
-			<table cellspacing="0" cellpadding="2" style="width: 99%;" class="cssTable" border="0">
+			<table cellspacing="0" cellpadding="2" style="width: 900px; margin:auto" class="cssTable" border="0">
 				<tr>
 					<td class="cssPageTitleBG">
 						<asp:Label ID="m_lbl_title_nhap_giao_ke_hoach" runat="server" Text="Nhập Giao kế hoạch - Nguồn Ngân sách Nhà nước" CssClass="cssPageTitle"></asp:Label>
-						<span class="expand-collapse-text"></span>
 					</td>
 				</tr>
 				<tr>
@@ -163,8 +163,7 @@
 									</td>
 								</tr>
 								<tr>
-									<td></td>
-									<td colspan="3" align="center">
+									<td colspan="4" align="center">
 										<asp:GridView ID="m_grv" runat="server" AllowPaging="True" AutoGenerateColumns="False"
 											DataKeyNames="ID"
 											CssClass="cssGrid" Width="100%" CellPadding="0" ForeColor="#333333"
@@ -207,14 +206,35 @@
 												</asp:TemplateField>
 												<asp:BoundField DataField="display" HeaderText="Công trình, dự án" />
 												<asp:BoundField DataField="ghi_chu" HeaderText="Nội dung" />
-												<asp:TemplateField HeaderText="Số tiền" ItemStyle-HorizontalAlign="Right">
+												<asp:TemplateField HeaderText="Kinh phí năm trước chuyển sang" ItemStyle-HorizontalAlign="Right" ItemStyle-Width="100px">
 													<ItemTemplate>
-														<asp:Label ID="m_lbl_so_tien_grid" runat="server"
+														<asp:Label ID="m_lbl_so_tien_nam_truoc_chuyen_sang_grid" runat="server"
 															CssClass="cssManField" ForeColor="Blue"
-															Text='<%#format_so_tien(Eval("SO_TIEN").ToString()) %>'></asp:Label>
+															Text='<%#format_so_tien(Eval(V_GD_GIAO_KH.SO_TIEN_NAM_TRUOC_CHUYEN_SANG).ToString()) %>'></asp:Label>
 													</ItemTemplate>
 												</asp:TemplateField>
-												<asp:BoundField DataField="ten" HeaderText="Loại" />
+												<asp:TemplateField HeaderText="Kinh phí Ngân sách" ItemStyle-HorizontalAlign="Right" ItemStyle-Width="100px">
+													<ItemTemplate>
+														<asp:Label ID="m_lbl_so_tien_ngan_sach_grid" runat="server"
+															CssClass="cssManField" ForeColor="Blue"
+															Text='<%#format_so_tien(Eval(V_GD_GIAO_KH.SO_TIEN_NS).ToString()) %>'></asp:Label>
+													</ItemTemplate>
+												</asp:TemplateField>
+												<asp:TemplateField HeaderText="Kinh phí Quỹ bảo trì" ItemStyle-HorizontalAlign="Right" ItemStyle-Width="100px">
+													<ItemTemplate>
+														<asp:Label ID="m_lbl_so_tien_quy_bao_tri_grid" runat="server"
+															CssClass="cssManField" ForeColor="Blue"
+															Text='<%#format_so_tien(Eval(V_GD_GIAO_KH.SO_TIEN_QUY_BT).ToString()) %>'></asp:Label>
+													</ItemTemplate>
+												</asp:TemplateField>
+												<%--<asp:TemplateField HeaderText="Tổng" ItemStyle-HorizontalAlign="Right" ItemStyle-Width="100px">
+													<ItemTemplate>
+														<asp:Label ID="m_lbl_tong_so_tien" runat="server"
+															CssClass="cssManField" ForeColor="Blue"
+															Text='<%#format_so_tien(Eval("TONG").ToString()) %>'></asp:Label>
+													</ItemTemplate>
+												</asp:TemplateField>--%>
+												<asp:BoundField DataField="ten" HeaderText="Loại" HeaderStyle-Width="60px"/>
 											</Columns>
 										</asp:GridView>
 									</td>

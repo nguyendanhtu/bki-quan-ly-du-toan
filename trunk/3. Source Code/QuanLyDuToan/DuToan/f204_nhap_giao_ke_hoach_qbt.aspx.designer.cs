@@ -220,6 +220,15 @@ namespace QuanLyDuToan.DuToan {
         protected global::System.Web.UI.WebControls.Button m_cmd_them_ql;
         
         /// <summary>
+        /// m_txt_ctx_so_tien_nam_truoc_chuyen_sang control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox m_txt_ctx_so_tien_nam_truoc_chuyen_sang;
+        
+        /// <summary>
         /// m_txt_ctx_so_tien_ns control.
         /// </summary>
         /// <remarks>
@@ -317,6 +326,24 @@ namespace QuanLyDuToan.DuToan {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button m_cmd_chon_du_an;
+        
+        /// <summary>
+        /// m_cmd_chon_quoc_lo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button m_cmd_chon_quoc_lo;
+        
+        /// <summary>
+        /// m_txt_cktx_so_tien_nam_truoc_chuyen_sang control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox m_txt_cktx_so_tien_nam_truoc_chuyen_sang;
         
         /// <summary>
         /// m_txt_cktx_so_tien_ns control.

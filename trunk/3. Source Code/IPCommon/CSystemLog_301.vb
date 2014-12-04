@@ -51,17 +51,18 @@ Public Class CSystemLog_301
             ' xử lý lỗi theo các trường hợp khác nhau
             ' tạm thời dùng theo kiểu select-case,
             ' nếu có nhu cầu cụ thể sẽ chuyển sang dạng strategy
-            WriteToLog(i_exp)
+			'WriteToLog(i_exp)
             Dim v_str_msg As String = i_exp.Message
             v_str_msg = v_str_msg.Replace(Chr(10), "")
 
             Select Case m_strRunMode
-                Case IPConstants.C_RUNMODE_TEST
-                    i_page.Response.Redirect("../MessageError.aspx?Message= Error:" + v_str_msg)
+				Case IPConstants.C_RUNMODE_TEST
+					HttpContext.Current.Response.Redirect("/MessageError.aspx?Message= Error:" + v_str_msg)
+					'i_page.Response.Redirect("../MessageError.aspx?Message= Error:" + v_str_msg)
                 Case IPConstants.C_RUNMODE_DEVELOP
-                    i_page.Response.Redirect("../MessageError.aspx?Message= Error:" + v_str_msg)
+					HttpContext.Current.Response.Redirect("/MessageError.aspx?Message= Error:" + v_str_msg)
                 Case IPConstants.C_RUNMODE_RUNTIME
-                    i_page.Response.Redirect("../MessageError.aspx?Message= Đã xảy ra lỗi trong quá trình cập nhật dữ liệu!")
+					HttpContext.Current.Response.Redirect("/MessageError.aspx?Message= Đã xảy ra lỗi trong quá trình cập nhật dữ liệu!")
             End Select
         Catch ex As Exception
             'i_page.Response.Redirect("../MessageError.aspx?mess=Title Website: " + i_page.Title + ". Message: " + i_exp.Message + " Source: " + i_exp.Source)

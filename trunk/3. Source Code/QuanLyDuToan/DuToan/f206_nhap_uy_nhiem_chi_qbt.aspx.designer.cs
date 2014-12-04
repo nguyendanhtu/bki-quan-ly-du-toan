@@ -112,13 +112,13 @@ namespace QuanLyDuToan.DuToan {
         protected global::System.Web.UI.WebControls.Label m_lbl_tai_kho_bac_nha_nuoc;
         
         /// <summary>
-        /// m_lbl_ma_tkkt control.
+        /// m_rbl_ma_tkkt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label m_lbl_ma_tkkt;
+        protected global::System.Web.UI.WebControls.RadioButtonList m_rbl_ma_tkkt;
         
         /// <summary>
         /// m_lbl_ma_dvqhns control.
@@ -166,13 +166,13 @@ namespace QuanLyDuToan.DuToan {
         protected global::System.Web.UI.WebControls.HiddenField m_hdf_form_mode;
         
         /// <summary>
-        /// m_lbl_mess_detail control.
+        /// m_pnl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label m_lbl_mess_detail;
+        protected global::System.Web.UI.WebControls.Panel m_pnl;
         
         /// <summary>
         /// m_rdb_chi_thuong_xuyen control.
@@ -283,6 +283,15 @@ namespace QuanLyDuToan.DuToan {
         protected global::System.Web.UI.WebControls.HiddenField m_hdf_id_du_an_cong_trinh;
         
         /// <summary>
+        /// m_lbl_mess_detail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label m_lbl_mess_detail;
+        
+        /// <summary>
         /// m_grv_unc control.
         /// </summary>
         /// <remarks>
@@ -301,15 +310,6 @@ namespace QuanLyDuToan.DuToan {
         protected global::System.Web.UI.WebControls.Label m_lbl_mess_grid;
         
         /// <summary>
-        /// m_grv control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView m_grv;
-        
-        /// <summary>
         /// m_lbl_mess_info_unc control.
         /// </summary>
         /// <remarks>
@@ -317,24 +317,6 @@ namespace QuanLyDuToan.DuToan {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label m_lbl_mess_info_unc;
-        
-        /// <summary>
-        /// m_cmd_save_info_unc control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button m_cmd_save_info_unc;
-        
-        /// <summary>
-        /// m_cmd_print control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink m_cmd_print;
         
         /// <summary>
         /// m_txt_nt_ten_don_vi control.
@@ -470,6 +452,24 @@ namespace QuanLyDuToan.DuToan {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox m_txt_ttdvh_so_tien_thanh_toan;
+        
+        /// <summary>
+        /// m_cmd_save_info_unc control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button m_cmd_save_info_unc;
+        
+        /// <summary>
+        /// m_cmd_print control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink m_cmd_print;
         
         /// <summary>
         /// UpdateProgress1 control.
