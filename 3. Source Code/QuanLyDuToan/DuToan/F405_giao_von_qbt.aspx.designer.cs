@@ -211,22 +211,22 @@ namespace QuanLyDuToan.DuToan {
         protected global::System.Web.UI.WebControls.DropDownList m_ddl_tuyen_quoc_lo;
         
         /// <summary>
-        /// m_cmd_ctx_them_ql control.
+        /// m_txt_ctx_so_tien_ngan_sach control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button m_cmd_ctx_them_ql;
+        protected global::System.Web.UI.WebControls.TextBox m_txt_ctx_so_tien_ngan_sach;
         
         /// <summary>
-        /// m_txt_ctx_so_tien control.
+        /// m_txt_ctx_so_tien_quy_bao_tri control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox m_txt_ctx_so_tien;
+        protected global::System.Web.UI.WebControls.TextBox m_txt_ctx_so_tien_quy_bao_tri;
         
         /// <summary>
         /// m_lbl_ctx_so_tien_kh_giao control.

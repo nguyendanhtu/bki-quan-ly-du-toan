@@ -4,6 +4,10 @@ using System.Text;
 
 namespace WebUS
 {
+	public class ID_CHUONG
+	{
+		public const decimal BO_GIAO_THONG_VAN_TAI = 17;
+	}
 	public enum LOAI_QUYET_DINH
 	{
 		GIAO_VON = 0,

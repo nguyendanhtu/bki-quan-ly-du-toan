@@ -1,8 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="F405_giao_von_qbt.aspx.cs" Inherits="QuanLyDuToan.DuToan.F405_giao_von_qbt" %>
 
 <%@ Import Namespace="IP.Core.IPCommon" %>
-<%@ Register Namespace="System.Web.UI" Assembly="System.Web.Extensions, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35"
-	TagPrefix="asp" %>
+<%@ Import Namespace="WebDS.CDBNames" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="Server">
@@ -10,7 +9,7 @@
 	</asp:ScriptManager>
 	<asp:UpdatePanel ID="UpdatePanel1" runat="server">
 		<ContentTemplate>
-			<table cellspacing="0" cellpadding="2" style="width: 99%;" class="cssTable" border="0">
+			<table cellspacing="0" cellpadding="2" style="width: 900px; margin: auto" class="cssTable" border="0">
 				<tr>
 					<td class="cssPageTitleBG" colspan="4">
 						<asp:Label ID="m_lbl_title" runat="server" Text="Nhập Giao vốn - Nguồn Quỹ bảo trì" CssClass="cssPageTitle"></asp:Label>
@@ -70,8 +69,8 @@
 									</td>
 								</tr>
 								<tr>
-									<td style="width: 15%"></td>
-									<td colspan="2" align="left">
+									
+									<td colspan="3" style="text-align:center">
 										<asp:RadioButton ID="m_rdb_kh_dau_nam" runat="server" CssClass="cssManField" ForeColor="Blue" Text="KH đầu năm" GroupName="loai" Checked="true" />
 										<asp:RadioButton ID="m_rdb_bo_sung" runat="server" CssClass="cssManField" ForeColor="Blue" Text="Bổ sung" GroupName="loai" AutoPostBack="true" />
 										<asp:RadioButton ID="m_rdb_dieu_chinh" runat="server" CssClass="cssManField" ForeColor="Blue" Text="Điều chỉnh" GroupName="loai" AutoPostBack="true" />
@@ -79,8 +78,8 @@
 									</td>
 								</tr>
 								<tr>
-									<td></td>
-									<td style="width: 42.5%">
+									
+									<td style="width: 50%">
 										<asp:Panel ID="m_pnl_chi_thuong_xuyen" runat="server" GroupingText="Chi thường xuyên">
 											<table cellspacing="0" cellpadding="2" style="width: 99%;" border="0">
 												<tr>
@@ -88,22 +87,28 @@
 														<span class="cssManField">Tuyến quốc lộ</span>
 													</td>
 													<td style="width: 70%">
-														<asp:DropDownList ID="m_ddl_tuyen_quoc_lo" runat="server" Width="50%"></asp:DropDownList>
-														<asp:Button ID="m_cmd_ctx_them_ql" Text="Thêm QL" runat="server" CssClass="cssButton" Height="24px" Width="98px" />
+														<asp:DropDownList ID="m_ddl_tuyen_quoc_lo" runat="server" Width="100%"></asp:DropDownList>
 													</td>
 												</tr>
-
 												<tr>
-													<td style="width: 30%" align="right">
-														<span class="cssManField">Số tiền</span>
+													<td  style="text-align:right">
+														<span class="cssManField">Số tiền ngân sách</span>
 													</td>
 													<td>
-														<asp:TextBox ID="m_txt_ctx_so_tien" runat="server" CssClass="cssTextBox" Width="50%" placeholder="Số tiền"></asp:TextBox>
+														<asp:TextBox ID="m_txt_ctx_so_tien_ngan_sach" runat="server" CssClass="cssTextBox" Width="100px" placeholder="Số tiền ngân sách"></asp:TextBox>
+													</td>
+												</tr>
+												<tr>
+													<td style="width: 30%" align="right">
+														<span class="cssManField">Số tiền quỹ bảo trì</span>
+													</td>
+													<td>
+														<asp:TextBox ID="m_txt_ctx_so_tien_quy_bao_tri" runat="server" CssClass="cssTextBox" Width="100px" placeholder="Số tiền"></asp:TextBox>
 													</td>
 												</tr>
 
 												<tr>
-													<td style="width: 30%" align="right">
+													<td style="width: 30%;text-align:right">
 														<span class="cssManField">Số tiền KH giao</span>
 													</td>
 													<td>
@@ -122,7 +127,7 @@
 											</table>
 										</asp:Panel>
 									</td>
-									<td style="width: 42.5%">
+									<td style="width: 50%">
 										<asp:Panel ID="m_pnl_chi_khong_thuong_xuyen" runat="server" GroupingText="Chi không thường xuyên">
 											<table cellspacing="0" cellpadding="2" style="width: 99%;" border="0">
 												<tr>
@@ -130,23 +135,23 @@
 														<span class="cssManField">Tên dự án</span>
 													</td>
 													<td style="width: 70%">
-														<asp:DropDownList ID="m_ddl_du_an" runat="server" Width="50%"></asp:DropDownList>
+														<asp:DropDownList ID="m_ddl_du_an" runat="server" Width="100%"></asp:DropDownList>
+													</td>
+												</tr>
+												<tr>
+													<td  style="text-align:right">
+														<span class="cssManField">Số tiền ngân sách</span>
+													</td>
+													<td>
+														<asp:TextBox ID="m_txt_cktx_so_tien_ngan_sach" runat="server" CssClass="cssTextBox" Width="100px" placeholder="Số tiền ngân sách"></asp:TextBox>
 													</td>
 												</tr>
 												<tr>
 													<td style="width: 40%" align="right">
-														<span class="cssManField">Số tiền ngân sách</span>
-													</td>
-													<td>
-														<asp:TextBox ID="m_txt_cktx_so_tien_ngan_sach" runat="server" CssClass="cssTextBox" Width="50%" placeholder="Số tiền ngân sách"></asp:TextBox>
-													</td>
-												</tr>
-                                                <tr>
-													<td style="width: 40%" align="right">
 														<span class="cssManField">Số tiền bảo trì</span>
 													</td>
 													<td>
-														<asp:TextBox ID="m_txt_cktx_so_tien_bao_tri" runat="server" CssClass="cssTextBox" Width="50%" placeholder="Số tiền bảo trì"></asp:TextBox>
+														<asp:TextBox ID="m_txt_cktx_so_tien_bao_tri" runat="server" CssClass="cssTextBox" Width="100px" placeholder="Số tiền bảo trì"></asp:TextBox>
 													</td>
 												</tr>
 												<tr>
@@ -176,7 +181,7 @@
 									</td>
 								</tr>
 								<tr>
-									<td></td>
+									
 									<td colspan="3" align="center">
 										<asp:GridView ID="m_grv" runat="server" AllowPaging="True" AutoGenerateColumns="False"
 											CssClass="cssGrid" Width="100%" CellPadding="0" ForeColor="#333333"
@@ -196,7 +201,7 @@
 											<SelectedRowStyle CssClass="cssSelectedRow" BackColor="#C5BBAF" Font-Bold="True"
 												ForeColor="#333333"></SelectedRowStyle>
 											<Columns>
-												<asp:TemplateField HeaderText="STT" ItemStyle-HorizontalAlign="Center" HeaderStyle-Width="2%"  HeaderStyle-Height="40px">
+												<asp:TemplateField HeaderText="STT" ItemStyle-HorizontalAlign="Center" HeaderStyle-Width="2%" HeaderStyle-Height="40px">
 													<ItemTemplate>
 														<%# Container.DataItemIndex + 1 %>
 													</ItemTemplate>
@@ -220,11 +225,25 @@
 													<ItemStyle HorizontalAlign="Center"></ItemStyle>
 												</asp:TemplateField>
 												<asp:BoundField DataField="display" HeaderText="Công trình, dự án" />
-												<asp:TemplateField HeaderText="Số tiền" ItemStyle-HorizontalAlign="Right">
+												<asp:TemplateField HeaderText="Kinh phí Ngân sách" ItemStyle-HorizontalAlign="Right" ItemStyle-Width="100px">
 													<ItemTemplate>
-														<asp:Label ID="m_lbl_so_tien_grid" runat="server"
+														<asp:Label ID="m_lbl_so_tien_ngan_sach_grid" runat="server"
 															CssClass="cssManField" ForeColor="Blue"
-															Text='<%#format_so_tien(Eval("SO_TIEN").ToString()) %>'></asp:Label>
+															Text='<%#format_so_tien(Eval(V_GD_GIAO_VON.SO_TIEN_NS).ToString()) %>'></asp:Label>
+													</ItemTemplate>
+												</asp:TemplateField>
+												<asp:TemplateField HeaderText="Kinh phí Quỹ bảo trì" ItemStyle-HorizontalAlign="Right" ItemStyle-Width="100px">
+													<ItemTemplate>
+														<asp:Label ID="m_lbl_so_tien_quy_bao_tri_grid" runat="server"
+															CssClass="cssManField" ForeColor="Blue"
+															Text='<%#format_so_tien(Eval(V_GD_GIAO_VON.SO_TIEN_QUY_BT).ToString()) %>'></asp:Label>
+													</ItemTemplate>
+												</asp:TemplateField>
+												<asp:TemplateField HeaderText="Tổng số tiền" ItemStyle-HorizontalAlign="Right" ItemStyle-Width="100px">
+													<ItemTemplate>
+														<asp:Label ID="m_lbl_tong_so_tien" runat="server"
+															CssClass="cssManField" ForeColor="Blue"
+															Text='<%#format_so_tien(Eval("TONG").ToString()) %>'></asp:Label>
 													</ItemTemplate>
 												</asp:TemplateField>
 												<asp:BoundField DataField="ten" HeaderText="Loại" />

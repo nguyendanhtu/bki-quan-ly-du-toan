@@ -110,26 +110,48 @@ namespace WebUS
 			pm_objDR["ID_DU_AN_CONG_TRINH"] = System.Convert.DBNull;
 		}
 
-		public decimal dcSO_TIEN
+		public decimal dcSO_TIEN_QUY_BT
 		{
 			get
 			{
-				return CNull.RowNVLDecimal(pm_objDR, "SO_TIEN", IPConstants.c_DefaultDecimal);
+				return CNull.RowNVLDecimal(pm_objDR, "SO_TIEN_QUY_BT", IPConstants.c_DefaultDecimal);
 			}
 			set
 			{
-				pm_objDR["SO_TIEN"] = value;
+				pm_objDR["SO_TIEN_QUY_BT"] = value;
 			}
 		}
 
-		public bool IsSO_TIENNull()
+		public bool IsSO_TIEN_QUY_BTNull()
 		{
-			return pm_objDR.IsNull("SO_TIEN");
+			return pm_objDR.IsNull("SO_TIEN_QUY_BT");
 		}
 
-		public void SetSO_TIENNull()
+		public void SetSO_TIEN_QUY_BTNull()
 		{
-			pm_objDR["SO_TIEN"] = System.Convert.DBNull;
+			pm_objDR["SO_TIEN_QUY_BT"] = System.Convert.DBNull;
+		}
+
+		public decimal dcSO_TIEN_NS
+		{
+			get
+			{
+				return CNull.RowNVLDecimal(pm_objDR, "SO_TIEN_NS", IPConstants.c_DefaultDecimal);
+			}
+			set
+			{
+				pm_objDR["SO_TIEN_NS"] = value;
+			}
+		}
+
+		public bool IsSO_TIEN_NSNull()
+		{
+			return pm_objDR.IsNull("SO_TIEN_NS");
+		}
+
+		public void SetSO_TIEN_NSNull()
+		{
+			pm_objDR["SO_TIEN_NS"] = System.Convert.DBNull;
 		}
 
 		public string strIS_NGUON_NS_YN
@@ -284,6 +306,28 @@ namespace WebUS
 		public void SetID_TIEU_MUCNull()
 		{
 			pm_objDR["ID_TIEU_MUC"] = System.Convert.DBNull;
+		}
+
+		public decimal dcSO_TIEN_NAM_TRUOC_CHUYEN_SANG
+		{
+			get
+			{
+				return CNull.RowNVLDecimal(pm_objDR, "SO_TIEN_NAM_TRUOC_CHUYEN_SANG", IPConstants.c_DefaultDecimal);
+			}
+			set
+			{
+				pm_objDR["SO_TIEN_NAM_TRUOC_CHUYEN_SANG"] = value;
+			}
+		}
+
+		public bool IsSO_TIEN_NAM_TRUOC_CHUYEN_SANGNull()
+		{
+			return pm_objDR.IsNull("SO_TIEN_NAM_TRUOC_CHUYEN_SANG");
+		}
+
+		public void SetSO_TIEN_NAM_TRUOC_CHUYEN_SANGNull()
+		{
+			pm_objDR["SO_TIEN_NAM_TRUOC_CHUYEN_SANG"] = System.Convert.DBNull;
 		}
 
 		public string strSO_QUYET_DINH
