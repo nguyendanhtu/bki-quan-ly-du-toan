@@ -16,9 +16,17 @@ namespace QuanLyDuToan.ChucNang
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
-			xoa_trang_info();
-			if (Request.QueryString["ip_dc_id_dm_unc"] == null) return;
-			load_content_print(CIPConvert.ToDecimal(Request.QueryString["ip_dc_id_dm_unc"]));
+			try
+			{
+				xoa_trang_info();
+				if (Request.QueryString["ip_dc_id_dm_unc"] == null) return;
+				load_content_print(CIPConvert.ToDecimal(Request.QueryString["ip_dc_id_dm_unc"]));
+			}
+			catch (Exception v_e)
+			{
+				CSystemLog_301.ExceptionHandle(this, v_e);
+			}
+			
 		}
 
 		private void load_content_print(decimal ip_dc_id_dm_unc)
