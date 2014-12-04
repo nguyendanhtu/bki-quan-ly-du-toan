@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="F409_giao_von_ns.aspx.cs" Inherits="QuanLyDuToan.DuToan.F409_giao_von_ns" %>
 
 <%@ Import Namespace="IP.Core.IPCommon" %>
+<%@Import Namespace="WebDS.CDBNames" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="Server">
 	<style type="text/css">
 		.auto-style1 {
@@ -15,11 +16,10 @@
 	</asp:ScriptManager>
 	<asp:UpdatePanel ID="UpdatePanel1" runat="server">
 		<ContentTemplate>
-			<table cellspacing="0" cellpadding="2" style="width: 99%;" class="cssTable" border="0">
+			<table style="width: 900px; margin:auto" class="cssTable" border="0">
 				<tr>
 					<td class="auto-style1" colspan="4">
 						<asp:Label ID="m_lbl_nhap_giao_von_ngan_sach_nha_nuoc" runat="server" Text="Nhập giao vốn - Nguồn Ngân sách Nhà nước" CssClass="cssPageTitle"></asp:Label>
-						<span class="expand-collapse-text"></span>
 					</td>
 				</tr>
 				<tr>
@@ -128,7 +128,7 @@
 														<span class="cssManField">Số tiền</span>
 													</td>
 													<td>
-														<asp:TextBox ID="m_txt_so_tien" runat="server" CssClass="cssTextBox" Width="20%" placeholder="Số tiền"></asp:TextBox>
+														<asp:TextBox ID="m_txt_so_tien" runat="server" CssClass="cssTextBox" Width="100px" placeholder="Số tiền"></asp:TextBox>
 													</td>
 												</tr>
 												<tr>
@@ -157,8 +157,7 @@
 									</td>
 								</tr>
 								<tr>
-									<td></td>
-									<td colspan="3" align="center">
+									<td colspan="4" align="center">
 										<asp:GridView ID="m_grv" runat="server" AllowPaging="True" AutoGenerateColumns="False"
 											DataKeyNames="ID"
 											CssClass="cssGrid" Width="100%" CellPadding="0" ForeColor="#333333"
@@ -204,7 +203,7 @@
 													<ItemTemplate>
 														<asp:Label ID="m_lbl_so_tien_grid" runat="server"
 															CssClass="cssManField" ForeColor="Blue"
-															Text='<%#format_so_tien(Eval("SO_TIEN").ToString()) %>'></asp:Label>
+															Text='<%#format_so_tien(Eval(V_GD_GIAO_VON.SO_TIEN_NS).ToString()) %>'></asp:Label>
 													</ItemTemplate>
 												</asp:TemplateField>
 												<asp:BoundField DataField="ten" HeaderText="Loại" />
