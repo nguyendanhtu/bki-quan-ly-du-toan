@@ -9,11 +9,10 @@
 	</asp:ScriptManager>
 	<asp:UpdatePanel ID="UpdatePanel1" runat="server">
 		<ContentTemplate>
-			<table cellspacing="0" cellpadding="2" style="width: 99%;" class="cssTable" border="0">
+			<table  style="width: 900px; margin:auto" class="cssTable" border="0">
 				<tr>
 					<td class="cssPageTitleBG" colspan="4">
 						<asp:Label ID="m_lbl_nhap_uy_nhiem_chi_ngan_sach_nha_nuoc" runat="server" Text="Nhập ủy nhiệm chi - Ngân sách Nhà nước" CssClass="cssPageTitle"></asp:Label>
-						<span class="expand-collapse-text"></span>
 					</td>
 				</tr>
 				<tr>
@@ -260,6 +259,7 @@
 					</td>
 				</tr>
 			</table>
+
 			<table cellspacing="0" cellpadding="2" style="width: 99%;" class="cssTable" border="0">
 				<tr>
 					<td colspan="3">

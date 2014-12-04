@@ -76,6 +76,7 @@
     <Content Include="DuToan\F407_bao_cao_tinh_hinh_giai_ngan.aspx" />
     <Content Include="DuToan\F409_giao_von_ns.aspx" />
     <Content Include="DuToan\F410_nhap_uy_nhiem_chi_ns.aspx" />
+    <Content Include="DuToan\F411_nhap_uy_nhiem_chi_ns.aspx" />
     <Content Include="Images\BGLanguage\close.gif" />
     <Content Include="Images\BGLanguage\Logout.gif" />
     <Content Include="Images\BGLanguage\Top1.gif" />
@@ -584,6 +585,13 @@
     </Compile>
     <Compile Include="DuToan\F410_nhap_uy_nhiem_chi_ns.aspx.designer.cs">
       <DependentUpon>F410_nhap_uy_nhiem_chi_ns.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DuToan\F411_nhap_uy_nhiem_chi_ns.aspx.cs">
+      <DependentUpon>F411_nhap_uy_nhiem_chi_ns.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DuToan\F411_nhap_uy_nhiem_chi_ns.aspx.designer.cs">
+      <DependentUpon>F411_nhap_uy_nhiem_chi_ns.aspx</DependentUpon>
     </Compile>
     <Compile Include="MessageError.aspx.cs">
       <DependentUpon>MessageError.aspx</DependentUpon>

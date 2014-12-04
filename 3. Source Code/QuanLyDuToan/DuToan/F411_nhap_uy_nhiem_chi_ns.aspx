@@ -1,24 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="f206_nhap_uy_nhiem_chi_qbt.aspx.cs" Inherits="QuanLyDuToan.DuToan.f206_nhap_uy_nhiem_chi_qbt" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="F411_nhap_uy_nhiem_chi_ns.aspx.cs" Inherits="QuanLyDuToan.DuToan.F411_nhap_uy_nhiem_chi_ns" %>
 <%@ Import Namespace="IP.Core.IPCommon" %>
 <%@ Import Namespace="WebDS.CDBNames" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="Server">
-	<style type="text/css">
-		.radioButtonList {
-			list-style: none;
-			margin: 0;
-			padding: 0;
-		}
-
-			.radioButtonList.horizontal li {
-				display: inline-block;
-			}
-
-			.radioButtonList label {
-				display: inline-block;
-			}
-	</style>
+<asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="Server">
 	<asp:ScriptManager ID="ScriptManager1" runat="server">
 	</asp:ScriptManager>
@@ -201,26 +186,17 @@
 													OnRowEditing="m_grv_unc_RowEditing"
 													OnRowDeleting="m_grv_unc_RowDeleting"
 													OnRowUpdating="m_grv_unc_RowUpdating"
-													OnRowCommand="m_grv_unc_RowCommand">
+													OnRowCommand="m_grv_unc_RowCommand"
+													ShowHeader="false"
+													>
 													<Columns>
-														<asp:TemplateField HeaderText="Loại" HeaderStyle-Width="100px">
-															<EditItemTemplate>
-																<asp:RadioButton ID="m_rdb_grid_edit_ctx" Checked="true" AutoPostBack="true" runat="server" Text="Chi TX" GroupName="grid_loai" OnCheckedChanged="m_rdb_grid_edit_ctx_CheckedChanged" />
-																<br />
-																<asp:RadioButton ID="m_rdb_grid_edit_cktx" AutoPostBack="true" runat="server" Text="Chi không TX" GroupName="grid_loai" OnCheckedChanged="m_rdb_grid_edit_cktx_CheckedChanged" />
-															</EditItemTemplate>
-															<FooterTemplate>
-																<asp:RadioButton ID="m_rdb_grid_ctx" Checked="true" AutoPostBack="true" runat="server" Text="Chi TX" GroupName="grid_loai" OnCheckedChanged="m_rdb_grid_ctx_CheckedChanged" />
-																<br />
-																<asp:RadioButton ID="m_rdb_grid_cktx" AutoPostBack="true" runat="server" Text="Chi không TX" GroupName="grid_loai" OnCheckedChanged="m_rdb_grid_cktx_CheckedChanged" />
-															</FooterTemplate>
-														</asp:TemplateField>
-														<asp:TemplateField HeaderText="Quốc lộ/Dự án" HeaderStyle-Width="200px">
+														
+														<asp:TemplateField HeaderText="Quốc lộ/Dự án" HeaderStyle-Width="300px" FooterStyle-Width="300px">
 															<ItemTemplate>
 																<asp:Label ID="m_lbl_grid_quoc_lo_du_an" Text='<%#Eval(V_GD_UY_NHIEM_CHI.DISPLAY) %>' runat="server"></asp:Label>
 															</ItemTemplate>
 															<EditItemTemplate>
-																<asp:DropDownList ID="m_ddl_grid_edit_du_an_quoc_lo" runat="server"></asp:DropDownList>
+																<asp:DropDownList ID="m_ddl_grid_edit_du_an_quoc_lo" runat="server" Width="300px"></asp:DropDownList>
 															</EditItemTemplate>
 															<FooterTemplate>
 																<asp:DropDownList ID="m_ddl_grid_du_an_quoc_lo" runat="server"></asp:DropDownList>
@@ -548,4 +524,5 @@
 		</ProgressTemplate>
 	</asp:UpdateProgress>
 </asp:Content>
+
 

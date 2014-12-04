@@ -56,6 +56,7 @@ namespace QuanLyDuToan.DuToan
 			return op_str_so_tien;
 		}
 		#endregion
+
 		#region Data Structure
 		public class LOAI_FORM
 		{
@@ -64,6 +65,7 @@ namespace QuanLyDuToan.DuToan
 			public const string XOA = "XOA";
 		}
 		#endregion
+
 		#region Members
 		DS_GD_UY_NHIEM_CHI m_ds = new DS_GD_UY_NHIEM_CHI();
 		US_GD_UY_NHIEM_CHI m_us = new US_GD_UY_NHIEM_CHI();

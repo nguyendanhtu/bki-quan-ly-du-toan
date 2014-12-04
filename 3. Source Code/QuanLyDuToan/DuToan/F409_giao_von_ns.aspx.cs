@@ -110,22 +110,30 @@ namespace QuanLyDuToan.DuToan
 		}
 		protected void m_ddl_quyet_dinh_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			if (m_ddl_quyet_dinh.SelectedValue == null) return;
-			m_ddl_quyet_dinh.Visible = false;
-			m_hdf_id_quyet_dinh.Value = m_ddl_quyet_dinh.SelectedValue;
+			try
+			{
+				if (m_ddl_quyet_dinh.SelectedValue == null) return;
+				m_ddl_quyet_dinh.Visible = false;
+				m_hdf_id_quyet_dinh.Value = m_ddl_quyet_dinh.SelectedValue;
 
-			m_txt_so_qd.Visible = true;
-			m_txt_noi_dung.Visible = true;
-			m_txt_ngay_thang.Visible = true;
+				m_txt_so_qd.Visible = true;
+				m_txt_noi_dung.Visible = true;
+				m_txt_ngay_thang.Visible = true;
 
-			US_GD_QUYET_DINH v_us = new US_GD_QUYET_DINH(CIPConvert.ToDecimal(m_ddl_quyet_dinh.SelectedValue)); ;
-			m_txt_so_qd.Text = v_us.strSO_QUYET_DINH;
-			m_txt_noi_dung.Text = v_us.strNOI_DUNG;
-			m_txt_ngay_thang.Text = CIPConvert.ToStr(v_us.datNGAY_THANG, "dd/MM/yyyy");
+				US_GD_QUYET_DINH v_us = new US_GD_QUYET_DINH(CIPConvert.ToDecimal(m_ddl_quyet_dinh.SelectedValue)); ;
+				m_txt_so_qd.Text = v_us.strSO_QUYET_DINH;
+				m_txt_noi_dung.Text = v_us.strNOI_DUNG;
+				m_txt_ngay_thang.Text = CIPConvert.ToStr(v_us.datNGAY_THANG, "dd/MM/yyyy");
 
-			disable_edit_quyet_dinh();
-			load_data_to_cbo_muc_tieu_muc();
-			load_data_to_grid();
+				disable_edit_quyet_dinh();
+				load_data_to_cbo_muc_tieu_muc();
+				load_data_to_grid();
+			}
+			catch (Exception v_e)
+			{
+				CSystemLog_301.ExceptionHandle(this, v_e);
+			}
+
 		}
 		protected void m_cmd_nhap_qd_moi_Click(object sender, EventArgs e)
 		{
