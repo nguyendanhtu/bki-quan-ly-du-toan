@@ -1,24 +1,14 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="F801_bao_cao_giao_von_theo_qd.aspx.cs" Inherits="QuanLyDuToan.BaoCao.F801_bao_cao_giao_von_theo_qd" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="F603_bao_cao_giao_ke_hoach.aspx.cs" Inherits="QuanLyDuToan.BaoCao.F603_bao_cao_giao_ke_hoach" %>
 
-<%@ Import Namespace="IP.Core.IPCommon" %>
-<%@ Import Namespace="WebDS.CDBNames" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="Server">
-	<style type="text/css">
-		.cssGrid tr td {
-			padding: 0px;
-		}
-	</style>
+<asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="Server">
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 	<asp:ScriptManager ID="ScriptManager1" runat="server">
 	</asp:ScriptManager>
-	<asp:UpdatePanel ID="UpdatePanel1" runat="server">
-		<ContentTemplate>
-			<table cellspacing="0" cellpadding="2" style="width: 900px; margin: auto"
-				class="cssTable" border="0">
+	<table cellspacing="0" cellpadding="2" style="width: 99%;" class="cssTable" border="0">
 				<tr>
 					<td class="cssPageTitleBG" colspan="4">
-						<asp:Label ID="m_lbl_title" runat="server" Text="Báo cáo Giao vốn theo quyết định" CssClass="cssPageTitle"></asp:Label>
+						<asp:Label ID="m_lbl_title" runat="server" Text="Báo cáo tình hình giải ngân" CssClass="cssPageTitle"></asp:Label>
 					</td>
 				</tr>
 				<tr>
@@ -42,11 +32,6 @@
 					</td>
 				</tr>
 				<tr>
-					<td colspan="4" style="text-align:center"><span class="cssManField">Số quyết định&nbsp;&nbsp;</span>
-						<asp:TextBox ID="m_txt_so_quyet_dinh" runat="server" placeholder="Số quyết định"></asp:TextBox>
-					</td>
-				</tr>
-				<tr>
 					<td></td>
 					<td>
 						<asp:Button ID="m_cmd_xem_bao_cao" Text="Xem báo cáo" OnClick="m_cmd_xem_bao_cao_Click" runat="server" CssClass="cssButton" Height="24px" Width="98px" />
@@ -54,9 +39,9 @@
 					</td>
 				</tr>
 				<tr>
-					<td colspan="4">
+					<td colspan="4" align="center">
 						<asp:GridView ID="m_grv" runat="server" AllowPaging="True" AutoGenerateColumns="false"
-							CssClass="cssGrid" Width="900px" CellPadding="0" ForeColor="#333333"
+							CssClass="cssGrid" Width="100%" CellPadding="0" ForeColor="#333333"
 							AllowSorting="True" PageSize="60" ShowHeader="true"
 							EmptyDataText="Không có dữ liệu phù hợp">
 							<AlternatingRowStyle BackColor="White" />
@@ -75,35 +60,14 @@
 									</ItemTemplate>
 								</asp:TemplateField>
 
-								<asp:BoundField DataField="SO_QUYET_DINH" HeaderText="Số QĐ" HeaderStyle-Width="150px" />
-								<asp:BoundField DataField="TEN_DU_AN_CONG_TRINH" HeaderText="Tên dự án/quốc lộ" HeaderStyle-Width="300px" />
-								<asp:TemplateField HeaderText="Số tiền" HeaderStyle-Width="100px" ItemStyle-HorizontalAlign="Right">
-									<ItemTemplate>
-										<asp:Label ID="m_lbl_so_tien_grid" runat="server" CssClass="cssManField" ForeColor="Blue"
-											Text='<%#format_so_tien( Eval(RPT_BAO_CAO_GIAO_VON_THEO_QD.TONG_TIEN_DACT_THEO_QD).ToString()) %>'></asp:Label>
-									</ItemTemplate>
-								</asp:TemplateField>
+								<asp:BoundField DataField="SO_QUYET_DINH" HeaderText="Số QĐ" HeaderStyle-Width="20%" />
+								<asp:BoundField DataField="TEN_DU_AN_CONG_TRINH" HeaderText="Tên dự án/quốc lộ" HeaderStyle-Width="20%" />
+								<asp:BoundField DataField="TEN_CLKM" HeaderText="Tên CLKM" HeaderStyle-Width="20%" />
+								<asp:BoundField DataField="TONG_TIEN_DACT_THEO_QD" HeaderText="Tổng tiền" HeaderStyle-Width="20%" />
+							
 							</Columns>
 						</asp:GridView>
 					</td>
 				</tr>
 			</table>
-		</ContentTemplate>
-		<Triggers>
-		</Triggers>
-	</asp:UpdatePanel>
-	<asp:UpdateProgress ID="UpdateProgress1" runat="server">
-		<ProgressTemplate>
-			<div class="cssLoadWapper">
-				<div class="cssLoadContent">
-					<img src="../Images/loadingBar.gif" alt="" />
-					<p>
-						Đang gửi yêu cầu, hãy đợi ...
-					</p>
-				</div>
-			</div>
-		</ProgressTemplate>
-	</asp:UpdateProgress>
 </asp:Content>
-
-

@@ -435,5 +435,15 @@ namespace WebUS
 			v_sp.addDecimalInputParam("@ip_dc_id_don_vi", ip_dc_id_don_vi);
 			v_sp.fillDataSetByCommand(this, op_ds);
 		}
+		public void bc_tinh_hinh_giai_ngan(DataSet op_ds
+		, DateTime ip_dat_tu_ngay
+		, DateTime ip_dat_den_ngay
+		, decimal ip_dc_id_don_vi)
+		{
+			CStoredProc v_sp = new CStoredProc("pr_RPT_TINH_HINH_GIAI_NGAN_VON");
+			v_sp.addDatetimeInputParam("@ip_dat_tu_ngay", ip_dat_tu_ngay);
+			v_sp.addDatetimeInputParam("@ip_dat_den_ngay", ip_dat_den_ngay);
+			v_sp.fillDataSetByCommand(this, op_ds);
+		}
 	}
 }

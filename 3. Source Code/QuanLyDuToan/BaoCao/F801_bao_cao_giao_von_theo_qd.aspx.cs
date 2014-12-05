@@ -51,7 +51,8 @@ namespace QuanLyDuToan.BaoCao
             DS_RPT_BAO_CAO_GIAO_VON_THEO_QD v_ds = new DS_RPT_BAO_CAO_GIAO_VON_THEO_QD();
 			v_us.FillDSTuNgayDenNgay(v_ds
 				, CIPConvert.ToDatetime(m_txt_tu_ngay.Text, "dd/MM/yyyy")
-				, CIPConvert.ToDatetime(m_txt_den_ngay.Text, "dd/MM/yyyy"));
+				, CIPConvert.ToDatetime(m_txt_den_ngay.Text, "dd/MM/yyyy")
+				,m_txt_so_quyet_dinh.Text.Trim());
 			m_grv.DataSource = v_ds.RPT_BAO_CAO_GIAO_VON_THEO_QD;
 			m_grv.DataBind();
 
