@@ -67,10 +67,9 @@
 							</ItemTemplate>
 						</asp:TemplateField>
 						
-						<asp:BoundField DataField="SO_QUYET_DINH" HeaderText="Số QĐ" HeaderStyle-Width="20%" />
+						<asp:BoundField DataField="SO_QUYET_DINH" HeaderText="Số QĐ" HeaderStyle-Width="5%" />
                         <asp:BoundField DataField="TEN_DU_AN_CONG_TRINH" HeaderText="Tên dự án/quốc lộ" HeaderStyle-Width="20%" />
-                        <asp:BoundField DataField="TEN_CLKM" HeaderText="Tên CLKM" HeaderStyle-Width="20%" />
-                        <asp:BoundField DataField="TONG_TIEN_DACT_THEO_QD" HeaderText="Tổng tiền" HeaderStyle-Width="20%" />
+                        <asp:BoundField DataField="TONG_TIEN_DACT_THEO_QD" HeaderText="Tổng tiền (VNĐ)" HeaderStyle-Width="20%" />
 						<%--<asp:TemplateField ItemStyle-HorizontalAlign="Right">
 							<HeaderTemplate>
 								<table cellspacing="0" cellpadding="2" style="width: 100%;" border="0">
