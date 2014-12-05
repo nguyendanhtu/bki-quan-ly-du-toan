@@ -315,11 +315,15 @@ namespace WebUS
         #endregion
 
 
-        public void FillDSTuNgayDenNgay(DS_RPT_BAO_CAO_GIAO_VON_THEO_QD v_ds, DateTime ip_dat_dau_nam, DateTime ip_dat_now)
+        public void FillDSTuNgayDenNgay(DS_RPT_BAO_CAO_GIAO_VON_THEO_QD v_ds
+			, DateTime ip_dat_dau_nam
+			, DateTime ip_dat_now
+			, string ip_str_ma_quyet_dinh)
         {
             CStoredProc v_cstore = new CStoredProc("pr_bao_cao_giao_von_theo_qd_chuong_loai_khoan_muc");
             v_cstore.addDatetimeInputParam("@NGAY_DAU_NAM", ip_dat_dau_nam);
             v_cstore.addDatetimeInputParam("@NGAY_CUOI_NAM", ip_dat_now);
+			v_cstore.addNVarcharInputParam("@ip_str_ma_quyet_dinh", ip_str_ma_quyet_dinh);
             v_cstore.fillDataSetByCommand(this, v_ds);
         }
     }

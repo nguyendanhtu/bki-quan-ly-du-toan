@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IP.Core.IPCommon;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -6,14 +7,10 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using WebDS;
 using WebUS;
-using WebDS.CDBNames;
-using IP.Core.IPCommon;
-using QuanLyDuToan.App_Code;
-using System.Data;
 
 namespace QuanLyDuToan.BaoCao
 {
-	public partial class F601_bao_cao_tinh_hinh_giai_ngan : System.Web.UI.Page
+	public partial class F603_bao_cao_giao_ke_hoach : System.Web.UI.Page
 	{
 		public string format_so_tien(string ip_str_so_tien)
 		{
@@ -43,22 +40,18 @@ namespace QuanLyDuToan.BaoCao
 			{
 				CSystemLog_301.ExceptionHandle(this, v_e);
 			}
-			
+
 		}
 
 		private void load_data_to_grid()
 		{
-			US_RPT_BC_TINH_HINH_GIAI_NGAN v_us = new US_RPT_BC_TINH_HINH_GIAI_NGAN();
-			DataSet v_ds = new DataSet();
-			DataTable v_dt = new DataTable();
-			v_ds.Tables.Add(v_dt);
-			v_ds.AcceptChanges();
-			v_us.bc_tinh_hinh_giai_ngan(v_ds
-				, CIPConvert.ToDatetime(m_txt_tu_ngay.Text, "dd/MM/yyyy")
-				, CIPConvert.ToDatetime(m_txt_den_ngay.Text, "dd/MM/yyyy")
-				, Person.get_id_don_vi());
-			m_grv.DataSource = v_ds.Tables[0];
-			m_grv.DataBind();
+			US_RPT_BAO_CAO_GIAO_VON_THEO_QD v_us = new US_RPT_BAO_CAO_GIAO_VON_THEO_QD();
+			//DS_RPT_BAO_CAO_GIAO_VON_THEO_QD v_ds = new DS_RPT_BAO_CAO_GIAO_VON_THEO_QD();
+			//v_us.FillDSTuNgayDenNgay(v_ds
+			//	, CIPConvert.ToDatetime(m_txt_tu_ngay.Text, "dd/MM/yyyy")
+			//	, CIPConvert.ToDatetime(m_txt_den_ngay.Text, "dd/MM/yyyy"));
+			//m_grv.DataSource = v_ds.RPT_BAO_CAO_GIAO_VON_THEO_QD;
+			//m_grv.DataBind();
 
 		}
 		private bool check_validate_data_is_ok()

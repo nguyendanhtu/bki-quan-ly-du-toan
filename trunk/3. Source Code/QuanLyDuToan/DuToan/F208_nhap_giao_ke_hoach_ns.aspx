@@ -207,27 +207,27 @@
 												</asp:TemplateField>
 												<asp:BoundField DataField="display" HeaderText="Công trình, dự án" />
 												<asp:BoundField DataField="ghi_chu" HeaderText="Nội dung" />
-												<asp:TemplateField HeaderText="Kinh phí năm trước chuyển sang" ItemStyle-HorizontalAlign="Right" ItemStyle-Width="100px">
+												<%--<asp:TemplateField HeaderText="Kinh phí năm trước chuyển sang" ItemStyle-HorizontalAlign="Right" ItemStyle-Width="100px">
 													<ItemTemplate>
 														<asp:Label ID="m_lbl_so_tien_nam_truoc_chuyen_sang_grid" runat="server"
 															CssClass="cssManField" ForeColor="Blue"
 															Text='<%#format_so_tien(Eval(V_GD_GIAO_KH.SO_TIEN_NAM_TRUOC_CHUYEN_SANG).ToString()) %>'></asp:Label>
 													</ItemTemplate>
-												</asp:TemplateField>
-												<asp:TemplateField HeaderText="Kinh phí Ngân sách" ItemStyle-HorizontalAlign="Right" ItemStyle-Width="100px">
+												</asp:TemplateField>--%>
+												<asp:TemplateField HeaderText="Số tiền" ItemStyle-HorizontalAlign="Right" ItemStyle-Width="100px">
 													<ItemTemplate>
 														<asp:Label ID="m_lbl_so_tien_ngan_sach_grid" runat="server"
 															CssClass="cssManField" ForeColor="Blue"
 															Text='<%#format_so_tien(Eval(V_GD_GIAO_KH.SO_TIEN_NS).ToString()) %>'></asp:Label>
 													</ItemTemplate>
 												</asp:TemplateField>
-												<asp:TemplateField HeaderText="Kinh phí Quỹ bảo trì" ItemStyle-HorizontalAlign="Right" ItemStyle-Width="100px">
+												<%--<asp:TemplateField HeaderText="Kinh phí Quỹ bảo trì" ItemStyle-HorizontalAlign="Right" ItemStyle-Width="100px">
 													<ItemTemplate>
 														<asp:Label ID="m_lbl_so_tien_quy_bao_tri_grid" runat="server"
 															CssClass="cssManField" ForeColor="Blue"
 															Text='<%#format_so_tien(Eval(V_GD_GIAO_KH.SO_TIEN_QUY_BT).ToString()) %>'></asp:Label>
 													</ItemTemplate>
-												</asp:TemplateField>
+												</asp:TemplateField>--%>
 												<%--<asp:TemplateField HeaderText="Tổng" ItemStyle-HorizontalAlign="Right" ItemStyle-Width="100px">
 													<ItemTemplate>
 														<asp:Label ID="m_lbl_tong_so_tien" runat="server"
