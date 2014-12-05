@@ -269,6 +269,22 @@ namespace WebDS.CDBNames
 
 	#endregion
 
+    public class RPT_BAO_CAO_GIAO_VON_THEO_QD
+    {
+        public const string ID = "ID";
+        public const string SO_QUYET_DINH = "SO_QUYET_DINH";
+        public const string ID_DU_AN_CONG_TRINH = "ID_DU_AN_CONG_TRINH";
+        public const string ID_DON_VI = "ID_DON_VI";
+        public const string ID_CHUONG = "ID_CHUONG";
+        public const string ID_LOAI1 = "ID_LOAI1";
+        public const string ID_KHOAN = "ID_KHOAN";
+        public const string ID_MUC = "ID_MUC";
+        public const string ID_TIEU_MUC = "ID_TIEU_MUC";
+        public const string TEN_CLKM = "TEN_CLKM";
+        public const string TEN_DU_AN_CONG_TRINH = "TEN_DU_AN_CONG_TRINH";
+        public const string TONG_TIEN_DACT_THEO_QD = "TONG_TIEN_DACT_THEO_QD";
+    }
+
 	public enum e_loai_tu_dien
 	{
 		PHAN_QUYEN = 1
