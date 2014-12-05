@@ -62,8 +62,7 @@
     <Content Include="Account\Default.aspx" />
     <Content Include="BaoCao\F603_bao_cao_giao_ke_hoach.aspx" />
     <Content Include="BaoCao\F801_bao_cao_giao_von_theo_qd.aspx" />
-    <Content Include="BaoCao\F601_bao_cao_tinh_hinh_giai_ngan.aspx" />
-    <Content Include="BaoCao\F620_bao_cao_giao_von.aspx" />
+    <Content Include="BaoCao\F601_bao_cao_tinh_hinh_giai_ngan_tong_cuc.aspx" />
     <Content Include="ChucNang\F600_print_unc_qbt.aspx" />
     <Content Include="DanhMuc\F101_Dictionary.aspx" />
     <Content Include="DanhMuc\f603_dm_du_an.aspx" />
@@ -490,19 +489,12 @@
     <Compile Include="BaoCao\F801_bao_cao_giao_von_theo_qd.aspx.designer.cs">
       <DependentUpon>F801_bao_cao_giao_von_theo_qd.aspx</DependentUpon>
     </Compile>
-    <Compile Include="BaoCao\F601_bao_cao_tinh_hinh_giai_ngan.aspx.cs">
-      <DependentUpon>F601_bao_cao_tinh_hinh_giai_ngan.aspx</DependentUpon>
+    <Compile Include="BaoCao\F601_bao_cao_tinh_hinh_giai_ngan_tong_cuc.aspx.cs">
+      <DependentUpon>F601_bao_cao_tinh_hinh_giai_ngan_tong_cuc.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="BaoCao\F601_bao_cao_tinh_hinh_giai_ngan.aspx.designer.cs">
-      <DependentUpon>F601_bao_cao_tinh_hinh_giai_ngan.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="BaoCao\F620_bao_cao_giao_von.aspx.cs">
-      <DependentUpon>F620_bao_cao_giao_von.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="BaoCao\F620_bao_cao_giao_von.aspx.designer.cs">
-      <DependentUpon>F620_bao_cao_giao_von.aspx</DependentUpon>
+    <Compile Include="BaoCao\F601_bao_cao_tinh_hinh_giai_ngan_tong_cuc.aspx.designer.cs">
+      <DependentUpon>F601_bao_cao_tinh_hinh_giai_ngan_tong_cuc.aspx</DependentUpon>
     </Compile>
     <Compile Include="ChucNang\F600_print_unc_qbt.aspx.cs">
       <DependentUpon>F600_print_unc_qbt.aspx</DependentUpon>
