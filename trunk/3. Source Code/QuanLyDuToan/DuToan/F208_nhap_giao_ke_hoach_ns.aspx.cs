@@ -386,7 +386,7 @@ namespace QuanLyDuToan.DuToan
 			m_hdf_id_giao_kh.Value = "";
 
 
-			m_txt_so_tien.Text = "";
+			m_txt_so_tien.Text = "0";
 			m_txt_ghi_chu.Text = "";
 
 

@@ -11,7 +11,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="Server">
 	<asp:ScriptManager ID="ScriptManager1" runat="server">
 	</asp:ScriptManager>
-	<table cellspacing="0" cellpadding="2" style="width: 99%;" class="cssTable" border="0">
+	<table style="width: 99%;" class="cssTable" border="0">
 		<tr>
 			<td class="cssPageTitleBG" colspan="4">
 				<asp:Label ID="m_lbl_title" runat="server" Text="Báo cáo tình hình giải ngân" CssClass="cssPageTitle"></asp:Label>

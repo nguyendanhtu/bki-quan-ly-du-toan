@@ -95,7 +95,7 @@
 														<span class="cssManField">Số tiền ngân sách</span>
 													</td>
 													<td>
-														<asp:TextBox ID="m_txt_ctx_so_tien_ngan_sach" runat="server" CssClass="cssTextBox" Width="100px" placeholder="Số tiền ngân sách"></asp:TextBox>
+														<asp:TextBox ID="m_txt_ctx_so_tien_ngan_sach" runat="server" CssClass="cssTextBox" Width="100px" Text="0" style="text-align:right"></asp:TextBox>
 													</td>
 												</tr>
 												<tr>
@@ -103,7 +103,7 @@
 														<span class="cssManField">Số tiền quỹ bảo trì</span>
 													</td>
 													<td>
-														<asp:TextBox ID="m_txt_ctx_so_tien_quy_bao_tri" runat="server" CssClass="cssTextBox" Width="100px" placeholder="Số tiền"></asp:TextBox>
+														<asp:TextBox ID="m_txt_ctx_so_tien_quy_bao_tri" runat="server" CssClass="cssTextBox" Width="100px"	Text="0" style="text-align:right"></asp:TextBox>
 													</td>
 												</tr>
 
@@ -143,7 +143,7 @@
 														<span class="cssManField">Số tiền ngân sách</span>
 													</td>
 													<td>
-														<asp:TextBox ID="m_txt_cktx_so_tien_ngan_sach" runat="server" CssClass="cssTextBox" Width="100px" placeholder="Số tiền ngân sách"></asp:TextBox>
+														<asp:TextBox ID="m_txt_cktx_so_tien_ngan_sach" runat="server" CssClass="cssTextBox" Width="100px" Text="0" style="text-align:right"></asp:TextBox>
 													</td>
 												</tr>
 												<tr>
@@ -151,7 +151,7 @@
 														<span class="cssManField">Số tiền bảo trì</span>
 													</td>
 													<td>
-														<asp:TextBox ID="m_txt_cktx_so_tien_bao_tri" runat="server" CssClass="cssTextBox" Width="100px" placeholder="Số tiền bảo trì"></asp:TextBox>
+														<asp:TextBox ID="m_txt_cktx_so_tien_bao_tri" runat="server" CssClass="cssTextBox" Width="100px" Text="0" style="text-align:right"></asp:TextBox>
 													</td>
 												</tr>
 												<tr>
