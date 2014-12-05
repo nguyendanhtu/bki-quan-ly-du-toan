@@ -60,6 +60,7 @@
     <None Include="Scripts\jquery-1.4.1-vsdoc.js" />
     <Content Include="Account\ChangePassword.aspx" />
     <Content Include="Account\Default.aspx" />
+    <Content Include="BaoCao\F801_bao_cao_giao_von_theo_qd.aspx" />
     <Content Include="BaoCao\F601_bao_cao_tinh_hinh_giai_ngan.aspx" />
     <Content Include="BaoCao\F620_bao_cao_giao_von.aspx" />
     <Content Include="ChucNang\F600_print_unc_qbt.aspx" />
@@ -474,6 +475,13 @@
     <Compile Include="App_Code\WinformReport.cs" />
     <Compile Include="App_Code\WinformControls.cs" />
     <Compile Include="App_Code\Person.cs" />
+    <Compile Include="BaoCao\F801_bao_cao_giao_von_theo_qd.aspx.cs">
+      <DependentUpon>F801_bao_cao_giao_von_theo_qd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BaoCao\F801_bao_cao_giao_von_theo_qd.aspx.designer.cs">
+      <DependentUpon>F801_bao_cao_giao_von_theo_qd.aspx</DependentUpon>
+    </Compile>
     <Compile Include="BaoCao\F601_bao_cao_tinh_hinh_giai_ngan.aspx.cs">
       <DependentUpon>F601_bao_cao_tinh_hinh_giai_ngan.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
