@@ -197,7 +197,7 @@ namespace QuanLyDuToan.DuToan
 			{
 				m_us.dcID_DU_AN_CONG_TRINH = CIPConvert.ToDecimal(m_ddl_du_an.SelectedValue);
                 m_us.dcSO_TIEN_NS = CIPConvert.ToDecimal(m_txt_cktx_so_tien_ngan_sach.Text.Trim());
-				m_us.dcSO_TIEN_QUY_BT = CIPConvert.ToDecimal(m_txt_ctx_so_tien_ngan_sach.Text.Trim());
+				m_us.dcSO_TIEN_QUY_BT = CIPConvert.ToDecimal(m_txt_cktx_so_tien_bao_tri.Text.Trim());
 			}
 			m_us.dcID_QUYET_DINH = CIPConvert.ToDecimal(m_hdf_id_quyet_dinh.Value);
 			m_us.dcID_DON_VI = Person.get_id_don_vi();
@@ -299,7 +299,7 @@ namespace QuanLyDuToan.DuToan
 
 			m_txt_ctx_so_tien_ngan_sach.Text = "0";
 			m_txt_ctx_so_tien_quy_bao_tri.Text = "0";
-			m_txt_cktx_so_tien_ngan_sach.Text = "";
+			m_txt_cktx_so_tien_ngan_sach.Text = "0";
 			m_txt_cktx_so_tien_bao_tri.Text = "0";
 
 			//m_ddl_tuyen_quoc_lo.SelectedValue = "-1";

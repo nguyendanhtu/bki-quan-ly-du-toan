@@ -320,6 +320,7 @@ namespace QuanLyDuToan.DuToan
 			}
 			else
 			{
+				
 				m_ddl_du_an.SelectedValue = m_us.dcID_DU_AN_CONG_TRINH.ToString();
 				m_txt_ten_du_an.Text = m_ddl_du_an.SelectedItem.Text;
 				m_txt_cktx_so_tien_ns.Text = CIPConvert.ToStr(m_us.dcSO_TIEN_NS);
@@ -437,7 +438,11 @@ namespace QuanLyDuToan.DuToan
 						}
 					}
 					else
+					{
 						m_us.Insert();
+						m_txt_ten_du_an.Text = "";
+						m_txt_cktx_so_tien_ns.Text = "";
+					}
 					m_lbl_mess_detail.Text = "Bạn đã tạo mới thành công!";
 					break;
 				case LOAI_FORM.SUA:
@@ -663,19 +668,25 @@ namespace QuanLyDuToan.DuToan
 					m_cmd_cktx_update.Visible = true;
 					m_cmd_ctx_insert.Visible = false;
 					m_cmd_cktx_insert.Visible = false;
-					//reset control
-					m_ddl_du_an.SelectedValue = "-1";
-					m_ddl_tuyen_quoc_lo.SelectedValue = "-1";
-					m_txt_cktx_so_tien_ns.Text = "";
-					m_txt_ctx_so_tien_ns.Text = "";
+					
 
 					//set select row in gridview
 					GridViewRow gvr = (GridViewRow)(((LinkButton)e.CommandSource).NamingContainer);
 					m_grv.SelectedIndex = gvr.RowIndex;
 
 					m_hdf_id_giao_kh.Value = CIPConvert.ToStr(e.CommandArgument);
+					m_us=new US_GD_GIAO_KH(CIPConvert.ToDecimal(m_hdf_id_giao_kh.Value));
+					if (m_us.dcID_DU_AN_CONG_TRINH == ID_LOAI_DU_AN.QUOC_LO)
+					{
+						load_data_to_cbo_quoc_lo();
+					}
+					else load_data_to_du_an();
 					//m_grv.SelectedIndex = m_grv.SelectedRow.RowIndex;
 					set_form_mode(LOAI_FORM.SUA);
+					//reset control
+					m_ddl_du_an.SelectedValue = "-1";
+					m_ddl_tuyen_quoc_lo.SelectedValue = "-1";
+					
 					us_object_to_form();
 				}
 				else if (e.CommandName == "Xoa")
@@ -744,8 +755,7 @@ namespace QuanLyDuToan.DuToan
 				m_lbl_mess_detail.Text = "";
 				set_form_mode(LOAI_FORM.THEM);
 				save_data("N");
-				m_txt_ten_du_an.Text = "";
-				m_txt_cktx_so_tien_ns.Text = "";
+				
 			}
 			catch (Exception v_e)
 			{

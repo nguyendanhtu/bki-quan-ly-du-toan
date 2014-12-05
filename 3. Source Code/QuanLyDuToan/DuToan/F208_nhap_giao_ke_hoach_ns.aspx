@@ -132,7 +132,8 @@
 														<span class="cssManField">Số tiền</span>
 													</td>
 													<td>
-														<asp:TextBox ID="m_txt_so_tien" runat="server" CssClass="cssTextBox csscurrency" placeholder="Số tiền" Width="50%"></asp:TextBox>
+														<asp:TextBox ID="m_txt_so_tien" runat="server" CssClass="cssTextBox csscurrency" Text="0" placeholder="Số tiền" Width="50%"
+															style="text-align:right"></asp:TextBox>
 													</td>
 													<td align="right">
 														<span class="cssManField">Nội dung</span>

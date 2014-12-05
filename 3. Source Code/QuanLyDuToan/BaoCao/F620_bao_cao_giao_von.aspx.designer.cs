@@ -13,6 +13,33 @@ namespace QuanLyDuToan.BaoCao {
     public partial class F620_bao_cao_giao_von {
         
         /// <summary>
+        /// ScriptManager1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager ScriptManager1;
+        
+        /// <summary>
+        /// m_lbl_title control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label m_lbl_title;
+        
+        /// <summary>
+        /// m_lbl_mess control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label m_lbl_mess;
+        
+        /// <summary>
         /// m_txt_tu_ngay control.
         /// </summary>
         /// <remarks>
@@ -31,30 +58,21 @@ namespace QuanLyDuToan.BaoCao {
         protected global::System.Web.UI.WebControls.TextBox m_txt_den_ngay;
         
         /// <summary>
-        /// m_txt_so_quyet_dinh control.
+        /// m_cmd_xem_bao_cao control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox m_txt_so_quyet_dinh;
+        protected global::System.Web.UI.WebControls.Button m_cmd_xem_bao_cao;
         
         /// <summary>
-        /// m_cmd_tim_kiem control.
+        /// m_cmd_xuat_excel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button m_cmd_tim_kiem;
-        
-        /// <summary>
-        /// m_grv control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView m_grv;
+        protected global::System.Web.UI.WebControls.Button m_cmd_xuat_excel;
     }
 }

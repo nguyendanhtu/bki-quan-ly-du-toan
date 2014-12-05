@@ -115,7 +115,7 @@ namespace QuanLyDuToan.Quantri
 			if (m_us_ht_chuc_nang.strHIEN_THI_YN.Equals("Y")) m_rdl_hien_thi_yn.Items[0].Selected = true;
 			else m_rdl_hien_thi_yn.Items[1].Selected = true;
 			m_cbo_vi_tri.SelectedValue = CIPConvert.ToStr(m_us_ht_chuc_nang.dcVI_TRI);
-			m_cbo_vi_tri.Enabled = false;
+			m_cbo_vi_tri.Enabled = true;
 		}
 		private void load_data_2_cbo_vi_tri()
 		{
@@ -267,6 +267,7 @@ namespace QuanLyDuToan.Quantri
 				set_control_by_form_mode();
 				m_lbl_mess.Text = "";
 				load_data_2_us_by_id(e.NewSelectedIndex);
+				m_cbo_vi_tri.Enabled = true;
 			}
 			catch (Exception v_e)
 			{
