@@ -13,7 +13,7 @@ using System.Data;
 
 namespace QuanLyDuToan.BaoCao
 {
-	public partial class F601_bao_cao_tinh_hinh_giai_ngan : System.Web.UI.Page
+	public partial class F602_bao_cao_tinh_hinh_giai_ngan_don_vi : System.Web.UI.Page
 	{
 		public string format_so_tien(string ip_str_so_tien)
 		{
@@ -43,20 +43,18 @@ namespace QuanLyDuToan.BaoCao
 			{
 				CSystemLog_301.ExceptionHandle(this, v_e);
 			}
-			
+
 		}
 
 		private void load_data_to_grid()
 		{
 			US_RPT_BC_TINH_HINH_GIAI_NGAN v_us = new US_RPT_BC_TINH_HINH_GIAI_NGAN();
-			DataSet v_ds = new DataSet();
-			DataTable v_dt = new DataTable();
-			v_ds.Tables.Add(v_dt);
+			DS_RPT_BC_TINH_HINH_GIAI_NGAN v_ds = new DS_RPT_BC_TINH_HINH_GIAI_NGAN();
 			v_ds.AcceptChanges();
-			v_us.bc_tinh_hinh_giai_ngan_tong_cuc(v_ds
+			v_us.bc_tinh_hinh_giai_ngan_don_vi(v_ds
 				, CIPConvert.ToDatetime(m_txt_tu_ngay.Text, "dd/MM/yyyy")
 				, CIPConvert.ToDatetime(m_txt_den_ngay.Text, "dd/MM/yyyy")
-				);
+				, Person.get_id_don_vi());
 			m_grv.DataSource = v_ds.Tables[0];
 			m_grv.DataBind();
 
