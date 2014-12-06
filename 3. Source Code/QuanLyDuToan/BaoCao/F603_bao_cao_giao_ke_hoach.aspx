@@ -40,10 +40,10 @@
 				</tr>
 				<tr>
 					<td colspan="4" align="center">
-						<asp:GridView ID="m_grv" runat="server" AllowPaging="True" AutoGenerateColumns="false"
+						<asp:GridView ID="m_grv" runat="server" AllowPaging="True" AutoGenerateColumns="False"
 							CssClass="cssGrid" Width="100%" CellPadding="0" ForeColor="#333333"
-							AllowSorting="True" PageSize="60" ShowHeader="true"
-							EmptyDataText="Không có dữ liệu phù hợp">
+							AllowSorting="True" PageSize="60"
+							EmptyDataText="Không có dữ liệu phù hợp" EnableModelValidation="True">
 							<AlternatingRowStyle BackColor="White" />
 							<EditRowStyle BackColor="#7C6F57" />
 							<FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
@@ -54,16 +54,21 @@
 							<SelectedRowStyle CssClass="cssSelectedRow" BackColor="#C5BBAF" Font-Bold="True"
 								ForeColor="#333333"></SelectedRowStyle>
 							<Columns>
-								<asp:TemplateField HeaderText="STT" ItemStyle-HorizontalAlign="Center" HeaderStyle-Width="2%" HeaderStyle-Height="40px">
-									<ItemTemplate>
-										<%# Container.DataItemIndex + 1 %>
-									</ItemTemplate>
-								</asp:TemplateField>
 
-								<asp:BoundField DataField="SO_QUYET_DINH" HeaderText="Số QĐ" HeaderStyle-Width="20%" />
-								<asp:BoundField DataField="TEN_DU_AN_CONG_TRINH" HeaderText="Tên dự án/quốc lộ" HeaderStyle-Width="20%" />
-								<asp:BoundField DataField="TEN_CLKM" HeaderText="Tên CLKM" HeaderStyle-Width="20%" />
-								<asp:BoundField DataField="TONG_TIEN_DACT_THEO_QD" HeaderText="Tổng tiền" HeaderStyle-Width="20%" />
+								<asp:BoundField DataField="SO_QUYET_DINH" HeaderText="Số QĐ" HeaderStyle-Width="20%" >
+<HeaderStyle Width="20%"></HeaderStyle>
+                                </asp:BoundField>
+								<asp:BoundField DataField="TEN_DU_AN_CONG_TRINH" HeaderText="Tên dự án/quốc lộ" HeaderStyle-Width="20%" >
+<HeaderStyle Width="20%"></HeaderStyle>
+                                </asp:BoundField>
+								<asp:BoundField DataField="SO_TIEN" HeaderText="Tổng tiền" HeaderStyle-Width="20%" DataFormatString="{0:N0}" >
+							
+<HeaderStyle Width="20%"></HeaderStyle>
+                                <ItemStyle HorizontalAlign="Right" />
+                                </asp:BoundField>
+								<asp:BoundField DataField="TEN" HeaderText="Loại" HeaderStyle-Width="20%" >
+								<HeaderStyle Width="20%" />
+                                </asp:BoundField>
 							
 							</Columns>
 						</asp:GridView>

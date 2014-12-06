@@ -200,6 +200,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DS_V_HT_USER_DV_QUAN_LY.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DS_V_RPT_GD_GIAO_KH.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_V_RPT_GD_GIAO_KH.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DS_V_RPT_GD_GIAO_VON.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -499,6 +504,17 @@
     </None>
     <None Include="DS_V_HT_USER_DV_QUAN_LY.xss">
       <DependentUpon>DS_V_HT_USER_DV_QUAN_LY.xsd</DependentUpon>
+    </None>
+    <None Include="DS_V_RPT_GD_GIAO_KH.xsc">
+      <DependentUpon>DS_V_RPT_GD_GIAO_KH.xsd</DependentUpon>
+    </None>
+    <None Include="DS_V_RPT_GD_GIAO_KH.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_V_RPT_GD_GIAO_KH.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DS_V_RPT_GD_GIAO_KH.xss">
+      <DependentUpon>DS_V_RPT_GD_GIAO_KH.xsd</DependentUpon>
     </None>
     <None Include="DS_V_RPT_GD_GIAO_VON.xsc">
       <DependentUpon>DS_V_RPT_GD_GIAO_VON.xsd</DependentUpon>

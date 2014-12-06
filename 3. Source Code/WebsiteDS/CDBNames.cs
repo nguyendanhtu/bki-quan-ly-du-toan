@@ -448,5 +448,18 @@ namespace WebDS.CDBNames
 		public const string SO_TIEN_QUY_BT = "SO_TIEN_QUY_BT";
 		public const string SO_TIEN_NS = "SO_TIEN_NS";
 	}
+
+    public class V_RPT_GD_GIAO_KH
+    {
+        public const string ID_QUYET_DINH = "ID_QUYET_DINH";
+        public const string ID_DU_AN_CONG_TRINH = "ID_DU_AN_CONG_TRINH";
+        public const string SO_TIEN_QUY_BT = "SO_TIEN_QUY_BT";
+        public const string SO_TIEN_NS = "SO_TIEN_NS";
+        public const string SO_QUYET_DINH = "SO_QUYET_DINH";
+        public const string NOI_DUNG = "NOI_DUNG";
+        public const string TEN_DU_AN_CONG_TRINH = "TEN_DU_AN_CONG_TRINH";
+        public const string TEN = "TEN";
+        public const string SO_TIEN = "SO_TIEN";
+    }
 }
 
