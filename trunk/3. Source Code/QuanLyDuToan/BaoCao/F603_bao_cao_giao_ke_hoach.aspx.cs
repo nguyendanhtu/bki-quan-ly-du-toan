@@ -45,13 +45,21 @@ namespace QuanLyDuToan.BaoCao
 
 		private void load_data_to_grid()
 		{
-			US_RPT_BAO_CAO_GIAO_VON_THEO_QD v_us = new US_RPT_BAO_CAO_GIAO_VON_THEO_QD();
+			//US_RPT_BAO_CAO_GIAO_VON_THEO_QD v_us = new US_RPT_BAO_CAO_GIAO_VON_THEO_QD();
 			//DS_RPT_BAO_CAO_GIAO_VON_THEO_QD v_ds = new DS_RPT_BAO_CAO_GIAO_VON_THEO_QD();
 			//v_us.FillDSTuNgayDenNgay(v_ds
 			//	, CIPConvert.ToDatetime(m_txt_tu_ngay.Text, "dd/MM/yyyy")
 			//	, CIPConvert.ToDatetime(m_txt_den_ngay.Text, "dd/MM/yyyy"));
 			//m_grv.DataSource = v_ds.RPT_BAO_CAO_GIAO_VON_THEO_QD;
 			//m_grv.DataBind();
+
+            US_V_RPT_GD_GIAO_KH v_us = new US_V_RPT_GD_GIAO_KH();
+            DS_V_RPT_GD_GIAO_KH v_ds = new DS_V_RPT_GD_GIAO_KH();
+            v_us.FillDatasetTuNgayDenNgay(v_ds
+                , CIPConvert.ToDatetime(m_txt_tu_ngay.Text, "dd/MM/yyyy")
+                , CIPConvert.ToDatetime(m_txt_den_ngay.Text, "dd/MM/yyyy"));
+            m_grv.DataSource = v_ds.V_RPT_GD_GIAO_KH;
+            m_grv.DataBind();
 
 		}
 		private bool check_validate_data_is_ok()
