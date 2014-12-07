@@ -294,11 +294,9 @@ namespace QuanLyDuToan.DuToan
 			try
 			{
 				//1. Get dataset
-				DataSet v_ds = new DataSet();
-				DataTable v_dt = new DataTable();
-				v_ds.Tables.Add(v_dt);
+				DS_GRID_GIAO_KH v_ds = new DS_GRID_GIAO_KH();
 				//2. Lay du lieu
-				US_GD_GIAO_KH v_us = new US_GD_GIAO_KH();
+				US_GRID_GIAO_KH v_us = new US_GRID_GIAO_KH();
 				decimal v_dc_id_quyet_dinh = -1;
 				if (m_hdf_id_quyet_dinh.Value.Trim().Equals(""))
 				{

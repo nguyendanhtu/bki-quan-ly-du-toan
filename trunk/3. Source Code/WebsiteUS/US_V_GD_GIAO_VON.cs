@@ -418,6 +418,28 @@ namespace WebUS
 			pm_objDR["ID_LOAI"] = System.Convert.DBNull;
 		}
 
+		public string strTEN_DU_AN_CONG_TRINH
+		{
+			get
+			{
+				return CNull.RowNVLString(pm_objDR, "TEN_DU_AN_CONG_TRINH", IPConstants.c_DefaultString);
+			}
+			set
+			{
+				pm_objDR["TEN_DU_AN_CONG_TRINH"] = value;
+			}
+		}
+
+		public bool IsTEN_DU_AN_CONG_TRINHNull()
+		{
+			return pm_objDR.IsNull("TEN_DU_AN_CONG_TRINH");
+		}
+
+		public void SetTEN_DU_AN_CONG_TRINHNull()
+		{
+			pm_objDR["TEN_DU_AN_CONG_TRINH"] = System.Convert.DBNull;
+		}
+
 		#endregion
 		#region "Init Functions"
 		public US_V_GD_GIAO_VON()
