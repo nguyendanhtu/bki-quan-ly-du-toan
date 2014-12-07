@@ -6,6 +6,19 @@ using System.Text;
 namespace WebDS.CDBNames
 {
 	#region Quan ly du toan
+	public class GRID_GIAO_KH
+	{
+		public const string ID = "ID";
+		public const string NOI_DUNG = "NOI_DUNG";
+		public const string NTCT = "NTCT";
+		public const string QUY = "QUY";
+		public const string NS = "NS";
+		public const string TONG = "TONG";
+		public const string ID_DON_VI = "ID_DON_VI";
+		public const string STT = "STT";
+		public const string LEVEL = "LEVEL";
+	}
+
 	public class RPT_BC_TINH_HINH_GIAI_NGAN
 	{
 		public const string STT = "STT";
@@ -33,7 +46,7 @@ namespace WebDS.CDBNames
 		public const string ID_DON_VI = "ID_DON_VI";
 		public const string NGAY_THANG = "NGAY_THANG";
 		public const string SO_UNC = "SO_UNC";
-		public const string MA_TKKT = "MA_TKKT";
+		public const string IS_NGUON_NS_YN = "IS_NGUON_NS_YN";
 		public const string MA_DVQHNS = "MA_DVQHNS";
 		public const string MA_CTMT_DA_HTCT = "MA_CTMT_DA_HTCT";
 		public const string NT_TEN_DON_VI = "NT_TEN_DON_VI";
@@ -52,12 +65,12 @@ namespace WebDS.CDBNames
 		public const string TTDVH_KHO_BAC = "TTDVH_KHO_BAC";
 		public const string TTDVH_SO_TIEN = "TTDVH_SO_TIEN";
 		public const string SO_TIEN_NOP_THUE = "SO_TIEN_NOP_THUE";
-		public const string IS_NGUON_NS_YN = "IS_NGUON_NS_YN";
-		public const string NOI_DUNG = "NOI_DUNG";
+		public const string NOI_DUNG_CHI = "NOI_DUNG_CHI";
 		public const string GHI_CHU = "GHI_CHU";
 		public const string SO_TIEN_TT_CHO_DV_HUONG = "SO_TIEN_TT_CHO_DV_HUONG";
 		public const string DISPLAY = "DISPLAY";
 	}
+
 
 
 
@@ -72,7 +85,6 @@ namespace WebDS.CDBNames
 		public const string ID_DON_VI = "ID_DON_VI";
 		public const string ID_DU_AN_CONG_TRINH = "ID_DU_AN_CONG_TRINH";
 		public const string SO_TIEN_NOP_THUE = "SO_TIEN_NOP_THUE";
-		public const string IS_NGUON_NS_YN = "IS_NGUON_NS_YN";
 		public const string ID_UNC = "ID_UNC";
 		public const string NOI_DUNG_CHI = "NOI_DUNG_CHI";
 		public const string GHI_CHU = "GHI_CHU";
@@ -84,7 +96,7 @@ namespace WebDS.CDBNames
 		public const string TEN_DU_AN = "TEN_DU_AN";
 		public const string NGAY_THANG = "NGAY_THANG";
 		public const string SO_UNC = "SO_UNC";
-		public const string MA_TKKT = "MA_TKKT";
+		public const string IS_NGUON_NS_YN = "IS_NGUON_NS_YN";
 		public const string MA_DVQHNS = "MA_DVQHNS";
 		public const string MA_CTMT_DA_HTCT = "MA_CTMT_DA_HTCT";
 		public const string NT_TEN_DON_VI = "NT_TEN_DON_VI";
@@ -104,6 +116,7 @@ namespace WebDS.CDBNames
 		public const string TTDVH_SO_TIEN = "TTDVH_SO_TIEN";
 		public const string DISPLAY = "DISPLAY";
 	}
+
 
 
 

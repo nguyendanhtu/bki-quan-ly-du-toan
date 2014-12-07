@@ -13,7 +13,7 @@
               <DbSource ConnectionRef="BKI_QLDT_TESTConnectionString (Settings)" DbObjectName="BKI_QLDT_TEST.dbo.V_GD_UY_NHIEM_CHI" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT ID, ID_DON_VI, ID_DU_AN_CONG_TRINH, SO_TIEN_NOP_THUE, IS_NGUON_NS_YN, ID_UNC, NOI_DUNG_CHI, GHI_CHU, ID_CHUONG, ID_KHOAN, ID_MUC, ID_TIEU_MUC, SO_TIEN_TT_CHO_DV_HUONG, TEN_DU_AN, NGAY_THANG, SO_UNC, MA_TKKT, MA_DVQHNS, MA_CTMT_DA_HTCT, NT_TEN_DON_VI, NT_MA_SO_THUE, NT_MA_NDKT, NT_MA_CHUONG, NT_CQ_QL_THU, NT_MA_CQ_THU, NT_KBNN_HACH_TOAN_KHOAN_THU, NT_SO_TIEN_NOP_THUE, TTDVH_DON_VI_NHAN_TIEN, TTDVH_MA_DVQHNS, TTDVH_DIA_CHI, TTDVH_TAI_KHOAN, TTDVH_MA_CTMT_DA_VA_HTCT, TTDVH_KHO_BAC, TTDVH_SO_TIEN, DISPLAY FROM dbo.V_GD_UY_NHIEM_CHI</CommandText>
+                    <CommandText>SELECT ID, ID_DON_VI, ID_DU_AN_CONG_TRINH, SO_TIEN_NOP_THUE, ID_UNC, NOI_DUNG_CHI, GHI_CHU, ID_CHUONG, ID_KHOAN, ID_MUC, ID_TIEU_MUC, SO_TIEN_TT_CHO_DV_HUONG, TEN_DU_AN, NGAY_THANG, SO_UNC, IS_NGUON_NS_YN, MA_DVQHNS, MA_CTMT_DA_HTCT, NT_TEN_DON_VI, NT_MA_SO_THUE, NT_MA_NDKT, NT_MA_CHUONG, NT_CQ_QL_THU, NT_MA_CQ_THU, NT_KBNN_HACH_TOAN_KHOAN_THU, NT_SO_TIEN_NOP_THUE, TTDVH_DON_VI_NHAN_TIEN, TTDVH_MA_DVQHNS, TTDVH_DIA_CHI, TTDVH_TAI_KHOAN, TTDVH_MA_CTMT_DA_VA_HTCT, TTDVH_KHO_BAC, TTDVH_SO_TIEN, DISPLAY FROM dbo.V_GD_UY_NHIEM_CHI</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -24,7 +24,6 @@
               <Mapping SourceColumn="ID_DON_VI" DataSetColumn="ID_DON_VI" />
               <Mapping SourceColumn="ID_DU_AN_CONG_TRINH" DataSetColumn="ID_DU_AN_CONG_TRINH" />
               <Mapping SourceColumn="SO_TIEN_NOP_THUE" DataSetColumn="SO_TIEN_NOP_THUE" />
-              <Mapping SourceColumn="IS_NGUON_NS_YN" DataSetColumn="IS_NGUON_NS_YN" />
               <Mapping SourceColumn="ID_UNC" DataSetColumn="ID_UNC" />
               <Mapping SourceColumn="NOI_DUNG_CHI" DataSetColumn="NOI_DUNG_CHI" />
               <Mapping SourceColumn="GHI_CHU" DataSetColumn="GHI_CHU" />
@@ -36,7 +35,7 @@
               <Mapping SourceColumn="TEN_DU_AN" DataSetColumn="TEN_DU_AN" />
               <Mapping SourceColumn="NGAY_THANG" DataSetColumn="NGAY_THANG" />
               <Mapping SourceColumn="SO_UNC" DataSetColumn="SO_UNC" />
-              <Mapping SourceColumn="MA_TKKT" DataSetColumn="MA_TKKT" />
+              <Mapping SourceColumn="IS_NGUON_NS_YN" DataSetColumn="IS_NGUON_NS_YN" />
               <Mapping SourceColumn="MA_DVQHNS" DataSetColumn="MA_DVQHNS" />
               <Mapping SourceColumn="MA_CTMT_DA_HTCT" DataSetColumn="MA_CTMT_DA_HTCT" />
               <Mapping SourceColumn="NT_TEN_DON_VI" DataSetColumn="NT_TEN_DON_VI" />
@@ -73,13 +72,6 @@
               <xs:element name="ID_DON_VI" msprop:Generator_ColumnVarNameInTable="columnID_DON_VI" msprop:Generator_ColumnPropNameInRow="ID_DON_VI" msprop:Generator_ColumnPropNameInTable="ID_DON_VIColumn" msprop:Generator_UserColumnName="ID_DON_VI" type="xs:decimal" />
               <xs:element name="ID_DU_AN_CONG_TRINH" msprop:Generator_ColumnVarNameInTable="columnID_DU_AN_CONG_TRINH" msprop:Generator_ColumnPropNameInRow="ID_DU_AN_CONG_TRINH" msprop:Generator_ColumnPropNameInTable="ID_DU_AN_CONG_TRINHColumn" msprop:Generator_UserColumnName="ID_DU_AN_CONG_TRINH" type="xs:decimal" minOccurs="0" />
               <xs:element name="SO_TIEN_NOP_THUE" msprop:Generator_ColumnVarNameInTable="columnSO_TIEN_NOP_THUE" msprop:Generator_ColumnPropNameInRow="SO_TIEN_NOP_THUE" msprop:Generator_ColumnPropNameInTable="SO_TIEN_NOP_THUEColumn" msprop:Generator_UserColumnName="SO_TIEN_NOP_THUE" type="xs:decimal" />
-              <xs:element name="IS_NGUON_NS_YN" msprop:Generator_ColumnVarNameInTable="columnIS_NGUON_NS_YN" msprop:Generator_ColumnPropNameInRow="IS_NGUON_NS_YN" msprop:Generator_ColumnPropNameInTable="IS_NGUON_NS_YNColumn" msprop:Generator_UserColumnName="IS_NGUON_NS_YN">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="1" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
               <xs:element name="ID_UNC" msprop:Generator_ColumnVarNameInTable="columnID_UNC" msprop:Generator_ColumnPropNameInRow="ID_UNC" msprop:Generator_ColumnPropNameInTable="ID_UNCColumn" msprop:Generator_UserColumnName="ID_UNC" type="xs:decimal" />
               <xs:element name="NOI_DUNG_CHI" msprop:Generator_ColumnVarNameInTable="columnNOI_DUNG_CHI" msprop:Generator_ColumnPropNameInRow="NOI_DUNG_CHI" msprop:Generator_ColumnPropNameInTable="NOI_DUNG_CHIColumn" msprop:Generator_UserColumnName="NOI_DUNG_CHI" minOccurs="0">
                 <xs:simpleType>
@@ -115,10 +107,10 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="MA_TKKT" msprop:Generator_ColumnVarNameInTable="columnMA_TKKT" msprop:Generator_ColumnPropNameInRow="MA_TKKT" msprop:Generator_ColumnPropNameInTable="MA_TKKTColumn" msprop:Generator_UserColumnName="MA_TKKT">
+              <xs:element name="IS_NGUON_NS_YN" msprop:Generator_ColumnVarNameInTable="columnIS_NGUON_NS_YN" msprop:Generator_ColumnPropNameInRow="IS_NGUON_NS_YN" msprop:Generator_ColumnPropNameInTable="IS_NGUON_NS_YNColumn" msprop:Generator_UserColumnName="IS_NGUON_NS_YN">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:maxLength value="35" />
+                    <xs:maxLength value="1" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>

@@ -2,17 +2,18 @@
 <xs:schema id="DS_V_DM_UY_NHIEM_CHI" targetNamespace="http://tempuri.org/DS_V_DM_UY_NHIEM_CHI.xsd" xmlns:mstns="http://tempuri.org/DS_V_DM_UY_NHIEM_CHI.xsd" xmlns="http://tempuri.org/DS_V_DM_UY_NHIEM_CHI.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
-      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
           <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="BKI_QLDTConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="BKI_QLDTConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.WebDS.Properties.Settings.GlobalReference.Default.BKI_QLDTConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="BKI_QLDT_TESTConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="BKI_QLDT_TESTConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.WebDS.Properties.Settings.GlobalReference.Default.BKI_QLDT_TESTConnectionString" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="V_DM_UY_NHIEM_CHITableAdapter" GeneratorDataComponentClassName="V_DM_UY_NHIEM_CHITableAdapter" Name="V_DM_UY_NHIEM_CHI" UserDataComponentName="V_DM_UY_NHIEM_CHITableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="BKI_QLDTConnectionString (Settings)" DbObjectName="BKI_QLDT.dbo.V_DM_UY_NHIEM_CHI" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="BKI_QLDT_TESTConnectionString (Settings)" DbObjectName="BKI_QLDT_TEST.dbo.V_DM_UY_NHIEM_CHI" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT ID, ID_DON_VI, NGAY_THANG, SO_UNC, MA_TKKT, MA_DVQHNS, MA_CTMT_DA_HTCT, NT_TEN_DON_VI, NT_MA_SO_THUE, NT_MA_NDKT, NT_MA_CHUONG, NT_CQ_QL_THU, NT_MA_CQ_THU, NT_KBNN_HACH_TOAN_KHOAN_THU, NT_SO_TIEN_NOP_THUE, TTDVH_DON_VI_NHAN_TIEN, TTDVH_MA_DVQHNS, TTDVH_DIA_CHI, TTDVH_TAI_KHOAN, TTDVH_MA_CTMT_DA_VA_HTCT, TTDVH_KHO_BAC, TTDVH_SO_TIEN, SO_TIEN_NOP_THUE, IS_NGUON_NS_YN, NOI_DUNG, GHI_CHU, SO_TIEN_TT_CHO_DV_HUONG, DISPLAY FROM dbo.V_DM_UY_NHIEM_CHI</CommandText>
+                    <CommandText>SELECT ID, ID_DON_VI, NGAY_THANG, SO_UNC, IS_NGUON_NS_YN, MA_DVQHNS, MA_CTMT_DA_HTCT, NT_TEN_DON_VI, NT_MA_SO_THUE, NT_MA_NDKT, NT_MA_CHUONG, NT_CQ_QL_THU, NT_MA_CQ_THU, NT_KBNN_HACH_TOAN_KHOAN_THU, NT_SO_TIEN_NOP_THUE, TTDVH_DON_VI_NHAN_TIEN, TTDVH_MA_DVQHNS, TTDVH_DIA_CHI, TTDVH_TAI_KHOAN, TTDVH_MA_CTMT_DA_VA_HTCT, TTDVH_KHO_BAC, TTDVH_SO_TIEN, SO_TIEN_NOP_THUE, NOI_DUNG_CHI, GHI_CHU, SO_TIEN_TT_CHO_DV_HUONG, DISPLAY FROM dbo.V_DM_UY_NHIEM_CHI</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -23,7 +24,7 @@
               <Mapping SourceColumn="ID_DON_VI" DataSetColumn="ID_DON_VI" />
               <Mapping SourceColumn="NGAY_THANG" DataSetColumn="NGAY_THANG" />
               <Mapping SourceColumn="SO_UNC" DataSetColumn="SO_UNC" />
-              <Mapping SourceColumn="MA_TKKT" DataSetColumn="MA_TKKT" />
+              <Mapping SourceColumn="IS_NGUON_NS_YN" DataSetColumn="IS_NGUON_NS_YN" />
               <Mapping SourceColumn="MA_DVQHNS" DataSetColumn="MA_DVQHNS" />
               <Mapping SourceColumn="MA_CTMT_DA_HTCT" DataSetColumn="MA_CTMT_DA_HTCT" />
               <Mapping SourceColumn="NT_TEN_DON_VI" DataSetColumn="NT_TEN_DON_VI" />
@@ -42,8 +43,7 @@
               <Mapping SourceColumn="TTDVH_KHO_BAC" DataSetColumn="TTDVH_KHO_BAC" />
               <Mapping SourceColumn="TTDVH_SO_TIEN" DataSetColumn="TTDVH_SO_TIEN" />
               <Mapping SourceColumn="SO_TIEN_NOP_THUE" DataSetColumn="SO_TIEN_NOP_THUE" />
-              <Mapping SourceColumn="IS_NGUON_NS_YN" DataSetColumn="IS_NGUON_NS_YN" />
-              <Mapping SourceColumn="NOI_DUNG" DataSetColumn="NOI_DUNG" />
+              <Mapping SourceColumn="NOI_DUNG_CHI" DataSetColumn="NOI_DUNG_CHI" />
               <Mapping SourceColumn="GHI_CHU" DataSetColumn="GHI_CHU" />
               <Mapping SourceColumn="SO_TIEN_TT_CHO_DV_HUONG" DataSetColumn="SO_TIEN_TT_CHO_DV_HUONG" />
               <Mapping SourceColumn="DISPLAY" DataSetColumn="DISPLAY" />
@@ -71,10 +71,10 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="MA_TKKT" msprop:Generator_ColumnVarNameInTable="columnMA_TKKT" msprop:Generator_ColumnPropNameInRow="MA_TKKT" msprop:Generator_ColumnPropNameInTable="MA_TKKTColumn" msprop:Generator_UserColumnName="MA_TKKT">
+              <xs:element name="IS_NGUON_NS_YN" msprop:Generator_ColumnVarNameInTable="columnIS_NGUON_NS_YN" msprop:Generator_ColumnPropNameInRow="IS_NGUON_NS_YN" msprop:Generator_ColumnPropNameInTable="IS_NGUON_NS_YNColumn" msprop:Generator_UserColumnName="IS_NGUON_NS_YN">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:maxLength value="35" />
+                    <xs:maxLength value="1" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
@@ -198,14 +198,7 @@
                 </xs:simpleType>
               </xs:element>
               <xs:element name="SO_TIEN_NOP_THUE" msprop:Generator_ColumnVarNameInTable="columnSO_TIEN_NOP_THUE" msprop:Generator_ColumnPropNameInRow="SO_TIEN_NOP_THUE" msprop:Generator_ColumnPropNameInTable="SO_TIEN_NOP_THUEColumn" msprop:Generator_UserColumnName="SO_TIEN_NOP_THUE" type="xs:decimal" />
-              <xs:element name="IS_NGUON_NS_YN" msprop:Generator_ColumnVarNameInTable="columnIS_NGUON_NS_YN" msprop:Generator_ColumnPropNameInRow="IS_NGUON_NS_YN" msprop:Generator_ColumnPropNameInTable="IS_NGUON_NS_YNColumn" msprop:Generator_UserColumnName="IS_NGUON_NS_YN">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="1" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="NOI_DUNG" msprop:Generator_ColumnVarNameInTable="columnNOI_DUNG" msprop:Generator_ColumnPropNameInRow="NOI_DUNG" msprop:Generator_ColumnPropNameInTable="NOI_DUNGColumn" msprop:Generator_UserColumnName="NOI_DUNG" minOccurs="0">
+              <xs:element name="NOI_DUNG_CHI" msprop:Generator_ColumnVarNameInTable="columnNOI_DUNG_CHI" msprop:Generator_ColumnPropNameInRow="NOI_DUNG_CHI" msprop:Generator_ColumnPropNameInTable="NOI_DUNG_CHIColumn" msprop:Generator_UserColumnName="NOI_DUNG_CHI" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="250" />

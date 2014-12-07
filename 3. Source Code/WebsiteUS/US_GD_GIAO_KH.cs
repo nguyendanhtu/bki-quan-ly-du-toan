@@ -386,6 +386,13 @@ namespace WebUS
 			}
 			return op_dc_tong_tien;
 		}
+
+		public void get_grid_giao_kh_qbt(DataSet op_ds, decimal ip_dc_id_quyet_dinh)
+		{
+			CStoredProc v_sp = new CStoredProc("pr_get_grid_giao_kh_qbt");
+			v_sp.addDecimalInputParam("@ip_dc_id_quyet_dinh", ip_dc_id_quyet_dinh);
+			v_sp.fillDataSetByCommand(this, op_ds);
+		}
 		#endregion
 	}
 }

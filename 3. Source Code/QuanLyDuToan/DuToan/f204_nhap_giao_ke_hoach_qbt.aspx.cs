@@ -30,6 +30,29 @@ namespace QuanLyDuToan.DuToan
 			else op_str_so_tien = CIPConvert.ToStr(CIPConvert.ToDecimal(ip_str_so_tien), "#,###,##");
 			return op_str_so_tien;
 		}
+		public decimal get_so_tien(string ip_str_so_tien)
+		{
+			decimal op_dc_so_tien = 0;
+			if (ip_str_so_tien.Trim().Equals("") | ip_str_so_tien.Trim().Equals("-1"))
+			{
+				op_dc_so_tien = 0;
+			}
+			else if (ip_str_so_tien.Trim().Equals("0"))
+			{
+				op_dc_so_tien = 0;
+			}
+			else op_dc_so_tien = CIPConvert.ToDecimal(ip_str_so_tien);
+			return op_dc_so_tien;
+		}
+		public string get_font_css(string ip_str)
+		{
+			string op_str = "";
+			if (ip_str != "-1" && ip_str != "")
+			{
+				op_str = "cssFontBold";
+			}
+			return op_str;
+		}
 		#endregion
 
 		#region Data Structure
@@ -87,7 +110,10 @@ namespace QuanLyDuToan.DuToan
 			}
 		}
 
-
+		private void load_data_to_ddl_loai_nhiem_vu()
+		{
+			WinFormControls.load_data_to_ddl_loai_nhiem_vu(m_ddl_loai_nhiem_vu);
+		}
 
 
 		private bool check_validate_is_ok(string ip_str_ctx_yn)
@@ -267,17 +293,27 @@ namespace QuanLyDuToan.DuToan
 		{
 			try
 			{
-				DS_V_GD_GIAO_KH v_ds = new DS_V_GD_GIAO_KH();
-				US_V_GD_GIAO_KH v_us = new US_V_GD_GIAO_KH();
-				if (!m_hdf_id_quyet_dinh.Value.Trim().Equals(""))
+				//1. Get dataset
+				DataSet v_ds = new DataSet();
+				DataTable v_dt = new DataTable();
+				v_ds.Tables.Add(v_dt);
+				//2. Lay du lieu
+				US_GD_GIAO_KH v_us = new US_GD_GIAO_KH();
+				decimal v_dc_id_quyet_dinh = -1;
+				if (m_hdf_id_quyet_dinh.Value.Trim().Equals(""))
 				{
-					v_us.FillDataset(v_ds, "where id_quyet_dinh=" + m_hdf_id_quyet_dinh.Value +
-						" and id_don_vi=" + Person.get_id_don_vi() +
-						"and is_nguon_ns_yn='N' and ID_LOAI_DU_AN_CONG_TRINH IS NOT NULL");
+					v_dc_id_quyet_dinh = -1;
 				}
-				//DataSet v_ds_tree_new = get_tree_dataset(v_ds);
-				//m_grv.DataSource = v_ds_tree_new.Tables[0];
-				m_grv.DataSource = v_ds.V_GD_GIAO_KH;
+				else v_dc_id_quyet_dinh = CIPConvert.ToDecimal(m_hdf_id_quyet_dinh.Value);
+				if (v_dc_id_quyet_dinh!=-1)
+				{
+					US_GD_QUYET_DINH v_us_qd = new US_GD_QUYET_DINH(v_dc_id_quyet_dinh);
+					m_lbl_grid_ngay.Text = CIPConvert.ToStr(v_us_qd.datNGAY_THANG, "dd/MM/yyyy");
+					m_lbl_grid_so_quyet_dinh.Text = v_us_qd.strSO_QUYET_DINH;
+					m_lbl_grid_ve_viec.Text = v_us_qd.strNOI_DUNG;
+				}
+				v_us.get_grid_giao_kh_qbt(v_ds, v_dc_id_quyet_dinh);
+				m_grv.DataSource = v_ds.Tables[0];
 				m_grv.DataBind();
 				if (!m_hdf_id_giao_kh.Value.Equals(""))
 				{
@@ -285,7 +321,18 @@ namespace QuanLyDuToan.DuToan
 					for (int i = 0; i < m_grv.Rows.Count; i++)
 						if (CIPConvert.ToDecimal(m_grv.DataKeys[i].Value) == CIPConvert.ToDecimal(m_hdf_id_giao_kh.Value)) m_grv.SelectedIndex = i;
 				}
-				//WinFormControls.get_cout_grid_row(m_lbl_grid_title, "Chi tiết giao kế hoạch", v_ds.V_GD_GIAO_KH.Count);
+				//get tong tien
+				decimal v_dc_tong_tien = 0;
+				for (int i = 0; i < v_ds.Tables[0].Rows.Count; i++)
+				{
+					if (v_ds.Tables[0].Rows[i][GRID_GIAO_KH.ID].ToString()!="-1")
+					{
+						v_dc_tong_tien += get_so_tien(v_ds.Tables[0].Rows[i][GRID_GIAO_KH.NTCT].ToString())+
+							get_so_tien(v_ds.Tables[0].Rows[i][GRID_GIAO_KH.NS].ToString())+
+							get_so_tien(v_ds.Tables[0].Rows[i][GRID_GIAO_KH.QUY].ToString());
+					}
+				}
+				m_lbl_grid_tong_tien.Text = CIPConvert.ToStr(v_dc_tong_tien, "#,###,##");
 
 			}
 			catch (Exception v_e)
@@ -547,6 +594,7 @@ namespace QuanLyDuToan.DuToan
 					if (m_lbl_delete.CommandArgument.Trim().Equals("-1"))
 					{
 						m_lbl_delete.Visible = false;
+						e.Row.CssClass = "cssFontBold";
 					}
 					else
 					{
@@ -564,6 +612,7 @@ namespace QuanLyDuToan.DuToan
 						m_lbl_update.Visible = true;
 					}
 				}
+				
 			}
 		}
 		protected void m_grv_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -723,12 +772,8 @@ namespace QuanLyDuToan.DuToan
 			//reload_data_to_ddl();
 
 		}
-		protected void m_ddl_quyet_dinh_SelectedIndexChanged(object sender, EventArgs e)
+		private void load_data_when_quyet_dinh_is_selected()
 		{
-			if (m_ddl_quyet_dinh.SelectedValue == null) return;
-			m_ddl_quyet_dinh.Visible = false;
-			m_hdf_id_quyet_dinh.Value = m_ddl_quyet_dinh.SelectedValue;
-
 			m_txt_so_qd.Visible = true;
 			m_txt_noi_dung.Visible = true;
 			m_txt_ngay_thang.Visible = true;
@@ -739,8 +784,18 @@ namespace QuanLyDuToan.DuToan
 			m_txt_noi_dung.Text = v_us.strNOI_DUNG;
 			m_txt_ngay_thang.Text = CIPConvert.ToStr(v_us.datNGAY_THANG, "dd/MM/yyyy");
 
-			reload_data_to_ddl();
+			//reload_data_to_ddl();
+			load_data_to_ddl_loai_nhiem_vu();
 			load_data_to_grid();
+		}
+
+		protected void m_ddl_quyet_dinh_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			if (m_ddl_quyet_dinh.SelectedValue == null) return;
+			m_ddl_quyet_dinh.Visible = false;
+			m_hdf_id_quyet_dinh.Value = m_ddl_quyet_dinh.SelectedValue;
+			load_data_when_quyet_dinh_is_selected();
+			
 		}
 		protected void m_cmd_nhap_qd_moi_Click(object sender, EventArgs e)
 		{

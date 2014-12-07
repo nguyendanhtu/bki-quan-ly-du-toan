@@ -126,68 +126,7 @@
 
 									<table cellspacing="0" cellpadding="2" style="width: 100%;" border="0">
 
-										<asp:Panel ID="m_pnl" runat="server" Visible="false">
-											<tr>
-												<td></td>
-												<td>
-													<asp:RadioButton ID="m_rdb_chi_thuong_xuyen" runat="server" ForeColor="Black" Text="Chi thường xuyên"
-														GroupName="loai" Checked="true" OnCheckedChanged="m_rdb_chi_thuong_xuyen_CheckedChanged" AutoPostBack="true" />
-													<asp:RadioButton ID="m_rdb_chi_khong_thuong_xuyen" runat="server" AutoPostBack="true"
-														ForeColor="Black" Text="Chi không thường xuyên" GroupName="loai" OnCheckedChanged="m_rdb_chi_khong_thuong_xuyen_CheckedChanged" />
-												</td>
-											</tr>
-											<tr>
-												<td style="text-align: right">
-													<span>Nội dung</span>
-												</td>
-												<td colspan="1">
-
-													<asp:DropDownList ID="m_ddl_quoc_lo" runat="server" CssClass="cssDorpdownlist" Width="89.5%"
-														AutoPostBack="true" OnSelectedIndexChanged="m_ddl_quoc_lo_SelectedIndexChanged">
-													</asp:DropDownList>
-													<asp:DropDownList ID="m_ddl_du_an" runat="server" CssClass="cssDorpdownlist" Width="89.5%"
-														AutoPostBack="true" OnSelectedIndexChanged="m_ddl_du_an_SelectedIndexChanged">
-													</asp:DropDownList>
-
-												</td>
-											</tr>
-
-											<tr>
-												<td style="text-align: right" style="width: 10%">
-													<span>Số tiền nộp thuế</span>
-												</td>
-												<td style="width: 30%">
-													<asp:TextBox ID="m_txt_so_tien_nop_thue" runat="server" CssClass="cssTextBox" Width="40%"></asp:TextBox>
-												</td>
-												<td style="text-align: right" style="width: 15%">
-													<span>Số tiền thanh toán cho đơn vị hưởng</span>
-												</td>
-												<td style="width: 20%">
-													<asp:TextBox ID="m_txt_so_tien_thanh_toan_cho_dv_huong" runat="server" CssClass="cssTextBox" Width="40%"></asp:TextBox>
-												</td>
-											</tr>
-											<tr>
-												<td style="text-align: right">
-													<span>Ghi chú</span>
-												</td>
-												<td colspan="1">
-													<asp:TextBox ID="m_txt_ghi_chu" runat="server" TextMode="MultiLine" CssClass="cssTextBox" Width="89%" placeholder="Ghi rõ nội dung thanh toán"></asp:TextBox>
-												</td>
-											</tr>
-											<tr>
-												<td></td>
-												<td>
-													<asp:Button ID="m_cmd_ctx_insert" Text="Thêm" runat="server" CssClass="cssButton" Height="24px" Width="98px"
-														OnClick="m_cmd_ctx_insert_Click" />
-													<asp:Button ID="m_cmd_ctx_update" Text="Cập nhật" runat="server" CssClass="cssButton" Height="24px" Width="98px"
-														OnClick="m_cmd_ctx_update_Click" />
-													<asp:Button ID="m_cmd_ctx_cancel" Text="Xóa trắng" runat="server" CssClass="cssButton" Height="24px" Width="98px"
-														OnClick="m_cmd_ctx_cancel_Click" />
-													<asp:HiddenField ID="m_hdf_id_gd_uy_nhiem_chi" runat="server" />
-													<asp:HiddenField ID="m_hdf_id_du_an_cong_trinh" runat="server" />
-												</td>
-											</tr>
-										</asp:Panel>
+					
 										<tr>
 											<td>
 												<asp:Label ID="m_lbl_mess_detail" CssClass="cssManField" runat="server"></asp:Label></td>
@@ -205,14 +144,10 @@
 													<Columns>
 														<asp:TemplateField HeaderText="Loại" HeaderStyle-Width="100px">
 															<EditItemTemplate>
-																<asp:RadioButton ID="m_rdb_grid_edit_ctx" Checked="true" AutoPostBack="true" runat="server" Text="Chi TX" GroupName="grid_loai" OnCheckedChanged="m_rdb_grid_edit_ctx_CheckedChanged" />
-																<br />
-																<asp:RadioButton ID="m_rdb_grid_edit_cktx" AutoPostBack="true" runat="server" Text="Chi không TX" GroupName="grid_loai" OnCheckedChanged="m_rdb_grid_edit_cktx_CheckedChanged" />
+																
 															</EditItemTemplate>
 															<FooterTemplate>
-																<asp:RadioButton ID="m_rdb_grid_ctx" Checked="true" AutoPostBack="true" runat="server" Text="Chi TX" GroupName="grid_loai" OnCheckedChanged="m_rdb_grid_ctx_CheckedChanged" />
-																<br />
-																<asp:RadioButton ID="m_rdb_grid_cktx" AutoPostBack="true" runat="server" Text="Chi không TX" GroupName="grid_loai" OnCheckedChanged="m_rdb_grid_cktx_CheckedChanged" />
+																
 															</FooterTemplate>
 														</asp:TemplateField>
 														<asp:TemplateField HeaderText="Quốc lộ/Dự án" HeaderStyle-Width="200px">

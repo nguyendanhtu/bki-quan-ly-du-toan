@@ -13,7 +13,7 @@
               <DbSource ConnectionRef="BKI_QLDT_TESTConnectionString (Settings)" DbObjectName="BKI_QLDT_TEST.dbo.V_GD_GIAO_VON" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT ID, ID_DON_VI, ID_QUYET_DINH, ID_DU_AN_CONG_TRINH, SO_TIEN_QUY_BT, SO_TIEN_NS, ID_CHUONG, ID_KHOAN, ID_MUC, GHI_CHU, ID_TIEU_MUC, TEN_DU_AN, SO_QUYET_DINH, NOI_DUNG, NGAY_THANG, ID_LOAI_QUYET_DINH, ID_LOAI FROM dbo.V_GD_GIAO_VON</CommandText>
+                    <CommandText>SELECT ID, ID_DON_VI, ID_QUYET_DINH, ID_DU_AN_CONG_TRINH, SO_TIEN_QUY_BT, SO_TIEN_NS, ID_CHUONG, ID_KHOAN, ID_MUC, GHI_CHU, ID_TIEU_MUC, TEN_DU_AN, LOAI_NHIEM_VU, SO_QUYET_DINH, NOI_DUNG, NGAY_THANG, ID_LOAI_QUYET_DINH, ID_LOAI FROM dbo.V_GD_GIAO_VON</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -32,6 +32,7 @@
               <Mapping SourceColumn="GHI_CHU" DataSetColumn="GHI_CHU" />
               <Mapping SourceColumn="ID_TIEU_MUC" DataSetColumn="ID_TIEU_MUC" />
               <Mapping SourceColumn="TEN_DU_AN" DataSetColumn="TEN_DU_AN" />
+              <Mapping SourceColumn="LOAI_NHIEM_VU" DataSetColumn="LOAI_NHIEM_VU" />
               <Mapping SourceColumn="SO_QUYET_DINH" DataSetColumn="SO_QUYET_DINH" />
               <Mapping SourceColumn="NOI_DUNG" DataSetColumn="NOI_DUNG" />
               <Mapping SourceColumn="NGAY_THANG" DataSetColumn="NGAY_THANG" />
@@ -75,6 +76,7 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="LOAI_NHIEM_VU" msprop:Generator_ColumnVarNameInTable="columnLOAI_NHIEM_VU" msprop:Generator_ColumnPropNameInRow="LOAI_NHIEM_VU" msprop:Generator_ColumnPropNameInTable="LOAI_NHIEM_VUColumn" msprop:Generator_UserColumnName="LOAI_NHIEM_VU" type="xs:decimal" minOccurs="0" />
               <xs:element name="SO_QUYET_DINH" msprop:Generator_ColumnVarNameInTable="columnSO_QUYET_DINH" msprop:Generator_ColumnPropNameInRow="SO_QUYET_DINH" msprop:Generator_ColumnPropNameInTable="SO_QUYET_DINHColumn" msprop:Generator_UserColumnName="SO_QUYET_DINH">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">

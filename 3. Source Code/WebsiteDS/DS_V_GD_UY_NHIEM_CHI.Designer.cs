@@ -287,8 +287,6 @@ namespace WebDS {
             
             private global::System.Data.DataColumn columnSO_TIEN_NOP_THUE;
             
-            private global::System.Data.DataColumn columnIS_NGUON_NS_YN;
-            
             private global::System.Data.DataColumn columnID_UNC;
             
             private global::System.Data.DataColumn columnNOI_DUNG_CHI;
@@ -311,7 +309,7 @@ namespace WebDS {
             
             private global::System.Data.DataColumn columnSO_UNC;
             
-            private global::System.Data.DataColumn columnMA_TKKT;
+            private global::System.Data.DataColumn columnIS_NGUON_NS_YN;
             
             private global::System.Data.DataColumn columnMA_DVQHNS;
             
@@ -416,14 +414,6 @@ namespace WebDS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn IS_NGUON_NS_YNColumn {
-                get {
-                    return this.columnIS_NGUON_NS_YN;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn ID_UNCColumn {
                 get {
                     return this.columnID_UNC;
@@ -512,9 +502,9 @@ namespace WebDS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn MA_TKKTColumn {
+            public global::System.Data.DataColumn IS_NGUON_NS_YNColumn {
                 get {
-                    return this.columnMA_TKKT;
+                    return this.columnIS_NGUON_NS_YN;
                 }
             }
             
@@ -703,7 +693,6 @@ namespace WebDS {
                         decimal ID_DON_VI, 
                         decimal ID_DU_AN_CONG_TRINH, 
                         decimal SO_TIEN_NOP_THUE, 
-                        string IS_NGUON_NS_YN, 
                         decimal ID_UNC, 
                         string NOI_DUNG_CHI, 
                         string GHI_CHU, 
@@ -715,7 +704,7 @@ namespace WebDS {
                         string TEN_DU_AN, 
                         System.DateTime NGAY_THANG, 
                         string SO_UNC, 
-                        string MA_TKKT, 
+                        string IS_NGUON_NS_YN, 
                         string MA_DVQHNS, 
                         string MA_CTMT_DA_HTCT, 
                         string NT_TEN_DON_VI, 
@@ -740,7 +729,6 @@ namespace WebDS {
                         ID_DON_VI,
                         ID_DU_AN_CONG_TRINH,
                         SO_TIEN_NOP_THUE,
-                        IS_NGUON_NS_YN,
                         ID_UNC,
                         NOI_DUNG_CHI,
                         GHI_CHU,
@@ -752,7 +740,7 @@ namespace WebDS {
                         TEN_DU_AN,
                         NGAY_THANG,
                         SO_UNC,
-                        MA_TKKT,
+                        IS_NGUON_NS_YN,
                         MA_DVQHNS,
                         MA_CTMT_DA_HTCT,
                         NT_TEN_DON_VI,
@@ -810,7 +798,6 @@ namespace WebDS {
                 this.columnID_DON_VI = base.Columns["ID_DON_VI"];
                 this.columnID_DU_AN_CONG_TRINH = base.Columns["ID_DU_AN_CONG_TRINH"];
                 this.columnSO_TIEN_NOP_THUE = base.Columns["SO_TIEN_NOP_THUE"];
-                this.columnIS_NGUON_NS_YN = base.Columns["IS_NGUON_NS_YN"];
                 this.columnID_UNC = base.Columns["ID_UNC"];
                 this.columnNOI_DUNG_CHI = base.Columns["NOI_DUNG_CHI"];
                 this.columnGHI_CHU = base.Columns["GHI_CHU"];
@@ -822,7 +809,7 @@ namespace WebDS {
                 this.columnTEN_DU_AN = base.Columns["TEN_DU_AN"];
                 this.columnNGAY_THANG = base.Columns["NGAY_THANG"];
                 this.columnSO_UNC = base.Columns["SO_UNC"];
-                this.columnMA_TKKT = base.Columns["MA_TKKT"];
+                this.columnIS_NGUON_NS_YN = base.Columns["IS_NGUON_NS_YN"];
                 this.columnMA_DVQHNS = base.Columns["MA_DVQHNS"];
                 this.columnMA_CTMT_DA_HTCT = base.Columns["MA_CTMT_DA_HTCT"];
                 this.columnNT_TEN_DON_VI = base.Columns["NT_TEN_DON_VI"];
@@ -854,8 +841,6 @@ namespace WebDS {
                 base.Columns.Add(this.columnID_DU_AN_CONG_TRINH);
                 this.columnSO_TIEN_NOP_THUE = new global::System.Data.DataColumn("SO_TIEN_NOP_THUE", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSO_TIEN_NOP_THUE);
-                this.columnIS_NGUON_NS_YN = new global::System.Data.DataColumn("IS_NGUON_NS_YN", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnIS_NGUON_NS_YN);
                 this.columnID_UNC = new global::System.Data.DataColumn("ID_UNC", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnID_UNC);
                 this.columnNOI_DUNG_CHI = new global::System.Data.DataColumn("NOI_DUNG_CHI", typeof(string), null, global::System.Data.MappingType.Element);
@@ -878,8 +863,8 @@ namespace WebDS {
                 base.Columns.Add(this.columnNGAY_THANG);
                 this.columnSO_UNC = new global::System.Data.DataColumn("SO_UNC", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSO_UNC);
-                this.columnMA_TKKT = new global::System.Data.DataColumn("MA_TKKT", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnMA_TKKT);
+                this.columnIS_NGUON_NS_YN = new global::System.Data.DataColumn("IS_NGUON_NS_YN", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnIS_NGUON_NS_YN);
                 this.columnMA_DVQHNS = new global::System.Data.DataColumn("MA_DVQHNS", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnMA_DVQHNS);
                 this.columnMA_CTMT_DA_HTCT = new global::System.Data.DataColumn("MA_CTMT_DA_HTCT", typeof(string), null, global::System.Data.MappingType.Element);
@@ -926,8 +911,6 @@ namespace WebDS {
                 this.columnID.Unique = true;
                 this.columnID_DON_VI.AllowDBNull = false;
                 this.columnSO_TIEN_NOP_THUE.AllowDBNull = false;
-                this.columnIS_NGUON_NS_YN.AllowDBNull = false;
-                this.columnIS_NGUON_NS_YN.MaxLength = 1;
                 this.columnID_UNC.AllowDBNull = false;
                 this.columnNOI_DUNG_CHI.MaxLength = 250;
                 this.columnGHI_CHU.MaxLength = 250;
@@ -935,8 +918,8 @@ namespace WebDS {
                 this.columnNGAY_THANG.AllowDBNull = false;
                 this.columnSO_UNC.AllowDBNull = false;
                 this.columnSO_UNC.MaxLength = 35;
-                this.columnMA_TKKT.AllowDBNull = false;
-                this.columnMA_TKKT.MaxLength = 35;
+                this.columnIS_NGUON_NS_YN.AllowDBNull = false;
+                this.columnIS_NGUON_NS_YN.MaxLength = 1;
                 this.columnMA_DVQHNS.AllowDBNull = false;
                 this.columnMA_DVQHNS.MaxLength = 35;
                 this.columnMA_CTMT_DA_HTCT.AllowDBNull = false;
@@ -1150,17 +1133,6 @@ namespace WebDS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string IS_NGUON_NS_YN {
-                get {
-                    return ((string)(this[this.tableV_GD_UY_NHIEM_CHI.IS_NGUON_NS_YNColumn]));
-                }
-                set {
-                    this[this.tableV_GD_UY_NHIEM_CHI.IS_NGUON_NS_YNColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public decimal ID_UNC {
                 get {
                     return ((decimal)(this[this.tableV_GD_UY_NHIEM_CHI.ID_UNCColumn]));
@@ -1323,12 +1295,12 @@ namespace WebDS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string MA_TKKT {
+            public string IS_NGUON_NS_YN {
                 get {
-                    return ((string)(this[this.tableV_GD_UY_NHIEM_CHI.MA_TKKTColumn]));
+                    return ((string)(this[this.tableV_GD_UY_NHIEM_CHI.IS_NGUON_NS_YNColumn]));
                 }
                 set {
-                    this[this.tableV_GD_UY_NHIEM_CHI.MA_TKKTColumn] = value;
+                    this[this.tableV_GD_UY_NHIEM_CHI.IS_NGUON_NS_YNColumn] = value;
                 }
             }
             
@@ -2061,7 +2033,6 @@ namespace WebDS.DS_V_GD_UY_NHIEM_CHITableAdapters {
             tableMapping.ColumnMappings.Add("ID_DON_VI", "ID_DON_VI");
             tableMapping.ColumnMappings.Add("ID_DU_AN_CONG_TRINH", "ID_DU_AN_CONG_TRINH");
             tableMapping.ColumnMappings.Add("SO_TIEN_NOP_THUE", "SO_TIEN_NOP_THUE");
-            tableMapping.ColumnMappings.Add("IS_NGUON_NS_YN", "IS_NGUON_NS_YN");
             tableMapping.ColumnMappings.Add("ID_UNC", "ID_UNC");
             tableMapping.ColumnMappings.Add("NOI_DUNG_CHI", "NOI_DUNG_CHI");
             tableMapping.ColumnMappings.Add("GHI_CHU", "GHI_CHU");
@@ -2073,7 +2044,7 @@ namespace WebDS.DS_V_GD_UY_NHIEM_CHITableAdapters {
             tableMapping.ColumnMappings.Add("TEN_DU_AN", "TEN_DU_AN");
             tableMapping.ColumnMappings.Add("NGAY_THANG", "NGAY_THANG");
             tableMapping.ColumnMappings.Add("SO_UNC", "SO_UNC");
-            tableMapping.ColumnMappings.Add("MA_TKKT", "MA_TKKT");
+            tableMapping.ColumnMappings.Add("IS_NGUON_NS_YN", "IS_NGUON_NS_YN");
             tableMapping.ColumnMappings.Add("MA_DVQHNS", "MA_DVQHNS");
             tableMapping.ColumnMappings.Add("MA_CTMT_DA_HTCT", "MA_CTMT_DA_HTCT");
             tableMapping.ColumnMappings.Add("NT_TEN_DON_VI", "NT_TEN_DON_VI");
@@ -2108,7 +2079,7 @@ namespace WebDS.DS_V_GD_UY_NHIEM_CHITableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT ID, ID_DON_VI, ID_DU_AN_CONG_TRINH, SO_TIEN_NOP_THUE, IS_NGUON_NS_YN, ID_UNC, NOI_DUNG_CHI, GHI_CHU, ID_CHUONG, ID_KHOAN, ID_MUC, ID_TIEU_MUC, SO_TIEN_TT_CHO_DV_HUONG, TEN_DU_AN, NGAY_THANG, SO_UNC, MA_TKKT, MA_DVQHNS, MA_CTMT_DA_HTCT, NT_TEN_DON_VI, NT_MA_SO_THUE, NT_MA_NDKT, NT_MA_CHUONG, NT_CQ_QL_THU, NT_MA_CQ_THU, NT_KBNN_HACH_TOAN_KHOAN_THU, NT_SO_TIEN_NOP_THUE, TTDVH_DON_VI_NHAN_TIEN, TTDVH_MA_DVQHNS, TTDVH_DIA_CHI, TTDVH_TAI_KHOAN, TTDVH_MA_CTMT_DA_VA_HTCT, TTDVH_KHO_BAC, TTDVH_SO_TIEN, DISPLAY FROM dbo.V_GD_UY_NHIEM_CHI";
+            this._commandCollection[0].CommandText = @"SELECT ID, ID_DON_VI, ID_DU_AN_CONG_TRINH, SO_TIEN_NOP_THUE, ID_UNC, NOI_DUNG_CHI, GHI_CHU, ID_CHUONG, ID_KHOAN, ID_MUC, ID_TIEU_MUC, SO_TIEN_TT_CHO_DV_HUONG, TEN_DU_AN, NGAY_THANG, SO_UNC, IS_NGUON_NS_YN, MA_DVQHNS, MA_CTMT_DA_HTCT, NT_TEN_DON_VI, NT_MA_SO_THUE, NT_MA_NDKT, NT_MA_CHUONG, NT_CQ_QL_THU, NT_MA_CQ_THU, NT_KBNN_HACH_TOAN_KHOAN_THU, NT_SO_TIEN_NOP_THUE, TTDVH_DON_VI_NHAN_TIEN, TTDVH_MA_DVQHNS, TTDVH_DIA_CHI, TTDVH_TAI_KHOAN, TTDVH_MA_CTMT_DA_VA_HTCT, TTDVH_KHO_BAC, TTDVH_SO_TIEN, DISPLAY FROM dbo.V_GD_UY_NHIEM_CHI";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
