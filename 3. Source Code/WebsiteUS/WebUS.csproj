@@ -85,6 +85,8 @@
     <Compile Include="US_GD_GIAO_VON.cs" />
     <Compile Include="US_GD_QUYET_DINH.cs" />
     <Compile Include="US_GD_UY_NHIEM_CHI.cs" />
+    <Compile Include="US_GRID_GIAO_KH.cs" />
+    <Compile Include="US_GRID_GIAO_VON.cs" />
     <Compile Include="US_HT_CHUC_NANG.cs" />
     <Compile Include="US_HT_LICH_SU_QLDT.cs" />
     <Compile Include="US_HT_LOG_LOGIN.cs" />
