@@ -110,26 +110,26 @@ namespace WebUS
 			pm_objDR["SO_UNC"] = System.Convert.DBNull;
 		}
 
-		public string strMA_TKKT
+		public string strIS_NGUON_NS_YN
 		{
 			get
 			{
-				return CNull.RowNVLString(pm_objDR, "MA_TKKT", IPConstants.c_DefaultString);
+				return CNull.RowNVLString(pm_objDR, "IS_NGUON_NS_YN", IPConstants.c_DefaultString);
 			}
 			set
 			{
-				pm_objDR["MA_TKKT"] = value;
+				pm_objDR["IS_NGUON_NS_YN"] = value;
 			}
 		}
 
-		public bool IsMA_TKKTNull()
+		public bool IsIS_NGUON_NS_YNNull()
 		{
-			return pm_objDR.IsNull("MA_TKKT");
+			return pm_objDR.IsNull("IS_NGUON_NS_YN");
 		}
 
-		public void SetMA_TKKTNull()
+		public void SetIS_NGUON_NS_YNNull()
 		{
-			pm_objDR["MA_TKKT"] = System.Convert.DBNull;
+			pm_objDR["IS_NGUON_NS_YN"] = System.Convert.DBNull;
 		}
 
 		public string strMA_DVQHNS

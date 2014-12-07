@@ -110,26 +110,26 @@ namespace WebUS
 			pm_objDR["SO_UNC"] = System.Convert.DBNull;
 		}
 
-		public string strMA_TKKT
+		public string strIS_NGUON_NS_YN
 		{
 			get
 			{
-				return CNull.RowNVLString(pm_objDR, "MA_TKKT", IPConstants.c_DefaultString);
+				return CNull.RowNVLString(pm_objDR, "IS_NGUON_NS_YN", IPConstants.c_DefaultString);
 			}
 			set
 			{
-				pm_objDR["MA_TKKT"] = value;
+				pm_objDR["IS_NGUON_NS_YN"] = value;
 			}
 		}
 
-		public bool IsMA_TKKTNull()
+		public bool IsIS_NGUON_NS_YNNull()
 		{
-			return pm_objDR.IsNull("MA_TKKT");
+			return pm_objDR.IsNull("IS_NGUON_NS_YN");
 		}
 
-		public void SetMA_TKKTNull()
+		public void SetIS_NGUON_NS_YNNull()
 		{
-			pm_objDR["MA_TKKT"] = System.Convert.DBNull;
+			pm_objDR["IS_NGUON_NS_YN"] = System.Convert.DBNull;
 		}
 
 		public string strMA_DVQHNS
@@ -528,48 +528,26 @@ namespace WebUS
 			pm_objDR["SO_TIEN_NOP_THUE"] = System.Convert.DBNull;
 		}
 
-		public string strIS_NGUON_NS_YN
+		public string strNOI_DUNG_CHI
 		{
 			get
 			{
-				return CNull.RowNVLString(pm_objDR, "IS_NGUON_NS_YN", IPConstants.c_DefaultString);
+				return CNull.RowNVLString(pm_objDR, "NOI_DUNG_CHI", IPConstants.c_DefaultString);
 			}
 			set
 			{
-				pm_objDR["IS_NGUON_NS_YN"] = value;
+				pm_objDR["NOI_DUNG_CHI"] = value;
 			}
 		}
 
-		public bool IsIS_NGUON_NS_YNNull()
+		public bool IsNOI_DUNG_CHINull()
 		{
-			return pm_objDR.IsNull("IS_NGUON_NS_YN");
+			return pm_objDR.IsNull("NOI_DUNG_CHI");
 		}
 
-		public void SetIS_NGUON_NS_YNNull()
+		public void SetNOI_DUNG_CHINull()
 		{
-			pm_objDR["IS_NGUON_NS_YN"] = System.Convert.DBNull;
-		}
-
-		public string strNOI_DUNG
-		{
-			get
-			{
-				return CNull.RowNVLString(pm_objDR, "NOI_DUNG", IPConstants.c_DefaultString);
-			}
-			set
-			{
-				pm_objDR["NOI_DUNG"] = value;
-			}
-		}
-
-		public bool IsNOI_DUNGNull()
-		{
-			return pm_objDR.IsNull("NOI_DUNG");
-		}
-
-		public void SetNOI_DUNGNull()
-		{
-			pm_objDR["NOI_DUNG"] = System.Convert.DBNull;
+			pm_objDR["NOI_DUNG_CHI"] = System.Convert.DBNull;
 		}
 
 		public string strGHI_CHU

@@ -286,6 +286,28 @@ namespace WebUS
 			pm_objDR["TEN_DU_AN"] = System.Convert.DBNull;
 		}
 
+		public decimal dcLOAI_NHIEM_VU
+		{
+			get
+			{
+				return CNull.RowNVLDecimal(pm_objDR, "LOAI_NHIEM_VU", IPConstants.c_DefaultDecimal);
+			}
+			set
+			{
+				pm_objDR["LOAI_NHIEM_VU"] = value;
+			}
+		}
+
+		public bool IsLOAI_NHIEM_VUNull()
+		{
+			return pm_objDR.IsNull("LOAI_NHIEM_VU");
+		}
+
+		public void SetLOAI_NHIEM_VUNull()
+		{
+			pm_objDR["LOAI_NHIEM_VU"] = System.Convert.DBNull;
+		}
+
 		public string strSO_QUYET_DINH
 		{
 			get

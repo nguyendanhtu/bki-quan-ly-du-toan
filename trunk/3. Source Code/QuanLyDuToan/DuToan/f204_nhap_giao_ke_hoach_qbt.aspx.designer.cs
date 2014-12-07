@@ -301,6 +301,42 @@ namespace QuanLyDuToan.DuToan {
         protected global::System.Web.UI.WebControls.Label m_lbl_mess_grid;
         
         /// <summary>
+        /// m_lbl_grid_so_quyet_dinh control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label m_lbl_grid_so_quyet_dinh;
+        
+        /// <summary>
+        /// m_lbl_grid_ngay control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label m_lbl_grid_ngay;
+        
+        /// <summary>
+        /// m_lbl_grid_ve_viec control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label m_lbl_grid_ve_viec;
+        
+        /// <summary>
+        /// m_lbl_grid_tong_tien control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label m_lbl_grid_tong_tien;
+        
+        /// <summary>
         /// m_grv control.
         /// </summary>
         /// <remarks>

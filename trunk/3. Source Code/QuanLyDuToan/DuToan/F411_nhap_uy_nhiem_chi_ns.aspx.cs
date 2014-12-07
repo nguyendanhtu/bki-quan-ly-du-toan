@@ -204,7 +204,7 @@ namespace QuanLyDuToan.DuToan
 			m_txt_so_unc.Text = v_us_dm_uy_nhiem_chi.strSO_UNC;
 			m_txt_ngay_thang.Text = CIPConvert.ToStr(v_us_dm_uy_nhiem_chi.datNGAY_THANG, "dd/MM/yyyy");
 			m_lbl_tai_kho_bac_nha_nuoc.Text = v_us_thong_tin_don_vi.strKHO_BAC;
-			m_rbl_ma_tkkt.Items.FindByText(v_us_dm_uy_nhiem_chi.strMA_TKKT).Selected = true;
+			//m_rbl_ma_tkkt.Items.FindByText(v_us_dm_uy_nhiem_chi.strMA_TKKT).Selected = true;
 			m_lbl_ma_dvqhns.Text = v_us_dm_uy_nhiem_chi.strMA_DVQHNS;
 			m_txt_ma_ctmt_da_htct.Text = v_us_dm_uy_nhiem_chi.strMA_CTMT_DA_HTCT;
 			m_hdf_id_dm_uy_nhiem_chi.Value = v_us_dm_uy_nhiem_chi.dcID.ToString();
@@ -518,8 +518,8 @@ namespace QuanLyDuToan.DuToan
 				m_txt_so_unc.Text = v_us.strSO_UNC;
 				m_txt_ngay_thang.Text = CIPConvert.ToStr(v_us.datNGAY_THANG, "dd/MM/yyyy");
 				m_lbl_tai_kho_bac_nha_nuoc.Text = v_us_thong_tin_don_vi.strKHO_BAC;
-				if (m_rbl_ma_tkkt.Items.FindByText(v_us.strMA_TKKT) != null)
-					m_rbl_ma_tkkt.Items.FindByText(v_us.strMA_TKKT).Selected = true;
+				//if (m_rbl_ma_tkkt.Items.FindByText(v_us.strMA_TKKT) != null)
+				//	m_rbl_ma_tkkt.Items.FindByText(v_us.strMA_TKKT).Selected = true;
 				m_lbl_ma_dvqhns.Text = v_us.strMA_DVQHNS;
 				m_txt_ma_ctmt_da_htct.Text = v_us.strMA_CTMT_DA_HTCT;
 				//info dm unc
@@ -611,7 +611,7 @@ namespace QuanLyDuToan.DuToan
 				//v_us.strKHO_BAC_NHA_NUOC = m_lbl_tai_kho_bac_nha_nuoc.Text.Trim();
 				v_us.strMA_CTMT_DA_HTCT = m_txt_ma_ctmt_da_htct.Text.Trim();
 				v_us.strMA_DVQHNS = m_lbl_ma_dvqhns.Text.Trim();
-				v_us.strMA_TKKT = m_rbl_ma_tkkt.SelectedItem.Text;
+				//v_us.strMA_TKKT = m_rbl_ma_tkkt.SelectedItem.Text;
 				v_us.strSO_UNC = m_txt_so_unc.Text.Trim();
 				v_us.datNGAY_THANG = CIPConvert.ToDatetime(m_txt_ngay_thang.Text.Trim(), "dd/MM/yyyy");
 				v_us.Insert();
@@ -707,7 +707,7 @@ namespace QuanLyDuToan.DuToan
 				v_us_dm_unc.strTTDVH_MA_CTMT_DA_VA_HTCT = m_txt_ttdvh_ma_ctmt_da_htct.Text;
 				v_us_dm_unc.strTTDVH_KHO_BAC = m_txt_ttdvh_tai_kbnn.Text;
 				v_us_dm_unc.strTTDVH_SO_TIEN = m_txt_ttdvh_so_tien_thanh_toan.Text;
-				v_us_dm_unc.strMA_TKKT = m_rbl_ma_tkkt.SelectedItem.Text;
+				//v_us_dm_unc.strMA_TKKT = m_rbl_ma_tkkt.SelectedItem.Text;
 				v_us_dm_unc.Update();
 				m_lbl_mess_info_unc.Text = "Đã cập nhật thông tin thành công!";
 			}

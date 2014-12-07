@@ -543,7 +543,7 @@ namespace QuanLyDuToan.DuToan
 				m_txt_so_unc.Text = v_us.strSO_UNC;
 				m_txt_ngay_thang.Text = CIPConvert.ToStr(v_us.datNGAY_THANG, "dd/MM/yyyy");
 				m_lbl_tai_kho_bac_nha_nuoc.Text = v_us_thong_tin_don_vi.strKHO_BAC;
-				m_lbl_ma_tkkt.Text = v_us.strMA_TKKT;
+				//m_lbl_ma_tkkt.Text = v_us.strMA_TKKT;
 				m_lbl_ma_dvqhns.Text = v_us.strMA_DVQHNS;
 				m_txt_ma_ctmt_da_htct.Text = v_us.strMA_CTMT_DA_HTCT;
 				//info dm unc
@@ -620,7 +620,7 @@ namespace QuanLyDuToan.DuToan
 			//v_us.strKHO_BAC_NHA_NUOC = m_lbl_tai_kho_bac_nha_nuoc.Text.Trim();
 			v_us.strMA_CTMT_DA_HTCT = m_txt_ma_ctmt_da_htct.Text.Trim();
 			v_us.strMA_DVQHNS = m_lbl_ma_dvqhns.Text.Trim();
-			v_us.strMA_TKKT = m_lbl_ma_tkkt.Text.Trim();
+			//v_us.strMA_TKKT = m_lbl_ma_tkkt.Text.Trim();
 			v_us.strSO_UNC = m_txt_so_unc.Text.Trim();
 			v_us.datNGAY_THANG = CIPConvert.ToDatetime(m_txt_ngay_thang.Text.Trim(), "dd/MM/yyyy");
 			v_us.Insert();
