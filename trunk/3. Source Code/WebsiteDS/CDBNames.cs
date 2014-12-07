@@ -60,6 +60,7 @@ namespace WebDS.CDBNames
 	}
 
 
+
 	public class GET_MUC_TIEU_MUC
 	{
 		public const string ID = "ID_MIX";//co dang id_chuong|id_loai|id_khoan|id_muc|id_tieu_muc
@@ -73,13 +74,14 @@ namespace WebDS.CDBNames
 		public const string SO_TIEN_NOP_THUE = "SO_TIEN_NOP_THUE";
 		public const string IS_NGUON_NS_YN = "IS_NGUON_NS_YN";
 		public const string ID_UNC = "ID_UNC";
-		public const string NOI_DUNG = "NOI_DUNG";
+		public const string NOI_DUNG_CHI = "NOI_DUNG_CHI";
 		public const string GHI_CHU = "GHI_CHU";
 		public const string ID_CHUONG = "ID_CHUONG";
 		public const string ID_KHOAN = "ID_KHOAN";
 		public const string ID_MUC = "ID_MUC";
 		public const string ID_TIEU_MUC = "ID_TIEU_MUC";
 		public const string SO_TIEN_TT_CHO_DV_HUONG = "SO_TIEN_TT_CHO_DV_HUONG";
+		public const string TEN_DU_AN = "TEN_DU_AN";
 		public const string NGAY_THANG = "NGAY_THANG";
 		public const string SO_UNC = "SO_UNC";
 		public const string MA_TKKT = "MA_TKKT";
@@ -100,9 +102,9 @@ namespace WebDS.CDBNames
 		public const string TTDVH_MA_CTMT_DA_VA_HTCT = "TTDVH_MA_CTMT_DA_VA_HTCT";
 		public const string TTDVH_KHO_BAC = "TTDVH_KHO_BAC";
 		public const string TTDVH_SO_TIEN = "TTDVH_SO_TIEN";
-		public const string ID_LOAI_DU_AN_CONG_TRINH = "ID_LOAI_DU_AN_CONG_TRINH";
 		public const string DISPLAY = "DISPLAY";
 	}
+
 
 
 
@@ -123,21 +125,19 @@ namespace WebDS.CDBNames
 		public const string ID_DU_AN_CONG_TRINH = "ID_DU_AN_CONG_TRINH";
 		public const string SO_TIEN_QUY_BT = "SO_TIEN_QUY_BT";
 		public const string SO_TIEN_NS = "SO_TIEN_NS";
-		public const string IS_NGUON_NS_YN = "IS_NGUON_NS_YN";
-		public const string ID_LOAI_GIAO_DICH = "ID_LOAI_GIAO_DICH";
 		public const string ID_CHUONG = "ID_CHUONG";
 		public const string ID_KHOAN = "ID_KHOAN";
 		public const string ID_MUC = "ID_MUC";
 		public const string GHI_CHU = "GHI_CHU";
 		public const string ID_TIEU_MUC = "ID_TIEU_MUC";
+		public const string TEN_DU_AN = "TEN_DU_AN";
 		public const string SO_QUYET_DINH = "SO_QUYET_DINH";
 		public const string NOI_DUNG = "NOI_DUNG";
 		public const string NGAY_THANG = "NGAY_THANG";
-		public const string ID_LOAI_DU_AN_CONG_TRINH = "ID_LOAI_DU_AN_CONG_TRINH";
-		public const string DISPLAY = "DISPLAY";
-		public const string TEN_NGAN = "TEN_NGAN";
-		public const string TEN = "TEN";
+		public const string ID_LOAI_QUYET_DINH = "ID_LOAI_QUYET_DINH";
+		public const string ID_LOAI = "ID_LOAI";
 	}
+
 
 
 
@@ -149,22 +149,25 @@ namespace WebDS.CDBNames
 		public const string ID_DU_AN_CONG_TRINH = "ID_DU_AN_CONG_TRINH";
 		public const string SO_TIEN_QUY_BT = "SO_TIEN_QUY_BT";
 		public const string SO_TIEN_NS = "SO_TIEN_NS";
-		public const string IS_NGUON_NS_YN = "IS_NGUON_NS_YN";
-		public const string ID_LOAI_GIAO_DICH = "ID_LOAI_GIAO_DICH";
 		public const string ID_CHUONG = "ID_CHUONG";
 		public const string ID_KHOAN = "ID_KHOAN";
 		public const string ID_MUC = "ID_MUC";
 		public const string GHI_CHU = "GHI_CHU";
 		public const string ID_TIEU_MUC = "ID_TIEU_MUC";
 		public const string SO_TIEN_NAM_TRUOC_CHUYEN_SANG = "SO_TIEN_NAM_TRUOC_CHUYEN_SANG";
+		public const string LOAI_NHIEM_VU = "LOAI_NHIEM_VU";
+		public const string TEN_DU_AN = "TEN_DU_AN";
 		public const string SO_QUYET_DINH = "SO_QUYET_DINH";
 		public const string NOI_DUNG = "NOI_DUNG";
 		public const string NGAY_THANG = "NGAY_THANG";
-		public const string ID_LOAI_DU_AN_CONG_TRINH = "ID_LOAI_DU_AN_CONG_TRINH";
-		public const string DISPLAY = "DISPLAY";
+		public const string ID_LOAI_QUYET_DINH = "ID_LOAI_QUYET_DINH";
+		public const string ID_LOAI = "ID_LOAI";
+		public const string TEN_DU_AN_CONG_TRINH = "TEN_DU_AN_CONG_TRINH";
 		public const string TEN_NGAN = "TEN_NGAN";
-		public const string TEN = "TEN";
+		public const string STT = "STT";
 	}
+
+
 
 
 
@@ -177,45 +180,63 @@ namespace WebDS.CDBNames
 		public const string NOI_DUNG = "NOI_DUNG";
 		public const string NGAY_THANG = "NGAY_THANG";
 		public const string ID_LOAI_QUYET_DINH = "ID_LOAI_QUYET_DINH";
+		public const string ID_LOAI = "ID_LOAI";
 	}
+
 
 	public class DM_DU_AN_CONG_TRINH
 	{
 		public const string ID = "ID";
 		public const string TEN_DU_AN_CONG_TRINH = "TEN_DU_AN_CONG_TRINH";
-		public const string ID_LOAI_DU_AN_CONG_TRINH = "ID_LOAI_DU_AN_CONG_TRINH";
 		public const string ID_DON_VI = "ID_DON_VI";
-		public const string GHI_CHU = "GHI_CHU";
 	}
-	public class DM_LOAI_DON_VI
-	{
-		public const string ID = "ID";
-		public const string ID_DON_VI = "ID_DON_VI";
-		public const string IS_DON_VI_SU_NGHIEP_TU_CHU_TAI_CHINH_YN = "IS_DON_VI_SU_NGHIEP_TU_CHU_TAI_CHINH_YN";
-	}
+
+
 	public class DM_UY_NHIEM_CHI
 	{
 		public const string ID = "ID";
 		public const string ID_DON_VI = "ID_DON_VI";
 		public const string NGAY_THANG = "NGAY_THANG";
 		public const string SO_UNC = "SO_UNC";
-		public const string NOI_DUNG = "NOI_DUNG";
-		public const string GHI_CHU = "GHI_CHU";
+		public const string MA_TKKT = "MA_TKKT";
+		public const string MA_DVQHNS = "MA_DVQHNS";
+		public const string MA_CTMT_DA_HTCT = "MA_CTMT_DA_HTCT";
+		public const string NT_TEN_DON_VI = "NT_TEN_DON_VI";
+		public const string NT_MA_SO_THUE = "NT_MA_SO_THUE";
+		public const string NT_MA_NDKT = "NT_MA_NDKT";
+		public const string NT_MA_CHUONG = "NT_MA_CHUONG";
+		public const string NT_CQ_QL_THU = "NT_CQ_QL_THU";
+		public const string NT_MA_CQ_THU = "NT_MA_CQ_THU";
+		public const string NT_KBNN_HACH_TOAN_KHOAN_THU = "NT_KBNN_HACH_TOAN_KHOAN_THU";
+		public const string NT_SO_TIEN_NOP_THUE = "NT_SO_TIEN_NOP_THUE";
+		public const string TTDVH_DON_VI_NHAN_TIEN = "TTDVH_DON_VI_NHAN_TIEN";
+		public const string TTDVH_MA_DVQHNS = "TTDVH_MA_DVQHNS";
+		public const string TTDVH_DIA_CHI = "TTDVH_DIA_CHI";
+		public const string TTDVH_TAI_KHOAN = "TTDVH_TAI_KHOAN";
+		public const string TTDVH_MA_CTMT_DA_VA_HTCT = "TTDVH_MA_CTMT_DA_VA_HTCT";
+		public const string TTDVH_KHO_BAC = "TTDVH_KHO_BAC";
+		public const string TTDVH_SO_TIEN = "TTDVH_SO_TIEN";
 	}
+
 	public class GD_UY_NHIEM_CHI
 	{
 		public const string ID = "ID";
 		public const string ID_DON_VI = "ID_DON_VI";
 		public const string ID_DU_AN_CONG_TRINH = "ID_DU_AN_CONG_TRINH";
-		public const string SO_TIEN = "SO_TIEN";
+		public const string SO_TIEN_NOP_THUE = "SO_TIEN_NOP_THUE";
 		public const string IS_NGUON_NS_YN = "IS_NGUON_NS_YN";
 		public const string ID_UNC = "ID_UNC";
-		public const string NOI_DUNG = "NOI_DUNG";
+		public const string NOI_DUNG_CHI = "NOI_DUNG_CHI";
 		public const string GHI_CHU = "GHI_CHU";
 		public const string ID_CHUONG = "ID_CHUONG";
 		public const string ID_KHOAN = "ID_KHOAN";
 		public const string ID_MUC = "ID_MUC";
+		public const string ID_TIEU_MUC = "ID_TIEU_MUC";
+		public const string SO_TIEN_TT_CHO_DV_HUONG = "SO_TIEN_TT_CHO_DV_HUONG";
+		public const string TEN_DU_AN = "TEN_DU_AN";
 	}
+
+
 
 
 	public class GD_GIAO_KH
@@ -226,15 +247,16 @@ namespace WebDS.CDBNames
 		public const string ID_DU_AN_CONG_TRINH = "ID_DU_AN_CONG_TRINH";
 		public const string SO_TIEN_QUY_BT = "SO_TIEN_QUY_BT";
 		public const string SO_TIEN_NS = "SO_TIEN_NS";
-		public const string IS_NGUON_NS_YN = "IS_NGUON_NS_YN";
-		public const string ID_LOAI_GIAO_DICH = "ID_LOAI_GIAO_DICH";
 		public const string ID_CHUONG = "ID_CHUONG";
 		public const string ID_KHOAN = "ID_KHOAN";
 		public const string ID_MUC = "ID_MUC";
 		public const string GHI_CHU = "GHI_CHU";
 		public const string ID_TIEU_MUC = "ID_TIEU_MUC";
 		public const string SO_TIEN_NAM_TRUOC_CHUYEN_SANG = "SO_TIEN_NAM_TRUOC_CHUYEN_SANG";
+		public const string LOAI_NHIEM_VU = "LOAI_NHIEM_VU";
+		public const string TEN_DU_AN = "TEN_DU_AN";
 	}
+
 
 
 
@@ -246,14 +268,14 @@ namespace WebDS.CDBNames
 		public const string ID_DU_AN_CONG_TRINH = "ID_DU_AN_CONG_TRINH";
 		public const string SO_TIEN_QUY_BT = "SO_TIEN_QUY_BT";
 		public const string SO_TIEN_NS = "SO_TIEN_NS";
-		public const string IS_NGUON_NS_YN = "IS_NGUON_NS_YN";
-		public const string ID_LOAI_GIAO_DICH = "ID_LOAI_GIAO_DICH";
 		public const string ID_CHUONG = "ID_CHUONG";
 		public const string ID_KHOAN = "ID_KHOAN";
 		public const string ID_MUC = "ID_MUC";
 		public const string GHI_CHU = "GHI_CHU";
 		public const string ID_TIEU_MUC = "ID_TIEU_MUC";
+		public const string TEN_DU_AN = "TEN_DU_AN";
 	}
+
 
 
 
@@ -269,21 +291,21 @@ namespace WebDS.CDBNames
 
 	#endregion
 
-    public class RPT_BAO_CAO_GIAO_VON_THEO_QD
-    {
-        public const string ID = "ID";
-        public const string SO_QUYET_DINH = "SO_QUYET_DINH";
-        public const string ID_DU_AN_CONG_TRINH = "ID_DU_AN_CONG_TRINH";
-        public const string ID_DON_VI = "ID_DON_VI";
-        public const string ID_CHUONG = "ID_CHUONG";
-        public const string ID_LOAI1 = "ID_LOAI1";
-        public const string ID_KHOAN = "ID_KHOAN";
-        public const string ID_MUC = "ID_MUC";
-        public const string ID_TIEU_MUC = "ID_TIEU_MUC";
-        public const string TEN_CLKM = "TEN_CLKM";
-        public const string TEN_DU_AN_CONG_TRINH = "TEN_DU_AN_CONG_TRINH";
-        public const string TONG_TIEN_DACT_THEO_QD = "TONG_TIEN_DACT_THEO_QD";
-    }
+	public class RPT_BAO_CAO_GIAO_VON_THEO_QD
+	{
+		public const string ID = "ID";
+		public const string SO_QUYET_DINH = "SO_QUYET_DINH";
+		public const string ID_DU_AN_CONG_TRINH = "ID_DU_AN_CONG_TRINH";
+		public const string ID_DON_VI = "ID_DON_VI";
+		public const string ID_CHUONG = "ID_CHUONG";
+		public const string ID_LOAI1 = "ID_LOAI1";
+		public const string ID_KHOAN = "ID_KHOAN";
+		public const string ID_MUC = "ID_MUC";
+		public const string ID_TIEU_MUC = "ID_TIEU_MUC";
+		public const string TEN_CLKM = "TEN_CLKM";
+		public const string TEN_DU_AN_CONG_TRINH = "TEN_DU_AN_CONG_TRINH";
+		public const string TONG_TIEN_DACT_THEO_QD = "TONG_TIEN_DACT_THEO_QD";
+	}
 
 	public enum e_loai_tu_dien
 	{

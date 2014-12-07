@@ -4,6 +4,18 @@ using System.Text;
 
 namespace WebUS
 {
+	public class ID_LOAI_TU_DIEN
+	{
+		public const decimal LOAI_NHIEM_VU = 104;
+	}
+	public class ID_LOAI_NHIEM_VU
+	{
+		public const decimal BAO_DUONG_THUONG_XUYEN = 660;
+		public const decimal SUA_CHUA_DINH_KY = 661;
+		public const decimal KHAC_PHUC_BAO_LUT = 662;
+		public const decimal THANH_TRA_GIAO_THONG = 663;
+		public const decimal KHAC = 664;
+	}
 	public class ID_CHUONG
 	{
 		public const decimal BO_GIAO_THONG_VAN_TAI = 17;

@@ -149,5 +149,16 @@ namespace WebDS.Properties {
                 return ((string)(this["BKI_QLDTConnectionString1"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=tudm-pc\\sqlexpress;Initial Catalog=BKI_QLDT_TEST;Persist Security Inf" +
+            "o=True;User ID=sa;Password=sa")]
+        public string BKI_QLDT_TESTConnectionString {
+            get {
+                return ((string)(this["BKI_QLDT_TESTConnectionString"]));
+            }
+        }
     }
 }

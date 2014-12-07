@@ -58,6 +58,42 @@ namespace QuanLyDuToan.DuToan {
         protected global::System.Web.UI.WebControls.Label m_lbl_mess_qd;
         
         /// <summary>
+        /// m_rdb_kh_dau_nam control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton m_rdb_kh_dau_nam;
+        
+        /// <summary>
+        /// m_rdb_bo_sung control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton m_rdb_bo_sung;
+        
+        /// <summary>
+        /// m_rdb_dieu_chinh control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton m_rdb_dieu_chinh;
+        
+        /// <summary>
+        /// m_hdf_id_giao_kh control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField m_hdf_id_giao_kh;
+        
+        /// <summary>
         /// m_txt_so_qd control.
         /// </summary>
         /// <remarks>
@@ -85,15 +121,6 @@ namespace QuanLyDuToan.DuToan {
         protected global::System.Web.UI.WebControls.Button m_cmd_chon_qd_da_nhap;
         
         /// <summary>
-        /// m_txt_noi_dung control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox m_txt_noi_dung;
-        
-        /// <summary>
         /// m_txt_ngay_thang control.
         /// </summary>
         /// <remarks>
@@ -101,6 +128,15 @@ namespace QuanLyDuToan.DuToan {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox m_txt_ngay_thang;
+        
+        /// <summary>
+        /// m_txt_noi_dung control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox m_txt_noi_dung;
         
         /// <summary>
         /// m_cmd_luu_qd control.
@@ -157,247 +193,94 @@ namespace QuanLyDuToan.DuToan {
         protected global::System.Web.UI.WebControls.Label m_lbl_mess_detail;
         
         /// <summary>
-        /// m_rdb_kh_dau_nam control.
+        /// m_ddl_loai_nhiem_vu control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton m_rdb_kh_dau_nam;
+        protected global::System.Web.UI.WebControls.DropDownList m_ddl_loai_nhiem_vu;
         
         /// <summary>
-        /// m_rdb_bo_sung control.
+        /// m_txt_ten_quoc_lo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton m_rdb_bo_sung;
+        protected global::System.Web.UI.WebControls.TextBox m_txt_ten_quoc_lo;
         
         /// <summary>
-        /// m_rdb_dieu_chinh control.
+        /// m_txt_noi_dung_chi control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton m_rdb_dieu_chinh;
+        protected global::System.Web.UI.WebControls.TextBox m_txt_noi_dung_chi;
         
         /// <summary>
-        /// m_hdf_id_giao_kh control.
+        /// m_txt_so_tien_nam_truoc_chuyen_sang control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField m_hdf_id_giao_kh;
+        protected global::System.Web.UI.WebControls.TextBox m_txt_so_tien_nam_truoc_chuyen_sang;
         
         /// <summary>
-        /// m_pnl_chi_thuong_xuyen control.
+        /// m_txt_so_tien_ns control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel m_pnl_chi_thuong_xuyen;
+        protected global::System.Web.UI.WebControls.TextBox m_txt_so_tien_ns;
         
         /// <summary>
-        /// m_ddl_tuyen_quoc_lo control.
+        /// m_txt_so_tien_qbt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList m_ddl_tuyen_quoc_lo;
+        protected global::System.Web.UI.WebControls.TextBox m_txt_so_tien_qbt;
         
         /// <summary>
-        /// m_cmd_them_ql control.
+        /// m_txt_ghi_chu control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button m_cmd_them_ql;
+        protected global::System.Web.UI.WebControls.TextBox m_txt_ghi_chu;
         
         /// <summary>
-        /// m_txt_ctx_so_tien_nam_truoc_chuyen_sang control.
+        /// m_cmd_insert control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox m_txt_ctx_so_tien_nam_truoc_chuyen_sang;
+        protected global::System.Web.UI.WebControls.Button m_cmd_insert;
         
         /// <summary>
-        /// m_txt_ctx_so_tien_ns control.
+        /// m_cmd_update control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox m_txt_ctx_so_tien_ns;
+        protected global::System.Web.UI.WebControls.Button m_cmd_update;
         
         /// <summary>
-        /// m_txt_ctx_so_tien_qbt control.
+        /// m_cmd_cancel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox m_txt_ctx_so_tien_qbt;
-        
-        /// <summary>
-        /// m_txt_ctx_noi_dung control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox m_txt_ctx_noi_dung;
-        
-        /// <summary>
-        /// m_cmd_ctx_insert control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button m_cmd_ctx_insert;
-        
-        /// <summary>
-        /// m_cmd_ctx_update control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button m_cmd_ctx_update;
-        
-        /// <summary>
-        /// m_cmd_ctx_delete control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button m_cmd_ctx_delete;
-        
-        /// <summary>
-        /// m_hdf_id_quoc_lo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField m_hdf_id_quoc_lo;
-        
-        /// <summary>
-        /// m_pnl_chi_khong_thuong_xuyen control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel m_pnl_chi_khong_thuong_xuyen;
-        
-        /// <summary>
-        /// m_txt_ten_du_an control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox m_txt_ten_du_an;
-        
-        /// <summary>
-        /// m_ddl_du_an control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList m_ddl_du_an;
-        
-        /// <summary>
-        /// m_cmd_chon_du_an control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button m_cmd_chon_du_an;
-        
-        /// <summary>
-        /// m_cmd_chon_quoc_lo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button m_cmd_chon_quoc_lo;
-        
-        /// <summary>
-        /// m_txt_cktx_so_tien_nam_truoc_chuyen_sang control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox m_txt_cktx_so_tien_nam_truoc_chuyen_sang;
-        
-        /// <summary>
-        /// m_txt_cktx_so_tien_ns control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox m_txt_cktx_so_tien_ns;
-        
-        /// <summary>
-        /// m_txt_cktx_so_tien_qbt control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox m_txt_cktx_so_tien_qbt;
-        
-        /// <summary>
-        /// m_txt_cktx_noi_dung control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox m_txt_cktx_noi_dung;
-        
-        /// <summary>
-        /// m_cmd_cktx_insert control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button m_cmd_cktx_insert;
-        
-        /// <summary>
-        /// m_cmd_cktx_update control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button m_cmd_cktx_update;
-        
-        /// <summary>
-        /// m_cmd_cktx_cancel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button m_cmd_cktx_cancel;
+        protected global::System.Web.UI.WebControls.Button m_cmd_cancel;
         
         /// <summary>
         /// m_hdf_id_du_an control.

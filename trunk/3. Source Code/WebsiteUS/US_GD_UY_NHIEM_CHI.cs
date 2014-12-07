@@ -18,9 +18,9 @@ using WebDS;
 namespace WebUS
 {
 
-    public class US_GD_UY_NHIEM_CHI : US_Object
-    {
-        private const string c_TableName = "GD_UY_NHIEM_CHI";
+	public class US_GD_UY_NHIEM_CHI : US_Object
+	{
+		private const string c_TableName = "GD_UY_NHIEM_CHI";
 		#region "Public Properties"
 		public decimal dcID
 		{
@@ -154,26 +154,26 @@ namespace WebUS
 			pm_objDR["ID_UNC"] = System.Convert.DBNull;
 		}
 
-		public string strNOI_DUNG
+		public string strNOI_DUNG_CHI
 		{
 			get
 			{
-				return CNull.RowNVLString(pm_objDR, "NOI_DUNG", IPConstants.c_DefaultString);
+				return CNull.RowNVLString(pm_objDR, "NOI_DUNG_CHI", IPConstants.c_DefaultString);
 			}
 			set
 			{
-				pm_objDR["NOI_DUNG"] = value;
+				pm_objDR["NOI_DUNG_CHI"] = value;
 			}
 		}
 
-		public bool IsNOI_DUNGNull()
+		public bool IsNOI_DUNG_CHINull()
 		{
-			return pm_objDR.IsNull("NOI_DUNG");
+			return pm_objDR.IsNull("NOI_DUNG_CHI");
 		}
 
-		public void SetNOI_DUNGNull()
+		public void SetNOI_DUNG_CHINull()
 		{
-			pm_objDR["NOI_DUNG"] = System.Convert.DBNull;
+			pm_objDR["NOI_DUNG_CHI"] = System.Convert.DBNull;
 		}
 
 		public string strGHI_CHU
@@ -308,6 +308,28 @@ namespace WebUS
 			pm_objDR["SO_TIEN_TT_CHO_DV_HUONG"] = System.Convert.DBNull;
 		}
 
+		public string strTEN_DU_AN
+		{
+			get
+			{
+				return CNull.RowNVLString(pm_objDR, "TEN_DU_AN", IPConstants.c_DefaultString);
+			}
+			set
+			{
+				pm_objDR["TEN_DU_AN"] = value;
+			}
+		}
+
+		public bool IsTEN_DU_ANNull()
+		{
+			return pm_objDR.IsNull("TEN_DU_AN");
+		}
+
+		public void SetTEN_DU_ANNull()
+		{
+			pm_objDR["TEN_DU_AN"] = System.Convert.DBNull;
+		}
+
 		#endregion
 		#region "Init Functions"
 		public US_GD_UY_NHIEM_CHI()
@@ -335,5 +357,5 @@ namespace WebUS
 			pm_objDR = getRowClone(pm_objDS.Tables[pm_strTableName].Rows[0]);
 		}
 		#endregion
-    }
+	}
 }

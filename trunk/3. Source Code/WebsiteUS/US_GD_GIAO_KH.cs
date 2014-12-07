@@ -154,50 +154,6 @@ namespace WebUS
 			pm_objDR["SO_TIEN_NS"] = System.Convert.DBNull;
 		}
 
-		public string strIS_NGUON_NS_YN
-		{
-			get
-			{
-				return CNull.RowNVLString(pm_objDR, "IS_NGUON_NS_YN", IPConstants.c_DefaultString);
-			}
-			set
-			{
-				pm_objDR["IS_NGUON_NS_YN"] = value;
-			}
-		}
-
-		public bool IsIS_NGUON_NS_YNNull()
-		{
-			return pm_objDR.IsNull("IS_NGUON_NS_YN");
-		}
-
-		public void SetIS_NGUON_NS_YNNull()
-		{
-			pm_objDR["IS_NGUON_NS_YN"] = System.Convert.DBNull;
-		}
-
-		public decimal dcID_LOAI_GIAO_DICH
-		{
-			get
-			{
-				return CNull.RowNVLDecimal(pm_objDR, "ID_LOAI_GIAO_DICH", IPConstants.c_DefaultDecimal);
-			}
-			set
-			{
-				pm_objDR["ID_LOAI_GIAO_DICH"] = value;
-			}
-		}
-
-		public bool IsID_LOAI_GIAO_DICHNull()
-		{
-			return pm_objDR.IsNull("ID_LOAI_GIAO_DICH");
-		}
-
-		public void SetID_LOAI_GIAO_DICHNull()
-		{
-			pm_objDR["ID_LOAI_GIAO_DICH"] = System.Convert.DBNull;
-		}
-
 		public decimal dcID_CHUONG
 		{
 			get
@@ -328,6 +284,50 @@ namespace WebUS
 		public void SetSO_TIEN_NAM_TRUOC_CHUYEN_SANGNull()
 		{
 			pm_objDR["SO_TIEN_NAM_TRUOC_CHUYEN_SANG"] = System.Convert.DBNull;
+		}
+
+		public decimal dcLOAI_NHIEM_VU
+		{
+			get
+			{
+				return CNull.RowNVLDecimal(pm_objDR, "LOAI_NHIEM_VU", IPConstants.c_DefaultDecimal);
+			}
+			set
+			{
+				pm_objDR["LOAI_NHIEM_VU"] = value;
+			}
+		}
+
+		public bool IsLOAI_NHIEM_VUNull()
+		{
+			return pm_objDR.IsNull("LOAI_NHIEM_VU");
+		}
+
+		public void SetLOAI_NHIEM_VUNull()
+		{
+			pm_objDR["LOAI_NHIEM_VU"] = System.Convert.DBNull;
+		}
+
+		public string strTEN_DU_AN
+		{
+			get
+			{
+				return CNull.RowNVLString(pm_objDR, "TEN_DU_AN", IPConstants.c_DefaultString);
+			}
+			set
+			{
+				pm_objDR["TEN_DU_AN"] = value;
+			}
+		}
+
+		public bool IsTEN_DU_ANNull()
+		{
+			return pm_objDR.IsNull("TEN_DU_AN");
+		}
+
+		public void SetTEN_DU_ANNull()
+		{
+			pm_objDR["TEN_DU_AN"] = System.Convert.DBNull;
 		}
 
 		#endregion
