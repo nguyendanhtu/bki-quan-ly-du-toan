@@ -152,7 +152,7 @@ namespace QuanLyDuToan.DuToan
 			}
 
 			m_us.strIS_NGUON_NS_YN = "N";//Nguon mac dinh la Quy bao tri
-			m_us.strNOI_DUNG = m_txt_ghi_chu.Text.Trim();
+			m_us.strNOI_DUNG_CHI = m_txt_ghi_chu.Text.Trim();
 			m_us.dcID_DU_AN_CONG_TRINH = CIPConvert.ToDecimal(m_hdf_id_du_an_cong_trinh.Value);
 			m_us.dcSO_TIEN_NOP_THUE = CIPConvert.ToDecimal(m_txt_so_tien_nop_thue.Text.Trim());
 			m_us.dcSO_TIEN_TT_CHO_DV_HUONG = CIPConvert.ToDecimal(m_txt_so_tien_thanh_toan_cho_dv_huong.Text.Trim());
@@ -196,7 +196,7 @@ namespace QuanLyDuToan.DuToan
 			}
 			m_txt_so_tien_nop_thue.Text = m_us.dcSO_TIEN_NOP_THUE.ToString();
 			m_txt_so_tien_thanh_toan_cho_dv_huong.Text = m_us.dcSO_TIEN_TT_CHO_DV_HUONG.ToString();
-			m_txt_ghi_chu.Text = m_us.strNOI_DUNG;
+			m_txt_ghi_chu.Text = m_us.strNOI_DUNG_CHI;
 			//set quyet dinh
 			US_DM_UY_NHIEM_CHI v_us_dm_uy_nhiem_chi = new US_DM_UY_NHIEM_CHI(m_us.dcID_UNC);
 			US_DM_THONG_TIN_DON_VI v_us_thong_tin_don_vi = new US_DM_THONG_TIN_DON_VI(Person.get_id_don_vi(), Person.get_id_don_vi());
@@ -221,9 +221,9 @@ namespace QuanLyDuToan.DuToan
 			v_dt.Columns.Add(V_GD_UY_NHIEM_CHI.SO_TIEN_NOP_THUE);
 			v_dt.Columns.Add(V_GD_UY_NHIEM_CHI.SO_TIEN_TT_CHO_DV_HUONG);
 			v_dt.Columns.Add("TONG_SO_TIEN");
-			v_dt.Columns.Add(V_GD_UY_NHIEM_CHI.NOI_DUNG);
+			v_dt.Columns.Add(V_GD_UY_NHIEM_CHI.NOI_DUNG_CHI);
 			v_dt.Columns.Add(V_GD_UY_NHIEM_CHI.GHI_CHU);
-			v_dt.Columns.Add(V_GD_UY_NHIEM_CHI.ID_LOAI_DU_AN_CONG_TRINH);
+			//v_dt.Columns.Add(V_GD_UY_NHIEM_CHI.ID_LOAI_DU_AN_CONG_TRINH);
 			op_ds.Tables.Add(v_dt);
 			op_ds.AcceptChanges();
 			//chi khong thuong xuyen
@@ -233,7 +233,7 @@ namespace QuanLyDuToan.DuToan
 			v_dr_chi_ktx[V_GD_UY_NHIEM_CHI.SO_TIEN_NOP_THUE] = "Số tiền nộp thuế";
 			v_dr_chi_ktx[V_GD_UY_NHIEM_CHI.SO_TIEN_TT_CHO_DV_HUONG] = "Số tiền thanh toán cho đơn vị hưởng";
 			v_dr_chi_ktx["TONG_SO_TIEN"] = "";
-			v_dr_chi_ktx[V_GD_UY_NHIEM_CHI.NOI_DUNG] = "";
+			v_dr_chi_ktx[V_GD_UY_NHIEM_CHI.NOI_DUNG_CHI] = "";
 			v_dr_chi_ktx[V_GD_UY_NHIEM_CHI.GHI_CHU] = "Nội dung thanh toán";
 			op_ds.Tables[0].Rows.Add(v_dr_chi_ktx);
 			op_ds.AcceptChanges();
@@ -259,9 +259,9 @@ namespace QuanLyDuToan.DuToan
 				}
 				else v_dr["TONG_SO_TIEN"] = CIPConvert.ToStr(CIPConvert.ToDecimal(v_dr[V_GD_UY_NHIEM_CHI.SO_TIEN_NOP_THUE].ToString().Replace(",", ""))
 					+ CIPConvert.ToDecimal(v_dr[V_GD_UY_NHIEM_CHI.SO_TIEN_TT_CHO_DV_HUONG].ToString().Replace(",", "")), "#,###,##");
-				v_dr[V_GD_UY_NHIEM_CHI.NOI_DUNG] = ip_ds.Tables[0].Rows[i][V_GD_UY_NHIEM_CHI.NOI_DUNG];
+				v_dr[V_GD_UY_NHIEM_CHI.NOI_DUNG_CHI] = ip_ds.Tables[0].Rows[i][V_GD_UY_NHIEM_CHI.NOI_DUNG_CHI];
 				v_dr[V_GD_UY_NHIEM_CHI.GHI_CHU] = ip_ds.Tables[0].Rows[i][V_GD_UY_NHIEM_CHI.GHI_CHU];
-				v_dr[V_GD_UY_NHIEM_CHI.ID_LOAI_DU_AN_CONG_TRINH] = ip_ds.Tables[0].Rows[i][V_GD_UY_NHIEM_CHI.ID_LOAI_DU_AN_CONG_TRINH];
+				//v_dr[V_GD_UY_NHIEM_CHI.ID_LOAI_DU_AN_CONG_TRINH] = ip_ds.Tables[0].Rows[i][V_GD_UY_NHIEM_CHI.ID_LOAI_DU_AN_CONG_TRINH];
 				op_ds.Tables[0].Rows.Add(v_dr);
 				op_ds.AcceptChanges();
 

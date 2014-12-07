@@ -49,6 +49,33 @@ namespace QuanLyDuToan.BaoCao {
         protected global::System.Web.UI.WebControls.TextBox m_txt_den_ngay;
         
         /// <summary>
+        /// m_lbl_ten_don_vi control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label m_lbl_ten_don_vi;
+        
+        /// <summary>
+        /// m_lbl_thang control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label m_lbl_thang;
+        
+        /// <summary>
+        /// m_lbl_nam control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label m_lbl_nam;
+        
+        /// <summary>
         /// m_lbl_mess control.
         /// </summary>
         /// <remarks>

@@ -275,7 +275,7 @@ namespace QuanLyDuToan.DuToan
 			m_us.strGHI_CHU = m_txt_ghi_chu.Text.Trim();
 			m_us.dcID_DON_VI = Person.get_id_don_vi();
 			m_us.SetID_DU_AN_CONG_TRINHNull();
-			m_us.strNOI_DUNG = m_txt_ghi_chu.Text;
+			m_us.strNOI_DUNG_CHI = m_txt_ghi_chu.Text;
 		}
 		private void load_data_to_cbo_muc_tieu_muc()
 		{

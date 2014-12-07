@@ -154,26 +154,26 @@ namespace WebUS
 			pm_objDR["ID_UNC"] = System.Convert.DBNull;
 		}
 
-		public string strNOI_DUNG
+		public string strNOI_DUNG_CHI
 		{
 			get
 			{
-				return CNull.RowNVLString(pm_objDR, "NOI_DUNG", IPConstants.c_DefaultString);
+				return CNull.RowNVLString(pm_objDR, "NOI_DUNG_CHI", IPConstants.c_DefaultString);
 			}
 			set
 			{
-				pm_objDR["NOI_DUNG"] = value;
+				pm_objDR["NOI_DUNG_CHI"] = value;
 			}
 		}
 
-		public bool IsNOI_DUNGNull()
+		public bool IsNOI_DUNG_CHINull()
 		{
-			return pm_objDR.IsNull("NOI_DUNG");
+			return pm_objDR.IsNull("NOI_DUNG_CHI");
 		}
 
-		public void SetNOI_DUNGNull()
+		public void SetNOI_DUNG_CHINull()
 		{
-			pm_objDR["NOI_DUNG"] = System.Convert.DBNull;
+			pm_objDR["NOI_DUNG_CHI"] = System.Convert.DBNull;
 		}
 
 		public string strGHI_CHU
@@ -306,6 +306,28 @@ namespace WebUS
 		public void SetSO_TIEN_TT_CHO_DV_HUONGNull()
 		{
 			pm_objDR["SO_TIEN_TT_CHO_DV_HUONG"] = System.Convert.DBNull;
+		}
+
+		public string strTEN_DU_AN
+		{
+			get
+			{
+				return CNull.RowNVLString(pm_objDR, "TEN_DU_AN", IPConstants.c_DefaultString);
+			}
+			set
+			{
+				pm_objDR["TEN_DU_AN"] = value;
+			}
+		}
+
+		public bool IsTEN_DU_ANNull()
+		{
+			return pm_objDR.IsNull("TEN_DU_AN");
+		}
+
+		public void SetTEN_DU_ANNull()
+		{
+			pm_objDR["TEN_DU_AN"] = System.Convert.DBNull;
 		}
 
 		public DateTime datNGAY_THANG
@@ -746,28 +768,6 @@ namespace WebUS
 		public void SetTTDVH_SO_TIENNull()
 		{
 			pm_objDR["TTDVH_SO_TIEN"] = System.Convert.DBNull;
-		}
-
-		public decimal dcID_LOAI_DU_AN_CONG_TRINH
-		{
-			get
-			{
-				return CNull.RowNVLDecimal(pm_objDR, "ID_LOAI_DU_AN_CONG_TRINH", IPConstants.c_DefaultDecimal);
-			}
-			set
-			{
-				pm_objDR["ID_LOAI_DU_AN_CONG_TRINH"] = value;
-			}
-		}
-
-		public bool IsID_LOAI_DU_AN_CONG_TRINHNull()
-		{
-			return pm_objDR.IsNull("ID_LOAI_DU_AN_CONG_TRINH");
-		}
-
-		public void SetID_LOAI_DU_AN_CONG_TRINHNull()
-		{
-			pm_objDR["ID_LOAI_DU_AN_CONG_TRINH"] = System.Convert.DBNull;
 		}
 
 		public string strDISPLAY

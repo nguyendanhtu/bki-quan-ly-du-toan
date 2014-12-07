@@ -87,11 +87,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DS_DM_DU_AN_CONG_TRINH.xsd</DependentUpon>
     </Compile>
-    <Compile Include="DS_DM_LOAI_DON_VI.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DS_DM_LOAI_DON_VI.xsd</DependentUpon>
-    </Compile>
     <Compile Include="DS_DM_THONG_TIN_DON_VI.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -273,17 +268,6 @@
     </None>
     <None Include="DS_DM_DU_AN_CONG_TRINH.xss">
       <DependentUpon>DS_DM_DU_AN_CONG_TRINH.xsd</DependentUpon>
-    </None>
-    <None Include="DS_DM_LOAI_DON_VI.xsc">
-      <DependentUpon>DS_DM_LOAI_DON_VI.xsd</DependentUpon>
-    </None>
-    <None Include="DS_DM_LOAI_DON_VI.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DS_DM_LOAI_DON_VI.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="DS_DM_LOAI_DON_VI.xss">
-      <DependentUpon>DS_DM_LOAI_DON_VI.xsd</DependentUpon>
     </None>
     <None Include="DS_DM_THONG_TIN_DON_VI.xsc">
       <DependentUpon>DS_DM_THONG_TIN_DON_VI.xsd</DependentUpon>

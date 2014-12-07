@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="F602_bao_cao_tinh_hinh_giai_ngan_don_vi.aspx.cs" Inherits="QuanLyDuToan.BaoCao.F602_bao_cao_tinh_hinh_giai_ngan_don_vi" %>
+
 <%@ Import Namespace="IP.Core.IPCommon" %>
 <%@ Import Namespace="WebDS.CDBNames" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="Server">
@@ -17,17 +18,29 @@
 			<table style="width: 150%;" class="cssTable" border="0">
 				<tr>
 					<td colspan="4" style="text-align: center">
-						<span style="font-weight: bold">CỘNG HOÀ XÃ HỘI CHỦ NGHĨA VIỆT NAM</span>
-						<br />
-						<span style="font-weight: bold">Độc lập - Tự do - Hạnh Phúc</span>
-						<br />
-						<br />
-						<span style="font-weight: bold">BÁO CÁO TÌNH HÌNH GIẢI NGÂN CÁC NGUỒN VỐN NĂM <%=DateTime.Now.Year.ToString() %></span>
-						<br />
-						<span style="font-weight: bold">Từ ngày
+						<div style="width: 900px; margin: auto">
+							<span style="font-weight: bold">CỘNG HOÀ XÃ HỘI CHỦ NGHĨA VIỆT NAM</span>
+							<br />
+							<span style="font-weight: bold">Độc lập - Tự do - Hạnh Phúc</span>
+							<br />
+							<br />
+							<span style="font-weight: bold">BÁO CÁO TÌNH HÌNH GIẢI NGÂN CÁC NGUỒN VỐN NĂM <%=DateTime.Now.Year.ToString() %></span>
+							<br />
+							<span style="font-weight: bold">Từ ngày
 							<asp:TextBox ID="m_txt_tu_ngay" placeholder="dd/MM/yyyy" runat="server" CssClass="cssTextBox" Width="100px"></asp:TextBox></span>
-						<span>&nbsp; Đến ngày
+							<span>&nbsp; Đến ngày
 							<asp:TextBox ID="m_txt_den_ngay" placeholder="dd/MM/yyyy" runat="server" CssClass="cssTextBox" Width="100px"></asp:TextBox></span>
+							<br />
+							<br />
+							<span>Kính gửi: Vụ tài chính - Tổng cục đường bộ Việt Nam</span>
+							<br />
+							<span>Thực hiện Văn bản số 2838/TCĐBVN - TC ngày 02 tháng 07 năm 2013 của Tổng cục Đường bộ Việt Nam về việc thực hiện báo cáo giải ngân các nguồn.<asp:Label ID="m_lbl_ten_don_vi" runat="server"></asp:Label>
+								căn cứ thực hiện nhiệm vụ được giao trân trọng báo cáo công tác giải ngân tháng
+							 <asp:Label ID="m_lbl_thang" runat="server"></asp:Label>
+								năm
+								<asp:Label ID="m_lbl_nam" runat="server"></asp:Label>
+								như sau:</span>
+						</div>
 					</td>
 				</tr>
 				<tr>

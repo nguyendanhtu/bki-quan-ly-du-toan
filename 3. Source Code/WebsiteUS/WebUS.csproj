@@ -79,7 +79,6 @@
     <Compile Include="US_DM_CHUONG_LOAI_KHOAN_MUC.cs" />
     <Compile Include="US_DM_DON_VI.cs" />
     <Compile Include="US_DM_DU_AN_CONG_TRINH.cs" />
-    <Compile Include="US_DM_LOAI_DON_VI.cs" />
     <Compile Include="US_DM_THONG_TIN_DON_VI.cs" />
     <Compile Include="US_DM_UY_NHIEM_CHI.cs" />
     <Compile Include="US_GD_GIAO_KH.cs" />
