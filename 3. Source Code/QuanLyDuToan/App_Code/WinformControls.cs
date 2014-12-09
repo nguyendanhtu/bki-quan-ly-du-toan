@@ -39,6 +39,20 @@ namespace QuanLyDuToan.App_Code
 		#endregion
 
 		#region Quan ly du toan
+		public static decimal get_so_tien(string ip_str_so_tien)
+		{
+			decimal op_dc_so_tien = 0;
+			if (ip_str_so_tien.Trim().Equals("") | ip_str_so_tien.Trim().Equals("-1"))
+			{
+				op_dc_so_tien = 0;
+			}
+			else if (ip_str_so_tien.Trim().Equals("0"))
+			{
+				op_dc_so_tien = 0;
+			}
+			else op_dc_so_tien = CIPConvert.ToDecimal(ip_str_so_tien.Replace(",", "").Replace(".", ""));
+			return op_dc_so_tien;
+		}
 		public static void get_cout_grid_row(Label ip_lbl_name, string ip_str_default_text, int ip_int_count_row)
 		{
 			ip_lbl_name.Text = ip_str_default_text + " (Có " + ip_int_count_row + " bản ghi)";

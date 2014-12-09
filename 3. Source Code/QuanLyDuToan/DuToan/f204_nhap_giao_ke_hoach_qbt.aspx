@@ -3,37 +3,39 @@
 <%@ Import Namespace="IP.Core.IPCommon" %>
 <%@ Import Namespace="WebDS.CDBNames" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="Server">
-	<%--<script type="text/javascript">
-        $(document).ready(function () {
-            function tinhTongChiTx() {
-                var so_tien_ns = parseInt(document.getElementById('<%=m_txt_ctx_so_tien_ns.ClientID%>').value);
-                var so_tien_qbt = parseInt(document.getElementById('<%=m_txt_ctx_so_tien_qbt.ClientID%>').value);
-                m_lbl_tong_chi_tx.innerHTML = so_tien_ns + so_tien_qbt;
-            }
+	<script type="text/javascript">
+		function tinhTongChiTx() {
+			var so_tien_ns = parseInt(document.getElementById('<%=m_txt_so_tien_ns.ClientID%>').value.split(',').join('').split('.').join(''));
+			var so_tien_ntcs = parseInt(document.getElementById('<%=m_txt_so_tien_nam_truoc_chuyen_sang.ClientID%>').value.split(',').join('').split('.').join(''));
+			var so_tien_qbt = parseInt(document.getElementById('<%=m_txt_so_tien_qbt.ClientID%>').value.split(',').join('').split('.').join(''));
+			m_lbl_tong_chi_ktx.innerHTML = getFormatedNumberString(so_tien_ns + so_tien_qbt + so_tien_ntcs);
+		}
+		$(document).ready(function () {
+			$("#<%=m_txt_so_tien_ns.ClientID%>").bind({
+				blur: function () { $(this).val(tinhTongChiTx()); }
+			});
+			$("#<%=m_txt_so_tien_qbt.ClientID%>").bind({
+				blur: function () { $(this).val(tinhTongChiTx()); }
+			});
+			$("#<%=m_txt_so_tien_nam_truoc_chuyen_sang.ClientID%>").bind({
+				blur: function () { $(this).val(tinhTongChiTx()); }
+			});
+		});
+		function pageLoad(sender, args) {
+			if (args.get_isPartialLoad()) {
+				$("#<%=m_txt_so_tien_ns.ClientID%>").bind({
+					blur: function () { $(this).val(tinhTongChiTx()); }
+				});
+				$("#<%=m_txt_so_tien_qbt.ClientID%>").bind({
+					blur: function () { $(this).val(tinhTongChiTx()); }
+				});
+				$("#<%=m_txt_so_tien_nam_truoc_chuyen_sang.ClientID%>").bind({
+					blur: function () { $(this).val(tinhTongChiTx()); }
+				});
+			}
+		}
 
-            function tinhTongChiKtx() {
-                var so_tien_ns = parseInt(document.getElementById('<%=m_txt_so_tien_ns.ClientID%>').value);
-                var so_tien_qbt = parseInt(document.getElementById('<%=m_txt_so_tien_qbt.ClientID%>').value);
-                m_lbl_tong_chi_ktx.innerHTML = so_tien_ns + so_tien_qbt;
-            }
-
-            $("#<%=m_txt_ctx_so_tien_ns.ClientID%>").change(function () {
-                tinhTongChiTx();
-            });
-
-            $("#<%=m_txt_ctx_so_tien_qbt.ClientID%>").change(function () {
-                tinhTongChiTx();
-            });
-
-            $("#<%=m_txt_so_tien_ns.ClientID%>").change(function () {
-                tinhTongChiKtx();
-            });
-
-            $("#<%=m_txt_so_tien_qbt.ClientID%>").change(function () {
-                tinhTongChiKtx();
-            });
-        });
-    </script>--%>
+	</script>
 	<style type="text/css">
 		.cssFontBold {
 			font-weight: bold;
@@ -47,7 +49,7 @@
 		<ContentTemplate>
 			<table style="width: 1100px; margin: auto" class="cssTable" border="0">
 				<tr>
-					<td class="cssPageTitleBG" colspan="4" style="text-align:center">
+					<td class="cssPageTitleBG" colspan="4" style="text-align: center">
 						<asp:Label ID="m_lbl_title" runat="server" Width="100%" Text="Nhập giao kế hoạch - Nguồn Quỹ bảo trì" CssClass="cssPageTitle" Font-Bold="true"></asp:Label>
 					</td>
 				</tr>
@@ -73,7 +75,7 @@
 												</td>
 											</tr>
 											<tr>
-												<td style="width: 15%;text-align:right">
+												<td style="width: 15%; text-align: right">
 													<span>Số QĐ</span>
 												</td>
 												<td style="width: 35%">
@@ -86,12 +88,12 @@
 												<td style="width: 35%"></td>
 											</tr>
 											<tr>
-												<td style="text-align:right"><span>Ngày tháng</span></td>
+												<td style="text-align: right"><span>Ngày tháng</span></td>
 												<td>
 													<asp:TextBox ID="m_txt_ngay_thang" runat="server" CssClass="cssTextBox" Width="150px" placeholder="dd/MM/yyyy"></asp:TextBox></td>
 											</tr>
 											<tr>
-												<td style="text-align:right"><span>Nội dung</span></td>
+												<td style="text-align: right"><span>Nội dung</span></td>
 												<td colspan="3">
 													<asp:TextBox ID="m_txt_noi_dung" runat="server" CssClass="cssTextBox" Width="100%" placeholder="Vd: 371/QĐ-BGTVT"></asp:TextBox>
 												</td>
@@ -150,23 +152,23 @@
 																<span>Kinh phí năm trước chuyển sang</span>
 															</td>
 															<td style="text-align: left">
-																<asp:TextBox ID="m_txt_so_tien_nam_truoc_chuyen_sang" runat="server" CssClass="cssTextBox" Style="text-align: right" Text="0" Width="170px" AutoPostBack="false"></asp:TextBox>(đ)
+																<asp:TextBox ID="m_txt_so_tien_nam_truoc_chuyen_sang" runat="server" CssClass="csscurrency" Style="text-align: right" Text="0" Width="170px" AutoPostBack="false"></asp:TextBox>(đ)
 															</td>
 														</tr>
 														<tr>
 															<td style="text-align: right">
-																<span>Số tiền ngân sách</span>
+																<span>Kinh phí ngân sách</span>
 															</td>
 															<td>
-																<asp:TextBox ID="m_txt_so_tien_ns" runat="server" Text="0" Style="text-align: right" CssClass="cssTextBox" Width="170px"></asp:TextBox>(đ)
+																<asp:TextBox ID="m_txt_so_tien_ns" runat="server" Text="0" Style="text-align: right" CssClass="csscurrency" Width="170px"></asp:TextBox>(đ)
 															</td>
 														</tr>
 														<tr>
 															<td style="text-align: right">
-																<span>Số tiền quỹ bảo trì</span>
+																<span>Kinh phí quỹ bảo trì</span>
 															</td>
 															<td>
-																<asp:TextBox ID="m_txt_so_tien_qbt" runat="server" CssClass="cssTextBox" Text="0" Style="text-align: right" Width="170px"></asp:TextBox>(đ)
+																<asp:TextBox ID="m_txt_so_tien_qbt" runat="server" CssClass="csscurrency" Text="0" Style="text-align: right" Width="170px"></asp:TextBox>(đ)
 															</td>
 														</tr>
 														<tr>
@@ -213,10 +215,16 @@
 					<td colspan="2" style="vertical-align: top; width: 680px">
 						<table style="width: 100%">
 							<tr>
-								<td>Quyết định số: <asp:Label ID="m_lbl_grid_so_quyet_dinh" runat="server" Font-Bold="true"></asp:Label>
-									ngày <asp:Label ID="m_lbl_grid_ngay" runat="server" Font-Bold="true"></asp:Label> về việc <asp:Label ID="m_lbl_grid_ve_viec" runat="server" Font-Bold="true"></asp:Label>
+								<td>Quyết định số:
+									<asp:Label ID="m_lbl_grid_so_quyet_dinh" runat="server" Font-Bold="true"></asp:Label>
+									ngày
+									<asp:Label ID="m_lbl_grid_ngay" runat="server" Font-Bold="true"></asp:Label>
+									về việc
+									<asp:Label ID="m_lbl_grid_ve_viec" runat="server" Font-Bold="true"></asp:Label>
 									<br />
-									Tổng kinh phí: <asp:Label ID="m_lbl_grid_tong_tien" runat="server" Font-Bold="false" CssClass="cssManField"></asp:Label> đ
+									Tổng kinh phí:
+									<asp:Label ID="m_lbl_grid_tong_tien" runat="server" Font-Bold="false" CssClass="cssManField"></asp:Label>
+									đ
 
 								</td>
 							</tr>

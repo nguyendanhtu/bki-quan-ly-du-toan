@@ -335,5 +335,19 @@ namespace WebUS
 			pm_objDR = getRowClone(pm_objDS.Tables[pm_strTableName].Rows[0]);
 		}
 		#endregion
+
+		public void update_noi_dung_chi_from_giao_kh_sang_giao_von(
+			DateTime ip_dat_tu_ngay
+			, DateTime ip_dat_den_ngay
+			, decimal ip_dc_id_don_vi
+			, decimal ip_dc_id_quyet_dinh)
+		{
+			CStoredProc v_sp = new CStoredProc("pr_gd_giao_von_insert_from_gd_giao_kh");
+			v_sp.addDatetimeInputParam("@ip_dat_tu_ngay", ip_dat_tu_ngay);
+			v_sp.addDatetimeInputParam("@ip_dat_den_ngay", ip_dat_den_ngay);
+			v_sp.addDecimalInputParam("@ip_dc_id_don_vi", ip_dc_id_don_vi);
+			v_sp.addDecimalInputParam("@ip_dc_id_quyet_dinh", ip_dc_id_quyet_dinh);
+			v_sp.ExecuteCommand(this);
+		}
 	}
 }

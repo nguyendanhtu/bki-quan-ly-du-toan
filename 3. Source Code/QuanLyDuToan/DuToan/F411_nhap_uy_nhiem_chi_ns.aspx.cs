@@ -169,31 +169,31 @@ namespace QuanLyDuToan.DuToan
 			m_us = new US_GD_UY_NHIEM_CHI(CIPConvert.ToDecimal(m_hdf_id_gd_uy_nhiem_chi.Value));
 			US_DM_DU_AN_CONG_TRINH v_us_du_an_cong_trinh = new US_DM_DU_AN_CONG_TRINH(m_us.dcID_DU_AN_CONG_TRINH);
 			m_hdf_id_du_an_cong_trinh.Value = m_us.dcID_DU_AN_CONG_TRINH.ToString();
-			if (v_us_du_an_cong_trinh.dcID_LOAI_DU_AN_CONG_TRINH == ID_LOAI_DU_AN.QUOC_LO)
-			{
-				m_rdb_chi_thuong_xuyen.Checked = true;
-				m_rdb_chi_khong_thuong_xuyen.Checked = false;
-			}
-			else
-			{
-				m_rdb_chi_thuong_xuyen.Checked = false;
-				m_rdb_chi_khong_thuong_xuyen.Checked = true;
-			}
-			//load_data_du_an_cong_trinh_by_loai();
-			//set khoan chi
-			if (v_us_du_an_cong_trinh.dcID_LOAI_DU_AN_CONG_TRINH == ID_LOAI_DU_AN.QUOC_LO)
-			{
-				m_ddl_quoc_lo.SelectedValue = m_us.dcID_DU_AN_CONG_TRINH.ToString();
-				m_ddl_du_an.Visible = false;
-				m_ddl_quoc_lo.Visible = true;
-			}
-			else
-			{
-				m_ddl_du_an.SelectedValue = m_us.dcID_DU_AN_CONG_TRINH.ToString();
-				m_ddl_du_an.Visible = true;
-				m_ddl_quoc_lo.Visible = false;
+			//if (v_us_du_an_cong_trinh.dcID_LOAI_DU_AN_CONG_TRINH == ID_LOAI_DU_AN.QUOC_LO)
+			//{
+			//	m_rdb_chi_thuong_xuyen.Checked = true;
+			//	m_rdb_chi_khong_thuong_xuyen.Checked = false;
+			//}
+			//else
+			//{
+			//	m_rdb_chi_thuong_xuyen.Checked = false;
+			//	m_rdb_chi_khong_thuong_xuyen.Checked = true;
+			//}
+			////load_data_du_an_cong_trinh_by_loai();
+			////set khoan chi
+			//if (v_us_du_an_cong_trinh.dcID_LOAI_DU_AN_CONG_TRINH == ID_LOAI_DU_AN.QUOC_LO)
+			//{
+			//	m_ddl_quoc_lo.SelectedValue = m_us.dcID_DU_AN_CONG_TRINH.ToString();
+			//	m_ddl_du_an.Visible = false;
+			//	m_ddl_quoc_lo.Visible = true;
+			//}
+			//else
+			//{
+			//	m_ddl_du_an.SelectedValue = m_us.dcID_DU_AN_CONG_TRINH.ToString();
+			//	m_ddl_du_an.Visible = true;
+			//	m_ddl_quoc_lo.Visible = false;
 
-			}
+			//}
 			m_txt_so_tien_nop_thue.Text = m_us.dcSO_TIEN_NOP_THUE.ToString();
 			m_txt_so_tien_thanh_toan_cho_dv_huong.Text = m_us.dcSO_TIEN_TT_CHO_DV_HUONG.ToString();
 			m_txt_ghi_chu.Text = m_us.strNOI_DUNG_CHI;
