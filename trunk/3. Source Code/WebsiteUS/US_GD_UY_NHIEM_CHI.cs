@@ -13,6 +13,8 @@ using IP.Core.IPUserService;
 using System.Data.SqlClient;
 using System.Data;
 using WebDS;
+using IP.Core.IPData;
+using IP.Core.IPUserService;
 
 
 namespace WebUS
@@ -357,5 +359,7 @@ namespace WebUS
 			pm_objDR = getRowClone(pm_objDS.Tables[pm_strTableName].Rows[0]);
 		}
 		#endregion
+
+		
 	}
 }

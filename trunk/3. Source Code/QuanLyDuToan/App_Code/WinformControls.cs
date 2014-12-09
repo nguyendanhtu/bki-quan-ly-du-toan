@@ -272,7 +272,68 @@ namespace QuanLyDuToan.App_Code
 			return op_ds;
 		}
 
-
+		public static void load_data_to_ddl_loai_nhiem_vu_unc(
+			DateTime ip_dat_tu_ngay
+			, DateTime ip_dat_den_ngay
+			, decimal ip_dc_id_don_Vi
+			, DropDownList op_ddl)
+		{
+			US_CM_DM_TU_DIEN v_us = new IP.Core.IPUserService.US_CM_DM_TU_DIEN();
+			DS_CM_DM_TU_DIEN v_ds = new DS_CM_DM_TU_DIEN();
+			CStoredProc v_sp = new IP.Core.IPUserService.CStoredProc("pr_cm_dm_tu_dien_get_loai_nhiem_vu_unc");
+			v_sp.addDatetimeInputParam("@ip_dat_tu_ngay", ip_dat_tu_ngay);
+			v_sp.addDatetimeInputParam("@ip_dat_den_ngay", ip_dat_den_ngay);
+			v_sp.addDecimalInputParam("@ip_dc_id_don_vi", ip_dc_id_don_Vi);
+			v_sp.fillDataSetByCommand(v_us, v_ds);
+			op_ddl.DataTextField = CM_DM_TU_DIEN.TEN;
+			op_ddl.DataValueField = CM_DM_TU_DIEN.ID;
+			op_ddl.DataSource = v_ds.CM_DM_TU_DIEN;
+			op_ddl.DataBind();
+		}
+		public static void load_data_to_ddl_quoc_lo_cong_trinh(
+			DateTime ip_dat_tu_ngay
+			, DateTime ip_dat_den_ngay
+			, decimal ip_dc_id_don_Vi
+			, decimal ip_dc_id_loai_nhiem_vu
+			, DropDownList op_ddl)
+		{
+			US_DM_DU_AN_CONG_TRINH v_us = new US_DM_DU_AN_CONG_TRINH();
+			DS_DM_DU_AN_CONG_TRINH v_ds = new DS_DM_DU_AN_CONG_TRINH();
+			CStoredProc v_sp = new IP.Core.IPUserService.CStoredProc("pr_dm_du_an_cong_trinh_get_ds_giao_von");
+			v_sp.addDatetimeInputParam("@ip_dat_tu_ngay", ip_dat_tu_ngay);
+			v_sp.addDatetimeInputParam("@ip_dat_den_ngay", ip_dat_den_ngay);
+			v_sp.addDecimalInputParam("@ip_dc_id_don_vi", ip_dc_id_don_Vi);
+			v_sp.addDecimalInputParam("@ip_dc_id_loai_nhiem_vu", ip_dc_id_loai_nhiem_vu);
+			v_sp.fillDataSetByCommand(v_us, v_ds);
+			op_ddl.DataTextField = DM_DU_AN_CONG_TRINH.TEN_DU_AN_CONG_TRINH;
+			op_ddl.DataValueField = DM_DU_AN_CONG_TRINH.ID;
+			op_ddl.DataSource = v_ds.DM_DU_AN_CONG_TRINH;
+			op_ddl.DataBind();
+		}
+		public static void load_data_to_ddl_ten_du_an(
+			DateTime ip_dat_tu_ngay
+			, DateTime ip_dat_den_ngay
+			, decimal ip_dc_id_don_Vi
+			, decimal ip_dc_id_du_an_cong_trinh
+			, decimal ip_dc_id_loai_nhiem_vu
+			, DropDownList op_ddl)
+		{
+			US_DM_DU_AN_CONG_TRINH v_us = new US_DM_DU_AN_CONG_TRINH();
+			DataSet op_ds = new DataSet();
+			DataTable op_dt = new DataTable();
+			op_ds.Tables.Add(op_dt);
+			CStoredProc v_sp = new IP.Core.IPUserService.CStoredProc("pr_gd_giao_von_get_ten_du_an");
+			v_sp.addDatetimeInputParam("@ip_dat_tu_ngay", ip_dat_tu_ngay);
+			v_sp.addDatetimeInputParam("@ip_dat_den_ngay", ip_dat_den_ngay);
+			v_sp.addDecimalInputParam("@ip_dc_id_don_vi", ip_dc_id_don_Vi);
+			v_sp.addDecimalInputParam("@ip_dc_id_loai_nhiem_vu", ip_dc_id_loai_nhiem_vu);
+			v_sp.addDecimalInputParam("@ip_dc_id_du_an_cong_trinh", ip_dc_id_du_an_cong_trinh);
+			v_sp.fillDataSetByCommand(v_us, op_ds);
+			op_ddl.DataTextField = GD_GIAO_VON.TEN_DU_AN;
+			op_ddl.DataValueField = GD_GIAO_VON.TEN_DU_AN;
+			op_ddl.DataSource = op_ds.Tables[0];
+			op_ddl.DataBind();
+		}
 		#endregion
 
 		#region Public Interfaces
