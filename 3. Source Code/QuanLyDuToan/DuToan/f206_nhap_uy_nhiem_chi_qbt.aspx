@@ -76,9 +76,9 @@
 													OnSelectedIndexChanged="m_ddl_unc_SelectedIndexChanged" AutoPostBack="true">
 												</asp:DropDownList>
 												<asp:Button ID="m_cmd_chon_unc" runat="server" Text="Chọn UNC"
-													CssClass="cssButton" Width="98px" Height="24px"
+													
 													OnClick="m_cmd_chon_unc_Click" />
-												<asp:Button ID="m_cmd_nhap_moi_unc" runat="server" Text="Nhập mới UNC" CssClass="cssButton" Width="98px" Height="24px"
+												<asp:Button ID="m_cmd_nhap_moi_unc" runat="server" Text="Nhập mới UNC" 
 													OnClick="m_cmd_nhap_moi_unc_Click" />
 
 											</td>
@@ -105,7 +105,7 @@
 											<td>
 
 												<asp:TextBox ID="m_txt_ma_ctmt_da_htct" Width="40%" runat="server" CssClass="cssTextBox"></asp:TextBox>
-												<asp:Button ID="m_cmd_luu_unc" runat="server" CssClass="cssButton" Height="24px" OnClick="m_cmd_luu_unc_Click" Text="Lưu UNC" Width="98px" />
+												<asp:Button ID="m_cmd_luu_unc" runat="server" OnClick="m_cmd_luu_unc_Click" Text="Lưu UNC" />
 											</td>
 										</tr>
 										<tr>
@@ -155,10 +155,17 @@
 																<asp:Label ID="m_lbl_grid_quoc_lo_du_an" Text='<%#Eval(V_GD_UY_NHIEM_CHI.DISPLAY) %>' runat="server"></asp:Label>
 															</ItemTemplate>
 															<EditItemTemplate>
+																<asp:DropDownList ID="m_ddl_grid_edit_loai_nhiem_vu" runat="server"></asp:DropDownList>
 																<asp:DropDownList ID="m_ddl_grid_edit_du_an_quoc_lo" runat="server"></asp:DropDownList>
+																<asp:DropDownList ID="m_ddl_grid_edit_du_an" runat="server"></asp:DropDownList>
 															</EditItemTemplate>
 															<FooterTemplate>
-																<asp:DropDownList ID="m_ddl_grid_du_an_quoc_lo" runat="server"></asp:DropDownList>
+																<asp:DropDownList ID="m_ddl_grid_loai_nhiem_vu" runat="server" Width="200px"
+																	AutoPostBack="true" OnSelectedIndexChanged="m_ddl_grid_loai_nhiem_vu_SelectedIndexChanged"></asp:DropDownList>
+																<asp:DropDownList ID="m_ddl_grid_du_an_quoc_lo" runat="server"  Width="200px"
+																	AutoPostBack="true" OnSelectedIndexChanged="m_ddl_grid_du_an_quoc_lo_SelectedIndexChanged"></asp:DropDownList>
+																<asp:DropDownList ID="m_ddl_grid_du_an" runat="server" Width="200px"
+																	 AutoPostBack="true" OnSelectedIndexChanged="m_ddl_grid_du_an_SelectedIndexChanged"></asp:DropDownList>
 															</FooterTemplate>
 														</asp:TemplateField>
 														<asp:TemplateField HeaderText="Nội dung thanh toán" HeaderStyle-Width="200px">
@@ -173,7 +180,7 @@
 																<asp:TextBox ID="m_txt_grid_ghi_chu" runat="server" TextMode="MultiLine" Width="96%" Style="text-align: left"></asp:TextBox>
 															</FooterTemplate>
 														</asp:TemplateField>
-														<asp:TemplateField HeaderText="Số tiền nộp thuế" ItemStyle-Width="60px" ItemStyle-HorizontalAlign="Right">
+														<asp:TemplateField HeaderText="Số tiền nộp thuế" HeaderStyle-Width="60px" ItemStyle-HorizontalAlign="Right">
 															<ItemTemplate>
 																<asp:Label ID="m_lbl_grid_so_tien_nop_thue" Text='<%#format_so_tien(Eval(V_GD_UY_NHIEM_CHI.SO_TIEN_NOP_THUE).ToString()) %>'
 																	runat="server"></asp:Label>
@@ -186,7 +193,7 @@
 																<asp:TextBox ID="m_txt_grid_so_tien_nop_thue" runat="server" Style="text-align: right"></asp:TextBox>
 															</FooterTemplate>
 														</asp:TemplateField>
-														<asp:TemplateField HeaderText="Số tiền thanh toán cho đơn vị hưởng" ItemStyle-Width="60px" ItemStyle-HorizontalAlign="Right">
+														<asp:TemplateField HeaderText="Số tiền thanh toán cho đơn vị hưởng" HeaderStyle-Width="60px" ItemStyle-HorizontalAlign="Right">
 															<ItemTemplate>
 																<asp:Label ID="m_lbl_grid_so_tien_tt_cho_dv_huong" Text='<%#format_so_tien(Eval(V_GD_UY_NHIEM_CHI.SO_TIEN_TT_CHO_DV_HUONG).ToString()) %>' runat="server"></asp:Label>
 															</ItemTemplate>
