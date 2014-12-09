@@ -60,6 +60,7 @@
     <None Include="Scripts\jquery-1.4.1-vsdoc.js" />
     <Content Include="Account\ChangePassword.aspx" />
     <Content Include="Account\Default.aspx" />
+    <Content Include="BaoCao\F401_bao_cao_tra_cuu_uy_nhiem_chi.aspx" />
     <Content Include="BaoCao\F602_bao_cao_tinh_hinh_giai_ngan_don_vi.aspx" />
     <Content Include="BaoCao\F603_bao_cao_giao_ke_hoach.aspx" />
     <Content Include="BaoCao\F801_bao_cao_giao_von_theo_qd.aspx" />
@@ -440,7 +441,9 @@
     <Content Include="themes\wood\bg_button.gif" />
     <Content Include="themes\wood\bg_footer.gif" />
     <Content Include="themes\yellow.css" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="src\calendar.php" />
   </ItemGroup>
   <ItemGroup>
@@ -476,6 +479,13 @@
     <Compile Include="App_Code\WinformReport.cs" />
     <Compile Include="App_Code\WinformControls.cs" />
     <Compile Include="App_Code\Person.cs" />
+    <Compile Include="BaoCao\F401_bao_cao_tra_cuu_uy_nhiem_chi.aspx.cs">
+      <DependentUpon>F401_bao_cao_tra_cuu_uy_nhiem_chi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BaoCao\F401_bao_cao_tra_cuu_uy_nhiem_chi.aspx.designer.cs">
+      <DependentUpon>F401_bao_cao_tra_cuu_uy_nhiem_chi.aspx</DependentUpon>
+    </Compile>
     <Compile Include="BaoCao\F602_bao_cao_tinh_hinh_giai_ngan_don_vi.aspx.cs">
       <DependentUpon>F602_bao_cao_tinh_hinh_giai_ngan_don_vi.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
