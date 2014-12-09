@@ -170,6 +170,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DS_HT_USER_GROUP.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DS_RPT_BAO_CAO_GIAO_VON.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_RPT_BAO_CAO_GIAO_VON.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DS_RPT_BAO_CAO_GIAO_VON_THEO_QD.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -443,6 +448,17 @@
     </None>
     <None Include="DS_HT_USER_GROUP.xss">
       <DependentUpon>DS_HT_USER_GROUP.xsd</DependentUpon>
+    </None>
+    <None Include="DS_RPT_BAO_CAO_GIAO_VON.xsc">
+      <DependentUpon>DS_RPT_BAO_CAO_GIAO_VON.xsd</DependentUpon>
+    </None>
+    <None Include="DS_RPT_BAO_CAO_GIAO_VON.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_RPT_BAO_CAO_GIAO_VON.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DS_RPT_BAO_CAO_GIAO_VON.xss">
+      <DependentUpon>DS_RPT_BAO_CAO_GIAO_VON.xsd</DependentUpon>
     </None>
     <None Include="DS_RPT_BAO_CAO_GIAO_VON_THEO_QD.xsc">
       <DependentUpon>DS_RPT_BAO_CAO_GIAO_VON_THEO_QD.xsd</DependentUpon>
