@@ -6,6 +6,19 @@ using System.Text;
 namespace WebDS.CDBNames
 {
 	#region Quan ly du toan
+	public class GRID_UY_NHIEM_CHI
+	{
+		public const string ID = "ID";
+		public const string NOI_DUNG = "NOI_DUNG";
+		public const string SO_TIEN_NT = "SO_TIEN_NT";
+		public const string SO_TIEN_TTCDVH = "SO_TIEN_TTCDVH";
+		public const string TONG = "TONG";
+		public const string ID_DON_VI = "ID_DON_VI";
+		public const string STT = "STT";
+		public const string LEVEL = "LEVEL";
+		public const string KE_HOACH_CHI = "KE_HOACH_CHI";
+	}
+
 	public class GRID_GIAO_VON
 	{
 		public const string ID = "ID";

@@ -131,6 +131,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DS_GRID_GIAO_VON.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DS_GRID_UY_NHIEM_CHI.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_GRID_UY_NHIEM_CHI.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DS_HT_CHUC_NANG1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -371,6 +376,17 @@
     </None>
     <None Include="DS_GRID_GIAO_VON.xss">
       <DependentUpon>DS_GRID_GIAO_VON.xsd</DependentUpon>
+    </None>
+    <None Include="DS_GRID_UY_NHIEM_CHI.xsc">
+      <DependentUpon>DS_GRID_UY_NHIEM_CHI.xsd</DependentUpon>
+    </None>
+    <None Include="DS_GRID_UY_NHIEM_CHI.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_GRID_UY_NHIEM_CHI.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DS_GRID_UY_NHIEM_CHI.xss">
+      <DependentUpon>DS_GRID_UY_NHIEM_CHI.xsd</DependentUpon>
     </None>
     <None Include="DS_HT_CHUC_NANG.xsc">
       <DependentUpon>DS_HT_CHUC_NANG.xsd</DependentUpon>
