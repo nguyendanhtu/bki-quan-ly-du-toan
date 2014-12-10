@@ -23,6 +23,7 @@ namespace WebUS
 	public class US_GD_UY_NHIEM_CHI : US_Object
 	{
 		private const string c_TableName = "GD_UY_NHIEM_CHI";
+
 		#region "Public Properties"
 		public decimal dcID
 		{
@@ -110,28 +111,6 @@ namespace WebUS
 		public void SetSO_TIEN_NOP_THUENull()
 		{
 			pm_objDR["SO_TIEN_NOP_THUE"] = System.Convert.DBNull;
-		}
-
-		public string strIS_NGUON_NS_YN
-		{
-			get
-			{
-				return CNull.RowNVLString(pm_objDR, "IS_NGUON_NS_YN", IPConstants.c_DefaultString);
-			}
-			set
-			{
-				pm_objDR["IS_NGUON_NS_YN"] = value;
-			}
-		}
-
-		public bool IsIS_NGUON_NS_YNNull()
-		{
-			return pm_objDR.IsNull("IS_NGUON_NS_YN");
-		}
-
-		public void SetIS_NGUON_NS_YNNull()
-		{
-			pm_objDR["IS_NGUON_NS_YN"] = System.Convert.DBNull;
 		}
 
 		public decimal dcID_UNC
@@ -332,6 +311,28 @@ namespace WebUS
 			pm_objDR["TEN_DU_AN"] = System.Convert.DBNull;
 		}
 
+		public decimal dcLOAI_NHIEM_VU
+		{
+			get
+			{
+				return CNull.RowNVLDecimal(pm_objDR, "LOAI_NHIEM_VU", IPConstants.c_DefaultDecimal);
+			}
+			set
+			{
+				pm_objDR["LOAI_NHIEM_VU"] = value;
+			}
+		}
+
+		public bool IsLOAI_NHIEM_VUNull()
+		{
+			return pm_objDR.IsNull("LOAI_NHIEM_VU");
+		}
+
+		public void SetLOAI_NHIEM_VUNull()
+		{
+			pm_objDR["LOAI_NHIEM_VU"] = System.Convert.DBNull;
+		}
+
 		#endregion
 		#region "Init Functions"
 		public US_GD_UY_NHIEM_CHI()
@@ -360,6 +361,5 @@ namespace WebUS
 		}
 		#endregion
 
-		
 	}
 }

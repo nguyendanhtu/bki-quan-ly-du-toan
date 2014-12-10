@@ -220,6 +220,28 @@ namespace WebUS
 			pm_objDR["KE_HOACH_CHI"] = System.Convert.DBNull;
 		}
 
+		public string strGHI_CHU
+		{
+			get
+			{
+				return CNull.RowNVLString(pm_objDR, "GHI_CHU", IPConstants.c_DefaultString);
+			}
+			set
+			{
+				pm_objDR["GHI_CHU"] = value;
+			}
+		}
+
+		public bool IsGHI_CHUNull()
+		{
+			return pm_objDR.IsNull("GHI_CHU");
+		}
+
+		public void SetGHI_CHUNull()
+		{
+			pm_objDR["GHI_CHU"] = System.Convert.DBNull;
+		}
+
 		#endregion
 		#region "Init Functions"
 		public US_GRID_UY_NHIEM_CHI()
