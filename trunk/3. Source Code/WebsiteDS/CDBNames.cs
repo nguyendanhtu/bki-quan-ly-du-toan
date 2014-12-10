@@ -17,7 +17,9 @@ namespace WebDS.CDBNames
 		public const string STT = "STT";
 		public const string LEVEL = "LEVEL";
 		public const string KE_HOACH_CHI = "KE_HOACH_CHI";
+		public const string GHI_CHU = "GHI_CHU";
 	}
+
 
 	public class GRID_GIAO_VON
 	{
@@ -122,6 +124,7 @@ namespace WebDS.CDBNames
 		public const string ID_TIEU_MUC = "ID_TIEU_MUC";
 		public const string SO_TIEN_TT_CHO_DV_HUONG = "SO_TIEN_TT_CHO_DV_HUONG";
 		public const string TEN_DU_AN = "TEN_DU_AN";
+		public const string LOAI_NHIEM_VU = "LOAI_NHIEM_VU";
 		public const string NGAY_THANG = "NGAY_THANG";
 		public const string SO_UNC = "SO_UNC";
 		public const string IS_NGUON_NS_YN = "IS_NGUON_NS_YN";
@@ -144,6 +147,7 @@ namespace WebDS.CDBNames
 		public const string TTDVH_SO_TIEN = "TTDVH_SO_TIEN";
 		public const string DISPLAY = "DISPLAY";
 	}
+
 
 
 
@@ -242,7 +246,7 @@ namespace WebDS.CDBNames
 		public const string ID_DON_VI = "ID_DON_VI";
 		public const string NGAY_THANG = "NGAY_THANG";
 		public const string SO_UNC = "SO_UNC";
-		public const string MA_TKKT = "MA_TKKT";
+		public const string IS_NGUON_NS_YN = "IS_NGUON_NS_YN";
 		public const string MA_DVQHNS = "MA_DVQHNS";
 		public const string MA_CTMT_DA_HTCT = "MA_CTMT_DA_HTCT";
 		public const string NT_TEN_DON_VI = "NT_TEN_DON_VI";
@@ -262,13 +266,13 @@ namespace WebDS.CDBNames
 		public const string TTDVH_SO_TIEN = "TTDVH_SO_TIEN";
 	}
 
+
 	public class GD_UY_NHIEM_CHI
 	{
 		public const string ID = "ID";
 		public const string ID_DON_VI = "ID_DON_VI";
 		public const string ID_DU_AN_CONG_TRINH = "ID_DU_AN_CONG_TRINH";
 		public const string SO_TIEN_NOP_THUE = "SO_TIEN_NOP_THUE";
-		public const string IS_NGUON_NS_YN = "IS_NGUON_NS_YN";
 		public const string ID_UNC = "ID_UNC";
 		public const string NOI_DUNG_CHI = "NOI_DUNG_CHI";
 		public const string GHI_CHU = "GHI_CHU";
@@ -278,7 +282,9 @@ namespace WebDS.CDBNames
 		public const string ID_TIEU_MUC = "ID_TIEU_MUC";
 		public const string SO_TIEN_TT_CHO_DV_HUONG = "SO_TIEN_TT_CHO_DV_HUONG";
 		public const string TEN_DU_AN = "TEN_DU_AN";
+		public const string LOAI_NHIEM_VU = "LOAI_NHIEM_VU";
 	}
+
 
 
 

@@ -297,6 +297,8 @@ namespace WebDS {
             
             private global::System.Data.DataColumn columnKE_HOACH_CHI;
             
+            private global::System.Data.DataColumn columnGHI_CHU;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public GRID_UY_NHIEM_CHIDataTable() {
@@ -404,6 +406,14 @@ namespace WebDS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn GHI_CHUColumn {
+                get {
+                    return this.columnGHI_CHU;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -439,7 +449,7 @@ namespace WebDS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public GRID_UY_NHIEM_CHIRow AddGRID_UY_NHIEM_CHIRow(decimal ID, string NOI_DUNG, decimal SO_TIEN_NT, decimal SO_TIEN_TTCDVH, decimal TONG, decimal ID_DON_VI, string STT, string LEVEL, decimal KE_HOACH_CHI) {
+            public GRID_UY_NHIEM_CHIRow AddGRID_UY_NHIEM_CHIRow(decimal ID, string NOI_DUNG, decimal SO_TIEN_NT, decimal SO_TIEN_TTCDVH, decimal TONG, decimal ID_DON_VI, string STT, string LEVEL, decimal KE_HOACH_CHI, string GHI_CHU) {
                 GRID_UY_NHIEM_CHIRow rowGRID_UY_NHIEM_CHIRow = ((GRID_UY_NHIEM_CHIRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         ID,
@@ -450,7 +460,8 @@ namespace WebDS {
                         ID_DON_VI,
                         STT,
                         LEVEL,
-                        KE_HOACH_CHI};
+                        KE_HOACH_CHI,
+                        GHI_CHU};
                 rowGRID_UY_NHIEM_CHIRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowGRID_UY_NHIEM_CHIRow);
                 return rowGRID_UY_NHIEM_CHIRow;
@@ -488,6 +499,7 @@ namespace WebDS {
                 this.columnSTT = base.Columns["STT"];
                 this.columnLEVEL = base.Columns["LEVEL"];
                 this.columnKE_HOACH_CHI = base.Columns["KE_HOACH_CHI"];
+                this.columnGHI_CHU = base.Columns["GHI_CHU"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -511,9 +523,12 @@ namespace WebDS {
                 base.Columns.Add(this.columnLEVEL);
                 this.columnKE_HOACH_CHI = new global::System.Data.DataColumn("KE_HOACH_CHI", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnKE_HOACH_CHI);
+                this.columnGHI_CHU = new global::System.Data.DataColumn("GHI_CHU", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnGHI_CHU);
                 this.columnNOI_DUNG.MaxLength = 250;
                 this.columnSTT.MaxLength = 35;
                 this.columnLEVEL.MaxLength = 35;
+                this.columnGHI_CHU.MaxLength = 250;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -800,6 +815,22 @@ namespace WebDS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string GHI_CHU {
+                get {
+                    try {
+                        return ((string)(this[this.tableGRID_UY_NHIEM_CHI.GHI_CHUColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'GHI_CHU\' in table \'GRID_UY_NHIEM_CHI\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGRID_UY_NHIEM_CHI.GHI_CHUColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsIDNull() {
                 return this.IsNull(this.tableGRID_UY_NHIEM_CHI.IDColumn);
             }
@@ -904,6 +935,18 @@ namespace WebDS {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetKE_HOACH_CHINull() {
                 this[this.tableGRID_UY_NHIEM_CHI.KE_HOACH_CHIColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsGHI_CHUNull() {
+                return this.IsNull(this.tableGRID_UY_NHIEM_CHI.GHI_CHUColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetGHI_CHUNull() {
+                this[this.tableGRID_UY_NHIEM_CHI.GHI_CHUColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1075,13 +1118,11 @@ namespace WebDS.DS_GRID_UY_NHIEM_CHITableAdapters {
             tableMapping.ColumnMappings.Add("STT", "STT");
             tableMapping.ColumnMappings.Add("LEVEL", "LEVEL");
             tableMapping.ColumnMappings.Add("KE_HOACH_CHI", "KE_HOACH_CHI");
+            tableMapping.ColumnMappings.Add("GHI_CHU", "GHI_CHU");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[GRID_UY_NHIEM_CHI] ([ID], [NOI_DUNG], [SO_TIEN_NT], [SO_TIEN_T" +
-                "TCDVH], [TONG], [ID_DON_VI], [STT], [LEVEL], [KE_HOACH_CHI]) VALUES (@ID, @NOI_D" +
-                "UNG, @SO_TIEN_NT, @SO_TIEN_TTCDVH, @TONG, @ID_DON_VI, @STT, @LEVEL, @KE_HOACH_CH" +
-                "I)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[GRID_UY_NHIEM_CHI] ([ID], [NOI_DUNG], [SO_TIEN_NT], [SO_TIEN_TTCDVH], [TONG], [ID_DON_VI], [STT], [LEVEL], [KE_HOACH_CHI], [GHI_CHU]) VALUES (@ID, @NOI_DUNG, @SO_TIEN_NT, @SO_TIEN_TTCDVH, @TONG, @ID_DON_VI, @STT, @LEVEL, @KE_HOACH_CHI, @GHI_CHU)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOI_DUNG", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOI_DUNG", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1092,6 +1133,7 @@ namespace WebDS.DS_GRID_UY_NHIEM_CHITableAdapters {
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@STT", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "STT", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LEVEL", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LEVEL", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@KE_HOACH_CHI", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 21, 0, "KE_HOACH_CHI", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@GHI_CHU", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "GHI_CHU", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1108,7 +1150,7 @@ namespace WebDS.DS_GRID_UY_NHIEM_CHITableAdapters {
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT ID, NOI_DUNG, SO_TIEN_NT, SO_TIEN_TTCDVH, TONG, ID_DON_VI, STT, [LEVEL], K" +
-                "E_HOACH_CHI FROM dbo.GRID_UY_NHIEM_CHI";
+                "E_HOACH_CHI, GHI_CHU FROM dbo.GRID_UY_NHIEM_CHI";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -1169,7 +1211,7 @@ namespace WebDS.DS_GRID_UY_NHIEM_CHITableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(global::System.Nullable<decimal> ID, string NOI_DUNG, global::System.Nullable<decimal> SO_TIEN_NT, global::System.Nullable<decimal> SO_TIEN_TTCDVH, global::System.Nullable<decimal> TONG, global::System.Nullable<decimal> ID_DON_VI, string STT, string LEVEL, global::System.Nullable<decimal> KE_HOACH_CHI) {
+        public virtual int Insert(global::System.Nullable<decimal> ID, string NOI_DUNG, global::System.Nullable<decimal> SO_TIEN_NT, global::System.Nullable<decimal> SO_TIEN_TTCDVH, global::System.Nullable<decimal> TONG, global::System.Nullable<decimal> ID_DON_VI, string STT, string LEVEL, global::System.Nullable<decimal> KE_HOACH_CHI, string GHI_CHU) {
             if ((ID.HasValue == true)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = ((decimal)(ID.Value));
             }
@@ -1223,6 +1265,12 @@ namespace WebDS.DS_GRID_UY_NHIEM_CHITableAdapters {
             }
             else {
                 this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            if ((GHI_CHU == null)) {
+                this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(GHI_CHU));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 

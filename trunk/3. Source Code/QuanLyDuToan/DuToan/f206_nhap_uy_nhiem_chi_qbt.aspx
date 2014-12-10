@@ -26,13 +26,13 @@
 		<ContentTemplate>
 			<table style="margin: auto">
 				<tr>
-					<td style="font-weight: bold; font-size: 24px;text-align:center">UỶ NHIỆM CHI</td>
+					<td style="font-weight: bold; font-size: 24px; text-align: center">UỶ NHIỆM CHI</td>
 				</tr>
 				<tr>
-					<td style="text-align:center">CHUYỂN KHOẢN, CHUYỂN TIỀN ĐIỆN TỬ</td>
+					<td style="text-align: center">CHUYỂN KHOẢN, CHUYỂN TIỀN ĐIỆN TỬ</td>
 				</tr>
 				<tr>
-					<td style="text-align:center">
+					<td style="text-align: center">
 						<p>Lập ngày: &nbsp;<asp:TextBox ID="m_txt_ngay_thang" runat="server" placeholder="dd/mm/yyyy" CssClass="cssTextBox" Width="100px"></asp:TextBox></p>
 					</td>
 				</tr>
@@ -76,9 +76,8 @@
 													OnSelectedIndexChanged="m_ddl_unc_SelectedIndexChanged" AutoPostBack="true">
 												</asp:DropDownList>
 												<asp:Button ID="m_cmd_chon_unc" runat="server" Text="Chọn UNC"
-													
 													OnClick="m_cmd_chon_unc_Click" />
-												<asp:Button ID="m_cmd_nhap_moi_unc" runat="server" Text="Nhập mới UNC" 
+												<asp:Button ID="m_cmd_nhap_moi_unc" runat="server" Text="Nhập mới UNC"
 													OnClick="m_cmd_nhap_moi_unc_Click" />
 
 											</td>
@@ -126,7 +125,7 @@
 
 									<table cellspacing="0" cellpadding="2" style="width: 100%;" border="0">
 
-					
+
 										<tr>
 											<td>
 												<asp:Label ID="m_lbl_mess_detail" CssClass="cssManField" runat="server"></asp:Label></td>
@@ -142,42 +141,38 @@
 													OnRowUpdating="m_grv_unc_RowUpdating"
 													OnRowCommand="m_grv_unc_RowCommand">
 													<Columns>
-														<asp:TemplateField HeaderText="Loại" HeaderStyle-Width="100px">
-															<EditItemTemplate>
-																
-															</EditItemTemplate>
-															<FooterTemplate>
-																
-															</FooterTemplate>
-														</asp:TemplateField>
+
 														<asp:TemplateField HeaderText="Quốc lộ/Dự án" HeaderStyle-Width="200px">
 															<ItemTemplate>
 																<asp:Label ID="m_lbl_grid_quoc_lo_du_an" Text='<%#Eval(GRID_UY_NHIEM_CHI.NOI_DUNG) %>' runat="server"></asp:Label>
 															</ItemTemplate>
 															<EditItemTemplate>
-																<asp:DropDownList ID="m_ddl_grid_edit_loai_nhiem_vu" runat="server"></asp:DropDownList>
-																<asp:DropDownList ID="m_ddl_grid_edit_du_an_quoc_lo" runat="server"></asp:DropDownList>
-																<asp:DropDownList ID="m_ddl_grid_edit_du_an" runat="server"></asp:DropDownList>
+																<asp:DropDownList ID="m_ddl_grid_edit_loai_nhiem_vu" OnSelectedIndexChanged="m_ddl_grid_edit_loai_nhiem_vu_SelectedIndexChanged" AutoPostBack="true" runat="server" Width="200px"></asp:DropDownList>
+																<asp:DropDownList ID="m_ddl_grid_edit_du_an_quoc_lo" runat="server" AutoPostBack="true" Width="200px" OnSelectedIndexChanged="m_ddl_grid_edit_du_an_quoc_lo_SelectedIndexChanged"></asp:DropDownList>
+																<asp:DropDownList ID="m_ddl_grid_edit_du_an" runat="server" Width="200px" AutoPostBack="true"></asp:DropDownList>
 															</EditItemTemplate>
 															<FooterTemplate>
 																<asp:DropDownList ID="m_ddl_grid_loai_nhiem_vu" runat="server" Width="200px"
-																	AutoPostBack="true" OnSelectedIndexChanged="m_ddl_grid_loai_nhiem_vu_SelectedIndexChanged"></asp:DropDownList>
-																<asp:DropDownList ID="m_ddl_grid_du_an_quoc_lo" runat="server"  Width="200px"
-																	AutoPostBack="true" OnSelectedIndexChanged="m_ddl_grid_du_an_quoc_lo_SelectedIndexChanged"></asp:DropDownList>
+																	AutoPostBack="true" OnSelectedIndexChanged="m_ddl_grid_loai_nhiem_vu_SelectedIndexChanged">
+																</asp:DropDownList>
+																<asp:DropDownList ID="m_ddl_grid_du_an_quoc_lo" runat="server" Width="200px"
+																	AutoPostBack="true" OnSelectedIndexChanged="m_ddl_grid_du_an_quoc_lo_SelectedIndexChanged">
+																</asp:DropDownList>
 																<asp:DropDownList ID="m_ddl_grid_du_an" runat="server" Width="200px"
-																	 AutoPostBack="true" OnSelectedIndexChanged="m_ddl_grid_du_an_SelectedIndexChanged"></asp:DropDownList>
+																	AutoPostBack="true">
+																</asp:DropDownList>
 															</FooterTemplate>
 														</asp:TemplateField>
 														<asp:TemplateField HeaderText="Nội dung thanh toán" HeaderStyle-Width="200px">
 															<ItemTemplate>
-																<asp:Label ID="m_lbl_grid_ghi_chu" Text='<%#Eval(GRID_UY_NHIEM_CHI.NOI_DUNG).ToString() %>' runat="server"></asp:Label>
+																<asp:Label ID="m_lbl_grid_ghi_chu" Text='<%#Eval(GRID_UY_NHIEM_CHI.GHI_CHU).ToString() %>' runat="server"></asp:Label>
 															</ItemTemplate>
 															<EditItemTemplate>
-																<asp:TextBox ID="m_txt_grid_edit_ghi_chu" runat="server" TextMode="MultiLine" Width="96%"
-																	Text='<%#Eval(GRID_UY_NHIEM_CHI.NOI_DUNG) %>'></asp:TextBox>
+																<asp:TextBox ID="m_txt_grid_edit_ghi_chu" runat="server" TextMode="MultiLine" Width="96%" Height="100%"
+																	Text='<%#Eval(GRID_UY_NHIEM_CHI.GHI_CHU) %>'></asp:TextBox>
 															</EditItemTemplate>
 															<FooterTemplate>
-																<asp:TextBox ID="m_txt_grid_ghi_chu" runat="server" TextMode="MultiLine" Width="96%" Style="text-align: left"></asp:TextBox>
+																<asp:TextBox ID="m_txt_grid_ghi_chu" runat="server" TextMode="MultiLine" Width="96%" Height="100%" Style="text-align: left"></asp:TextBox>
 															</FooterTemplate>
 														</asp:TemplateField>
 														<asp:TemplateField HeaderText="Số tiền nộp thuế" HeaderStyle-Width="60px" ItemStyle-HorizontalAlign="Right">
@@ -186,11 +181,11 @@
 																	runat="server"></asp:Label>
 															</ItemTemplate>
 															<EditItemTemplate>
-																<asp:TextBox ID="m_txt_grid_edit_so_tien_nop_thue" runat="server" Style="text-align: right"
+																<asp:TextBox ID="m_txt_grid_edit_so_tien_nop_thue" runat="server" Style="text-align: right" CssClass="csscurrency"
 																	Text='<%#Eval(GRID_UY_NHIEM_CHI.SO_TIEN_NT) %>'></asp:TextBox>
 															</EditItemTemplate>
 															<FooterTemplate>
-																<asp:TextBox ID="m_txt_grid_so_tien_nop_thue" runat="server" Style="text-align: right"></asp:TextBox>
+																<asp:TextBox ID="m_txt_grid_so_tien_nop_thue" runat="server" CssClass="csscurrency" Style="text-align: right"></asp:TextBox>
 															</FooterTemplate>
 														</asp:TemplateField>
 														<asp:TemplateField HeaderText="Số tiền thanh toán cho đơn vị hưởng" HeaderStyle-Width="60px" ItemStyle-HorizontalAlign="Right">
@@ -198,22 +193,26 @@
 																<asp:Label ID="m_lbl_grid_so_tien_tt_cho_dv_huong" Text='<%#format_so_tien(Eval(GRID_UY_NHIEM_CHI.SO_TIEN_TTCDVH).ToString()) %>' runat="server"></asp:Label>
 															</ItemTemplate>
 															<EditItemTemplate>
-																<asp:TextBox ID="m_txt_grid_edit_so_tien_tt_cho_dv_huong" runat="server" Style="text-align: right"
+																<asp:TextBox ID="m_txt_grid_edit_so_tien_tt_cho_dv_huong" runat="server" CssClass="csscurrency" Style="text-align: right"
 																	Text='<%#Eval(GRID_UY_NHIEM_CHI.SO_TIEN_TTCDVH) %>'></asp:TextBox>
 															</EditItemTemplate>
 															<FooterTemplate>
-																<asp:TextBox ID="m_txt_grid_so_tien_thanh_toan_cho_don_vi_huong" runat="server" Style="text-align: right"></asp:TextBox>
+																<asp:TextBox ID="m_txt_grid_so_tien_thanh_toan_cho_don_vi_huong" CssClass="csscurrency" runat="server" Style="text-align: right"></asp:TextBox>
 															</FooterTemplate>
 														</asp:TemplateField>
-
+														<asp:TemplateField HeaderText="Tổng" HeaderStyle-Width="150px" ItemStyle-HorizontalAlign="Right">
+															<ItemTemplate>
+																<asp:Label ID="m_lbl_grid_tong_tien" Text='<%#format_so_tien(Eval(GRID_UY_NHIEM_CHI.TONG).ToString()) %>' runat="server"></asp:Label>
+															</ItemTemplate>
+														</asp:TemplateField>
 														<asp:TemplateField HeaderText="Thao tác" HeaderStyle-Width="150px" FooterStyle-HorizontalAlign="Center">
 															<EditItemTemplate>
-																<table style="width:100%">
+																<table style="width: 100%">
 																	<tr>
-																		<td style="width:50%;text-align:center">
+																		<td style="width: 50%; text-align: center">
 																			<asp:LinkButton ID="lbtnUpdate" runat="server" CommandName="Update" CssClass="cssManField"
 																				Text="Cập nhật" /></td>
-																		<td style="width:50%;text-align:center">
+																		<td style="width: 50%; text-align: center">
 																			<asp:LinkButton ID="lbtnCancel" runat="server" CommandName="Cancel" CssClass="cssManField"
 																				Text="Huỷ thao tác" /></td>
 																	</tr>
@@ -222,12 +221,12 @@
 
 															</EditItemTemplate>
 															<ItemTemplate>
-																<table style="width:100%">
+																<table style="width: 100%">
 																	<tr>
-																		<td style="width:50%;text-align:center">
+																		<td style="width: 50%; text-align: center">
 																			<asp:LinkButton ID="lbtnEdit" runat="server" CommandName="Edit" CssClass="cssButton"
 																				Text="Sửa" Visible='<%#thao_tac_visible(Eval(GRID_UY_NHIEM_CHI.ID).ToString()) %>' /></td>
-																		<td style="width:50%;text-align:center">
+																		<td style="width: 50%; text-align: center">
 																			<asp:LinkButton ID="lbtnDelete" runat="server" CommandName="Delete" CssClass="cssButton"
 																				OnClientClick="return confirm('Are you sure you want to delete this record?')"
 																				Text="Xoá" CausesValidation="false" Visible='<%#thao_tac_visible(Eval(GRID_UY_NHIEM_CHI.ID).ToString()) %>' />

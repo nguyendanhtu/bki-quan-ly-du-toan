@@ -241,7 +241,7 @@ namespace QuanLyDuToan.DuToan
 					break;
 			}
 
-			m_us.strIS_NGUON_NS_YN = "Y";//Nguon mac dinh la Ngan sach
+			//m_us.strIS_NGUON_NS_YN = "Y";//Nguon mac dinh la Ngan sach
 			m_us.dcSO_TIEN_NOP_THUE = CIPConvert.ToDecimal(m_txt_so_tien_nop_thue.Text.Trim());
 			m_us.dcSO_TIEN_TT_CHO_DV_HUONG = CIPConvert.ToDecimal(m_txt_so_tien_thanh_toan_don_vi_huong.Text.Trim());
 
