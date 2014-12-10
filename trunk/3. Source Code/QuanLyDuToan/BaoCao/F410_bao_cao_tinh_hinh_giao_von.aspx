@@ -56,8 +56,7 @@
 										<%# Container.DataItemIndex + 1 %>
 									</ItemTemplate>
 								</asp:TemplateField>
-
-								<asp:BoundField DataField="STT" HeaderText="STT" HeaderStyle-Width="2%" />
+<%--								<asp:BoundField DataField="STT" HeaderText="STT" HeaderStyle-Width="2%" />--%>
                                 <asp:BoundField DataField="NHIEM_VU_CHI" HeaderText="Nhiệm vụ chi" HeaderStyle-Width="300px" />
 							    <asp:BoundField DataField="TONG_KH" HeaderText="Tổng kế hoạch" HeaderStyle-Width="150px" />
                                 <asp:BoundField DataField="TONG_VON_QBT" HeaderText="Tổng vốn quỹ bảo trì" HeaderStyle-Width="150px" />
