@@ -533,5 +533,16 @@ namespace WebUS
 			pm_objDR = getRowClone(pm_objDS.Tables[pm_strTableName].Rows[0]);
 		}
 		#endregion
-	}
+
+        public void bc_tra_cuu_giao_ke_hoach_theo_du_an(DataSet ip_ds, decimal ip_dc_id_cong_trinh_du_an, string ip_str_ten_du_an, decimal ip_dc_id_don_vi, DateTime ip_dat_tu_ngay, DateTime ip_dat_den_ngay)
+        {
+            CStoredProc v_prc = new CStoredProc("pr_bao_cao_tra_cuu_giao_ke_hoach_theo_du_an");
+            v_prc.addDecimalInputParam("@ip_dc_id_cong_trinh_du_an", ip_dc_id_cong_trinh_du_an);
+            v_prc.addNVarcharInputParam("@ip_str_ten_du_an", ip_str_ten_du_an);
+            v_prc.addDatetimeInputParam("@ip_dat_tu_ngay", ip_dat_tu_ngay);
+            v_prc.addDatetimeInputParam("@ip_dat_den_ngay", ip_dat_den_ngay);
+            v_prc.addDecimalInputParam("@ip_dc_id_don_vi", ip_dc_id_don_vi);
+            v_prc.fillDataSetByCommand(this, ip_ds);
+        }
+    }
 }
