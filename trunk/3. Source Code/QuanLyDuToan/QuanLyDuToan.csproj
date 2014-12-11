@@ -63,6 +63,7 @@
     <Content Include="BaoCao\F403_bao_cao_tra_cuu_giao_von.aspx" />
     <Content Include="BaoCao\F402_bao_cao_tra_cuu_giao_ke_hoach.aspx" />
     <Content Include="BaoCao\F410_bao_cao_tinh_hinh_giao_von.aspx" />
+    <Content Include="BaoCao\F701_tinh_hinh_giai_ngan_von_don_vi.aspx" />
     <Content Include="BaoCao\F802_bao_cao_giao_kh_quy_bt_theo_qd.aspx" />
     <Content Include="BaoCao\F401_bao_cao_tra_cuu_uy_nhiem_chi.aspx" />
     <Content Include="BaoCao\F602_bao_cao_tinh_hinh_giai_ngan_don_vi.aspx" />
@@ -503,6 +504,13 @@
     </Compile>
     <Compile Include="BaoCao\F410_bao_cao_tinh_hinh_giao_von.aspx.designer.cs">
       <DependentUpon>F410_bao_cao_tinh_hinh_giao_von.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BaoCao\F701_tinh_hinh_giai_ngan_von_don_vi.aspx.cs">
+      <DependentUpon>F701_tinh_hinh_giai_ngan_von_don_vi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BaoCao\F701_tinh_hinh_giai_ngan_von_don_vi.aspx.designer.cs">
+      <DependentUpon>F701_tinh_hinh_giai_ngan_von_don_vi.aspx</DependentUpon>
     </Compile>
     <Compile Include="BaoCao\F802_bao_cao_giao_kh_quy_bt_theo_qd.aspx.cs">
       <DependentUpon>F802_bao_cao_giao_kh_quy_bt_theo_qd.aspx</DependentUpon>
