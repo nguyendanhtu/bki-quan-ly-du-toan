@@ -342,7 +342,29 @@ namespace QuanLyDuToan.DuToan
 					m_lbl_mess_detail.Text = "Bạn đã tạo mới thành công!";
 					break;
 				case LOAI_FORM.SUA:
-					m_us.Update();
+					try
+					{
+						//m_us.BeginTransaction();
+						
+						US_GD_QUYET_DINH v_us_quyet_dinh=new US_GD_QUYET_DINH(CIPConvert.ToDecimal(m_hdf_id_quyet_dinh.Value));
+						US_GD_GIAO_KH v_us_ten_cu = new US_GD_GIAO_KH(CIPConvert.ToDecimal(m_hdf_id_giao_kh.Value));
+						m_us.update_ten_du_an_giao_kh_to_giao_von_va_unc(Person.get_id_don_vi()
+							, v_us_ten_cu.dcLOAI_NHIEM_VU
+							, v_us_ten_cu.dcID_DU_AN_CONG_TRINH
+							, v_us_ten_cu.strTEN_DU_AN
+							, m_us.strTEN_DU_AN
+							, WinFormControls.get_dau_nam_form_date(v_us_quyet_dinh.datNGAY_THANG)
+							, WinFormControls.get_cuoi_nam_form_date(v_us_quyet_dinh.datNGAY_THANG));
+						m_us.Update();
+						//m_us.CommitTransaction();
+					}
+					catch (Exception)
+					{
+						//m_us.Rollback();
+						m_lbl_mess_detail.Text = "Quá trình cập nhật xảy ra lỗi, bạn vui lòng thực hiện lại thao tác!";
+					}
+					
+
 					m_lbl_mess_detail.Text = "Bạn đã cập nhật thành công!";
 					break;
 			}
