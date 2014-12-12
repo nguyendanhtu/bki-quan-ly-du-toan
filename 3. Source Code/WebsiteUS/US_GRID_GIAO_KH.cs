@@ -254,5 +254,7 @@ namespace WebUS
 			v_sp.addDecimalInputParam("@ip_dc_id_quyet_dinh", ip_dc_id_quyet_dinh);
 			v_sp.fillDataSetByCommand(this, op_ds);
 		}
+
+		
 	}
 }
