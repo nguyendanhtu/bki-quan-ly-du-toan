@@ -231,12 +231,13 @@ public class US_RPT_BAO_CAO_GIAO_VON : US_Object
 	}
 #endregion
 
-    public void bc_giao_von_theo_don_vi(DataSet v_ds, decimal v_dc_id_don_vi, DateTime ip_dat_tu_ngay, DateTime ip_dat_den_ngay)
+    public void bc_giao_von_theo_don_vi(DataSet v_ds, decimal v_dc_id_don_vi, DateTime ip_dat_tu_ngay, DateTime ip_dat_den_ngay, string ip_str_nhiem_vu_chi)
     {
         CStoredProc v_prc = new CStoredProc("pr_RPT_BAO_CAO_GIAO_VON");
         v_prc.addDecimalInputParam("@ip_id_dc_id_don_vi", v_dc_id_don_vi);
         v_prc.addDatetimeInputParam("@ip_dat_tu_ngay", ip_dat_tu_ngay);
         v_prc.addDatetimeInputParam("@ip_dat_den_ngay", ip_dat_den_ngay);
+        v_prc.addNVarcharInputParam("@ip_str_nhiem_vu_chi", ip_str_nhiem_vu_chi);
         v_prc.fillDataSetByCommand(this,v_ds);
     }
 }

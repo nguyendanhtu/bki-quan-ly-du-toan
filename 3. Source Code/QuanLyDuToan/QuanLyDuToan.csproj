@@ -491,6 +491,7 @@
     <Compile Include="App_Code\Person.cs" />
     <Compile Include="BaoCao\F256_bao_cao_giao_von.aspx.cs">
       <DependentUpon>F256_bao_cao_giao_von.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="BaoCao\F256_bao_cao_giao_von.aspx.designer.cs">
       <DependentUpon>F256_bao_cao_giao_von.aspx</DependentUpon>
@@ -504,6 +505,7 @@
     </Compile>
     <Compile Include="BaoCao\F356_bao_cao_giai_ngan.aspx.cs">
       <DependentUpon>F356_bao_cao_giai_ngan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="BaoCao\F356_bao_cao_giai_ngan.aspx.designer.cs">
       <DependentUpon>F356_bao_cao_giai_ngan.aspx</DependentUpon>
