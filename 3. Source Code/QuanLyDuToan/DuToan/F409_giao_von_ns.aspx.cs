@@ -50,7 +50,7 @@ namespace QuanLyDuToan.DuToan
 				m_ddl_muc.Items.Insert(0, new ListItem("---Chọn Mục hoặc Tiểu mục---", "-1"));
 				return;
 			}
-			US_GD_QUYET_DINH v_us_qd = new US_GD_QUYET_DINH(CIPConvert.ToDecimal(m_hdf_id_quyet_dinh.Value));
+			US_DM_QUYET_DINH v_us_qd = new US_DM_QUYET_DINH(CIPConvert.ToDecimal(m_hdf_id_quyet_dinh.Value));
 			DateTime v_dat_dau_nam = v_us_qd.datNGAY_THANG;
 			v_dat_dau_nam = v_dat_dau_nam.AddDays(-v_dat_dau_nam.Day + 1);
 			v_dat_dau_nam = v_dat_dau_nam.AddMonths(-v_dat_dau_nam.Month + 1);
@@ -76,7 +76,7 @@ namespace QuanLyDuToan.DuToan
 			}
 			else
 			{
-				US_GD_QUYET_DINH v_us_quyet_dinh = new US_GD_QUYET_DINH(CIPConvert.ToDecimal(m_hdf_id_quyet_dinh.Value));
+				US_DM_QUYET_DINH v_us_quyet_dinh = new US_DM_QUYET_DINH(CIPConvert.ToDecimal(m_hdf_id_quyet_dinh.Value));
 				DateTime v_dat_dau_nam = v_us_quyet_dinh.datNGAY_THANG;
 				v_dat_dau_nam = v_dat_dau_nam.AddDays(-v_dat_dau_nam.Day + 1);
 				v_dat_dau_nam = v_dat_dau_nam.AddMonths(-v_dat_dau_nam.Month + 1);
@@ -120,7 +120,7 @@ namespace QuanLyDuToan.DuToan
 				m_txt_noi_dung.Visible = true;
 				m_txt_ngay_thang.Visible = true;
 
-				US_GD_QUYET_DINH v_us = new US_GD_QUYET_DINH(CIPConvert.ToDecimal(m_ddl_quyet_dinh.SelectedValue)); ;
+				US_DM_QUYET_DINH v_us = new US_DM_QUYET_DINH(CIPConvert.ToDecimal(m_ddl_quyet_dinh.SelectedValue)); ;
 				m_txt_so_qd.Text = v_us.strSO_QUYET_DINH;
 				m_txt_noi_dung.Text = v_us.strNOI_DUNG;
 				m_txt_ngay_thang.Text = CIPConvert.ToStr(v_us.datNGAY_THANG, "dd/MM/yyyy");
@@ -158,7 +158,7 @@ namespace QuanLyDuToan.DuToan
 		}
 		protected void m_cmd_luu_qd_Click(object sender, EventArgs e)
 		{
-			US_GD_QUYET_DINH v_us = new US_GD_QUYET_DINH();
+			US_DM_QUYET_DINH v_us = new US_DM_QUYET_DINH();
 			m_hdf_id_quyet_dinh.Value = "";
 			//check validate luu quyet dinh
 			if (m_txt_so_qd.Text.Trim().Equals(""))
@@ -221,8 +221,8 @@ namespace QuanLyDuToan.DuToan
 		#endregion
 
 		#region Members
-		DS_GD_GIAO_VON m_ds = new DS_GD_GIAO_VON();
-		US_GD_GIAO_VON m_us = new US_GD_GIAO_VON();
+		DS_GD_CHI_TIET_GIAO_VON m_ds = new DS_GD_CHI_TIET_GIAO_VON();
+		US_GD_CHI_TIET_GIAO_VON m_us = new US_GD_CHI_TIET_GIAO_VON();
 		#endregion //Members
 
 		protected void m_ddl_muc_SelectedIndexChanged(object sender, EventArgs e)
@@ -280,8 +280,8 @@ namespace QuanLyDuToan.DuToan
 			if (get_form_mode(m_hdf_form_mode).Equals(LOAI_FORM.XOA))
 			{
 
-				//US_GD_UY_NHIEM_CHI v_us = new US_GD_UY_NHIEM_CHI();
-				//DS_GD_UY_NHIEM_CHI v_ds = new DS_GD_UY_NHIEM_CHI();
+				//US_GD_CHI_TIET_GIAI_NGAN v_us = new US_GD_CHI_TIET_GIAI_NGAN();
+				//DS_GD_CHI_TIET_GIAI_NGAN v_ds = new DS_GD_CHI_TIET_GIAI_NGAN();
 				//v_us.FillDataset(v_ds, "where id = " + m_hdf_id_giao_von.Value);
 				//if (v_ds.GD_GIAO_VON.Count > 0)
 				//{
@@ -323,7 +323,7 @@ namespace QuanLyDuToan.DuToan
 					m_us.dcID = CIPConvert.ToDecimal(this.m_hdf_id_giao_von.Value);
 					break;
 				case LOAI_FORM.THEM:
-					m_us = new US_GD_GIAO_VON();
+					m_us = new US_GD_CHI_TIET_GIAO_VON();
 					break;
 			}
 
@@ -365,8 +365,8 @@ namespace QuanLyDuToan.DuToan
 		}
 		private void us_object_to_form()
 		{
-			m_us = new US_GD_GIAO_VON(CIPConvert.ToDecimal(m_hdf_id_giao_von.Value));
-			//US_DM_DU_AN_CONG_TRINH v_us_du_an_cong_trinh = new US_DM_DU_AN_CONG_TRINH(m_us.dcID_DU_AN_CONG_TRINH);
+			m_us = new US_GD_CHI_TIET_GIAO_VON(CIPConvert.ToDecimal(m_hdf_id_giao_von.Value));
+			//US_DM_CONG_TRINH_DU_AN_GOI_THAU v_us_du_an_cong_trinh = new US_DM_CONG_TRINH_DU_AN_GOI_THAU(m_us.dcID_DU_AN_CONG_TRINH);
 			load_data_to_cbo_muc_tieu_muc();
 			//set id_mix cua ddl_muce
 			m_ddl_muc.SelectedValue = get_id_mix_from_id_gd(m_us.dcID);
@@ -395,7 +395,7 @@ namespace QuanLyDuToan.DuToan
 			//}
 
 			//set quyet dinh
-			US_GD_QUYET_DINH v_us_quyet_dinh = new US_GD_QUYET_DINH(m_us.dcID_QUYET_DINH);
+			US_DM_QUYET_DINH v_us_quyet_dinh = new US_DM_QUYET_DINH(m_us.dcID_QUYET_DINH);
 			m_txt_so_qd.Text = v_us_quyet_dinh.strSO_QUYET_DINH;
 			m_txt_noi_dung.Text = v_us_quyet_dinh.strNOI_DUNG;
 			m_txt_ngay_thang.Text = CIPConvert.ToStr(v_us_quyet_dinh.datNGAY_THANG, "dd/MM/yyyy");
@@ -460,7 +460,7 @@ namespace QuanLyDuToan.DuToan
 
 		private string get_id_mix_from_id_gd(decimal ip_dc_id_giao_von)
 		{
-			US_GD_GIAO_VON v_us = new US_GD_GIAO_VON(ip_dc_id_giao_von);
+			US_GD_CHI_TIET_GIAO_VON v_us = new US_GD_CHI_TIET_GIAO_VON(ip_dc_id_giao_von);
 			US_DM_CHUONG_LOAI_KHOAN_MUC v_us_khoan = new US_DM_CHUONG_LOAI_KHOAN_MUC(v_us.dcID_KHOAN);
 			string v_str_id_mix = "";
 			v_str_id_mix += v_us.dcID_CHUONG + "|";//chuong
@@ -538,16 +538,16 @@ namespace QuanLyDuToan.DuToan
 
 		private void load_data_to_grid()
 		{
-			US_V_GD_GIAO_VON v_us = new US_V_GD_GIAO_VON();
-			DS_V_GD_GIAO_VON v_ds = new DS_V_GD_GIAO_VON();
+			US_V_GD_GIAO_VON_QBT v_us = new US_V_GD_GIAO_VON_QBT();
+			DS_V_GD_GIAO_VON_QBT v_ds = new DS_V_GD_GIAO_VON_QBT();
 			if (m_hdf_id_quyet_dinh.Value.Trim().Equals("") | m_hdf_id_quyet_dinh.Value.Trim().Equals("-1"))
 			{
-				m_grv.DataSource = v_ds.V_GD_GIAO_VON;
+				m_grv.DataSource = v_ds.V_GD_GIAO_VON_QBT;
 				m_grv.DataBind();
 				return;
 			}
 			v_us.FillDataset(v_ds, "where id_chuong is not null and id_quyet_dinh=" + m_hdf_id_quyet_dinh.Value);
-			m_grv.DataSource = v_ds.V_GD_GIAO_VON;
+			m_grv.DataSource = v_ds.V_GD_GIAO_VON_QBT;
 			m_grv.DataBind();
 		}
 		protected void m_grv_PageIndexChanging(object sender, GridViewPageEventArgs e)

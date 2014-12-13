@@ -178,17 +178,17 @@ namespace QuanLyDuToan.DuToan
 		}
 		private void load_data_to_grid()
 		{
-			US_V_GD_GIAO_KH v_us = new US_V_GD_GIAO_KH();
-			DS_V_GD_GIAO_KH v_ds = new DS_V_GD_GIAO_KH();
+			US_V_GD_GIAO_KH_QBT v_us = new US_V_GD_GIAO_KH_QBT();
+			DS_V_GD_GIAO_KH_QBT v_ds = new DS_V_GD_GIAO_KH_QBT();
 			if (m_hdf_id_quyet_dinh.Value.Trim().Equals("") | m_hdf_id_quyet_dinh.Value.Trim().Equals("-1"))
 			{
-				m_grv.DataSource = v_ds.V_GD_GIAO_KH;
+				m_grv.DataSource = v_ds.V_GD_GIAO_KH_QBT;
 				m_grv.DataBind();
 				return;
 			}
 			v_us.FillDataset(v_ds, "where id_chuong is not null and id_quyet_dinh=" + m_hdf_id_quyet_dinh.Value
 				+ "and is_nguon_ns_yn='Y'");
-			m_grv.DataSource = v_ds.V_GD_GIAO_KH;
+			m_grv.DataSource = v_ds.V_GD_GIAO_KH_QBT;
 			m_grv.DataBind();
 		}
 
@@ -235,10 +235,10 @@ namespace QuanLyDuToan.DuToan
 			if (get_form_mode(m_hdf_form_mode).Equals(LOAI_FORM.XOA))
 			{
 
-				US_GD_GIAO_VON v_us = new US_GD_GIAO_VON();
-				DS_GD_GIAO_VON v_ds = new DS_GD_GIAO_VON();
+				US_GD_CHI_TIET_GIAO_VON v_us = new US_GD_CHI_TIET_GIAO_VON();
+				DS_GD_CHI_TIET_GIAO_VON v_ds = new DS_GD_CHI_TIET_GIAO_VON();
 				v_us.FillDataset(v_ds, "where id = " + m_hdf_id_giao_kh.Value);
-				if (v_ds.GD_GIAO_VON.Count > 0)
+				if (v_ds.GD_CHI_TIET_GIAO_VON.Count > 0)
 				{
 					m_lbl_mess_grid.Text = "Bạn không thể xoá bản ghi này, dữ liệu này đang được sử dụng!";
 					v_b_result = false;
@@ -306,7 +306,7 @@ namespace QuanLyDuToan.DuToan
 					m_us.dcID = CIPConvert.ToDecimal(this.m_hdf_id_giao_kh.Value);
 					break;
 				case LOAI_FORM.THEM:
-					m_us = new US_GD_GIAO_KH();
+					m_us = new US_GD_CHI_TIET_GIAO_KH();
 					break;
 			}
 
@@ -331,8 +331,8 @@ namespace QuanLyDuToan.DuToan
 		}
 		private void us_object_to_form()
 		{
-			m_us = new US_GD_GIAO_KH(CIPConvert.ToDecimal(m_hdf_id_giao_kh.Value));
-			//US_DM_DU_AN_CONG_TRINH v_us_du_an_cong_trinh = new US_DM_DU_AN_CONG_TRINH(m_us.dcID_DU_AN_CONG_TRINH);
+			m_us = new US_GD_CHI_TIET_GIAO_KH(CIPConvert.ToDecimal(m_hdf_id_giao_kh.Value));
+			//US_DM_CONG_TRINH_DU_AN_GOI_THAU v_us_du_an_cong_trinh = new US_DM_CONG_TRINH_DU_AN_GOI_THAU(m_us.dcID_DU_AN_CONG_TRINH);
 			m_ddl_chuong.SelectedValue = m_us.dcID_CHUONG.ToString();
 			US_DM_CHUONG_LOAI_KHOAN_MUC v_us_khoan = new US_DM_CHUONG_LOAI_KHOAN_MUC(m_us.dcID_KHOAN);
 			m_ddl_loai.SelectedValue = v_us_khoan.dcID_CHA.ToString();
@@ -367,7 +367,7 @@ namespace QuanLyDuToan.DuToan
 			//}
 
 			//set quyet dinh
-			US_GD_QUYET_DINH v_us_quyet_dinh = new US_GD_QUYET_DINH(m_us.dcID_QUYET_DINH);
+			US_DM_QUYET_DINH v_us_quyet_dinh = new US_DM_QUYET_DINH(m_us.dcID_QUYET_DINH);
 			m_txt_so_qd.Text = v_us_quyet_dinh.strSO_QUYET_DINH;
 			m_txt_noi_dung.Text = v_us_quyet_dinh.strNOI_DUNG;
 			m_txt_ngay_thang.Text = CIPConvert.ToStr(v_us_quyet_dinh.datNGAY_THANG, "dd/MM/yyyy");
@@ -484,8 +484,8 @@ namespace QuanLyDuToan.DuToan
 
 		#region Members
 
-		DS_GD_GIAO_KH m_ds = new DS_GD_GIAO_KH();
-		US_GD_GIAO_KH m_us = new US_GD_GIAO_KH();
+		DS_GD_CHI_TIET_GIAO_KH m_ds = new DS_GD_CHI_TIET_GIAO_KH();
+		US_GD_CHI_TIET_GIAO_KH m_us = new US_GD_CHI_TIET_GIAO_KH();
 
 		#endregion
 
@@ -502,7 +502,7 @@ namespace QuanLyDuToan.DuToan
 			}
 			else
 			{
-				US_GD_QUYET_DINH v_us_quyet_dinh = new US_GD_QUYET_DINH(CIPConvert.ToDecimal(m_hdf_id_quyet_dinh.Value));
+				US_DM_QUYET_DINH v_us_quyet_dinh = new US_DM_QUYET_DINH(CIPConvert.ToDecimal(m_hdf_id_quyet_dinh.Value));
 				DateTime v_dat_dau_nam = v_us_quyet_dinh.datNGAY_THANG;
 				v_dat_dau_nam = v_dat_dau_nam.AddDays(-v_dat_dau_nam.Day + 1);
 				v_dat_dau_nam = v_dat_dau_nam.AddMonths(-v_dat_dau_nam.Month + 1);
@@ -545,7 +545,7 @@ namespace QuanLyDuToan.DuToan
 			m_txt_noi_dung.Visible = true;
 			m_txt_ngay_thang.Visible = true;
 
-			US_GD_QUYET_DINH v_us = new US_GD_QUYET_DINH(CIPConvert.ToDecimal(m_ddl_quyet_dinh.SelectedValue)); ;
+			US_DM_QUYET_DINH v_us = new US_DM_QUYET_DINH(CIPConvert.ToDecimal(m_ddl_quyet_dinh.SelectedValue)); ;
 			m_txt_so_qd.Text = v_us.strSO_QUYET_DINH;
 			m_txt_noi_dung.Text = v_us.strNOI_DUNG;
 			m_txt_ngay_thang.Text = CIPConvert.ToStr(v_us.datNGAY_THANG, "dd/MM/yyyy");
@@ -577,7 +577,7 @@ namespace QuanLyDuToan.DuToan
 		}
 		protected void m_cmd_luu_qd_Click(object sender, EventArgs e)
 		{
-			US_GD_QUYET_DINH v_us = new US_GD_QUYET_DINH();
+			US_DM_QUYET_DINH v_us = new US_DM_QUYET_DINH();
 			m_hdf_id_quyet_dinh.Value = "";
 			//check validate luu quyet dinh
 			if (m_txt_so_qd.Text.Trim().Equals(""))

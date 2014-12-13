@@ -65,7 +65,7 @@ namespace QuanLyDuToan.BaoCao
 				, v_dc_id_don_vi
 				, CIPConvert.ToDatetime(m_txt_tu_ngay.Text, "dd/MM/yyyy")
 				, CIPConvert.ToDatetime(m_txt_den_ngay.Text, "dd/MM/yyyy")
-				);
+				,"");
 			m_grv.DataSource = v_ds.Tables[0];
 			m_grv.DataBind();
 

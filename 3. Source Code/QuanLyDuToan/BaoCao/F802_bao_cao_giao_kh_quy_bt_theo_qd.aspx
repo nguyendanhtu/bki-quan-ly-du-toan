@@ -46,7 +46,7 @@
 				<tr>
 					<td colspan="4" style="margin: auto;" align="center">
 						<asp:GridView ID="m_grv" runat="server" AutoGenerateColumns="true"
-							UseAccessibleHeader="true" DataKeyNames="ID_GIAO_DICH"
+							UseAccessibleHeader="true" DataKeyNames="ID"
 							CssClass="cssGrid" CellPadding="0" ForeColor="Black"
 							AllowSorting="True" PageSize="60" ShowHeader="true" AllowPaging="false"
 							EmptyDataText="Không có dữ liệu phù hợp" OnRowCreated="m_grv_OnRowCreated"

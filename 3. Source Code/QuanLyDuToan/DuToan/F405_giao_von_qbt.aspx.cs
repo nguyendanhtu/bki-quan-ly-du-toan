@@ -50,8 +50,8 @@ namespace QuanLyDuToan.DuToan
 		#endregion
 
 		#region Members
-		DS_GD_GIAO_VON m_ds = new DS_GD_GIAO_VON();
-		US_GD_GIAO_VON m_us = new US_GD_GIAO_VON();
+		DS_GD_CHI_TIET_GIAO_VON m_ds = new DS_GD_CHI_TIET_GIAO_VON();
+		US_GD_CHI_TIET_GIAO_VON m_us = new US_GD_CHI_TIET_GIAO_VON();
 		#endregion //Members
 
 		#region Private Methods
@@ -65,7 +65,7 @@ namespace QuanLyDuToan.DuToan
 			}
 			else
 			{
-				US_GD_QUYET_DINH v_us_quyet_dinh = new US_GD_QUYET_DINH(CIPConvert.ToDecimal(m_hdf_id_quyet_dinh.Value));
+				US_DM_QUYET_DINH v_us_quyet_dinh = new US_DM_QUYET_DINH(CIPConvert.ToDecimal(m_hdf_id_quyet_dinh.Value));
 				DateTime v_dat_dau_nam = v_us_quyet_dinh.datNGAY_THANG;
 				v_dat_dau_nam = v_dat_dau_nam.AddDays(-v_dat_dau_nam.Day + 1);
 				v_dat_dau_nam = v_dat_dau_nam.AddMonths(-v_dat_dau_nam.Month + 1);
@@ -135,7 +135,7 @@ namespace QuanLyDuToan.DuToan
 			else
 			{
 				v_dc_id_quyet_dinh = CIPConvert.ToDecimal(m_hdf_id_quyet_dinh.Value);
-				US_GD_QUYET_DINH v_us_qd = new US_GD_QUYET_DINH(v_dc_id_quyet_dinh);
+				US_DM_QUYET_DINH v_us_qd = new US_DM_QUYET_DINH(v_dc_id_quyet_dinh);
 				v_dat_now = v_us_qd.datNGAY_THANG;
 
 			}
@@ -145,7 +145,7 @@ namespace QuanLyDuToan.DuToan
 			DateTime v_dat_cuoi_nam = v_dat_dau_nam.AddYears(1);
 
 			//1. Update noi dung chi tu Giao kh sang Giao von
-			US_GD_GIAO_VON v_us_giao_von = new US_GD_GIAO_VON();
+			US_GD_CHI_TIET_GIAO_VON v_us_giao_von = new US_GD_CHI_TIET_GIAO_VON();
 			v_us_giao_von.update_noi_dung_chi_from_giao_kh_sang_giao_von(v_dat_dau_nam, v_dat_cuoi_nam, Person.get_id_don_vi(), v_dc_id_quyet_dinh);
 			//2. Load data tu grid_giao_von len luoi de sua thong tin
 			DS_GRID_GIAO_VON v_ds = new DS_GRID_GIAO_VON();
@@ -199,7 +199,7 @@ namespace QuanLyDuToan.DuToan
 					try
 					{
 						//update du lieu vao csdl
-						US_GD_GIAO_VON v_us = new US_GD_GIAO_VON(CIPConvert.ToDecimal(v_lb_id_gd.CommandArgument.ToString()));
+						US_GD_CHI_TIET_GIAO_VON v_us = new US_GD_CHI_TIET_GIAO_VON(CIPConvert.ToDecimal(v_lb_id_gd.CommandArgument.ToString()));
 						v_us.dcSO_TIEN_NS = WinFormControls.get_so_tien(v_txt_so_tien_ns.Text);
 						v_us.dcSO_TIEN_QUY_BT = WinFormControls.get_so_tien(v_txt_so_tien_quy.Text);
 						v_us.Update();
@@ -317,16 +317,16 @@ namespace QuanLyDuToan.DuToan
 		}
 		private decimal insert_quyet_dinh()
 		{
-			US_GD_QUYET_DINH v_us = new US_GD_QUYET_DINH();
+			US_DM_QUYET_DINH v_us = new US_DM_QUYET_DINH();
 			if (m_rdb_kh_dau_nam.Checked == true)
 			{
-				v_us.dcID_LOAI = ID_LOAI_GIAO_DICH.KH_DAU_NAM;
+				v_us.dcID_LOAI_QUYET_DINH_GIAO = ID_LOAI_GIAO_DICH.KH_DAU_NAM;
 			}
 			else if (m_rdb_bo_sung.Checked == true)
 			{
-				v_us.dcID_LOAI = ID_LOAI_GIAO_DICH.BO_SUNG;
+				v_us.dcID_LOAI_QUYET_DINH_GIAO = ID_LOAI_GIAO_DICH.BO_SUNG;
 			}
-			else v_us.dcID_LOAI = ID_LOAI_GIAO_DICH.DIEU_CHINH;
+			else v_us.dcID_LOAI_QUYET_DINH_GIAO = ID_LOAI_GIAO_DICH.DIEU_CHINH;
 			v_us.dcID_DON_VI = Person.get_id_don_vi();
 			v_us.dcID_LOAI_QUYET_DINH = ID_LOAI_QUYET_DINH.GIAO_KE_HOACH;
 			v_us.strNOI_DUNG = m_txt_noi_dung.Text.Trim();
@@ -394,7 +394,7 @@ namespace QuanLyDuToan.DuToan
 			m_txt_ngay_thang.Visible = true;
 
 			disable_edit_quyet_dinh();
-			US_GD_QUYET_DINH v_us = new US_GD_QUYET_DINH(CIPConvert.ToDecimal(m_ddl_quyet_dinh.SelectedValue)); ;
+			US_DM_QUYET_DINH v_us = new US_DM_QUYET_DINH(CIPConvert.ToDecimal(m_ddl_quyet_dinh.SelectedValue)); ;
 			m_txt_so_qd.Text = v_us.strSO_QUYET_DINH;
 			m_txt_noi_dung.Text = v_us.strNOI_DUNG;
 			m_txt_ngay_thang.Text = CIPConvert.ToStr(v_us.datNGAY_THANG, "dd/MM/yyyy");
@@ -408,20 +408,20 @@ namespace QuanLyDuToan.DuToan
 			m_ddl_quyet_dinh.Visible = false;
 			m_hdf_id_quyet_dinh.Value = m_ddl_quyet_dinh.SelectedValue;
 			load_data_when_quyet_dinh_is_selected();
-			US_GD_QUYET_DINH v_us = new US_GD_QUYET_DINH(CIPConvert.ToDecimal(m_ddl_quyet_dinh.SelectedValue));
-			if (v_us.dcID_LOAI == ID_LOAI_GIAO_DICH.KH_DAU_NAM)
+			US_DM_QUYET_DINH v_us = new US_DM_QUYET_DINH(CIPConvert.ToDecimal(m_ddl_quyet_dinh.SelectedValue));
+			if (v_us.dcID_LOAI_QUYET_DINH_GIAO == ID_LOAI_GIAO_DICH.KH_DAU_NAM)
 			{
 				m_rdb_kh_dau_nam.Checked = true;
 				m_rdb_dieu_chinh.Checked = false;
 				m_rdb_bo_sung.Checked = false;
 			}
-			else if (v_us.dcID_LOAI == ID_LOAI_GIAO_DICH.BO_SUNG)
+			else if (v_us.dcID_LOAI_QUYET_DINH_GIAO == ID_LOAI_GIAO_DICH.BO_SUNG)
 			{
 				m_rdb_kh_dau_nam.Checked = false;
 				m_rdb_dieu_chinh.Checked = false;
 				m_rdb_bo_sung.Checked = true;
 			}
-			else if (v_us.dcID_LOAI == ID_LOAI_GIAO_DICH.DIEU_CHINH)
+			else if (v_us.dcID_LOAI_QUYET_DINH_GIAO == ID_LOAI_GIAO_DICH.DIEU_CHINH)
 			{
 				m_rdb_kh_dau_nam.Checked = false;
 				m_rdb_dieu_chinh.Checked = true;

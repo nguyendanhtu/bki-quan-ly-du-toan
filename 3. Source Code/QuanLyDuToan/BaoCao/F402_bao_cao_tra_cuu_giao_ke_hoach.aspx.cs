@@ -41,7 +41,7 @@ namespace QuanLyDuToan.BaoCao
 
         private void load_data_to_grid()
         {
-            US_V_GD_GIAO_KH v_us = new US_V_GD_GIAO_KH();
+            US_V_GD_GIAO_KH_QBT v_us = new US_V_GD_GIAO_KH_QBT();
             DataSet v_ds = new DataSet();
             DataTable v_dt = new DataTable();
             v_ds.Tables.Add(v_dt);

@@ -31,18 +31,18 @@ namespace QuanLyDuToan.ChucNang
 
 		private void load_content_print(decimal ip_dc_id_dm_unc)
 		{
-			US_V_DM_UY_NHIEM_CHI v_us = new US_V_DM_UY_NHIEM_CHI(ip_dc_id_dm_unc);
-			DS_V_DM_UY_NHIEM_CHI v_ds = new DS_V_DM_UY_NHIEM_CHI();
+			US_V_DM_GIAI_NGAN v_us = new US_V_DM_GIAI_NGAN(ip_dc_id_dm_unc);
+			DS_V_DM_GIAI_NGAN v_ds = new DS_V_DM_GIAI_NGAN();
 
 			US_DM_THONG_TIN_DON_VI v_us_thong_tin_don_vi = new US_DM_THONG_TIN_DON_VI(Person.get_id_don_vi(), Person.get_id_don_vi());
 			US_DM_DON_VI v_us_dm_don_vi = new US_DM_DON_VI(Person.get_id_don_vi());
-			v_us.FillDataset(v_ds, "where " + V_DM_UY_NHIEM_CHI.ID_DON_VI + "=" + Person.get_id_don_vi());
+			v_us.FillDataset(v_ds, "where " + V_DM_GIAI_NGAN.ID_DON_VI + "=" + Person.get_id_don_vi());
 
 			m_lbl_ngay_thang.Text = " " + CIPConvert.ToStr(v_us.datNGAY_THANG, "dd") +
 				" tháng " + CIPConvert.ToStr(v_us.datNGAY_THANG, "MM") +
 				" năm " + CIPConvert.ToStr(v_us.datNGAY_THANG, "yyyy");
 			//load data to Noi dung thanh toan
-			m_grv.DataSource = v_ds.V_DM_UY_NHIEM_CHI;
+			m_grv.DataSource = v_ds.V_DM_GIAI_NGAN;
 			m_grv.DataBind();
 			//load info Don vi tra tien
 			m_lbl_don_vi_tra_tien.Text = v_us_dm_don_vi.strTEN_DON_VI;
