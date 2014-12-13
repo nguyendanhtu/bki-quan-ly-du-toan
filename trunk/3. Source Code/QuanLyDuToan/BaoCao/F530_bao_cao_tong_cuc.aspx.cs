@@ -41,16 +41,17 @@ namespace QuanLyDuToan.BaoCao
             m_cbo_loai_don_vi.SelectedValue = CIPConvert.ToStr(m_dc_id_loai_don_vi);
         }
 
-        public string format_so_tien(string ip_str_so_tien)
+        public decimal format_so_tien(object ip_str_so_tien)
         {
-            string op_str_so_tien = "";
-            if (ip_str_so_tien.Trim().Equals("") | ip_str_so_tien.Trim().Equals("-1"))
+            decimal op_dc_so_tien = 0;
+            if (ip_str_so_tien == DBNull.Value)
             {
-                op_str_so_tien = "";
+                op_dc_so_tien = 0;
             }
-            else op_str_so_tien = CIPConvert.ToStr(CIPConvert.ToDecimal(ip_str_so_tien), "#,###,##");
-            return op_str_so_tien;
+            else op_dc_so_tien = CIPConvert.ToDecimal(ip_str_so_tien);
+            return op_dc_so_tien;
         }
+       
 
         private void load_data_to_grid()
         {
