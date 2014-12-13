@@ -37,7 +37,7 @@
 					<td colspan="4">
 						<asp:Label ID="m_lbl_mess" runat="server" CssClass="cssManField"></asp:Label>
 					</td>
-				</tr>
+				</tr> 
 
 				<tr>
 
