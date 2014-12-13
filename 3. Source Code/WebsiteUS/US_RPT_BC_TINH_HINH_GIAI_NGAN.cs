@@ -620,7 +620,7 @@ namespace WebUS
         )
         {
             CStoredProc v_sp = new CStoredProc("pr_RPT_BC_TINH_HINH_GIAI_NGAN");
-            v_sp.addDatetimeInputParam("@ip_dc_id_don_vi", ip_dc_id_don_vi);
+            v_sp.addDecimalInputParam("@ip_dc_id_don_vi", ip_dc_id_don_vi);
             v_sp.addDatetimeInputParam("@ip_dat_tu_ngay", ip_dat_tu_ngay);
             v_sp.addDatetimeInputParam("@ip_dat_den_ngay", ip_dat_den_ngay);
             v_sp.fillDataSetByCommand(this, op_ds);
