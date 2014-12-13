@@ -9,7 +9,6 @@
 
 using System;
 using IP.Core.IPCommon;
-using IP.Core.IPSystemAdmin;
 using IP.Core.IPUserService;
 using System.Data.SqlClient;
 using System.Data;
