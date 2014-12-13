@@ -60,10 +60,13 @@
     <None Include="Scripts\jquery-1.4.1-vsdoc.js" />
     <Content Include="Account\ChangePassword.aspx" />
     <Content Include="Account\Default.aspx" />
+    <Content Include="BaoCao\F256_bao_cao_giao_von.aspx" />
     <Content Include="BaoCao\F350_bao_cao_giai_ngan_don_vi.aspx" />
+    <Content Include="BaoCao\F356_bao_cao_giai_ngan.aspx" />
     <Content Include="BaoCao\F403_bao_cao_tra_cuu_giao_von.aspx" />
     <Content Include="BaoCao\F402_bao_cao_tra_cuu_giao_ke_hoach.aspx" />
     <Content Include="BaoCao\F410_bao_cao_tinh_hinh_giao_von.aspx" />
+    <Content Include="BaoCao\F510_tong_hop_da_giao_du_toan_nam_dao_tao.aspx" />
     <Content Include="BaoCao\F530_bao_cao_tong_cuc.aspx" />
     <Content Include="BaoCao\F701_tinh_hinh_giai_ngan_von_don_vi.aspx" />
     <Content Include="BaoCao\F802_bao_cao_giao_kh_quy_bt_theo_qd.aspx" />
@@ -486,12 +489,24 @@
     <Compile Include="App_Code\WinformReport.cs" />
     <Compile Include="App_Code\WinformControls.cs" />
     <Compile Include="App_Code\Person.cs" />
+    <Compile Include="BaoCao\F256_bao_cao_giao_von.aspx.cs">
+      <DependentUpon>F256_bao_cao_giao_von.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BaoCao\F256_bao_cao_giao_von.aspx.designer.cs">
+      <DependentUpon>F256_bao_cao_giao_von.aspx</DependentUpon>
+    </Compile>
     <Compile Include="BaoCao\F350_bao_cao_giai_ngan_don_vi.aspx.cs">
       <DependentUpon>F350_bao_cao_giai_ngan_don_vi.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="BaoCao\F350_bao_cao_giai_ngan_don_vi.aspx.designer.cs">
       <DependentUpon>F350_bao_cao_giai_ngan_don_vi.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BaoCao\F356_bao_cao_giai_ngan.aspx.cs">
+      <DependentUpon>F356_bao_cao_giai_ngan.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BaoCao\F356_bao_cao_giai_ngan.aspx.designer.cs">
+      <DependentUpon>F356_bao_cao_giai_ngan.aspx</DependentUpon>
     </Compile>
     <Compile Include="BaoCao\F403_bao_cao_tra_cuu_giao_von.aspx.cs">
       <DependentUpon>F403_bao_cao_tra_cuu_giao_von.aspx</DependentUpon>
@@ -513,6 +528,13 @@
     </Compile>
     <Compile Include="BaoCao\F410_bao_cao_tinh_hinh_giao_von.aspx.designer.cs">
       <DependentUpon>F410_bao_cao_tinh_hinh_giao_von.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BaoCao\F510_tong_hop_da_giao_du_toan_nam_dao_tao.aspx.cs">
+      <DependentUpon>F510_tong_hop_da_giao_du_toan_nam_dao_tao.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BaoCao\F510_tong_hop_da_giao_du_toan_nam_dao_tao.aspx.designer.cs">
+      <DependentUpon>F510_tong_hop_da_giao_du_toan_nam_dao_tao.aspx</DependentUpon>
     </Compile>
     <Compile Include="BaoCao\F530_bao_cao_tong_cuc.aspx.cs">
       <DependentUpon>F530_bao_cao_tong_cuc.aspx</DependentUpon>
