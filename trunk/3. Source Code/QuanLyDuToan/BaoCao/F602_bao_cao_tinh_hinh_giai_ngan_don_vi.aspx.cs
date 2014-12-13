@@ -62,7 +62,8 @@ namespace QuanLyDuToan.BaoCao
 			v_us.bc_tinh_hinh_giai_ngan_don_vi(v_ds
 				, CIPConvert.ToDatetime(m_txt_tu_ngay.Text, "dd/MM/yyyy")
 				, CIPConvert.ToDatetime(m_txt_den_ngay.Text, "dd/MM/yyyy")
-				, Person.get_id_don_vi());
+				, Person.get_id_don_vi()
+                , Person.get_user_id());
 			m_grv.DataSource = v_ds.Tables[0];
 			m_grv.DataBind();
 
