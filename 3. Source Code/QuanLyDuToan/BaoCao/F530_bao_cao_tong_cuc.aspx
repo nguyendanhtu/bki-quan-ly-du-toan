@@ -26,13 +26,24 @@
 						<br />
 						<br />
 						<span style="font-weight: bold">BÁO CÁO TÌNH HÌNH GIẢI NGÂN CÁC NGUỒN VỐN NĂM  <%=DateTime.Now.Year.ToString() %></span>
-						<br />
+					</td>
+				</tr>
+                <tr>
+                    <td style="width: 200px;"></td>
+                    <td>
+                        <span style="font-weight: bold" >Loại đơn vị
+                        <asp:DropDownList id="m_cbo_loai_don_vi" Width="200px" runat="server"></asp:DropDownList></span>
+                    </td>
+                    <td colspan="2">
 						<span style="font-weight: bold">Từ ngày
 							<asp:TextBox ID="m_txt_tu_ngay" placeholder="dd/MM/yyyy" runat="server" CssClass="cssTextBox" Width="100px"></asp:TextBox></span>
 						<span>&nbsp; Đến ngày
 							<asp:TextBox ID="m_txt_den_ngay" placeholder="dd/MM/yyyy" runat="server" CssClass="cssTextBox" Width="100px"></asp:TextBox></span>
 					</td>
 				</tr>
+                <tr>
+                    <td></td>
+                </tr>
 				<tr>
 					<td colspan="4">
 						<asp:Label ID="m_lbl_mess" runat="server" CssClass="cssManField"></asp:Label>
@@ -119,7 +130,7 @@
                                                 <%# Eval("KH_NS", "{0:#,##0}")%>
                                             </td>
                                             <td style="width: 25%; height: 50px;">
-                                                <%# Eval("KH_SO_TEN_NAM_CHUYEN_SANG", "{0:#,##0}")%>
+                                                <%# Eval("KH_NAM_TRUOC_CHUYEN_SANG", "{0:#,##0}")%>
                                             </td>
 											<td style="width: 25%; height: 50px;">
                                                 <%# Eval("KH_TONG", "{0:#,##0}")%>

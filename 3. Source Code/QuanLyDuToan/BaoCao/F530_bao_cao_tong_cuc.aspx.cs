@@ -42,19 +42,13 @@ namespace QuanLyDuToan.BaoCao
 
         private void load_data_to_grid()
         {
-            DS_V_GD_GIAI_NGAN_QBT v_us = new DS_V_GD_GIAI_NGAN_QBT();
-            DataSet v_ds = new DataSet();
-            DataTable v_dt = new DataTable();
-            v_ds.Tables.Add(v_dt);
-            v_ds.AcceptChanges();
-			//v_us.bc_tra_cuu_uy_nhiem_chi_theo_du_an(v_ds
-			//	,m_dc_id_cong_trinh_du_an
-			//	,m_str_ten_du_an
-			//	,m_str_is_nguon_ngan_sach
-			//	, CIPConvert.ToDatetime(m_txt_tu_ngay.Text, "dd/MM/yyyy")
-			//	, CIPConvert.ToDatetime(m_txt_den_ngay.Text, "dd/MM/yyyy")
-			//	);
-            m_grv.DataSource = v_ds.Tables[0];
+            US_RPT_BC_TINH_HINH_GIAI_NGAN v_us = new US_RPT_BC_TINH_HINH_GIAI_NGAN();
+            DS_RPT_BC_TINH_HINH_GIAI_NGAN v_ds = new DS_RPT_BC_TINH_HINH_GIAI_NGAN();
+            v_us.bc_tinh_hinh_giai_ngan_tong_cuc(v_ds
+                , CIPConvert.ToDatetime(m_txt_tu_ngay.Text, "dd/MM/yyyy")
+                , CIPConvert.ToDatetime(m_txt_den_ngay.Text, "dd/MM/yyyy")
+                );
+            m_grv.DataSource = v_ds.RPT_BC_TINH_HINH_GIAI_NGAN;
             m_grv.DataBind();
 
         }
