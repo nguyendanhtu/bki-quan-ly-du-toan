@@ -5,6 +5,9 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using WebUS;
+using WebDS;
+using WebDS.CDBNames;
 
 namespace QuanLyDuToan.BaoCao
 {
@@ -39,6 +42,17 @@ namespace QuanLyDuToan.BaoCao
             m_grv_bao_cao_giai_ngan.DataBind();
             //-------------------------------------------------------
             #endregion
+
+            //load_data_2_grid();
+        }
+
+        private void load_data_2_grid()
+        {
+            US_RPT_BC_TINH_HINH_GIAI_NGAN v_us = new US_RPT_BC_TINH_HINH_GIAI_NGAN();
+            DS_RPT_BC_TINH_HINH_GIAI_NGAN v_ds = new DS_RPT_BC_TINH_HINH_GIAI_NGAN();
+            v_us.FillDataset(v_ds);
+            m_grv_bao_cao_giai_ngan.DataSource = v_ds.RPT_BC_TINH_HINH_GIAI_NGAN;
+            m_grv_bao_cao_giai_ngan.DataBind();
         }
     }
 }
