@@ -42,18 +42,18 @@ namespace QuanLyDuToan.BaoCao
 
 		private void load_data_to_grid()
 		{
-			DS_V_GD_GIAI_NGAN_QBT v_us = new DS_V_GD_GIAI_NGAN_QBT();
+			US_V_GD_GIAI_NGAN_QBT v_us = new US_V_GD_GIAI_NGAN_QBT();
 			DataSet v_ds = new DataSet();
 			DataTable v_dt = new DataTable();
 			v_ds.Tables.Add(v_dt);
 			v_ds.AcceptChanges();
 			decimal ip_id_don_vi = Person.get_id_don_vi();
 
-			//v_us.bc_giao_kh_quy_bao_tri_theo_qd(v_ds
-			//	, ip_id_don_vi
-			//	, CIPConvert.ToDatetime(m_txt_tu_ngay.Text, "dd/MM/yyyy")
-			//	, CIPConvert.ToDatetime(m_txt_den_ngay.Text, "dd/MM/yyyy")
-			//	);
+			v_us.bc_giao_kh_quy_bao_tri_theo_qd(v_ds
+				, ip_id_don_vi
+				, CIPConvert.ToDatetime(m_txt_tu_ngay.Text, "dd/MM/yyyy")
+				, CIPConvert.ToDatetime(m_txt_den_ngay.Text, "dd/MM/yyyy")
+				);
 			m_grv.DataSource = v_ds.Tables[0];
 
 			m_grv.DataBind();
@@ -130,6 +130,7 @@ namespace QuanLyDuToan.BaoCao
 				e.Row.Cells[3].Visible = false;
 				e.Row.Cells[4].Visible = false;
 				e.Row.Cells[5].Visible = false;
+				e.Row.Cells[6].Visible = false;
 				e.Row.Cells[1].Text = "Nội dung";
 
 			}
@@ -197,14 +198,14 @@ namespace QuanLyDuToan.BaoCao
 						e.Row.Font.Bold = true;
 					}
 					e.Row.Cells[1].Width = 200;
-					for (int i = 6; i < e.Row.Controls.Count; i++)
+					for (int i = 7; i < e.Row.Controls.Count; i++)
 					{
 						Label v_lbl = new Label();
 						if (e.Row.Cells[i] == null)
 							return;
 						
-						int v_i_so_tien = 0;
-						bool v_b_is_number = int.TryParse(e.Row.Cells[i].Text, out v_i_so_tien);
+						decimal v_i_so_tien = 0;
+						bool v_b_is_number = decimal.TryParse(e.Row.Cells[i].Text, out v_i_so_tien);
 						if (v_b_is_number)
 						{
 							v_lbl.Text = CIPConvert.ToStr(WinFormControls.get_so_tien(e.Row.Cells[i].Text),"#,###,##");
