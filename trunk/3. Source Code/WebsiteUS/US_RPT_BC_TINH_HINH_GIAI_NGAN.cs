@@ -9,6 +9,7 @@
 
 using System;
 using IP.Core.IPCommon;
+using IP.Core.IPSystemAdmin;
 using IP.Core.IPUserService;
 using System.Data.SqlClient;
 using System.Data;
@@ -587,7 +588,7 @@ namespace WebUS
             v_sp.addDatetimeInputParam("@ip_dat_tu_ngay", ip_dat_tu_ngay);
             v_sp.addDatetimeInputParam("@ip_dat_den_ngay", ip_dat_den_ngay);
             v_sp.addDecimalInputParam("@ip_dc_id_don_vi", -1);
-            v_sp.addDecimalInputParam("@ip_dc_id_user", 1);
+            v_sp.addDecimalInputParam("@ip_dc_id_user", CAppContext_201.getCurrentUserID());
             v_sp.fillDataSetByCommand(this, op_ds);
         }
 
@@ -600,7 +601,7 @@ namespace WebUS
 			v_sp.addDatetimeInputParam("@ip_dat_tu_ngay", ip_dat_tu_ngay);
 			v_sp.addDatetimeInputParam("@ip_dat_den_ngay", ip_dat_den_ngay);
 			v_sp.addDecimalInputParam("@ip_dc_id_don_vi", ip_dc_id_don_vi);
-            v_sp.addDecimalInputParam("@ip_dc_id_user", 1);
+            v_sp.addDecimalInputParam("@ip_dc_id_user", CAppContext_201.getCurrentUserID());
 			v_sp.fillDataSetByCommand(this, op_ds);
 		}
 		public void bc_tinh_hinh_giai_ngan_tong_cuc(DataSet op_ds
