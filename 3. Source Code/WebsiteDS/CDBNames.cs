@@ -449,9 +449,11 @@ namespace WebDS.CDBNames
 	public class LOAI_TU_DIEN
 	{
 		public const string PHAN_QUYEN = "PHAN_QUYEN";
-
-
 	}
+
+    public class c_configuration {
+        public const string DEFAULT_DATETIME_FORMAT = "dd/MM/yyyy";
+    }
 
 	public enum e_user_group
 	{

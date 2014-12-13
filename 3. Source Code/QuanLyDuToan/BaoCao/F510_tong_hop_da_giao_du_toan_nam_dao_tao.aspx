@@ -17,10 +17,12 @@
         </div>
         <div style="color:black; text-align:center; margin-top:20px;">
             <span>Từ khóa tìm kiếm: </span><asp:textbox runat="server" id="m_txt_tu_khoa_tim_kiem" style="width:200px;"></asp:textbox>
+            <span> Từ ngày: </span><asp:textbox runat="server" id="m_txt_tu_ngay" style="width:200px;text-align:right"></asp:textbox>
+            <span> Đến ngày: </span><asp:textbox runat="server" id="m_txt_den_ngay" style="width:200px; text-align:right"></asp:textbox>
             <asp:button runat="server" text="Tìm kiếm" id="m_cmd_tim_kiem"/>
         </div>
         <div style="width:1200px; margin:20px auto;">
-            <asp:gridview runat="server" id="m_grv_bao_cao_giao_von" style="width:100%;" AutoGenerateColumns="False" EnableModelValidation="True" OnRowCreated="m_grv_bao_cao_giao_von_RowCreated" OnRowDataBound="m_grv_bao_cao_giao_von_RowDataBound">
+            <asp:gridview runat="server" id="m_grv_bao_cao_giao_von" style="width:100%; margin-right: 0px;" AutoGenerateColumns="False" EnableModelValidation="True" OnRowCreated="m_grv_bao_cao_giao_von_RowCreated" OnRowDataBound="m_grv_bao_cao_giao_von_RowDataBound">
                 <Columns>
                     <asp:BoundField DataField="A" HeaderText="STT" HtmlEncode="False" ShowHeader="False" >
                     <ItemStyle HorizontalAlign="Center" Height="90px" Width="15px" />
@@ -28,34 +30,34 @@
                     <asp:BoundField DataField="B" HeaderText="Nội dung" HtmlEncode="False">
                     <ItemStyle />
                     </asp:BoundField>
-                    <asp:BoundField DataField="C" HeaderText="Tổng số đã giao" HtmlEncode="False">
+                    <asp:BoundField DataField="C" HeaderText="Tổng số đã giao" HtmlEncode="False" DataFormatString="{0:N0}">
                     <ItemStyle HorizontalAlign="Right" Width="90px" />
                     </asp:BoundField>
-                    <asp:BoundField DataField="D" HeaderText="Tổng số" HtmlEncode="False">
+                    <asp:BoundField DataField="D" HeaderText="Tổng số" HtmlEncode="False" DataFormatString="{0:N0}">
                     <ItemStyle HorizontalAlign="Right" Width="90px" />
                     </asp:BoundField>
-                    <asp:BoundField DataField="E" HeaderText="Txuyên" HtmlEncode="False">
+                    <asp:BoundField DataField="E" HeaderText="Txuyên" HtmlEncode="False" DataFormatString="{0:N0}">
                     <ItemStyle HorizontalAlign="Right" Width="90px" />
                     </asp:BoundField>
-                    <asp:BoundField DataField="F" HeaderText="KTxuyên">
+                    <asp:BoundField DataField="F" HeaderText="KTxuyên" DataFormatString="{0:N0}">
                     <ItemStyle HorizontalAlign="Right" Width="90px" />
                     </asp:BoundField>
-                    <asp:BoundField DataField="G" HeaderText="CMMTQG">
+                    <asp:BoundField DataField="G" HeaderText="CMMTQG" DataFormatString="{0:N0}">
                     <ItemStyle HorizontalAlign="Right" Width="90px" />
                     </asp:BoundField>
-                    <asp:BoundField DataField="H" HeaderText="Tsố">
+                    <asp:BoundField DataField="H" HeaderText="Tsố" DataFormatString="{0:N0}">
                     <ItemStyle HorizontalAlign="Right" Width="90px" />
                     </asp:BoundField>
-                    <asp:BoundField DataField="I" HeaderText="Chi TX">
+                    <asp:BoundField DataField="I" HeaderText="Chi TX" DataFormatString="{0:N0}">
                     <ItemStyle HorizontalAlign="Right" Width="90px" />
                     </asp:BoundField>
-                    <asp:BoundField DataField="J" HeaderText="Chi KTX">
+                    <asp:BoundField DataField="J" HeaderText="Chi KTX" DataFormatString="{0:N0}">
                     <ItemStyle HorizontalAlign="Right" Width="90px" />
                     </asp:BoundField>
-                    <asp:BoundField DataField="K" HeaderText="Tsố">
+                    <asp:BoundField DataField="K" HeaderText="Tsố" DataFormatString="{0:N0}">
                     <ItemStyle HorizontalAlign="Right" Width="90px" />
                     </asp:BoundField>
-                    <asp:BoundField DataField="L" HeaderText="Chi TX">
+                    <asp:BoundField DataField="L" HeaderText="Chi TX" DataFormatString="{0:N0}">
                     <ItemStyle HorizontalAlign="Right" Width="90px" />
                     </asp:BoundField>
                 </Columns>
