@@ -14,10 +14,10 @@ namespace QuanLyDuToan.DanhMuc
 	{
 		private void load_data_to_grid()
 		{
-			US_GD_QUYET_DINH v_us = new US_GD_QUYET_DINH();
-			DS_GD_QUYET_DINH v_ds = new DS_GD_QUYET_DINH();
+			US_DM_QUYET_DINH v_us = new US_DM_QUYET_DINH();
+			DS_DM_QUYET_DINH v_ds = new DS_DM_QUYET_DINH();
 			v_us.FillDataset(v_ds, "order by ngay_thang desc");
-			m_grv.DataSource = v_ds.GD_QUYET_DINH;
+			m_grv.DataSource = v_ds.DM_QUYET_DINH;
 			m_grv.DataBind();
 		}
 		protected void Page_Load(object sender, EventArgs e)

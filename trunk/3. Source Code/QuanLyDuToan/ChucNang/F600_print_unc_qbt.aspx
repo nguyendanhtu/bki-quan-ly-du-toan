@@ -102,7 +102,7 @@
 													</tr>
 												</table>
 											</HeaderTemplate>
-											<ItemTemplate><%#Eval(V_DM_UY_NHIEM_CHI.DISPLAY)%></ItemTemplate>
+											<ItemTemplate><%#Eval(V_DM_GIAI_NGAN.DISPLAY)%></ItemTemplate>
 										</asp:TemplateField>
 										<asp:TemplateField ItemStyle-Width="120px" ItemStyle-HorizontalAlign="Right">
 											<HeaderTemplate>
@@ -115,7 +115,7 @@
 													</tr>
 												</table>
 											</HeaderTemplate>
-											<ItemTemplate><%# get_tong_tien(Eval(V_DM_UY_NHIEM_CHI.SO_TIEN_NOP_THUE).ToString(),Eval(V_DM_UY_NHIEM_CHI.SO_TIEN_TT_CHO_DV_HUONG).ToString())%></ItemTemplate>
+											<ItemTemplate><%# get_tong_tien(Eval(V_DM_GIAI_NGAN.SO_TIEN_NOP_THUE).ToString(),Eval(V_DM_GIAI_NGAN.SO_TIEN_TT_CHO_DV_HUONG).ToString())%></ItemTemplate>
 										</asp:TemplateField>
 										<asp:TemplateField ItemStyle-Width="280px">
 											<HeaderTemplate>
@@ -136,8 +136,8 @@
 											<ItemTemplate>
 												<table style="width: 100%; height: 100%;" cellspacing="0" cellpadding="0">
 													<tr>
-														<td style="width: 50%; height: 100%; border-right: 1px solid gray; text-align: right"><%#format_so_tien(Eval(V_DM_UY_NHIEM_CHI.SO_TIEN_NOP_THUE).ToString())  %></td>
-														<td style="width: 50%; height: 100%; text-align: right"><%#format_so_tien(Eval(V_DM_UY_NHIEM_CHI.SO_TIEN_TT_CHO_DV_HUONG).ToString()) %></td>
+														<td style="width: 50%; height: 100%; border-right: 1px solid gray; text-align: right"><%#format_so_tien(Eval(V_DM_GIAI_NGAN.SO_TIEN_NOP_THUE).ToString())  %></td>
+														<td style="width: 50%; height: 100%; text-align: right"><%#format_so_tien(Eval(V_DM_GIAI_NGAN.SO_TIEN_TT_CHO_DV_HUONG).ToString()) %></td>
 													</tr>
 												</table>
 											</ItemTemplate>

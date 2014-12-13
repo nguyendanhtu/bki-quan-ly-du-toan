@@ -42,18 +42,18 @@ namespace QuanLyDuToan.BaoCao
 
 		private void load_data_to_grid()
 		{
-			US_V_GD_UY_NHIEM_CHI v_us = new US_V_GD_UY_NHIEM_CHI();
+			DS_V_GD_GIAI_NGAN_QBT v_us = new DS_V_GD_GIAI_NGAN_QBT();
 			DataSet v_ds = new DataSet();
 			DataTable v_dt = new DataTable();
 			v_ds.Tables.Add(v_dt);
 			v_ds.AcceptChanges();
 			decimal ip_id_don_vi = Person.get_id_don_vi();
 
-			v_us.bc_giao_kh_quy_bao_tri_theo_qd(v_ds
-				, ip_id_don_vi
-				, CIPConvert.ToDatetime(m_txt_tu_ngay.Text, "dd/MM/yyyy")
-				, CIPConvert.ToDatetime(m_txt_den_ngay.Text, "dd/MM/yyyy")
-				);
+			//v_us.bc_giao_kh_quy_bao_tri_theo_qd(v_ds
+			//	, ip_id_don_vi
+			//	, CIPConvert.ToDatetime(m_txt_tu_ngay.Text, "dd/MM/yyyy")
+			//	, CIPConvert.ToDatetime(m_txt_den_ngay.Text, "dd/MM/yyyy")
+			//	);
 			m_grv.DataSource = v_ds.Tables[0];
 
 			m_grv.DataBind();
@@ -149,13 +149,13 @@ namespace QuanLyDuToan.BaoCao
 		//		{
 		//			for (int i = 6; i < e.Row.Cells.Count; i++)
 		//			{
-		//				US_GD_QUYET_DINH v_us_qd = new US_GD_QUYET_DINH();
-		//				DS_GD_QUYET_DINH v_ds_qd = new DS_GD_QUYET_DINH();
-		//				v_us_qd.FillDataset(v_ds_qd, "where " + GD_QUYET_DINH.SO_QUYET_DINH + " = N'" + e.Row.Cells[i].Text + "'");
-		//				if (v_ds_qd.GD_QUYET_DINH.Count > 0)
+		//				US_DM_QUYET_DINH v_us_qd = new US_DM_QUYET_DINH();
+		//				DS_DM_QUYET_DINH v_ds_qd = new DS_DM_QUYET_DINH();
+		//				v_us_qd.FillDataset(v_ds_qd, "where " + DM_QUYET_DINH.SO_QUYET_DINH + " = N'" + e.Row.Cells[i].Text + "'");
+		//				if (v_ds_qd.DM_QUYET_DINH.Count > 0)
 		//				{
-		//					e.Row.Cells[i].Text = "QĐ số " + v_ds_qd.Tables[0].Rows[0][GD_QUYET_DINH.SO_QUYET_DINH] + " ngày " +
-		//						CIPConvert.ToStr(v_ds_qd.Tables[0].Rows[0][GD_QUYET_DINH.NGAY_THANG], "dd/MM/yyyy");
+		//					e.Row.Cells[i].Text = "QĐ số " + v_ds_qd.Tables[0].Rows[0][DM_QUYET_DINH.SO_QUYET_DINH] + " ngày " +
+		//						CIPConvert.ToStr(v_ds_qd.Tables[0].Rows[0][DM_QUYET_DINH.NGAY_THANG], "dd/MM/yyyy");
 		//				}
 		//			}
 		//		}
@@ -178,13 +178,13 @@ namespace QuanLyDuToan.BaoCao
 						var headerCell = e.Row.Controls[i] as DataControlFieldHeaderCell;
 						if (headerCell != null)
 						{
-							US_GD_QUYET_DINH v_us_qd = new US_GD_QUYET_DINH();
-							DS_GD_QUYET_DINH v_ds_qd = new DS_GD_QUYET_DINH();
-							v_us_qd.FillDataset(v_ds_qd, "where " + GD_QUYET_DINH.SO_QUYET_DINH + " = N'" + headerCell.ContainingField.ToString().Trim() + "'");
-							if (v_ds_qd.GD_QUYET_DINH.Count > 0)
+							US_DM_QUYET_DINH v_us_qd = new US_DM_QUYET_DINH();
+							DS_DM_QUYET_DINH v_ds_qd = new DS_DM_QUYET_DINH();
+							v_us_qd.FillDataset(v_ds_qd, "where " + DM_QUYET_DINH.SO_QUYET_DINH + " = N'" + headerCell.ContainingField.ToString().Trim() + "'");
+							if (v_ds_qd.DM_QUYET_DINH.Count > 0)
 							{
-								headerCell.Text = "QĐ số " + v_ds_qd.Tables[0].Rows[0][GD_QUYET_DINH.SO_QUYET_DINH] + " ngày " +
-									CIPConvert.ToStr(v_ds_qd.Tables[0].Rows[0][GD_QUYET_DINH.NGAY_THANG], "dd/MM/yyyy");
+								headerCell.Text = "QĐ số " + v_ds_qd.Tables[0].Rows[0][DM_QUYET_DINH.SO_QUYET_DINH] + " ngày " +
+									CIPConvert.ToStr(v_ds_qd.Tables[0].Rows[0][DM_QUYET_DINH.NGAY_THANG], "dd/MM/yyyy");
 
 							}
 						}

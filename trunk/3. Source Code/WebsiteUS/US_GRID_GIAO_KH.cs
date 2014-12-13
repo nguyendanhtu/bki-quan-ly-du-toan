@@ -198,26 +198,70 @@ namespace WebUS
 			pm_objDR["STT"] = System.Convert.DBNull;
 		}
 
-		public string strLEVEL
+		public string strREPORT_LEVEL
 		{
 			get
 			{
-				return CNull.RowNVLString(pm_objDR, "LEVEL", IPConstants.c_DefaultString);
+				return CNull.RowNVLString(pm_objDR, "REPORT_LEVEL", IPConstants.c_DefaultString);
 			}
 			set
 			{
-				pm_objDR["LEVEL"] = value;
+				pm_objDR["REPORT_LEVEL"] = value;
 			}
 		}
 
-		public bool IsLEVELNull()
+		public bool IsREPORT_LEVELNull()
 		{
-			return pm_objDR.IsNull("LEVEL");
+			return pm_objDR.IsNull("REPORT_LEVEL");
 		}
 
-		public void SetLEVELNull()
+		public void SetREPORT_LEVELNull()
 		{
-			pm_objDR["LEVEL"] = System.Convert.DBNull;
+			pm_objDR["REPORT_LEVEL"] = System.Convert.DBNull;
+		}
+
+		public decimal dcID_REPORTED_USER
+		{
+			get
+			{
+				return CNull.RowNVLDecimal(pm_objDR, "ID_REPORTED_USER", IPConstants.c_DefaultDecimal);
+			}
+			set
+			{
+				pm_objDR["ID_REPORTED_USER"] = value;
+			}
+		}
+
+		public bool IsID_REPORTED_USERNull()
+		{
+			return pm_objDR.IsNull("ID_REPORTED_USER");
+		}
+
+		public void SetID_REPORTED_USERNull()
+		{
+			pm_objDR["ID_REPORTED_USER"] = System.Convert.DBNull;
+		}
+
+		public decimal dcID_CHA
+		{
+			get
+			{
+				return CNull.RowNVLDecimal(pm_objDR, "ID_CHA", IPConstants.c_DefaultDecimal);
+			}
+			set
+			{
+				pm_objDR["ID_CHA"] = value;
+			}
+		}
+
+		public bool IsID_CHANull()
+		{
+			return pm_objDR.IsNull("ID_CHA");
+		}
+
+		public void SetID_CHANull()
+		{
+			pm_objDR["ID_CHA"] = System.Convert.DBNull;
 		}
 
 		#endregion
