@@ -121,8 +121,7 @@
                                         </table>
                                     </HeaderTemplate>
                                     <ItemTemplate>
-                                        <table border="0" cellspacing="0" cellpadding="2" width="100%" style="border-collapse: collapse;
-                                            text-align: right">
+                                        <table border="0" cellspacing="0" cellpadding="2" width="100%" style="border-collapse: collapse; text-align: right">
                                             <td style="width: 25%; height: 60px; border-right: 1px solid gray;">
                                                 <%# Eval("KH_QBT", "{0:#,##0}")%>
                                             </td>
@@ -233,19 +232,19 @@
                                         <table border="0" cellspacing="0" cellpadding="2" width="100%" style="border-collapse: collapse;
                                             text-align: right">
                                             <td style="width: 25%; height: 60px; border-right: 1px solid gray;">
-                                                <%# Eval("DDT_QBT_TRONG_THANG", "{0:#,##0}")%>
+                                                <%# Eval("DTT_QBT_TRONG_THANG", "{0:#,##0}")%>
                                             </td>
                                             <td style="width: 25%; height: 60px; border-right: 1px solid gray;">
-                                                <%# Eval("DDT_QBT_LUY_KE", "{0:#,##0}")%>
+                                                <%# Eval("DTT_QBT_LUY_KE", "{0:#,##0}")%>
                                             </td>
                                             <td style="width: 25%; height: 50px;">
-                                                <%# Eval("DDT_NS_TRONG_THANG", "{0:#,##0}")%>
+                                                <%# Eval("DTT_NS_TRONG_THANG", "{0:#,##0}")%>
                                             </td>
 											<td style="width: 25%; height: 50px;">
-                                                <%# Eval("DDT_NS_LUY_KE", "{0:#,##0}")%>
+                                                <%# Eval("DTT_NS_LUY_KE", "{0:#,##0}")%>
                                             </td>
 											<td style="width: 25%; height: 50px;">
-                                                <%# CIPConvert.ToStr(CIPConvert.ToDecimal(Eval("DDT_QBT_LUY_KE")) + CIPConvert.ToDecimal(Eval("DDT_NS_LUY_KE")), "0:#,##0") %>
+                                                <%# CIPConvert.ToStr(CIPConvert.ToDecimal(Eval("DTT_QBT_LUY_KE")) + CIPConvert.ToDecimal(Eval("DTT_NS_LUY_KE")), "0:#,##0") %>
                                             </td>
                                         </table>
                                     </ItemTemplate>
@@ -261,7 +260,7 @@
 									 <ItemTemplate>
 										<%# CIPConvert.ToStr( (CIPConvert.ToDecimal(Eval("DN_QBT_LUY_KE")) 
                                             + CIPConvert.ToDecimal( Eval("DN_NS_LUY_KE") ) ) 
-                                            - (CIPConvert.ToDecimal(Eval("DDT_QBT_LUY_KE")) + CIPConvert.ToDecimal(Eval("DDT_NS_LUY_KE")) )  , "0:#,##0") %>
+                                            - (CIPConvert.ToDecimal(Eval("DTT_QBT_LUY_KE")) + CIPConvert.ToDecimal(Eval("DTT_NS_LUY_KE")) )  , "0:#,##0") %>
 									 </ItemTemplate>
                                     </asp:TemplateField>
 									 <asp:TemplateField  ItemStyle-HorizontalAlign="Center" HeaderStyle-Width="2%" HeaderStyle-Height="40px" >
