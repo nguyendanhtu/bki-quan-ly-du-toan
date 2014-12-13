@@ -49,6 +49,24 @@ namespace QuanLyDuToan.BaoCao {
         protected global::System.Web.UI.WebControls.TextBox m_txt_tu_khoa_tim_kiem;
         
         /// <summary>
+        /// m_txt_tu_ngay control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox m_txt_tu_ngay;
+        
+        /// <summary>
+        /// m_txt_den_ngay control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox m_txt_den_ngay;
+        
+        /// <summary>
         /// m_cmd_tim_kiem control.
         /// </summary>
         /// <remarks>

@@ -314,7 +314,7 @@ namespace WebUS
 		}
 		#endregion
 
-		public void bc_giao_von_theo_don_vi(DataSet v_ds, decimal v_dc_id_don_vi, DateTime ip_dat_tu_ngay, DateTime ip_dat_den_ngay, string ip_str_nhiem_vu_chi)
+        public void bc_giao_von_theo_don_vi(DataSet v_ds, decimal v_dc_id_don_vi, DateTime ip_dat_tu_ngay, DateTime ip_dat_den_ngay, string ip_str_nhiem_vu_chi)
 		{
 			CStoredProc v_prc = new CStoredProc("pr_RPT_BAO_CAO_GIAO_VON");
 			v_prc.addDecimalInputParam("@ip_id_dc_id_don_vi", v_dc_id_don_vi);

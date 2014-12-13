@@ -5,6 +5,9 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using WebDS;
+using WebDS.CDBNames;
+using WebUS;
 
 namespace QuanLyDuToan.BaoCao
 {
@@ -23,36 +26,43 @@ namespace QuanLyDuToan.BaoCao
             {
                 dt.Columns.Add("A", typeof(string));
                 dt.Columns.Add("B", typeof(string));
-                dt.Columns.Add("C", typeof(string));
-                dt.Columns.Add("D", typeof(string));
-                dt.Columns.Add("E", typeof(string));
-                dt.Columns.Add("F", typeof(string));
-                dt.Columns.Add("G", typeof(string));
-                dt.Columns.Add("H", typeof(string));
-                dt.Columns.Add("I", typeof(string));
-                dt.Columns.Add("J", typeof(string));
-                dt.Columns.Add("K", typeof(string));
-                dt.Columns.Add("L", typeof(string));
+                dt.Columns.Add("C", typeof(decimal));
+                dt.Columns.Add("D", typeof(decimal));
+                dt.Columns.Add("E", typeof(decimal));
+                dt.Columns.Add("F", typeof(decimal));
+                dt.Columns.Add("G", typeof(decimal));
+                dt.Columns.Add("H", typeof(decimal));
+                dt.Columns.Add("I", typeof(decimal));
+                dt.Columns.Add("J", typeof(decimal));
+                dt.Columns.Add("K", typeof(decimal));
+                dt.Columns.Add("L", typeof(decimal));
             }
 
             DataRow NewRow = dt.NewRow();
             NewRow[0] = "1";
             NewRow[1] = "Chi sửa quốc lộ 31";
-            NewRow[2] = "2,000,000";
-            NewRow[3] = "2,000,000";
-            NewRow[4] = "1,000,000";
-            NewRow[5] = "1,000,000";
-            NewRow[6] = "0";
-            NewRow[7] = "3,000,000";
-            NewRow[8] = "1,000,000";
-            NewRow[9] = "2,000,000";
-            NewRow[10] = "2,000,000";
-            NewRow[11] = "2,000,000";
+            NewRow[2] = 2000000;
+            NewRow[3] = 2000000;
+            NewRow[4] = 1000000;
+            NewRow[5] = 1000000;
+            NewRow[6] = 0;
+            NewRow[7] = 3000000;
+            NewRow[8] = 1000000;
+            NewRow[9] = 2000000;
+            NewRow[10] = 2000000;
+            NewRow[11] = 2000000;
             dt.Rows.Add(NewRow);
             m_grv_bao_cao_giao_von.DataSource = dt;
             m_grv_bao_cao_giao_von.DataBind();
             //-------------------------------------------------------
             #endregion
+            set_default_input();
+        }
+        private void set_default_input()
+        {
+            m_txt_tu_khoa_tim_kiem.Text = "";
+            m_txt_tu_ngay.Text = (new DateTime(DateTime.Now.Year, 1, 1)).ToString(c_configuration.DEFAULT_DATETIME_FORMAT);
+            m_txt_den_ngay.Text = (DateTime.Now.Date).ToString(c_configuration.DEFAULT_DATETIME_FORMAT);
         }
 
         #region Merge header
