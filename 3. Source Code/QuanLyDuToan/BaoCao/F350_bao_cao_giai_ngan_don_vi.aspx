@@ -74,7 +74,7 @@
                                         </table>
                                     </HeaderTemplate>
                                     <ItemTemplate>
-                                        <%# Eval("NOI_DUNG")%>
+                                        <%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.NOI_DUNG)%>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderStyle-Width="25%" HeaderStyle-Height="110px">
@@ -105,16 +105,16 @@
                                     <ItemTemplate>
                                         <table border="0" cellspacing="0" cellpadding="2" width="100%" style="border-collapse: collapse; text-align: right">
                                             <td style="width: 25%; height: 60px; border-right: 1px solid gray;">
-                                                <%# Eval("KH_QBT", "{0:#,##0}")%>
+                                                <%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_QBT, "{0:#,##0}")%>
                                             </td>
                                             <td style="width: 25%; height: 60px; border-right: 1px solid gray;">
-                                                <%# Eval("KH_NS", "{0:#,##0}")%>
+                                                <%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_NS, "{0:#,##0}")%>
                                             </td>
                                             <td style="width: 25%; height: 50px;">
-                                                <%# Eval("KH_NAM_TRUOC_CHUYEN_SANG", "{0:#,##0}")%>
+                                                <%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_NAM_TRUOC_CHUYEN_SANG, "{0:#,##0}")%>
                                             </td>
                                             <td style="width: 25%; height: 50px;">
-                                                <%# Eval("KH_TONG", "{0:#,##0}")%>
+                                                <%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_TONG, "{0:#,##0}")%>
                                             </td>
                                         </table>
                                     </ItemTemplate>
@@ -152,19 +152,19 @@
                                     <ItemTemplate>
                                         <table border="0" cellspacing="0" cellpadding="2" width="100%" style="border-collapse: collapse; text-align: right">
                                             <td style="width: 25%; height: 60px; border-right: 1px solid gray;">
-                                                <%# Eval("DN_QBT_TRONG_THANG", "{0:#,##0}")%>
+                                                <%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_QBT_TRONG_THANG, "{0:#,##0}")%>
                                             </td>
                                             <td style="width: 25%; height: 60px; border-right: 1px solid gray;">
-                                                <%# Eval("DN_QBT_LUY_KE", "{0:#,##0}")%>
+                                                <%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_QBT_LUY_KE, "{0:#,##0}")%>
                                             </td>
                                             <td style="width: 25%; height: 50px;">
-                                                <%# Eval("DN_NS_TRONG_THANG", "{0:#,##0}")%>
+                                                <%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_NS_TRONG_THANG, "{0:#,##0}")%>
                                             </td>
                                             <td style="width: 25%; height: 50px;">
-                                                <%# Eval("DN_NS_LUY_KE", "{0:#,##0}")%>
+                                                <%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_NS_LUY_KE, "{0:#,##0}")%>
                                             </td>
                                             <td style="width: 25%; height: 50px;">
-                                                <%# CIPConvert.ToStr( CIPConvert.ToDecimal( Eval("DN_QBT_LUY_KE")) + CIPConvert.ToDecimal( Eval("DN_NS_LUY_KE")), "0:#,##0") %>
+                                                <%# CIPConvert.ToStr( CIPConvert.ToDecimal( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_QBT_LUY_KE)) + CIPConvert.ToDecimal( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_NS_LUY_KE)), "0:#,##0") %>
                                             </td>
                                         </table>
                                     </ItemTemplate>
@@ -202,19 +202,19 @@
                                     <ItemTemplate>
                                         <table border="0" cellspacing="0" cellpadding="2" width="100%" style="border-collapse: collapse; text-align: right">
                                             <td style="width: 25%; height: 60px; border-right: 1px solid gray;">
-                                                <%# Eval("DTT_QBT_TRONG_THANG", "{0:#,##0}")%>
+                                                <%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_QBT_TRONG_THANG, "{0:#,##0}")%>
                                             </td>
                                             <td style="width: 25%; height: 60px; border-right: 1px solid gray;">
-                                                <%# Eval("DTT_QBT_LUY_KE", "{0:#,##0}")%>
+                                                <%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_QBT_LUY_KE, "{0:#,##0}")%>
                                             </td>
                                             <td style="width: 25%; height: 50px;">
-                                                <%# Eval("DTT_NS_TRONG_THANG", "{0:#,##0}")%>
+                                                <%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_NS_TRONG_THANG, "{0:#,##0}")%>
                                             </td>
                                             <td style="width: 25%; height: 50px;">
-                                                <%# Eval("DTT_NS_LUY_KE", "{0:#,##0}")%>
+                                                <%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_NS_LUY_KE, "{0:#,##0}")%>
                                             </td>
                                             <td style="width: 25%; height: 50px;">
-                                                <%# CIPConvert.ToStr(CIPConvert.ToDecimal(Eval("DTT_QBT_LUY_KE")) + CIPConvert.ToDecimal(Eval("DTT_NS_LUY_KE")), "0:#,##0") %>
+                                                <%# CIPConvert.ToStr(CIPConvert.ToDecimal(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_QBT_LUY_KE)) + CIPConvert.ToDecimal(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_NS_LUY_KE)), "0:#,##0") %>
                                             </td>
                                         </table>
                                     </ItemTemplate>
@@ -227,9 +227,9 @@
                                         </table>
                                     </HeaderTemplate>
                                     <ItemTemplate>
-                                        <%# CIPConvert.ToStr( (CIPConvert.ToDecimal(Eval("DN_QBT_LUY_KE")) 
-                                            + CIPConvert.ToDecimal( Eval("DN_NS_LUY_KE") ) ) 
-                                            - (CIPConvert.ToDecimal(Eval("DTT_QBT_LUY_KE")) + CIPConvert.ToDecimal(Eval("DTT_NS_LUY_KE")) )  , "0:#,##0") %>
+                                        <%# CIPConvert.ToStr( (CIPConvert.ToDecimal(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_QBT_LUY_KE)) 
+                                            + CIPConvert.ToDecimal( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_NS_LUY_KE) ) ) 
+                                            - (CIPConvert.ToDecimal(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_QBT_LUY_KE)) + CIPConvert.ToDecimal(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_NS_LUY_KE)) )  , "0:#,##0") %>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                                 <asp:TemplateField ItemStyle-HorizontalAlign="Center" HeaderStyle-Width="2%" HeaderStyle-Height="40px">
@@ -249,12 +249,12 @@
                                     <ItemTemplate>
                                         <table border="0" cellspacing="0" cellpadding="2" width="100%" style="border-collapse: collapse; text-align: right">
                                             <td style="width: 25%; height: 50px;">
-                                                <%# CIPConvert.ToStr(CIPConvert.ToDecimal(Eval("KH_QBT")) 
-                                                        + CIPConvert.ToDecimal(Eval("KH_NAM_TRUOC_CHUYEN_SANG")) 
-                                                        - CIPConvert.ToDecimal(Eval("DN_QBT_LUY_KE")), "0:#,##0") %>
+                                                <%# CIPConvert.ToStr(CIPConvert.ToDecimal(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_QBT)) 
+                                                        + CIPConvert.ToDecimal(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_NAM_TRUOC_CHUYEN_SANG)) 
+                                                        - CIPConvert.ToDecimal(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_QBT_LUY_KE)), "0:#,##0") %>
                                             </td>
                                             <td style="width: 25%; height: 50px;">
-                                                <%# CIPConvert.ToStr( CIPConvert.ToDecimal(Eval("KH_NS")) - CIPConvert.ToDecimal(Eval("DN_NS_LUY_KE")), "0:#,##0") %>
+                                                <%# CIPConvert.ToStr( CIPConvert.ToDecimal(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_NS)) - CIPConvert.ToDecimal(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_NS_LUY_KE)), "0:#,##0") %>
                                             </td>
                                         </table>
                                     </ItemTemplate>
