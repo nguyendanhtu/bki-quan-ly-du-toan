@@ -277,7 +277,7 @@
 												text-align: right">												
 												<td style="width: 25%; height: 50px;">
 													<%# CIPConvert.ToStr(CIPConvert.ToDecimal(Eval("KH_QBT")) 
-                                                        + CIPConvert.ToDecimal(Eval("KH_SO_TEN_NAM_CHUYEN_SANG")) 
+                                                        + CIPConvert.ToDecimal(Eval("KH_NAM_TRUOC_CHUYEN_SANG")) 
                                                         - CIPConvert.ToDecimal(Eval("DN_QBT_LUY_KE")), "0:#,##0") %>
 												</td>
 												<td style="width: 25%; height: 50px;">
