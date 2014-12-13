@@ -19,7 +19,7 @@
             <span>Từ khóa tìm kiếm: </span><asp:textbox runat="server" id="m_txt_tu_khoa_tim_kiem" style="width:200px;"></asp:textbox>
             <asp:button runat="server" text="Tìm kiếm" id="m_cmd_tim_kiem"/>
         </div>
-        <div style="width:800px; margin:20px auto;">
+        <div style="width:920px; margin:20px auto;">
             <asp:gridview runat="server" id="m_grv_bao_cao_giai_ngan" style="width:100%;" AutoGenerateColumns="False" EnableModelValidation="True">
                 <Columns>
                     <asp:BoundField DataField="NHIEM_VU_CHI" HeaderText="<br />Nhiệm vụ chi <br /> (1)" HtmlEncode="False" />
@@ -27,7 +27,7 @@
                     <ItemStyle HorizontalAlign="Right" Width="120px" />
                     </asp:BoundField>
                     <asp:BoundField HeaderText="<br />Tổng số vốn giao <br /> (3)" HtmlEncode="False" DataField="TONG_SO_VON_GIAO">
-                    <ItemStyle HorizontalAlign="Right" />
+                    <ItemStyle HorizontalAlign="Right" Width="120px"/>
                     </asp:BoundField>
                     <asp:BoundField DataField="SO_TIEN_QUY_BT" HeaderText="Kinh phí thanh toán &lt;br /&gt;quỹ bảo trì &lt;br /&gt; (4)" HtmlEncode="False">
                     <ItemStyle HorizontalAlign="Right" />
