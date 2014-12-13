@@ -603,7 +603,7 @@ namespace WebUS
 			v_sp.addDatetimeInputParam("@ip_dat_den_ngay", ip_dat_den_ngay);
 			v_sp.fillDataSetByCommand(this, op_ds);
 		}
-        public void bc_tinh_hinh_giai_ngan_theo_don_vi(DataSet op_ds
+        public void bc_tinh_hinh_giai_ngan_theo_don_vi(DS_RPT_BC_TINH_HINH_GIAI_NGAN op_ds
             , decimal ip_dc_id_don_vi
         , DateTime ip_dat_tu_ngay
         , DateTime ip_dat_den_ngay
