@@ -45,6 +45,7 @@ namespace QuanLyDuToan.BaoCao
                 ,CIPConvert.ToDatetime(m_txt_tu_ngay.Text, "dd/MM/yyyy")
                 , CIPConvert.ToDatetime(m_txt_den_ngay.Text, "dd/MM/yyyy")
                 , m_dc_id_don_vi
+                , Person.get_user_id()
                 );
             m_grv.DataSource = v_ds.RPT_BC_TINH_HINH_GIAI_NGAN;
             m_grv.DataBind();
