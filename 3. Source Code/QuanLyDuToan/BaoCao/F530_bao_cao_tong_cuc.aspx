@@ -12,10 +12,10 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    	<asp:ScriptManager ID="ScriptManager1" runat="server">
-	</asp:ScriptManager>
-    
-	<asp:UpdatePanel ID="UpdatePanel1" runat="server">
+    <asp:scriptmanager id="ScriptManager1" runat="server">
+	</asp:scriptmanager>
+
+    <asp:updatepanel id="UpdatePanel1" runat="server">
 		<ContentTemplate>
 			<table style="width: 100%;" class="cssTable" border="0">
 				<tr>
@@ -25,7 +25,7 @@
 						<span style="font-weight: bold">Độc lập - Tự do - Hạnh Phúc</span>
 						<br />
 						<br />
-						<span style="font-weight: bold">BÁO CÁO TÌNH HÌNH ỦY NHIỆM CHI <%=DateTime.Now.Year.ToString() %></span>
+						<span style="font-weight: bold">BÁO CÁO TÌNH HÌNH GIẢI NGÂN CÁC NGUỒN VỐN NĂM  <%=DateTime.Now.Year.ToString() %></span>
 						<br />
 						<span style="font-weight: bold">Từ ngày
 							<asp:TextBox ID="m_txt_tu_ngay" placeholder="dd/MM/yyyy" runat="server" CssClass="cssTextBox" Width="100px"></asp:TextBox></span>
@@ -178,7 +178,7 @@
                                                 <%# Eval("DN_NS_LUY_KE", "{0:#,##0}")%>
                                             </td>
 											<td style="width: 25%; height: 50px;">
-                                                <%# CIPConvert.ToStr(Eval("DN_QBT_LUY_KE") + Eval("DN_NS_LUY_KE"), "0:#,##0") %>
+                                                <%# CIPConvert.ToStr( CIPConvert.ToDecimal( Eval("DN_QBT_LUY_KE")) + CIPConvert.ToDecimal( Eval("DN_NS_LUY_KE")), "0:#,##0") %>
                                             </td>
                                         </table>
                                     </ItemTemplate>
@@ -234,7 +234,7 @@
                                                 <%# Eval("DDT_NS_LUY_KE", "{0:#,##0}")%>
                                             </td>
 											<td style="width: 25%; height: 50px;">
-                                                <%# CIPConvert.ToStr(Eval("DDT_QBT_LUY_KE") + Eval("DDT_NS_LUY_KE"), "0:#,##0") %>
+                                                <%# CIPConvert.ToStr(CIPConvert.ToDecimal(Eval("DDT_QBT_LUY_KE")) + CIPConvert.ToDecimal(Eval("DDT_NS_LUY_KE")), "0:#,##0") %>
                                             </td>
                                         </table>
                                     </ItemTemplate>
@@ -248,8 +248,11 @@
 										</table>
 									 </HeaderTemplate>
 									 <ItemTemplate>
-										<%# CIPConvert.ToStr(  (Eval("DN_QBT_LUY_KE") + Eval("DN_NS_LUY_KE") ) - (Eval("DDT_QBT_LUY_KE") + Eval("DDT_NS_LUY_KE") )  , "0:#,##0") %>
+										<%# CIPConvert.ToStr( (CIPConvert.ToDecimal(Eval("DN_QBT_LUY_KE")) 
+                                            + CIPConvert.ToDecimal( Eval("DN_NS_LUY_KE") ) ) 
+                                            - (CIPConvert.ToDecimal(Eval("DDT_QBT_LUY_KE")) + CIPConvert.ToDecimal(Eval("DDT_NS_LUY_KE")) )  , "0:#,##0") %>
 									 </ItemTemplate>
+                                    </asp:TemplateField>
 									 <asp:TemplateField  ItemStyle-HorizontalAlign="Center" HeaderStyle-Width="2%" HeaderStyle-Height="40px" >
 									 <HeaderTemplate>
 										<table border="1" cellspacing="0" cellpadding="2" width="100%" style="border-collapse: collapse;
@@ -263,17 +266,16 @@
 										 <table border="0" cellspacing="0" cellpadding="2" width="100%" style="border-collapse: collapse;
 												text-align: right">												
 												<td style="width: 25%; height: 50px;">
-													<%# CIPConvert.ToStr(Eval("KH_QBT") + Eval("KH_SO_TEN_NAM_CHUYEN_SANG") - Eval("DN_QBT_LUY_KE"), "0:#,##0") %>
+													<%# CIPConvert.ToStr(CIPConvert.ToDecimal(Eval("KH_QBT")) 
+                                                        + CIPConvert.ToDecimal(Eval("KH_SO_TEN_NAM_CHUYEN_SANG")) 
+                                                        - CIPConvert.ToDecimal(Eval("DN_QBT_LUY_KE")), "0:#,##0") %>
 												</td>
 												<td style="width: 25%; height: 50px;">
-													<%# Eval("KH_NS") - Eval("DN_NS_LUY_KE"), "0:#,##0") %>
+													<%# CIPConvert.ToStr( CIPConvert.ToDecimal(Eval("KH_NS")) - CIPConvert.ToDecimal(Eval("DN_NS_LUY_KE")), "0:#,##0") %>
 												</td>
 											</table>										
 									 </ItemTemplate>
-								</asp:TemplateField>
-								</asp:TemplateField>
-                                <!--<asp:BoundField DataField="NGAY_THANG" HeaderText="Ngày" HeaderStyle-Width="300px" />
-							    <asp:BoundField DataField="SO_TIEN_QUY_BT" HeaderText="Số tiền Quỹ bảo trì" HeaderStyle-Width="150px" />  -->
+								</asp:TemplateField>								                                
 							</Columns>
 						</asp:GridView>
 					</td>
@@ -282,8 +284,8 @@
 		</ContentTemplate>
 		<Triggers>
 		</Triggers>
-	</asp:UpdatePanel>
-	<asp:UpdateProgress ID="UpdateProgress1" runat="server">
+	</asp:updatepanel>
+    <asp:updateprogress id="UpdateProgress1" runat="server">
 		<ProgressTemplate>
 			<div class="cssLoadWapper">
 				<div class="cssLoadContent">
@@ -294,5 +296,5 @@
 				</div>
 			</div>
 		</ProgressTemplate>
-	</asp:UpdateProgress>
+	</asp:updateprogress>
 </asp:Content>
