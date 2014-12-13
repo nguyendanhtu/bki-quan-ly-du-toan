@@ -118,6 +118,10 @@
       <Project>{9ACEDD70-FDA2-44D8-A004-3A7EAF86A954}</Project>
       <Name>IPData</Name>
     </ProjectReference>
+    <ProjectReference Include="..\IPSystemAdmin\IPSystemAdmin.vbproj">
+      <Project>{455cd3a5-79ba-480a-b9bd-d4a7dda397a8}</Project>
+      <Name>IPSystemAdmin</Name>
+    </ProjectReference>
     <ProjectReference Include="..\IPUserService\IPUserService.vbproj">
       <Project>{B490EA92-2990-4CBB-B58B-12901AFCCCB5}</Project>
       <Name>IPUserService</Name>
