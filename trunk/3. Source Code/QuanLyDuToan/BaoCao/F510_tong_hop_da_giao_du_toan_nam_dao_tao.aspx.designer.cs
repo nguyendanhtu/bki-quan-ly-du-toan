@@ -10,7 +10,7 @@
 namespace QuanLyDuToan.BaoCao {
     
     
-    public partial class F356_bao_cao_giai_ngan {
+    public partial class F510_tong_hop_da_giao_du_toan_nam_dao_tao {
         
         /// <summary>
         /// ScriptManager1 control.
@@ -31,6 +31,15 @@ namespace QuanLyDuToan.BaoCao {
         protected global::System.Web.UI.UpdatePanel UpdatePanel1;
         
         /// <summary>
+        /// m_lbl_nam control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label m_lbl_nam;
+        
+        /// <summary>
         /// m_txt_tu_khoa_tim_kiem control.
         /// </summary>
         /// <remarks>
@@ -49,13 +58,13 @@ namespace QuanLyDuToan.BaoCao {
         protected global::System.Web.UI.WebControls.Button m_cmd_tim_kiem;
         
         /// <summary>
-        /// m_grv_bao_cao_giai_ngan control.
+        /// m_grv_bao_cao_giao_von control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView m_grv_bao_cao_giai_ngan;
+        protected global::System.Web.UI.WebControls.GridView m_grv_bao_cao_giao_von;
         
         /// <summary>
         /// m_cmd_xuat_excel control.

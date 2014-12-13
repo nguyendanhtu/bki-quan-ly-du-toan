@@ -44,6 +44,9 @@
 
             </asp:gridview>
         </div>
+        <div style="text-align:center">
+            <asp:Button runat="server" Text="Xuất excel" id="m_cmd_xuat_excel"></asp:Button>
+        </div>
     </ContentTemplate>
         </asp:UpdatePanel>
 	<asp:UpdateProgress ID="UpdateProgress1" runat="server">
