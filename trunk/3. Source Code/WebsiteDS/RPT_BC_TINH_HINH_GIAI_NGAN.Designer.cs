@@ -793,7 +793,6 @@ namespace WebDS {
                 this.columnSTT.MaxLength = 15;
                 this.columnNOI_DUNG.MaxLength = 250;
                 this.columnREPORT_LEVEL.MaxLength = 15;
-                this.columnID_REPORTED_USER.AllowDBNull = false;
                 this.ExtendedProperties.Add("Generator_TablePropName", "_RPT_BC_TINH_HINH_GIAI_NGAN");
                 this.ExtendedProperties.Add("Generator_UserTableName", "RPT_BC_TINH_HINH_GIAI_NGAN");
             }
@@ -1339,7 +1338,13 @@ namespace WebDS {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public decimal ID_REPORTED_USER {
                 get {
-                    return ((decimal)(this[this.tableRPT_BC_TINH_HINH_GIAI_NGAN.ID_REPORTED_USERColumn]));
+                    try {
+                        return ((decimal)(this[this.tableRPT_BC_TINH_HINH_GIAI_NGAN.ID_REPORTED_USERColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ID_REPORTED_USER\' in table \'RPT_BC_TINH_HINH_GIAI_NGAN\' is " +
+                                "DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tableRPT_BC_TINH_HINH_GIAI_NGAN.ID_REPORTED_USERColumn] = value;
@@ -1666,6 +1671,18 @@ namespace WebDS {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetID_CHANull() {
                 this[this.tableRPT_BC_TINH_HINH_GIAI_NGAN.ID_CHAColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsID_REPORTED_USERNull() {
+                return this.IsNull(this.tableRPT_BC_TINH_HINH_GIAI_NGAN.ID_REPORTED_USERColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetID_REPORTED_USERNull() {
+                this[this.tableRPT_BC_TINH_HINH_GIAI_NGAN.ID_REPORTED_USERColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2012,7 +2029,7 @@ namespace WebDS.RPT_BC_TINH_HINH_GIAI_NGANTableAdapters {
                     global::System.Nullable<decimal> ID_DON_VI, 
                     string REPORT_LEVEL, 
                     global::System.Nullable<decimal> ID_CHA, 
-                    decimal ID_REPORTED_USER, 
+                    global::System.Nullable<decimal> ID_REPORTED_USER, 
                     global::System.Nullable<decimal> GIA_TRI_THUC_HIEN, 
                     global::System.Nullable<decimal> SO_CHUA_GN) {
             if ((ID.HasValue == true)) {
@@ -2159,7 +2176,12 @@ namespace WebDS.RPT_BC_TINH_HINH_GIAI_NGANTableAdapters {
             else {
                 this.Adapter.InsertCommand.Parameters[23].Value = global::System.DBNull.Value;
             }
-            this.Adapter.InsertCommand.Parameters[24].Value = ((decimal)(ID_REPORTED_USER));
+            if ((ID_REPORTED_USER.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[24].Value = ((decimal)(ID_REPORTED_USER.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[24].Value = global::System.DBNull.Value;
+            }
             if ((GIA_TRI_THUC_HIEN.HasValue == true)) {
                 this.Adapter.InsertCommand.Parameters[25].Value = ((decimal)(GIA_TRI_THUC_HIEN.Value));
             }
