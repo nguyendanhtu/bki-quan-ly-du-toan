@@ -13,11 +13,6 @@ using WebUS;
 
 namespace QuanLyDuToan.App_Code
 {
-    public class ID_LOAI_CONG_TRINH_DU_AN
-    {
-        const decimal QUOC_LO = 667;
-        const decimal KHAC = 668;
-    }
 	public class WinFormControls
 	{
 		public WinFormControls()
@@ -235,12 +230,12 @@ namespace QuanLyDuToan.App_Code
 			if (ip_loai_du_an == LOAI_DU_AN.QUOC_LO)
 			{
 				v_str_data_default = "---Chọn quốc lộ---";
-                v_us.FillDataset(v_ds, " WHERE ID_LOAI = " + ip_loai_du_an);
+                v_us.FillDataset(v_ds, " WHERE ID_LOAI = " + ID_LOAI_DU_AN.QUOC_LO);
 			}
 			else if (ip_loai_du_an == LOAI_DU_AN.KHAC)
 			{
 				v_str_data_default = "---Chọn dự án---";
-                v_us.FillDataset(v_ds, " WHERE ID_LOAI = " + ip_loai_du_an);
+                v_us.FillDataset(v_ds, " WHERE ID_LOAI = " + ID_LOAI_DU_AN.KHAC);
 			}
 
 			op_ddl_quyet_dinh.DataTextField = DM_CONG_TRINH_DU_AN_GOI_THAU.TEN;
@@ -262,12 +257,12 @@ namespace QuanLyDuToan.App_Code
             if (ip_loai_du_an == LOAI_DU_AN.QUOC_LO)
             {
                 v_str_data_default = "---Chọn quốc lộ---";
-                v_us.FillDataset(v_ds, " WHERE ID_LOAI = " + ip_loai_du_an + " AND ID_CHA = " + ip_dc_id_cha);
+                v_us.FillDataset(v_ds, " WHERE ID_LOAI = " + ID_LOAI_DU_AN.QUOC_LO + " AND ID_CHA = " + ip_dc_id_cha);
             }
             else if (ip_loai_du_an == LOAI_DU_AN.KHAC)
             {
                 v_str_data_default = "---Chọn dự án---";
-                v_us.FillDataset(v_ds, " WHERE ID_LOAI = " + ip_loai_du_an + " AND ID_CHA = " + ip_dc_id_cha);
+                v_us.FillDataset(v_ds, " WHERE ID_LOAI = " + ID_LOAI_DU_AN.KHAC + " AND ID_CHA = " + ip_dc_id_cha);
             }
             op_ddl_quyet_dinh.DataTextField = DM_CONG_TRINH_DU_AN_GOI_THAU.TEN;
             op_ddl_quyet_dinh.DataValueField = DM_CONG_TRINH_DU_AN_GOI_THAU.ID;
