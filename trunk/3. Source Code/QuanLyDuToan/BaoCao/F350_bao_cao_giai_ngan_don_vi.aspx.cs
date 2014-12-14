@@ -256,13 +256,7 @@ namespace QuanLyDuToan.BaoCao
                 HeaderCell1.RowSpan = 2;
                 HeaderCell1.CssClass = "HeaderStyle";
                 HeaderRow2.Cells.Add(HeaderCell1);
-                //Adding  cell
-                HeaderCell1 = new TableHeaderCell();
-                HeaderCell1.Text = "Số dư năm trước chuyển sang";
-                HeaderCell1.HorizontalAlign = HorizontalAlign.Center;
-                HeaderCell1.RowSpan = 2;
-                HeaderCell1.CssClass = "HeaderStyle";
-                HeaderRow2.Cells.Add(HeaderCell1);
+                
                 //Adding cell
                 HeaderCell1 = new TableHeaderCell();
                 HeaderCell1.Text = "Tổng số";
