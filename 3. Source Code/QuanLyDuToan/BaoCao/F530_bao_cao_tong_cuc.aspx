@@ -36,7 +36,7 @@
 				</tr>
                 <tr>
                     <td style="width: 200px;"></td>
-                    <td>
+                    <td style="display: none;">
                         <span style="font-weight: bold" >Loại đơn vị
                         <asp:DropDownList id="m_cbo_loai_don_vi" Width="200px" runat="server"></asp:DropDownList></span>
                     </td>
