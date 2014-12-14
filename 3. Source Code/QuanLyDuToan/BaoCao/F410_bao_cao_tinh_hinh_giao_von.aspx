@@ -52,10 +52,8 @@
 							CssClass="cssGrid" Width="100%" CellPadding="0" ForeColor="Black"
 							AllowSorting="True" PageSize="60" ShowHeader="true" AllowPaging="false"
 							EmptyDataText="Không có dữ liệu phù hợp"
-							OnRowDataBound="m_grv_RowDataBound"
-							>
+							OnRowDataBound="m_grv_RowDataBound">
 							<Columns>
-								
 								<asp:BoundField DataField="NHIEM_VU_CHI" HeaderText="Nhiệm vụ chi" HeaderStyle-Width="300px" />
 								<asp:TemplateField HeaderText="Tổng kế hoạch" ItemStyle-HorizontalAlign="Right">
 									<ItemTemplate>

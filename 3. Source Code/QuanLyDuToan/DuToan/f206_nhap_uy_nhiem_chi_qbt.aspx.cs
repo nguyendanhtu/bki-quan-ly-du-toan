@@ -217,9 +217,6 @@ namespace QuanLyDuToan.DuToan
 				v_dat_dau_nam = v_dat_dau_nam.AddMonths(-v_dat_dau_nam.Month + 1);
 				DateTime v_dat_cuoi_nam = v_dat_dau_nam.AddYears(1);
 				WinFormControls.load_data_to_cbo_du_an_cong_trinh_from_giao_von(ip_loai_du_an
-				, v_dat_dau_nam
-				, v_dat_cuoi_nam
-				, ""
 				, op_ddl);
 			}
 		}
@@ -568,9 +565,6 @@ namespace QuanLyDuToan.DuToan
 				v_dat_dau_nam = v_dat_dau_nam.AddMonths(-v_dat_dau_nam.Month + 1);
 				DateTime v_dat_cuoi_nam = v_dat_dau_nam.AddYears(1);
 				WinFormControls.load_data_to_cbo_du_an_cong_trinh_from_giao_von(ip_loai_du_an
-				, v_dat_dau_nam
-				, v_dat_cuoi_nam
-				, ""
 				, op_ddl);
 			}
 

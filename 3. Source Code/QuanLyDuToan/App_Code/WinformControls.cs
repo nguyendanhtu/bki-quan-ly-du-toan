@@ -123,6 +123,8 @@ namespace QuanLyDuToan.App_Code
 			DS_CM_DM_TU_DIEN v_ds = new DS_CM_DM_TU_DIEN();
 			v_us.FillDataset(v_ds, "where " + CM_DM_TU_DIEN.ID_LOAI_TU_DIEN + "=" + ID_LOAI_TU_DIEN.LOAI_NHIEM_VU +
 				"order by " + CM_DM_TU_DIEN.GHI_CHU);
+            string v_str_data_default = "---Chọn loại nhiệm vụ---";
+
 			for (int i = 0; i < v_ds.CM_DM_TU_DIEN.Count; i++)
 			{
 				v_ds.Tables[0].Rows[i][CM_DM_TU_DIEN.TEN] = v_ds.Tables[0].Rows[i][CM_DM_TU_DIEN.GHI_CHU].ToString() + " - " +
@@ -133,7 +135,9 @@ namespace QuanLyDuToan.App_Code
 			op_ddl.DataValueField = CM_DM_TU_DIEN.ID;
 			op_ddl.DataSource = v_ds.CM_DM_TU_DIEN;
 			op_ddl.DataBind();
+            op_ddl.Items.Insert(0, new ListItem(v_str_data_default, "-1"));
 		}
+
 		public static decimal getTongTienKH(
 			DateTime ip_dat_ngay_thang
 			, string ip_str_is_nguon_ns_yn
@@ -148,35 +152,25 @@ namespace QuanLyDuToan.App_Code
 			//op_dc_so_tien = v_us.getTongTienKH(Person.get_id_don_vi(), v_dat_dau_nam, v_dat_cuoi_nam, ip_str_is_nguon_ns_yn, ip_dc_id_loai_du_an);
 			return op_dc_so_tien;
 		}
+
 		public static void load_data_to_cbo_du_an_cong_trinh_from_giao_kh(LOAI_DU_AN ip_loai_du_an
-			, DateTime ip_dat_tu_ngay
-			, DateTime ip_dat_den_ngay
-			, string ip_str_tu_khoa
 			, DropDownList op_ddl_quyet_dinh)
 		{
+
 			DS_DM_CONG_TRINH_DU_AN_GOI_THAU v_ds = new DS_DM_CONG_TRINH_DU_AN_GOI_THAU();
 			US_DM_CONG_TRINH_DU_AN_GOI_THAU v_us = new US_DM_CONG_TRINH_DU_AN_GOI_THAU();
 			decimal v_dc_id_don_vi = Person.get_id_don_vi();
-			decimal v_dc_id_loai_cong_trinh = ID_LOAI_DU_AN.QUOC_LO;
 			string v_str_data_default = "";
 			if (ip_loai_du_an == LOAI_DU_AN.QUOC_LO)
 			{
-				v_dc_id_loai_cong_trinh = ID_LOAI_DU_AN.QUOC_LO;
 				v_str_data_default = "---Chọn quốc lộ---";
 			}
 			else if (ip_loai_du_an == LOAI_DU_AN.KHAC)
 			{
-				v_dc_id_loai_cong_trinh = ID_LOAI_DU_AN.KHAC;
 				v_str_data_default = "---Chọn dự án---";
 			}
 			v_ds.EnforceConstraints = false;
 			v_ds.Clear();
-			//v_us.getDuAnCongTrinhGiaoKHByDate(v_ds
-			//	, v_dc_id_don_vi
-			//	, v_dc_id_loai_cong_trinh
-			//	, ip_dat_tu_ngay
-			//	, ip_dat_den_ngay
-			//	, ip_str_tu_khoa);
 			op_ddl_quyet_dinh.DataTextField = DM_CONG_TRINH_DU_AN_GOI_THAU.TEN;
 			op_ddl_quyet_dinh.DataValueField = DM_CONG_TRINH_DU_AN_GOI_THAU.ID;
 			op_ddl_quyet_dinh.DataSource = v_ds.DM_CONG_TRINH_DU_AN_GOI_THAU;
@@ -184,34 +178,63 @@ namespace QuanLyDuToan.App_Code
 			op_ddl_quyet_dinh.Items.Insert(0, new ListItem(v_str_data_default, "-1"));
 
 		}
+
+        public static void load_data_to_cbo_cong_trinh_theo_loai_nhiem_vu(
+            decimal ip_id_loai_nhiem_vu, DropDownList op_ddl_cong_trinh)
+        {
+            DS_DM_CONG_TRINH_DU_AN_GOI_THAU v_ds = new DS_DM_CONG_TRINH_DU_AN_GOI_THAU();
+            US_DM_CONG_TRINH_DU_AN_GOI_THAU v_us = new US_DM_CONG_TRINH_DU_AN_GOI_THAU();
+            decimal v_dc_id_don_vi = Person.get_id_don_vi();
+            string v_str_data_default = "---Chọn công trình---";
+            
+            v_ds.EnforceConstraints = false;
+            v_ds.Clear();
+
+            v_us.loadDanhMucCongTrinhTheoNhiemVu(v_ds, v_dc_id_don_vi, ip_id_loai_nhiem_vu);
+
+            op_ddl_cong_trinh.DataTextField = DM_CONG_TRINH_DU_AN_GOI_THAU.TEN;
+            op_ddl_cong_trinh.DataValueField = DM_CONG_TRINH_DU_AN_GOI_THAU.ID;
+            op_ddl_cong_trinh.DataSource = v_ds.DM_CONG_TRINH_DU_AN_GOI_THAU;
+            op_ddl_cong_trinh.DataBind();
+            op_ddl_cong_trinh.Items.Insert(0, new ListItem(v_str_data_default, "-1"));
+        }
+
+        public static void load_data_to_cbo_du_an_theo_cong_trinh_va_loai_nhiem_vu(decimal ip_id_cong_trinh, 
+            decimal ip_id_loai_nhiem_vu, DropDownList ddl)
+        {
+            DS_DM_CONG_TRINH_DU_AN_GOI_THAU v_ds = new DS_DM_CONG_TRINH_DU_AN_GOI_THAU();
+            US_DM_CONG_TRINH_DU_AN_GOI_THAU v_us = new US_DM_CONG_TRINH_DU_AN_GOI_THAU();
+            decimal v_dc_id_don_vi = Person.get_id_don_vi();
+            string v_str_data_default = "---Chọn dự án---";
+
+            v_ds.EnforceConstraints = false;
+            v_ds.Clear();
+
+            v_us.loadDanhMucDuanTheoCongTrinhVaLoaiNhiemVu(v_ds, v_dc_id_don_vi, ip_id_cong_trinh, ip_id_loai_nhiem_vu);
+
+            ddl.DataTextField = DM_CONG_TRINH_DU_AN_GOI_THAU.TEN;
+            ddl.DataValueField = DM_CONG_TRINH_DU_AN_GOI_THAU.ID;
+            ddl.DataSource = v_ds.DM_CONG_TRINH_DU_AN_GOI_THAU;
+            ddl.DataBind();
+            ddl.Items.Insert(0, new ListItem(v_str_data_default, "-1"));
+        }
+
 		public static void load_data_to_cbo_du_an_cong_trinh_from_giao_von(LOAI_DU_AN ip_loai_du_an
-			, DateTime ip_dat_tu_ngay
-			, DateTime ip_dat_den_ngay
-			, string ip_str_tu_khoa
 			, DropDownList op_ddl_quyet_dinh)
 		{
 			DS_DM_CONG_TRINH_DU_AN_GOI_THAU v_ds = new DS_DM_CONG_TRINH_DU_AN_GOI_THAU();
 			US_DM_CONG_TRINH_DU_AN_GOI_THAU v_us = new US_DM_CONG_TRINH_DU_AN_GOI_THAU();
 			decimal v_dc_id_don_vi = Person.get_id_don_vi();
-			decimal v_dc_id_loai_cong_trinh = ID_LOAI_DU_AN.QUOC_LO;
 			string v_str_data_default = "";
 			if (ip_loai_du_an == LOAI_DU_AN.QUOC_LO)
 			{
-				v_dc_id_loai_cong_trinh = ID_LOAI_DU_AN.QUOC_LO;
 				v_str_data_default = "---Chọn quốc lộ---";
 			}
 			else if (ip_loai_du_an == LOAI_DU_AN.KHAC)
 			{
-				v_dc_id_loai_cong_trinh = ID_LOAI_DU_AN.KHAC;
 				v_str_data_default = "---Chọn dự án---";
 			}
 			v_ds.EnforceConstraints = false;
-			//v_us.getDuAnCongTrinhGiaoVonByDate(v_ds
-			//	, v_dc_id_don_vi
-			//	, v_dc_id_loai_cong_trinh
-			//	, ip_dat_tu_ngay
-			//	, ip_dat_den_ngay
-			//	, ip_str_tu_khoa);
 			op_ddl_quyet_dinh.DataTextField = DM_CONG_TRINH_DU_AN_GOI_THAU.TEN;
 			op_ddl_quyet_dinh.DataValueField = DM_CONG_TRINH_DU_AN_GOI_THAU.ID;
 			op_ddl_quyet_dinh.DataSource = v_ds.DM_CONG_TRINH_DU_AN_GOI_THAU;
@@ -259,24 +282,25 @@ namespace QuanLyDuToan.App_Code
 			return op_ds;
 		}
 
-		public static void load_data_to_ddl_loai_nhiem_vu_unc(
-			DateTime ip_dat_tu_ngay
-			, DateTime ip_dat_den_ngay
-			, decimal ip_dc_id_don_Vi
-			, DropDownList op_ddl)
-		{
-			US_CM_DM_TU_DIEN v_us = new IP.Core.IPUserService.US_CM_DM_TU_DIEN();
-			DS_CM_DM_TU_DIEN v_ds = new DS_CM_DM_TU_DIEN();
-			CStoredProc v_sp = new IP.Core.IPUserService.CStoredProc("pr_cm_dm_tu_dien_get_loai_nhiem_vu_unc");
-			v_sp.addDatetimeInputParam("@ip_dat_tu_ngay", ip_dat_tu_ngay);
-			v_sp.addDatetimeInputParam("@ip_dat_den_ngay", ip_dat_den_ngay);
-			v_sp.addDecimalInputParam("@ip_dc_id_don_vi", ip_dc_id_don_Vi);
-			v_sp.fillDataSetByCommand(v_us, v_ds);
-			op_ddl.DataTextField = CM_DM_TU_DIEN.TEN;
-			op_ddl.DataValueField = CM_DM_TU_DIEN.ID;
-			op_ddl.DataSource = v_ds.CM_DM_TU_DIEN;
-			op_ddl.DataBind();
-		}
+        //public static void load_data_to_ddl_loai_nhiem_vu_unc(
+        //    DateTime ip_dat_tu_ngay
+        //    , DateTime ip_dat_den_ngay
+        //    , decimal ip_dc_id_don_Vi
+        //    , DropDownList op_ddl)
+        //{
+        //    US_CM_DM_TU_DIEN v_us = new IP.Core.IPUserService.US_CM_DM_TU_DIEN();
+        //    DS_CM_DM_TU_DIEN v_ds = new DS_CM_DM_TU_DIEN();
+        //    CStoredProc v_sp = new IP.Core.IPUserService.CStoredProc("pr_cm_dm_tu_dien_get_loai_nhiem_vu_unc");
+        //    v_sp.addDatetimeInputParam("@ip_dat_tu_ngay", ip_dat_tu_ngay);
+        //    v_sp.addDatetimeInputParam("@ip_dat_den_ngay", ip_dat_den_ngay);
+        //    v_sp.addDecimalInputParam("@ip_dc_id_don_vi", ip_dc_id_don_Vi);
+        //    v_sp.fillDataSetByCommand(v_us, v_ds);
+        //    op_ddl.DataTextField = CM_DM_TU_DIEN.TEN;
+        //    op_ddl.DataValueField = CM_DM_TU_DIEN.ID;
+        //    op_ddl.DataSource = v_ds.CM_DM_TU_DIEN;
+        //    op_ddl.DataBind();
+        //}
+
 		public static void load_data_to_ddl_quoc_lo_cong_trinh(
 			DateTime ip_dat_tu_ngay
 			, DateTime ip_dat_den_ngay
@@ -297,6 +321,7 @@ namespace QuanLyDuToan.App_Code
 			op_ddl.DataSource = v_ds.DM_CONG_TRINH_DU_AN_GOI_THAU;
 			op_ddl.DataBind();
 		}
+
 		public static void load_data_to_ddl_ten_du_an(
 			DateTime ip_dat_tu_ngay
 			, DateTime ip_dat_den_ngay
@@ -356,7 +381,6 @@ namespace QuanLyDuToan.App_Code
 			, GIAM_TAI_SAN
 		}
 
-
 		public static void load_data_to_cbo_loai_hinh_don_vi(
 			eLOAI_TU_DIEN ip_e_trang_thai_tai_san
 		   , eTAT_CA ip_e_tat_ca
@@ -381,6 +405,7 @@ namespace QuanLyDuToan.App_Code
 			}
 
 		}
+
 		public static void load_data_to_cbo_tu_dien(
 			 eLOAI_TU_DIEN ip_e_trang_thai_tai_san
 			, eTAT_CA ip_e_tat_ca
