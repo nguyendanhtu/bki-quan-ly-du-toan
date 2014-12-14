@@ -9,6 +9,11 @@
         {
             padding: 0px;
         }
+
+        .HeaderStyle
+        {
+            background: #adf;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
