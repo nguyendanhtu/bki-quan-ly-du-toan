@@ -97,7 +97,7 @@ namespace QuanLyDuToan.BaoCao
             v_obj_export_excel.AddFindAndReplaceItem("<TU_NGAY>", CIPConvert.ToStr(m_txt_tu_ngay.Text, "dd/MM/yyyy"));
             v_obj_export_excel.AddFindAndReplaceItem("<DEN_NGAY>", CIPConvert.ToStr(m_txt_den_ngay.Text, "dd/MM/yyyy"));
             v_obj_export_excel.FindAndReplace(false);
-            v_obj_export_excel.ExportDataSet2ExcelWithoutFixedRows(m_grv, 0, m_grv.Columns.Count - 1, true);
+            v_obj_export_excel.ExportDataSet2ExcelWithoutFixedRows(m_grv, 1, m_grv.Columns.Count - 1, true);
             Response.Redirect(v_obj_export_excel.GetOutputFileNameWithPath(), false);
         }
         #endregion
