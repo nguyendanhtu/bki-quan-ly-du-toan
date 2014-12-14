@@ -146,7 +146,9 @@ namespace QuanLyDuToan.DuToan
 
 			//1. Update noi dung chi tu Giao kh sang Giao von
 			US_GD_CHI_TIET_GIAO_VON v_us_giao_von = new US_GD_CHI_TIET_GIAO_VON();
-			v_us_giao_von.update_noi_dung_chi_from_giao_kh_sang_giao_von(v_dat_dau_nam, v_dat_cuoi_nam, Person.get_id_don_vi(), v_dc_id_quyet_dinh);
+            //v_us_giao_von.update_noi_dung_chi_from_giao_kh_sang_giao_von(v_dat_dau_nam,
+            //    v_dat_cuoi_nam, Person.get_id_don_vi(), v_dc_id_quyet_dinh);
+
 			//2. Load data tu grid_giao_von len luoi de sua thong tin
 			DS_GRID_GIAO_VON v_ds = new DS_GRID_GIAO_VON();
 			US_GRID_GIAO_VON v_us = new US_GRID_GIAO_VON();
