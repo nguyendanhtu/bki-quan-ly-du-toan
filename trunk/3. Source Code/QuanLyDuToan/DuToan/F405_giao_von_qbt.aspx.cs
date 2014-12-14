@@ -387,6 +387,13 @@ namespace QuanLyDuToan.DuToan
                 if (!IsPostBack)
                 {
                     set_inital_form_mode();
+					if (Request.QueryString["ip_dc_id_quyet_dinh"] != null)
+					{
+						decimal v_dc_id_quyet_dinh = CIPConvert.ToDecimal(Request.QueryString["ip_dc_id_quyet_dinh"]);
+						load_data_to_cbo();
+						m_ddl_quyet_dinh.SelectedValue = v_dc_id_quyet_dinh.ToString();
+						m_ddl_quyet_dinh_SelectedIndexChanged(null, null);
+					}
                 }
             }
             catch (Exception v_e)
@@ -418,22 +425,22 @@ namespace QuanLyDuToan.DuToan
                     if (CIPConvert.ToDecimal(m_grv.DataKeys[i].Value) == CIPConvert.ToDecimal(m_hdf_id_giao_kh.Value)) m_grv.SelectedIndex = i;
             }
         }
-        //protected void m_grv_RowDataBound(object sender, GridViewRowEventArgs e)
-        //{
-        //    if (e.Row.RowType == DataControlRowType.DataRow)
-        //    {
-        //        LinkButton m_lbl_delete = (LinkButton)e.Row.FindControl("m_lbl_delete");
-        //        TextBox m_txt_so_tien_ngan_sach_grid = (TextBox)e.Row.FindControl("m_txt_so_tien_ngan_sach_grid");
-        //        TextBox m_txt_so_tien_quy_bao_tri_grid = (TextBox)e.Row.FindControl("m_txt_so_tien_quy_bao_tri_grid");
-        //        if (m_lbl_delete != null)
-        //        {
-        //            if (m_lbl_delete.CommandArgument.Trim().Equals("-1") | m_lbl_delete.CommandArgument.Trim().Equals(""))
-        //            {
-        //                e.Row.CssClass = "cssFontBold";
-        //            }
-        //        }
-        //    }
-        //}
+		protected void m_grv_RowDataBound(object sender, GridViewRowEventArgs e)
+		{
+			if (e.Row.RowType == DataControlRowType.DataRow)
+			{
+				LinkButton m_lbl_delete = (LinkButton)e.Row.FindControl("m_lbl_delete");
+				TextBox m_txt_so_tien_ngan_sach_grid = (TextBox)e.Row.FindControl("m_txt_so_tien_ngan_sach_grid");
+				TextBox m_txt_so_tien_quy_bao_tri_grid = (TextBox)e.Row.FindControl("m_txt_so_tien_quy_bao_tri_grid");
+				if (m_lbl_delete != null)
+				{
+					if (m_lbl_delete.CommandArgument.Trim().Equals("-1") | m_lbl_delete.CommandArgument.Trim().Equals(""))
+					{
+						e.Row.CssClass = "cssFontBold";
+					}
+				}
+			}
+		}
         protected void m_grv_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             try

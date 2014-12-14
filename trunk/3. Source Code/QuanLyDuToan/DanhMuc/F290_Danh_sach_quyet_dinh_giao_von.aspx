@@ -24,9 +24,12 @@
         <div style="width:1160px; margin:20px auto;">
             <asp:gridview runat="server" id="m_grv" style="width:100%;" AutoGenerateColumns="False" EnableModelValidation="True">
                 <Columns>
-                    <asp:BoundField HeaderText="Số quyết định" HtmlEncode="False" DataField="SO_QUYET_DINH" >
-                    <ItemStyle Width="150px" />
-                    </asp:BoundField>
+                    <asp:TemplateField HeaderText="Số quyết định" ItemStyle-Width="150px">
+							<ItemTemplate>
+							<a href='../DuToan/F405_giao_von_qbt.aspx?ip_dc_id_quyet_dinh=<%#Eval("ID") %>'
+                                            title"Xem chi tiết"><%#  Eval("SO_QUYET_DINH") %></a>
+								</ItemTemplate>
+						</asp:TemplateField>
                     <asp:BoundField HeaderText="Nội dung" HtmlEncode="False" DataField="NOI_DUNG">
                     <ItemStyle HorizontalAlign="Left" />
                     </asp:BoundField>
