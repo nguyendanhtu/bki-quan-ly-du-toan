@@ -522,7 +522,49 @@ namespace QuanLyDuToan.App_Code
         //    op_ddl.DataBind();
         //}
 
-		
+        //public static void load_data_to_ddl_quoc_lo_cong_trinh(
+        //    DateTime ip_dat_tu_ngay
+        //    , DateTime ip_dat_den_ngay
+        //    , decimal ip_dc_id_don_Vi
+        //    , decimal ip_dc_id_loai_nhiem_vu
+        //    , DropDownList op_ddl)
+        //{
+        //    US_DM_CONG_TRINH_DU_AN_GOI_THAU v_us = new US_DM_CONG_TRINH_DU_AN_GOI_THAU();
+        //    DS_DM_CONG_TRINH_DU_AN_GOI_THAU v_ds = new DS_DM_CONG_TRINH_DU_AN_GOI_THAU();
+        //    CStoredProc v_sp = new IP.Core.IPUserService.CStoredProc("pr_DM_CONG_TRINH_DU_AN_GOI_THAU_get_ds_giao_von");
+        //    v_sp.addDatetimeInputParam("@ip_dat_tu_ngay", ip_dat_tu_ngay);
+        //    v_sp.addDatetimeInputParam("@ip_dat_den_ngay", ip_dat_den_ngay);
+        //    v_sp.addDecimalInputParam("@ip_dc_id_don_vi", ip_dc_id_don_Vi);
+        //    v_sp.addDecimalInputParam("@ip_dc_id_loai_nhiem_vu", ip_dc_id_loai_nhiem_vu);
+        //    v_sp.fillDataSetByCommand(v_us, v_ds);
+        //    op_ddl.DataTextField = DM_CONG_TRINH_DU_AN_GOI_THAU.TEN;
+        //    op_ddl.DataValueField = DM_CONG_TRINH_DU_AN_GOI_THAU.ID;
+        //    op_ddl.DataSource = v_ds.DM_CONG_TRINH_DU_AN_GOI_THAU;
+        //    op_ddl.DataBind();
+        //}
+
+        //public static void load_data_to_ddl_ten_du_an(
+        //    DateTime ip_dat_tu_ngay
+        //    , DateTime ip_dat_den_ngay
+        //    , decimal ip_dc_id_don_Vi
+        //    , decimal ip_dc_id_du_an_cong_trinh
+        //    , decimal ip_dc_id_loai_nhiem_vu
+        //    , DropDownList op_ddl)
+        //{
+        //    US_DM_CONG_TRINH_DU_AN_GOI_THAU v_us = new US_DM_CONG_TRINH_DU_AN_GOI_THAU();
+        //    DS_DM_CONG_TRINH_DU_AN_GOI_THAU v_ds = new DS_DM_CONG_TRINH_DU_AN_GOI_THAU();
+        //    CStoredProc v_sp = new IP.Core.IPUserService.CStoredProc("pr_get_ds_du_an_from_giao_von");
+        //    v_sp.addDatetimeInputParam("@ip_dat_tu_ngay", ip_dat_tu_ngay);
+        //    v_sp.addDatetimeInputParam("@ip_dat_den_ngay", ip_dat_den_ngay);
+        //    v_sp.addDecimalInputParam("@ip_dc_id_don_vi", ip_dc_id_don_Vi);
+        //    v_sp.addDecimalInputParam("@ip_dc_id_loai_nhiem_vu", ip_dc_id_loai_nhiem_vu);
+        //    v_sp.addDecimalInputParam("@ip_dc_id_du_an_cong_trinh", ip_dc_id_du_an_cong_trinh);
+        //    v_sp.fillDataSetByCommand(v_us, v_ds);
+        //    op_ddl.DataTextField = DM_CONG_TRINH_DU_AN_GOI_THAU.TEN;
+        //    op_ddl.DataValueField =DM_CONG_TRINH_DU_AN_GOI_THAU.ID;
+        //    op_ddl.DataSource = v_ds.DM_CONG_TRINH_DU_AN_GOI_THAU;
+        //    op_ddl.DataBind();
+        //}
 		#endregion
 
 		#region Public Interfaces
