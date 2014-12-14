@@ -10,7 +10,8 @@
         }
         .HeaderStyle
         {
-            background: #adf;
+            background: #ddd;
+            border-color: #000;
         }
     </style>
 </asp:Content>
