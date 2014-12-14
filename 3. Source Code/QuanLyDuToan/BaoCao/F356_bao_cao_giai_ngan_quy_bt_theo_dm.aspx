@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="F256_bao_cao_giao_von_quy_bt_theo_qd.aspx.cs" Inherits="QuanLyDuToan.BaoCao.F256_bao_cao_giao_von_quy_bt_theo_qd" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="F356_bao_cao_giai_ngan_quy_bt_theo_dm.aspx.cs" Inherits="QuanLyDuToan.BaoCao.F356_bao_cao_giai_ngan_quy_bt_theo_dm" %>
 
 <%@ Import Namespace="IP.Core.IPCommon" %>
 <%@ Import Namespace="WebDS.CDBNames" %>
@@ -19,7 +19,7 @@
 				<tr>
 					<td colspan="4" style="text-align: center">
 						<p>
-							<span style="font-weight: bold">BÁO CÁO TÌNH HÌNH GIAO VỐN <%=DateTime.Now.Year.ToString() %></span>
+							<span style="font-weight: bold">BÁO CÁO TÌNH HÌNH GIẢI NGÂN <%=DateTime.Now.Year.ToString() %></span>
 							<br />
 							<br />
 							<span style="font-weight: bold">Từ ngày
