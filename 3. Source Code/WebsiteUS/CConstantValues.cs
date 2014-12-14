@@ -4,9 +4,12 @@ using System.Text;
 
 namespace WebUS
 {
+    
+
 	public class ID_LOAI_TU_DIEN
 	{
 		public const decimal LOAI_NHIEM_VU = 104;
+        
 	}
 	public class ID_LOAI_NHIEM_VU
 	{
@@ -89,14 +92,7 @@ namespace WebUS
         public const string THONG_KE = "THONG_KE";
     }
 
-    public class TRANG_THAI_OTO
-    {
-        public const string DE_NGHI_XU_LY = "581";
-        public const string DA_THANH_LY = "582";
-        public const string DA_DIEU_CHUYEN = "583";
-        public const string DANG_SU_DUNG = "584";
-        public const string DIEU_CHUYEN_NOI_BO = "641";
-    }
+  
     public class CONST_QLDB
     {
         public const string KHONG_CO_DU_LIEU = "";
@@ -123,12 +119,7 @@ namespace WebUS
             public const string DVCQ = "DVCQ";
             public const string BLD = "BLD";
         }
-        public class LOAI_TAI_SAN
-        {
-            public const string TREN_500 = "TSK_TREN_500";
-            public const string DUOI_500 = "TSK_DUOI_500";
-            public const string TAI_SAN_KHAC = "TAI_SAN_KHAC";
-        }
+       
         public class TRANG_THAI
         {
             public const string KE_KHAI = "KE_KHAI";
@@ -166,73 +157,18 @@ namespace WebUS
         public const string DIA_DIEM_QUAN_LY = "DIA_DIEM_QUAN_LY";
         public const string DON_VI_TINH = "DON_VI_TINH";
         public const string LOAI_DON_VI = "LOAI_DON_VI";
-        public const string PHAN_LOAI_TAI_SAN = "PHAN_LOAI_TAI_SAN";
+
         public const string PHAN_QUYEN = "PHAN_QUYEN";
-        public const string TRANG_THAI_DAT = "TRANG_THAI_DAT";
-        public const string TRANG_THAI_NHA = "TRANG_THAI_NHA";
-        public const string TRANG_THAI_OTO = "TRANG_THAI_OTO";
-        public const string TRANG_THAI_TAI_SAN_KHAC = "TRANG_THAI_TAI_SAN_KHAC";
+      
         public const string LOAI_HINH_DON_VI = "LOAI_HINH_DON_VI";
         public const string LOAI_BAO_CAO = "LOAI_BAO_CAO";
-        public const string TINH_TRANG_TAI_SAN = "TINH_TRANG_TAI_SAN";
-        public const string LY_DO_TANG_GIAM_TS = "LY_DO_TANG_GIAM_TS";
+        public const string LOAI_NHIEM_VU = "LOAI_NHIEM_VU";
+
+   
     }
 
-    public class ID_TRANG_THAI_DAT
-    {
-        public const decimal DE_NGHI_XU_LY = 594;
-        public const decimal DA_THANH_LY = 595;
-        public const decimal DA_DIEU_CHUYEN = 596;
-        public const decimal DANG_SU_DUNG = 597;
-        public const decimal DIEU_CHUYEN_NOI_BO = 640;
-    }
-
-    public class TRANG_THAI_DAT
-    {
-        public const string DE_NGHI_XU_LY = "594";
-        public const string DA_THANH_LY = "595";
-        public const string DA_DIEU_CHUYEN = "596";
-        public const string DANG_SU_DUNG = "597";
-        public const string DIEU_CHUYEN_NOI_BO = "640";
-        public const string TAT_CA = "-1";
-    }
-    public class TRANG_THAI_TAI_SAN_KHAC
-    {
-        public const string DE_NGHI_XU_LY = "585";
-        public const string DA_THANH_LY = "586";
-        public const string DA_DIEU_CHUYEN = "587";
-        public const string DANG_SU_DUNG = "588";
-        public const string DIEU_CHUYEN_NOI_BO = "642";
-        public const string TAT_CA = "-1";
-    }
-    public class ID_TRANG_THAI_NHA
-    {
-        public const decimal DE_NGHI_XU_LY = 577;
-        public const decimal DA_THANH_LY = 578;
-        public const decimal DA_DIEU_CHUYEN = 579;
-        public const decimal DANG_SU_DUNG = 580;
-        public const decimal DIEU_CHUYEN_NOI_BO = 640;
-    }
-
-    public class TRANG_THAI_NHA
-    {
-        public const string DE_NGHI_XU_LY = "577";
-        public const string DA_THANH_LY = "578";
-        public const string DA_DIEU_CHUYEN = "579";
-        public const string DANG_SU_DUNG = "580";
-        public const string DIEU_CHUYEN_NOI_BO = "641";
-        public const string TAT_CA = "-1";
-    }
-
-    public class ID_TRANG_THAI_OTO
-    {
-        public const decimal DE_NGHI_XU_LY = 581;
-        public const decimal DA_THANH_LY = 582;
-        public const decimal DA_DIEU_CHUYEN = 583;
-        public const decimal DANG_SU_DUNG = 584;
-        public const decimal DIEU_CHUYEN_NOI_BO = 641;
-    }
-
+   
+  
     public class ID_LOAI_DON_VI
     {
         public const decimal BO_TINH = 574;
@@ -307,14 +243,7 @@ namespace WebUS
         public const string TO_CHUC_XH_NN = "TO_CHUC_XH_NN";
     }
 
-    public class ID_LY_DO_TANG_GIAM_TAI_SAN
-    {
-        public const decimal CAI_TAO_NANG_CAP = 638;
-        public const decimal DIEU_CHUYEN = 636;
-        public const decimal SUA_CHUA_LON = 639;
-        public const decimal THANH_LY = 633;
-        public const decimal TRANG_CAP_MUA_MOI = 637;
-    }
+   
 
     public class ID_DON_VI
     {
