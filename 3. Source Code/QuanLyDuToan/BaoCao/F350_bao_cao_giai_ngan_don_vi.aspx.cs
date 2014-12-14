@@ -198,7 +198,7 @@ namespace QuanLyDuToan.BaoCao
                 HeaderCell = new TableHeaderCell();
                 HeaderCell.Text = "Kế hoạch(dự toán) được chi cả năm";
                 HeaderCell.HorizontalAlign = HorizontalAlign.Center;
-                HeaderCell.ColumnSpan = 4;
+                HeaderCell.ColumnSpan = 3;
                 HeaderCell.CssClass = "HeaderStyle";
                 HeaderRow.Cells.Add(HeaderCell);
 
