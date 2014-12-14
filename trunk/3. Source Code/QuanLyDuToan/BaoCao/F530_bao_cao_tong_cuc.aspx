@@ -25,7 +25,7 @@
 						<span style="font-weight: bold">Độc lập - Tự do - Hạnh Phúc</span>
 						<br />
 						<br />
-						<span style="font-weight: bold">BÁO CÁO TÌNH HÌNH GIẢI NGÂN CÁC NGUỒN VỐN NĂM  <%=DateTime.Now.Year.ToString() %></span>
+						<span style="font-weight: bold">BÁO CÁO TÌNH HÌNH GIẢI NGÂN CÁC NGUỒN VỐN NĂM  <%=DateTime.Now.Year.ToString()%></span>
 					</td>
 				</tr>
                 <tr>
@@ -62,234 +62,123 @@
 						<asp:GridView ID="m_grv" runat="server" AutoGenerateColumns="false"
 							CssClass="cssGrid" Width="100%" CellPadding="0" ForeColor="Black"
 							AllowSorting="True" PageSize="60" ShowHeader="true"
-							EmptyDataText="Không có dữ liệu phù hợp">
+							EmptyDataText="Không có dữ liệu phù hợp" OnRowCreated="m_grv_RowCreated">
 
 							<Columns>
-								<asp:TemplateField ItemStyle-HorizontalAlign="Center" HeaderStyle-Width="2%" HeaderStyle-Height="40px">
-									<HeaderTemplate>
-										<table border="1" cellspacing="0" cellpadding="2" height="100%" width="100%" style="border-collapse: collapse;
-                                            color: black">
-												<tr align="center"><td>STT</td></tr>
-												<tr align="center"><td>a</td></tr>
-										</table>
-									</HeaderTemplate>
+								<asp:TemplateField ItemStyle-HorizontalAlign="Center" HeaderText="a" HeaderStyle-Width="2%" HeaderStyle-Height="10px">									
 									<ItemTemplate>
 										<%# Container.DataItemIndex + 1 %>
 									</ItemTemplate>
 								</asp:TemplateField>
-								<asp:TemplateField ItemStyle-HorizontalAlign="Center" HeaderStyle-Width="2%" HeaderStyle-Height="40px">
-									<HeaderTemplate>
-										<table border="1" cellspacing="0" cellpadding="2" height="100%"  width="100%" style="border-collapse: collapse;
-                                            color: black" >
-												<tr align="center"><td>Nội Dung</td></tr>
-												<tr align="center"><td>b</td></tr>
-										</table>
-									</HeaderTemplate>
+								<asp:TemplateField ItemStyle-HorizontalAlign="Left" HeaderText="b"  HeaderStyle-Height="10px">									
 									<ItemTemplate>
-										 <%# Eval("NOI_DUNG")%>
+										<a href="F350_bao_cao_giai_ngan_don_vi.aspx?don_vi=<%# Eval(GRID_GIAI_NGAN.ID_DON_VI)%>" title"Xem chi tiết"><%# Eval(GRID_GIAI_NGAN.NOI_DUNG)%></a>
 									</ItemTemplate>
-								</asp:TemplateField>								
-								<asp:TemplateField HeaderStyle-Width="25%" HeaderStyle-Height="110px">
-                                    <HeaderTemplate>
-                                        <table border="1" cellspacing="0" cellpadding="2"  height="100%" width="100%" style="border-collapse: collapse;
-                                            color: black">
-                                            <tr>
-                                                <td colspan="4" style="height: 50px; text-align: center">
-                                                    Kế hoạch ( dự toán) được chi cả năm
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td style="text-align: center">
-                                                    Từ quỹ bảo trì
-                                                </td>
-                                                <td style="text-align: center">
-                                                    Từ ngân sách
-                                                </td>
-												<td style="text-align: center">
-                                                    Số dư năm trước chuyển sang
-                                                </td>
-												<td style="text-align: center">
-                                                    Tổng số
-                                                </td>
-                                            </tr>
-											<tr>
-												<td style="width: 25%;">1</td>
-												<td style="width: 25%;">2</td>
-												<td style="width: 25%;">c</td>
-												<td style="width: 25%;">3=1+2</td>
-											</tr>
-                                        </table>
-                                    </HeaderTemplate>
-                                    <ItemTemplate>
-                                        <table border="0" cellspacing="0" cellpadding="2" width="100%" style="border-collapse: collapse; text-align: right">
-                                            <td style="width: 25%; height: 30px;border-right: 1px solid gray;">
-                                                <%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_QBT, "{0:#,##0}")%>
-                                            </td>
-                                            <td style="width: 25%;height: 30px;border-right: 1px solid gray;">
-                                                <%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_NS, "{0:#,##0}")%>
-                                            </td>
-                                            <td style="width: 25%;height: 30px;border-right: 1px solid gray;">
-                                                <%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_NAM_TRUOC_CHUYEN_SANG, "{0:#,##0}")%>
-                                            </td>
-											<td style="width: 25%; ">
-                                                <%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_TONG, "{0:#,##0}")%>
-                                            </td>
-                                        </table>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-								<asp:TemplateField HeaderStyle-Width="25%" HeaderStyle-Height="110px">
-                                    <HeaderTemplate>
-                                        <table border="1" cellspacing="0" cellpadding="2" height="100%"  width="100%" style="border-collapse: collapse;
-                                            color: black">
-                                            <tr>
-                                                <td colspan="5" style="height: 50px; text-align: center">
-                                                    Kinh phí đã nhận
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td colspan="2" style="text-align: center">
-                                                    Từ quỹ bảo trì
-                                                </td>
-                                                <td colspan="2" style="text-align: center">
-                                                    Từ Ngân sách
-                                                </td>
-												<td rowspan="2" style="text-align: center">
-                                                    Tổng số
-                                                </td>												
-                                            </tr>
-											<tr>
-												<td>Trong tháng</td>
-												<td>Luỹ kễ từ đầu năm</td>
-												<td>Trong tháng</td>
-												<td>Luỹ kễ từ đầu năm</td>
-											</tr>
-											<tr>
-												<td style="width: 20%;">4</td>
-												<td style="width: 20%;">5</td>
-												<td style="width: 20%;">6</td>
-												<td style="width: 20%;">7</td>
-												<td style="width: 20%;">5+7</td>
-											</tr>
-                                        </table>
-                                    </HeaderTemplate>
-                                    <ItemTemplate>
-                                        <table border="0" cellspacing="0" cellpadding="2" height="100%"  width="100%" style="border-collapse: collapse;
-                                            text-align: right">
-                                            <td style="width: 20%; height: 30px;border-right: 1px solid gray;">
-                                                <%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_QBT_TRONG_THANG, "{0:#,##0}")%>
-                                            </td>
-                                            <td style="width: 20%; height: 30px;border-right: 1px solid gray;">
-                                                <%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_QBT_LUY_KE, "{0:#,##0}")%>
-                                            </td>
-                                            <td style="width: 20%; height: 30px;border-right: 1px solid gray;">
-                                                <%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_NS_TRONG_THANG, "{0:#,##0}")%>
-                                            </td>
-											<td style="width: 20%; height: 30px;border-right: 1px solid gray;">
-                                                <%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_NS_LUY_KE, "{0:#,##0}")%>
-                                            </td>
-											<td style="width: 20%;">
-                                                <%# CIPConvert.ToStr( format_so_tien( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_QBT_LUY_KE) )
+								</asp:TemplateField>
+                                <asp:TemplateField ItemStyle-HorizontalAlign="Center" HeaderText="1"  HeaderStyle-Height="10px">									
+									<ItemTemplate>
+										<%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_QBT, "{0:#,##0}")%>
+									</ItemTemplate>
+								</asp:TemplateField>
+                                <asp:TemplateField ItemStyle-HorizontalAlign="Center" HeaderText="2"  HeaderStyle-Height="10px">									
+									<ItemTemplate>
+										<%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_NS, "{0:#,##0}")%>
+									</ItemTemplate>
+								</asp:TemplateField>
+                                <asp:TemplateField ItemStyle-HorizontalAlign="Center" HeaderText="c"  HeaderStyle-Height="10px">									
+									<ItemTemplate>
+										<%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_NAM_TRUOC_CHUYEN_SANG, "{0:#,##0}")%>
+									</ItemTemplate>
+								</asp:TemplateField>
+                                <asp:TemplateField ItemStyle-HorizontalAlign="Center" HeaderText="3=1+2"  HeaderStyle-Height="10px">									
+									<ItemTemplate>
+										<%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_TONG, "{0:#,##0}")%>
+									</ItemTemplate>
+								</asp:TemplateField>					
+								<asp:TemplateField ItemStyle-HorizontalAlign="Center" HeaderText="4"  HeaderStyle-Height="10px">									
+									<ItemTemplate>
+										<%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_QBT_TRONG_THANG, "{0:#,##0}")%>
+									</ItemTemplate>
+								</asp:TemplateField>	
+                                <asp:TemplateField ItemStyle-HorizontalAlign="Center" HeaderText="5"  HeaderStyle-Height="10px">									
+									<ItemTemplate>
+										<%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_QBT_LUY_KE, "{0:#,##0}")%>
+									</ItemTemplate>
+								</asp:TemplateField>	
+                                <asp:TemplateField ItemStyle-HorizontalAlign="Center" HeaderText="6"  HeaderStyle-Height="10px">									
+									<ItemTemplate>
+										<%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_NS_TRONG_THANG, "{0:#,##0}")%>
+									</ItemTemplate>
+								</asp:TemplateField>	
+                                <asp:TemplateField ItemStyle-HorizontalAlign="Center" HeaderText="7"  HeaderStyle-Height="10px">									
+									<ItemTemplate>
+										<%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_NS_LUY_KE, "{0:#,##0}")%>
+									</ItemTemplate>
+								</asp:TemplateField>	
+                                <asp:TemplateField ItemStyle-HorizontalAlign="Center" HeaderText="5+7"  HeaderStyle-Height="10px">									
+									<ItemTemplate>
+										<%# CIPConvert.ToStr( format_so_tien( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_QBT_LUY_KE) )
                                                 + format_so_tien( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_NS_LUY_KE)), "#,###") %>
-                                            </td>
-                                        </table>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-								<asp:TemplateField HeaderStyle-Width="25%" HeaderStyle-Height="110px">
-                                    <HeaderTemplate>
-                                        <table border="1" cellspacing="0" cellpadding="2" height="100%"  width="100%" style="border-collapse: collapse;
-                                            color: black">
-                                            <tr>
-                                                <td colspan="5" style="height: 50px; text-align: center">
-                                                    Kinh phí đã thanh toán, giải ngân
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td colspan="2" style="text-align: center">
-                                                    Từ quỹ bảo trì
-                                                </td>
-                                                <td colspan="2" style="text-align: center">
-                                                    Từ Ngân sách
-                                                </td>
-												<td rowspan="2" style="text-align: center">
-                                                    Tổng số
-                                                </td>												
-                                            </tr>
-											<tr>
-												<td>Trong tháng</td>
-												<td>Luỹ kễ từ đầu năm</td>
-												<td>Trong tháng</td>
-												<td>Luỹ kễ từ đầu năm</td>
-											</tr>
-											<tr>
-												<td style="width: 20%;">8</td>
-												<td style="width: 20%;">9</td>
-												<td style="width: 20%;">10</td>
-												<td style="width: 20%;">11</td>
-												<td style="width: 20%;">9 + 11</td>
-											</tr>
-                                        </table>
-                                    </HeaderTemplate>
-                                    <ItemTemplate>
-                                        <table border="0" cellspacing="0" cellpadding="2" height="100%"  width="100%" style="border-collapse: collapse;
-                                            text-align: right">
-                                            <td style="width: 20%; height: 30px;border-right: 1px solid gray;">
-                                                <%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_QBT_TRONG_THANG, "{0:#,##0}")%>
-                                            </td>
-                                            <td style="width: 20%; height: 30px;border-right: 1px solid gray;">
-                                                <%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_QBT_LUY_KE, "{0:#,##0}")%>
-                                            </td>
-                                            <td style="width: 20%; height: 30px;border-right: 1px solid gray;">
-                                                <%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_NS_TRONG_THANG, "{0:#,##0}")%>
-                                            </td>
-											<td style="width: 20%; height: 30px;border-right: 1px solid gray;">
-                                                <%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_NS_LUY_KE, "{0:#,##0}")%>
-                                            </td>
-											<td style="width: 20%; ">
-                                                <%# CIPConvert.ToStr( format_so_tien(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_QBT_LUY_KE)) 
+									</ItemTemplate>
+								</asp:TemplateField>	
+								<asp:TemplateField ItemStyle-HorizontalAlign="Center" HeaderText="8"  HeaderStyle-Height="10px">									
+									<ItemTemplate>
+										<%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_QBT_TRONG_THANG, "{0:#,##0}")%>
+									</ItemTemplate>
+								</asp:TemplateField>
+                                <asp:TemplateField ItemStyle-HorizontalAlign="Center" HeaderText="9"  HeaderStyle-Height="10px">									
+									<ItemTemplate>
+										<%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_QBT_LUY_KE, "{0:#,##0}")%>
+									</ItemTemplate>
+								</asp:TemplateField>
+                                <asp:TemplateField ItemStyle-HorizontalAlign="Center" HeaderText="10"  HeaderStyle-Height="10px">									
+									<ItemTemplate>
+										<%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_NS_LUY_KE, "{0:#,##0}")%>
+									</ItemTemplate>
+								</asp:TemplateField>
+                                <asp:TemplateField ItemStyle-HorizontalAlign="Center" HeaderText="11"  HeaderStyle-Height="10px">									
+									<ItemTemplate>
+										<%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_NS_LUY_KE, "{0:#,##0}")%>
+									</ItemTemplate>
+								</asp:TemplateField>
+                                <asp:TemplateField ItemStyle-HorizontalAlign="Center" HeaderText="9+11"  HeaderStyle-Height="10px">									
+									<ItemTemplate>
+										<%# CIPConvert.ToStr( format_so_tien(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_QBT_LUY_KE)) 
                                                 + format_so_tien(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_NS_LUY_KE)), "#,###") %>
-                                            </td>
-                                        </table>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-								<asp:TemplateField  ItemStyle-HorizontalAlign="Center" HeaderStyle-Width="2%" HeaderStyle-Height="40px" >
-									 <HeaderTemplate>
-										<table border="1" cellspacing="0" cellpadding="2" height="100%"  width="100%" style="border-collapse: collapse;
-                                            color: black">
-												<tr align="center"><td>Kinh phí chưa GN</td></tr>
-												<tr align="center"><td>(5+7)-(9+11)</td></tr>
-										</table>
-									 </HeaderTemplate>
+									</ItemTemplate>
+								</asp:TemplateField>
+                                								
+								<asp:TemplateField  ItemStyle-HorizontalAlign="Center" HeaderText="(5+7)-(9+11)" HeaderStyle-Height="10px" >									
 									 <ItemTemplate>
 										<%# CIPConvert.ToStr( (format_so_tien(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_QBT_LUY_KE)) 
                                             + format_so_tien( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_NS_LUY_KE))) 
                                             - (format_so_tien(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_QBT_LUY_KE)) 
                                             + format_so_tien(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_NS_LUY_KE)))  , "#,###") %>
 									 </ItemTemplate>
-                                    </asp:TemplateField>
-									 <asp:TemplateField  ItemStyle-HorizontalAlign="Center" HeaderStyle-Width="2%" HeaderStyle-Height="40px" >
-									 <HeaderTemplate>
-										<table border="1" cellspacing="0" cellpadding="2" height="100%"  width="100%" style="border-collapse: collapse;
-                                            color: black">
-												<tr align="center" rowspan="2"><td colspan="2">Kinh phí chưa GN</td></tr>
-												<tr align="center"><td>Từ quỹ bảo trì</td><td>Từ Ngân sách</td></tr>
-												<tr align="center"><td>12=1+c-5</td><td>13=2-7</td></tr>
-										</table>
-									 </HeaderTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField  ItemStyle-HorizontalAlign="Center" HeaderText="12=1+c-5" HeaderStyle-Height="10px" >									
 									 <ItemTemplate>
-										 <table border="0" cellspacing="0" cellpadding="2" width="100%" style="border-collapse: collapse;
-												text-align: right">												
-												<td style="width: 25%;height: 30px;border-right: 1px solid gray;">
-													<%# CIPConvert.ToStr(format_so_tien(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_QBT)) 
+										<%# CIPConvert.ToStr(format_so_tien(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_QBT)) 
                                                         + format_so_tien(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_NAM_TRUOC_CHUYEN_SANG)) 
                                                         - format_so_tien(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_QBT_LUY_KE)), "#,###") %>
-												</td>
-												<td style="width: 25%;">
-													<%# CIPConvert.ToStr( format_so_tien(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_NS)) 
-                                                        - format_so_tien(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_NS_LUY_KE)), "#,###") %>
-												</td>
-											</table>										
 									 </ItemTemplate>
-								</asp:TemplateField>								                                
+                                </asp:TemplateField>
+								<asp:TemplateField  ItemStyle-HorizontalAlign="Center" HeaderText="13=2-7" HeaderStyle-Height="10px" >									
+									 <ItemTemplate>
+										 <%# CIPConvert.ToStr( format_so_tien(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_NS)) 
+                                                        - format_so_tien(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_NS_LUY_KE)), "#,###") %>						
+									 </ItemTemplate>
+								</asp:TemplateField>		
+                                <asp:TemplateField  ItemStyle-HorizontalAlign="Center" HeaderText="" HeaderStyle-Height="10px" >									
+									 <ItemTemplate>
+										 <%# CIPConvert.ToStr( format_so_tien(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.GIA_TRI_THUC_HIEN)) , "#,###") %>						
+									 </ItemTemplate>
+								</asp:TemplateField>	
+                                <asp:TemplateField  ItemStyle-HorizontalAlign="Center" HeaderText="" HeaderStyle-Height="10px" >									
+									 <ItemTemplate>
+										 <%# CIPConvert.ToStr( format_so_tien(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.SO_CHUA_GN)) , "#,###") %>						
+									 </ItemTemplate>
+								</asp:TemplateField>						                                
 							</Columns>
 						</asp:GridView>
 					</td>
