@@ -17,31 +17,6 @@ namespace QuanLyDuToan.BaoCao
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //#region dữ liệu demo, khi nào code thì xóa đi
-            ////-------------------------------------------------------
-            //DataTable dt = new DataTable();
-            //DataColumn dc = new DataColumn();
-
-            //if (dt.Columns.Count == 0)
-            //{
-            //    dt.Columns.Add("NHIEM_VU_CHI", typeof(string));
-            //    dt.Columns.Add("TONG_KH", typeof(decimal));
-            //    dt.Columns.Add("TONG_VON_QBT", typeof(decimal));
-            //    dt.Columns.Add("TONG_VON_NS", typeof(decimal));
-            //    dt.Columns.Add("TONG_VON", typeof(decimal));
-            //}
-
-            //DataRow NewRow = dt.NewRow();
-            //NewRow[0] = "Chi sửa quốc lộ 31";
-            //NewRow[1] = 3000000000;
-            //NewRow[2] = 1000000000;
-            //NewRow[3] = 1000000000;
-            //NewRow[4] = 2000000000;
-            //dt.Rows.Add(NewRow);
-            //m_grv_bao_cao_giao_von.DataSource = dt;
-            //m_grv_bao_cao_giao_von.DataBind();
-            ////-------------------------------------------------------
-            //#endregion
             set_default_input();
             load_data_2_grid();
         }
