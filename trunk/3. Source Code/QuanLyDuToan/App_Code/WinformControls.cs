@@ -672,6 +672,7 @@ namespace QuanLyDuToan.App_Code
 
         public static void load_data_to_cbo_cong_trinh_du_an(
           decimal ip_dc_id_don_vi
+            , decimal ip_id_cong_trinh
            , decimal ip_dc_id_loai_nhiem_vu
            , eTAT_CA ip_e_tat_ca
            , DropDownList ip_obj_cbo_cong_trinh_du_an_goi_thau) {
@@ -684,9 +685,11 @@ namespace QuanLyDuToan.App_Code
             string v_str_user_name = HttpContext.Current.Session[SESSION.UserName].ToString();
 
 
-            v_us_dm_cong_trinh_du_an_goi_thau.loadDanhMucCongTrinhTheoNhiemVu(
+            v_us_dm_cong_trinh_du_an_goi_thau.loadDanhMucDuanTheoCongTrinhVaLoaiNhiemVu(
                 v_ds_dm_cong_trinh_du_an_goi_thau
+
                 , ip_dc_id_don_vi
+                , ip_id_cong_trinh
             , ip_dc_id_loai_nhiem_vu);
 
             DataView v_dv_quyet_dinh = v_ds_dm_cong_trinh_du_an_goi_thau.DM_CONG_TRINH_DU_AN_GOI_THAU.DefaultView;
