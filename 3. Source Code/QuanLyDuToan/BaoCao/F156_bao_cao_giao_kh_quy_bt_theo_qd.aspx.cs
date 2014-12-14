@@ -211,7 +211,7 @@ namespace QuanLyDuToan.BaoCao
 		//		CSystemLog_301.ExceptionHandle(this, v_e);
 		//	}
 		//}
-
+		
 		protected void m_grv_RowDataBound(object sender, GridViewRowEventArgs e)
 		{
 			try

@@ -146,6 +146,7 @@
                                                         EmptyDataText="Không có dữ liệu phù hợp"
                                                         OnRowCommand="m_grv_RowCommand"
                                                         OnPageIndexChanging="m_grv_PageIndexChanging"
+														OnRowDataBound="m_grv_RowDataBound"
                                                         HeaderStyle-Height="70px">
                                                         <Columns>
                                                             <asp:TemplateField HeaderText="Xóa" HeaderStyle-Width="2%" Visible="false">
