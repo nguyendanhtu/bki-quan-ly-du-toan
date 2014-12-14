@@ -87,18 +87,11 @@ namespace QuanLyDuToan.BaoCao
         }
         private void export_excel()
         {
-           
-            CExcelReport v_obj_export_excel = new CExcelReport("f530_test.xls", 10, 1);
-            //v_obj_export_excel.AddFindAndReplaceItem("<NGAY_BAT_DAU>", CIPConvert.ToStr(m_dat_from_date.Value, "dd/MM/yyyy"));
-            //v_obj_export_excel.AddFindAndReplaceItem("<TEN_CONG_TY>", m_cbo_to_chuc_phat_hanh.Text);
-            //v_obj_export_excel.AddFindAndReplaceItem("<NGAY_KET_THUC>", CIPConvert.ToStr(m_dat_to_date.Value, "dd/MM/yyyy"));
-            //v_obj_export_excel.AddFindAndReplaceItem("<TONG_SL>", CIPConvert.ToStr(v_dc_tong_sl_chuyen_nhuong, "#,###"));
-            //v_obj_export_excel.AddFindAndReplaceItem("<TONG_GIA_TRI_THEO_MENH_GIA>", CIPConvert.ToStr(v_dc_tong_gia_tri_cn, "#,###"));
-            v_obj_export_excel.AddFindAndReplaceItem("<TU_NGAY>", CIPConvert.ToStr(m_txt_tu_ngay.Text, "dd/MM/yyyy"));
-            v_obj_export_excel.AddFindAndReplaceItem("<DEN_NGAY>", CIPConvert.ToStr(m_txt_den_ngay.Text, "dd/MM/yyyy"));
-            v_obj_export_excel.FindAndReplace(false);
-            v_obj_export_excel.ExportDataSet2ExcelWithoutFixedRows(m_grv, 1, m_grv.Columns.Count - 1, true);
-            Response.Redirect(v_obj_export_excel.GetOutputFileNameWithPath(), false);
+
+			WinformReport.export_gridview_2_excel(
+			 m_grv
+			 , "BaoCaoTinhHinhGiaiNganCacDonVi.xls"
+			 );
         }
         #endregion
 
@@ -152,6 +145,10 @@ namespace QuanLyDuToan.BaoCao
                 CSystemLog_301.ExceptionHandle(this, v_e);
             }
         }
+		public override void VerifyRenderingInServerForm(Control control)
+		{
+			//base.VerifyRenderingInServerForm(control);
+		}
         #endregion
 
         #region Merge header
