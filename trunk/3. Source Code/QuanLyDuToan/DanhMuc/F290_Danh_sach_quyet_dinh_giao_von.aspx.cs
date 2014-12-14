@@ -26,6 +26,7 @@ namespace QuanLyDuToan.DanhMuc
         {
             US_V_DM_QUYET_DINH v_us = new US_V_DM_QUYET_DINH();
             DS_V_DM_QUYET_DINH v_ds = new DS_V_DM_QUYET_DINH();
+            v_ds.EnforceConstraints = false;
             v_us.FillDatasetByIdLoaiQuyetDinh(
                 v_ds, 
                 ID_LOAI_QUYET_DINH.GIAO_VON,

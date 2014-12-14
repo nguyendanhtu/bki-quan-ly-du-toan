@@ -299,6 +299,12 @@ namespace WebDS {
             
             private global::System.Data.DataColumn columnTEN_DON_VI;
             
+            private global::System.Data.DataColumn columnQBT;
+            
+            private global::System.Data.DataColumn columnNS;
+            
+            private global::System.Data.DataColumn columnTONG;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public V_DM_QUYET_DINHDataTable() {
@@ -414,6 +420,30 @@ namespace WebDS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn QBTColumn {
+                get {
+                    return this.columnQBT;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NSColumn {
+                get {
+                    return this.columnNS;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn TONGColumn {
+                get {
+                    return this.columnTONG;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -449,10 +479,10 @@ namespace WebDS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public V_DM_QUYET_DINHRow AddV_DM_QUYET_DINHRow(decimal ID_DON_VI, string SO_QUYET_DINH, string NOI_DUNG, System.DateTime NGAY_THANG, decimal ID_LOAI_QUYET_DINH, string TEN_LOAI_QUYET_DINH, decimal ID_LOAI_QUYET_DINH_GIAO, string TEN_LOAI_QUYET_DINH_GIAO, string TEN_DON_VI) {
+            public V_DM_QUYET_DINHRow AddV_DM_QUYET_DINHRow(decimal ID, decimal ID_DON_VI, string SO_QUYET_DINH, string NOI_DUNG, System.DateTime NGAY_THANG, decimal ID_LOAI_QUYET_DINH, string TEN_LOAI_QUYET_DINH, decimal ID_LOAI_QUYET_DINH_GIAO, string TEN_LOAI_QUYET_DINH_GIAO, string TEN_DON_VI, decimal QBT, decimal NS, decimal TONG) {
                 V_DM_QUYET_DINHRow rowV_DM_QUYET_DINHRow = ((V_DM_QUYET_DINHRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        null,
+                        ID,
                         ID_DON_VI,
                         SO_QUYET_DINH,
                         NOI_DUNG,
@@ -461,7 +491,10 @@ namespace WebDS {
                         TEN_LOAI_QUYET_DINH,
                         ID_LOAI_QUYET_DINH_GIAO,
                         TEN_LOAI_QUYET_DINH_GIAO,
-                        TEN_DON_VI};
+                        TEN_DON_VI,
+                        QBT,
+                        NS,
+                        TONG};
                 rowV_DM_QUYET_DINHRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowV_DM_QUYET_DINHRow);
                 return rowV_DM_QUYET_DINHRow;
@@ -507,6 +540,9 @@ namespace WebDS {
                 this.columnID_LOAI_QUYET_DINH_GIAO = base.Columns["ID_LOAI_QUYET_DINH_GIAO"];
                 this.columnTEN_LOAI_QUYET_DINH_GIAO = base.Columns["TEN_LOAI_QUYET_DINH_GIAO"];
                 this.columnTEN_DON_VI = base.Columns["TEN_DON_VI"];
+                this.columnQBT = base.Columns["QBT"];
+                this.columnNS = base.Columns["NS"];
+                this.columnTONG = base.Columns["TONG"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -532,13 +568,15 @@ namespace WebDS {
                 base.Columns.Add(this.columnTEN_LOAI_QUYET_DINH_GIAO);
                 this.columnTEN_DON_VI = new global::System.Data.DataColumn("TEN_DON_VI", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTEN_DON_VI);
+                this.columnQBT = new global::System.Data.DataColumn("QBT", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnQBT);
+                this.columnNS = new global::System.Data.DataColumn("NS", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNS);
+                this.columnTONG = new global::System.Data.DataColumn("TONG", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTONG);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnID}, true));
-                this.columnID.AutoIncrement = true;
-                this.columnID.AutoIncrementSeed = -1;
-                this.columnID.AutoIncrementStep = -1;
                 this.columnID.AllowDBNull = false;
-                this.columnID.ReadOnly = true;
                 this.columnID.Unique = true;
                 this.columnID_DON_VI.AllowDBNull = false;
                 this.columnSO_QUYET_DINH.AllowDBNull = false;
@@ -803,6 +841,90 @@ namespace WebDS {
                     this[this.tableV_DM_QUYET_DINH.TEN_DON_VIColumn] = value;
                 }
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal QBT {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableV_DM_QUYET_DINH.QBTColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'QBT\' in table \'V_DM_QUYET_DINH\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableV_DM_QUYET_DINH.QBTColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal NS {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableV_DM_QUYET_DINH.NSColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NS\' in table \'V_DM_QUYET_DINH\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableV_DM_QUYET_DINH.NSColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal TONG {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableV_DM_QUYET_DINH.TONGColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TONG\' in table \'V_DM_QUYET_DINH\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableV_DM_QUYET_DINH.TONGColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsQBTNull() {
+                return this.IsNull(this.tableV_DM_QUYET_DINH.QBTColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetQBTNull() {
+                this[this.tableV_DM_QUYET_DINH.QBTColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNSNull() {
+                return this.IsNull(this.tableV_DM_QUYET_DINH.NSColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNSNull() {
+                this[this.tableV_DM_QUYET_DINH.NSColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsTONGNull() {
+                return this.IsNull(this.tableV_DM_QUYET_DINH.TONGColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetTONGNull() {
+                this[this.tableV_DM_QUYET_DINH.TONGColumn] = global::System.Convert.DBNull;
+            }
         }
         
         /// <summary>
@@ -974,6 +1096,9 @@ namespace WebDS.DS_V_DM_QUYET_DINHTableAdapters {
             tableMapping.ColumnMappings.Add("ID_LOAI_QUYET_DINH_GIAO", "ID_LOAI_QUYET_DINH_GIAO");
             tableMapping.ColumnMappings.Add("TEN_LOAI_QUYET_DINH_GIAO", "TEN_LOAI_QUYET_DINH_GIAO");
             tableMapping.ColumnMappings.Add("TEN_DON_VI", "TEN_DON_VI");
+            tableMapping.ColumnMappings.Add("QBT", "QBT");
+            tableMapping.ColumnMappings.Add("NS", "NS");
+            tableMapping.ColumnMappings.Add("TONG", "TONG");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -992,7 +1117,7 @@ namespace WebDS.DS_V_DM_QUYET_DINHTableAdapters {
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT ID, ID_DON_VI, SO_QUYET_DINH, NOI_DUNG, NGAY_THANG, ID_LOAI_QUYET_DINH, TE" +
                 "N_LOAI_QUYET_DINH, ID_LOAI_QUYET_DINH_GIAO, TEN_LOAI_QUYET_DINH_GIAO, TEN_DON_VI" +
-                " FROM dbo.V_DM_QUYET_DINH";
+                ", QBT, NS, TONG FROM dbo.V_DM_QUYET_DINH";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
