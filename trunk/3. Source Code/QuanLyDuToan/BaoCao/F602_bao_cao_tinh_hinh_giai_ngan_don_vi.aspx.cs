@@ -58,6 +58,7 @@ namespace QuanLyDuToan.BaoCao
 		{
 			US_RPT_BC_TINH_HINH_GIAI_NGAN v_us = new US_RPT_BC_TINH_HINH_GIAI_NGAN();
 			DS_RPT_BC_TINH_HINH_GIAI_NGAN v_ds = new DS_RPT_BC_TINH_HINH_GIAI_NGAN();
+			v_ds.EnforceConstraints = false;
 			v_ds.AcceptChanges();
 			v_us.bc_tinh_hinh_giai_ngan_don_vi(v_ds
 				, CIPConvert.ToDatetime(m_txt_tu_ngay.Text, "dd/MM/yyyy")

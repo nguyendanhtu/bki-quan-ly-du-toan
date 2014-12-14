@@ -32,14 +32,14 @@ namespace QuanLyDuToan.BaoCao
         {
             US_RPT_BAO_CAO_GIAO_VON v_us = new US_RPT_BAO_CAO_GIAO_VON();
             DS_RPT_BAO_CAO_GIAO_VON v_ds = new DS_RPT_BAO_CAO_GIAO_VON();
-            v_us.bc_256_giao_von_theo_don_vi(
-                v_ds,
-                Person.get_id_don_vi(),
-                Person.get_user_id(),
-                CIPConvert.ToDatetime(m_txt_tu_ngay.Text,c_configuration.DEFAULT_DATETIME_FORMAT),
-                CIPConvert.ToDatetime(m_txt_den_ngay.Text,c_configuration.DEFAULT_DATETIME_FORMAT),
-                m_txt_tu_khoa_tim_kiem.Text
-            );
+			//v_us.bc_256_giao_von_theo_don_vi(
+			//	v_ds,
+			//	Person.get_id_don_vi(),
+			//	Person.get_user_id(),
+			//	CIPConvert.ToDatetime(m_txt_tu_ngay.Text,c_configuration.DEFAULT_DATETIME_FORMAT),
+			//	CIPConvert.ToDatetime(m_txt_den_ngay.Text,c_configuration.DEFAULT_DATETIME_FORMAT),
+			//	m_txt_tu_khoa_tim_kiem.Text
+			//);
             m_grv_bao_cao_giao_von.DataSource = v_ds.RPT_BAO_CAO_GIAO_VON;
             m_grv_bao_cao_giao_von.DataBind();
         }

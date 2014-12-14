@@ -16,7 +16,7 @@ namespace QuanLyDuToan.BaoCao
 	public partial class F410_bao_cao_tinh_hinh_giao_von : System.Web.UI.Page
 	{
 		#region Public
-		public  decimal get_so_tien(string ip_str_so_tien)
+		public decimal get_so_tien(string ip_str_so_tien)
 		{
 			decimal op_dc_so_tien = 0;
 			if (ip_str_so_tien.Trim().Equals("") | ip_str_so_tien.Trim().Equals("-1"))
@@ -56,16 +56,37 @@ namespace QuanLyDuToan.BaoCao
 		private void load_data_to_grid()
 		{
 			US_RPT_BAO_CAO_GIAO_VON v_us = new US_RPT_BAO_CAO_GIAO_VON();
-			DataSet v_ds = new DataSet();
-			DataTable v_dt = new DataTable();
-			decimal v_dc_id_don_vi = Person.get_id_don_vi();
-			v_ds.Tables.Add(v_dt);
-			v_ds.AcceptChanges();
-			v_us.bc_giao_von_theo_don_vi(v_ds
+			DS_RPT_BAO_CAO_GIAO_VON v_ds = new DS_RPT_BAO_CAO_GIAO_VON();
+			decimal v_dc_id_don_vi, v_dc_id_loai_nhiem_vu, v_dc_id_cong_trinh, v_dc_id_du_an;
+			if (Request.QueryString["ip_dc_id_don_vi"] != null)
+			{
+				v_dc_id_don_vi = CIPConvert.ToDecimal(Request.QueryString["ip_dc_id_don_vi"]);
+			}
+			else v_dc_id_don_vi = Person.get_id_don_vi();
+			if (Request.QueryString["ip_dc_id_loai_nhiem_vu"] != null)
+			{
+				v_dc_id_loai_nhiem_vu = CIPConvert.ToDecimal(Request.QueryString["ip_dc_id_loai_nhiem_vu"]);
+			}
+			else v_dc_id_loai_nhiem_vu = -1;
+			if (Request.QueryString["ip_dc_id_cong_trinh"] != null)
+			{
+				v_dc_id_cong_trinh = CIPConvert.ToDecimal(Request.QueryString["ip_dc_id_cong_trinh"]);
+			}
+			else v_dc_id_cong_trinh = -1;
+			if (Request.QueryString["ip_dc_id_du_an"] != null)
+			{
+				v_dc_id_du_an = CIPConvert.ToDecimal(Request.QueryString["ip_dc_id_du_an"]);
+			}
+			else v_dc_id_du_an = -1;
+			v_us.bc_256_giao_von_theo_don_vi(v_ds
 				, v_dc_id_don_vi
+				, v_dc_id_loai_nhiem_vu
+				, v_dc_id_cong_trinh
+				, v_dc_id_du_an
+				, Person.get_user_id()
 				, CIPConvert.ToDatetime(m_txt_tu_ngay.Text, "dd/MM/yyyy")
 				, CIPConvert.ToDatetime(m_txt_den_ngay.Text, "dd/MM/yyyy")
-				,"");
+				, "");
 			m_grv.DataSource = v_ds.Tables[0];
 			m_grv.DataBind();
 
