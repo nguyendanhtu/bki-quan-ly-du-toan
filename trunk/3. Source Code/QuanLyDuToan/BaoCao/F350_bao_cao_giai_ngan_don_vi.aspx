@@ -84,12 +84,7 @@
 									<ItemTemplate>
 										<%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_NS, "{0:#,##0}")%>
 									</ItemTemplate>
-								</asp:TemplateField>
-                                <asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="c"  HeaderStyle-Height="10px">									
-									<ItemTemplate>
-										<%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_NAM_TRUOC_CHUYEN_SANG, "{0:#,##0}")%>
-									</ItemTemplate>
-								</asp:TemplateField>
+								</asp:TemplateField>                                
                                 <asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="3=1+2"  HeaderStyle-Height="10px">									
 									<ItemTemplate>
 										<%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_TONG, "{0:#,##0}")%>
@@ -161,10 +156,9 @@
                                             + format_so_tien(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_NS_TONG)))  , "#,###") %>
 									 </ItemTemplate>
                                 </asp:TemplateField>
-                                <asp:TemplateField  ItemStyle-HorizontalAlign="Right" HeaderText="12=1+c-5" HeaderStyle-Height="10px" >									
+                                <asp:TemplateField  ItemStyle-HorizontalAlign="Right" HeaderText="12=1-5" HeaderStyle-Height="10px" >									
 									 <ItemTemplate>
-										<%# CIPConvert.ToStr(format_so_tien(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_QBT)) 
-                                                        + format_so_tien(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_NAM_TRUOC_CHUYEN_SANG)) 
+										<%# CIPConvert.ToStr(format_so_tien(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_QBT))  
                                                         - format_so_tien(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_QBT_TONG)), "#,###") %>
 									 </ItemTemplate>
                                 </asp:TemplateField>
