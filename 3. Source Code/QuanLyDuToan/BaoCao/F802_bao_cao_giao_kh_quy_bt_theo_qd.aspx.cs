@@ -45,7 +45,7 @@ namespace QuanLyDuToan.BaoCao
 			US_V_GD_GIAI_NGAN_QBT v_us = new US_V_GD_GIAI_NGAN_QBT();
 			DataSet v_ds = new DataSet();
 			DataTable v_dt = new DataTable();
-			decimal v_dc_id_loai_nhiem_vu, v_dc_id_cong_trinh, v_dc_id_du_an;
+			decimal v_dc_id_loai_nhiem_vu, v_dc_id_cong_trinh, v_dc_id_du_an,v_dc_id_don_vi;
 			v_dc_id_cong_trinh = v_dc_id_du_an = v_dc_id_loai_nhiem_vu = -1;
 			if (Request.QueryString["ip_dc_id_loai_nhiem_vu"]!=null)
 			{
@@ -59,12 +59,20 @@ namespace QuanLyDuToan.BaoCao
 			{
 				v_dc_id_du_an = CIPConvert.ToDecimal(Request.QueryString["ip_dc_id_du_an"]);
 			}
+			if (Request.QueryString["ip_dc_id_don_vi"] != null)
+			{
+				v_dc_id_don_vi = CIPConvert.ToDecimal(Request.QueryString["ip_dc_id_don_vi"]);
+				if (v_dc_id_don_vi==0|v_dc_id_don_vi==-1)
+				{
+					v_dc_id_don_vi = Person.get_id_don_vi();	
+				}
+			}
+			else v_dc_id_don_vi = Person.get_id_don_vi();
 			v_ds.Tables.Add(v_dt);
 			v_ds.AcceptChanges();
-			decimal ip_id_don_vi = Person.get_id_don_vi();
 
 			v_us.bc_giao_kh_quy_bao_tri_theo_qd(v_ds
-				, ip_id_don_vi
+				, v_dc_id_don_vi
 				, v_dc_id_loai_nhiem_vu
 				, v_dc_id_cong_trinh
 				, v_dc_id_du_an
