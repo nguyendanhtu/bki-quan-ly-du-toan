@@ -58,6 +58,7 @@ namespace QuanLyDuToan.BaoCao
         {
             US_RPT_BC_TINH_HINH_GIAI_NGAN v_us = new US_RPT_BC_TINH_HINH_GIAI_NGAN();
             DS_RPT_BC_TINH_HINH_GIAI_NGAN v_ds = new DS_RPT_BC_TINH_HINH_GIAI_NGAN();
+            v_ds.EnforceConstraints = false;
             v_us.bc_tinh_hinh_giai_ngan_tong_cuc(v_ds
                 , CIPConvert.ToDatetime(m_txt_tu_ngay.Text, "dd/MM/yyyy")
                 , CIPConvert.ToDatetime(m_txt_den_ngay.Text, "dd/MM/yyyy")
@@ -97,6 +98,7 @@ namespace QuanLyDuToan.BaoCao
             v_obj_export_excel.AddFindAndReplaceItem("<DEN_NGAY>", CIPConvert.ToStr(m_txt_den_ngay.Text, "dd/MM/yyyy"));
             v_obj_export_excel.FindAndReplace(false);
             v_obj_export_excel.ExportDataSet2ExcelWithoutFixedRows(m_grv, 0, m_grv.Columns.Count - 1, false);
+            Response.Redirect(v_obj_export_excel.GetOutputFileNameWithPath(), false);
         }
         #endregion
 
