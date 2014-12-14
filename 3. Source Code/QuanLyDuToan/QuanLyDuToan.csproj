@@ -58,10 +58,11 @@
     <Content Include="Account\Logout.aspx" />
     <None Include="Properties\PublishProfiles\QuanLyDuToan.pubxml" />
     <Content Include="Reports\Templates\A350_TPL_BAO_CAO_TINH_HINH_GIAI_NGAN_CAC_NGUON_VON_NAM.xls" />
-    <Content Include="Reports\Templates\A530_TPL_BAO_CAO_TINH_HINH_GIAI_NGAN_CAC_NGUON_VON_NAM - Copy.xls" />
+    <Content Include="Reports\Templates\A530_TPL_BAO_CAO_TINH_HINH_GIAI_NGAN_CAC_NGUON_VON_NAM.xls" />
     <Content Include="Reports\Templates\A256_TPL_BAO_CAO_GIAO_VON.xls" />
     <Content Include="Reports\Templates\A356_TPL_BAO_CAO_GIAI_NGAN.xls" />
     <Content Include="Reports\Templates\A156_TPL_BAO_CAO_GIAO_KE_HOACH.xls" />
+    <Content Include="Reports\Templates\A510_TPL_TONG_HOP_DA_GIAO_DU_TOAN.xls" />
     <None Include="Scripts\jquery-1.4.1-vsdoc.js" />
     <Content Include="Account\ChangePassword.aspx" />
     <Content Include="Account\Default.aspx" />
