@@ -323,5 +323,16 @@ namespace WebUS
 			v_prc.addNVarcharInputParam("@ip_str_nhiem_vu_chi", ip_str_nhiem_vu_chi);
 			v_prc.fillDataSetByCommand(this, v_ds);
 		}
-	}
+
+        public void bc_256_giao_von_theo_don_vi(DS_RPT_BAO_CAO_GIAO_VON v_ds, decimal ip_dc_id_don_vi, decimal ip_dc_id_user, DateTime ip_dat_tu_ngay, DateTime ip_dat_den_ngay, string ip_str_filter)
+        {
+            CStoredProc v_prc = new CStoredProc("pr_A256_rpt_bao_cao_giao_von");
+            v_prc.addDecimalInputParam("@ID_DON_VI", ip_dc_id_don_vi);
+            v_prc.addDecimalInputParam("@ID_REPORTED_USER", ip_dc_id_user);
+            v_prc.addDatetimeInputParam("@TU_NGAY", ip_dat_tu_ngay);
+            v_prc.addDatetimeInputParam("@DEN_NGAY", ip_dat_den_ngay);
+            v_prc.addNVarcharInputParam("@STR_FILTER", ip_str_filter);
+            v_prc.fillDataSetByCommand(this, v_ds);
+        }
+    }
 }
