@@ -43,7 +43,7 @@
 
 					<td colspan="4" style="text-align: center">
 						<asp:Button ID="m_cmd_xem_bao_cao" Text="Xem báo cáo" OnClick="m_cmd_xem_bao_cao_Click" runat="server" />
-						<asp:Button ID="m_cmd_xuat_excel" Text="Xuất excel" runat="server" />
+						<asp:Button ID="m_cmd_xuat_excel" Text="Xuất excel" runat="server" OnClick="m_cmd_xuat_excel_Click"/>
 					</td>
 				</tr>
 				<tr>
@@ -93,6 +93,7 @@
 			</table>
 		</ContentTemplate>
 		<Triggers>
+			 <asp:PostBackTrigger ControlID="m_cmd_xuat_excel" />
 		</Triggers>
 	</asp:UpdatePanel>
 	<asp:UpdateProgress ID="UpdateProgress1" runat="server">

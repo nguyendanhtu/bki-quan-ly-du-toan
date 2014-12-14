@@ -41,7 +41,14 @@ namespace QuanLyDuToan.BaoCao
 		#endregion
 
 		#region Private Method
-
+		public string ConvertToUnsign3(string str)
+		{
+			System.Text.RegularExpressions.Regex regex = new System.Text.RegularExpressions.Regex("\\p{IsCombiningDiacriticalMarks}+");
+			string temp = str.Normalize(System.Text.NormalizationForm.FormD);
+			return regex.Replace(temp, String.Empty)
+						.Replace('\u0111', 'd').Replace('\u0110', 'D');
+			//return str;
+		}
 		public string format_so_tien(string ip_str_so_tien)
 		{
 			string op_str_so_tien = "";
@@ -165,6 +172,32 @@ namespace QuanLyDuToan.BaoCao
 			{
 				CSystemLog_301.ExceptionHandle(this, v_e);
 			}
+		}
+
+		protected void m_cmd_xuat_excel_Click(object sender, EventArgs e)
+		{
+			US_DM_DON_VI v_us = new US_DM_DON_VI(Person.get_id_don_vi());
+			WinformReport.export_gridview_2_excel(
+			m_grv
+			, "[" + ConvertToUnsign3(v_us.strTEN_DON_VI) + "]BaoCaoTinhHinhGiaoVon.xls"
+			);
+		}
+		/* Để xuất excel
+		 * 1. Dùng 
+		 * WinformReport.export_gridview_2_excel(
+			m_grv
+			, "TenBaoCao.xls"
+			);
+		 * 2. Thêm 
+		 * <Triggers>
+			 <asp:PostBackTrigger ControlID="m_cmd_xuat_excel" />
+        </Triggers>
+		 * Trong aspx
+		 * 3. Thêm hàm VerifyRenderingInServerForm
+		*/
+		public override void VerifyRenderingInServerForm(Control control)
+		{
+			//base.VerifyRenderingInServerForm(control);
 		}
 	}
 }
