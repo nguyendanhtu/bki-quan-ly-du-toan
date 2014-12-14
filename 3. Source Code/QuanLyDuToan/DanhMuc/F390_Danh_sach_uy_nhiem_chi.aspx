@@ -23,12 +23,12 @@
 				<asp:TextBox runat="server" ID="m_txt_tu_ngay" Style="width: 200px; text-align: right"></asp:TextBox>
 				<span>Đến ngày: </span>
 				<asp:TextBox runat="server" ID="m_txt_den_ngay" Style="width: 200px; text-align: right"></asp:TextBox>
-				<asp:Button runat="server" Text="Tìm kiếm" ID="m_cmd_tim_kiem" />
+				<asp:Button runat="server" Text="Tìm kiếm" ID="m_cmd_tim_kiem" onClick="m_cmd_tim_kiem_Click"/>
 			</div>
 			<div style="width: 800px; margin: 20px auto;">
-				<asp:GridView runat="server" ID="m_grv_bao_cao_giao_von" Style="width: 100%;" AutoGenerateColumns="False" EnableModelValidation="True">
+				<asp:GridView runat="server" ID="m_grv_bao_cao_giao_von" Style="width: 100%;" AutoGenerateColumns="true" EnableModelValidation="True">
 					<Columns>
-						<asp:BoundField HeaderText="Ngày tháng" HtmlEncode="False">
+<%--						<asp:BoundField HeaderText="Ngày tháng" HtmlEncode="False">
 							<ItemStyle HorizontalAlign="Right" Width="200px" />
 						</asp:BoundField>
 						<asp:BoundField HeaderText="Số quyết định" HtmlEncode="False">
@@ -39,8 +39,7 @@
 						</asp:BoundField>
 						<asp:BoundField HeaderText="Số tiền" HtmlEncode="False">
 							<ItemStyle HorizontalAlign="Left" />
-						</asp:BoundField>
-						
+						</asp:BoundField>--%>
 					</Columns>
 
 				</asp:GridView>
