@@ -786,6 +786,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="ExportExcel\" />
     <Folder Include="Reports\Output\" />
+    <Folder Include="Reports\Templates\Templates\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Site.Master" />

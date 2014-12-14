@@ -10,6 +10,7 @@ using WebDS.CDBNames;
 using IP.Core.IPCommon;
 using IP.Core.IPUserService;
 using IP.Core.IPData;
+
 using QuanLyDuToan.App_Code;
 using System.Data;
 
@@ -83,7 +84,22 @@ namespace QuanLyDuToan.BaoCao
 
             return true;
         }
-
+        private void export_excel()
+        {
+            decimal v_dc_tong_sl_chuyen_nhuong, v_dc_tong_gia_tri_cn, v_dc_tong_gia_tri_thuc_te, v_dc_phi_cn;
+            v_dc_phi_cn = v_dc_tong_gia_tri_cn = v_dc_tong_gia_tri_thuc_te = v_dc_tong_sl_chuyen_nhuong = 0;
+            
+            CExcelReport v_obj_export_excel = new CExcelReport("f600_Bao cao tong hop tinh hinh chuyen nhuong.xls", 11, 1);
+            v_obj_export_excel.AddFindAndReplaceItem("<NGAY_BAT_DAU>", CIPConvert.ToStr(m_dat_from_date.Value, "dd/MM/yyyy"));
+            v_obj_export_excel.AddFindAndReplaceItem("<TEN_CONG_TY>", m_cbo_to_chuc_phat_hanh.Text);
+            v_obj_export_excel.AddFindAndReplaceItem("<NGAY_KET_THUC>", CIPConvert.ToStr(m_dat_to_date.Value, "dd/MM/yyyy"));
+            v_obj_export_excel.AddFindAndReplaceItem("<TONG_SL>", CIPConvert.ToStr(v_dc_tong_sl_chuyen_nhuong, "#,###"));
+            v_obj_export_excel.AddFindAndReplaceItem("<TONG_GIA_TRI_THEO_MENH_GIA>", CIPConvert.ToStr(v_dc_tong_gia_tri_cn, "#,###"));
+            v_obj_export_excel.AddFindAndReplaceItem("<TONG_PHI>", CIPConvert.ToStr(v_dc_phi_cn, "#,###"));
+            v_obj_export_excel.AddFindAndReplaceItem("<TONG_THUC_TE>", CIPConvert.ToStr(v_dc_tong_gia_tri_thuc_te, "#,###"));
+            v_obj_export_excel.FindAndReplace(false);
+            v_obj_export_excel.Export2ExcelWithoutFixedRows(m_fg, (int)e_col_Number.STT, m_fg.Cols.Count - 1, false);
+        }
         #endregion
 
         #region Event
@@ -108,8 +124,21 @@ namespace QuanLyDuToan.BaoCao
                 load_data_to_grid();
             }
         }
-        
         protected void m_cmd_xem_bao_cao_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (check_validate_data_is_ok())
+                {
+                    load_data_to_grid();
+                }
+            }
+            catch (Exception v_e)
+            {
+                CSystemLog_301.ExceptionHandle(this, v_e);
+            }
+        }
+        protected void m_cmd_xuat_excel_Click(object sender, EventArgs e)
         {
             try
             {
