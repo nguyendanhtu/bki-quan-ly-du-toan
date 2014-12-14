@@ -198,6 +198,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DS_V_DM_CHUONG_LOAI_KHOAN_MUC.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DS_V_DM_CHUONG_LOAI_KHOAN_MUC_TIEU_MUC.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_V_DM_CHUONG_LOAI_KHOAN_MUC_TIEU_MUC.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DS_V_DM_GIAI_NGAN.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -553,6 +558,17 @@
     </None>
     <None Include="DS_V_DM_CHUONG_LOAI_KHOAN_MUC.xss">
       <DependentUpon>DS_V_DM_CHUONG_LOAI_KHOAN_MUC.xsd</DependentUpon>
+    </None>
+    <None Include="DS_V_DM_CHUONG_LOAI_KHOAN_MUC_TIEU_MUC.xsc">
+      <DependentUpon>DS_V_DM_CHUONG_LOAI_KHOAN_MUC_TIEU_MUC.xsd</DependentUpon>
+    </None>
+    <None Include="DS_V_DM_CHUONG_LOAI_KHOAN_MUC_TIEU_MUC.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_V_DM_CHUONG_LOAI_KHOAN_MUC_TIEU_MUC.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DS_V_DM_CHUONG_LOAI_KHOAN_MUC_TIEU_MUC.xss">
+      <DependentUpon>DS_V_DM_CHUONG_LOAI_KHOAN_MUC_TIEU_MUC.xsd</DependentUpon>
     </None>
     <None Include="DS_V_DM_GIAI_NGAN.xsc">
       <DependentUpon>DS_V_DM_GIAI_NGAN.xsd</DependentUpon>
