@@ -235,7 +235,7 @@ namespace QuanLyDuToan.App_Code
 
         }
 
-        public static void load_data_to_cbo_du_an_cong_trinh_from_giao_von(decimal ip_dc_id_loai_du_an
+        public static void load_data_to_cbo_du_an_cong_trinh_from_giao_von1(decimal ip_dc_id_loai_du_an
 			, DropDownList op_ddl_quyet_dinh)
 		{
 			DS_DM_CONG_TRINH_DU_AN_GOI_THAU v_ds = new DS_DM_CONG_TRINH_DU_AN_GOI_THAU();
