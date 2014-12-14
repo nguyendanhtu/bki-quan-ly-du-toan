@@ -37,9 +37,9 @@ namespace QuanLyDuToan.BaoCao
             return op_dc_so_tien;
         }
 
-        public string format_link_to_f802(object ip_level, object ip_id_don_vi, object ip_id_loai_nhiem_vu, object ip_id_cong_trinh, object ip_id_du_an)
+        public string format_link_to_chi_tiet(object ip_level, object ip_id_don_vi, object ip_id_loai_nhiem_vu, object ip_id_cong_trinh, object ip_id_du_an)
         {
-            string v_str_link = "F802_bao_cao_giao_kh_quy_bt_theo_qd.aspx";
+            string v_str_link = "";
             if (ip_level != DBNull.Value)
             {
                 switch (CIPConvert.ToStr(ip_level))
