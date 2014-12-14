@@ -13,7 +13,7 @@ using QuanLyDuToan.App_Code;
 using System.Data;
 using IP.Core.IPUserService;
 using IP.Core.IPData;
-using IP.Core.IPExcelWebReport;
+//using IP.Core.IPExcelWebReport;
 
 namespace QuanLyDuToan.DanhMuc
 {
