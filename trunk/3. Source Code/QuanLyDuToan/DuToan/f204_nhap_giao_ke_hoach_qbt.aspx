@@ -54,7 +54,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td colspan="2" style="width: 420px">
+					<td colspan="2" valign="top" style="width: 420px">
 						<table class="cssTable" style="width: 100%">
 							<tr>
 								<td colspan="4">
@@ -110,106 +110,101 @@
 									</asp:Panel>
 								</td>
 							</tr>
-							<tr>
-								<td>
-									<asp:Panel ID="m_pnl" runat="server" GroupingText="Chi tiết quyết định">
-										<table style="width: 100%;" border="0">
-											<tr>
-												<td colspan="2">
+                            <tr>
+                                <td>
+                                    <asp:Panel ID="m_pnl" runat="server" GroupingText="Chi tiết quyết định">
+                                        <table style="width: 100%;" border="0">
+                                            <tr>
+                                                <td colspan="3">
 													<asp:Label ID="m_lbl_mess_detail" CssClass="cssManField" runat="server"></asp:Label>
 												</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align: right">Tên hạng mục</td>
+                                                <td style="text-align:left">
+                                                    <asp:TextBox ID="m_txt_quoc_lo" runat="server" CssClass="cssTextBox"  Visible="false" Width="150px"></asp:TextBox>
+													<asp:DropDownList ID="m_ddl_quoc_lo" runat="server" Width="155px" OnSelectedIndexChanged="m_ddl_quoc_lo_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
+                                                </td>
+                                                <td>
+                                                    <asp:Button ID="m_cmd_them_quoc_lo" style="width: 80px"  Text="Thêm mới" OnClick="m_cmd_them_quoc_lo_Click" runat="server" />    
+                                                    <asp:Button ID="m_cmd_chon_quoc_lo" style="width: 80px"  Text="Chọn" Visible="false" OnClick="m_cmd_chon_quoc_lo_Click" runat="server" />                                                    
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align: right">Tên khoản chi</td>
+                                                <td style="text-align:left">
+                                                    <asp:TextBox ID="m_txt_du_an" runat="server" CssClass="cssTextBox"  Visible="false" Width="150px"></asp:TextBox>
+													<asp:DropDownList ID="m_ddl_du_an" runat="server" Width="155px" AutoPostBack="true"></asp:DropDownList>
+                                                </td>
+                                                <td>
+                                                    <asp:Button ID="m_cmd_chon_du_an" style="width: 80px" Text="Chọn" Visible="false" OnClick="m_cmd_chon_du_an_Click" runat="server" />   
+                                                    <asp:Button ID="m_cmd_them_du_an" style="width: 80px"  Text="Thêm mới" OnClick="m_cmd_them_du_an_Click" runat="server" />                                                 
+                                                </td>
+                                            </tr>
+                                            <tr>
+												<td style="text-align: right">Loại nhiệm vụ</td>
+												<td colspan="2">
+													<asp:DropDownList ID="m_ddl_loai_nhiem_vu" runat="server" Width="176px"></asp:DropDownList>
+												</td>
 											</tr>
-											<tr>
-												<td style="width: 50%">
-
-													<table style="width: 99%;" border="0">
-														<tr>
-															<td style="text-align: right"><span>Loại nhiệm vụ</span></td>
-															<td>
-																<asp:DropDownList ID="m_ddl_loai_nhiem_vu" runat="server" Width="176px"></asp:DropDownList>
-															</td>
-														</tr>
-														<tr>
-
-															<td style="width: 30%; text-align: right">
-																<span>Tên quốc lộ</span>
-															</td>
-															<td style="width: 70%">
-																<asp:TextBox ID="m_txt_ten_quoc_lo" runat="server" CssClass="cssTextBox" placeholder="vd: 127" Width="170px"></asp:TextBox>
-															</td>
-														</tr>
-														<tr>
-
-															<td style="width: 30%; text-align: right">
-																<span>Nội dung chi (Tên dự án)</span>
-															</td>
-															<td style="width: 70%">
-																<asp:TextBox ID="m_txt_noi_dung_chi" TextMode="MultiLine" Rows="3" runat="server" CssClass="cssTextBox" Width="170px"></asp:TextBox>
-															</td>
-														</tr>
-														<tr>
-															<td style="text-align: right">
-																<span>Kinh phí năm trước chuyển sang</span>
-															</td>
-															<td style="text-align: left">
-																<asp:TextBox ID="m_txt_so_tien_nam_truoc_chuyen_sang" runat="server" CssClass="csscurrency" Style="text-align: right" Text="0" Width="170px" AutoPostBack="false"></asp:TextBox>(đ)
-															</td>
-														</tr>
-														<tr>
-															<td style="text-align: right">
-																<span>Kinh phí ngân sách</span>
-															</td>
-															<td>
-																<asp:TextBox ID="m_txt_so_tien_ns" runat="server" Text="0" Style="text-align: right" CssClass="csscurrency" Width="170px"></asp:TextBox>(đ)
-															</td>
-														</tr>
-														<tr>
-															<td style="text-align: right">
-																<span>Kinh phí quỹ bảo trì</span>
-															</td>
-															<td>
-																<asp:TextBox ID="m_txt_so_tien_qbt" runat="server" CssClass="csscurrency" Text="0" Style="text-align: right" Width="170px"></asp:TextBox>(đ)
-															</td>
-														</tr>
-														<tr>
-															<td style="width: 30%; text-align: right">
-																<span>Tổng</span>
-															</td>
-															<td style="width: 70%">
-																<label style="text-align: right" id="m_lbl_tong_chi_ktx">0</label>
-															</td>
-														</tr>
-														<tr>
-															<td style="text-align: right">
-																<span>Ghi chú</span>
-															</td>
-															<td>
-																<asp:TextBox ID="m_txt_ghi_chu" TextMode="MultiLine" runat="server" CssClass="cssTextBox" Width="170px"></asp:TextBox>
-															</td>
-														</tr>
-														<tr>
-
-															<td colspan="2" style="text-align: center">
-																<asp:Button ID="m_cmd_insert" Text="Ghi dữ liệu" runat="server" OnClick="m_cmd_insert_Click" />
-																<asp:Button ID="m_cmd_update" Text="Cập nhật" runat="server" OnClick="m_cmd_update_Click" />
-																<asp:Button ID="m_cmd_cancel" Text="Huỷ thao tác" runat="server" OnClick="m_cmd_cancel_Click" />
-																<asp:HiddenField ID="m_hdf_id_du_an" runat="server" />
-															</td>
-														</tr>
-													</table>
-
+                                            <tr>
+												<td style="text-align: right">
+													<span>Kinh phí năm trước chuyển sang</span>
+												</td>
+												<td colspan="2" style="text-align: left">
+													<asp:TextBox ID="m_txt_so_tien_nam_truoc_chuyen_sang" runat="server" CssClass="csscurrency" Style="text-align: right" Text="0" Width="170px" AutoPostBack="false"></asp:TextBox>(đ)
 												</td>
 											</tr>
 											<tr>
-												<td colspan="2">
+												<td style="text-align: right">
+													<span>Kinh phí ngân sách</span>
+												</td>
+												<td  colspan="2">
+													<asp:TextBox ID="m_txt_so_tien_ns" runat="server" Text="0" Style="text-align: right" CssClass="csscurrency" Width="170px"></asp:TextBox>(đ)
+												</td>
+											</tr>
+											<tr>
+												<td style="text-align: right">
+													<span>Kinh phí quỹ bảo trì</span>
+												</td>
+												<td  colspan="2">
+													<asp:TextBox ID="m_txt_so_tien_qbt" runat="server" CssClass="csscurrency" Text="0" Style="text-align: right" Width="170px"></asp:TextBox>(đ)
+												</td>
+											</tr>
+											<tr>
+												<td style="width: 30%; text-align: right">
+													<span>Tổng</span>
+												</td>
+												<td  colspan="2" style="width: 70%">
+													<label style="text-align: right" id="m_lbl_tong_chi_ktx">0</label>
+												</td>
+											</tr>                                            
+											<tr>
+												<td style="text-align: right">
+													<span>Ghi chú</span>
+												</td>
+												<td  colspan="2">
+													<asp:TextBox ID="m_txt_ghi_chu" TextMode="MultiLine" runat="server" CssClass="cssTextBox" Width="170px"></asp:TextBox>
+												</td>
+											</tr>
+											<tr>
+
+												<td colspan="3" style="text-align: center">
+													<asp:Button ID="m_cmd_insert" Text="Ghi dữ liệu" runat="server" OnClick="m_cmd_insert_Click" />
+													<asp:Button ID="m_cmd_update" Text="Cập nhật" runat="server" OnClick="m_cmd_update_Click" />
+													<asp:Button ID="m_cmd_cancel" Text="Huỷ thao tác" runat="server" OnClick="m_cmd_cancel_Click" />
+													<asp:HiddenField ID="m_hdf_id_du_an" runat="server" />
+												</td>
+											</tr>
+                                            <tr>
+												<td colspan="3">
 													<asp:Label ID="m_lbl_mess_grid" runat="server"></asp:Label>
 												</td>
 											</tr>
-
-										</table>
-									</asp:Panel>
-								</td>
-							</tr>
+                                        </table>
+                                    </asp:Panel>
+                                </td>
+                            </tr>
 						</table>
 					</td>
 					<td colspan="2" style="vertical-align: top; width: 680px">
