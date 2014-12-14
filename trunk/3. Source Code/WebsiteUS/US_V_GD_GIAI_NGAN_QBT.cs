@@ -958,5 +958,22 @@ namespace WebUS
 			v_prc.addDatetimeInputParam("@ip_dat_den_ngay", ip_dat_den_ngay);
 			v_prc.fillDataSetByCommand(this, ip_ds);
 		}
+		public void bc_giao_von_quy_bao_tri_theo_qd(DataSet ip_ds
+			, decimal ip_id_don_vi
+			, decimal ip_dc_id_loai_nhiem_vu
+			, decimal ip_dc_id_cong_trinh
+			, decimal ip_dc_id_du_an
+			, DateTime ip_dat_tu_ngay
+			, DateTime ip_dat_den_ngay)
+		{
+			CStoredProc v_prc = new CStoredProc("pr_A256_giao_von_theo_quyet_dinh");
+			v_prc.addDecimalInputParam("@ip_dc_id_don_vi", ip_id_don_vi);
+			v_prc.addDecimalInputParam("@ip_dc_id_du_an", ip_dc_id_du_an);
+			v_prc.addDecimalInputParam("@ip_dc_id_cong_trinh", ip_dc_id_cong_trinh);
+			v_prc.addDecimalInputParam("@ip_dc_id_loai_nhiem_vu", ip_dc_id_loai_nhiem_vu);
+			v_prc.addDatetimeInputParam("@ip_dat_tu_ngay", ip_dat_tu_ngay);
+			v_prc.addDatetimeInputParam("@ip_dat_den_ngay", ip_dat_den_ngay);
+			v_prc.fillDataSetByCommand(this, ip_ds);
+		}
 	}
 }

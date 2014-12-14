@@ -14,7 +14,7 @@ using System.Diagnostics;
 
 namespace QuanLyDuToan.BaoCao
 {
-	public partial class F802_bao_cao_giao_kh_quy_bt_theo_qd : System.Web.UI.Page
+	public partial class F256_bao_cao_giao_von_quy_bt_theo_qd : System.Web.UI.Page
 	{
 		#region Public
 		#endregion
@@ -71,7 +71,7 @@ namespace QuanLyDuToan.BaoCao
 			v_ds.Tables.Add(v_dt);
 			v_ds.AcceptChanges();
 
-			v_us.bc_giao_kh_quy_bao_tri_theo_qd(v_ds
+			v_us.bc_giao_von_quy_bao_tri_theo_qd(v_ds
 				, v_dc_id_don_vi
 				, v_dc_id_loai_nhiem_vu
 				, v_dc_id_cong_trinh
