@@ -218,8 +218,24 @@ namespace QuanLyDuToan.App_Code
             ddl.DataBind();
             ddl.Items.Insert(0, new ListItem(v_str_data_default, "-1"));
         }
+        public static void load_data_to_cbo_du_an_cong_trinh_from_giao_von(LOAI_DU_AN ip_dc_id_loai_du_an
+            , DropDownList op_ddl_quyet_dinh)
+        {
+            DS_DM_CONG_TRINH_DU_AN_GOI_THAU v_ds = new DS_DM_CONG_TRINH_DU_AN_GOI_THAU();
+            US_DM_CONG_TRINH_DU_AN_GOI_THAU v_us = new US_DM_CONG_TRINH_DU_AN_GOI_THAU();
+            decimal v_dc_id_don_vi = Person.get_id_don_vi();
+            string v_str_data_default = "";
+            v_ds.EnforceConstraints = false;
+            
+            op_ddl_quyet_dinh.DataTextField = DM_CONG_TRINH_DU_AN_GOI_THAU.TEN;
+            op_ddl_quyet_dinh.DataValueField = DM_CONG_TRINH_DU_AN_GOI_THAU.ID;
+            op_ddl_quyet_dinh.DataSource = v_ds.DM_CONG_TRINH_DU_AN_GOI_THAU;
+            op_ddl_quyet_dinh.DataBind();
+            op_ddl_quyet_dinh.Items.Insert(0, new ListItem(v_str_data_default, "-1"));
 
-		public static void load_data_to_cbo_du_an_cong_trinh_from_giao_von(LOAI_DU_AN ip_loai_du_an
+        }
+
+        public static void load_data_to_cbo_du_an_cong_trinh_from_giao_von(decimal ip_dc_id_loai_du_an
 			, DropDownList op_ddl_quyet_dinh)
 		{
 			DS_DM_CONG_TRINH_DU_AN_GOI_THAU v_ds = new DS_DM_CONG_TRINH_DU_AN_GOI_THAU();
@@ -227,17 +243,16 @@ namespace QuanLyDuToan.App_Code
 			decimal v_dc_id_don_vi = Person.get_id_don_vi();
 			string v_str_data_default = "";
             v_ds.EnforceConstraints = false;
-			if (ip_loai_du_an == LOAI_DU_AN.QUOC_LO)
-			{
-				v_str_data_default = "---Chọn quốc lộ---";
-                v_us.FillDataset(v_ds, " WHERE ID_LOAI = " + ID_LOAI_DU_AN.QUOC_LO);
-			}
-			else if (ip_loai_du_an == LOAI_DU_AN.KHAC)
-			{
-				v_str_data_default = "---Chọn dự án---";
-                v_us.FillDataset(v_ds, " WHERE ID_LOAI = " + ID_LOAI_DU_AN.KHAC);
-			}
-
+            if (ip_dc_id_loai_du_an != -1)
+            {
+                v_str_data_default = "---Chọn quốc lộ---";
+                v_us.FillDataset(v_ds, " WHERE ID_LOAI = " + ip_dc_id_loai_du_an);
+            }
+            else
+            {
+                v_str_data_default = "---Chọn dự án---";
+                v_us.FillDataset(v_ds);
+            }
 			op_ddl_quyet_dinh.DataTextField = DM_CONG_TRINH_DU_AN_GOI_THAU.TEN;
 			op_ddl_quyet_dinh.DataValueField = DM_CONG_TRINH_DU_AN_GOI_THAU.ID;
 			op_ddl_quyet_dinh.DataSource = v_ds.DM_CONG_TRINH_DU_AN_GOI_THAU;
@@ -246,30 +261,29 @@ namespace QuanLyDuToan.App_Code
 
 		}
 
-        public static void load_data_to_cbo_du_an_cong_trinh_from_giao_von2(LOAI_DU_AN ip_loai_du_an, decimal ip_dc_id_cha
+        public static void load_data_to_cbo_du_an_cong_trinh_from_giao_von2(decimal ip_dc_id_loai_du_an, decimal ip_dc_id_cha
             , DropDownList op_ddl_quyet_dinh)
         {
             DS_DM_CONG_TRINH_DU_AN_GOI_THAU v_ds = new DS_DM_CONG_TRINH_DU_AN_GOI_THAU();
             US_DM_CONG_TRINH_DU_AN_GOI_THAU v_us = new US_DM_CONG_TRINH_DU_AN_GOI_THAU();
             decimal v_dc_id_don_vi = Person.get_id_don_vi();
-            string v_str_data_default = "";
+            string v_str_data_default = "---Chọn dự án---";
             v_ds.EnforceConstraints = false;
-            if (ip_loai_du_an == LOAI_DU_AN.QUOC_LO)
+            if (ip_dc_id_loai_du_an != -1)
             {
                 v_str_data_default = "---Chọn quốc lộ---";
-                v_us.FillDataset(v_ds, " WHERE ID_LOAI = " + ID_LOAI_DU_AN.QUOC_LO + " AND ID_CHA = " + ip_dc_id_cha);
+                v_us.FillDataset(v_ds, " WHERE ID_LOAI = " + ip_dc_id_loai_du_an + " AND ID_CHA = " + ip_dc_id_cha);
             }
-            else if (ip_loai_du_an == LOAI_DU_AN.KHAC)
+            else
             {
                 v_str_data_default = "---Chọn dự án---";
-                v_us.FillDataset(v_ds, " WHERE ID_LOAI = " + ID_LOAI_DU_AN.KHAC + " AND ID_CHA = " + ip_dc_id_cha);
-            }
+                v_us.FillDataset(v_ds, " WHERE ID_CHA = " + ip_dc_id_cha);
+            }           
             op_ddl_quyet_dinh.DataTextField = DM_CONG_TRINH_DU_AN_GOI_THAU.TEN;
             op_ddl_quyet_dinh.DataValueField = DM_CONG_TRINH_DU_AN_GOI_THAU.ID;
             op_ddl_quyet_dinh.DataSource = v_ds.DM_CONG_TRINH_DU_AN_GOI_THAU;
             op_ddl_quyet_dinh.DataBind();
             op_ddl_quyet_dinh.Items.Insert(0, new ListItem(v_str_data_default, "-1"));
-
         }
 
 		public static DataSet get_dataset_muc_tieu_muc_giao_kh(
