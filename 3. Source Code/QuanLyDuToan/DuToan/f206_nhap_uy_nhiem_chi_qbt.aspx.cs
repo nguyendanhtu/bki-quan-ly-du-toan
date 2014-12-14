@@ -95,28 +95,28 @@ namespace QuanLyDuToan.DuToan
 		}
 		private void form_to_us_object()
 		{
-			//switch (get_form_mode(m_hdf_form_mode))
-			//{
-			//	case LOAI_FORM.SUA:
-			//		m_us = new US_GD_CHI_TIET_GIAI_NGAN(CIPConvert.ToDecimal(this.m_hdf_id_gd_uy_nhiem_chi.Value));
-			//		break;
-			//	case LOAI_FORM.THEM:
-			//		m_us = new US_GD_CHI_TIET_GIAI_NGAN();
-			//		break;
-			//}
+            //switch (get_form_mode(m_hdf_form_mode))
+            //{
+            //    case LOAI_FORM.SUA:
+            //        m_us = new US_GD_CHI_TIET_GIAI_NGAN(CIPConvert.ToDecimal(this.m_hdf_id_gd_uy_nhiem_chi.Value));
+            //        break;
+            //    case LOAI_FORM.THEM:
+            //        m_us = new US_GD_CHI_TIET_GIAI_NGAN();
+            //        break;
+            //}
 
-			//m_us.strIS_NGUON_NS_YN = "N";//Nguon mac dinh la Quy bao tri
-			//m_us.strNOI_DUNG_CHI = m_txt_ghi_chu.Text.Trim();
-			//m_us.dcID_DU_AN_CONG_TRINH = CIPConvert.ToDecimal(m_hdf_id_du_an_cong_trinh.Value);
-			//m_us.dcSO_TIEN_NOP_THUE = CIPConvert.ToDecimal(m_txt_so_tien_nop_thue.Text.Trim());
-			//m_us.dcSO_TIEN_TT_CHO_DV_HUONG = CIPConvert.ToDecimal(m_txt_so_tien_thanh_toan_cho_dv_huong.Text.Trim());
-			//m_us.dcID_UNC = CIPConvert.ToDecimal(m_hdf_id_dm_uy_nhiem_chi.Value);
-			//m_us.dcID_DON_VI = Person.get_id_don_vi();
-			////set null nguon ns
-			//m_us.SetID_MUCNull();
-			//m_us.SetID_KHOANNull();
-			//m_us.SetID_CHUONGNull();
-			//m_us.SetID_TIEU_MUCNull();
+            //m_us. = "N";//Nguon mac dinh la Quy bao tri
+            //m_us.strNOI_DUNG_CHI = m_txt_ghi_chu.Text.Trim();
+            //m_us.dcID_DU_AN_CONG_TRINH = CIPConvert.ToDecimal(m_hdf_id_du_an_cong_trinh.Value);
+            //m_us.dcSO_TIEN_NOP_THUE = CIPConvert.ToDecimal(m_txt_so_tien_nop_thue.Text.Trim());
+            //m_us.dcSO_TIEN_TT_CHO_DV_HUONG = CIPConvert.ToDecimal(m_txt_so_tien_thanh_toan_cho_dv_huong.Text.Trim());
+            //m_us.dcID_UNC = CIPConvert.ToDecimal(m_hdf_id_dm_uy_nhiem_chi.Value);
+            //m_us.dcID_DON_VI = Person.get_id_don_vi();
+            ////set null nguon ns
+            //m_us.SetID_MUCNull();
+            //m_us.SetID_KHOANNull();
+            //m_us.SetID_CHUONGNull();
+            //m_us.SetID_TIEU_MUCNull();
 		}
 		private void us_object_to_form()
 		{
@@ -533,7 +533,8 @@ namespace QuanLyDuToan.DuToan
 		{
 			US_GRID_GIAI_NGAN v_us = new US_GRID_GIAI_NGAN();
 			DS_GRID_GIAI_NGAN v_ds = new DS_GRID_GIAI_NGAN();
-			//v_us.get_grid_uy_nhiem_chi_dataset(v_ds, Person.get_id_don_vi(), CIPConvert.ToDecimal(m_hdf_id_dm_uy_nhiem_chi.Value));
+            v_ds.EnforceConstraints = false;
+            v_us.get_grid_giai_ngan(v_ds, Person.get_id_don_vi(), CIPConvert.ToDecimal(m_hdf_id_dm_uy_nhiem_chi.Value),Person.get_user_id());
 			m_grv_unc.DataSource = v_ds.Tables[0];
 			m_grv_unc.DataBind();
 		}
