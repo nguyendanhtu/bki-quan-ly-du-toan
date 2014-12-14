@@ -233,23 +233,7 @@ namespace QuanLyDuToan.BaoCao
                 HeaderCell.ColumnSpan = 2; // For merging three columns (tso, chitx)
                 HeaderCell.RowSpan = 2;
                 HeaderCell.CssClass = "HeaderStyle";
-                HeaderRow.Cells.Add(HeaderCell);
-
-                //Adding 
-                HeaderCell = new TableHeaderCell();
-                HeaderCell.Text = "Giá trị thực hiện đã nghiệm thu A-B";
-                HeaderCell.HorizontalAlign = HorizontalAlign.Center;
-                HeaderCell.RowSpan = 3;
-                HeaderCell.CssClass = "HeaderStyle";
-                HeaderRow.Cells.Add(HeaderCell);
-
-                //Adding 
-                HeaderCell = new TableHeaderCell();
-                HeaderCell.Text = "Số chưa GN cho nhà thầu theo nghiệm thu A-B";
-                HeaderCell.HorizontalAlign = HorizontalAlign.Center;
-                HeaderCell.RowSpan = 3;
-                HeaderCell.CssClass = "HeaderStyle";
-                HeaderRow.Cells.Add(HeaderCell);
+                HeaderRow.Cells.Add(HeaderCell);               
 
                 //Adding the Row at the 0th position (first row) in the Grid
                 ProductGrid.Controls[0].Controls.AddAt(0, HeaderRow);

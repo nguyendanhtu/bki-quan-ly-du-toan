@@ -65,7 +65,7 @@
 										<%# Container.DataItemIndex + 1 %>
 									</ItemTemplate>
 								</asp:TemplateField>
-								<asp:TemplateField ItemStyle-HorizontalAlign="Left" HeaderText="b"  HeaderStyle-Height="10px">									
+								<asp:TemplateField ItemStyle-HorizontalAlign="Left" HeaderText="b" HeaderStyle-Width="150px" HeaderStyle-Height="10px">									
 									<ItemTemplate>
 										<%# Eval(GRID_GIAI_NGAN.NOI_DUNG)%>
 									</ItemTemplate>
