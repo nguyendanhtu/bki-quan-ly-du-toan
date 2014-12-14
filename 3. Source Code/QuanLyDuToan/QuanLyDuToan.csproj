@@ -809,6 +809,10 @@
       <Project>{9acedd70-fda2-44d8-a004-3a7eaf86a954}</Project>
       <Name>IPData</Name>
     </ProjectReference>
+    <ProjectReference Include="..\IPExcelWebReport\IPExcelWebReport.vbproj">
+      <Project>{ab5e4eff-2002-4309-ae0b-ee58a1c28df1}</Project>
+      <Name>IPExcelWebReport</Name>
+    </ProjectReference>
     <ProjectReference Include="..\IPException\IPException.vbproj">
       <Project>{b73156c2-7034-4dea-a308-5e1782ff8db4}</Project>
       <Name>IPException</Name>
