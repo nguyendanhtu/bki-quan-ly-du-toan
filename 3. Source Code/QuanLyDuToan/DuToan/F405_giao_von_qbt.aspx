@@ -197,15 +197,6 @@
                                                                 </ItemTemplate>
                                                                 <ItemStyle HorizontalAlign="Center"></ItemStyle>
                                                             </asp:TemplateField>
-                                                            <asp:TemplateField HeaderText="Sửa" HeaderStyle-Width="2%">
-                                                                <ItemTemplate>
-                                                                    <asp:LinkButton ID="m_link_update" runat="server" CausesValidation="false" CommandArgument='<%#Eval("ID")%>'
-                                                                        CommandName="Sua" ToolTip="Sửa">
-                     <img alt="Xóa" src="../Images/Button/edit.png" />
-                                                                    </asp:LinkButton>
-                                                                </ItemTemplate>
-                                                                <ItemStyle HorizontalAlign="Center"></ItemStyle>
-                                                            </asp:TemplateField>
                                                         </Columns>
                                                     </asp:GridView>
                                                 </td>
