@@ -86,19 +86,7 @@ namespace QuanLyDuToan.BaoCao
         }
         private void export_excel()
         {
-            decimal v_dc_tong_sl_chuyen_nhuong, v_dc_tong_gia_tri_cn, v_dc_tong_gia_tri_thuc_te, v_dc_phi_cn;
-            v_dc_phi_cn = v_dc_tong_gia_tri_cn = v_dc_tong_gia_tri_thuc_te = v_dc_tong_sl_chuyen_nhuong = 0;
             
-            CExcelReport v_obj_export_excel = new CExcelReport("f600_Bao cao tong hop tinh hinh chuyen nhuong.xls", 11, 1);
-            v_obj_export_excel.AddFindAndReplaceItem("<NGAY_BAT_DAU>", CIPConvert.ToStr(m_dat_from_date.Value, "dd/MM/yyyy"));
-            v_obj_export_excel.AddFindAndReplaceItem("<TEN_CONG_TY>", m_cbo_to_chuc_phat_hanh.Text);
-            v_obj_export_excel.AddFindAndReplaceItem("<NGAY_KET_THUC>", CIPConvert.ToStr(m_dat_to_date.Value, "dd/MM/yyyy"));
-            v_obj_export_excel.AddFindAndReplaceItem("<TONG_SL>", CIPConvert.ToStr(v_dc_tong_sl_chuyen_nhuong, "#,###"));
-            v_obj_export_excel.AddFindAndReplaceItem("<TONG_GIA_TRI_THEO_MENH_GIA>", CIPConvert.ToStr(v_dc_tong_gia_tri_cn, "#,###"));
-            v_obj_export_excel.AddFindAndReplaceItem("<TONG_PHI>", CIPConvert.ToStr(v_dc_phi_cn, "#,###"));
-            v_obj_export_excel.AddFindAndReplaceItem("<TONG_THUC_TE>", CIPConvert.ToStr(v_dc_tong_gia_tri_thuc_te, "#,###"));
-            v_obj_export_excel.FindAndReplace(false);
-            v_obj_export_excel.Export2ExcelWithoutFixedRows(m_fg, (int)e_col_Number.STT, m_fg.Cols.Count - 1, false);
         }
         #endregion
 
