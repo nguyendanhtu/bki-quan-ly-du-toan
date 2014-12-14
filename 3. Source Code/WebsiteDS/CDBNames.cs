@@ -563,5 +563,7 @@ namespace WebDS.CDBNames
         public const string ID_LOAI_CLM = "ID_LOAI_CLM";
         public const string ID_LOAI_KTM = "ID_LOAI_KTM";
     }
+
+   
 }
 
