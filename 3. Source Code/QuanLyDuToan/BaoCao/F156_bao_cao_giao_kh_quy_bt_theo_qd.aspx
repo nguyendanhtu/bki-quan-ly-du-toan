@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="F802_bao_cao_giao_kh_quy_bt_theo_qd.aspx.cs" Inherits="QuanLyDuToan.BaoCao.F802_bao_cao_giao_kh_quy_bt_theo_qd" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="F156_bao_cao_giao_kh_quy_bt_theo_qd.aspx.cs" Inherits="QuanLyDuToan.BaoCao.F156_bao_cao_giao_kh_quy_bt_theo_qd" %>
 
 <%@ Import Namespace="IP.Core.IPCommon" %>
 <%@ Import Namespace="WebDS.CDBNames" %>

@@ -57,6 +57,7 @@
     <Content Include="Account\Login.aspx" />
     <Content Include="Account\Logout.aspx" />
     <None Include="Properties\PublishProfiles\QuanLyDuToan.pubxml" />
+    <Content Include="BaoCao\F256_bao_cao_giao_von_quy_bt_theo_qd.aspx" />
     <Content Include="Reports\Templates\A350_TPL_BAO_CAO_TINH_HINH_GIAI_NGAN_CAC_NGUON_VON_NAM.xls" />
     <Content Include="Reports\Templates\A530_TPL_BAO_CAO_TINH_HINH_GIAI_NGAN_CAC_NGUON_VON_NAM.xls" />
     <Content Include="Reports\Templates\A256_TPL_BAO_CAO_GIAO_VON.xls" />
@@ -75,7 +76,7 @@
     <Content Include="BaoCao\F510_tong_hop_da_giao_du_toan_nam_dao_tao.aspx" />
     <Content Include="BaoCao\F530_bao_cao_tong_cuc.aspx" />
     <Content Include="BaoCao\F701_tinh_hinh_giai_ngan_von_don_vi.aspx" />
-    <Content Include="BaoCao\F802_bao_cao_giao_kh_quy_bt_theo_qd.aspx" />
+    <Content Include="BaoCao\F156_bao_cao_giao_kh_quy_bt_theo_qd.aspx" />
     <Content Include="BaoCao\F401_bao_cao_tra_cuu_uy_nhiem_chi.aspx" />
     <Content Include="BaoCao\F602_bao_cao_tinh_hinh_giai_ngan_don_vi.aspx" />
     <Content Include="BaoCao\F603_bao_cao_giao_ke_hoach.aspx" />
@@ -499,6 +500,13 @@
     <Compile Include="App_Code\WinformReport.cs" />
     <Compile Include="App_Code\WinformControls.cs" />
     <Compile Include="App_Code\Person.cs" />
+    <Compile Include="BaoCao\F256_bao_cao_giao_von_quy_bt_theo_qd.aspx.cs">
+      <DependentUpon>F256_bao_cao_giao_von_quy_bt_theo_qd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BaoCao\F256_bao_cao_giao_von_quy_bt_theo_qd.aspx.designer.cs">
+      <DependentUpon>F256_bao_cao_giao_von_quy_bt_theo_qd.aspx</DependentUpon>
+    </Compile>
     <Compile Include="BaoCao\F256_bao_cao_giao_von.aspx.cs">
       <DependentUpon>F256_bao_cao_giao_von.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -562,12 +570,12 @@
     <Compile Include="BaoCao\F701_tinh_hinh_giai_ngan_von_don_vi.aspx.designer.cs">
       <DependentUpon>F701_tinh_hinh_giai_ngan_von_don_vi.aspx</DependentUpon>
     </Compile>
-    <Compile Include="BaoCao\F802_bao_cao_giao_kh_quy_bt_theo_qd.aspx.cs">
-      <DependentUpon>F802_bao_cao_giao_kh_quy_bt_theo_qd.aspx</DependentUpon>
+    <Compile Include="BaoCao\F156_bao_cao_giao_kh_quy_bt_theo_qd.aspx.cs">
+      <DependentUpon>F156_bao_cao_giao_kh_quy_bt_theo_qd.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="BaoCao\F802_bao_cao_giao_kh_quy_bt_theo_qd.aspx.designer.cs">
-      <DependentUpon>F802_bao_cao_giao_kh_quy_bt_theo_qd.aspx</DependentUpon>
+    <Compile Include="BaoCao\F156_bao_cao_giao_kh_quy_bt_theo_qd.aspx.designer.cs">
+      <DependentUpon>F156_bao_cao_giao_kh_quy_bt_theo_qd.aspx</DependentUpon>
     </Compile>
     <Compile Include="BaoCao\F401_bao_cao_tra_cuu_uy_nhiem_chi.aspx.cs">
       <DependentUpon>F401_bao_cao_tra_cuu_uy_nhiem_chi.aspx</DependentUpon>

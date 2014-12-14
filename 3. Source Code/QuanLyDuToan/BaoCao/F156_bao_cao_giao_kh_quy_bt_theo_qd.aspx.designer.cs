@@ -10,7 +10,7 @@
 namespace QuanLyDuToan.BaoCao {
     
     
-    public partial class F802_bao_cao_giao_kh_quy_bt_theo_qd {
+    public partial class F156_bao_cao_giao_kh_quy_bt_theo_qd {
         
         /// <summary>
         /// ScriptManager1 control.
