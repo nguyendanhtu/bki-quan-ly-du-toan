@@ -418,11 +418,7 @@ namespace QuanLyDuToan.App_Code
 				, LY_DO_TANG_GIAM_TS
 		}
 
-		public enum eLOAI_TANG_GIAM_TAI_SAN
-		{
-			TANG_TAI_SAN
-			, GIAM_TAI_SAN
-		}
+
 
 		public static void load_data_to_cbo_loai_hinh_don_vi(
 			eLOAI_TU_DIEN ip_e_trang_thai_tai_san
@@ -504,76 +500,7 @@ namespace QuanLyDuToan.App_Code
 
 		}
 
-		public static void load_data_to_cbo_trang_thai_tang_giam(
-			 eLOAI_TU_DIEN ip_e_trang_thai_tai_san
-			, eTAT_CA ip_e_tat_ca
-			, DropDownList ip_obj_cbo_trang_thai)
-		{
-			US_CM_DM_TU_DIEN v_us_dm_tu_dien = new US_CM_DM_TU_DIEN();
-			DS_CM_DM_TU_DIEN v_ds_dm_tu_dien = new DS_CM_DM_TU_DIEN();
-			string v_str_loai_trang_thai = "";
-			switch (ip_e_trang_thai_tai_san)
-			{
-				case eLOAI_TU_DIEN.TRANG_THAI_DAT:
-					v_str_loai_trang_thai = MA_LOAI_TU_DIEN.TRANG_THAI_DAT;
-					break;
-				case eLOAI_TU_DIEN.TRANG_THAI_NHA:
-					v_str_loai_trang_thai = MA_LOAI_TU_DIEN.TRANG_THAI_NHA;
-					break;
-				case eLOAI_TU_DIEN.TRANG_THAI_OTO:
-					v_str_loai_trang_thai = MA_LOAI_TU_DIEN.TRANG_THAI_OTO;
-					break;
-				case eLOAI_TU_DIEN.TRANG_THAI_TAI_SAN_KHAC:
-					v_str_loai_trang_thai = MA_LOAI_TU_DIEN.TRANG_THAI_TAI_SAN_KHAC;
-					break;
-			}
 
-			string v_str_query = "WHERE GHI_CHU LIKE N'%2%'"
-				+ " AND ID_LOAI_TU_DIEN IN"
-				+ " (SELECT ID FROM CM_DM_LOAI_TD WHERE MA_LOAI = '" + v_str_loai_trang_thai + "')";
-
-			v_us_dm_tu_dien.FillDataset(v_ds_dm_tu_dien, v_str_query);
-			ip_obj_cbo_trang_thai.DataSource = v_ds_dm_tu_dien.CM_DM_TU_DIEN;
-			ip_obj_cbo_trang_thai.DataTextField = CM_DM_TU_DIEN.TEN;
-			ip_obj_cbo_trang_thai.DataValueField = CM_DM_TU_DIEN.ID;
-			ip_obj_cbo_trang_thai.DataBind();
-			if (ip_e_tat_ca == eTAT_CA.YES)
-			{
-				ip_obj_cbo_trang_thai.Items.Insert(0, new ListItem(CONST_QLDB.TAT_CA, CONST_QLDB.ID_TAT_CA.ToString()));
-			}
-		}
-
-		public static void load_data_to_cbo_ly_do_tang_giam(
-			eLOAI_TU_DIEN ip_e_trang_thai_tai_san
-			, eLOAI_TANG_GIAM_TAI_SAN ip_e_loai
-			, DropDownList ip_obj_cbo_trang_thai)
-		{
-			US_CM_DM_TU_DIEN v_us_dm_tu_dien = new US_CM_DM_TU_DIEN();
-			DS_CM_DM_TU_DIEN v_ds_dm_tu_dien = new DS_CM_DM_TU_DIEN();
-			string v_str_loai_trang_thai = MA_LOAI_TU_DIEN.LY_DO_TANG_GIAM_TS;
-			string v_str_loai_tg = "";
-
-			switch (ip_e_loai)
-			{
-				case eLOAI_TANG_GIAM_TAI_SAN.GIAM_TAI_SAN:
-					v_str_loai_tg = "G";
-					break;
-				case eLOAI_TANG_GIAM_TAI_SAN.TANG_TAI_SAN:
-					v_str_loai_tg = "T";
-					break;
-			}
-
-			string v_str_query = "WHERE GHI_CHU LIKE N'%" + v_str_loai_tg + "%'"
-				+ " AND ID_LOAI_TU_DIEN IN"
-				+ " (SELECT ID FROM CM_DM_LOAI_TD WHERE MA_LOAI = '" + v_str_loai_trang_thai + "')";
-
-			v_us_dm_tu_dien.FillDataset(v_ds_dm_tu_dien, v_str_query);
-			ip_obj_cbo_trang_thai.DataSource = v_ds_dm_tu_dien.CM_DM_TU_DIEN;
-			ip_obj_cbo_trang_thai.DataTextField = CM_DM_TU_DIEN.TEN;
-			ip_obj_cbo_trang_thai.DataValueField = CM_DM_TU_DIEN.ID;
-			ip_obj_cbo_trang_thai.DataBind();
-
-		}
 
 		public static void load_data_to_cbo_don_vi_chu_quan(
 			string ip_str_id_bo_tinh
