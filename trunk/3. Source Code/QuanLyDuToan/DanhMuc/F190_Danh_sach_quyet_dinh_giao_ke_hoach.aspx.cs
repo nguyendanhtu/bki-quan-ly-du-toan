@@ -13,6 +13,8 @@ using QuanLyDuToan.App_Code;
 using System.Data;
 using IP.Core.IPUserService;
 using IP.Core.IPData;
+using IP.Core.IPExcelWebReport;
+
 namespace QuanLyDuToan.DanhMuc
 {
 	public partial class F190_Danh_sach_quyet_dinh_giao_ke_hoach : System.Web.UI.Page
@@ -92,6 +94,7 @@ namespace QuanLyDuToan.DanhMuc
 
 		private void export_excel()
 		{
+			
 		}
 
 		#endregion
@@ -101,10 +104,13 @@ namespace QuanLyDuToan.DanhMuc
 		{
 			try
 			{
-				m_txt_tu_ngay.Text = CIPConvert.ToStr(WinFormControls.get_dau_nam_form_date(DateTime.Now), "dd/MM/yyyy");
-				m_txt_den_ngay.Text = CIPConvert.ToStr(DateTime.Now, "dd/MM/yyyy");
+				if (!IsPostBack)
+				{
+					m_txt_tu_ngay.Text = CIPConvert.ToStr(WinFormControls.get_dau_nam_form_date(DateTime.Now), "dd/MM/yyyy");
+					m_txt_den_ngay.Text = CIPConvert.ToStr(DateTime.Now, "dd/MM/yyyy");
 
-				load_data_to_grid();
+					load_data_to_grid();
+				}
 			}
 			catch (Exception v_e)
 			{

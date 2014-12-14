@@ -74,6 +74,7 @@ namespace WebDS.CDBNames
 	}
 
 
+
     public class RPT_BC_TINH_HINH_GIAI_NGAN
     {
         public const string ID = "ID";
