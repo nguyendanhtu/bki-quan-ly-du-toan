@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLyDuToan.App_Code;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -64,7 +65,39 @@ namespace QuanLyDuToan.BaoCao
             m_txt_tu_ngay.Text = (new DateTime(DateTime.Now.Year, 1, 1)).ToString(c_configuration.DEFAULT_DATETIME_FORMAT);
             m_txt_den_ngay.Text = (DateTime.Now.Date).ToString(c_configuration.DEFAULT_DATETIME_FORMAT);
         }
-
+		public string ConvertToUnsign3(string str)
+		{
+			System.Text.RegularExpressions.Regex regex = new System.Text.RegularExpressions.Regex("\\p{IsCombiningDiacriticalMarks}+");
+			string temp = str.Normalize(System.Text.NormalizationForm.FormD);
+			return regex.Replace(temp, String.Empty)
+						.Replace('\u0111', 'd').Replace('\u0110', 'D');
+			//return str;
+		}
+		protected void m_cmd_xuat_excel_Click(object sender, EventArgs e)
+		{
+			US_DM_DON_VI v_us = new US_DM_DON_VI(Person.get_id_don_vi());
+			WinformReport.export_gridview_2_excel(
+			m_grv_bao_cao_giao_von
+			, "BaoCaoTongHopDaGiaoDuToan-DaoTao.xls"
+			);
+		}
+		/* Để xuất excel
+		 * 1. Dùng 
+		 * WinformReport.export_gridview_2_excel(
+			m_grv
+			, "TenBaoCao.xls"
+			);
+		 * 2. Thêm 
+		 * <Triggers>
+			 <asp:PostBackTrigger ControlID="m_cmd_xuat_excel" />
+        </Triggers>
+		 * Trong aspx
+		 * 3. Thêm hàm VerifyRenderingInServerForm
+		*/
+		public override void VerifyRenderingInServerForm(Control control)
+		{
+			//base.VerifyRenderingInServerForm(control);
+		}
         #region Merge header
         //vẽ header cho gridview
         protected void m_grv_bao_cao_giao_von_RowCreated(object sender, GridViewRowEventArgs e)
