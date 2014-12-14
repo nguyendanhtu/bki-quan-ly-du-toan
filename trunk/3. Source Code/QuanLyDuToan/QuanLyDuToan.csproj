@@ -57,6 +57,7 @@
     <Content Include="Account\Login.aspx" />
     <Content Include="Account\Logout.aspx" />
     <None Include="Properties\PublishProfiles\QuanLyDuToan.pubxml" />
+    <Content Include="BaoCao\F356_bao_cao_giai_ngan_quy_bt_theo_dm.aspx" />
     <Content Include="BaoCao\F256_bao_cao_giao_von_quy_bt_theo_qd.aspx" />
     <Content Include="Reports\Templates\A350_TPL_BAO_CAO_TINH_HINH_GIAI_NGAN_CAC_NGUON_VON_NAM.xls" />
     <Content Include="Reports\Templates\A530_TPL_BAO_CAO_TINH_HINH_GIAI_NGAN_CAC_NGUON_VON_NAM.xls" />
@@ -500,6 +501,13 @@
     <Compile Include="App_Code\WinformReport.cs" />
     <Compile Include="App_Code\WinformControls.cs" />
     <Compile Include="App_Code\Person.cs" />
+    <Compile Include="BaoCao\F356_bao_cao_giai_ngan_quy_bt_theo_dm.aspx.cs">
+      <DependentUpon>F356_bao_cao_giai_ngan_quy_bt_theo_dm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BaoCao\F356_bao_cao_giai_ngan_quy_bt_theo_dm.aspx.designer.cs">
+      <DependentUpon>F356_bao_cao_giai_ngan_quy_bt_theo_dm.aspx</DependentUpon>
+    </Compile>
     <Compile Include="BaoCao\F256_bao_cao_giao_von_quy_bt_theo_qd.aspx.cs">
       <DependentUpon>F256_bao_cao_giao_von_quy_bt_theo_qd.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
