@@ -101,27 +101,27 @@ public class WinformReport
                     List<Control> controls = new List<Control>();
 
                     //Add controls to be removed to Generic List
-                    //foreach (Control control in cell.Controls)
-                    //{
-                    //    switch (control.GetType().Name)
-                    //    {
-                    //        case "HyperLink":
-                    //            cell.Controls.Remove(control);
-                    //            break;
-                    //        case "TextBox":
-                    //            break;
-                    //        case "LinkButton":
-                    //            cell.Controls.Remove(control);
-                    //            break;
-                    //        case "CheckBox":
-                    //            cell.Controls.Remove(control);
-                    //            break;
-                    //        case "RadioButton":
-                    //            //cell.Controls.Add(new Literal { Text = (control as RadioButton).Text });  // Chưa biết tại sao lỗi
-                    //            cell.Controls.Remove(control);
-                    //            break;
-                    //    }
-                    //}
+					foreach (Control control in cell.Controls)
+					{
+						switch (control.GetType().Name)
+						{
+							case "HyperLink":
+								cell.Controls.Remove(control);
+								break;
+							case "TextBox":
+								break;
+							case "LinkButton":
+								cell.Controls.Remove(control);
+								break;
+							case "CheckBox":
+								cell.Controls.Remove(control);
+								break;
+							case "RadioButton":
+								//cell.Controls.Add(new Literal { Text = (control as RadioButton).Text });  // Chưa biết tại sao lỗi
+								cell.Controls.Remove(control);
+								break;
+						}
+					}
                 }
             }
             ip_grv.RenderControl(hw);
@@ -135,7 +135,7 @@ public class WinformReport
             HttpContext.Current.Response.End();
         }
     }
-
+	
     /*
     * Ví dụ dùng hàm
   
