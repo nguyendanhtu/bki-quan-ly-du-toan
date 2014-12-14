@@ -21,7 +21,7 @@
             <span> Đến ngày: </span><asp:textbox runat="server" id="m_txt_den_ngay" style="width:200px; text-align:right"></asp:textbox>
             <asp:button runat="server" text="Tìm kiếm" id="m_cmd_tim_kiem" OnClick="m_cmd_tim_kiem_Click"/>
         </div>
-        <div style="width:800px; margin:20px auto;">
+        <div style="width:1160px; margin:20px auto;">
             <asp:gridview runat="server" id="m_grv" style="width:100%;" AutoGenerateColumns="False" EnableModelValidation="True">
                 <Columns>
                     <asp:BoundField HeaderText="Số quyết định" HtmlEncode="False" DataField="SO_QUYET_DINH" >
@@ -35,6 +35,15 @@
                     </asp:BoundField>
                     <asp:BoundField DataField="TEN_DON_VI" HeaderText="Đơn vị">
                     <ItemStyle Width="200px" />
+                    </asp:BoundField>
+                    <asp:BoundField DataField="QBT" HeaderText="Số tiền Quỹ bảo trì" DataFormatString="{0:N0}">
+                    <ItemStyle HorizontalAlign="Right" Width="120px" />
+                    </asp:BoundField>
+                    <asp:BoundField DataField="NS" HeaderText="Số tiền Ngân sách" DataFormatString="{0:N0}">
+                    <ItemStyle HorizontalAlign="Right" Width="120px" />
+                    </asp:BoundField>
+                    <asp:BoundField DataField="TONG" HeaderText="Tổng tiền" DataFormatString="{0:N0}">
+                    <ItemStyle HorizontalAlign="Right" Width="120px" />
                     </asp:BoundField>
                 </Columns>
 
