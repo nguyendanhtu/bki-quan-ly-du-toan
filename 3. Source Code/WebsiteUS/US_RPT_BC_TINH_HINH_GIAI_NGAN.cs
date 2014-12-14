@@ -627,7 +627,6 @@ namespace WebUS
             CStoredProc v_sp = new CStoredProc("pr_A530_Bao_cao_tong_hop_hinh_hinh_giai_ngan");
             v_sp.addDatetimeInputParam("@ip_dat_tu_ngay", ip_dat_tu_ngay);
             v_sp.addDatetimeInputParam("@ip_dat_den_ngay", ip_dat_den_ngay);
-            v_sp.addDecimalInputParam("@ip_dc_id_don_vi", -1);
             v_sp.addDecimalInputParam("@ip_dc_id_user", ip_dc_user_id);
             v_sp.fillDataSetByCommand(this, op_ds);
         }
