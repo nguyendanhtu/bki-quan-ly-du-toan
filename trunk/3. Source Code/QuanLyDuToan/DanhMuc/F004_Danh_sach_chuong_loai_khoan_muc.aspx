@@ -22,13 +22,13 @@
         <div style="width:800px; margin:20px auto;">
             <asp:gridview runat="server" id="m_grv_bao_cao_giao_von" style="width:100%;" AutoGenerateColumns="False" EnableModelValidation="True">
                 <Columns>
-                    <asp:BoundField DataField="NHIEM_VU_CHI" HeaderText="Số quyết định" HtmlEncode="False" >
+                    <asp:BoundField DataField="NHIEM_VU_CHI" HeaderText="Loại" HtmlEncode="False" >
                     <ItemStyle Width="200px" />
                     </asp:BoundField>
-                    <asp:BoundField DataField="TONG_KH" HeaderText="Nội dung" HtmlEncode="False">
+                    <asp:BoundField DataField="TONG_KH" HeaderText="Tên" HtmlEncode="False">
                     <ItemStyle HorizontalAlign="Left" />
                     </asp:BoundField>
-                    <asp:BoundField DataField="TONG_VON_QBT" HeaderText="Ngày tháng" HtmlEncode="False">
+                    <asp:BoundField DataField="TONG_VON_QBT" HeaderText="Mã số" HtmlEncode="False">
                     <ItemStyle HorizontalAlign="Right" Width="200px" />
                     </asp:BoundField>
                 </Columns>
