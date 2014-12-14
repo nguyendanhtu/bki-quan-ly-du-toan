@@ -67,13 +67,13 @@ namespace QuanLyDuToan.DanhMuc {
         protected global::System.Web.UI.WebControls.Button m_cmd_tim_kiem;
         
         /// <summary>
-        /// m_grv_bao_cao_giao_von control.
+        /// m_grv control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView m_grv_bao_cao_giao_von;
+        protected global::System.Web.UI.WebControls.GridView m_grv;
         
         /// <summary>
         /// m_cmd_xuat_excel control.
