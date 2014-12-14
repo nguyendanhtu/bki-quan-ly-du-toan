@@ -76,7 +76,11 @@
     <Content Include="BaoCao\F801_bao_cao_giao_von_theo_qd.aspx" />
     <Content Include="BaoCao\F601_bao_cao_tinh_hinh_giai_ngan_tong_cuc.aspx" />
     <Content Include="ChucNang\F600_print_unc_qbt.aspx" />
+    <Content Include="DanhMuc\F004_Danh_sach_chuong_loai_khoan_muc.aspx" />
     <Content Include="DanhMuc\F101_Dictionary.aspx" />
+    <Content Include="DanhMuc\F190_Danh_sach_quyet_dinh_giao_ke_hoach.aspx" />
+    <Content Include="DanhMuc\F290_Danh_sach_quyet_dinh_giao_von.aspx" />
+    <Content Include="DanhMuc\F390_Danh_sach_uy_nhiem_chi.aspx" />
     <Content Include="DanhMuc\f603_dm_du_an.aspx" />
     <Content Include="DanhMuc\f604_dm_quyet_dinh.aspx" />
     <Content Include="DanhMuc\F901_Danh_muc_don_vi.aspx" />
@@ -601,12 +605,40 @@
     <Compile Include="ChucNang\F600_print_unc_qbt.aspx.designer.cs">
       <DependentUpon>F600_print_unc_qbt.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DanhMuc\F004_Danh_sach_chuong_loai_khoan_muc.aspx.cs">
+      <DependentUpon>F004_Danh_sach_chuong_loai_khoan_muc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DanhMuc\F004_Danh_sach_chuong_loai_khoan_muc.aspx.designer.cs">
+      <DependentUpon>F004_Danh_sach_chuong_loai_khoan_muc.aspx</DependentUpon>
+    </Compile>
     <Compile Include="DanhMuc\F101_Dictionary.aspx.cs">
       <DependentUpon>F101_Dictionary.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="DanhMuc\F101_Dictionary.aspx.designer.cs">
       <DependentUpon>F101_Dictionary.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DanhMuc\F190_Danh_sach_quyet_dinh_giao_ke_hoach.aspx.cs">
+      <DependentUpon>F190_Danh_sach_quyet_dinh_giao_ke_hoach.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DanhMuc\F190_Danh_sach_quyet_dinh_giao_ke_hoach.aspx.designer.cs">
+      <DependentUpon>F190_Danh_sach_quyet_dinh_giao_ke_hoach.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DanhMuc\F290_Danh_sach_quyet_dinh_giao_von.aspx.cs">
+      <DependentUpon>F290_Danh_sach_quyet_dinh_giao_von.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DanhMuc\F290_Danh_sach_quyet_dinh_giao_von.aspx.designer.cs">
+      <DependentUpon>F290_Danh_sach_quyet_dinh_giao_von.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DanhMuc\F390_Danh_sach_uy_nhiem_chi.aspx.cs">
+      <DependentUpon>F390_Danh_sach_uy_nhiem_chi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DanhMuc\F390_Danh_sach_uy_nhiem_chi.aspx.designer.cs">
+      <DependentUpon>F390_Danh_sach_uy_nhiem_chi.aspx</DependentUpon>
     </Compile>
     <Compile Include="DanhMuc\f603_dm_du_an.aspx.cs">
       <DependentUpon>f603_dm_du_an.aspx</DependentUpon>
