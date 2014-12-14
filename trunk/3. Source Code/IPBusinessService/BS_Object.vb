@@ -18,7 +18,7 @@ Public Class BS_Object
         DeleteByIDCommand
     End Enum
 
-    Private Const C_COMMAND_TIME_OUT As Integer = 5
+    Private Const C_COMMAND_TIME_OUT As Integer = 50
 #End Region
 
 #Region "Private Member"
