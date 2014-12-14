@@ -54,7 +54,7 @@
 							EmptyDataText="Không có dữ liệu phù hợp"
 							OnRowDataBound="m_grv_RowDataBound">
 							<Columns>
-								<asp:BoundField DataField="NHIEM_VU_CHI" HeaderText="Nhiệm vụ chi" HeaderStyle-Width="300px" />
+								<asp:BoundField DataField="NHIEM_VU_CHI" HeaderText="Nhiệm vụ chi" HtmlEncode="false" HeaderStyle-Width="300px" />
 								<asp:TemplateField HeaderText="Tổng kế hoạch" ItemStyle-HorizontalAlign="Right">
 									<ItemTemplate>
 										<asp:Label ID="m_lbl_grid_tong_kh" runat="server" 

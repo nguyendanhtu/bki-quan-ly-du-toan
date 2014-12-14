@@ -70,7 +70,7 @@
 									</ItemTemplate>
 								</asp:TemplateField>
 
-								<asp:BoundField DataField="NOI_DUNG" HeaderText="Nội dung" HeaderStyle-Width="20%" />
+								<asp:BoundField DataField="NOI_DUNG" HtmlEncode="false" HeaderText="Nội dung" HeaderStyle-Width="20%" />
 								<asp:TemplateField ItemStyle-HorizontalAlign="Right">
 									<HeaderTemplate>
 										<table style="width: 100%;" border="0">
