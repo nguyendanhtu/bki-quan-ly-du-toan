@@ -32,6 +32,14 @@ namespace WebUS
 		QUOC_LO = 0,
 		KHAC = 1,
 	}
+
+    public class ID_LOAI_CONG_TRINH_DU_AN_GOI_THAU
+    {
+        public const decimal CONG_TRINH = 667;
+        public const decimal DU_AN = 668;
+        public const decimal GOI_THAU = 669;
+    }
+
     public class ID_CHUONG_LOAI_KHOAN_MUC
     {
         public const decimal CHUONG = 655;
