@@ -124,5 +124,265 @@ namespace QuanLyDuToan.BaoCao
             }
         }
         #endregion
+
+        #region Merge header
+        //vẽ header cho gridview
+        protected void m_grv_RowCreated(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.Header) // If header created
+            {
+                GridView ProductGrid = (GridView)sender;
+                // Creating a Row
+                GridViewRow HeaderRow = new GridViewRow(0, 0, DataControlRowType.Header, DataControlRowState.Insert);
+
+                //Adding  STT
+                //TableHeaderCell HeaderCell1 = new TableHeaderCell();
+                //TableHeaderRow HeaderRow1 = new TableHeaderRow();
+                //HeaderRow1.Cells.Add(HeaderCell1);
+                //ProductGrid.Controls[0].Controls.AddAt(0, HeaderRow1);
+                
+                TableCell HeaderCell = new TableCell();
+                HeaderCell.Text = "STT";
+                HeaderCell.HorizontalAlign = HorizontalAlign.Center;
+                HeaderCell.RowSpan = 3; // For merging first, second row cells to one
+                HeaderCell.CssClass = "HeaderStyle";
+                HeaderRow.Cells.Add(HeaderCell);
+
+                //Adding  Nội dung
+                HeaderCell = new TableCell();
+                HeaderCell.Text = "Nội dung";
+                HeaderCell.HorizontalAlign = HorizontalAlign.Center;
+                HeaderCell.RowSpan = 3;
+                HeaderCell.CssClass = "HeaderStyle";
+                HeaderRow.Cells.Add(HeaderCell);
+
+                //Adding  Kế hoạch(dự toán) được chi cả năm
+                HeaderCell = new TableCell();
+                HeaderCell.Text = "Kế hoạch(dự toán) được chi cả năm";
+                HeaderCell.HorizontalAlign = HorizontalAlign.Center;
+                HeaderCell.ColumnSpan = 4;
+                HeaderCell.CssClass = "HeaderStyle";
+                HeaderRow.Cells.Add(HeaderCell);
+
+                //Adding Kinh phí đã nhân
+                HeaderCell = new TableCell();
+                HeaderCell.Text = "Kinh phí đã nhân";
+                HeaderCell.HorizontalAlign = HorizontalAlign.Center;
+                HeaderCell.ColumnSpan = 5; // For merging three columns (tso, txuyen, ktxuyen,ctmtqg)
+                HeaderCell.CssClass = "HeaderStyle";
+                HeaderRow.Cells.Add(HeaderCell);
+
+                //Adding Kinh phí đã chi
+                HeaderCell = new TableCell();
+                HeaderCell.Text = "Kinh phí đã thanh toán, giải ngân";
+                HeaderCell.HorizontalAlign = HorizontalAlign.Center;
+                HeaderCell.ColumnSpan = 5; // For merging three columns (tso, chitx, chiktx)
+                HeaderCell.CssClass = "HeaderStyle";
+                HeaderRow.Cells.Add(HeaderCell);
+
+                //Adding 
+                HeaderCell = new TableCell();
+                HeaderCell.Text = "QĐ hỗ trợ học phí theo NĐ 42 hỗ trợ cho học sinh";
+                HeaderCell.HorizontalAlign = HorizontalAlign.Center;
+                HeaderCell.RowSpan = 3; // For merging three columns (tso, chitx)
+                HeaderCell.CssClass = "HeaderStyle";
+                HeaderRow.Cells.Add(HeaderCell);
+
+                //Adding 
+                HeaderCell = new TableCell();
+                HeaderCell.Text = "Kinh phí còn được nhận";
+                HeaderCell.HorizontalAlign = HorizontalAlign.Center;
+                HeaderCell.ColumnSpan = 2; // For merging three columns (tso, chitx)
+                HeaderCell.RowSpan = 2;
+                HeaderCell.CssClass = "HeaderStyle";
+                HeaderRow.Cells.Add(HeaderCell);
+
+                //Adding 
+                HeaderCell = new TableCell();
+                HeaderCell.Text = "Giá trị thực hiện đã nghiệm thu A-B";
+                HeaderCell.HorizontalAlign = HorizontalAlign.Center;
+                HeaderCell.RowSpan = 3;
+                HeaderCell.CssClass = "HeaderStyle";
+                HeaderRow.Cells.Add(HeaderCell);
+                
+                //Adding 
+                HeaderCell = new TableCell();
+                HeaderCell.Text = "Số chưa GN cho nhà thầu theo nghiệm thu A-B";
+                HeaderCell.HorizontalAlign = HorizontalAlign.Center;
+                HeaderCell.RowSpan = 3;
+                HeaderCell.CssClass = "HeaderStyle";
+                HeaderRow.Cells.Add(HeaderCell);
+
+                //Adding the Row at the 0th position (first row) in the Grid
+                ProductGrid.Controls[0].Controls.AddAt(0, HeaderRow);
+
+                // Creating a Row thứ 2
+                GridViewRow HeaderRow2 = new GridViewRow(1, 0, DataControlRowType.Header, DataControlRowState.Insert);
+
+                //Adding  cell
+                TableCell HeaderCell1 = new TableCell();
+                HeaderCell1.Text = "Từ quỹ bảo trì";
+                HeaderCell1.HorizontalAlign = HorizontalAlign.Center;
+                HeaderCell1.RowSpan = 2; // For merging first, second row cells to one
+                HeaderCell1.CssClass = "HeaderStyle";
+                HeaderRow2.Cells.Add(HeaderCell1);
+
+                //Adding cell
+                HeaderCell1 = new TableCell();
+                HeaderCell1.Text = "Từ Ngân sách";
+                HeaderCell1.HorizontalAlign = HorizontalAlign.Center;
+                HeaderCell1.RowSpan = 2;
+                HeaderCell1.CssClass = "HeaderStyle";
+                HeaderRow2.Cells.Add(HeaderCell1);
+                //Adding  cell
+                HeaderCell1 = new TableCell();
+                HeaderCell1.Text = "Số dư năm trước chuyển sang";
+                HeaderCell1.HorizontalAlign = HorizontalAlign.Center;
+                HeaderCell1.RowSpan = 2;
+                HeaderCell1.CssClass = "HeaderStyle";
+                HeaderRow2.Cells.Add(HeaderCell1);
+                //Adding cell
+                HeaderCell1 = new TableCell();
+                HeaderCell1.Text = "Tổng số";
+                HeaderCell1.HorizontalAlign = HorizontalAlign.Center;
+                HeaderCell1.RowSpan = 2;
+                HeaderCell1.CssClass = "HeaderStyle";
+                HeaderRow2.Cells.Add(HeaderCell1);
+
+                //Adding cell
+                HeaderCell1 = new TableCell();
+                HeaderCell1.Text = "Từ quỹ bảo trì";
+                HeaderCell1.HorizontalAlign = HorizontalAlign.Center;
+                HeaderCell1.ColumnSpan = 2;
+                HeaderCell1.CssClass = "HeaderStyle";
+                HeaderRow2.Cells.Add(HeaderCell1);
+
+                //Adding cell
+                HeaderCell1 = new TableCell();
+                HeaderCell1.Text = "Từ Ngân sách";
+                HeaderCell1.HorizontalAlign = HorizontalAlign.Center;
+                HeaderCell1.ColumnSpan = 2; // For merging three columns (tso, txuyen, ktxuyen,ctmtqg)
+                HeaderCell1.CssClass = "HeaderStyle";
+                HeaderRow2.Cells.Add(HeaderCell1);
+
+                //Adding cell
+                HeaderCell1 = new TableCell();
+                HeaderCell1.Text = "Tổng số";
+                HeaderCell1.HorizontalAlign = HorizontalAlign.Center;
+                HeaderCell1.RowSpan = 2; // For merging three columns (tso, chitx, chiktx)
+                HeaderCell1.CssClass = "HeaderStyle";
+                HeaderRow2.Cells.Add(HeaderCell1);
+
+                //Adding cell
+                HeaderCell1 = new TableCell();
+                HeaderCell1.Text = "Từ quỹ bảo trì";
+                HeaderCell1.HorizontalAlign = HorizontalAlign.Center;
+                HeaderCell1.ColumnSpan = 2;
+                HeaderCell1.CssClass = "HeaderStyle";
+                HeaderRow2.Cells.Add(HeaderCell1);
+
+                //Adding cell
+                HeaderCell1 = new TableCell();
+                HeaderCell1.Text = "Từ Ngân sách";
+                HeaderCell1.HorizontalAlign = HorizontalAlign.Center;
+                HeaderCell1.ColumnSpan = 2; // For merging three columns (tso, txuyen, ktxuyen,ctmtqg)
+                HeaderCell1.CssClass = "HeaderStyle";
+                HeaderRow2.Cells.Add(HeaderCell1);
+
+                //Adding cell
+                HeaderCell1 = new TableCell();
+                HeaderCell1.Text = "Tổng số";
+                HeaderCell1.HorizontalAlign = HorizontalAlign.Center;
+                HeaderCell1.RowSpan = 2; // For merging three columns (tso, chitx, chiktx)
+                HeaderCell1.CssClass = "HeaderStyle";
+                HeaderRow2.Cells.Add(HeaderCell1);
+
+                //Adding the Row at the 0th position (first row) in the Grid
+                ProductGrid.Controls[0].Controls.AddAt(1, HeaderRow2);
+
+                // Creating a Row thứ 3
+                GridViewRow HeaderRow3 = new GridViewRow(2, 0, DataControlRowType.Header, DataControlRowState.Insert);
+
+                //Adding  cell
+                TableCell HeaderCell3 = new TableCell();
+                HeaderCell3.Text = "Trong tháng";
+                HeaderCell3.HorizontalAlign = HorizontalAlign.Center;
+                HeaderCell3.RowSpan = 1; // For merging first, second row cells to one
+                HeaderCell3.CssClass = "HeaderStyle";
+                HeaderRow3.Cells.Add(HeaderCell3);
+
+                //Adding cell
+                HeaderCell3 = new TableCell();
+                HeaderCell3.Text = "Luỹ kế từ đấu năm";
+                HeaderCell3.HorizontalAlign = HorizontalAlign.Center;
+                HeaderCell3.RowSpan = 1;
+                HeaderCell3.CssClass = "HeaderStyle";
+                HeaderRow3.Cells.Add(HeaderCell3);
+                //Adding  cell
+                HeaderCell3 = new TableCell();
+                HeaderCell3.Text = "Trong tháng";
+                HeaderCell3.HorizontalAlign = HorizontalAlign.Center;
+                HeaderCell3.RowSpan = 1;
+                HeaderCell3.CssClass = "HeaderStyle";
+                HeaderRow3.Cells.Add(HeaderCell3);
+                //Adding cell
+                HeaderCell3 = new TableCell();
+                HeaderCell3.Text = "Luỹ kế từ đầu năm";
+                HeaderCell3.HorizontalAlign = HorizontalAlign.Center;
+                HeaderCell3.RowSpan = 1;
+                HeaderCell3.CssClass = "HeaderStyle";
+                HeaderRow3.Cells.Add(HeaderCell3);
+
+                //Adding  cell
+                HeaderCell3 = new TableCell();
+                HeaderCell3.Text = "Trong tháng";
+                HeaderCell3.HorizontalAlign = HorizontalAlign.Center;
+                HeaderCell3.RowSpan = 1;
+                HeaderCell3.CssClass = "HeaderStyle";
+                HeaderRow3.Cells.Add(HeaderCell3);
+                //Adding cell
+                HeaderCell3 = new TableCell();
+                HeaderCell3.Text = "Luỹ kế từ đầu năm";
+                HeaderCell3.HorizontalAlign = HorizontalAlign.Center;
+                HeaderCell3.RowSpan = 1;
+                HeaderCell3.CssClass = "HeaderStyle";
+                HeaderRow3.Cells.Add(HeaderCell3);
+
+                //Adding  cell
+                HeaderCell3 = new TableCell();
+                HeaderCell3.Text = "Trong tháng";
+                HeaderCell3.HorizontalAlign = HorizontalAlign.Center;
+                HeaderCell3.RowSpan = 1;
+                HeaderCell3.CssClass = "HeaderStyle";
+                HeaderRow3.Cells.Add(HeaderCell3);
+                //Adding cell
+                HeaderCell3 = new TableCell();
+                HeaderCell3.Text = "Luỹ kế từ đầu năm";
+                HeaderCell3.HorizontalAlign = HorizontalAlign.Center;
+                HeaderCell3.RowSpan = 1;
+                HeaderCell3.CssClass = "HeaderStyle";
+                HeaderRow3.Cells.Add(HeaderCell3);
+
+                //Adding cell
+                HeaderCell3 = new TableCell();
+                HeaderCell3.Text = "Từ quỹ bảo trì";
+                HeaderCell3.HorizontalAlign = HorizontalAlign.Center;
+                HeaderCell3.ColumnSpan = 1;
+                HeaderCell3.CssClass = "HeaderStyle";
+                HeaderRow3.Cells.Add(HeaderCell3);
+
+                //Adding cell
+                HeaderCell3 = new TableCell();
+                HeaderCell3.Text = "Từ Ngân sách";
+                HeaderCell3.HorizontalAlign = HorizontalAlign.Center;
+                HeaderCell3.ColumnSpan = 1; // For merging three columns (tso, txuyen, ktxuyen,ctmtqg)
+                HeaderCell3.CssClass = "HeaderStyle";
+                HeaderRow3.Cells.Add(HeaderCell3);
+
+                //Adding the Row at the 0th position (first row) in the Grid
+                ProductGrid.Controls[0].Controls.AddAt(2, HeaderRow3);
+            }
+        }
+        #endregion
     }
 }
