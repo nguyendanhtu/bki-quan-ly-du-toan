@@ -47,26 +47,26 @@ namespace QuanLyDuToan.BaoCao
                     case "3":
                         v_str_link += "?ip_dc_id_don_vi=" + CIPConvert.ToStr(ip_id_don_vi)
                                      + "&ip_dc_id_loai_nhiem_vu=" + CIPConvert.ToStr(ip_id_loai_nhiem_vu)
-                                     + "&ip_id_cong_trinh=" + "-1"
-                                     + "&ip_id_du_an=" + "-1";
+                                     + "&ip_dc_id_cong_trinh=" + "-1"
+                                     + "&ip_dc_id_du_an=" + "-1";
                         break;
                     case "2":
                         v_str_link += "?ip_dc_id_don_vi=" + CIPConvert.ToStr(ip_id_don_vi)
                                      + "&ip_dc_id_loai_nhiem_vu=" + CIPConvert.ToStr(ip_id_loai_nhiem_vu)
-                                     + "&ip_id_cong_trinh=" + CIPConvert.ToStr(ip_id_cong_trinh)
-                                     + "&ip_id_du_an=" + "-1";
+                                     + "&ip_dc_id_cong_trinh=" + CIPConvert.ToStr(ip_id_cong_trinh)
+                                     + "&ip_dc_id_du_an=" + "-1";
                         break;
                     case "1":
                         v_str_link += "?ip_dc_id_don_vi=" + CIPConvert.ToStr(ip_id_don_vi)
                                      + "&ip_dc_id_loai_nhiem_vu=" + CIPConvert.ToStr(ip_id_loai_nhiem_vu)
-                                     + "&ip_id_cong_trinh=" + CIPConvert.ToStr(ip_id_cong_trinh)
-                                     + "&ip_id_du_an=" + CIPConvert.ToStr(ip_id_du_an);
+                                     + "&ip_dc_id_cong_trinh=" + CIPConvert.ToStr(ip_id_cong_trinh)
+                                     + "&ip_dc_id_du_an=" + CIPConvert.ToStr(ip_id_du_an);
                         break;                  
                     default:
                         v_str_link += "?ip_dc_id_don_vi=" + CIPConvert.ToStr(ip_id_don_vi)
                                      + "&ip_dc_id_loai_nhiem_vu=" + CIPConvert.ToStr(ip_id_loai_nhiem_vu)
-                                     + "&ip_id_cong_trinh=" + CIPConvert.ToStr(ip_id_cong_trinh)
-                                     + "&ip_id_du_an=" + CIPConvert.ToStr(ip_id_du_an);
+                                     + "&ip_dc_id_cong_trinh=" + CIPConvert.ToStr(ip_id_cong_trinh)
+                                     + "&ip_dc_id_du_an=" + CIPConvert.ToStr(ip_id_du_an);
                         break;
                 }
             }
