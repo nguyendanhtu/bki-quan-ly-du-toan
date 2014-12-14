@@ -613,7 +613,94 @@ namespace QuanLyDuToan.App_Code
 			}
 		}
 
-       
+     
+   /// <summary>
+        /// Load danh sách các quyết định theo các tiêu chí vào DropDownList đơn vị
+   /// </summary>
+   /// <param name="ip_dc_id_don_vi"></param>
+   /// <param name="ip_dc_id_loai_nhiem_vu"></param>
+   /// <param name="ip_dc_id_cong_trinh"></param>
+   /// <param name="ip_dc_id_du_an"></param>
+   /// <param name="ip_dat_tu_ngay"></param>
+   /// <param name="ip_dat_den_ngay"></param>
+   /// <param name="ip_str_tu_khoa"></param>
+   /// <param name="ip_e_tat_ca"></param>
+   /// <param name="ip_obj_cbo_quyet_dinh"></param>
+        public static void load_data_to_cbo_quyet_dinh(
+           decimal ip_dc_id_don_vi
+			, decimal ip_dc_id_loai_nhiem_vu
+			, decimal ip_dc_id_cong_trinh
+			, decimal ip_dc_id_du_an
+			, DateTime ip_dat_tu_ngay
+			, DateTime ip_dat_den_ngay
+			,string ip_str_tu_khoa
+            ,  eTAT_CA ip_e_tat_ca
+            , DropDownList ip_obj_cbo_quyet_dinh) {
+
+
+
+            US_DM_QUYET_DINH v_us_dm_quyet_dinh = new US_DM_QUYET_DINH();
+            DS_DM_QUYET_DINH v_ds_dm_quyet_dinh = new DS_DM_QUYET_DINH();
+
+            string v_str_user_name = HttpContext.Current.Session[SESSION.UserName].ToString();
+
+
+            v_us_dm_quyet_dinh.get_ds_quyet_dinh(
+                v_ds_dm_quyet_dinh
+                , ip_dc_id_don_vi
+			,  ip_dc_id_loai_nhiem_vu
+			,  ip_dc_id_cong_trinh
+			,  ip_dc_id_du_an
+			,  ip_dat_tu_ngay
+			,  ip_dat_den_ngay
+			, ip_str_tu_khoa);
+
+            DataView v_dv_quyet_dinh = v_ds_dm_quyet_dinh.DM_QUYET_DINH.DefaultView;
+            v_dv_quyet_dinh.Sort = DM_QUYET_DINH.SO_QUYET_DINH + " ASC";
+            
+
+            ip_obj_cbo_quyet_dinh.DataSource = v_dv_quyet_dinh.ToTable();
+            ip_obj_cbo_quyet_dinh.DataTextField = DM_QUYET_DINH.SO_QUYET_DINH;
+            ip_obj_cbo_quyet_dinh.DataValueField = DM_QUYET_DINH.ID;
+            ip_obj_cbo_quyet_dinh.DataBind();
+
+            if (ip_e_tat_ca == eTAT_CA.YES) {
+                ip_obj_cbo_quyet_dinh.Items.Insert(0, new ListItem(CONST_QLDB.TAT_CA, CONST_QLDB.ID_TAT_CA.ToString()));
+            }
+        }
+
+
+        public static void load_data_to_cbo_cong_trinh_du_an(
+          decimal ip_dc_id_don_vi
+           , decimal ip_dc_id_loai_nhiem_vu
+           , eTAT_CA ip_e_tat_ca
+           , DropDownList ip_obj_cbo_cong_trinh_du_an_goi_thau) {
+
+
+
+               US_DM_CONG_TRINH_DU_AN_GOI_THAU v_us_dm_cong_trinh_du_an_goi_thau = new US_DM_CONG_TRINH_DU_AN_GOI_THAU();
+               DS_DM_CONG_TRINH_DU_AN_GOI_THAU v_ds_dm_cong_trinh_du_an_goi_thau = new DS_DM_CONG_TRINH_DU_AN_GOI_THAU();
+
+            string v_str_user_name = HttpContext.Current.Session[SESSION.UserName].ToString();
+
+
+            v_us_dm_cong_trinh_du_an_goi_thau.loadDanhMucCongTrinhTheoNhiemVu(
+                v_ds_dm_cong_trinh_du_an_goi_thau
+                , ip_dc_id_don_vi
+            , ip_dc_id_loai_nhiem_vu);
+
+            DataView v_dv_quyet_dinh = v_ds_dm_cong_trinh_du_an_goi_thau.DM_CONG_TRINH_DU_AN_GOI_THAU.DefaultView;
+            v_dv_quyet_dinh.Sort = DM_CONG_TRINH_DU_AN_GOI_THAU.TEN + " ASC";
+
+            ip_obj_cbo_cong_trinh_du_an_goi_thau.DataSource = v_dv_quyet_dinh.ToTable();
+            ip_obj_cbo_cong_trinh_du_an_goi_thau.DataTextField = DM_CONG_TRINH_DU_AN_GOI_THAU.TEN;
+            ip_obj_cbo_cong_trinh_du_an_goi_thau.DataValueField = DM_CONG_TRINH_DU_AN_GOI_THAU.ID;
+            ip_obj_cbo_cong_trinh_du_an_goi_thau.DataBind();
+
+            if (ip_e_tat_ca == eTAT_CA.YES) {
+                ip_obj_cbo_cong_trinh_du_an_goi_thau.Items.Insert(0, new ListItem(CONST_QLDB.TAT_CA, CONST_QLDB.ID_TAT_CA.ToString()));
+            }
+        }
 		#endregion
 	}
 }
