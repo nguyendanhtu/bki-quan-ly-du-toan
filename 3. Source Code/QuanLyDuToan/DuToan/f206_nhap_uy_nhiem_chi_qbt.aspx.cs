@@ -706,17 +706,17 @@ namespace QuanLyDuToan.DuToan
 					if (m_ddl_grid_edit_loai_nhiem_vu.Items.Count > 0)
 					{
 						m_ddl_grid_edit_loai_nhiem_vu.SelectedIndex = 0;
-                        //WinFormControls.load_data_to_ddl_quoc_lo_cong_trinh(v_dat_dau_nam, v_dat_cuoi_nam, Person.get_id_don_vi()
-                        //    , CIPConvert.ToDecimal(m_ddl_grid_edit_loai_nhiem_vu.SelectedValue)
-                        //    , m_ddl_grid_edit_du_an_quoc_lo);
-                        //if (m_ddl_grid_edit_du_an_quoc_lo.Items.Count > 0)
-                        //{
-                        //    m_ddl_grid_edit_du_an_quoc_lo.SelectedIndex = 0;
-                        //    WinFormControls.load_data_to_ddl_ten_du_an(v_dat_dau_nam, v_dat_cuoi_nam, Person.get_id_don_vi(),
-                        //        CIPConvert.ToDecimal(m_ddl_grid_edit_du_an_quoc_lo.SelectedValue)
-                        //        , CIPConvert.ToDecimal(m_ddl_grid_edit_loai_nhiem_vu.SelectedValue)
-                        //        , m_ddl_grid_edit_du_an);
-                        //}
+						WinFormControls.load_data_to_ddl_quoc_lo_cong_trinh(v_dat_dau_nam, v_dat_cuoi_nam, Person.get_id_don_vi()
+							, CIPConvert.ToDecimal(m_ddl_grid_edit_loai_nhiem_vu.SelectedValue)
+							, m_ddl_grid_edit_du_an_quoc_lo);
+						if (m_ddl_grid_edit_du_an_quoc_lo.Items.Count > 0)
+						{
+							m_ddl_grid_edit_du_an_quoc_lo.SelectedIndex = 0;
+							WinFormControls.load_data_to_ddl_ten_du_an(v_dat_dau_nam, v_dat_cuoi_nam, Person.get_id_don_vi(),
+								CIPConvert.ToDecimal(m_ddl_grid_edit_du_an_quoc_lo.SelectedValue)
+								, CIPConvert.ToDecimal(m_ddl_grid_edit_loai_nhiem_vu.SelectedValue)
+								, m_ddl_grid_edit_du_an);
+						}
 					}
 
 
@@ -743,18 +743,18 @@ namespace QuanLyDuToan.DuToan
                     if (m_ddl_grid_edit_loai_nhiem_vu.Items.Count > 0)
                     {
                         m_ddl_grid_edit_loai_nhiem_vu.SelectedValue = v_us.dcID_LOAI_NHIEM_VU.ToString();
-                        //WinFormControls.load_data_to_ddl_quoc_lo_cong_trinh(v_dat_dau_nam, v_dat_cuoi_nam, Person.get_id_don_vi()
-                        //    , CIPConvert.ToDecimal(m_ddl_grid_edit_loai_nhiem_vu.SelectedValue)
-                        //    , m_ddl_grid_edit_du_an_quoc_lo);
-                        //if (m_ddl_grid_edit_du_an_quoc_lo.Items.Count > 0)
-                        //{
-                        //    m_ddl_grid_edit_du_an_quoc_lo.SelectedValue = v_us.dcID_CONG_TRINH.ToString();
-                        //    WinFormControls.load_data_to_ddl_ten_du_an(v_dat_dau_nam, v_dat_cuoi_nam, Person.get_id_don_vi(),
-                        //        CIPConvert.ToDecimal(m_ddl_grid_edit_du_an_quoc_lo.SelectedValue)
-                        //        , CIPConvert.ToDecimal(m_ddl_grid_edit_loai_nhiem_vu.SelectedValue)
-                        //        , m_ddl_grid_edit_du_an);
-                        //    //m_ddl_grid_edit_du_an.SelectedValue = v_us.strte;
-                        //}
+						WinFormControls.load_data_to_ddl_quoc_lo_cong_trinh(v_dat_dau_nam, v_dat_cuoi_nam, Person.get_id_don_vi()
+							, CIPConvert.ToDecimal(m_ddl_grid_edit_loai_nhiem_vu.SelectedValue)
+							, m_ddl_grid_edit_du_an_quoc_lo);
+						if (m_ddl_grid_edit_du_an_quoc_lo.Items.Count > 0)
+						{
+							m_ddl_grid_edit_du_an_quoc_lo.SelectedValue = v_us.dcID_CONG_TRINH.ToString();
+							WinFormControls.load_data_to_ddl_ten_du_an(v_dat_dau_nam, v_dat_cuoi_nam, Person.get_id_don_vi(),
+								CIPConvert.ToDecimal(m_ddl_grid_edit_du_an_quoc_lo.SelectedValue)
+								, CIPConvert.ToDecimal(m_ddl_grid_edit_loai_nhiem_vu.SelectedValue)
+								, m_ddl_grid_edit_du_an);
+							m_ddl_grid_edit_du_an.SelectedValue = v_us.dcID_DU_AN.ToString(); ;
+						}
                     }
 				}
 			}

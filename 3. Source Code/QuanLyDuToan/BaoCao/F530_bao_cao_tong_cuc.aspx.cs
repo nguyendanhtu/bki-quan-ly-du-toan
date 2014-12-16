@@ -27,20 +27,20 @@ namespace QuanLyDuToan.BaoCao
         #endregion
 
         #region Private Method
-        private void load_data_to_cbo_loai_don_vi()
-        {
-            DS_CM_DM_TU_DIEN v_ds_cm_dm_tu_dien = new DS_CM_DM_TU_DIEN();
-            US_CM_DM_TU_DIEN v_us_cm_dm_tu_dien = new US_CM_DM_TU_DIEN();
-            v_us_cm_dm_tu_dien.fill_tu_dien_cung_loai_ds(
-                MA_LOAI_TU_DIEN.LOAI_DON_VI
-                , v_ds_cm_dm_tu_dien);
-            m_cbo_loai_don_vi.Items.Add(new ListItem("Tất cả", "0"));
-            m_cbo_loai_don_vi.DataSource = v_ds_cm_dm_tu_dien.CM_DM_TU_DIEN;
-            m_cbo_loai_don_vi.DataValueField = CM_DM_TU_DIEN.ID;
-            m_cbo_loai_don_vi.DataTextField = CM_DM_TU_DIEN.TEN;
-            m_cbo_loai_don_vi.DataBind();
-            m_cbo_loai_don_vi.SelectedValue = CIPConvert.ToStr(m_dc_id_loai_don_vi);
-        }
+		//private void load_data_to_cbo_loai_don_vi()
+		//{
+		//	DS_CM_DM_TU_DIEN v_ds_cm_dm_tu_dien = new DS_CM_DM_TU_DIEN();
+		//	US_CM_DM_TU_DIEN v_us_cm_dm_tu_dien = new US_CM_DM_TU_DIEN();
+		//	v_us_cm_dm_tu_dien.fill_tu_dien_cung_loai_ds(
+		//		MA_LOAI_TU_DIEN.LOAI_DON_VI
+		//		, v_ds_cm_dm_tu_dien);
+		//	m_cbo_loai_don_vi.Items.Add(new ListItem("Tất cả", "0"));
+		//	m_cbo_loai_don_vi.DataSource = v_ds_cm_dm_tu_dien.CM_DM_TU_DIEN;
+		//	m_cbo_loai_don_vi.DataValueField = CM_DM_TU_DIEN.ID;
+		//	m_cbo_loai_don_vi.DataTextField = CM_DM_TU_DIEN.TEN;
+		//	m_cbo_loai_don_vi.DataBind();
+		//	m_cbo_loai_don_vi.SelectedValue = CIPConvert.ToStr(m_dc_id_loai_don_vi);
+		//}
 
         public decimal format_so_tien(object ip_str_so_tien)
         {
@@ -113,7 +113,7 @@ namespace QuanLyDuToan.BaoCao
                     m_dat_tu_ngay = CIPConvert.ToDatetime(Request.QueryString["tu_ngay"]);
                 if (Request.QueryString["den_ngay"] != null)
                     m_dat_den_ngay = CIPConvert.ToDatetime(Request.QueryString["den_ngay"]);
-                load_data_to_cbo_loai_don_vi();
+                //load_data_to_cbo_loai_don_vi();
                 load_data_to_grid();
             }
         }
