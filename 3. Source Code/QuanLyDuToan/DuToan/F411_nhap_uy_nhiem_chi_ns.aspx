@@ -193,7 +193,7 @@
 														
 														<asp:TemplateField HeaderText="Quốc lộ/Dự án" HeaderStyle-Width="300px" FooterStyle-Width="300px">
 															<ItemTemplate>
-																<asp:Label ID="m_lbl_grid_quoc_lo_du_an" Text='<%#Eval(V_GD_UY_NHIEM_CHI.DISPLAY) %>' runat="server"></asp:Label>
+																<asp:Label ID="m_lbl_grid_quoc_lo_du_an" Text='<%#Eval(V_GD_GIAI_NGAN_QBT.DISPLAY) %>' runat="server"></asp:Label>
 															</ItemTemplate>
 															<EditItemTemplate>
 																<asp:DropDownList ID="m_ddl_grid_edit_du_an_quoc_lo" runat="server" Width="300px"></asp:DropDownList>
@@ -204,11 +204,11 @@
 														</asp:TemplateField>
 														<asp:TemplateField HeaderText="Nội dung thanh toán" HeaderStyle-Width="200px">
 															<ItemTemplate>
-																<asp:Label ID="m_lbl_grid_ghi_chu" Text='<%#Eval(V_GD_UY_NHIEM_CHI.GHI_CHU).ToString() %>' runat="server"></asp:Label>
+																<asp:Label ID="m_lbl_grid_ghi_chu" Text='<%#Eval(V_GD_GIAI_NGAN_QBT.GHI_CHU).ToString() %>' runat="server"></asp:Label>
 															</ItemTemplate>
 															<EditItemTemplate>
 																<asp:TextBox ID="m_txt_grid_edit_ghi_chu" runat="server" TextMode="MultiLine" Width="96%"
-																	Text='<%#Eval(V_GD_UY_NHIEM_CHI.GHI_CHU) %>'></asp:TextBox>
+																	Text='<%#Eval(V_GD_GIAI_NGAN_QBT.GHI_CHU) %>'></asp:TextBox>
 															</EditItemTemplate>
 															<FooterTemplate>
 																<asp:TextBox ID="m_txt_grid_ghi_chu" runat="server" TextMode="MultiLine" Width="96%" Style="text-align: left"></asp:TextBox>
@@ -216,12 +216,12 @@
 														</asp:TemplateField>
 														<asp:TemplateField HeaderText="Số tiền nộp thuế" ItemStyle-Width="60px" ItemStyle-HorizontalAlign="Right">
 															<ItemTemplate>
-																<asp:Label ID="m_lbl_grid_so_tien_nop_thue" Text='<%#format_so_tien(Eval(V_GD_UY_NHIEM_CHI.SO_TIEN_NOP_THUE).ToString()) %>'
+																<asp:Label ID="m_lbl_grid_so_tien_nop_thue" Text='<%#format_so_tien(Eval(V_GD_GIAI_NGAN_QBT.SO_TIEN_NOP_THUE).ToString()) %>'
 																	runat="server"></asp:Label>
 															</ItemTemplate>
 															<EditItemTemplate>
 																<asp:TextBox ID="m_txt_grid_edit_so_tien_nop_thue" runat="server" Style="text-align: right"
-																	Text='<%#Eval(V_GD_UY_NHIEM_CHI.SO_TIEN_NOP_THUE) %>'></asp:TextBox>
+																	Text='<%#Eval(V_GD_GIAI_NGAN_QBT.SO_TIEN_NOP_THUE) %>'></asp:TextBox>
 															</EditItemTemplate>
 															<FooterTemplate>
 																<asp:TextBox ID="m_txt_grid_so_tien_nop_thue" runat="server" Style="text-align: right"></asp:TextBox>
@@ -229,11 +229,11 @@
 														</asp:TemplateField>
 														<asp:TemplateField HeaderText="Số tiền thanh toán cho đơn vị hưởng" ItemStyle-Width="60px" ItemStyle-HorizontalAlign="Right">
 															<ItemTemplate>
-																<asp:Label ID="m_lbl_grid_so_tien_tt_cho_dv_huong" Text='<%#format_so_tien(Eval(V_GD_UY_NHIEM_CHI.SO_TIEN_TT_CHO_DV_HUONG).ToString()) %>' runat="server"></asp:Label>
+																<asp:Label ID="m_lbl_grid_so_tien_tt_cho_dv_huong" Text='<%#format_so_tien(Eval(V_GD_GIAI_NGAN_QBT.SO_TIEN_TT_CHO_DV_HUONG).ToString()) %>' runat="server"></asp:Label>
 															</ItemTemplate>
 															<EditItemTemplate>
 																<asp:TextBox ID="m_txt_grid_edit_so_tien_tt_cho_dv_huong" runat="server" Style="text-align: right"
-																	Text='<%#Eval(V_GD_UY_NHIEM_CHI.SO_TIEN_TT_CHO_DV_HUONG) %>'></asp:TextBox>
+																	Text='<%#Eval(V_GD_GIAI_NGAN_QBT.SO_TIEN_TT_CHO_DV_HUONG) %>'></asp:TextBox>
 															</EditItemTemplate>
 															<FooterTemplate>
 																<asp:TextBox ID="m_txt_grid_so_tien_thanh_toan_cho_don_vi_huong" runat="server" Style="text-align: right"></asp:TextBox>
@@ -260,11 +260,11 @@
 																	<tr>
 																		<td style="width:50%;text-align:center">
 																			<asp:LinkButton ID="lbtnEdit" runat="server" CommandName="Edit" CssClass="cssButton"
-																				Text="Sửa" Visible='<%#thao_tac_visible(Eval(V_GD_UY_NHIEM_CHI.ID).ToString()) %>' /></td>
+																				Text="Sửa" Visible='<%#thao_tac_visible(Eval(V_GD_GIAI_NGAN_QBT.ID).ToString()) %>' /></td>
 																		<td style="width:50%;text-align:center">
 																			<asp:LinkButton ID="lbtnDelete" runat="server" CommandName="Delete" CssClass="cssButton"
 																				OnClientClick="return confirm('Are you sure you want to delete this record?')"
-																				Text="Xoá" CausesValidation="false" Visible='<%#thao_tac_visible(Eval(V_GD_UY_NHIEM_CHI.ID).ToString()) %>' />
+																				Text="Xoá" CausesValidation="false" Visible='<%#thao_tac_visible(Eval(V_GD_GIAI_NGAN_QBT.ID).ToString()) %>' />
 																		</td>
 																	</tr>
 
