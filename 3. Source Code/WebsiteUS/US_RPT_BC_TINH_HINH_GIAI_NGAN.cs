@@ -635,15 +635,36 @@ namespace WebUS
 			, DateTime ip_dat_tu_ngay
 			, DateTime ip_dat_den_ngay
 			, decimal ip_dc_id_don_vi
-            , decimal ip_dc_user_id)
+            , decimal ip_dc_user_id
+            , decimal ip_dc_id_du_an
+            , decimal ip_dc_id_cong_trinh
+            , decimal ip_dc_id_loai_nhiem_vu
+            , string ip_str_tu_khoa)
 		{
             CStoredProc v_sp = new CStoredProc("pr_A350_Bao_cao_tinh_hinh_giai_ngan_cua_don_vi");
 			v_sp.addDatetimeInputParam("@ip_dat_tu_ngay", ip_dat_tu_ngay);
 			v_sp.addDatetimeInputParam("@ip_dat_den_ngay", ip_dat_den_ngay);
 			v_sp.addDecimalInputParam("@ip_dc_id_don_vi", ip_dc_id_don_vi);
             v_sp.addDecimalInputParam("@ip_dc_id_user", ip_dc_user_id);
+            v_sp.addDecimalInputParam("@ip_dc_id_du_an", ip_dc_id_du_an);
+            v_sp.addDecimalInputParam("@ip_dc_id_cong_trinh", ip_dc_id_cong_trinh);
+            v_sp.addDecimalInputParam("@ip_dc_id_loai_nhiem_vu",ip_dc_id_loai_nhiem_vu);
+            v_sp.addNVarcharInputParam("@ip_str_tu_khoa",ip_str_tu_khoa);
 			v_sp.fillDataSetByCommand(this, op_ds);
 		}
+        public void bc_tinh_hinh_giai_ngan_don_vi(DS_RPT_BC_TINH_HINH_GIAI_NGAN op_ds
+            , DateTime ip_dat_tu_ngay
+            , DateTime ip_dat_den_ngay
+            , decimal ip_dc_id_don_vi
+            , decimal ip_dc_user_id)
+        {
+            CStoredProc v_sp = new CStoredProc("pr_A350_Bao_cao_tinh_hinh_giai_ngan_cua_don_vi");
+            v_sp.addDatetimeInputParam("@ip_dat_tu_ngay", ip_dat_tu_ngay);
+            v_sp.addDatetimeInputParam("@ip_dat_den_ngay", ip_dat_den_ngay);
+            v_sp.addDecimalInputParam("@ip_dc_id_don_vi", ip_dc_id_don_vi);
+            v_sp.addDecimalInputParam("@ip_dc_id_user", ip_dc_user_id);
+            v_sp.fillDataSetByCommand(this, op_ds);
+        }
 		public void bc_tinh_hinh_giai_ngan_tong_cuc(DataSet op_ds
 		, DateTime ip_dat_tu_ngay
 		, DateTime ip_dat_den_ngay

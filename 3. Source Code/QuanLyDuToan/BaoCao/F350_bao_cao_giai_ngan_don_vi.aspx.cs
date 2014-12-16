@@ -74,6 +74,10 @@ namespace QuanLyDuToan.BaoCao
 
 		private void load_data_to_grid()
 		{
+            decimal v_dc_id_du_an = CIPConvert.ToDecimal(m_ddl_du_an.SelectedValue);
+            decimal v_dc_id_loai_nhiem_vu = CIPConvert.ToDecimal(m_ddl_loai_nv.SelectedValue);
+            decimal v_dc_id_cong_trinh = CIPConvert.ToDecimal(m_ddl_cong_trinh.SelectedValue);
+            string v_str_tu_khoa = m_txt_tim_kiem.Text.Trim();
 			if (Request.QueryString["don_vi"] != null)
 			{
 				m_dc_id_don_vi = CIPConvert.ToDecimal(Request.QueryString["don_vi"]);
@@ -91,6 +95,10 @@ namespace QuanLyDuToan.BaoCao
 				, CIPConvert.ToDatetime(m_txt_den_ngay.Text, "dd/MM/yyyy")
 				, m_dc_id_don_vi
 				, Person.get_user_id()
+                , v_dc_id_du_an
+                ,v_dc_id_cong_trinh
+                ,v_dc_id_loai_nhiem_vu
+                ,v_str_tu_khoa
 				);
 			m_grv.DataSource = v_ds.RPT_BC_TINH_HINH_GIAI_NGAN;
 			m_grv.DataBind();
@@ -152,6 +160,8 @@ namespace QuanLyDuToan.BaoCao
 						m_dat_den_ngay = CIPConvert.ToDatetime(Request.QueryString["den_ngay"]);
                     App_Code.WinFormControls.load_data_to_ddl_loai_nhiem_vu(m_ddl_loai_nv);
                     //App_Code.WinFormControls.load_data_to_cbo_cong_trinh_theo_loai_nhiem_vu(CIPConvert.ToDecimal(m_ddl_loai_nv.SelectedValue), m_ddl_cong_trinh);
+                    App_Code.WinFormControls.load_data_to_cbo_cong_trinh_theo_loai_nhiem_vu(CIPConvert.ToDecimal(m_ddl_loai_nv.SelectedValue), m_ddl_cong_trinh);
+                    App_Code.WinFormControls.load_data_to_cbo_du_an_theo_cong_trinh_va_loai_nhiem_vu(CIPConvert.ToDecimal(m_ddl_cong_trinh.SelectedValue), CIPConvert.ToDecimal(m_ddl_loai_nv.SelectedValue), m_ddl_du_an);
 					load_data_to_grid();
 				}
                 
