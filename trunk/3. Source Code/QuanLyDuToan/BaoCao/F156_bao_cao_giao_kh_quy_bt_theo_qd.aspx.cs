@@ -130,6 +130,7 @@ namespace QuanLyDuToan.BaoCao
 					//m_dat_den_ngay = CIPConvert.ToDatetime(Request.QueryString["den_ngay"]);
 					//m_str_is_nguon_ngan_sach = Request.QueryString["is_nguon_ngan_sach"];
 					//m_str_ten_du_an = Request.QueryString["ten_du_an"];
+                    App_Code.WinFormControls.load_data_to_ddl_loai_nhiem_vu(m_ddl_loai_nv);
 					load_data_to_grid();
 				}
 			}
@@ -270,6 +271,16 @@ namespace QuanLyDuToan.BaoCao
 			}
 
 		}
+
+        protected void m_ddl_loai_nv_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            App_Code.WinFormControls.load_data_to_cbo_cong_trinh_theo_loai_nhiem_vu(CIPConvert.ToDecimal(m_ddl_loai_nv.SelectedValue), m_ddl_cong_trinh);
+        }
+
+        protected void m_ddl_cong_trinh_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            App_Code.WinFormControls.load_data_to_cbo_du_an_theo_cong_trinh_va_loai_nhiem_vu(CIPConvert.ToDecimal(m_ddl_cong_trinh.SelectedValue), CIPConvert.ToDecimal(m_ddl_loai_nv.SelectedValue), m_ddl_du_an);
+        }
 
 
 	}

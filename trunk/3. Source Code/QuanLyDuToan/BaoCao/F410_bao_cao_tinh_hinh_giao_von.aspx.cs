@@ -130,6 +130,7 @@ namespace QuanLyDuToan.BaoCao
 					v_dat_dau_nam = v_dat_dau_nam.AddMonths(-v_dat_dau_nam.Month + 1);
 					m_txt_tu_ngay.Text = CIPConvert.ToStr(v_dat_dau_nam, "dd/MM/yyyy");
 					m_txt_den_ngay.Text = CIPConvert.ToStr(v_dat_now, "dd/MM/yyyy");
+                    App_Code.WinFormControls.load_data_to_ddl_loai_nhiem_vu(m_ddl_loai_nv);
 					load_data_to_grid();
 				}
 			}
@@ -199,5 +200,15 @@ namespace QuanLyDuToan.BaoCao
 		{
 			//base.VerifyRenderingInServerForm(control);
 		}
+
+        protected void m_ddl_loai_nv_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            App_Code.WinFormControls.load_data_to_cbo_cong_trinh_theo_loai_nhiem_vu(CIPConvert.ToDecimal(m_ddl_loai_nv.SelectedValue), m_ddl_cong_trinh);
+        }
+
+        protected void m_ddl_cong_trinh_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            App_Code.WinFormControls.load_data_to_cbo_du_an_theo_cong_trinh_va_loai_nhiem_vu(CIPConvert.ToDecimal(m_ddl_cong_trinh.SelectedValue), CIPConvert.ToDecimal(m_ddl_loai_nv.SelectedValue), m_ddl_du_an);
+        }
 	}
 }
