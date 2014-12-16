@@ -31,12 +31,15 @@ namespace QuanLyDuToan.ChucNang
 
 		private void load_content_print(decimal ip_dc_id_dm_unc)
 		{
-			US_V_DM_GIAI_NGAN v_us = new US_V_DM_GIAI_NGAN(ip_dc_id_dm_unc);
+			US_DM_GIAI_NGAN v_us = new US_DM_GIAI_NGAN(ip_dc_id_dm_unc);
+			US_V_DM_GIAI_NGAN v_us_v_giai_ngan = new US_V_DM_GIAI_NGAN();
 			DS_V_DM_GIAI_NGAN v_ds = new DS_V_DM_GIAI_NGAN();
+			v_ds.EnforceConstraints = false;
 
 			US_DM_THONG_TIN_DON_VI v_us_thong_tin_don_vi = new US_DM_THONG_TIN_DON_VI(Person.get_id_don_vi(), Person.get_id_don_vi());
 			US_DM_DON_VI v_us_dm_don_vi = new US_DM_DON_VI(Person.get_id_don_vi());
-			v_us.FillDataset(v_ds, "where " + V_DM_GIAI_NGAN.ID_DON_VI + "=" + Person.get_id_don_vi());
+			v_us_v_giai_ngan.FillDataset(v_ds, "where " + V_DM_GIAI_NGAN.ID_DON_VI + "=" + Person.get_id_don_vi()
+				+" and "+V_DM_GIAI_NGAN.ID+"="+ip_dc_id_dm_unc);
 
 			m_lbl_ngay_thang.Text = " " + CIPConvert.ToStr(v_us.datNGAY_THANG, "dd") +
 				" tháng " + CIPConvert.ToStr(v_us.datNGAY_THANG, "MM") +

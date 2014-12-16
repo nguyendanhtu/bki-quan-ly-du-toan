@@ -206,13 +206,13 @@ namespace QuanLyDuToan.App_Code
             string v_str_data_default = "---Chọn dự án---";
             v_ds.EnforceConstraints = false;
             if (ip_dc_id_loai_du_an != -1) {
-                v_str_data_default = "---Chọn quốc lộ---";
+				v_str_data_default = "---Chọn dự án---";
                 v_us.FillDataset(v_ds, " WHERE ID_LOAI = " + ip_dc_id_loai_du_an + " AND ID_CHA = " + ip_dc_id_cha);
             }
-            else {
-                v_str_data_default = "---Chọn dự án---";
-                v_us.FillDataset(v_ds, " WHERE ID_CHA = " + ip_dc_id_cha);
-            }
+			//else {
+			//	v_str_data_default = "---Chọn dự án---";
+			//	v_us.FillDataset(v_ds, " WHERE ID_CHA = " + ip_dc_id_cha);
+			//}
             op_ddl_quyet_dinh.DataTextField = DM_CONG_TRINH_DU_AN_GOI_THAU.TEN;
             op_ddl_quyet_dinh.DataValueField = DM_CONG_TRINH_DU_AN_GOI_THAU.ID;
             op_ddl_quyet_dinh.DataSource = v_ds.DM_CONG_TRINH_DU_AN_GOI_THAU;

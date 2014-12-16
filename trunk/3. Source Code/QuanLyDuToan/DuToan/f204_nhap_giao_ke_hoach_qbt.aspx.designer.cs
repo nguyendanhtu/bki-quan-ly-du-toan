@@ -193,6 +193,15 @@ namespace QuanLyDuToan.DuToan {
         protected global::System.Web.UI.WebControls.Label m_lbl_mess_detail;
         
         /// <summary>
+        /// m_ddl_loai_nhiem_vu control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList m_ddl_loai_nhiem_vu;
+        
+        /// <summary>
         /// m_txt_quoc_lo control.
         /// </summary>
         /// <remarks>
@@ -202,13 +211,13 @@ namespace QuanLyDuToan.DuToan {
         protected global::System.Web.UI.WebControls.TextBox m_txt_quoc_lo;
         
         /// <summary>
-        /// m_ddl_quoc_lo control.
+        /// m_ddl_cong_trinh control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList m_ddl_quoc_lo;
+        protected global::System.Web.UI.WebControls.DropDownList m_ddl_cong_trinh;
         
         /// <summary>
         /// m_cmd_them_quoc_lo control.
@@ -263,15 +272,6 @@ namespace QuanLyDuToan.DuToan {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button m_cmd_them_du_an;
-        
-        /// <summary>
-        /// m_ddl_loai_nhiem_vu control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList m_ddl_loai_nhiem_vu;
         
         /// <summary>
         /// m_txt_so_tien_nam_truoc_chuyen_sang control.

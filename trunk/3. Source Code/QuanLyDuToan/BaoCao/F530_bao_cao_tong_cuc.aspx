@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="F530_bao_cao_tong_cuc.aspx.cs" Inherits="QuanLyDuToan.BaoCao.F530_bao_cao_tong_cuc" %>
+﻿<%@ Page Title="" Language="C#" EnableEventValidation="false" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="F530_bao_cao_tong_cuc.aspx.cs" Inherits="QuanLyDuToan.BaoCao.F530_bao_cao_tong_cuc" %>
 
 <%@ Import Namespace="IP.Core.IPCommon" %>
 <%@ Import Namespace="WebDS.CDBNames" %>
@@ -35,12 +35,12 @@
 					</td>
 				</tr>
                 <tr>
-                    <td style="width: 200px;"></td>
+                    <%--<td style="width: 200px;"></td>
                     <td style="display: none;">
                         <span style="font-weight: bold" >Loại đơn vị
                         <asp:DropDownList id="m_cbo_loai_don_vi" Width="200px" runat="server"></asp:DropDownList></span>
-                    </td>
-                    <td colspan="2">
+                    </td>--%>
+                    <td colspan="4" style="text-align:center">
 						<span style="font-weight: bold">Từ ngày
 							<asp:TextBox ID="m_txt_tu_ngay" placeholder="dd/MM/yyyy" runat="server" CssClass="cssTextBox" Width="90px"></asp:TextBox></span>
 						<span>&nbsp; Đến ngày
