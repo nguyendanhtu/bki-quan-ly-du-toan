@@ -283,22 +283,22 @@ namespace QuanLyDuToan.DuToan {
         protected global::System.Web.UI.WebControls.TextBox m_txt_so_tien_nam_truoc_chuyen_sang;
         
         /// <summary>
-        /// m_txt_so_tien_ns control.
+        /// m_lbl_so_tien control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox m_txt_so_tien_ns;
+        protected global::System.Web.UI.WebControls.Label m_lbl_so_tien;
         
         /// <summary>
-        /// m_txt_so_tien_qbt control.
+        /// m_txt_so_tien control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox m_txt_so_tien_qbt;
+        protected global::System.Web.UI.WebControls.TextBox m_txt_so_tien;
         
         /// <summary>
         /// m_txt_ghi_chu control.

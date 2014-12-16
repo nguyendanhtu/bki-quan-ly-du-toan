@@ -5,16 +5,13 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="Server">
 	<script type="text/javascript">
 		function tinhTongChiTx() {
-			var so_tien_ns = parseInt(document.getElementById('<%=m_txt_so_tien_ns.ClientID%>').value.split(',').join('').split('.').join(''));
-			var so_tien_ntcs = parseInt(document.getElementById('<%=m_txt_so_tien_nam_truoc_chuyen_sang.ClientID%>').value.split(',').join('').split('.').join(''));
-			var so_tien_qbt = parseInt(document.getElementById('<%=m_txt_so_tien_qbt.ClientID%>').value.split(',').join('').split('.').join(''));
-			m_lbl_tong_chi_ktx.innerHTML = getFormatedNumberString(so_tien_ns + so_tien_qbt + so_tien_ntcs);
+			var so_tien_ntcs = parseInt(document.getElementById("<%=m_txt_so_tien_nam_truoc_chuyen_sang.ClientID%>").value.split(',').join('').split('.').join(''));
+			var so_tien_qbt = parseInt(document.getElementById('<%=m_txt_so_tien.ClientID%>').value.split(',').join('').split('.').join(''));
+			m_lbl_tong_chi_ktx.innerHTML = getFormatedNumberString(so_tien_qbt + so_tien_ntcs);
 		}
 		$(document).ready(function () {
-			$("#<%=m_txt_so_tien_ns.ClientID%>").bind({
-				blur: function () { $(this).val(tinhTongChiTx()); }
-			});
-			$("#<%=m_txt_so_tien_qbt.ClientID%>").bind({
+
+			$("#<%=m_txt_so_tien.ClientID%>").bind({
 				blur: function () { $(this).val(tinhTongChiTx()); }
 			});
 			$("#<%=m_txt_so_tien_nam_truoc_chuyen_sang.ClientID%>").bind({
@@ -23,10 +20,8 @@
 		});
 		function pageLoad(sender, args) {
 			if (args.get_isPartialLoad()) {
-				$("#<%=m_txt_so_tien_ns.ClientID%>").bind({
-					blur: function () { $(this).val(tinhTongChiTx()); }
-				});
-				$("#<%=m_txt_so_tien_qbt.ClientID%>").bind({
+
+				$("#<%=m_txt_so_tien.ClientID%>").bind({
 					blur: function () { $(this).val(tinhTongChiTx()); }
 				});
 				$("#<%=m_txt_so_tien_nam_truoc_chuyen_sang.ClientID%>").bind({
@@ -132,7 +127,7 @@
 													<asp:DropDownList ID="m_ddl_cong_trinh" runat="server" Width="155px" OnSelectedIndexChanged="m_ddl_cong_trinh_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
 												</td>
 												<td>
-													<asp:Button ID="m_cmd_them_quoc_lo" Style="width: 80px" Text="Thêm mới" OnClick="m_cmd_them_quoc_lo_Click" runat="server" />
+													<asp:Button ID="m_cmd_them_quoc_lo" Style="width: 80px" Text="Nhập mới" OnClick="m_cmd_them_quoc_lo_Click" runat="server" />
 													<asp:Button ID="m_cmd_chon_quoc_lo" Style="width: 80px" Text="Chọn" Visible="false" OnClick="m_cmd_chon_quoc_lo_Click" runat="server" />
 												</td>
 											</tr>
@@ -144,7 +139,7 @@
 												</td>
 												<td>
 													<asp:Button ID="m_cmd_chon_du_an" Style="width: 80px" Text="Chọn" Visible="false" OnClick="m_cmd_chon_du_an_Click" runat="server" />
-													<asp:Button ID="m_cmd_them_du_an" Style="width: 80px" Text="Thêm mới" OnClick="m_cmd_them_du_an_Click" runat="server" />
+													<asp:Button ID="m_cmd_them_du_an" Style="width: 80px" Text="Nhập mới" OnClick="m_cmd_them_du_an_Click" runat="server" />
 												</td>
 											</tr>
 
@@ -158,18 +153,10 @@
 											</tr>
 											<tr>
 												<td style="text-align: right">
-													<span>Kinh phí ngân sách</span>
+													<asp:Label ID="m_lbl_so_tien" runat="server" Text="Kinh phí Quỹ bảo trì"></asp:Label>
 												</td>
 												<td colspan="2">
-													<asp:TextBox ID="m_txt_so_tien_ns" runat="server" Text="0" Style="text-align: right" CssClass="csscurrency" Width="170px"></asp:TextBox>(đ)
-												</td>
-											</tr>
-											<tr>
-												<td style="text-align: right">
-													<span>Kinh phí quỹ bảo trì</span>
-												</td>
-												<td colspan="2">
-													<asp:TextBox ID="m_txt_so_tien_qbt" runat="server" CssClass="csscurrency" Text="0" Style="text-align: right" Width="170px"></asp:TextBox>(đ)
+													<asp:TextBox ID="m_txt_so_tien" runat="server" CssClass="csscurrency" Text="0" Style="text-align: right" Width="170px"></asp:TextBox>(đ)
 												</td>
 											</tr>
 											<tr>
@@ -241,6 +228,7 @@
 													<asp:LinkButton ID="m_lbl_delete" runat="server" CausesValidation="false" CommandArgument='<%#Eval("ID")%>'
 														CommandName="Xoa" ToolTip="Xóa" OnClientClick="return confirm ('Bạn có thực sự muốn xóa bản ghi này?')">
                      <img alt="Xóa" src="../Images/Button/deletered.png" />
+													
 													</asp:LinkButton>
 												</ItemTemplate>
 												<ItemStyle HorizontalAlign="Center"></ItemStyle>
@@ -250,6 +238,7 @@
 													<asp:LinkButton ID="m_lbl_update" runat="server" CausesValidation="false" CommandArgument='<%#Eval("ID")%>'
 														CommandName="Sua" ToolTip="Sửa">
                      <img alt="Xóa" src="../Images/Button/edit.png" />
+													
 													</asp:LinkButton>
 												</ItemTemplate>
 												<ItemStyle HorizontalAlign="Center"></ItemStyle>
