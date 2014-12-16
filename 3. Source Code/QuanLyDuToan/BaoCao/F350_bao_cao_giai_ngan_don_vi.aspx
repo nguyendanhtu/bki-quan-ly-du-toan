@@ -33,10 +33,21 @@
                         <br />
                         <span style="font-weight: bold">ĐƠN VỊ: <asp:Label runat="server" Text="Label" ID="m_txt_ten_don_vi"></asp:Label></span>
                         <br />                        
+                        <span>&nbsp;Tìm kiếm:
+                            <asp:TextBox ID="m_txt_tim_kiem" runat="server"></asp:TextBox>
+                        <br />
+                        <span>&nbsp;Loại nhiệm vụ</span>
+                            <asp:DropDownList ID="m_ddl_loai_nv" runat="server" Width="100px" AutoPostBack="True" OnSelectedIndexChanged="m_ddl_loai_nv_SelectedIndexChanged"></asp:DropDownList></span>
+                        <span>&nbsp; Công trình
+                            <asp:DropDownList ID="m_ddl_cong_trinh" runat="server" Width="100px" AutoPostBack="True" OnSelectedIndexChanged="m_ddl_cong_trinh_SelectedIndexChanged"></asp:DropDownList></span>
+                        <span>&nbsp; Dự án
+                            <asp:DropDownList ID="m_ddl_du_an" runat="server" Width="100px"></asp:DropDownList></span>
+                        <br /> 
                         <span style="font-weight: bold">Từ ngày
 							<asp:TextBox ID="m_txt_tu_ngay" placeholder="dd/MM/yyyy" runat="server" CssClass="cssTextBox" Width="100px"></asp:TextBox></span>
                         <span>&nbsp; Đến ngày
 							<asp:TextBox ID="m_txt_den_ngay" placeholder="dd/MM/yyyy" runat="server" CssClass="cssTextBox" Width="100px"></asp:TextBox></span>                        
+                   
                     </td>
                 </tr>
                 <tr>
