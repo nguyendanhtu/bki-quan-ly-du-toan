@@ -121,28 +121,83 @@
 												</td>
 											</tr>
 											<tr>
-												<td style="text-align: right">Công trình/Quốc lộ</td>
-												<td style="text-align: left">
-													<asp:TextBox ID="m_txt_quoc_lo" runat="server" CssClass="cssTextBox" Visible="false" Width="150px"></asp:TextBox>
-													<asp:DropDownList ID="m_ddl_cong_trinh" runat="server" Width="155px" OnSelectedIndexChanged="m_ddl_cong_trinh_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
-												</td>
-												<td>
-													<asp:Button ID="m_cmd_them_quoc_lo" Style="width: 80px" Text="Nhập mới" OnClick="m_cmd_them_quoc_lo_Click" runat="server" />
-													<asp:Button ID="m_cmd_chon_quoc_lo" Style="width: 80px" Text="Chọn" Visible="false" OnClick="m_cmd_chon_quoc_lo_Click" runat="server" />
+												<td></td>
+												<td colspan="2">
+													<asp:RadioButton ID="m_rdb_theo_quoc_lo"  Checked="true"  runat="server" Text="Theo Quốc lộ/dự án" GroupName="chi_theo" AutoPostBack="true" OnCheckedChanged="m_rdb_theo_quoc_lo_CheckedChanged" />
+													<br />
+													<asp:RadioButton ID="m_rdb_theo_chuong_loai_khoan_muc" AutoPostBack="true" OnCheckedChanged="m_rdb_theo_chuong_loai_khoan_muc_CheckedChanged" runat="server" Text="Theo Loại khoản mục" GroupName="chi_theo" />
 												</td>
 											</tr>
-											<tr>
-												<td style="text-align: right">Tên dự án</td>
-												<td style="text-align: left">
-													<asp:TextBox ID="m_txt_du_an" runat="server" CssClass="cssTextBox" Visible="false" Width="150px"></asp:TextBox>
-													<asp:DropDownList ID="m_ddl_du_an" runat="server" Width="155px" AutoPostBack="true"></asp:DropDownList>
-												</td>
-												<td>
-													<asp:Button ID="m_cmd_chon_du_an" Style="width: 80px" Text="Chọn" Visible="false" OnClick="m_cmd_chon_du_an_Click" runat="server" />
-													<asp:Button ID="m_cmd_them_du_an" Style="width: 80px" Text="Nhập mới" OnClick="m_cmd_them_du_an_Click" runat="server" />
-												</td>
-											</tr>
+											<asp:Panel ID="m_pnl_cong_trinh" runat="server">
+												<tr>
+													<td style="text-align: right">Công trình/Quốc lộ</td>
+													<td style="text-align: left">
+														<asp:TextBox ID="m_txt_quoc_lo" runat="server" CssClass="cssTextBox" Visible="false" Width="150px"></asp:TextBox>
+														<asp:DropDownList ID="m_ddl_cong_trinh" runat="server" Width="155px" OnSelectedIndexChanged="m_ddl_cong_trinh_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
+													</td>
+													<td>
+														<asp:Button ID="m_cmd_them_quoc_lo" Style="width: 80px" Text="Nhập mới" OnClick="m_cmd_them_quoc_lo_Click" runat="server" />
+														<asp:Button ID="m_cmd_chon_quoc_lo" Style="width: 80px" Text="Chọn" Visible="false" OnClick="m_cmd_chon_quoc_lo_Click" runat="server" />
+													</td>
+												</tr>
+												<tr>
+													<td style="text-align: right">Tên dự án</td>
+													<td style="text-align: left">
+														<asp:TextBox ID="m_txt_du_an" runat="server" CssClass="cssTextBox" Visible="false" Width="150px"></asp:TextBox>
+														<asp:DropDownList ID="m_ddl_du_an" runat="server" Width="155px" AutoPostBack="true"></asp:DropDownList>
+													</td>
+													<td>
+														<asp:Button ID="m_cmd_chon_du_an" Style="width: 80px" Text="Chọn" Visible="false" OnClick="m_cmd_chon_du_an_Click" runat="server" />
+														<asp:Button ID="m_cmd_them_du_an" Style="width: 80px" Text="Nhập mới" OnClick="m_cmd_them_du_an_Click" runat="server" />
+													</td>
+												</tr>
+											</asp:Panel>
+											<asp:Panel ID="m_pnl_chuong_loai_khoan_muc" runat="server">
+												<tr>
+													<td style="text-align: right">
+														<span>Chương</span>
+													</td>
+													<td>
+														<asp:DropDownList ID="m_ddl_chuong" runat="server" Width="176px" CssClass="cssDorpdownlist"></asp:DropDownList>
+													</td>
+												</tr>
+												<tr>
+													<td style="text-align: right">Loại</span></td>
 
+													<td>
+														<asp:DropDownList ID="m_ddl_loai" Width="176px" runat="server" CssClass="cssDorpdownlist"
+															OnSelectedIndexChanged="m_ddl_loai_SelectedIndexChanged" AutoPostBack="true">
+														</asp:DropDownList>
+													</td>
+
+												</tr>
+												<tr>
+													<td style="text-align:right">
+														<span>Khoản</span>
+													</td>
+													<td>
+														<asp:DropDownList ID="m_ddl_khoan" Width="176px" runat="server" CssClass="cssDorpdownlist"></asp:DropDownList>
+													</td>
+												</tr>
+												<tr>
+													<td style="text-align:right">
+														<span>Mục</span>
+													</td>
+													<td>
+														<asp:DropDownList ID="m_ddl_muc" Width="176px" runat="server" CssClass="cssDorpdownlist" OnSelectedIndexChanged="m_ddl_muc_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
+													</td>
+												</tr>
+												<tr>
+
+													<td style="text-align:right">
+														<span>Tiểu mục</span>
+													</td>
+													<td>
+														<asp:DropDownList ID="m_ddl_tieu_muc" Width="176px" runat="server" CssClass="cssDorpdownlist">
+														</asp:DropDownList>
+													</td>
+												</tr>
+											</asp:Panel>
 											<tr>
 												<td style="text-align: right">
 													<span>Kinh phí năm trước chuyển sang</span>
