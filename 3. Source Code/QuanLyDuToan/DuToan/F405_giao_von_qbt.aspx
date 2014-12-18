@@ -85,41 +85,6 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Công trình</td>
-                                    <td>
-                                        <asp:DropDownList ID="m_ddl_cong_trinh" runat="server" Width="250px" AutoPostBack="true" OnSelectedIndexChanged="m_ddl_cong_trinh_SelectedIndexChanged">
-                                        </asp:DropDownList>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Dự án</td>
-                                    <td>
-                                        <asp:DropDownList ID="m_ddl_du_an" runat="server" Width="350px" AutoPostBack="true" OnSelectedIndexChanged="m_ddl_du_an_SelectedIndexChanged">
-                                        </asp:DropDownList>
-                                        <asp:Label ID="m_lbl_mess_du_an" runat="server" CssClass="cssManField"></asp:Label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Kinh phí ngân sách
-                                    </td>
-                                    <td>
-                                        <asp:TextBox ID="m_txt_ngan_sach" runat="server" Width="250px" Text="0.00"></asp:TextBox>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Kinh phí qũy bảo trì
-                                    </td>
-                                    <td>
-                                        <asp:TextBox ID="m_txt_quy_bao_tri" runat="server" Width="250px" Text="0.00"></asp:TextBox>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2">
-                                        <asp:Button ID="m_cmd_giao_von_du_an" runat="server" Text="Thêm giao vốn" OnClick="m_cmd_giao_von_du_an_Click" />
-                                        <asp:Button ID="m_cmd_huy_giao_von" runat="server" Text="Làm mới" OnClick="m_cmd_huy_giao_von_Click" />
-                                    </td>
-                                </tr>
-                                <tr>
                                     <td colspan="2">
                                         <table style="width: 99%;" border="0">
                                             <tr>
@@ -165,14 +130,14 @@
                                                                         Text='<%#format_so_tien(Eval(GRID_GIAO_VON.KE_HOACH_CHI).ToString()) %>'></asp:Label>
                                                                 </ItemTemplate>
                                                             </asp:TemplateField>
-                                                            <asp:TemplateField HeaderText="Kinh phí Ngân sách" ItemStyle-HorizontalAlign="Right" ItemStyle-Width="100px">
+                                                          <%--  <asp:TemplateField HeaderText="Kinh phí Ngân sách" ItemStyle-HorizontalAlign="Right" ItemStyle-Width="100px">
                                                                 <ItemTemplate>
                                                                     <asp:TextBox ID="m_txt_so_tien_ngan_sach_grid" runat="server" Style="text-align: right" CssClass="csscurrency"
                                                                         Text='<%#format_so_tien(Eval(GRID_GIAO_VON.NS).ToString()) %>' Visible='<%# !visible_label_so_tien(Eval("ID").ToString()) %>'></asp:TextBox>
                                                                     <asp:Label ID="m_lbl_so_tien_ngan_sach_grid" runat="server" Style="text-align: right" CssClass="csscurrency"
                                                                         Visible='<%# visible_label_so_tien(Eval("ID").ToString()) %>' Text='<%#format_so_tien(Eval(GRID_GIAO_VON.NS).ToString()) %>'></asp:Label>
                                                                 </ItemTemplate>
-                                                            </asp:TemplateField>
+                                                            </asp:TemplateField>--%>
                                                             <asp:TemplateField HeaderText="Kinh phí Quỹ bảo trì" ItemStyle-HorizontalAlign="Right" ItemStyle-Width="100px">
                                                                 <ItemTemplate>
                                                                     <asp:TextBox ID="m_txt_so_tien_quy_bao_tri_grid" runat="server" Style="text-align: right" CssClass="csscurrency"
@@ -189,7 +154,7 @@
                                                                         Text='<%#format_so_tien(Eval(GRID_GIAO_VON.TONG).ToString()) %>'></asp:Label>
                                                                 </ItemTemplate>
                                                             </asp:TemplateField>
-                                                            <asp:TemplateField HeaderText="Xóa" HeaderStyle-Width="2%">
+                                                           <%-- <asp:TemplateField HeaderText="Xóa" HeaderStyle-Width="2%">
                                                                 <ItemTemplate>
                                                                     <asp:LinkButton ID="m_link_delete" runat="server" CausesValidation="false" CommandArgument='<%#Eval("ID")%>'
                                                                         CommandName="Xoa" ToolTip="Xóa" OnClientClick="return confirm ('Bạn có thực sự muốn xóa bản ghi này?')">
@@ -197,7 +162,7 @@
                                                                     </asp:LinkButton>
                                                                 </ItemTemplate>
                                                                 <ItemStyle HorizontalAlign="Center"></ItemStyle>
-                                                            </asp:TemplateField>
+                                                            </asp:TemplateField>--%>
                                                         </Columns>
                                                     </asp:GridView>
                                                 </td>
