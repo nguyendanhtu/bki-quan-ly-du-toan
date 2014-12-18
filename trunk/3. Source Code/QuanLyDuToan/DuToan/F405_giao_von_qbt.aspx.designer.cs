@@ -193,69 +193,6 @@ namespace QuanLyDuToan.DuToan {
         protected global::System.Web.UI.WebControls.DropDownList m_ddl_loai_nhiem_vu;
         
         /// <summary>
-        /// m_ddl_cong_trinh control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList m_ddl_cong_trinh;
-        
-        /// <summary>
-        /// m_ddl_du_an control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList m_ddl_du_an;
-        
-        /// <summary>
-        /// m_lbl_mess_du_an control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label m_lbl_mess_du_an;
-        
-        /// <summary>
-        /// m_txt_ngan_sach control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox m_txt_ngan_sach;
-        
-        /// <summary>
-        /// m_txt_quy_bao_tri control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox m_txt_quy_bao_tri;
-        
-        /// <summary>
-        /// m_cmd_giao_von_du_an control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button m_cmd_giao_von_du_an;
-        
-        /// <summary>
-        /// m_cmd_huy_giao_von control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button m_cmd_huy_giao_von;
-        
-        /// <summary>
         /// m_lbl_mess_detail control.
         /// </summary>
         /// <remarks>

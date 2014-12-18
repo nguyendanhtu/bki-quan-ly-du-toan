@@ -774,19 +774,26 @@ namespace QuanLyDuToan.DuToan
 						m_ddl_quyet_dinh.SelectedValue = v_dc_id_quyet_dinh.ToString();
 						m_ddl_quyet_dinh_SelectedIndexChanged(null, null);
 					}
+					//kiem tra xem dang nhap Nguon nao
+					if (Request.QueryString["ip_nguon_ns"] == "Y")
+					{
+						m_lbl_so_tien.Text = "Kinh phí Ngân sách";
+						m_lbl_title.Text = "Nhập giao kế hoạch - Nguồn Ngân sách";
+						m_rdb_theo_chuong_loai_khoan_muc.Checked = true;
+						m_rdb_theo_quoc_lo.Checked = false;
+						m_rdb_theo_chuong_loai_khoan_muc_CheckedChanged(null, null);
+					}
+					else
+					{
+						m_lbl_so_tien.Text = "Kinh phí Quỹ bảo trì";
+						m_lbl_title.Text = "Nhập giao kế hoạch - Nguồn Quỹ bảo trì";
+						m_rdb_theo_chuong_loai_khoan_muc.Checked = false;
+						m_rdb_theo_quoc_lo.Checked = true;
+						m_rdb_theo_quoc_lo_CheckedChanged(null, null);
+					}
 				}
 
-				//kiem tra xem dang nhap Nguon nao
-				if (Request.QueryString["ip_nguon_ns"] == "Y")
-				{
-					m_lbl_so_tien.Text = "Kinh phí Ngân sách";
-					m_lbl_title.Text = "Nhập giao kế hoạch - Nguồn Ngân sách";
-				}
-				else
-				{
-					m_lbl_so_tien.Text = "Kinh phí Quỹ bảo trì";
-					m_lbl_title.Text = "Nhập giao kế hoạch - Nguồn Quỹ bảo trì";
-				}
+				
 			}
 			catch (Exception v_e)
 			{
