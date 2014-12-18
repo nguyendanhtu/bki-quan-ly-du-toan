@@ -499,33 +499,33 @@ namespace WebUS
 		//	}
 		//	return op_dc_tong_tien;
 		//}
-		//public bool update_ten_du_an_giao_kh_to_giao_von_va_unc(
-		//	decimal ip_dc_id_don_vi
-		//	, decimal ip_dc_id_loai_nhiem_vu
-		//	, decimal ip_dc_id_du_an_cong_trinh
-		//	, string ip_str_ten_du_an_cu
-		//	, string ip_str_ten_du_an_moi
-		//	, DateTime ip_dat_tu_ngay
-		//	, DateTime ip_dat_den_ngay)
-		//{
-		//	CStoredProc v_sp = new CStoredProc("pr_update_ten_du_an_from_gd_giao_kh");
-		//	v_sp.addDecimalInputParam("@ip_dc_id_don_vi", ip_dc_id_don_vi);
-		//	v_sp.addDecimalInputParam("@ip_dc_id_loai_nhiem_vu", ip_dc_id_loai_nhiem_vu);
-		//	v_sp.addDecimalInputParam("@ip_dc_id_du_an_cong_trinh", ip_dc_id_du_an_cong_trinh);
-		//	v_sp.addNVarcharInputParam("@ip_str_ten_du_an_cu", ip_str_ten_du_an_cu);
-		//	v_sp.addNVarcharInputParam("@ip_str_ten_du_an_moi", ip_str_ten_du_an_moi);
-		//	v_sp.addDatetimeInputParam("@ip_dat_tu_ngay", ip_dat_tu_ngay);
-		//	v_sp.addDatetimeInputParam("@ip_dat_den_ngay", ip_dat_den_ngay);
-		//	try
-		//	{
-		//		v_sp.ExecuteCommand(this);
-		//	}
-		//	catch (Exception)
-		//	{
-		//		return false;
-		//	}
-		//	return true;
-		//}
+		public bool update_ten_du_an_giao_kh_to_giao_von_va_unc(
+			decimal ip_dc_id_don_vi
+			, decimal ip_dc_id_loai_nhiem_vu
+			, decimal ip_dc_id_du_an_cong_trinh
+			, string ip_str_ten_du_an_cu
+			, string ip_str_ten_du_an_moi
+			, DateTime ip_dat_tu_ngay
+			, DateTime ip_dat_den_ngay)
+		{
+			CStoredProc v_sp = new CStoredProc("pr_update_ten_du_an_from_gd_giao_kh");
+			v_sp.addDecimalInputParam("@ip_dc_id_don_vi", ip_dc_id_don_vi);
+			v_sp.addDecimalInputParam("@ip_dc_id_loai_nhiem_vu", ip_dc_id_loai_nhiem_vu);
+			v_sp.addDecimalInputParam("@ip_dc_id_du_an_cong_trinh", ip_dc_id_du_an_cong_trinh);
+			v_sp.addNVarcharInputParam("@ip_str_ten_du_an_cu", ip_str_ten_du_an_cu);
+			v_sp.addNVarcharInputParam("@ip_str_ten_du_an_moi", ip_str_ten_du_an_moi);
+			v_sp.addDatetimeInputParam("@ip_dat_tu_ngay", ip_dat_tu_ngay);
+			v_sp.addDatetimeInputParam("@ip_dat_den_ngay", ip_dat_den_ngay);
+			try
+			{
+				v_sp.ExecuteCommand(this);
+			}
+			catch (Exception)
+			{
+				return false;
+			}
+			return true;
+		}
 
 		#endregion
 	}
