@@ -193,7 +193,7 @@
 														
 														<asp:TemplateField HeaderText="Quốc lộ/Dự án" HeaderStyle-Width="300px" FooterStyle-Width="300px">
 															<ItemTemplate>
-																<asp:Label ID="m_lbl_grid_quoc_lo_du_an" Text='<%#Eval(V_GD_GIAI_NGAN_QBT.DISPLAY) %>' runat="server"></asp:Label>
+																<asp:Label ID="m_lbl_grid_quoc_lo_du_an" Text='<%#Eval(V_GD_GIAI_NGAN_QBT.NOI_DUNG_CHI) %>' runat="server"></asp:Label>
 															</ItemTemplate>
 															<EditItemTemplate>
 																<asp:DropDownList ID="m_ddl_grid_edit_du_an_quoc_lo" runat="server" Width="300px"></asp:DropDownList>

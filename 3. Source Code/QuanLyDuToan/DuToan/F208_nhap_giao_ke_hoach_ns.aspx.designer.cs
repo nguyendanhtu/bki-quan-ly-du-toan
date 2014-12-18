@@ -58,6 +58,42 @@ namespace QuanLyDuToan.DuToan {
         protected global::System.Web.UI.WebControls.Label m_lbl_mess_qd;
         
         /// <summary>
+        /// m_rdb_kh_dau_nam control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton m_rdb_kh_dau_nam;
+        
+        /// <summary>
+        /// m_rdb_bo_sung control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton m_rdb_bo_sung;
+        
+        /// <summary>
+        /// m_rdb_dieu_chinh control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton m_rdb_dieu_chinh;
+        
+        /// <summary>
+        /// HiddenField1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField HiddenField1;
+        
+        /// <summary>
         /// m_txt_so_qd control.
         /// </summary>
         /// <remarks>
@@ -85,15 +121,6 @@ namespace QuanLyDuToan.DuToan {
         protected global::System.Web.UI.WebControls.Button m_cmd_chon_qd_da_nhap;
         
         /// <summary>
-        /// m_txt_noi_dung control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox m_txt_noi_dung;
-        
-        /// <summary>
         /// m_txt_ngay_thang control.
         /// </summary>
         /// <remarks>
@@ -101,6 +128,15 @@ namespace QuanLyDuToan.DuToan {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox m_txt_ngay_thang;
+        
+        /// <summary>
+        /// m_txt_noi_dung control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox m_txt_noi_dung;
         
         /// <summary>
         /// m_cmd_luu_qd control.
@@ -146,33 +182,6 @@ namespace QuanLyDuToan.DuToan {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel m_pnl_chi_tiet;
-        
-        /// <summary>
-        /// m_rdb_kh_dau_nam control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton m_rdb_kh_dau_nam;
-        
-        /// <summary>
-        /// m_rdb_bo_sung control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton m_rdb_bo_sung;
-        
-        /// <summary>
-        /// m_rdb_dieu_chinh control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton m_rdb_dieu_chinh;
         
         /// <summary>
         /// m_pnl_chon_muc_khoan_chi control.

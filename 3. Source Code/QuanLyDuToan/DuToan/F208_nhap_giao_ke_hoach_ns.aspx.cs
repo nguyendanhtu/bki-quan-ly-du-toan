@@ -186,8 +186,7 @@ namespace QuanLyDuToan.DuToan
 				m_grv.DataBind();
 				return;
 			}
-			v_us.FillDataset(v_ds, "where id_chuong is not null and id_quyet_dinh=" + m_hdf_id_quyet_dinh.Value
-				+ "and is_nguon_ns_yn='Y'");
+			v_us.FillDataset(v_ds, "where "+V_GD_GIAO_KH_QBT.SO_TIEN_QUY_BT +"= 0 and id_quyet_dinh=" + m_hdf_id_quyet_dinh.Value);
 			m_grv.DataSource = v_ds.V_GD_GIAO_KH_QBT;
 			m_grv.DataBind();
 		}
@@ -534,22 +533,30 @@ namespace QuanLyDuToan.DuToan
 		}
 		protected void m_ddl_quyet_dinh_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			if (m_ddl_quyet_dinh.SelectedValue == null) return;
-			m_ddl_quyet_dinh.Visible = false;
-			m_hdf_id_quyet_dinh.Value = m_ddl_quyet_dinh.SelectedValue;
+			try
+			{
+				if (m_ddl_quyet_dinh.SelectedValue == null) return;
+				m_ddl_quyet_dinh.Visible = false;
+				m_hdf_id_quyet_dinh.Value = m_ddl_quyet_dinh.SelectedValue;
 
-			m_txt_so_qd.Visible = true;
-			m_txt_noi_dung.Visible = true;
-			m_txt_ngay_thang.Visible = true;
+				m_txt_so_qd.Visible = true;
+				m_txt_noi_dung.Visible = true;
+				m_txt_ngay_thang.Visible = true;
 
-			US_DM_QUYET_DINH v_us = new US_DM_QUYET_DINH(CIPConvert.ToDecimal(m_ddl_quyet_dinh.SelectedValue)); ;
-			m_txt_so_qd.Text = v_us.strSO_QUYET_DINH;
-			m_txt_noi_dung.Text = v_us.strNOI_DUNG;
-			m_txt_ngay_thang.Text = CIPConvert.ToStr(v_us.datNGAY_THANG, "dd/MM/yyyy");
+				US_DM_QUYET_DINH v_us = new US_DM_QUYET_DINH(CIPConvert.ToDecimal(m_ddl_quyet_dinh.SelectedValue)); ;
+				m_txt_so_qd.Text = v_us.strSO_QUYET_DINH;
+				m_txt_noi_dung.Text = v_us.strNOI_DUNG;
+				m_txt_ngay_thang.Text = CIPConvert.ToStr(v_us.datNGAY_THANG, "dd/MM/yyyy");
 
-			disable_edit_quyet_dinh();
-			//reload_data_to_ddl();
-			load_data_to_grid();
+				disable_edit_quyet_dinh();
+				//reload_data_to_ddl();
+				load_data_to_grid();
+			}
+			catch (Exception v_e)
+			{
+				CSystemLog_301.ExceptionHandle(this, v_e);
+			}
+			
 		}
 		protected void m_cmd_nhap_qd_moi_Click(object sender, EventArgs e)
 		{
@@ -650,9 +657,6 @@ namespace QuanLyDuToan.DuToan
 			}
 
 		}
-
-
-
 
 		protected void m_grv_RowCommand(object sender, GridViewCommandEventArgs e)
 		{

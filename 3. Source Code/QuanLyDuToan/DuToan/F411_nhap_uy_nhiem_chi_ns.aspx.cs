@@ -221,7 +221,7 @@ namespace QuanLyDuToan.DuToan
 			v_dt.Columns.Add(V_GD_GIAI_NGAN_QBT.SO_TIEN_NOP_THUE);
 			v_dt.Columns.Add(V_GD_GIAI_NGAN_QBT.SO_TIEN_TT_CHO_DV_HUONG);
 			v_dt.Columns.Add("TONG_SO_TIEN");
-			v_dt.Columns.Add(V_GD_GIAI_NGAN_QBT.NOI_DUNG_CHI);
+			//v_dt.Columns.Add(V_GD_GIAI_NGAN_QBT.NOI_DUNG_CHI);
 			v_dt.Columns.Add(V_GD_GIAI_NGAN_QBT.GHI_CHU);
 			//v_dt.Columns.Add(V_GD_GIAI_NGAN_QBT.ID_LOAI_DU_AN_CONG_TRINH);
 			op_ds.Tables.Add(v_dt);
@@ -752,7 +752,7 @@ namespace QuanLyDuToan.DuToan
 			DS_V_GD_GIAI_NGAN_QBT v_ds = new DS_V_GD_GIAI_NGAN_QBT();
 			US_V_GD_GIAI_NGAN_QBT v_us = new US_V_GD_GIAI_NGAN_QBT();
 
-			v_us.FillDataset(v_ds, "where id_unc=" + m_hdf_id_dm_uy_nhiem_chi.Value +
+			v_us.FillDataset(v_ds, "where id_giai_ngan=" + m_hdf_id_dm_uy_nhiem_chi.Value +
 				" and id_don_vi=" +
 				Person.get_id_don_vi() +
 						 " and id_chuong is not null");

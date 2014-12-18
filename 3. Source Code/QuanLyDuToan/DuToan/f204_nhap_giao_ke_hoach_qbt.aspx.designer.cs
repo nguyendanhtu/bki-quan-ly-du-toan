@@ -202,6 +202,33 @@ namespace QuanLyDuToan.DuToan {
         protected global::System.Web.UI.WebControls.DropDownList m_ddl_loai_nhiem_vu;
         
         /// <summary>
+        /// m_rdb_theo_quoc_lo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton m_rdb_theo_quoc_lo;
+        
+        /// <summary>
+        /// m_rdb_theo_chuong_loai_khoan_muc control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton m_rdb_theo_chuong_loai_khoan_muc;
+        
+        /// <summary>
+        /// m_pnl_cong_trinh control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel m_pnl_cong_trinh;
+        
+        /// <summary>
         /// m_txt_quoc_lo control.
         /// </summary>
         /// <remarks>
@@ -272,6 +299,60 @@ namespace QuanLyDuToan.DuToan {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button m_cmd_them_du_an;
+        
+        /// <summary>
+        /// m_pnl_chuong_loai_khoan_muc control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel m_pnl_chuong_loai_khoan_muc;
+        
+        /// <summary>
+        /// m_ddl_chuong control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList m_ddl_chuong;
+        
+        /// <summary>
+        /// m_ddl_loai control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList m_ddl_loai;
+        
+        /// <summary>
+        /// m_ddl_khoan control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList m_ddl_khoan;
+        
+        /// <summary>
+        /// m_ddl_muc control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList m_ddl_muc;
+        
+        /// <summary>
+        /// m_ddl_tieu_muc control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList m_ddl_tieu_muc;
         
         /// <summary>
         /// m_txt_so_tien_nam_truoc_chuyen_sang control.
