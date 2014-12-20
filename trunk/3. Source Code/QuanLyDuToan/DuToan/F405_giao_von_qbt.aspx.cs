@@ -388,7 +388,7 @@ namespace QuanLyDuToan.DuToan
 			{
 				if (!IsPostBack)
 				{
-					set_inital_form_mode();
+					
 					if (Request.QueryString["ip_dc_id_quyet_dinh"] != null)
 					{
 						decimal v_dc_id_quyet_dinh = CIPConvert.ToDecimal(Request.QueryString["ip_dc_id_quyet_dinh"]);
@@ -396,6 +396,7 @@ namespace QuanLyDuToan.DuToan
 						m_ddl_quyet_dinh.SelectedValue = v_dc_id_quyet_dinh.ToString();
 						m_ddl_quyet_dinh_SelectedIndexChanged(null, null);
 					}
+					set_inital_form_mode();
 				}
 			}
 			catch (Exception v_e)

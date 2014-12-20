@@ -9,6 +9,7 @@ namespace WebUS
 	public class ID_LOAI_TU_DIEN
 	{
 		public const decimal LOAI_NHIEM_VU = 104;
+		public const decimal LOAI_NHIEM_VU_NS = 105;
         
 	}
 	public class ID_LOAI_NHIEM_VU
@@ -18,6 +19,11 @@ namespace WebUS
 		public const decimal KHAC_PHUC_BAO_LUT = 662;
 		public const decimal THANH_TRA_GIAO_THONG = 663;
 		public const decimal KHAC = 664;
+	}
+	public class ID_LOAI_NHIEM_VU_NS
+	{
+		public const decimal THU_CHI_NOP_NS_PHI = 665;
+		public const decimal DU_TOAN_CHI_NS_NN = 666;
 	}
 	public class ID_CHUONG
 	{

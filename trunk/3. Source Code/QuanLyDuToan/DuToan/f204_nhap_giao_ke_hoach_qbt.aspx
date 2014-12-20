@@ -115,19 +115,20 @@
 												</td>
 											</tr>
 											<tr>
-												<td style="text-align: right">Loại nhiệm vụ</td>
-												<td colspan="2">
-													<asp:DropDownList ID="m_ddl_loai_nhiem_vu" runat="server" Width="176px"></asp:DropDownList>
-												</td>
-											</tr>
-											<tr>
-												<td></td>
+												<td style="text-align:right">Chi theo</td>
 												<td colspan="2">
 													<asp:RadioButton ID="m_rdb_theo_quoc_lo"  Checked="true"  runat="server" Text="Theo Quốc lộ/dự án" GroupName="chi_theo" AutoPostBack="true" OnCheckedChanged="m_rdb_theo_quoc_lo_CheckedChanged" />
 													<br />
 													<asp:RadioButton ID="m_rdb_theo_chuong_loai_khoan_muc" AutoPostBack="true" OnCheckedChanged="m_rdb_theo_chuong_loai_khoan_muc_CheckedChanged" runat="server" Text="Theo Loại khoản mục" GroupName="chi_theo" />
 												</td>
 											</tr>
+											<tr>
+												<td style="text-align: right">Loại nhiệm vụ</td>
+												<td colspan="2">
+													<asp:DropDownList ID="m_ddl_loai_nhiem_vu" runat="server" Width="176px"></asp:DropDownList>
+												</td>
+											</tr>
+											
 											<asp:Panel ID="m_pnl_cong_trinh" runat="server">
 												<tr>
 													<td style="text-align: right">Công trình/Quốc lộ</td>
@@ -227,7 +228,7 @@
 													<span>Ghi chú</span>
 												</td>
 												<td colspan="2">
-													<asp:TextBox ID="m_txt_ghi_chu" TextMode="MultiLine" runat="server" CssClass="cssTextBox" Width="170px"></asp:TextBox>
+													<asp:TextBox ID="m_txt_ghi_chu" TextMode="MultiLine" runat="server" Rows="4" CssClass="cssTextBox" Width="100%"></asp:TextBox>
 												</td>
 											</tr>
 											<tr>

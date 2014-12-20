@@ -342,7 +342,7 @@ namespace WebUS
 			v_prc.addDecimalInputParam("@ID_REPORTED_USER", ip_dc_id_user);
 			v_prc.addDatetimeInputParam("@TU_NGAY", ip_dat_tu_ngay);
 			v_prc.addDatetimeInputParam("@DEN_NGAY", ip_dat_den_ngay);
-			v_prc.addNVarcharInputParam("@STR_FILTER", ip_str_filter);
+			v_prc.addNVarcharInputParam("@ip_str_tu_khoa", ip_str_filter);
 			v_prc.fillDataSetByCommand(this, v_ds);
 		}
 	}

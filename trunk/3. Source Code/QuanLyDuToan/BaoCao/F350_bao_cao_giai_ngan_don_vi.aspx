@@ -85,8 +85,8 @@
 									<ItemTemplate>
 										<a href="F156_bao_cao_giao_kh_quy_bt_theo_qd.aspx<%# format_link_to_chi_tiet(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.REPORT_LEVEL)
                                                     ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID_DON_VI)
+                                                    ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.REPORT_LEVEL)
                                                     ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.STT)
-                                                    ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID_CHA)
                                                     ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID) ) %>"" 
                                             title"Xem chi tiết"><%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_QBT, "{0:#,##0}")%></a>
 									</ItemTemplate>
@@ -110,8 +110,8 @@
 									<ItemTemplate>
                                         <a href="F256_bao_cao_giao_von_quy_bt_theo_qd.aspx<%# format_link_to_chi_tiet(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.REPORT_LEVEL)
                                                     ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID_DON_VI)
+                                                    ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.REPORT_LEVEL)
                                                     ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.STT)
-                                                    ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID_CHA)
                                                     ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID) ) %>"" 
                                             title"Xem chi tiết"><%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_QBT_TONG, "{0:#,##0}")%></a>										
 									</ItemTemplate>
@@ -141,8 +141,8 @@
 									<ItemTemplate>
 										<a href="F356_bao_cao_giai_ngan_quy_bt_theo_dm.aspx<%# format_link_to_chi_tiet(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.REPORT_LEVEL)
                                                     ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID_DON_VI)
+                                                    ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.REPORT_LEVEL)
                                                     ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.STT)
-                                                    ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID_CHA)
                                                     ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID) ) %>"" 
                                             title"Xem chi tiết"><%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_QBT_TONG, "{0:#,##0}")%>
 									</ItemTemplate>
@@ -161,8 +161,8 @@
 									<ItemTemplate>
 										<a href="F356_bao_cao_giai_ngan_quy_bt_theo_dm.aspx<%# format_link_to_chi_tiet(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.REPORT_LEVEL)
                                                     ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID_DON_VI)
+                                                    ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.REPORT_LEVEL)
                                                     ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.STT)
-                                                    ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID_CHA)
                                                     ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID) ) %>"" 
                                             title"Xem chi tiết"><%# CIPConvert.ToStr( format_so_tien(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_QBT_TONG)) 
                                                 + format_so_tien(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_NS_TONG)), "#,###") %>

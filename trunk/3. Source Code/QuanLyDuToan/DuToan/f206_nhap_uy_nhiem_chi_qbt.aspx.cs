@@ -1132,12 +1132,92 @@ namespace QuanLyDuToan.DuToan
 
 		protected void m_rdb_grid_edit_theo_chuong_loai_khoan_muc_CheckedChanged(object sender, EventArgs e)
 		{
+			DateTime v_dat_now = CIPConvert.ToDatetime(m_txt_ngay_thang.Text, "dd/MM/yyyy");
+			DateTime v_dat_dau_nam = v_dat_now.AddDays(-v_dat_now.Day + 1);
+			v_dat_dau_nam = v_dat_dau_nam.AddMonths(-v_dat_dau_nam.Month + 1);
+			DateTime v_dat_cuoi_nam = v_dat_dau_nam.AddYears(1);
 			visiable_control_edit_in_grid_cong_trinh_du_an_and_chuong_loai_khoan_muc(sender, false);
+			RadioButton m_rdb_grid_edit_theo_chuong_loai_khoan_muc = (RadioButton)sender;
+			GridViewRow v_gr = (GridViewRow)m_rdb_grid_edit_theo_chuong_loai_khoan_muc.Parent.Parent;
+			DropDownList m_ddl_grid_edit_loai_nhiem_vu = (DropDownList)v_gr.FindControl("m_ddl_grid_edit_loai_nhiem_vu");
+			DropDownList m_ddl_grid_edit_du_an_quoc_lo = (DropDownList)v_gr.FindControl("m_ddl_grid_edit_du_an_quoc_lo");
+			DropDownList m_ddl_grid_edit_du_an = (DropDownList)v_gr.FindControl("m_ddl_grid_edit_du_an");
+			DropDownList m_ddl_grid_edit_muc_tieu_muc = (DropDownList)v_gr.FindControl("m_ddl_grid_edit_muc_tieu_muc");
+			if (m_ddl_grid_edit_du_an == null) return;
+
+			WinFormControls.load_data_to_ddl_quoc_lo_cong_trinh(v_dat_dau_nam, v_dat_cuoi_nam, Person.get_id_don_vi()
+				, CIPConvert.ToDecimal(m_ddl_grid_edit_loai_nhiem_vu.SelectedValue)
+				, m_ddl_grid_edit_du_an_quoc_lo);
+			if (m_ddl_grid_edit_du_an_quoc_lo.Items.Count > 0)
+			{
+				m_ddl_grid_edit_du_an_quoc_lo.SelectedIndex = 0;
+				WinFormControls.load_data_to_ddl_ten_du_an(v_dat_dau_nam, v_dat_cuoi_nam, Person.get_id_don_vi(),
+					CIPConvert.ToDecimal(m_ddl_grid_edit_du_an_quoc_lo.SelectedValue)
+					, CIPConvert.ToDecimal(m_ddl_grid_edit_loai_nhiem_vu.SelectedValue)
+					, m_ddl_grid_edit_du_an);
+				if (m_ddl_grid_edit_du_an.Items.Count > 0)
+				{
+					m_ddl_grid_edit_du_an.SelectedIndex = 0;
+				}
+			}
+			else m_ddl_grid_edit_du_an.Items.Clear();
+			//dropdownlist muc - tieu muc
+			//US_GD_CHI_TIET_GIAI_NGAN v_us = new US_GD_CHI_TIET_GIAI_NGAN(CIPConvert.ToDecimal(m_grv_unc.DataKeys[m_grv_unc.fo].Value));
+
+			if (m_ddl_grid_edit_muc_tieu_muc != null)
+			{
+				//string v_str_id_mix = get_id_mix_from_id_gd(v_us.dcID);
+				load_data_to_cbo_muc_tieu_muc(m_ddl_grid_edit_muc_tieu_muc
+					, CIPConvert.ToDecimal(m_ddl_grid_edit_loai_nhiem_vu.SelectedValue)
+				);
+				//m_ddl_grid_edit_muc_tieu_muc.SelectedValue = v_str_id_mix;
+			}
+
 		}
 
 		protected void m_rdb_grid_edit_theo_quoc_lo_cong_trinh_CheckedChanged(object sender, EventArgs e)
 		{
 			visiable_control_edit_in_grid_cong_trinh_du_an_and_chuong_loai_khoan_muc(sender, true);
+			DateTime v_dat_now = CIPConvert.ToDatetime(m_txt_ngay_thang.Text, "dd/MM/yyyy");
+			DateTime v_dat_dau_nam = v_dat_now.AddDays(-v_dat_now.Day + 1);
+			v_dat_dau_nam = v_dat_dau_nam.AddMonths(-v_dat_dau_nam.Month + 1);
+			DateTime v_dat_cuoi_nam = v_dat_dau_nam.AddYears(1);
+			RadioButton m_rdb_grid_edit_theo_quoc_lo_cong_trinh = (RadioButton)sender;
+			GridViewRow v_gr = (GridViewRow)m_rdb_grid_edit_theo_quoc_lo_cong_trinh.Parent.Parent;
+			DropDownList m_ddl_grid_edit_loai_nhiem_vu = (DropDownList)v_gr.FindControl("m_ddl_grid_edit_loai_nhiem_vu");
+			DropDownList m_ddl_grid_edit_du_an_quoc_lo = (DropDownList)v_gr.FindControl("m_ddl_grid_edit_du_an_quoc_lo");
+			DropDownList m_ddl_grid_edit_du_an = (DropDownList)v_gr.FindControl("m_ddl_grid_edit_du_an");
+			DropDownList m_ddl_grid_edit_muc_tieu_muc = (DropDownList)v_gr.FindControl("m_ddl_grid_edit_muc_tieu_muc");
+			if (m_ddl_grid_edit_du_an == null) return;
+
+			WinFormControls.load_data_to_ddl_quoc_lo_cong_trinh(v_dat_dau_nam, v_dat_cuoi_nam, Person.get_id_don_vi()
+				, CIPConvert.ToDecimal(m_ddl_grid_edit_loai_nhiem_vu.SelectedValue)
+				, m_ddl_grid_edit_du_an_quoc_lo);
+			if (m_ddl_grid_edit_du_an_quoc_lo.Items.Count > 0)
+			{
+				m_ddl_grid_edit_du_an_quoc_lo.SelectedIndex = 0;
+				WinFormControls.load_data_to_ddl_ten_du_an(v_dat_dau_nam, v_dat_cuoi_nam, Person.get_id_don_vi(),
+					CIPConvert.ToDecimal(m_ddl_grid_edit_du_an_quoc_lo.SelectedValue)
+					, CIPConvert.ToDecimal(m_ddl_grid_edit_loai_nhiem_vu.SelectedValue)
+					, m_ddl_grid_edit_du_an);
+				if (m_ddl_grid_edit_du_an.Items.Count > 0)
+				{
+					m_ddl_grid_edit_du_an.SelectedIndex = 0;
+				}
+			}
+			else m_ddl_grid_edit_du_an.Items.Clear();
+			//dropdownlist muc - tieu muc
+			//US_GD_CHI_TIET_GIAI_NGAN v_us = new US_GD_CHI_TIET_GIAI_NGAN(CIPConvert.ToDecimal(m_grv_unc.DataKeys[m_grv_unc.fo].Value));
+
+			if (m_ddl_grid_edit_muc_tieu_muc != null)
+			{
+				//string v_str_id_mix = get_id_mix_from_id_gd(v_us.dcID);
+				load_data_to_cbo_muc_tieu_muc(m_ddl_grid_edit_muc_tieu_muc
+					, CIPConvert.ToDecimal(m_ddl_grid_edit_loai_nhiem_vu.SelectedValue)
+				);
+				//m_ddl_grid_edit_muc_tieu_muc.SelectedValue = v_str_id_mix;
+			}
+
 		}
 
 		private void visiable_control_edit_in_grid_cong_trinh_du_an_and_chuong_loai_khoan_muc(Object sender, bool ip_b_is_cong_trinh_du_an)
@@ -1175,6 +1255,7 @@ namespace QuanLyDuToan.DuToan
 		protected void m_rdb_grid_theo_chuong_loai_khoan_muc_CheckedChanged(object sender, EventArgs e)
 		{
 			visiable_control_in_grid_cong_trinh_du_an_and_chuong_loai_khoan_muc(sender, false);
+			m_ddl_grid_loai_nhiem_vu_SelectedIndexChanged(null, null);
 		}
 
 

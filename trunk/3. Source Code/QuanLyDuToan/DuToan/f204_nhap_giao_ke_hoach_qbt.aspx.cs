@@ -127,7 +127,14 @@ namespace QuanLyDuToan.DuToan
 					m_lbl_grid_so_quyet_dinh.Text = v_us_qd.strSO_QUYET_DINH;
 					m_lbl_grid_ve_viec.Text = v_us_qd.strNOI_DUNG;
 				}
-				v_us.get_grid_giao_kh_qbt(v_ds, v_dc_id_quyet_dinh);
+				
+					//kiem tra xem dang nhap Nguon nao
+				string v_str_is_nguon_ns = "N";
+				if (Request.QueryString["ip_nguon_ns"] == "Y")
+				{
+					v_str_is_nguon_ns = "Y";
+				}
+				v_us.get_grid_giao_kh_qbt(v_ds, v_dc_id_quyet_dinh, v_str_is_nguon_ns);
 				m_grv.DataSource = v_ds.Tables[0];
 				m_grv.DataBind();
 				if (!m_hdf_id_giao_kh.Value.Equals(""))
@@ -1174,13 +1181,22 @@ namespace QuanLyDuToan.DuToan
 
 		protected void m_rdb_theo_chuong_loai_khoan_muc_CheckedChanged(object sender, EventArgs e)
 		{
+			
+			if (Request.QueryString["ip_nguon_ns"]!=null)
+			{
+				string v_str_qs = Request.QueryString["ip_nguon_ns"].ToString();
+				if (v_str_qs.Trim().ToUpper()=="Y")
+				{
+					WinFormControls.load_data_to_ddl_loai_nhiem_vu_ns(m_ddl_loai_nhiem_vu);
+				}
+			}
 			load_panel_loai_chi();
 			m_cmd_cancel_Click(null, null);
-
 		}
 
 		protected void m_rdb_theo_quoc_lo_CheckedChanged(object sender, EventArgs e)
 		{
+			load_data_to_ddl_loai_nhiem_vu();
 			load_panel_loai_chi();
 			m_cmd_cancel_Click(null, null);
 		}

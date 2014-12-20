@@ -18,318 +18,331 @@ using WebDS;
 namespace WebUS
 {
 
-    public class US_GRID_GIAO_VON : US_Object
-    {
-        private const string c_TableName = "GRID_GIAO_VON";
-        #region "Public Properties"
-        public decimal dcID
-        {
-            get
-            {
-                return CNull.RowNVLDecimal(pm_objDR, "ID", IPConstants.c_DefaultDecimal);
-            }
-            set
-            {
-                pm_objDR["ID"] = value;
-            }
-        }
+	public class US_GRID_GIAO_VON : US_Object
+	{
+		private const string c_TableName = "GRID_GIAO_VON";
+		#region "Public Properties"
+		public decimal dcID
+		{
+			get
+			{
+				return CNull.RowNVLDecimal(pm_objDR, "ID", IPConstants.c_DefaultDecimal);
+			}
+			set
+			{
+				pm_objDR["ID"] = value;
+			}
+		}
 
-        public bool IsIDNull()
-        {
-            return pm_objDR.IsNull("ID");
-        }
+		public bool IsIDNull()
+		{
+			return pm_objDR.IsNull("ID");
+		}
 
-        public void SetIDNull()
-        {
-            pm_objDR["ID"] = System.Convert.DBNull;
-        }
+		public void SetIDNull()
+		{
+			pm_objDR["ID"] = System.Convert.DBNull;
+		}
 
-        public string strNOI_DUNG
-        {
-            get
-            {
-                return CNull.RowNVLString(pm_objDR, "NOI_DUNG", IPConstants.c_DefaultString);
-            }
-            set
-            {
-                pm_objDR["NOI_DUNG"] = value;
-            }
-        }
+		public string strNOI_DUNG
+		{
+			get
+			{
+				return CNull.RowNVLString(pm_objDR, "NOI_DUNG", IPConstants.c_DefaultString);
+			}
+			set
+			{
+				pm_objDR["NOI_DUNG"] = value;
+			}
+		}
 
-        public bool IsNOI_DUNGNull()
-        {
-            return pm_objDR.IsNull("NOI_DUNG");
-        }
+		public bool IsNOI_DUNGNull()
+		{
+			return pm_objDR.IsNull("NOI_DUNG");
+		}
 
-        public void SetNOI_DUNGNull()
-        {
-            pm_objDR["NOI_DUNG"] = System.Convert.DBNull;
-        }
+		public void SetNOI_DUNGNull()
+		{
+			pm_objDR["NOI_DUNG"] = System.Convert.DBNull;
+		}
 
-        public decimal dcNTCT
-        {
-            get
-            {
-                return CNull.RowNVLDecimal(pm_objDR, "NTCT", IPConstants.c_DefaultDecimal);
-            }
-            set
-            {
-                pm_objDR["NTCT"] = value;
-            }
-        }
+		public decimal dcNTCT
+		{
+			get
+			{
+				return CNull.RowNVLDecimal(pm_objDR, "NTCT", IPConstants.c_DefaultDecimal);
+			}
+			set
+			{
+				pm_objDR["NTCT"] = value;
+			}
+		}
 
-        public bool IsNTCTNull()
-        {
-            return pm_objDR.IsNull("NTCT");
-        }
+		public bool IsNTCTNull()
+		{
+			return pm_objDR.IsNull("NTCT");
+		}
 
-        public void SetNTCTNull()
-        {
-            pm_objDR["NTCT"] = System.Convert.DBNull;
-        }
+		public void SetNTCTNull()
+		{
+			pm_objDR["NTCT"] = System.Convert.DBNull;
+		}
 
-        public decimal dcQUY
-        {
-            get
-            {
-                return CNull.RowNVLDecimal(pm_objDR, "QUY", IPConstants.c_DefaultDecimal);
-            }
-            set
-            {
-                pm_objDR["QUY"] = value;
-            }
-        }
+		public decimal dcQUY
+		{
+			get
+			{
+				return CNull.RowNVLDecimal(pm_objDR, "QUY", IPConstants.c_DefaultDecimal);
+			}
+			set
+			{
+				pm_objDR["QUY"] = value;
+			}
+		}
 
-        public bool IsQUYNull()
-        {
-            return pm_objDR.IsNull("QUY");
-        }
+		public bool IsQUYNull()
+		{
+			return pm_objDR.IsNull("QUY");
+		}
 
-        public void SetQUYNull()
-        {
-            pm_objDR["QUY"] = System.Convert.DBNull;
-        }
+		public void SetQUYNull()
+		{
+			pm_objDR["QUY"] = System.Convert.DBNull;
+		}
 
-        public decimal dcNS
-        {
-            get
-            {
-                return CNull.RowNVLDecimal(pm_objDR, "NS", IPConstants.c_DefaultDecimal);
-            }
-            set
-            {
-                pm_objDR["NS"] = value;
-            }
-        }
+		public decimal dcNS
+		{
+			get
+			{
+				return CNull.RowNVLDecimal(pm_objDR, "NS", IPConstants.c_DefaultDecimal);
+			}
+			set
+			{
+				pm_objDR["NS"] = value;
+			}
+		}
 
-        public bool IsNSNull()
-        {
-            return pm_objDR.IsNull("NS");
-        }
+		public bool IsNSNull()
+		{
+			return pm_objDR.IsNull("NS");
+		}
 
-        public void SetNSNull()
-        {
-            pm_objDR["NS"] = System.Convert.DBNull;
-        }
+		public void SetNSNull()
+		{
+			pm_objDR["NS"] = System.Convert.DBNull;
+		}
 
-        public decimal dcTONG
-        {
-            get
-            {
-                return CNull.RowNVLDecimal(pm_objDR, "TONG", IPConstants.c_DefaultDecimal);
-            }
-            set
-            {
-                pm_objDR["TONG"] = value;
-            }
-        }
+		public decimal dcTONG
+		{
+			get
+			{
+				return CNull.RowNVLDecimal(pm_objDR, "TONG", IPConstants.c_DefaultDecimal);
+			}
+			set
+			{
+				pm_objDR["TONG"] = value;
+			}
+		}
 
-        public bool IsTONGNull()
-        {
-            return pm_objDR.IsNull("TONG");
-        }
+		public bool IsTONGNull()
+		{
+			return pm_objDR.IsNull("TONG");
+		}
 
-        public void SetTONGNull()
-        {
-            pm_objDR["TONG"] = System.Convert.DBNull;
-        }
+		public void SetTONGNull()
+		{
+			pm_objDR["TONG"] = System.Convert.DBNull;
+		}
 
-        public decimal dcID_DON_VI
-        {
-            get
-            {
-                return CNull.RowNVLDecimal(pm_objDR, "ID_DON_VI", IPConstants.c_DefaultDecimal);
-            }
-            set
-            {
-                pm_objDR["ID_DON_VI"] = value;
-            }
-        }
+		public decimal dcID_DON_VI
+		{
+			get
+			{
+				return CNull.RowNVLDecimal(pm_objDR, "ID_DON_VI", IPConstants.c_DefaultDecimal);
+			}
+			set
+			{
+				pm_objDR["ID_DON_VI"] = value;
+			}
+		}
 
-        public bool IsID_DON_VINull()
-        {
-            return pm_objDR.IsNull("ID_DON_VI");
-        }
+		public bool IsID_DON_VINull()
+		{
+			return pm_objDR.IsNull("ID_DON_VI");
+		}
 
-        public void SetID_DON_VINull()
-        {
-            pm_objDR["ID_DON_VI"] = System.Convert.DBNull;
-        }
+		public void SetID_DON_VINull()
+		{
+			pm_objDR["ID_DON_VI"] = System.Convert.DBNull;
+		}
 
-        public string strSTT
-        {
-            get
-            {
-                return CNull.RowNVLString(pm_objDR, "STT", IPConstants.c_DefaultString);
-            }
-            set
-            {
-                pm_objDR["STT"] = value;
-            }
-        }
+		public string strSTT
+		{
+			get
+			{
+				return CNull.RowNVLString(pm_objDR, "STT", IPConstants.c_DefaultString);
+			}
+			set
+			{
+				pm_objDR["STT"] = value;
+			}
+		}
 
-        public bool IsSTTNull()
-        {
-            return pm_objDR.IsNull("STT");
-        }
+		public bool IsSTTNull()
+		{
+			return pm_objDR.IsNull("STT");
+		}
 
-        public void SetSTTNull()
-        {
-            pm_objDR["STT"] = System.Convert.DBNull;
-        }
+		public void SetSTTNull()
+		{
+			pm_objDR["STT"] = System.Convert.DBNull;
+		}
 
-        public string strREPORT_LEVEL
-        {
-            get
-            {
-                return CNull.RowNVLString(pm_objDR, "REPORT_LEVEL", IPConstants.c_DefaultString);
-            }
-            set
-            {
-                pm_objDR["REPORT_LEVEL"] = value;
-            }
-        }
+		public string strREPORT_LEVEL
+		{
+			get
+			{
+				return CNull.RowNVLString(pm_objDR, "REPORT_LEVEL", IPConstants.c_DefaultString);
+			}
+			set
+			{
+				pm_objDR["REPORT_LEVEL"] = value;
+			}
+		}
 
-        public bool IsREPORT_LEVELNull()
-        {
-            return pm_objDR.IsNull("REPORT_LEVEL");
-        }
+		public bool IsREPORT_LEVELNull()
+		{
+			return pm_objDR.IsNull("REPORT_LEVEL");
+		}
 
-        public void SetREPORT_LEVELNull()
-        {
-            pm_objDR["REPORT_LEVEL"] = System.Convert.DBNull;
-        }
+		public void SetREPORT_LEVELNull()
+		{
+			pm_objDR["REPORT_LEVEL"] = System.Convert.DBNull;
+		}
 
-        public decimal dcKE_HOACH_CHI
-        {
-            get
-            {
-                return CNull.RowNVLDecimal(pm_objDR, "KE_HOACH_CHI", IPConstants.c_DefaultDecimal);
-            }
-            set
-            {
-                pm_objDR["KE_HOACH_CHI"] = value;
-            }
-        }
+		public decimal dcKE_HOACH_CHI
+		{
+			get
+			{
+				return CNull.RowNVLDecimal(pm_objDR, "KE_HOACH_CHI", IPConstants.c_DefaultDecimal);
+			}
+			set
+			{
+				pm_objDR["KE_HOACH_CHI"] = value;
+			}
+		}
 
-        public bool IsKE_HOACH_CHINull()
-        {
-            return pm_objDR.IsNull("KE_HOACH_CHI");
-        }
+		public bool IsKE_HOACH_CHINull()
+		{
+			return pm_objDR.IsNull("KE_HOACH_CHI");
+		}
 
-        public void SetKE_HOACH_CHINull()
-        {
-            pm_objDR["KE_HOACH_CHI"] = System.Convert.DBNull;
-        }
+		public void SetKE_HOACH_CHINull()
+		{
+			pm_objDR["KE_HOACH_CHI"] = System.Convert.DBNull;
+		}
 
-        public decimal dcID_REPORTED_USER
-        {
-            get
-            {
-                return CNull.RowNVLDecimal(pm_objDR, "ID_REPORTED_USER", IPConstants.c_DefaultDecimal);
-            }
-            set
-            {
-                pm_objDR["ID_REPORTED_USER"] = value;
-            }
-        }
+		public decimal dcID_REPORTED_USER
+		{
+			get
+			{
+				return CNull.RowNVLDecimal(pm_objDR, "ID_REPORTED_USER", IPConstants.c_DefaultDecimal);
+			}
+			set
+			{
+				pm_objDR["ID_REPORTED_USER"] = value;
+			}
+		}
 
-        public bool IsID_REPORTED_USERNull()
-        {
-            return pm_objDR.IsNull("ID_REPORTED_USER");
-        }
+		public bool IsID_REPORTED_USERNull()
+		{
+			return pm_objDR.IsNull("ID_REPORTED_USER");
+		}
 
-        public void SetID_REPORTED_USERNull()
-        {
-            pm_objDR["ID_REPORTED_USER"] = System.Convert.DBNull;
-        }
+		public void SetID_REPORTED_USERNull()
+		{
+			pm_objDR["ID_REPORTED_USER"] = System.Convert.DBNull;
+		}
 
-        public decimal dcID_CHA
-        {
-            get
-            {
-                return CNull.RowNVLDecimal(pm_objDR, "ID_CHA", IPConstants.c_DefaultDecimal);
-            }
-            set
-            {
-                pm_objDR["ID_CHA"] = value;
-            }
-        }
+		public decimal dcID_CHA
+		{
+			get
+			{
+				return CNull.RowNVLDecimal(pm_objDR, "ID_CHA", IPConstants.c_DefaultDecimal);
+			}
+			set
+			{
+				pm_objDR["ID_CHA"] = value;
+			}
+		}
 
-        public bool IsID_CHANull()
-        {
-            return pm_objDR.IsNull("ID_CHA");
-        }
+		public bool IsID_CHANull()
+		{
+			return pm_objDR.IsNull("ID_CHA");
+		}
 
-        public void SetID_CHANull()
-        {
-            pm_objDR["ID_CHA"] = System.Convert.DBNull;
-        }
+		public void SetID_CHANull()
+		{
+			pm_objDR["ID_CHA"] = System.Convert.DBNull;
+		}
 
-        #endregion
-        #region "Init Functions"
-        public US_GRID_GIAO_VON()
-        {
-            pm_objDS = new DS_GRID_GIAO_VON();
-            pm_strTableName = c_TableName;
-            pm_objDR = pm_objDS.Tables[pm_strTableName].NewRow();
-        }
+		#endregion
+		#region "Init Functions"
+		public US_GRID_GIAO_VON()
+		{
+			pm_objDS = new DS_GRID_GIAO_VON();
+			pm_strTableName = c_TableName;
+			pm_objDR = pm_objDS.Tables[pm_strTableName].NewRow();
+		}
 
-        public US_GRID_GIAO_VON(DataRow i_objDR)
-            : this()
-        {
-            this.DataRow2Me(i_objDR);
-        }
+		public US_GRID_GIAO_VON(DataRow i_objDR)
+			: this()
+		{
+			this.DataRow2Me(i_objDR);
+		}
 
-        public US_GRID_GIAO_VON(decimal i_dbID)
-        {
-            pm_objDS = new DS_GRID_GIAO_VON();
-            pm_strTableName = c_TableName;
-            IMakeSelectCmd v_objMkCmd = new CMakeAndSelectCmd(pm_objDS, c_TableName);
-            v_objMkCmd.AddCondition("ID", i_dbID, eKieuDuLieu.KieuNumber, eKieuSoSanh.Bang);
-            SqlCommand v_cmdSQL;
-            v_cmdSQL = v_objMkCmd.getSelectCmd();
-            this.FillDatasetByCommand(pm_objDS, v_cmdSQL);
-            pm_objDR = getRowClone(pm_objDS.Tables[pm_strTableName].Rows[0]);
-        }
-        #endregion
+		public US_GRID_GIAO_VON(decimal i_dbID)
+		{
+			pm_objDS = new DS_GRID_GIAO_VON();
+			pm_strTableName = c_TableName;
+			IMakeSelectCmd v_objMkCmd = new CMakeAndSelectCmd(pm_objDS, c_TableName);
+			v_objMkCmd.AddCondition("ID", i_dbID, eKieuDuLieu.KieuNumber, eKieuSoSanh.Bang);
+			SqlCommand v_cmdSQL;
+			v_cmdSQL = v_objMkCmd.getSelectCmd();
+			this.FillDatasetByCommand(pm_objDS, v_cmdSQL);
+			pm_objDR = getRowClone(pm_objDS.Tables[pm_strTableName].Rows[0]);
+		}
+		#endregion
 
-        public void get_grid_giao_von_qbt(DataSet op_ds
-            , decimal ip_dc_id_quyet_dinh, decimal ip_dc_id_don_vi
-            , DateTime ip_dat_tu_ngay, DateTime ip_dat_den_ngay
-            , decimal ip_dc_id_loai_nv, decimal ip_dc_id_cong_trinh
-            , decimal ip_dc_id_du_an)
-        {
-            CStoredProc v_sp = new CStoredProc("pr_get_grid_giao_von_qbt");
-            v_sp.addDecimalInputParam("@ip_dc_id_quyet_dinh", ip_dc_id_quyet_dinh);
-            v_sp.addDecimalInputParam("@ip_dc_id_don_vi", ip_dc_id_don_vi);
-            v_sp.addDatetimeInputParam("@ip_dat_tu_ngay", ip_dat_tu_ngay);
-            v_sp.addDatetimeInputParam("@ip_dat_den_ngay", ip_dat_den_ngay);
-            v_sp.addDecimalInputParam("@ip_dc_id_loai_nhiem_vu", ip_dc_id_loai_nv);
-            v_sp.addDecimalInputParam("@ip_dc_id_cong_trinh", ip_dc_id_cong_trinh);
-            v_sp.addDecimalInputParam("@ip_dc_id_du_an", ip_dc_id_du_an);
+		public void get_grid_giao_von_qbt(DataSet op_ds
+			, decimal ip_dc_id_quyet_dinh, decimal ip_dc_id_don_vi
+			, DateTime ip_dat_tu_ngay, DateTime ip_dat_den_ngay
+			, decimal ip_dc_id_loai_nv, decimal ip_dc_id_cong_trinh
+			, decimal ip_dc_id_du_an)
+		{
+			CStoredProc v_sp = new CStoredProc("pr_get_grid_giao_von_qbt");
+			v_sp.addDecimalInputParam("@ip_dc_id_quyet_dinh", ip_dc_id_quyet_dinh);
+			v_sp.addDecimalInputParam("@ip_dc_id_don_vi", ip_dc_id_don_vi);
+			v_sp.addDatetimeInputParam("@ip_dat_tu_ngay", ip_dat_tu_ngay);
+			v_sp.addDatetimeInputParam("@ip_dat_den_ngay", ip_dat_den_ngay);
+			v_sp.addDecimalInputParam("@ip_dc_id_loai_nhiem_vu", ip_dc_id_loai_nv);
+			v_sp.addDecimalInputParam("@ip_dc_id_cong_trinh", ip_dc_id_cong_trinh);
+			v_sp.addDecimalInputParam("@ip_dc_id_du_an", ip_dc_id_du_an);
 
-            v_sp.fillDataSetByCommand(this, op_ds);
-        }
-    }
+			v_sp.fillDataSetByCommand(this, op_ds);
+		}
+		public void get_grid_khoi_luong(DataSet op_ds
+			, decimal ip_dc_id_don_vi
+			, DateTime ip_dat_ngay_nhap
+			, decimal ip_dc_id_loai_nv
+			)
+		{
+			CStoredProc v_sp = new CStoredProc("pr_get_grid_khoi_luong_qbt");
+			v_sp.addDecimalInputParam("@ip_dc_id_don_vi", ip_dc_id_don_vi);
+			v_sp.addDatetimeInputParam("@ip_dat_ngay_nhap", ip_dat_ngay_nhap);
+			v_sp.addDecimalInputParam("@ip_dc_id_loai_nhiem_vu", ip_dc_id_loai_nv);
+
+			v_sp.fillDataSetByCommand(this, op_ds);
+		}
+	}
 }

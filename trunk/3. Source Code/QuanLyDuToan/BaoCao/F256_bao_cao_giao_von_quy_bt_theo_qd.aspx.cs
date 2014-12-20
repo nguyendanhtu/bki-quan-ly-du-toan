@@ -78,7 +78,8 @@ namespace QuanLyDuToan.BaoCao
 				, v_dc_id_du_an
 				, CIPConvert.ToDatetime(m_txt_tu_ngay.Text, "dd/MM/yyyy")
 				, CIPConvert.ToDatetime(m_txt_den_ngay.Text, "dd/MM/yyyy")
-				);
+				,""
+				,"N");
 			m_grv.DataSource = v_ds.Tables[0];
 
 			m_grv.DataBind();
@@ -102,7 +103,14 @@ namespace QuanLyDuToan.BaoCao
 
 			return true;
 		}
-
+		public string ConvertToUnsign3(string str)
+		{
+			System.Text.RegularExpressions.Regex regex = new System.Text.RegularExpressions.Regex("\\p{IsCombiningDiacriticalMarks}+");
+			string temp = str.Normalize(System.Text.NormalizationForm.FormD);
+			return regex.Replace(temp, String.Empty)
+						.Replace('\u0111', 'd').Replace('\u0110', 'D');
+			//return str;
+		}
 		#endregion
 
 		#region Event
@@ -249,6 +257,20 @@ namespace QuanLyDuToan.BaoCao
 				CSystemLog_301.ExceptionHandle(this, v_e);
 			}
 
+		}
+
+		protected void m_cmd_xuat_excel_Click(object sender, EventArgs e)
+		{
+			US_DM_DON_VI v_us = new US_DM_DON_VI(Person.get_id_don_vi());
+			WinformReport.export_gridview_2_excel(
+			m_grv
+			, "[" + ConvertToUnsign3(v_us.strTEN_DON_VI) + "]BaoCaoTinhHinhGiaoVon.xls"
+			);
+		}
+
+		public override void VerifyRenderingInServerForm(Control control)
+		{
+			//base.VerifyRenderingInServerForm(control);
 		}
 
 
