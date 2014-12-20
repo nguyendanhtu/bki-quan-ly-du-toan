@@ -947,7 +947,9 @@ namespace WebUS
 			, decimal ip_dc_id_cong_trinh
 			, decimal ip_dc_id_du_an
 			, DateTime ip_dat_tu_ngay
-			, DateTime ip_dat_den_ngay)
+			, DateTime ip_dat_den_ngay
+			, string ip_str_tu_khoa
+			,string ip_str_nguon_ns)
 		{
 			CStoredProc v_prc = new CStoredProc("pr_A156_giao_ke_hoach_theo_quyet_dinh");
 			v_prc.addDecimalInputParam("@ip_dc_id_don_vi", ip_id_don_vi);
@@ -956,6 +958,8 @@ namespace WebUS
 			v_prc.addDecimalInputParam("@ip_dc_id_loai_nhiem_vu", ip_dc_id_loai_nhiem_vu);
 			v_prc.addDatetimeInputParam("@ip_dat_tu_ngay", ip_dat_tu_ngay);
 			v_prc.addDatetimeInputParam("@ip_dat_den_ngay", ip_dat_den_ngay);
+			v_prc.addNVarcharInputParam("@ip_str_tu_khoa", ip_str_tu_khoa);
+			v_prc.addNVarcharInputParam("@ip_nguon_ns", ip_str_nguon_ns);
 			v_prc.fillDataSetByCommand(this, ip_ds);
 		}
 		public void bc_giao_von_quy_bao_tri_theo_qd(DataSet ip_ds
@@ -964,7 +968,9 @@ namespace WebUS
 			, decimal ip_dc_id_cong_trinh
 			, decimal ip_dc_id_du_an
 			, DateTime ip_dat_tu_ngay
-			, DateTime ip_dat_den_ngay)
+			, DateTime ip_dat_den_ngay
+			,string ip_str_tu_khoa
+			,string ip_nguon_ns)
 		{
 			CStoredProc v_prc = new CStoredProc("pr_A256_giao_von_theo_quyet_dinh");
 			v_prc.addDecimalInputParam("@ip_dc_id_don_vi", ip_id_don_vi);
@@ -973,6 +979,8 @@ namespace WebUS
 			v_prc.addDecimalInputParam("@ip_dc_id_loai_nhiem_vu", ip_dc_id_loai_nhiem_vu);
 			v_prc.addDatetimeInputParam("@ip_dat_tu_ngay", ip_dat_tu_ngay);
 			v_prc.addDatetimeInputParam("@ip_dat_den_ngay", ip_dat_den_ngay);
+			v_prc.addNVarcharInputParam("@ip_str_tu_khoa", ip_str_tu_khoa);
+			v_prc.addNVarcharInputParam("@ip_nguon_ns", ip_nguon_ns);
 			v_prc.fillDataSetByCommand(this, ip_ds);
 		}
 		public void bc_giai_ngan_quy_bao_tri_theo_dm(DataSet ip_ds
@@ -980,6 +988,8 @@ namespace WebUS
 			, decimal ip_dc_id_loai_nhiem_vu
 			, decimal ip_dc_id_cong_trinh
 			, decimal ip_dc_id_du_an
+			,string ip_str_tu_khoa
+			,string ip_str_nguon_ns
 			, DateTime ip_dat_tu_ngay
 			, DateTime ip_dat_den_ngay)
 		{
@@ -990,6 +1000,8 @@ namespace WebUS
 			v_prc.addDecimalInputParam("@ip_dc_id_loai_nhiem_vu", ip_dc_id_loai_nhiem_vu);
 			v_prc.addDatetimeInputParam("@ip_dat_tu_ngay", ip_dat_tu_ngay);
 			v_prc.addDatetimeInputParam("@ip_dat_den_ngay", ip_dat_den_ngay);
+			v_prc.addNVarcharInputParam("@ip_str_tu_khoa", ip_str_tu_khoa);
+			v_prc.addNVarcharInputParam("@ip_nguon_ns", ip_str_nguon_ns);
 			v_prc.fillDataSetByCommand(this, ip_ds);
 		}
 	}

@@ -147,24 +147,24 @@
 																<asp:Label ID="m_lbl_grid_quoc_lo_du_an" Text='<%#Eval(GRID_GIAI_NGAN.NOI_DUNG) %>' runat="server"></asp:Label>
 															</ItemTemplate>
 															<EditItemTemplate>
-																<asp:DropDownList ID="m_ddl_grid_edit_loai_nhiem_vu" OnSelectedIndexChanged="m_ddl_grid_edit_loai_nhiem_vu_SelectedIndexChanged" AutoPostBack="true" runat="server" Width="200px"></asp:DropDownList>
-																<br />
 																<asp:RadioButton ID="m_rdb_grid_edit_theo_quoc_lo_cong_trinh" GroupName="edit_loai_chi" Checked="true" runat="server" Text="Theo Quốc lộ/Công trình" AutoPostBack="true" OnCheckedChanged="m_rdb_grid_edit_theo_quoc_lo_cong_trinh_CheckedChanged" />
 																<br />
 																<asp:RadioButton ID="m_rdb_grid_edit_theo_chuong_loai_khoan_muc" GroupName="edit_loai_chi" runat="server" Text="Chi theo Loại khoản mục" AutoPostBack="true" OnCheckedChanged="m_rdb_grid_edit_theo_chuong_loai_khoan_muc_CheckedChanged" />
+																<br />
+																<asp:DropDownList ID="m_ddl_grid_edit_loai_nhiem_vu" OnSelectedIndexChanged="m_ddl_grid_edit_loai_nhiem_vu_SelectedIndexChanged" AutoPostBack="true" runat="server" Width="200px"></asp:DropDownList>
 																<br />
 																<asp:DropDownList ID="m_ddl_grid_edit_du_an_quoc_lo" runat="server" AutoPostBack="true" Width="200px" OnSelectedIndexChanged="m_ddl_grid_edit_du_an_quoc_lo_SelectedIndexChanged"></asp:DropDownList>
 																<asp:DropDownList ID="m_ddl_grid_edit_du_an" runat="server" Width="200px" AutoPostBack="true"></asp:DropDownList>
 																<asp:DropDownList ID="m_ddl_grid_edit_muc_tieu_muc" runat="server" Width="200px"></asp:DropDownList>
 															</EditItemTemplate>
 															<FooterTemplate>
-																<asp:DropDownList ID="m_ddl_grid_loai_nhiem_vu" runat="server" Width="200px"
-																	AutoPostBack="true" OnSelectedIndexChanged="m_ddl_grid_loai_nhiem_vu_SelectedIndexChanged">
-																</asp:DropDownList>
-																<br />
 																<asp:RadioButton ID="m_rdb_grid_theo_quoc_lo_cong_trinh" GroupName="loai_chi" Checked="true" runat="server" Text="Theo Quốc lộ/Công trình" AutoPostBack="true" OnCheckedChanged="m_rdb_grid_theo_quoc_lo_cong_trinh_CheckedChanged" />
 																<br />
 																<asp:RadioButton ID="m_rdb_grid_theo_chuong_loai_khoan_muc" GroupName="loai_chi" runat="server" Text="Chi theo Loại khoản mục" AutoPostBack="true" OnCheckedChanged="m_rdb_grid_theo_chuong_loai_khoan_muc_CheckedChanged" />
+																<br />
+																<asp:DropDownList ID="m_ddl_grid_loai_nhiem_vu" runat="server" Width="200px"
+																	AutoPostBack="true" OnSelectedIndexChanged="m_ddl_grid_loai_nhiem_vu_SelectedIndexChanged">
+																</asp:DropDownList>
 																<br />
 																<asp:DropDownList ID="m_ddl_grid_du_an_quoc_lo" runat="server" Width="200px"
 																	AutoPostBack="true" OnSelectedIndexChanged="m_ddl_grid_du_an_quoc_lo_SelectedIndexChanged">

@@ -532,6 +532,26 @@ namespace QuanLyDuToan.App_Code
 			op_ddl.DataBind();
 			op_ddl.Items.Insert(0, new ListItem(v_str_data_default, "-1"));
 		}
+		public static void load_data_to_ddl_loai_nhiem_vu_ns(DropDownList op_ddl)
+		{
+			US_CM_DM_TU_DIEN v_us = new US_CM_DM_TU_DIEN();
+			DS_CM_DM_TU_DIEN v_ds = new DS_CM_DM_TU_DIEN();
+			v_us.FillDataset(v_ds, "where " + CM_DM_TU_DIEN.ID_LOAI_TU_DIEN + "=" + ID_LOAI_TU_DIEN.LOAI_NHIEM_VU_NS +
+				"order by " + CM_DM_TU_DIEN.GHI_CHU);
+			string v_str_data_default = "---Chọn loại nhiệm vụ---";
+
+			for (int i = 0; i < v_ds.CM_DM_TU_DIEN.Count; i++)
+			{
+				v_ds.Tables[0].Rows[i][CM_DM_TU_DIEN.TEN] = v_ds.Tables[0].Rows[i][CM_DM_TU_DIEN.GHI_CHU].ToString() + " - " +
+					v_ds.Tables[0].Rows[i][CM_DM_TU_DIEN.TEN];
+				v_ds.AcceptChanges();
+			}
+			op_ddl.DataTextField = CM_DM_TU_DIEN.TEN;
+			op_ddl.DataValueField = CM_DM_TU_DIEN.ID;
+			op_ddl.DataSource = v_ds.CM_DM_TU_DIEN;
+			op_ddl.DataBind();
+			op_ddl.Items.Insert(0, new ListItem(v_str_data_default, "-1"));
+		}
 
 		public static decimal getTongTienKH(
 			DateTime ip_dat_ngay_thang

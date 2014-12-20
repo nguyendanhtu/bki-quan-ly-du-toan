@@ -60,6 +60,7 @@
     <Content Include="BaoCao\F356_bao_cao_giai_ngan_quy_bt_theo_dm.aspx" />
     <Content Include="BaoCao\F256_bao_cao_giao_von_quy_bt_theo_qd.aspx" />
     <Content Include="DanhMuc\test.aspx" />
+    <Content Include="DuToan\F406_khoi_luong.aspx" />
     <Content Include="Reports\Templates\A350_TPL_BAO_CAO_TINH_HINH_GIAI_NGAN_CAC_NGUON_VON_NAM.xls" />
     <Content Include="Reports\Templates\A530_TPL_BAO_CAO_TINH_HINH_GIAI_NGAN_CAC_NGUON_VON_NAM.xls" />
     <Content Include="Reports\Templates\A256_TPL_BAO_CAO_GIAO_VON.xls" />
@@ -704,6 +705,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DuToan\F406_khoi_luong.aspx.cs">
+      <DependentUpon>F406_khoi_luong.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DuToan\F406_khoi_luong.aspx.designer.cs">
+      <DependentUpon>F406_khoi_luong.aspx</DependentUpon>
     </Compile>
     <Compile Include="DuToan\f204_nhap_giao_ke_hoach_qbt.aspx.cs">
       <DependentUpon>f204_nhap_giao_ke_hoach_qbt.aspx</DependentUpon>
