@@ -13,6 +13,42 @@
             background: #ddd;
             border-color: #000;
         }
+        .boxControl {
+	        float:left;
+            width:50%; 
+            height:90px;
+        }
+
+	    .height30 {
+	        height:30px;
+        }
+
+	    .lb {
+	        width:100px; 
+            float:left;
+            text-align:right;
+            line-height:20px;
+        }
+
+	    .control {
+	        width:200px; 
+            float:left;
+        }
+
+	    .control select, input {
+	        width:220px !important;
+            margin-left:10px;    
+        }
+
+        .filter{
+	        width:552px !important;
+            margin-left:10px;    
+        }
+
+        .divBoxControl {
+            width:51%; 
+            margin:0px auto;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
@@ -32,21 +68,37 @@
                         <span style="font-weight: bold">BÁO CÁO TÌNH HÌNH GIẢI NGÂN CÁC NGUỒN VỐN NĂM  <%=DateTime.Now.Year.ToString() %></span>
                         <br />
                         <span style="font-weight: bold">ĐƠN VỊ: <asp:Label runat="server" Text="Label" ID="m_txt_ten_don_vi"></asp:Label></span>
-                        <br />                        
-                        <span>&nbsp;Tìm kiếm:
-                            <asp:TextBox ID="m_txt_tim_kiem" runat="server"></asp:TextBox>
                         <br />
-                        <span>&nbsp;Loại nhiệm vụ</span>
-                            <asp:DropDownList ID="m_ddl_loai_nv" runat="server" Width="100px" AutoPostBack="True" OnSelectedIndexChanged="m_ddl_loai_nv_SelectedIndexChanged"></asp:DropDownList></span>
-                        <span>&nbsp; Công trình
-                            <asp:DropDownList ID="m_ddl_cong_trinh" runat="server" Width="100px" AutoPostBack="True" OnSelectedIndexChanged="m_ddl_cong_trinh_SelectedIndexChanged"></asp:DropDownList></span>
-                        <span>&nbsp; Dự án
-                            <asp:DropDownList ID="m_ddl_du_an" runat="server" Width="100px"></asp:DropDownList></span>
-                        <br /> 
-                        <span style="font-weight: bold">Từ ngày
-							<asp:TextBox ID="m_txt_tu_ngay" placeholder="dd/MM/yyyy" runat="server" CssClass="cssTextBox" Width="100px"></asp:TextBox></span>
-                        <span>&nbsp; Đến ngày
-							<asp:TextBox ID="m_txt_den_ngay" placeholder="dd/MM/yyyy" runat="server" CssClass="cssTextBox" Width="100px"></asp:TextBox></span>                        
+                        <div class="divBoxControl height30">
+                            <div class="lb">Tìm kiếm:</div>
+                            <div class="control"><asp:TextBox ID="m_txt_tim_kiem" runat="server" CssClass="filter"></asp:TextBox></div>
+                        </div>
+                        <div class="divBoxControl">
+                            <div class="boxControl">
+                                <div class="height30">
+                                    <div class="lb">Loại nhiệm vụ</div>
+                                    <div class="control"><asp:DropDownList ID="m_ddl_loai_nv" runat="server" Width="100px" AutoPostBack="True" OnSelectedIndexChanged="m_ddl_loai_nv_SelectedIndexChanged"></asp:DropDownList></div>
+                                </div>
+                                <div class="height30">
+                                    <div class="lb">Công trình</div>
+                                    <div class="control"><asp:DropDownList ID="m_ddl_cong_trinh" runat="server" Width="100px" AutoPostBack="True" OnSelectedIndexChanged="m_ddl_cong_trinh_SelectedIndexChanged"></asp:DropDownList></div>
+                                </div>
+                                <div class="height30">
+                                    <div class="lb">Dự án</div>
+                                    <div class="control"><asp:DropDownList ID="m_ddl_du_an" runat="server" Width="100px"></asp:DropDownList></div>
+                                </div>
+                            </div>
+                            <div class="boxControl">
+                                <div class="height30">
+                                    <div class="lb">Từ ngày</div>
+							        <div class="control"><asp:TextBox ID="m_txt_tu_ngay" placeholder="dd/MM/yyyy" runat="server" CssClass="cssTextBox" Width="100px"></asp:TextBox></div>
+                                </div>
+                                <div class="height30">
+							        <div class="lb">Đến ngày</div>
+							        <div class="control"><asp:TextBox ID="m_txt_den_ngay" placeholder="dd/MM/yyyy" runat="server" CssClass="cssTextBox" Width="100px"></asp:TextBox></div>
+                                </div>
+                            </div>
+                        </div>                        
                    
                     </td>
                 </tr>
@@ -59,8 +111,8 @@
                 <tr>
 
                     <td colspan="4" style="text-align: center">
-                        <asp:Button ID="m_cmd_xem_bao_cao" Text="Xem báo cáo" OnClick="m_cmd_xem_bao_cao_Click" runat="server" CssClass="cssButton" Height="24px" Width="98px" />
-                        <asp:Button ID="m_cmd_xuat_excel" Text="Xuất excel" OnClick="m_cmd_xuat_excel_Click" runat="server" CssClass="cssButton" Height="24px" Width="98px" />
+                        <asp:Button ID="m_cmd_xem_bao_cao" Text="Xem báo cáo" OnClick="m_cmd_xem_bao_cao_Click" runat="server" Height="24px" Width="98px" />
+                        <asp:Button ID="m_cmd_xuat_excel" Text="Xuất excel" OnClick="m_cmd_xuat_excel_Click" runat="server" Height="24px" Width="98px" />
                     </td>
                 </tr>
                 <tr>
