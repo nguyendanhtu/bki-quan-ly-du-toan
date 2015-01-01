@@ -441,7 +441,7 @@ namespace QuanLyDuToan.DuToan
 			else
 			{
 				m_us.dcSO_TIEN_QUY_BT = 0;
-				m_us.dcSO_TIEN_QUY_BT = CIPConvert.ToDecimal(m_txt_so_tien.Text.Trim());
+				m_us.dcSO_TIEN_NS = CIPConvert.ToDecimal(m_txt_so_tien.Text.Trim());
 			}
 			m_us.dcSO_TIEN_NAM_TRUOC_CHUYEN_SANG = CIPConvert.ToDecimal(m_txt_so_tien_nam_truoc_chuyen_sang.Text.Trim());
 			//m_us.strTEN_DU_AN = m_txt_noi_dung_chi.Text.Trim();
