@@ -61,7 +61,7 @@
 												</td>
 											</tr>
 											<tr>
-												<td style="text-align: right"><span>Loại quyết định</span></td>
+												<td style="text-align: right"><span>Loại quyết định (*)</span></td>
 												<td colspan="3">
 													<asp:RadioButton ID="m_rdb_kh_dau_nam" runat="server" Text="KH đầu năm" GroupName="loai" Checked="true" AutoPostBack="true" />
 													<asp:RadioButton ID="m_rdb_bo_sung" runat="server" Text="Bổ sung" GroupName="loai" AutoPostBack="true" />
@@ -71,7 +71,7 @@
 											</tr>
 											<tr>
 												<td style="width: 30%; text-align: right">
-													<span>Số QĐ</span>
+													<span>Số QĐ (*)</span>
 												</td>
 												<td style="width: 35%">
 													<asp:TextBox ID="m_txt_so_qd" runat="server" CssClass="cssTextBox" Width="150px"></asp:TextBox>
@@ -83,12 +83,12 @@
 												<%--<td style="width: 20%"></td>--%>
 											</tr>
 											<tr>
-												<td style="text-align: right"><span>Ngày tháng</span></td>
+												<td style="text-align: right"><span>Ngày tháng (*)</span></td>
 												<td>
 													<asp:TextBox ID="m_txt_ngay_thang" runat="server" CssClass="cssTextBox" Width="150px" placeholder="dd/MM/yyyy"></asp:TextBox></td>
 											</tr>
 											<tr>
-												<td style="text-align: right"><span>Nội dung</span></td>
+												<td style="text-align: right"><span>Nội dung (*)</span></td>
 												<td colspan="3">
 													<asp:TextBox ID="m_txt_noi_dung" runat="server" CssClass="cssTextBox" TextMode="MultiLine" Rows="3" Width="100%" placeholder="Vd: 371/QĐ-BGTVT"></asp:TextBox>
 												</td>
@@ -115,7 +115,7 @@
 												</td>
 											</tr>
 											<tr>
-												<td style="text-align:right">Chi theo</td>
+												<td style="text-align:right">Chi theo (*)</td>
 												<td colspan="2">
 													<asp:RadioButton ID="m_rdb_theo_quoc_lo"  Checked="true"  runat="server" Text="Theo Quốc lộ/dự án" GroupName="chi_theo" AutoPostBack="true" OnCheckedChanged="m_rdb_theo_quoc_lo_CheckedChanged" />
 													<br />
@@ -123,7 +123,7 @@
 												</td>
 											</tr>
 											<tr>
-												<td style="text-align: right">Loại nhiệm vụ</td>
+												<td style="text-align: right">Loại nhiệm vụ (*)</td>
 												<td colspan="2">
 													<asp:DropDownList ID="m_ddl_loai_nhiem_vu" runat="server" Width="176px"></asp:DropDownList>
 												</td>
@@ -131,7 +131,7 @@
 											
 											<asp:Panel ID="m_pnl_cong_trinh" runat="server">
 												<tr>
-													<td style="text-align: right">Công trình/Quốc lộ</td>
+													<td style="text-align: right">Công trình/Quốc lộ (*)</td>
 													<td style="text-align: left">
 														<asp:TextBox ID="m_txt_quoc_lo" runat="server" CssClass="cssTextBox" Visible="false" Width="150px"></asp:TextBox>
 														<asp:DropDownList ID="m_ddl_cong_trinh" runat="server" Width="155px" OnSelectedIndexChanged="m_ddl_cong_trinh_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
@@ -142,7 +142,7 @@
 													</td>
 												</tr>
 												<tr>
-													<td style="text-align: right">Tên dự án</td>
+													<td style="text-align: right">Tên dự án (*)</td>
 													<td style="text-align: left">
 														<asp:TextBox ID="m_txt_du_an" runat="server" CssClass="cssTextBox" Visible="false" Width="150px"></asp:TextBox>
 														<asp:DropDownList ID="m_ddl_du_an" runat="server" Width="155px" AutoPostBack="true"></asp:DropDownList>
@@ -163,7 +163,7 @@
 													</td>
 												</tr>
 												<tr>
-													<td style="text-align: right">Loại</span></td>
+													<td style="text-align: right">Loại (*)</span></td>
 
 													<td>
 														<asp:DropDownList ID="m_ddl_loai" Width="176px" runat="server" CssClass="cssDorpdownlist"
@@ -174,7 +174,7 @@
 												</tr>
 												<tr>
 													<td style="text-align:right">
-														<span>Khoản</span>
+														<span>Khoản (*)</span>
 													</td>
 													<td>
 														<asp:DropDownList ID="m_ddl_khoan" Width="176px" runat="server" CssClass="cssDorpdownlist"></asp:DropDownList>
@@ -182,7 +182,7 @@
 												</tr>
 												<tr>
 													<td style="text-align:right">
-														<span>Mục</span>
+														<span>Mục (*)</span>
 													</td>
 													<td>
 														<asp:DropDownList ID="m_ddl_muc" Width="176px" runat="server" CssClass="cssDorpdownlist" OnSelectedIndexChanged="m_ddl_muc_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
@@ -209,7 +209,7 @@
 											</tr>
 											<tr>
 												<td style="text-align: right">
-													<asp:Label ID="m_lbl_so_tien" runat="server" Text="Kinh phí Quỹ bảo trì"></asp:Label>
+													<asp:Label ID="m_lbl_so_tien" runat="server" Text="Kinh phí Quỹ bảo trì (*)"></asp:Label>
 												</td>
 												<td colspan="2">
 													<asp:TextBox ID="m_txt_so_tien" runat="server" CssClass="csscurrency" Text="0" Style="text-align: right" Width="170px"></asp:TextBox>(đ)
