@@ -61,6 +61,7 @@
     <Content Include="BaoCao\F256_bao_cao_giao_von_quy_bt_theo_qd.aspx" />
     <Content Include="DanhMuc\test.aspx" />
     <Content Include="DuToan\F406_khoi_luong.aspx" />
+    <Content Include="DuToan\F700_thong_tin_don_vi.aspx" />
     <Content Include="Reports\Templates\A350_TPL_BAO_CAO_TINH_HINH_GIAI_NGAN_CAC_NGUON_VON_NAM.xls" />
     <Content Include="Reports\Templates\A530_TPL_BAO_CAO_TINH_HINH_GIAI_NGAN_CAC_NGUON_VON_NAM.xls" />
     <Content Include="Reports\Templates\A256_TPL_BAO_CAO_GIAO_VON.xls" />
@@ -768,6 +769,13 @@
     </Compile>
     <Compile Include="DuToan\F411_nhap_uy_nhiem_chi_ns.aspx.designer.cs">
       <DependentUpon>F411_nhap_uy_nhiem_chi_ns.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DuToan\F700_thong_tin_don_vi.aspx.cs">
+      <DependentUpon>F700_thong_tin_don_vi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DuToan\F700_thong_tin_don_vi.aspx.designer.cs">
+      <DependentUpon>F700_thong_tin_don_vi.aspx</DependentUpon>
     </Compile>
     <Compile Include="MessageError.aspx.cs">
       <DependentUpon>MessageError.aspx</DependentUpon>

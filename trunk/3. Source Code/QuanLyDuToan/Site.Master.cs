@@ -27,7 +27,7 @@ namespace QuanLyDuToan
 				{
 					if (Session[SESSION.AccounLoginYN].ToString().Equals("Y"))
 					{
-						
+
 						if (Session[SESSION.UserID] == null) return;
 						US_DM_DON_VI v_us = new US_DM_DON_VI(Person.get_id_don_vi());
 						m_lhk_user_name.Text = "Đơn vị: " + v_us.strTEN_DON_VI;
@@ -44,6 +44,8 @@ namespace QuanLyDuToan
 							//{
 							//    Response.Redirect("/Default.aspx", false);
 							//}
+							
+							
 						}
 					}
 					else
@@ -59,7 +61,7 @@ namespace QuanLyDuToan
 			catch (Exception v_e)
 			{
 
-				CSystemLog_301.ExceptionHandle(v_e);
+				//CSystemLog_301.ExceptionHandle(this,v_e);
 			}
 
 
