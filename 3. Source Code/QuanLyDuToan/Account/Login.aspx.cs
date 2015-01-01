@@ -9,6 +9,7 @@ using IP.Core.IPData;
 using IP.Core.IPUserService;
 
 using WebUS;
+using QuanLyDuToan.App_Code;
 namespace QuanLyDuToan.Account
 {
 	public partial class Login : System.Web.UI.Page
@@ -81,6 +82,14 @@ namespace QuanLyDuToan.Account
 					Response.Redirect("/QuanLyDuToan", false);
 					//Session[SESSION.QuyenGV] = load_user_quyen(strUserName);
 				}
+				else if (!Person.check_data_thong_tin_don_vi_is_full())
+				{
+					HttpContext.Current.Response.Redirect("/DuToan/F700_thong_tin_don_vi.aspx", false);
+				}
+				/*
+						 * kiem tra xem don vi da day du thong tin chua
+						 * Neu chua day du thi tu dong redirect den F700_thong_tin_don_vi
+						 */
 				else Response.Redirect("../Default.aspx", false);
 
 				HttpContext.Current.ApplicationInstance.CompleteRequest();
