@@ -784,7 +784,7 @@ namespace QuanLyDuToan.DuToan
 					//kiem tra xem dang nhap Nguon nao
 					if (Request.QueryString["ip_nguon_ns"] == "Y")
 					{
-						m_lbl_so_tien.Text = "Kinh phí Ngân sách";
+						m_lbl_so_tien.Text = "Kinh phí Ngân sách (*)";
 						m_lbl_title.Text = "Nhập giao kế hoạch - Nguồn Ngân sách";
 						m_rdb_theo_chuong_loai_khoan_muc.Checked = true;
 						m_rdb_theo_quoc_lo.Checked = false;
@@ -792,7 +792,7 @@ namespace QuanLyDuToan.DuToan
 					}
 					else
 					{
-						m_lbl_so_tien.Text = "Kinh phí Quỹ bảo trì";
+						m_lbl_so_tien.Text = "Kinh phí Quỹ bảo trì (*)";
 						m_lbl_title.Text = "Nhập giao kế hoạch - Nguồn Quỹ bảo trì";
 						m_rdb_theo_chuong_loai_khoan_muc.Checked = false;
 						m_rdb_theo_quoc_lo.Checked = true;
