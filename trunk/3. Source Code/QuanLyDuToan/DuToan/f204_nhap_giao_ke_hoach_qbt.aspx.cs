@@ -613,6 +613,7 @@ namespace QuanLyDuToan.DuToan
 		private void save_data()
 		{
 			m_lbl_mess_detail.Text = "";
+            m_lbl_mess_detail.Visible = true;
 			if (!check_validate_data_gd_is_ok()) return;
 			if (!form_to_us_object()) return;
 
@@ -620,6 +621,7 @@ namespace QuanLyDuToan.DuToan
 			{
 				case LOAI_FORM.THEM:
 					m_us.Insert();
+                    m_lbl_mess_detail.Text = "Bạn đã ghi dữ liệu thành công!";
 					break;
 				case LOAI_FORM.SUA:
 					try
@@ -636,6 +638,7 @@ namespace QuanLyDuToan.DuToan
 						//	, WinFormControls.get_dau_nam_form_date(v_us_quyet_dinh.datNGAY_THANG)
 						//	, WinFormControls.get_cuoi_nam_form_date(v_us_quyet_dinh.datNGAY_THANG));
 						m_us.Update();
+                        m_lbl_mess_detail.Text = "Bạn đã cập nhật dữ liệu thành công!";
 						//m_us.CommitTransaction();
 					}
 					catch (Exception)
@@ -643,7 +646,6 @@ namespace QuanLyDuToan.DuToan
 						//m_us.Rollback();
 						m_lbl_mess_detail.Text = "Quá trình cập nhật xảy ra lỗi, bạn vui lòng thực hiện lại thao tác!";
 					}
-					m_lbl_mess_detail.Text = "Bạn đã cập nhật thành công!";
 					break;
 			}
 			xoa_trang();
@@ -1037,10 +1039,11 @@ namespace QuanLyDuToan.DuToan
 			{
 				m_hdf_id_quyet_dinh.Value = "";
 				//check validate luu quyet dinh
-				if (check_data_quyet_dinh_is_ok())
-				{
-					m_hdf_id_quyet_dinh.Value = insert_quyet_dinh().ToString();
-				}
+                if (check_data_quyet_dinh_is_ok() == true)
+                {
+                    m_hdf_id_quyet_dinh.Value = insert_quyet_dinh().ToString();
+                }
+                else return;
 				// insert gd quyet dinh
 				//do not edit
 				disable_info_quyet_dinh();
