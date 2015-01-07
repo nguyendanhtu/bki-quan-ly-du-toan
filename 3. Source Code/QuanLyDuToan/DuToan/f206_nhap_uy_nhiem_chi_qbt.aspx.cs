@@ -623,6 +623,15 @@ namespace QuanLyDuToan.DuToan
 		protected void m_grv_unc_RowEditing(object sender, GridViewEditEventArgs e)
 		{
 			m_grv_unc.EditIndex = e.NewEditIndex;
+			//RadioButton m_rdb_grid_edit_theo_quoc_lo_cong_trinh = (RadioButton)m_grv_unc.Rows[e.NewEditIndex].FindControl("m_rdb_grid_edit_theo_quoc_lo_cong_trinh");
+			//RadioButton m_rdb_grid_edit_theo_chuong_loai_khoan_muc = (RadioButton)m_grv_unc.Rows[e.NewEditIndex].FindControl("m_rdb_grid_edit_theo_chuong_loai_khoan_muc");
+			//DropDownList m_ddl_grid_edit_du_an_quoc_lo = (DropDownList)m_grv_unc.Rows[e.NewEditIndex].FindControl("m_ddl_grid_edit_du_an_quoc_lo");
+			//DropDownList m_ddl_grid_edit_loai_nhiem_vu = (DropDownList)m_grv_unc.Rows[e.NewEditIndex].FindControl("m_ddl_grid_edit_loai_nhiem_vu");
+			//DropDownList m_ddl_grid_edit_du_an = (DropDownList)m_grv_unc.Rows[e.NewEditIndex].FindControl("m_ddl_grid_edit_du_an");
+			//DropDownList m_ddl_grid_edit_muc_tieu_muc = (DropDownList)m_grv_unc.Rows[e.NewEditIndex].FindControl("m_ddl_grid_edit_muc_tieu_muc");
+			//decimal v_dc_id_unc = CIPConvert.ToDecimal(m_grv_unc.DataKeys[e.NewEditIndex].Value);
+			//US_GD_CHI_TIET_GIAI_NGAN v_us_gd_gn = new US_GD_CHI_TIET_GIAI_NGAN(v_dc_id_unc);
+			//US_DM_GIAI_NGAN v_us_dm_gn = new US_DM_GIAI_NGAN();
 			data_to_grid_unc();
 		}
 
@@ -821,14 +830,19 @@ namespace QuanLyDuToan.DuToan
 					DropDownList m_ddl_grid_edit_loai_nhiem_vu = (DropDownList)e.Row.FindControl("m_ddl_grid_edit_loai_nhiem_vu");
 					DropDownList m_ddl_grid_edit_du_an = (DropDownList)e.Row.FindControl("m_ddl_grid_edit_du_an");
 					DropDownList m_ddl_grid_edit_muc_tieu_muc = (DropDownList)e.Row.FindControl("m_ddl_grid_edit_muc_tieu_muc");
+					RadioButton m_rdb_grid_edit_theo_quoc_lo_cong_trinh = (RadioButton)e.Row.FindControl("m_rdb_grid_edit_theo_quoc_lo_cong_trinh");
+					RadioButton m_rdb_grid_edit_theo_chuong_loai_khoan_muc = (RadioButton)e.Row.FindControl("m_rdb_grid_edit_theo_chuong_loai_khoan_muc");
 					if (m_ddl_grid_edit_du_an == null) return;
 
 					WinFormControls.load_data_to_ddl_loai_nhiem_vu(m_ddl_grid_edit_loai_nhiem_vu);
+					m_ddl_grid_edit_loai_nhiem_vu.SelectedValue = v_us.dcID_LOAI_NHIEM_VU.ToString();
 					load_data_to_cbo_muc_tieu_muc(m_ddl_grid_edit_muc_tieu_muc
 								, CIPConvert.ToDecimal(m_ddl_grid_edit_loai_nhiem_vu.SelectedValue)
 							);
 					if (v_us.IsID_CHUONGNull())
 					{
+						m_rdb_grid_edit_theo_quoc_lo_cong_trinh.Checked = true;
+						m_rdb_grid_edit_theo_chuong_loai_khoan_muc.Checked = false;
 						if (m_ddl_grid_edit_loai_nhiem_vu.Items.Count > 0)
 						{
 							m_ddl_grid_edit_loai_nhiem_vu.SelectedValue = v_us.dcID_LOAI_NHIEM_VU.ToString();
@@ -851,6 +865,8 @@ namespace QuanLyDuToan.DuToan
 					}
 					else
 					{
+						m_rdb_grid_edit_theo_quoc_lo_cong_trinh.Checked = false;
+						m_rdb_grid_edit_theo_chuong_loai_khoan_muc.Checked = true;
 						//dropdownlist muc - tieu muc
 
 						if (m_ddl_grid_edit_muc_tieu_muc != null)

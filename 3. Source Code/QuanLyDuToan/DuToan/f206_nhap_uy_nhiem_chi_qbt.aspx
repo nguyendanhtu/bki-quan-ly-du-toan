@@ -33,7 +33,7 @@
 				</tr>
 				<tr>
 					<td style="text-align: center">
-						<p>Lập ngày: &nbsp;<asp:TextBox ID="m_txt_ngay_thang" runat="server" placeholder="dd/mm/yyyy" CssClass="cssTextBox" Width="100px"></asp:TextBox></p>
+						<p>Lập ngày (*): &nbsp;<asp:TextBox ID="m_txt_ngay_thang" runat="server" placeholder="dd/mm/yyyy" CssClass="cssTextBox" Width="100px"></asp:TextBox></p>
 					</td>
 				</tr>
 				<tr>
@@ -68,7 +68,7 @@
 										</tr>
 										<tr>
 											<td style="text-align: right">
-												<span>Số UNC</span>
+												<span>Số UNC (*)</span>
 											</td>
 											<td colspan="2">
 												<asp:TextBox ID="m_txt_so_unc" runat="server" placeholder="59Qtu" CssClass="cssTextBox" Width="150px"></asp:TextBox>
@@ -100,7 +100,7 @@
 												</asp:RadioButtonList>
 
 											</td>
-											<td style="text-align: right"><span>&nbsp;&nbsp; Mã ĐVQHNS:</span><asp:Label ID="m_lbl_ma_dvqhns" runat="server" ForeColor="Black"></asp:Label><span>&nbsp;&nbsp; Mã CTMT, DA và HTCT:</span></td>
+											<td style="text-align: right"><span>&nbsp;&nbsp; Mã ĐVQHNS:</span><asp:Label ID="m_lbl_ma_dvqhns" runat="server" ForeColor="Black"></asp:Label><span>&nbsp;&nbsp; Mã CTMT, DA và HTCT (*):</span></td>
 											<td>
 
 												<asp:TextBox ID="m_txt_ma_ctmt_da_htct" Width="40%" runat="server" CssClass="cssTextBox"></asp:TextBox>
