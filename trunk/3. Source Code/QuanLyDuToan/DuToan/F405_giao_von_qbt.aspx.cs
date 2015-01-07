@@ -152,6 +152,7 @@ namespace QuanLyDuToan.DuToan
 			LinkButton v_lb_id_gd;
 
 			ip_grv.Rows.CopyTo(v_arr_gvr, 0);
+			bool v_b_is_update_data = false;
 
 			for (int i = 0; i < v_arr_gvr.Length; i++)
 			{
@@ -172,6 +173,7 @@ namespace QuanLyDuToan.DuToan
 						//v_us.dcSO_TIEN_NS = WinFormControls.get_so_tien(v_txt_so_tien_ns.Text);
 						v_us.dcSO_TIEN_QUY_BT = WinFormControls.get_so_tien(v_txt_so_tien_quy.Text);
 						v_us.Update();
+						v_b_is_update_data = true;
 					}
 					catch (Exception)
 					{
@@ -181,7 +183,11 @@ namespace QuanLyDuToan.DuToan
 
 				}
 			}
-			m_lbl_mess_grid.Text = "Đã ghi dữ liệu thành công!";
+			if (v_b_is_update_data)
+			{
+				m_lbl_mess_grid.Text = "Đã ghi dữ liệu thành công!";
+				m_ddl_loai_nhiem_vu.Focus();
+			}
 			load_data_to_grid();
 		}
 
@@ -232,7 +238,7 @@ namespace QuanLyDuToan.DuToan
 			}
 			else v_us.dcID_LOAI_QUYET_DINH_GIAO = ID_LOAI_GIAO_DICH.DIEU_CHINH;
 			v_us.dcID_DON_VI = Person.get_id_don_vi();
-			v_us.dcID_LOAI_QUYET_DINH = ID_LOAI_QUYET_DINH.GIAO_KE_HOACH;
+			v_us.dcID_LOAI_QUYET_DINH = ID_LOAI_QUYET_DINH.GIAO_VON;
 			v_us.strNOI_DUNG = m_txt_noi_dung.Text.Trim();
 			v_us.strSO_QUYET_DINH = m_txt_so_qd.Text.Trim();
 			v_us.datNGAY_THANG = CIPConvert.ToDatetime(m_txt_ngay_thang.Text.Trim(), "dd/MM/yyyy");
@@ -364,11 +370,13 @@ namespace QuanLyDuToan.DuToan
 				if (check_data_quyet_dinh_is_ok())
 				{
 					m_hdf_id_quyet_dinh.Value = insert_quyet_dinh().ToString();
+					m_lbl_mess_qd.Text = "Lưu QĐ thành công!";
+					disable_info_quyet_dinh();
 				}
 				// insert gd quyet dinh
 				//do not edit
-				disable_info_quyet_dinh();
-				m_lbl_mess_qd.Text = "Lưu QĐ thành công!";
+
+
 				//set id to hiddenfield
 				load_data_to_grid();
 			}
@@ -388,7 +396,7 @@ namespace QuanLyDuToan.DuToan
 			{
 				if (!IsPostBack)
 				{
-					
+
 					if (Request.QueryString["ip_dc_id_quyet_dinh"] != null)
 					{
 						decimal v_dc_id_quyet_dinh = CIPConvert.ToDecimal(Request.QueryString["ip_dc_id_quyet_dinh"]);
@@ -494,6 +502,9 @@ namespace QuanLyDuToan.DuToan
 		{
 			try
 			{
+				m_lbl_mess_grid.Text = "";
+				m_lbl_mess_qd.Text = "";
+				m_lbl_mess_detail.Text = "";
 				load_data_to_grid();
 			}
 			catch (Exception v_e)
