@@ -616,6 +616,7 @@ namespace QuanLyDuToan.DuToan
 
 		protected void m_grv_unc_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
 		{
+			m_lbl_mess_detail.Text = "";
 			m_grv_unc.EditIndex = -1;
 			data_to_grid_unc();
 		}
