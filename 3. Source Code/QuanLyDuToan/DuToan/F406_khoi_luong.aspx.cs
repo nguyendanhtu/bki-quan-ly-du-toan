@@ -26,7 +26,7 @@ namespace QuanLyDuToan.DuToan
 		}
 
 		#region Private Methods
-		
+
 
 		private void load_data_to_grid()
 		{
@@ -46,9 +46,9 @@ namespace QuanLyDuToan.DuToan
 		private void load_data_to_grid(decimal ip_id_quyet_dinh, decimal ip_id_loai_nhiem_vu = -1,
 			decimal ip_id_cong_trinh = -1, decimal ip_id_du_an = -1)
 		{
-			if (!CValidateTextBox.IsValid(m_txt_ngay_thang,DataType.DateType,allowNull.NO))
+			if (!CValidateTextBox.IsValid(m_txt_ngay_thang, DataType.DateType, allowNull.NO))
 			{
-				m_lbl_mess_qd.Text="Bạn phải nhập ngày tháng (dd/MM/yyyy)";
+				m_lbl_mess_qd.Text = "Bạn phải nhập ngày tháng (dd/MM/yyyy)";
 				return;
 			}
 			var v_dat_now = CIPConvert.ToDatetime(m_txt_ngay_thang.Text.Trim(), "dd/MM/yyyy"); ;
@@ -76,8 +76,8 @@ namespace QuanLyDuToan.DuToan
 
 			v_us.get_grid_khoi_luong(v_ds
 				, Person.get_id_don_vi()
-				,v_dat_now
-				,CIPConvert.ToDecimal(m_ddl_loai_nhiem_vu.SelectedValue));
+				, v_dat_now
+				, CIPConvert.ToDecimal(m_ddl_loai_nhiem_vu.SelectedValue));
 
 			m_grv.DataSource = v_ds.Tables[0];
 			m_grv.DataBind();
@@ -145,7 +145,7 @@ namespace QuanLyDuToan.DuToan
 				}
 			}
 			m_lbl_mess_grid.Text = "Đã ghi dữ liệu thành công!";
-			
+
 			load_data_to_grid();
 			m_lbl_mess_grid.Focus();
 		}
@@ -201,7 +201,7 @@ namespace QuanLyDuToan.DuToan
 					if (Request.QueryString["ip_dc_id_quyet_dinh"] != null)
 					{
 						//decimal v_dc_id_quyet_dinh = CIPConvert.ToDecimal(Request.QueryString["ip_dc_id_quyet_dinh"]);
-						
+
 
 					}
 				}
