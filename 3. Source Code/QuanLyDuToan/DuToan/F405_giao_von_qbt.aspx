@@ -40,7 +40,7 @@
                                 </tr>
                                 <tr>
                                     <td style="width: 15%; text-align: right">
-                                        <span>Số QĐ</span>
+                                        <span>Số QĐ (*)</span>
                                     </td>
                                     <td style="width: 35%">
                                         <asp:TextBox ID="m_txt_so_qd" runat="server" CssClass="cssTextBox" Width="150px" placeholder="Vd: 371/QĐ-BGTVT"></asp:TextBox>
@@ -48,13 +48,13 @@
                                         <asp:Button ID="m_cmd_chon_qd_da_nhap" Text="Chọn QĐ" OnClick="m_cmd_chon_qd_da_nhap_Click" runat="server" />
                                     </td>
                                     <td style="width: 15%; text-align: right">
-                                        <span>Ngày tháng</span>
+                                        <span>Ngày tháng (*)</span>
                                     </td>
                                     <td style="width: 35%">
                                         <asp:TextBox ID="m_txt_ngay_thang" runat="server" CssClass="cssTextBox" Width="100px" placeholder="dd/MM/yyyy"></asp:TextBox></td>
                                 </tr>
                                 <tr>
-                                    <td style="text-align: right"><span>Nội dung</span></td>
+                                    <td style="text-align: right"><span>Nội dung (*)</span></td>
                                     <td colspan="3">
                                         <asp:TextBox ID="m_txt_noi_dung" runat="server" CssClass="cssTextBox" Width="528px"></asp:TextBox>
                                     </td>
