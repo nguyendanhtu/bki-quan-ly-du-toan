@@ -511,7 +511,7 @@ namespace QuanLyDuToan.DuToan
 		}
 		private void load_data_to_cbo_dm_uy_nhiem_chi()
 		{
-			WinFormControls.load_data_to_cbo_dm_uy_nhiem_chi(m_ddl_unc);
+			WinFormControls.load_data_to_cbo_dm_uy_nhiem_chi(m_ddl_unc,false);
 		}
 		protected void m_cmd_chon_unc_Click(object sender, EventArgs e)
 		{

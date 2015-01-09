@@ -332,7 +332,7 @@ namespace QuanLyDuToan.DuToan
 
 		private void load_data_to_cbo_dm_uy_nhiem_chi()
 		{
-			WinFormControls.load_data_to_cbo_dm_uy_nhiem_chi(m_ddl_unc);
+			WinFormControls.load_data_to_cbo_dm_uy_nhiem_chi(m_ddl_unc,false);
 		}
 		private void load_data_cong_trinh_du_an_giao_von_to_ddl(DropDownList op_ddl, WinFormControls.LOAI_DU_AN ip_loai_du_an)
 		{

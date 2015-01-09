@@ -314,26 +314,28 @@ namespace WebUS
 		}
 		#endregion
 
-        public void get_grid_uy_nhiem_chi_dataset(DS_GRID_GIAI_NGAN op_ds
-                , decimal ip_dc_id_don_vi
-                , decimal ip_dc_id_dm_uy_nhiem_chi)
-        {
-            CStoredProc v_sp = new CStoredProc("pr_get_grid_uy_nhiem_chi");
-            v_sp.addDecimalInputParam("@ip_dc_id_don_vi", ip_dc_id_don_vi);
-            v_sp.addDecimalInputParam("@ip_dc_id_dm_uy_nhiem_chi", ip_dc_id_dm_uy_nhiem_chi);
-            v_sp.fillDataSetByCommand(this, op_ds);
-        }
-        public void get_grid_giai_ngan(DS_GRID_GIAI_NGAN op_ds
-             , decimal ip_dc_id_don_vi
-             , decimal ip_dc_id_dm_uy_nhiem_chi
-            , decimal ip_dc_id_user)
-        {
-            CStoredProc v_sp = new CStoredProc("pr_get_grid_giai_ngan");
-            v_sp.addDecimalInputParam("@ip_dc_id_don_vi", ip_dc_id_don_vi);
-            v_sp.addDecimalInputParam("@ip_dc_id_dm_uy_nhiem_chi", ip_dc_id_dm_uy_nhiem_chi);
-            v_sp.addDecimalInputParam("@ip_dc_id_user", ip_dc_id_user);
-            v_sp.fillDataSetByCommand(this, op_ds);
-        }
+		public void get_grid_uy_nhiem_chi_dataset(DS_GRID_GIAI_NGAN op_ds
+				, decimal ip_dc_id_don_vi
+				, decimal ip_dc_id_dm_uy_nhiem_chi)
+		{
+			CStoredProc v_sp = new CStoredProc("pr_get_grid_uy_nhiem_chi");
+			v_sp.addDecimalInputParam("@ip_dc_id_don_vi", ip_dc_id_don_vi);
+			v_sp.addDecimalInputParam("@ip_dc_id_dm_uy_nhiem_chi", ip_dc_id_dm_uy_nhiem_chi);
+			v_sp.fillDataSetByCommand(this, op_ds);
+		}
+		public void get_grid_giai_ngan(DS_GRID_GIAI_NGAN op_ds
+			 , decimal ip_dc_id_don_vi
+			 , decimal ip_dc_id_dm_uy_nhiem_chi
+			, decimal ip_dc_id_user
+			, string ip_str_is_nguon_ns)
+		{
+			CStoredProc v_sp = new CStoredProc("pr_get_grid_giai_ngan");
+			v_sp.addDecimalInputParam("@ip_dc_id_don_vi", ip_dc_id_don_vi);
+			v_sp.addDecimalInputParam("@ip_dc_id_dm_uy_nhiem_chi", ip_dc_id_dm_uy_nhiem_chi);
+			v_sp.addDecimalInputParam("@ip_dc_id_user", ip_dc_id_user);
+			v_sp.addNVarcharInputParam("@ip_str_is_nguon_ns", ip_str_is_nguon_ns);
+			v_sp.fillDataSetByCommand(this, op_ds);
+		}
 
-    }
+	}
 }
