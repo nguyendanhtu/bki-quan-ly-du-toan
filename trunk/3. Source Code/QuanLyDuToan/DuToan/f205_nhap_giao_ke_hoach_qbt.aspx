@@ -4,6 +4,10 @@
 <%@ Import Namespace="WebDS.CDBNames" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
     <style>
+        .align_right {
+            text-align:right;
+        }
+
         .lbl {
             width: 180px;
             float: left;
@@ -29,6 +33,17 @@
     <script type="text/javascript">
         function pageLoad(sender, args) {
             if (args.get_isPartialLoad()) {
+                function xoaDauPhay(str) {
+                    str2 = "";
+                    str += "";
+                    for (i = 0; i < str.length; i++) {
+                        if (!isNaN(str[i])) {
+                            str2 += str[i];
+                        }
+                    }
+                    return str2;
+                }
+
                 function formatString(str) {
                     var index = 0;
                     var count_comma = 0;
@@ -48,18 +63,13 @@
                     return str2;
                 }
 
-                function xoaDauPhay(str) {
-                    str2 = "";
-                    str += "";
-                    for (i = 0; i < str.length; i++) {
-                        if (!isNaN(str[i])) {
-                            str2 += str[i];
-                        }
-                    }
-                    return str2;
-                }
-
                 function tinhTong(str1, str2) {
+                    if ((str1 + "").length == 0) {
+                        str1 = "0";
+                    }
+                    if ((str2 + "").length == 0) {
+                        str2 = "0";
+                    }
                     return formatString((parseFloat(xoaDauPhay(str1)) + parseFloat(xoaDauPhay(str2))).toString());
                 }
                 var isChecked = $('#<%=chiTheoQuocLoDuAn.ClientID%>').attr('checked') ? true : false;
@@ -111,6 +121,17 @@
             }
         }
         $(document).ready(function () {
+            function xoaDauPhay(str) {
+                str2 = "";
+                str += "";
+                for (i = 0; i < str.length; i++) {
+                    if (!isNaN(str[i])) {
+                        str2 += str[i];
+                    }
+                }
+                return str2;
+            }
+
             function formatString(str) {
                 var index = 0;
                 var count_comma = 0;
@@ -130,18 +151,13 @@
                 return str2;
             }
 
-            function xoaDauPhay(str) {
-                str2 = "";
-                str += "";
-                for (i = 0; i < str.length; i++) {
-                    if (!isNaN(str[i])) {
-                        str2 += str[i];
-                    }
-                }
-                return str2;
-            }
-
             function tinhTong(str1, str2) {
+                if ((str1 + "").length == 0) {
+                    str1 = "0";
+                }
+                if ((str2 + "").length == 0) {
+                    str2 = "0";
+                }
                 return formatString((parseFloat(xoaDauPhay(str1)) + parseFloat(xoaDauPhay(str2))).toString());
             }
             var isChecked = $('#<%=chiTheoQuocLoDuAn.ClientID%>').attr('checked') ? true : false;
@@ -206,7 +222,7 @@
                 <div style="width: 1280px; height: 650px; margin: 3px auto;">
                     <div style="width: 510px; height: 650px; float: left;">
                         <fieldset>
-                            <legend>Thong tin chung</legend>
+                            <legend>Thông tin chung</legend>
                             <div class="lbl">Loại quyết định (*)</div>
                             <div class="ctr">
                                 <asp:RadioButton ID="m_rdb_kh_dau_nam" runat="server" Text="KH đầu năm" GroupName="loai" Checked="true" />
@@ -237,10 +253,11 @@
                                 <input type="button" id="m_cmd_chon_quyet_dinh_co_san" value="Chọn quyết định có sẵn" />
                                 <input type="button" id="m_cmd_them_quyet_dinh_khac" value="Thêm quyết định khác" style="display: none;" />
                                 <asp:Button ID="m_cmd_them_moi_quyet_dinh" Text="Thêm mới quyết định" runat="server" OnClick="m_cmd_them_moi_quyet_dinh_Click" />
+                                <asp:Button ID="m_cmd_cho_them_qd" Text="Thêm mới quyết định khác" runat="server" OnClick="m_cmd_cho_them_qd_Click" Visible="false"/>
                             </div>
                         </fieldset>
                         <fieldset>
-                            <legend>Chi tiet quyet dinh</legend>
+                            <legend>Chi tiết quyết định</legend>
                             <div class="lbl">Chi theo (*)</div>
                             <div class="ctr">
                                 <asp:RadioButton ID="chiTheoQuocLoDuAn" runat="server" Text="Theo Quốc lộ/dự án" GroupName="chitheo" Checked="true" /><br />
@@ -253,7 +270,7 @@
                                 </div>
                                 <div style="clear: both; height: 20px;" class="lbl">Công trình/Quốc lộ (*)</div>
                                 <div style="height: 20px; width:190px;" class="ctr">
-                                    <asp:DropDownList ID="m_ddl_cong_trinh_quoc_lo" runat="server" Width="176px"></asp:DropDownList>
+                                    <asp:DropDownList ID="m_ddl_cong_trinh_quoc_lo" runat="server" Width="176px" AutoPostBack="True" OnSelectedIndexChanged="m_ddl_cong_trinh_quoc_lo_SelectedIndexChanged"></asp:DropDownList>
                                     <asp:TextBox id="m_txt_cong_trinh" runat="server" Visible="false"></asp:TextBox>
                                 </div>
                                 <div style="height:20px; float:left;margin-top: 3px;">
@@ -261,8 +278,13 @@
                                     <asp:Button ID="m_cmd_them_cong_trinh" runat="server" Text="Chọn công trình" Width="110px" Visible="false" OnClick="m_cmd_them_cong_trinh_Click"/>
                                 </div>
                                 <div style="clear: both; height: 20px;" class="lbl">Tên dự án (*)</div>
-                                <div style="height: 20px;" class="ctr">
-                                    <asp:TextBox ID="m_txt_ten_du_an" runat="server" CssClass="cssTextBox" Width="150px"></asp:TextBox>
+                                <div style="height: 20px; width:190px;" class="ctr">
+                                    <asp:DropDownList ID="m_ddl_du_an" runat="server" Width="176px"></asp:DropDownList>
+                                    <asp:TextBox ID="m_txt_ten_du_an" runat="server" CssClass="cssTextBox" Width="150px" Visible="false"></asp:TextBox>
+                                </div>
+                                <div style="height:20px; float:left;margin-top: 3px;">
+                                    <asp:Button ID="m_cmd_them_du_an_block" runat="server" Text="Thêm dự án" Width="110px" OnClick="m_cmd_them_du_an_block_Click"/>
+                                    <asp:Button ID="m_cmd_them_du_an" runat="server" Text="Chọn dự án" Width="110px" Visible="false" OnClick="m_cmd_them_du_an_Click"/>
                                 </div>
                                 <div style="clear: both; height: 20px;" class="lbl">(*)</div>
                                 <div style="height: 20px;" class="ctr">
@@ -271,7 +293,7 @@
                                 </div>
                                 <div style="clear: both; height: 20px;" class="lbl">Số km</div>
                                 <div style="height: 20px;" class="ctr">
-                                    <asp:TextBox ID="m_txt_so_km" runat="server" CssClass="cssTextBox" Width="150px" Text="0"></asp:TextBox>
+                                    <asp:TextBox ID="m_txt_so_km" runat="server" CssClass="cssTextBox align_right" Width="150px" Text="0"></asp:TextBox>
                                 </div>
                             </div>
                             <div id="group_lkm" style="display: none;">
@@ -303,15 +325,15 @@
                             <div>
                                 <div style="clear: both; height: 20px;" class="lbl">Kinh phí năm trước chuyển sang</div>
                                 <div style="height: 20px;" class="ctr">
-                                    <asp:TextBox ID="m_txt_kinh_phi_nam_truoc_chuyen_sang" runat="server" CssClass="cssTextBox" Width="150px" value="0"></asp:TextBox>
+                                    <asp:TextBox ID="m_txt_kinh_phi_nam_truoc_chuyen_sang" runat="server" CssClass="cssTextBox align_right" Width="150px" value="0"></asp:TextBox>
                                 </div>
                                 <div style="clear: both; height: 20px;" class="lbl">Kinh phí Quỹ bảo trì (*)</div>
                                 <div style="height: 20px;" class="ctr">
-                                    <asp:TextBox ID="m_txt_kinh_phi_quy_bao_tri" runat="server" CssClass="cssTextBox" Width="150px" value="0"></asp:TextBox>
+                                    <asp:TextBox ID="m_txt_kinh_phi_quy_bao_tri" runat="server" CssClass="cssTextBox align_right" Width="150px" value="0"></asp:TextBox>
                                 </div>
                                 <div style="clear: both; height: 20px;" class="lbl">Tổng</div>
-                                <div style="height: 20px;" class="ctr">
-                                    <label style="text-align: right" id="m_lbl_tong_chi_ktx">0</label>
+                                <div style="height: 20px;position: relative;" class="ctr">
+                                    <label style="text-align: right;position: absolute;right: 75px;" id="m_lbl_tong_chi_ktx">0</label>
                                 </div>
                                 <div style="clear: both; height: 20px;" class="lbl">Ghi chú</div>
                                 <div style="height: 70px;" class="ctr">

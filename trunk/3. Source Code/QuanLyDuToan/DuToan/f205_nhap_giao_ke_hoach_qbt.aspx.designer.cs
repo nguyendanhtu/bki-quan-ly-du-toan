@@ -103,6 +103,15 @@ namespace QuanLyDuToan.DuToan {
         protected global::System.Web.UI.WebControls.Button m_cmd_them_moi_quyet_dinh;
         
         /// <summary>
+        /// m_cmd_cho_them_qd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button m_cmd_cho_them_qd;
+        
+        /// <summary>
         /// chiTheoQuocLoDuAn control.
         /// </summary>
         /// <remarks>
@@ -166,6 +175,15 @@ namespace QuanLyDuToan.DuToan {
         protected global::System.Web.UI.WebControls.Button m_cmd_them_cong_trinh;
         
         /// <summary>
+        /// m_ddl_du_an control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList m_ddl_du_an;
+        
+        /// <summary>
         /// m_txt_ten_du_an control.
         /// </summary>
         /// <remarks>
@@ -173,6 +191,24 @@ namespace QuanLyDuToan.DuToan {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox m_txt_ten_du_an;
+        
+        /// <summary>
+        /// m_cmd_them_du_an_block control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button m_cmd_them_du_an_block;
+        
+        /// <summary>
+        /// m_cmd_them_du_an control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button m_cmd_them_du_an;
         
         /// <summary>
         /// m_rad_thuong_xuyen control.
