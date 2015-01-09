@@ -501,8 +501,20 @@ namespace QuanLyDuToan.DuToan
 			m_us = new US_GD_CHI_TIET_GIAO_KH(CIPConvert.ToDecimal(m_hdf_id_giao_kh.Value));
 
 
-			//m_txt_noi_dung_chi.Text = m_us.strTEN_DU_AN;
-			//m_txt_so_tien_ns.Text = CIPConvert.ToStr(m_us.dcSO_TIEN_NS);
+			if (!m_us.IsTU_CHU_YNNull())
+			{
+				if (m_us.strTU_CHU_YN == "Y")
+				{
+					m_rdb_chi_thuong_xuyen.Checked = true;
+					m_rdb_chi_khong_thuong_xuyen.Checked = false;
+				}
+				else
+				{
+					m_rdb_chi_thuong_xuyen.Checked = false;
+					m_rdb_chi_khong_thuong_xuyen.Checked = true;
+				}
+			}
+
 			if (Request.QueryString["ip_nguon_ns"] == "N")
 			{
 				m_txt_so_tien.Text = CIPConvert.ToStr(m_us.dcSO_TIEN_QUY_BT);
@@ -517,6 +529,11 @@ namespace QuanLyDuToan.DuToan
 			//m_txt_ten_quoc_lo.Text = v_us_du_an_cong_trinh.strTEN_DU_AN_CONG_TRINH.Replace("Quốc lộ ","");
 			if (!m_us.IsID_CONG_TRINHNull())
 			{
+				m_rdb_theo_quoc_lo.Checked = true;
+				m_rdb_theo_chuong_loai_khoan_muc.Checked = false;
+
+				m_rdb_theo_quoc_lo_CheckedChanged(null, null);
+				
 				US_DM_CONG_TRINH_DU_AN_GOI_THAU v_us_du_an = new US_DM_CONG_TRINH_DU_AN_GOI_THAU(m_us.dcID_DU_AN);
 				US_DM_CONG_TRINH_DU_AN_GOI_THAU v_us_cong_trinh = new US_DM_CONG_TRINH_DU_AN_GOI_THAU(v_us_du_an.dcID_CHA);
 				//set cong trinh
@@ -539,6 +556,10 @@ namespace QuanLyDuToan.DuToan
 			}
 			else
 			{
+				m_rdb_theo_quoc_lo.Checked = false;
+				m_rdb_theo_chuong_loai_khoan_muc.Checked = true;
+
+				m_rdb_theo_chuong_loai_khoan_muc_CheckedChanged(null, null);
 				m_ddl_chuong.SelectedValue = m_us.dcID_CHUONG.ToString();
 				US_DM_CHUONG_LOAI_KHOAN_MUC v_us_khoan = new US_DM_CHUONG_LOAI_KHOAN_MUC(m_us.dcID_KHOAN);
 				m_ddl_loai.SelectedValue = v_us_khoan.dcID_CHA.ToString();
@@ -557,19 +578,7 @@ namespace QuanLyDuToan.DuToan
 			m_ddl_loai_nhiem_vu.SelectedValue = m_us.dcID_LOAI_NHIEM_VU.ToString();
 			load_panel_loai_chi();
 			m_txt_noi_dung_du_toan.Text = m_us.strGHI_CHU_1;
-			if (!m_us.IsTU_CHU_YNNull())
-			{
-				if (m_us.strTU_CHU_YN == "Y")
-				{
-					m_rdb_chi_thuong_xuyen.Checked = true;
-					m_rdb_chi_khong_thuong_xuyen.Checked = false;
-				}
-				else
-				{
-					m_rdb_chi_thuong_xuyen.Checked = false;
-					m_rdb_chi_khong_thuong_xuyen.Checked = true;
-				}
-			}
+			
 
 			//set quyet dinh
 			US_DM_QUYET_DINH v_us_quyet_dinh = new US_DM_QUYET_DINH(m_us.dcID_QUYET_DINH);
