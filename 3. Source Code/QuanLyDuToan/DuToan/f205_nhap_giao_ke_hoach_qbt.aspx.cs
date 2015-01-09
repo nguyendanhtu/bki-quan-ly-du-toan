@@ -104,7 +104,7 @@ namespace QuanLyDuToan.DuToan
             load_data_2_ddl_so_qd();
             load_data_2_ddl_loai_nhiem_vu();
             load_data_2_ddl_loai_nhiem_vu_lkm();
-            load_data_to_cbo_quoc_lo();
+            load_data_to_ddl_quoc_lo();
             load_data_to_ddl_chuong();
             load_data_to_ddl_loai();
             load_data_to_ddl_muc();
@@ -222,9 +222,13 @@ namespace QuanLyDuToan.DuToan
             m_ddl_tieu_muc.DataBind();
             m_ddl_tieu_muc.Items.Insert(0, new ListItem("---Chọn Tiểu mục---", "-1"));
         }
-        private void load_data_to_cbo_quoc_lo()
+        private void load_data_to_ddl_quoc_lo()
         {
             WinFormControls.load_data_to_cbo_du_an_cong_trinh_from_giao_von1(ID_LOAI_CONG_TRINH_DU_AN_GOI_THAU.CONG_TRINH, m_ddl_cong_trinh_quoc_lo);
+        }
+        private void load_data_to_ddl_du_an()
+        {
+            WinFormControls.load_data_to_cbo_du_an_cong_trinh_from_giao_von2(ID_LOAI_CONG_TRINH_DU_AN_GOI_THAU.DU_AN, CIPConvert.ToDecimal(m_ddl_cong_trinh_quoc_lo.SelectedValue), m_ddl_du_an);
         }
 
         private void load_data_2_ddl_loai_nhiem_vu()
@@ -332,6 +336,14 @@ namespace QuanLyDuToan.DuToan
                 else
                 {
                     v_us.dcID_CONG_TRINH = insert_cong_trinh();
+                    if (v_us.dcID_CONG_TRINH == -1)//insert cong trinh bi loi
+                    {
+                        return;
+                    }
+                    else
+                    {
+                        v_us.dcID_DU_AN = insert_du_an(v_us.dcID_CONG_TRINH);
+                    }
                 }
                 
                 v_us.strGHI_CHU_1 = m_txt_ten_du_an.Text;
@@ -374,6 +386,58 @@ namespace QuanLyDuToan.DuToan
                 if (v_us.dcID_TIEU_MUC == -1)
                 {
                     v_us.SetID_TIEU_MUCNull();
+                }
+            }
+        }
+
+        private decimal insert_du_an(decimal ip_dc_id_cong_trinh)
+        {
+            decimal v_dc_id_du_an = -1;
+            //Kiem tra xem nguoi dung dang Chon du an hay dang nhap du an
+            if (m_ddl_du_an.Visible == true)
+            {
+                //kiem tra xem du an da chon co cha la cong trinh khong
+                //neu khong phai, ta phai them 1 du an moi
+                US_DM_CONG_TRINH_DU_AN_GOI_THAU v_us_du_an = new US_DM_CONG_TRINH_DU_AN_GOI_THAU(CIPConvert.ToDecimal(m_ddl_du_an.SelectedValue));
+                if (v_us_du_an.dcID_CHA != ip_dc_id_cong_trinh)
+                {
+                    v_us_du_an.dcID_CHA = ip_dc_id_cong_trinh;
+                    v_us_du_an.Insert();
+                    return v_us_du_an.dcID;
+                }
+                else return CIPConvert.ToDecimal(m_ddl_du_an.SelectedValue);
+            }
+            else //neu nguoi dung dang Nhap 1 du an moi thi ta phai insert 1 du an moi
+            {
+                try
+                {
+                    //1. kiểm tra xem đã có dự án trong bảng DM_CONG_TRINH_DU_AN_GOI_THAU chưa 
+                    US_DM_CONG_TRINH_DU_AN_GOI_THAU v_us = new US_DM_CONG_TRINH_DU_AN_GOI_THAU();
+                    DS_DM_CONG_TRINH_DU_AN_GOI_THAU v_ds = new DS_DM_CONG_TRINH_DU_AN_GOI_THAU();
+                    v_us.FillDataset(v_ds, "where " + DM_CONG_TRINH_DU_AN_GOI_THAU.TEN + "= N'" + m_txt_ten_du_an.Text.Trim() + "'" +
+                        "and " + DM_CONG_TRINH_DU_AN_GOI_THAU.ID_LOAI + "=" + ID_LOAI_CONG_TRINH_DU_AN_GOI_THAU.DU_AN +
+                        "and " + DM_CONG_TRINH_DU_AN_GOI_THAU.ID_CHA + "=" + ip_dc_id_cong_trinh);
+                    //1.1 Nếu có rồi thì không thêm nữa
+                    if (v_ds.DM_CONG_TRINH_DU_AN_GOI_THAU.Count > 0)
+                    {
+                        v_us = new US_DM_CONG_TRINH_DU_AN_GOI_THAU(CIPConvert.ToDecimal(v_ds.Tables[0].Rows[0][DM_CONG_TRINH_DU_AN_GOI_THAU.ID]));
+                    }
+                    else
+                    {
+                        //1.2 Nếu chưa có thì thêm mới
+                        v_us.dcID_DON_VI = Person.get_id_don_vi();
+                        v_us.strTEN = m_txt_ten_du_an.Text.Trim();
+                        v_us.dcID_LOAI = ID_LOAI_CONG_TRINH_DU_AN_GOI_THAU.DU_AN;
+                        v_us.dcID_CHA = ip_dc_id_cong_trinh;
+                        v_us.Insert();
+                    }
+                    v_dc_id_du_an = v_us.dcID;
+                    return v_dc_id_du_an;
+
+                }
+                catch (Exception)
+                {
+                    return v_dc_id_du_an;
                 }
             }
         }
@@ -434,7 +498,7 @@ namespace QuanLyDuToan.DuToan
             //m_txt_noi_dung.Visible = true;
             //m_txt_ngay_thang.Visible = true;
 
-            //disable_edit_quyet_dinh();
+            disable_edit_quyet_dinh();
             US_DM_QUYET_DINH v_us = new US_DM_QUYET_DINH(CIPConvert.ToDecimal(m_ddl_so_qd.SelectedValue)); ;
             m_txt_so_qd.Text = v_us.strSO_QUYET_DINH;
             m_txt_noi_dung.Text = v_us.strNOI_DUNG;
@@ -445,6 +509,15 @@ namespace QuanLyDuToan.DuToan
             //load_data_to_du_an();
             //load_data_to_ddl_loai_nhiem_vu();
             load_data_to_grid();
+        }
+
+        private void disable_edit_quyet_dinh()
+        {
+            m_txt_so_qd.Enabled = false;
+            m_txt_noi_dung.Enabled = false;
+            m_txt_ngay_thang.Enabled = false;
+            m_cmd_them_moi_quyet_dinh.Visible = false;
+            m_cmd_cho_them_qd.Visible = true;
         }
 
         protected void m_grv_RowDataBound(object sender, GridViewRowEventArgs e)
@@ -570,6 +643,39 @@ namespace QuanLyDuToan.DuToan
                     return v_dc_id_cong_trinh;
                 }
             }
+        }
+
+        protected void m_cmd_cho_them_qd_Click(object sender, EventArgs e)
+        {
+            m_cmd_them_moi_quyet_dinh.Visible = true;
+            m_txt_so_qd.Enabled = true;
+            m_txt_so_qd.Text = "";
+            m_txt_noi_dung.Text = "";
+            m_txt_ngay_thang.Text = "";
+            m_txt_noi_dung.Enabled = true;
+            m_txt_ngay_thang.Enabled = true;
+            m_cmd_cho_them_qd.Visible = false;
+        }
+
+        protected void m_cmd_them_du_an_block_Click(object sender, EventArgs e)
+        {
+            m_txt_ten_du_an.Visible = true;
+            m_ddl_du_an.Visible = false;
+            m_cmd_them_du_an.Visible = true;
+            m_cmd_them_du_an_block.Visible = false;
+        }
+
+        protected void m_cmd_them_du_an_Click(object sender, EventArgs e)
+        {
+            m_txt_ten_du_an.Visible = false;
+            m_ddl_du_an.Visible = true;
+            m_cmd_them_du_an_block.Visible = true;
+            m_cmd_them_du_an.Visible = false;
+        }
+
+        protected void m_ddl_cong_trinh_quoc_lo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            load_data_to_ddl_du_an();
         }
     }
 }
