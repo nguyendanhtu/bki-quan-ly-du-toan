@@ -198,6 +198,24 @@
 														</asp:DropDownList>
 													</td>
 												</tr>
+												<tr>
+													<td style="text-align:right">
+														<span>Nội dung dự toán (*)</span>
+													</td>
+													<td>
+														<asp:TextBox ID="m_txt_noi_dung_du_toan" Width="176px" runat="server">
+														</asp:TextBox>
+													</td>
+												</tr>
+												<tr>
+													<td style="text-align:right">
+														<span>Loại</span>
+													</td>
+													<td>
+														<asp:RadioButton ID="m_rdb_chi_thuong_xuyen" runat="server" Text="Chi thường xuyên/tự chủ" GroupName="loai_chi" Checked="true" /><br />
+														<asp:RadioButton ID="m_rdb_chi_khong_thuong_xuyen" runat="server" Text="Chi không thường xuyên/tự chủ" GroupName="loai_chi" />
+													</td>
+												</tr>
 											</asp:Panel>
 											<tr>
 												<td style="text-align: right">
