@@ -201,7 +201,15 @@ namespace QuanLyDuToan.DuToan
 
 		private void load_data_to_cbo_dm_uy_nhiem_chi()
 		{
-			WinFormControls.load_data_to_cbo_dm_uy_nhiem_chi(m_ddl_unc);
+			bool v_b_is_nguon_ns_ns = false;
+			if (Request.QueryString["ip_nguon_ns"] != null)
+			{
+				if (Request.QueryString["ip_nguon_ns"].ToString().Equals("Y"))
+				{
+					v_b_is_nguon_ns_ns = true;	
+				}
+			}
+			WinFormControls.load_data_to_cbo_dm_uy_nhiem_chi(m_ddl_unc, v_b_is_nguon_ns_ns);
 		}
 		private void load_data_cong_trinh_du_an_giao_von_to_ddl(DropDownList op_ddl, WinFormControls.LOAI_DU_AN ip_loai_du_an)
 		{
@@ -315,7 +323,7 @@ namespace QuanLyDuToan.DuToan
 		}
 		protected void Page_Load(object sender, EventArgs e)
 		{
-
+			
 			if (!IsPostBack)
 			{
 				m_txt_ngay_thang.Text = CIPConvert.ToStr(DateTime.Now, "dd/MM/yyyy");
@@ -338,6 +346,11 @@ namespace QuanLyDuToan.DuToan
 					load_data_to_cbo_dm_uy_nhiem_chi();
 					m_ddl_unc.SelectedValue = v_dc_id_quyet_dinh.ToString();
 					m_ddl_unc_SelectedIndexChanged(null, null);
+				}
+				if (Request.QueryString["ip_nguon_ns"] != null)
+				{
+					if (Request.QueryString["ip_nguon_ns"].ToString().Equals("Y")&&m_rbl_ma_tkkt.Items.Count>1)
+						m_rbl_ma_tkkt.Items[1].Selected = true;//chọn mã tkkt Nguồn NS
 				}
 			}
 		}
@@ -574,10 +587,16 @@ namespace QuanLyDuToan.DuToan
 
 		private void data_to_grid_unc()
 		{
+			//Xem form có phải đang ở chế độ giải ngân cho Nguồn Ngân sách không
+			string v_str_is_nguon_ns = "N";
+			if (Request.QueryString["ip_nguon_ns"]!=null)
+			{
+				if (Request.QueryString["ip_nguon_ns"].ToString().Equals("Y")) v_str_is_nguon_ns="Y";
+			}
 			US_GRID_GIAI_NGAN v_us = new US_GRID_GIAI_NGAN();
 			DS_GRID_GIAI_NGAN v_ds = new DS_GRID_GIAI_NGAN();
 			v_ds.EnforceConstraints = false;
-			v_us.get_grid_giai_ngan(v_ds, Person.get_id_don_vi(), CIPConvert.ToDecimal(m_hdf_id_dm_uy_nhiem_chi.Value), Person.get_user_id());
+			v_us.get_grid_giai_ngan(v_ds, Person.get_id_don_vi(), CIPConvert.ToDecimal(m_hdf_id_dm_uy_nhiem_chi.Value), Person.get_user_id(), v_str_is_nguon_ns);
 			m_grv_unc.DataSource = v_ds.Tables[0];
 			m_grv_unc.DataBind();
 		}
@@ -1160,6 +1179,18 @@ namespace QuanLyDuToan.DuToan
 			DropDownList m_ddl_grid_edit_du_an_quoc_lo = (DropDownList)v_gr.FindControl("m_ddl_grid_edit_du_an_quoc_lo");
 			DropDownList m_ddl_grid_edit_du_an = (DropDownList)v_gr.FindControl("m_ddl_grid_edit_du_an");
 			DropDownList m_ddl_grid_edit_muc_tieu_muc = (DropDownList)v_gr.FindControl("m_ddl_grid_edit_muc_tieu_muc");
+
+			bool v_b_is_nguon_ns = false;
+			bool v_b_is_chi_theo_du_an = false;
+			if (Request.QueryString["ip_nguon_ns"] != null)
+			{
+				if (Request.QueryString["ip_nguon_ns"].ToString().Equals("Y"))
+				{
+					v_b_is_nguon_ns = true;
+				}
+			}
+			WinFormControls.load_data_to_ddl_loai_nhiem_vu(m_ddl_grid_edit_loai_nhiem_vu, v_b_is_nguon_ns, v_b_is_chi_theo_du_an);
+
 			if (m_ddl_grid_edit_du_an == null) return;
 
 			WinFormControls.load_data_to_ddl_quoc_lo_cong_trinh(v_dat_dau_nam, v_dat_cuoi_nam, Person.get_id_don_vi()
@@ -1205,6 +1236,17 @@ namespace QuanLyDuToan.DuToan
 			DropDownList m_ddl_grid_edit_du_an_quoc_lo = (DropDownList)v_gr.FindControl("m_ddl_grid_edit_du_an_quoc_lo");
 			DropDownList m_ddl_grid_edit_du_an = (DropDownList)v_gr.FindControl("m_ddl_grid_edit_du_an");
 			DropDownList m_ddl_grid_edit_muc_tieu_muc = (DropDownList)v_gr.FindControl("m_ddl_grid_edit_muc_tieu_muc");
+
+			bool v_b_is_nguon_ns = false;
+			bool v_b_is_chi_theo_du_an = true;
+			if (Request.QueryString["ip_nguon_ns"] != null)
+			{
+				if (Request.QueryString["ip_nguon_ns"].ToString().Equals("Y"))
+				{
+					v_b_is_nguon_ns = true;
+				}
+			}
+			WinFormControls.load_data_to_ddl_loai_nhiem_vu(m_ddl_grid_edit_loai_nhiem_vu, v_b_is_nguon_ns, v_b_is_chi_theo_du_an);
 			if (m_ddl_grid_edit_du_an == null) return;
 
 			WinFormControls.load_data_to_ddl_quoc_lo_cong_trinh(v_dat_dau_nam, v_dat_cuoi_nam, Person.get_id_don_vi()
@@ -1266,17 +1308,36 @@ namespace QuanLyDuToan.DuToan
 
 		protected void m_rdb_grid_theo_quoc_lo_cong_trinh_CheckedChanged(object sender, EventArgs e)
 		{
+			bool v_b_is_nguon_ns = false;
+			bool v_b_is_chi_theo_du_an = true;
+			DropDownList m_ddl_grid_loai_nhiem_vu = (DropDownList)m_grv_unc.FooterRow.FindControl("m_ddl_grid_loai_nhiem_vu");
+			if (Request.QueryString["ip_nguon_ns"] != null)
+			{
+				if (Request.QueryString["ip_nguon_ns"].ToString().Equals("Y"))
+				{
+					v_b_is_nguon_ns = true;
+				}
+			}
+			WinFormControls.load_data_to_ddl_loai_nhiem_vu(m_ddl_grid_loai_nhiem_vu, v_b_is_nguon_ns, v_b_is_chi_theo_du_an);
 			visiable_control_in_grid_cong_trinh_du_an_and_chuong_loai_khoan_muc(sender, true);
 		}
 
 		protected void m_rdb_grid_theo_chuong_loai_khoan_muc_CheckedChanged(object sender, EventArgs e)
 		{
+			bool v_b_is_nguon_ns = false;
+			bool v_b_is_chi_theo_du_an = false;
+			DropDownList m_ddl_grid_loai_nhiem_vu = (DropDownList)m_grv_unc.FooterRow.FindControl("m_ddl_grid_loai_nhiem_vu");
+			if (Request.QueryString["ip_nguon_ns"]!=null)
+			{
+				if (Request.QueryString["ip_nguon_ns"].ToString().Equals("Y"))
+				{
+					v_b_is_nguon_ns = true;
+				}
+			}
+			WinFormControls.load_data_to_ddl_loai_nhiem_vu(m_ddl_grid_loai_nhiem_vu, v_b_is_nguon_ns, v_b_is_chi_theo_du_an);
 			visiable_control_in_grid_cong_trinh_du_an_and_chuong_loai_khoan_muc(sender, false);
 			m_ddl_grid_loai_nhiem_vu_SelectedIndexChanged(null, null);
 		}
-
-
-
 
 	}
 }

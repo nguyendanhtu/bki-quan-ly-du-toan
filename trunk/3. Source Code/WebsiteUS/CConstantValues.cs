@@ -19,6 +19,7 @@ namespace WebUS
 		public const decimal KHAC_PHUC_BAO_LUT = 662;
 		public const decimal THANH_TRA_GIAO_THONG = 663;
 		public const decimal KHAC = 664;
+		public const decimal VAN_PHONG_CUC = 670;
 	}
 	public class ID_LOAI_NHIEM_VU_NS
 	{

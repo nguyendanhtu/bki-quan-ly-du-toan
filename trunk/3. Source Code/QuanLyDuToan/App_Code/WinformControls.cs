@@ -232,11 +232,13 @@ namespace QuanLyDuToan.App_Code
 			op_ddl_quyet_dinh.DataBind();
 			op_ddl_quyet_dinh.Items.Insert(0, new ListItem(v_str_data_default, "-1"));
 		}
-		public static void load_data_to_cbo_dm_uy_nhiem_chi(DropDownList op_ddl)
+		public static void load_data_to_cbo_dm_uy_nhiem_chi(DropDownList op_ddl, bool ip_b_is_nguon_ns)
 		{
 			US_DM_GIAI_NGAN v_us = new WebUS.US_DM_GIAI_NGAN();
 			DS_DM_GIAI_NGAN v_ds = new DS_DM_GIAI_NGAN();
-			v_us.FillDataset(v_ds, "where id_don_vi=" + Person.get_id_don_vi() + " order by ngay_thang desc");
+			string v_str_is_nguon_ns = "N";
+			if (ip_b_is_nguon_ns) v_str_is_nguon_ns = "Y";
+			v_us.FillDataset(v_ds, "where id_don_vi=" + Person.get_id_don_vi() + " and is_nguon_ns_yn ='" + v_str_is_nguon_ns + "' order by ngay_thang desc");
 			for (int i = 0; i < v_ds.DM_GIAI_NGAN.Count; i++)
 			{
 				v_ds.Tables[0].Rows[i][DM_GIAI_NGAN.SO_UNC] =
@@ -531,6 +533,75 @@ namespace QuanLyDuToan.App_Code
 			op_ddl.DataSource = v_ds.CM_DM_TU_DIEN;
 			op_ddl.DataBind();
 			op_ddl.Items.Insert(0, new ListItem(v_str_data_default, "-1"));
+		}
+		public static void load_data_to_ddl_loai_nhiem_vu(DropDownList op_ddl, bool ip_b_is_nguon_ns, bool ip_b_is_chi_du_an)
+		{
+			/*
+			 * Tác dụng: Load dữ liệu Loại nhiệm vụ theo điều kiện sau:
+				 * 1. Nguồn Quỹ BT
+				 * - Chi Dự án: Dữ liệu A - Bảo dưỡng..., B - Sửa chữa định kỳ, C -.., D -..., E - ..., F - Văn phòng cục
+				 * - Chi theo CLKM: như Chi Dự án, mặc định chọn F - Văn phòng Cục  
+				 * 2. Nguồn Ngân Sách
+				 * - Chi Dự án: A - ..., B - ..., C -..., D - ..., E - ..., F - ...
+				 * - Chi theo CLKM: I - Thu, chi, nộp ngân sách phí, lệ phí; II - Dự toán chi ngân sách nhà nước; 
+				 * Mặc định chọn II và không cho chọn option khác
+			 * Giải pháp:
+				 * 1. Fill data vào dataset theo điều kiện trên
+				 * 2. Convert lại dữ liệu: ghép tên: Sửa chữa thường xuyên, ghi chú: A -> A - Sửa chữa thường xuyên
+				 * 3. Fill data vào dropdownlist
+				 * 4. Đặt giá trị mặc định cho dropdownlist
+			 */
+			US_CM_DM_TU_DIEN v_us = new US_CM_DM_TU_DIEN();
+			DS_CM_DM_TU_DIEN v_ds = new DS_CM_DM_TU_DIEN();
+
+			//1. Fill data vào dataset
+			if (ip_b_is_chi_du_an)//Chi Dự án
+			{
+				v_us.FillDataset(v_ds, "where " + CM_DM_TU_DIEN.ID_LOAI_TU_DIEN + "=" + ID_LOAI_TU_DIEN.LOAI_NHIEM_VU +
+				"order by " + CM_DM_TU_DIEN.GHI_CHU);
+			}
+			else//Chi theo CLKM - Chương Loại Khoản Mục
+			{
+				if (!ip_b_is_nguon_ns)//Nguồn Quỹ BT
+				{
+					v_us.FillDataset(v_ds, "where " + CM_DM_TU_DIEN.ID_LOAI_TU_DIEN + "=" + ID_LOAI_TU_DIEN.LOAI_NHIEM_VU +
+				"order by " + CM_DM_TU_DIEN.GHI_CHU);
+				}
+				else//Nguồn Ngân sách
+				{
+					v_us.FillDataset(v_ds, "where " + CM_DM_TU_DIEN.ID_LOAI_TU_DIEN + "=" + ID_LOAI_TU_DIEN.LOAI_NHIEM_VU_NS +
+				"order by " + CM_DM_TU_DIEN.GHI_CHU);
+				}
+
+			}
+
+			//2. Convert dữ liệu
+			string v_str_data_default = "---Chọn loại nhiệm vụ---";
+
+			for (int i = 0; i < v_ds.CM_DM_TU_DIEN.Count; i++)
+			{
+				v_ds.Tables[0].Rows[i][CM_DM_TU_DIEN.TEN] = v_ds.Tables[0].Rows[i][CM_DM_TU_DIEN.GHI_CHU].ToString() + " - " +
+					v_ds.Tables[0].Rows[i][CM_DM_TU_DIEN.TEN];
+				v_ds.AcceptChanges();
+			}
+			//3. Fill dữ liệu vào dropdownlist
+			op_ddl.DataTextField = CM_DM_TU_DIEN.TEN;
+			op_ddl.DataValueField = CM_DM_TU_DIEN.ID;
+			op_ddl.DataSource = v_ds.CM_DM_TU_DIEN;
+			op_ddl.DataBind();
+			op_ddl.Items.Insert(0, new ListItem(v_str_data_default, "-1"));
+			op_ddl.Enabled = true;
+			//4. Đặt giá trị mặc định cho dropdownlist
+			if (!ip_b_is_chi_du_an)//Chi theo CLKM
+				if (!ip_b_is_nguon_ns)//Nguồn Quỹ BT
+				{
+					op_ddl.SelectedValue = ID_LOAI_NHIEM_VU.VAN_PHONG_CUC.ToString();
+				}
+				else
+				{
+					op_ddl.SelectedValue=ID_LOAI_NHIEM_VU_NS.DU_TOAN_CHI_NS_NN.ToString();
+					op_ddl.Enabled = false;
+				}
 		}
 		public static void load_data_to_ddl_loai_nhiem_vu_ns(DropDownList op_ddl)
 		{
