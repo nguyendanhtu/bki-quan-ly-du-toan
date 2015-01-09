@@ -355,6 +355,33 @@ namespace QuanLyDuToan.DuToan {
         protected global::System.Web.UI.WebControls.DropDownList m_ddl_tieu_muc;
         
         /// <summary>
+        /// m_txt_noi_dung_du_toan control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox m_txt_noi_dung_du_toan;
+        
+        /// <summary>
+        /// m_rdb_chi_thuong_xuyen control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton m_rdb_chi_thuong_xuyen;
+        
+        /// <summary>
+        /// m_rdb_chi_khong_thuong_xuyen control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton m_rdb_chi_khong_thuong_xuyen;
+        
+        /// <summary>
         /// m_txt_so_tien_nam_truoc_chuyen_sang control.
         /// </summary>
         /// <remarks>
