@@ -96,7 +96,7 @@ namespace QuanLyDuToan.BaoCao
 			v_us.bc_tinh_hinh_giai_ngan_theo_don_vi(v_ds
 				, CIPConvert.ToDatetime(m_txt_tu_ngay.Text, "dd/MM/yyyy")
 				, CIPConvert.ToDatetime(m_txt_den_ngay.Text, "dd/MM/yyyy")
-				, WinFormControls.get_dau_nam_form_date(CIPConvert.ToDatetime(m_txt_den_ngay.Text, "dd/MM/yyyy"))
+                , CIPConvert.ToDatetime(m_txt_tu_ngay.Text, "dd/MM/yyyy")
 				, m_dc_id_don_vi
 				, Person.get_user_id()
 				, v_dc_id_du_an
