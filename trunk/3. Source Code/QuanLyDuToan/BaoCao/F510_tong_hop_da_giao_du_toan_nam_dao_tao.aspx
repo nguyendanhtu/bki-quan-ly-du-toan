@@ -73,43 +73,22 @@
                 <asp:Button ID="m_cmd_xuat_excel" Text="Xuất excel" OnClick="m_cmd_xuat_excel_Click" runat="server" Height="24px" Width="98px" />
             </div>
         </div>
-        <div style="width:1200px; margin:20px auto;">
-            <asp:gridview runat="server" id="m_grv_bao_cao_giao_von" style="width:100%; margin-right: 0px;" AutoGenerateColumns="False" EnableModelValidation="True" OnRowCreated="m_grv_bao_cao_giao_von_RowCreated" OnRowDataBound="m_grv_bao_cao_giao_von_RowDataBound">
+        <div style="width:900px; margin:20px auto;">
+            <asp:gridview runat="server" id="m_grv_bao_cao_giao_von" style="width:100%; margin-right: 0px;" AutoGenerateColumns="False" EnableModelValidation="True">
                 <Columns>
-                    <asp:BoundField DataField="A" HeaderText="STT" HtmlEncode="False" ShowHeader="False" >
-                    <ItemStyle HorizontalAlign="Center" Height="90px" Width="15px" />
+                    <asp:BoundField DataField="NOI_DUNG" HeaderText="Nội dung" HtmlEncode="False" >
+                    <ItemStyle Width="15%" />
                     </asp:BoundField>
-                    <asp:BoundField DataField="B" HeaderText="Nội dung" HtmlEncode="False">
-                    <ItemStyle />
-                    </asp:BoundField>
-                    <asp:BoundField DataField="C" HeaderText="Tổng số đã giao" HtmlEncode="False" DataFormatString="{0:N0}">
+                    <asp:BoundField DataField="TONG_SO" HeaderText="Tổng số" HtmlEncode="False" DataFormatString="{0:N0}">
                     <ItemStyle HorizontalAlign="Right" Width="90px" />
                     </asp:BoundField>
-                    <asp:BoundField DataField="D" HeaderText="Tổng số" HtmlEncode="False" DataFormatString="{0:N0}">
+                    <asp:BoundField DataField="THUONG_XUYEN" HeaderText="Txuyên" HtmlEncode="False" DataFormatString="{0:N0}">
                     <ItemStyle HorizontalAlign="Right" Width="90px" />
                     </asp:BoundField>
-                    <asp:BoundField DataField="E" HeaderText="Txuyên" HtmlEncode="False" DataFormatString="{0:N0}">
+                    <asp:BoundField DataField="KHONG_THUONG_XUYEN" HeaderText="KTxuyên" DataFormatString="{0:N0}">
                     <ItemStyle HorizontalAlign="Right" Width="90px" />
                     </asp:BoundField>
-                    <asp:BoundField DataField="F" HeaderText="KTxuyên" DataFormatString="{0:N0}">
-                    <ItemStyle HorizontalAlign="Right" Width="90px" />
-                    </asp:BoundField>
-                    <asp:BoundField DataField="G" HeaderText="CMMTQG" DataFormatString="{0:N0}">
-                    <ItemStyle HorizontalAlign="Right" Width="90px" />
-                    </asp:BoundField>
-                    <asp:BoundField DataField="H" HeaderText="Tsố" DataFormatString="{0:N0}">
-                    <ItemStyle HorizontalAlign="Right" Width="90px" />
-                    </asp:BoundField>
-                    <asp:BoundField DataField="I" HeaderText="Chi TX" DataFormatString="{0:N0}">
-                    <ItemStyle HorizontalAlign="Right" Width="90px" />
-                    </asp:BoundField>
-                    <asp:BoundField DataField="J" HeaderText="Chi KTX" DataFormatString="{0:N0}">
-                    <ItemStyle HorizontalAlign="Right" Width="90px" />
-                    </asp:BoundField>
-                    <asp:BoundField DataField="K" HeaderText="Tsố" DataFormatString="{0:N0}">
-                    <ItemStyle HorizontalAlign="Right" Width="90px" />
-                    </asp:BoundField>
-                    <asp:BoundField DataField="L" HeaderText="Chi TX" DataFormatString="{0:N0}">
+                    <asp:BoundField DataField="CMMTQG" HeaderText="CMMTQG" DataFormatString="{0:N0}">
                     <ItemStyle HorizontalAlign="Right" Width="90px" />
                     </asp:BoundField>
                 </Columns>

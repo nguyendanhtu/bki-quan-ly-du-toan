@@ -16,8 +16,13 @@ namespace QuanLyDuToan.DuToan
 {
 	public partial class f205_nhap_giao_ke_hoach_qbt : System.Web.UI.Page
 	{
-
-
+        public class LOAI_FORM
+        {
+            public const string THEM = "THEM";
+            public const string SUA = "SUA";
+            public const string XOA = "XOA";
+        }
+        US_GD_CHI_TIET_GIAO_KH m_us;
 		protected void Page_Load(object sender, EventArgs e)
 		{
 			if (!IsPostBack)

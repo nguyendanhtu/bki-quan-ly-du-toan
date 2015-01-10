@@ -346,6 +346,15 @@ namespace QuanLyDuToan.DuToan {
         protected global::System.Web.UI.WebControls.Button m_cmd_ghi_chi_tiet_qd;
         
         /// <summary>
+        /// m_cmd_cap_nhat_chi_tiet_qd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button m_cmd_cap_nhat_chi_tiet_qd;
+        
+        /// <summary>
         /// m_lbl_mess_grid control.
         /// </summary>
         /// <remarks>
@@ -425,5 +434,14 @@ namespace QuanLyDuToan.DuToan {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField m_hdf_bool_them_cong_trinh;
+        
+        /// <summary>
+        /// m_hdf_form_mode control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField m_hdf_form_mode;
     }
 }
