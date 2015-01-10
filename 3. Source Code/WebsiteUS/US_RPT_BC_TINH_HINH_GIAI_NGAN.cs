@@ -627,11 +627,46 @@ namespace WebUS
 				pm_objDR["TONG_SO_KM"] = value;
 			}
 		}
+        public US_RPT_BC_TINH_HINH_GIAI_NGAN()
+        {
+            pm_objDS = new DS_RPT_BC_TINH_HINH_GIAI_NGAN();
+            pm_strTableName = c_TableName;
+            pm_objDR = pm_objDS.Tables[pm_strTableName].NewRow();
+        }
 
 		public bool IsTONG_SO_KMNull()
 		{
 			return pm_objDR.IsNull("TONG_SO_KM");
 		}
+        public US_RPT_BC_TINH_HINH_GIAI_NGAN(DataRow i_objDR)
+            : this()
+        {
+            this.DataRow2Me(i_objDR);
+        }
+
+        public US_RPT_BC_TINH_HINH_GIAI_NGAN(decimal i_dbID)
+        {
+            pm_objDS = new DS_RPT_BC_TINH_HINH_GIAI_NGAN();
+            pm_strTableName = c_TableName;
+            IMakeSelectCmd v_objMkCmd = new CMakeAndSelectCmd(pm_objDS, c_TableName);
+            v_objMkCmd.AddCondition("ID", i_dbID, eKieuDuLieu.KieuNumber, eKieuSoSanh.Bang);
+            SqlCommand v_cmdSQL;
+            v_cmdSQL = v_objMkCmd.getSelectCmd();
+            this.FillDatasetByCommand(pm_objDS, v_cmdSQL);
+            pm_objDR = getRowClone(pm_objDS.Tables[pm_strTableName].Rows[0]);
+        }
+
+        public void bc_tinh_hinh_giai_ngan_tong_cuc(DS_RPT_BC_TINH_HINH_GIAI_NGAN op_ds
+            , DateTime ip_dat_tu_ngay
+            , DateTime ip_dat_den_ngay
+            , decimal ip_dc_user_id)
+        {
+            CStoredProc v_sp = new CStoredProc("pr_A530_Bao_cao_tong_hop_hinh_hinh_giai_ngan");
+            v_sp.addDatetimeInputParam("@ip_dat_tu_ngay", ip_dat_tu_ngay);
+            v_sp.addDatetimeInputParam("@ip_dat_den_ngay", ip_dat_den_ngay);
+            v_sp.addDecimalInputParam("@ip_dc_id_user", ip_dc_user_id);
+            v_sp.fillDataSetByCommand(this, op_ds);
+        }
 
 		public void SetTONG_SO_KMNull()
 		{
@@ -640,30 +675,6 @@ namespace WebUS
 
 		#endregion
 		#region "Init Functions"
-		public US_RPT_BC_TINH_HINH_GIAI_NGAN()
-		{
-			pm_objDS = new DS_RPT_BC_TINH_HINH_GIAI_NGAN();
-			pm_strTableName = c_TableName;
-			pm_objDR = pm_objDS.Tables[pm_strTableName].NewRow();
-		}
-
-		public US_RPT_BC_TINH_HINH_GIAI_NGAN(DataRow i_objDR)
-			: this()
-		{
-			this.DataRow2Me(i_objDR);
-		}
-
-		public US_RPT_BC_TINH_HINH_GIAI_NGAN(decimal i_dbID)
-		{
-			pm_objDS = new DS_RPT_BC_TINH_HINH_GIAI_NGAN();
-			pm_strTableName = c_TableName;
-			IMakeSelectCmd v_objMkCmd = new CMakeAndSelectCmd(pm_objDS, c_TableName);
-			v_objMkCmd.AddCondition("ID", i_dbID, eKieuDuLieu.KieuNumber, eKieuSoSanh.Bang);
-			SqlCommand v_cmdSQL;
-			v_cmdSQL = v_objMkCmd.getSelectCmd();
-			this.FillDatasetByCommand(pm_objDS, v_cmdSQL);
-			pm_objDR = getRowClone(pm_objDS.Tables[pm_strTableName].Rows[0]);
-		}
 		#endregion
 
 		public void bc_tinh_hinh_giai_ngan_tong_cuc(DataSet op_ds
@@ -749,5 +760,12 @@ namespace WebUS
 			v_sp.addDatetimeInputParam("@ip_dat_den_ngay", ip_dat_den_ngay);
 			v_sp.fillDataSetByCommand(this, op_ds);
 		}
-	}
+
+
+        public void FillDatasetByProc(DS_RPT_510_TONG_HOP_DA_GIAO v_ds)
+        {
+            CStoredProc v_sp = new CStoredProc("pr_A510_giao_du_toan_theo_khoan");
+            v_sp.fillDataSetByCommand(this, v_ds);
+        }
+    }
 }
