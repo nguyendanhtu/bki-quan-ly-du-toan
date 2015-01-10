@@ -243,7 +243,7 @@ namespace QuanLyDuToan.BaoCao
 
 				//Adding 
 				HeaderCell = new TableHeaderCell();
-				HeaderCell.Text = "QĐ hỗ trợ học phí theo NĐ 42 hỗ trợ cho học sinh";
+				HeaderCell.Text = "Số kinh phí chưa giải ngân";
 				HeaderCell.HorizontalAlign = HorizontalAlign.Center;
 				HeaderCell.RowSpan = 3; // For merging three columns (tso, chitx)
 				HeaderCell.CssClass = "HeaderStyle";
