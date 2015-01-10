@@ -18,29 +18,22 @@ using System.Data;
 namespace QuanLyDuToan.BaoCao
 {
     public partial class F530_bao_cao_tong_cuc : System.Web.UI.Page
-    {
-       
-        #region Data Member
-        decimal m_dc_id_loai_don_vi = 0;
+	{
+		#region Public Methods
+		public string get_query_string(string ip_str_id_don_vi)
+		{
+			string v_str_query_string = "";
+			v_str_query_string = "F350_bao_cao_giai_ngan_don_vi.aspx?ip_dc_id_don_vi=" + ip_str_id_don_vi + "&ip_dat_tu_ngay=" + m_txt_tu_ngay.Text + "&ip_dat_den_ngay=" + m_txt_den_ngay.Text;
+			return v_str_query_string;
+		}
+		#endregion
+		#region Data Member
+		decimal m_dc_id_loai_don_vi = 0;
         DateTime m_dat_tu_ngay;
         DateTime m_dat_den_ngay;
         #endregion
 
         #region Private Method
-		//private void load_data_to_cbo_loai_don_vi()
-		//{
-		//	DS_CM_DM_TU_DIEN v_ds_cm_dm_tu_dien = new DS_CM_DM_TU_DIEN();
-		//	US_CM_DM_TU_DIEN v_us_cm_dm_tu_dien = new US_CM_DM_TU_DIEN();
-		//	v_us_cm_dm_tu_dien.fill_tu_dien_cung_loai_ds(
-		//		MA_LOAI_TU_DIEN.LOAI_DON_VI
-		//		, v_ds_cm_dm_tu_dien);
-		//	m_cbo_loai_don_vi.Items.Add(new ListItem("Tất cả", "0"));
-		//	m_cbo_loai_don_vi.DataSource = v_ds_cm_dm_tu_dien.CM_DM_TU_DIEN;
-		//	m_cbo_loai_don_vi.DataValueField = CM_DM_TU_DIEN.ID;
-		//	m_cbo_loai_don_vi.DataTextField = CM_DM_TU_DIEN.TEN;
-		//	m_cbo_loai_don_vi.DataBind();
-		//	m_cbo_loai_don_vi.SelectedValue = CIPConvert.ToStr(m_dc_id_loai_don_vi);
-		//}
 
         public decimal format_so_tien(object ip_str_so_tien)
         {
@@ -57,14 +50,17 @@ namespace QuanLyDuToan.BaoCao
         private void load_data_to_grid()
         {
             US_RPT_BC_TINH_HINH_GIAI_NGAN v_us = new US_RPT_BC_TINH_HINH_GIAI_NGAN();
-            DS_RPT_BC_TINH_HINH_GIAI_NGAN v_ds = new DS_RPT_BC_TINH_HINH_GIAI_NGAN();
+			//DS_RPT_BC_TINH_HINH_GIAI_NGAN v_ds = new DS_RPT_BC_TINH_HINH_GIAI_NGAN();
+			DataSet v_ds = new DataSet();
+			DataTable v_dt = new DataTable();
+			v_ds.Tables.Add(v_dt);
             v_ds.EnforceConstraints = false;
             v_us.bc_tinh_hinh_giai_ngan_tong_cuc(v_ds
                 , CIPConvert.ToDatetime(m_txt_tu_ngay.Text, "dd/MM/yyyy")
                 , CIPConvert.ToDatetime(m_txt_den_ngay.Text, "dd/MM/yyyy")
-                , Person.get_user_id()
+                , 1//Person.get_user_id()
                 );
-            m_grv.DataSource = v_ds.RPT_BC_TINH_HINH_GIAI_NGAN;
+            m_grv.DataSource = v_ds.Tables[0];
             m_grv.DataBind();
 
         }

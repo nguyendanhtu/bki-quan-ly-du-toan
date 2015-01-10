@@ -80,7 +80,7 @@
 								</asp:TemplateField>
 								<asp:TemplateField ItemStyle-HorizontalAlign="Left" HeaderText="b"  HeaderStyle-Height="10px">									
 									<ItemTemplate>
-										<a style="color:#027;" href="F350_bao_cao_giai_ngan_don_vi.aspx?don_vi=<%# Eval(GRID_GIAI_NGAN.ID_DON_VI)%>" title"Xem chi tiết"><%# Eval(GRID_GIAI_NGAN.NOI_DUNG)%></a>
+										<a style="color:#027;" href='<%# get_query_string(Eval(GRID_GIAI_NGAN.ID_DON_VI).ToString())%>' title"Xem chi tiết"><%# Eval(GRID_GIAI_NGAN.NOI_DUNG)%></a>
 									</ItemTemplate>
 								    <HeaderStyle Height="10px" />
                                     <ItemStyle HorizontalAlign="Left" />
