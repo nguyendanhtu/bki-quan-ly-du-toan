@@ -48,7 +48,7 @@ namespace QuanLyDuToan.BaoCao
 									 + "&ip_dc_id_loai_nhiem_vu=" + CIPConvert.ToStr(ip_id_loai_nhiem_vu)
 									 + "&ip_dc_id_cong_trinh=" + "-1"
 									 + "&ip_dc_id_du_an=" + "-1"
-									 + "&ip_dat_tu_ngay=" + m_txt_tu_ngay.Text
+									 + "&ip_dat_tu_ngay=" + CIPConvert.ToStr(WinFormControls.get_dau_nam_form_date(CIPConvert.ToDatetime(m_txt_tu_ngay.Text, "dd/MM/yyyy")), "dd/MM/yyyy")
 									 + "&ip_dat_den_ngay=" + m_txt_den_ngay.Text;
 						break;
 					case "2":
@@ -64,7 +64,7 @@ namespace QuanLyDuToan.BaoCao
 									 + "&ip_dc_id_loai_nhiem_vu=" + CIPConvert.ToStr(ip_id_loai_nhiem_vu)
 									 + "&ip_dc_id_cong_trinh=" + CIPConvert.ToStr(ip_id_cong_trinh)
 									 + "&ip_dc_id_du_an=" + CIPConvert.ToStr(ip_id_du_an)
-									  + "&ip_dat_tu_ngay=" + m_txt_tu_ngay.Text
+									  + "&ip_dat_tu_ngay=" + CIPConvert.ToStr(WinFormControls.get_dau_nam_form_date(CIPConvert.ToDatetime(m_txt_tu_ngay.Text, "dd/MM/yyyy")), "dd/MM/yyyy")
 									 + "&ip_dat_den_ngay=" + m_txt_den_ngay.Text;
 						break;
 					default:
@@ -72,7 +72,7 @@ namespace QuanLyDuToan.BaoCao
 									 + "&ip_dc_id_loai_nhiem_vu=" + CIPConvert.ToStr(ip_id_loai_nhiem_vu)
 									 + "&ip_dc_id_cong_trinh=" + CIPConvert.ToStr(ip_id_cong_trinh)
 									 + "&ip_dc_id_du_an=" + CIPConvert.ToStr(ip_id_du_an)
-									  + "&ip_dat_tu_ngay=" + m_txt_tu_ngay.Text
+									  + "&ip_dat_tu_ngay=" + CIPConvert.ToStr(WinFormControls.get_dau_nam_form_date(CIPConvert.ToDatetime(m_txt_tu_ngay.Text, "dd/MM/yyyy")), "dd/MM/yyyy")
 									 + "&ip_dat_den_ngay=" + m_txt_den_ngay.Text;
 						break;
 				}
@@ -244,7 +244,7 @@ namespace QuanLyDuToan.BaoCao
 
 				//Adding Kinh phí đã nhân
 				HeaderCell = new TableHeaderCell();
-				HeaderCell.Text = "Kinh phí đã nhân";
+				HeaderCell.Text = "Kinh phí đã nhận";
 				HeaderCell.HorizontalAlign = HorizontalAlign.Center;
 				HeaderCell.ColumnSpan = 5; // For merging three columns (tso, txuyen, ktxuyen,ctmtqg)
 				HeaderCell.CssClass = "HeaderStyle";
