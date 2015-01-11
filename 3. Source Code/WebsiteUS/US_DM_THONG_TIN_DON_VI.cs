@@ -205,7 +205,7 @@ namespace WebUS
 		#endregion
 
 		#region Additional
-		public US_DM_THONG_TIN_DON_VI(decimal i_dbID, decimal i_dbID_DON_VI)
+		public void InitByID_DON_VI(decimal i_dbID_DON_VI)
 		{
 			pm_objDS = new DS_DM_THONG_TIN_DON_VI();
 			pm_strTableName = c_TableName;
@@ -216,6 +216,16 @@ namespace WebUS
 			this.FillDatasetByCommand(pm_objDS, v_cmdSQL);
 			pm_objDR = getRowClone(pm_objDS.Tables[pm_strTableName].Rows[0]);
 		}
+        public bool isHavingThongTinDonVi(decimal i_dbID_DON_VI) {
+            pm_objDS = new DS_DM_THONG_TIN_DON_VI();
+            pm_strTableName = c_TableName;
+            IMakeSelectCmd v_objMkCmd = new CMakeAndSelectCmd(pm_objDS, c_TableName);
+            v_objMkCmd.AddCondition("ID_DON_VI", i_dbID_DON_VI, eKieuDuLieu.KieuNumber, eKieuSoSanh.Bang);
+            SqlCommand v_cmdSQL;
+            v_cmdSQL = v_objMkCmd.getSelectCmd();
+            this.FillDatasetByCommand(pm_objDS, v_cmdSQL);
+            return (pm_objDS.Tables[0].Rows.Count != 0);
+        }
 		#endregion
 	}
 }
