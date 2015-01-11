@@ -4,81 +4,80 @@
 <%@ Import Namespace="WebDS.CDBNames" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
     <style type="text/css">
-        .cssGrid tr td
-        {
-            padding: 0px;
-        }
-        .HeaderStyle
-        {
-            background: #ddd;
-            border-color: #000;
-        }
+    	.cssGrid tr td {
+    		padding: 0px;
+    	}
 
-        th {
-            text-align:center;
-        }
+    	.HeaderStyle {
+    		background: #ddd;
+    		border-color: #000;
+    	}
 
-        .boxControl {
-	        float:left;
-            width:50%; 
-            height:90px;
-        }
+    	th {
+    		text-align: center;
+    	}
 
-	    .height30 {
-	        height:30px;
-        }
+    	.boxControl {
+    		float: left;
+    		width: 50%;
+    		height: 90px;
+    	}
 
-	    .lb {
-	        width:100px; 
-            float:left;
-            text-align:right;
-            line-height:20px;
-        }
+    	.height30 {
+    		height: 30px;
+    	}
 
-	    .control {
-	        width:240px; 
-            float:left;
-        }
+    	.lb {
+    		width: 100px;
+    		float: left;
+    		text-align: right;
+    		line-height: 20px;
+    	}
 
-	    .control select, input {
-	        width:220px !important;
-            margin-left:10px;    
-        }
+    	.control {
+    		width: 240px;
+    		float: left;
+    	}
 
-        .filter{
-	        width:552px !important;
-            margin-left:10px;    
-        }
+    		.control select, input {
+    			width: 220px !important;
+    			margin-left: 10px;
+    		}
 
-        .divBoxControl {
-            width:51%; 
-            margin:0px auto;
-        }
-          #main_table tr td
-        {
-            border-top:0px;
-        }
-         table 
-         {
-             border:1px solid black !important;
-         }
+    	.filter {
+    		width: 552px !important;
+    		margin-left: 10px;
+    	}
+
+    	.divBoxControl {
+    		width: 51%;
+    		margin: 0px auto;
+    	}
+
+    	#main_table tr td {
+    		border-top: 0px;
+    	}
+
+    	table {
+    		border: 1px solid black !important;
+    	}
     </style>
     <script>
-        function pageLoad(sender, args) {
-            if (args.get_isPartialLoad()) {
-                $("#<%=m_ddl_loai_nv.ClientID%>").select2();
-                $("#<%=m_ddl_cong_trinh.ClientID%>").select2();
-                $("#<%=m_ddl_du_an.ClientID%>").select2();
-                $("#<%=m_txt_tu_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
-                $("#<%=m_txt_den_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
+    	function pageLoad(sender, args) {
+    		if (args.get_isPartialLoad()) {
+    			$("#<%=m_ddl_loai_nv.ClientID%>").select2();
+            	$("#<%=m_ddl_cong_trinh.ClientID%>").select2();
+            	$("#<%=m_ddl_du_an.ClientID%>").select2();
+            	$("#<%=m_txt_tu_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
+            	$("#<%=m_txt_den_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
             }
-        }
-        $(document).ready(function () {
-            $("#<%=m_ddl_loai_nv.ClientID%>").select2();
-            $("#<%=m_ddl_cong_trinh.ClientID%>").select2();
-            $("#<%=m_ddl_du_an.ClientID%>").select2();
-            $("#<%=m_txt_tu_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
-            $("#<%=m_txt_den_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
+		}
+		$(document).ready(function () {
+			$("#<%=m_ddl_loai_nv.ClientID%>").select2();
+        	$("#<%=m_ddl_cong_trinh.ClientID%>").select2();
+        	$("#<%=m_ddl_du_an.ClientID%>").select2();
+        	$("#<%=m_txt_tu_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
+        	$("#<%=m_txt_den_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
 
         }
        )
@@ -187,115 +186,132 @@
                                                     ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID_DON_VI)
                                                     ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.REPORT_LEVEL)
                                                     ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.STT)
-                                                    ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID) ) %>"" 
-                                            title"Xem chi tiết"><%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_QBT, "{0:#,##0}")%></a>
+                                                    ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID) ) %>"
+                                            title="Xem chi tiết"><%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_QBT, "{0:#,##0}")%></a>
 									</ItemTemplate>
 								    <HeaderStyle Height="10px" HorizontalAlign="Center"/>
                                     <ItemStyle HorizontalAlign="Right" Width="120px" />
 								</asp:TemplateField>
-                                <asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="(2)"  HeaderStyle-Height="10px">									
+                                <asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="(2)"  HeaderStyle-Height="10px">
 									<ItemTemplate>
-										<%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_NS, "{0:#,##0}")%>
+										<a href="F150_giao_von_du_toan_vp_tong_cuc.aspx<%# format_link_to_chi_tiet(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.REPORT_LEVEL)
+                                                    ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID_DON_VI)
+                                                    ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.REPORT_LEVEL)
+                                                    ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.STT)
+                                                    ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID) ) %>"
+                                            title="Xem chi tiết"><%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_NS, "{0:#,##0}")%></a>
 									</ItemTemplate>
 								    <HeaderStyle Height="10px" HorizontalAlign="Center"/>
                                     <ItemStyle HorizontalAlign="Right" Width="120px" />
 								</asp:TemplateField>                                
-                                <asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="(3) = (1) + (2)"  HeaderStyle-Height="10px">									
+                                <asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="(c)"  HeaderStyle-Height="10px">									
 									<ItemTemplate>
-										<%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_TONG, "{0:#,##0}")%>
+										<%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_NAM_TRUOC_CHUYEN_SANG, "{0:#,##0}")%>
 									</ItemTemplate>
 								    <HeaderStyle Height="10px" HorizontalAlign="Center"/>
                                     <ItemStyle HorizontalAlign="Right" Width="120px" />
 								</asp:TemplateField>					
-								<asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="(4)"  HeaderStyle-Height="10px">									
+								<asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="(3)=(1)+(2)"  HeaderStyle-Height="10px">									
 									<ItemTemplate>
-										<%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_QBT_TRONG_THANG, "{0:#,##0}")%>
+										<%# CIPConvert.ToStr( format_so_tien( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_QBT) )
+                                                + format_so_tien( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_NS)), "#,###") %>
+									</ItemTemplate>
+								    <HeaderStyle Height="10px" HorizontalAlign="Center"/>
+                                    <ItemStyle HorizontalAlign="Right" Width="120px" />
+								</asp:TemplateField>	
+                                <asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="(4)"  HeaderStyle-Height="10px">									
+									<ItemTemplate>
+                                        <%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_QBT_TRONG_THANG, "{0:#,##0}")%>									
 									</ItemTemplate>
 								    <HeaderStyle Height="10px" HorizontalAlign="Center"/>
                                     <ItemStyle HorizontalAlign="Right" Width="120px" />
 								</asp:TemplateField>	
                                 <asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="(5)"  HeaderStyle-Height="10px">									
 									<ItemTemplate>
-                                        <a href="F256_bao_cao_giao_von_quy_bt_theo_qd.aspx<%# format_link_to_chi_tiet(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.REPORT_LEVEL)
+										<a href="F256_bao_cao_giao_von_quy_bt_theo_qd.aspx<%# format_link_to_chi_tiet(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.REPORT_LEVEL)
                                                     ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID_DON_VI)
                                                     ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.REPORT_LEVEL)
                                                     ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.STT)
-                                                    ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID) ) %>"" 
-                                            title"Xem chi tiết"><%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_QBT_TONG, "{0:#,##0}")%></a>										
+                                                    ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID) ) %>" 
+                                            title="Xem chi tiết"><%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_QBT_TRONG_THANG, "{0:#,##0}")%></a>	
 									</ItemTemplate>
 								    <HeaderStyle Height="10px" HorizontalAlign="Center"/>
                                     <ItemStyle HorizontalAlign="Right" Width="120px" />
 								</asp:TemplateField>	
                                 <asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="(6)"  HeaderStyle-Height="10px">									
 									<ItemTemplate>
-										<%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_NS_TRONG_THANG, "{0:#,##0}")%>
+										<%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_QBT_LUY_KE, "{0:#,##0}")%>
 									</ItemTemplate>
 								    <HeaderStyle Height="10px" HorizontalAlign="Center"/>
                                     <ItemStyle HorizontalAlign="Right" Width="120px" />
 								</asp:TemplateField>	
                                 <asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="(7)"  HeaderStyle-Height="10px">									
 									<ItemTemplate>
-										<%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_NS_TONG, "{0:#,##0}")%>
+										<%# CIPConvert.ToStr( format_so_tien( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_NS_TRONG_THANG)) , "#,###")
+                                                 %>
 									</ItemTemplate>
 								    <HeaderStyle Height="10px" HorizontalAlign="Center"/>
                                     <ItemStyle HorizontalAlign="Right" Width="120px" />
 								</asp:TemplateField>	
-                                <asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="(8) = (5) + (7)"  HeaderStyle-Height="10px">									
+								<asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="(5) + (7)"  HeaderStyle-Height="10px">									
 									<ItemTemplate>
 										<%# CIPConvert.ToStr( format_so_tien( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_QBT_LUY_KE) )
                                                 + format_so_tien( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_NS_LUY_KE)), "#,###") %>
 									</ItemTemplate>
 								    <HeaderStyle Height="10px" HorizontalAlign="Center"/>
                                     <ItemStyle HorizontalAlign="Right" Width="120px" />
-								</asp:TemplateField>	
-								<asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="(9)"  HeaderStyle-Height="10px">									
+								</asp:TemplateField>
+                                <asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="(8)"  HeaderStyle-Height="10px">									
 									<ItemTemplate>
-										<%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_QBT_TRONG_THANG, "{0:#,##0}")%>
+										<a href="F356_bao_cao_giai_ngan_quy_bt_theo_dm.aspx<%# format_link_to_chi_tiet(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.REPORT_LEVEL)
+                                                    ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID_DON_VI)
+                                                    ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.REPORT_LEVEL)
+                                                    ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.STT)
+                                                    ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID) ) %>"
+                                            title="Xem chi tiết"><%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_QBT_TRONG_THANG, "{0:#,##0}")%>
+									</ItemTemplate>
+								    <HeaderStyle Height="10px" HorizontalAlign="Center"/>
+                                    <ItemStyle HorizontalAlign="Right" Width="120px" />
+								</asp:TemplateField>
+                                <asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="(9)"  HeaderStyle-Height="10px">									
+									<ItemTemplate>
+										<%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_QBT_LUY_KE, "{0:#,##0}")%>
 									</ItemTemplate>
 								    <HeaderStyle Height="10px" HorizontalAlign="Center"/>
                                     <ItemStyle HorizontalAlign="Right" Width="120px" />
 								</asp:TemplateField>
                                 <asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="(10)"  HeaderStyle-Height="10px">									
 									<ItemTemplate>
-										<a href="F356_bao_cao_giai_ngan_quy_bt_theo_dm.aspx<%# format_link_to_chi_tiet(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.REPORT_LEVEL)
-                                                    ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID_DON_VI)
-                                                    ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.REPORT_LEVEL)
-                                                    ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.STT)
-                                                    ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID) ) %>"" 
-                                            title"Xem chi tiết"><%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_QBT_TONG, "{0:#,##0}")%>
+										<%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_NS_TRONG_THANG, "{0:#,##0}")%>
 									</ItemTemplate>
 								    <HeaderStyle Height="10px" HorizontalAlign="Center"/>
                                     <ItemStyle HorizontalAlign="Right" Width="120px" />
 								</asp:TemplateField>
                                 <asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="(11)"  HeaderStyle-Height="10px">									
 									<ItemTemplate>
-										<%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_NS_TRONG_THANG, "{0:#,##0}")%>
-									</ItemTemplate>
-								    <HeaderStyle Height="10px" HorizontalAlign="Center"/>
-                                    <ItemStyle HorizontalAlign="Right" Width="120px" />
-								</asp:TemplateField>
-                                <asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="(12)"  HeaderStyle-Height="10px">									
-									<ItemTemplate>
-										<%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_NS_TONG, "{0:#,##0}")%>
-									</ItemTemplate>
-								    <HeaderStyle Height="10px" HorizontalAlign="Center"/>
-                                    <ItemStyle HorizontalAlign="Right" Width="120px" />
-								</asp:TemplateField>
-                                <asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="(13) = (9) + (11)"  HeaderStyle-Height="10px">									
-									<ItemTemplate>
 										<a href="F356_bao_cao_giai_ngan_quy_bt_theo_dm.aspx<%# format_link_to_chi_tiet(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.REPORT_LEVEL)
                                                     ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID_DON_VI)
                                                     ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.REPORT_LEVEL)
                                                     ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.STT)
-                                                    ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID) ) %>"" 
-                                            title"Xem chi tiết"><%# CIPConvert.ToStr( format_so_tien(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_QBT_TONG)) 
-                                                + format_so_tien(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_NS_TONG)), "#,###") %>
+                                                    ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID) ) %>" 
+                                            title="Xem chi tiết"><%# CIPConvert.ToStr( format_so_tien(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_QBT_TONG)) 
+                                                + format_so_tien(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_NS_LUY_KE)), "#,###") %>
 									</ItemTemplate>
 								    <HeaderStyle Height="10px" HorizontalAlign="Center"/>
                                     <ItemStyle HorizontalAlign="Right" Width="120px" />
 								</asp:TemplateField>
                                 								
-								<asp:TemplateField  ItemStyle-HorizontalAlign="Right" HeaderText="(14) = (8) - (13)" HeaderStyle-Height="10px" >									
+								<asp:TemplateField  ItemStyle-HorizontalAlign="Right" HeaderText="(9+11)" HeaderStyle-Height="10px" >									
+									 <ItemTemplate>
+										<%# CIPConvert.ToStr( (format_so_tien(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_QBT_LUY_KE)) 
+                                            + format_so_tien( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_NS_LUY_KE))) 
+                                            , "#,###") %>
+									 </ItemTemplate>
+                                     <HeaderStyle Height="10px" HorizontalAlign="Center"/>
+                                     <ItemStyle HorizontalAlign="Right" Width="120px" />
+                                </asp:TemplateField>
+								  								
+								<asp:TemplateField  ItemStyle-HorizontalAlign="Right" HeaderText="(5+7) - (9+11)" HeaderStyle-Height="10px" >									
 									 <ItemTemplate>
 										<%# CIPConvert.ToStr( (format_so_tien(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_QBT_TONG)) 
                                             + format_so_tien( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_NS_TONG))) 
@@ -305,10 +321,10 @@
                                      <HeaderStyle Height="10px" HorizontalAlign="Center"/>
                                      <ItemStyle HorizontalAlign="Right" Width="120px" />
                                 </asp:TemplateField>
-                                <asp:TemplateField  ItemStyle-HorizontalAlign="Right" HeaderText="(15) = (1) - (5)" HeaderStyle-Height="10px" >									
+                                <asp:TemplateField  ItemStyle-HorizontalAlign="Right" HeaderText="12) = (1) + (c) - (5)" HeaderStyle-Height="10px" >									
 									 <ItemTemplate>
-										<%# CIPConvert.ToStr(format_so_tien(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_QBT))  
-                                                        - format_so_tien(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_QBT_TONG)), "#,###") %>
+										<%# CIPConvert.ToStr(format_so_tien(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_QBT)) +format_so_tien(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_NAM_TRUOC_CHUYEN_SANG))  
+                                                        - format_so_tien(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_QBT_LUY_KE)), "#,###") %>
 									 </ItemTemplate>
                                      <HeaderStyle Height="10px" HorizontalAlign="Center"/>
                                      <ItemStyle HorizontalAlign="Right" Width="120px" />
@@ -316,7 +332,7 @@
 								<asp:TemplateField  ItemStyle-HorizontalAlign="Right" HeaderText="(16) = (2) - (7)" HeaderStyle-Height="10px" >									
 									 <ItemTemplate>
 										 <%# CIPConvert.ToStr( format_so_tien(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_NS)) 
-                                                        - format_so_tien(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_NS_TONG)), "#,###") %>						
+                                                        - format_so_tien(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_NS_LUY_KE)), "#,###") %>						
 									 </ItemTemplate>
 								     <HeaderStyle Height="10px" HorizontalAlign="Center"/>
                                      <ItemStyle HorizontalAlign="Right" Width="120px" />

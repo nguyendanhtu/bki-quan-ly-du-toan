@@ -203,7 +203,12 @@ namespace QuanLyDuToan.BaoCao
 
         protected void m_ddl_loai_nv_SelectedIndexChanged(object sender, EventArgs e)
         {
-            App_Code.WinFormControls.load_data_to_cbo_cong_trinh_theo_loai_nhiem_vu(CIPConvert.ToDecimal(m_ddl_loai_nv.SelectedValue), m_ddl_cong_trinh);
+			decimal v_dc_id_don_vi = Person.get_id_don_vi();
+			if (Request.QueryString["ip_dc_id_don_vi"]!=null)
+			{
+				v_dc_id_don_vi = CIPConvert.ToDecimal(Request.QueryString["ip_dc_id_don_vi"]);
+			}
+			App_Code.WinFormControls.load_data_to_cbo_cong_trinh_theo_loai_nhiem_vu(CIPConvert.ToDecimal(m_ddl_loai_nv.SelectedValue), m_ddl_cong_trinh, v_dc_id_don_vi);
         }
 
         protected void m_ddl_cong_trinh_SelectedIndexChanged(object sender, EventArgs e)

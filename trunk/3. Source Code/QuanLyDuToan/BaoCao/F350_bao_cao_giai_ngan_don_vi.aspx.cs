@@ -47,25 +47,33 @@ namespace QuanLyDuToan.BaoCao
 						v_str_link += "?ip_dc_id_don_vi=" + CIPConvert.ToStr(ip_id_don_vi)
 									 + "&ip_dc_id_loai_nhiem_vu=" + CIPConvert.ToStr(ip_id_loai_nhiem_vu)
 									 + "&ip_dc_id_cong_trinh=" + "-1"
-									 + "&ip_dc_id_du_an=" + "-1";
+									 + "&ip_dc_id_du_an=" + "-1"
+									 + "&ip_dat_tu_ngay=" + m_txt_tu_ngay.Text
+									 + "&ip_dat_den_ngay=" + m_txt_den_ngay.Text;
 						break;
 					case "2":
 						v_str_link += "?ip_dc_id_don_vi=" + CIPConvert.ToStr(ip_id_don_vi)
 									 + "&ip_dc_id_loai_nhiem_vu=" + CIPConvert.ToStr(ip_id_loai_nhiem_vu)
 									 + "&ip_dc_id_cong_trinh=" + CIPConvert.ToStr(ip_id_cong_trinh)
-									 + "&ip_dc_id_du_an=" + "-1";
+									 + "&ip_dc_id_du_an=" + "-1"
+									 + "&ip_dat_tu_ngay=" + m_txt_tu_ngay.Text
+									 + "&ip_dat_den_ngay=" + m_txt_den_ngay.Text;
 						break;
 					case "1":
 						v_str_link += "?ip_dc_id_don_vi=" + CIPConvert.ToStr(ip_id_don_vi)
 									 + "&ip_dc_id_loai_nhiem_vu=" + CIPConvert.ToStr(ip_id_loai_nhiem_vu)
 									 + "&ip_dc_id_cong_trinh=" + CIPConvert.ToStr(ip_id_cong_trinh)
-									 + "&ip_dc_id_du_an=" + CIPConvert.ToStr(ip_id_du_an);
+									 + "&ip_dc_id_du_an=" + CIPConvert.ToStr(ip_id_du_an)
+									  + "&ip_dat_tu_ngay=" + m_txt_tu_ngay.Text
+									 + "&ip_dat_den_ngay=" + m_txt_den_ngay.Text;
 						break;
 					default:
 						v_str_link += "?ip_dc_id_don_vi=" + CIPConvert.ToStr(ip_id_don_vi)
 									 + "&ip_dc_id_loai_nhiem_vu=" + CIPConvert.ToStr(ip_id_loai_nhiem_vu)
 									 + "&ip_dc_id_cong_trinh=" + CIPConvert.ToStr(ip_id_cong_trinh)
-									 + "&ip_dc_id_du_an=" + CIPConvert.ToStr(ip_id_du_an);
+									 + "&ip_dc_id_du_an=" + CIPConvert.ToStr(ip_id_du_an)
+									  + "&ip_dat_tu_ngay=" + m_txt_tu_ngay.Text
+									 + "&ip_dat_den_ngay=" + m_txt_den_ngay.Text;
 						break;
 				}
 			}
@@ -96,7 +104,7 @@ namespace QuanLyDuToan.BaoCao
 			v_us.bc_tinh_hinh_giai_ngan_theo_don_vi(v_ds
 				, CIPConvert.ToDatetime(m_txt_tu_ngay.Text, "dd/MM/yyyy")
 				, CIPConvert.ToDatetime(m_txt_den_ngay.Text, "dd/MM/yyyy")
-                , CIPConvert.ToDatetime(m_txt_tu_ngay.Text, "dd/MM/yyyy")
+				, CIPConvert.ToDatetime(m_txt_tu_ngay.Text, "dd/MM/yyyy")
 				, m_dc_id_don_vi
 				, Person.get_user_id()
 				, v_dc_id_du_an
@@ -172,7 +180,7 @@ namespace QuanLyDuToan.BaoCao
 
 					m_dat_den_ngay = CIPConvert.ToDatetime(m_txt_den_ngay.Text, "dd/MM/yyyy");
 					App_Code.WinFormControls.load_data_to_ddl_loai_nhiem_vu(m_ddl_loai_nv);
-					App_Code.WinFormControls.load_data_to_cbo_cong_trinh_theo_loai_nhiem_vu(CIPConvert.ToDecimal(m_ddl_loai_nv.SelectedValue), m_ddl_cong_trinh);
+					App_Code.WinFormControls.load_data_to_cbo_cong_trinh_theo_loai_nhiem_vu(CIPConvert.ToDecimal(m_ddl_loai_nv.SelectedValue), m_ddl_cong_trinh, m_dc_id_don_vi);
 					App_Code.WinFormControls.load_data_to_cbo_du_an_theo_cong_trinh_va_loai_nhiem_vu(CIPConvert.ToDecimal(m_ddl_cong_trinh.SelectedValue), CIPConvert.ToDecimal(m_ddl_loai_nv.SelectedValue), m_ddl_du_an);
 					load_data_to_grid();
 				}
@@ -230,7 +238,7 @@ namespace QuanLyDuToan.BaoCao
 				HeaderCell = new TableHeaderCell();
 				HeaderCell.Text = "Kế hoạch(dự toán) được chi cả năm";
 				HeaderCell.HorizontalAlign = HorizontalAlign.Center;
-				HeaderCell.ColumnSpan = 3;
+				HeaderCell.ColumnSpan = 4;
 				HeaderCell.CssClass = "HeaderStyle";
 				HeaderRow.Cells.Add(HeaderCell);
 
@@ -272,6 +280,8 @@ namespace QuanLyDuToan.BaoCao
 
 				// Creating a Row thứ 2
 				GridViewRow HeaderRow2 = new GridViewRow(1, 0, DataControlRowType.Header, DataControlRowState.Insert);
+				//Adding  cell
+
 
 				//Adding  cell
 				TableHeaderCell HeaderCell1 = new TableHeaderCell();
@@ -286,6 +296,13 @@ namespace QuanLyDuToan.BaoCao
 				HeaderCell1.Text = "Từ Ngân sách";
 				HeaderCell1.HorizontalAlign = HorizontalAlign.Center;
 				HeaderCell1.RowSpan = 2;
+				HeaderCell1.CssClass = "HeaderStyle";
+				HeaderRow2.Cells.Add(HeaderCell1);
+
+				HeaderCell1 = new TableHeaderCell();
+				HeaderCell1.Text = "Kinh phí năm trước chuyển sang";
+				HeaderCell1.HorizontalAlign = HorizontalAlign.Center;
+				HeaderCell1.RowSpan = 2; // For merging first, second row cells to one
 				HeaderCell1.CssClass = "HeaderStyle";
 				HeaderRow2.Cells.Add(HeaderCell1);
 
@@ -361,7 +378,7 @@ namespace QuanLyDuToan.BaoCao
 
 				//Adding cell
 				HeaderCell3 = new TableHeaderCell();
-				HeaderCell3.Text = "Luỹ kế từ đấu năm";
+				HeaderCell3.Text = "Luỹ kế từ đầu năm";
 				HeaderCell3.HorizontalAlign = HorizontalAlign.Center;
 				HeaderCell3.RowSpan = 1;
 				HeaderCell3.CssClass = "HeaderStyle";
@@ -461,7 +478,12 @@ namespace QuanLyDuToan.BaoCao
 
 		protected void m_ddl_loai_nv_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			App_Code.WinFormControls.load_data_to_cbo_cong_trinh_theo_loai_nhiem_vu(CIPConvert.ToDecimal(m_ddl_loai_nv.SelectedValue), m_ddl_cong_trinh);
+			decimal v_dc_id_don_vi = Person.get_id_don_vi();
+			if (Request.QueryString["ip_dc_id_don_vi"] != null)
+			{
+				v_dc_id_don_vi = CIPConvert.ToDecimal(Request.QueryString["ip_dc_id_don_vi"]);
+			}
+			App_Code.WinFormControls.load_data_to_cbo_cong_trinh_theo_loai_nhiem_vu(CIPConvert.ToDecimal(m_ddl_loai_nv.SelectedValue), m_ddl_cong_trinh, v_dc_id_don_vi);
 		}
 
 		protected void m_ddl_cong_trinh_SelectedIndexChanged(object sender, EventArgs e)
