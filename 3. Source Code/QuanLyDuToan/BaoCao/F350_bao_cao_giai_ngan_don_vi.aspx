@@ -66,7 +66,10 @@
         .a0{
             color:maroon !important;
             font-weight:bold;
+            pointer-events: none;
+            cursor: default;
         }
+        
 	</style>
     <script src="../Scripts/jquery.doubleScroll.js"></script>
 	<script>
