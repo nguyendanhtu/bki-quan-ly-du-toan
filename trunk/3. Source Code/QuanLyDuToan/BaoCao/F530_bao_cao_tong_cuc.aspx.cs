@@ -60,7 +60,7 @@ namespace QuanLyDuToan.BaoCao
                 , CIPConvert.ToDatetime(m_txt_den_ngay.Text, "dd/MM/yyyy")
                 , 1//Person.get_user_id()
                 );
-            m_grv.DataSource = v_ds.Tables[0];
+            m_grv.DataSource = v_dt;
             m_grv.DataBind();
 
         }
