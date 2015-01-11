@@ -44,9 +44,35 @@ namespace QuanLyDuToan.BaoCao
             v_dt.Columns.Add("THUONG_XUYEN");
             v_dt.Columns.Add("KHONG_THUONG_XUYEN");
             v_dt.Columns.Add("CMMTQG");
+            groupData(v_ds);
             updateCell(v_dt);
             m_grv_bao_cao_giao_von.DataSource = v_dt;
             m_grv_bao_cao_giao_von.DataBind();
+        }
+
+        private void groupData(DataSet v_ds)
+        {
+            List<int> v_lst = new List<int>();
+            for (int i = 0; i < v_ds.Tables[0].Rows.Count - 1; i++)
+            {
+                var index = i + 1;
+                while (v_ds.Tables[0].Rows[i][3].ToString().Trim() == v_ds.Tables[0].Rows[index][3].ToString().Trim() && v_ds.Tables[0].Rows[i][3].ToString().Trim() != "")
+                {
+                    for (int j = 6; j < v_ds.Tables[0].Columns.Count; j++)
+                    {
+                        var value1 = (v_ds.Tables[0].Rows[i][j].ToString() == "" ? 0 : CIPConvert.ToDecimal(v_ds.Tables[0].Rows[i][j].ToString()));
+                        var value2 = (v_ds.Tables[0].Rows[index][j].ToString() == "" ? 0 : CIPConvert.ToDecimal(v_ds.Tables[0].Rows[index][j].ToString()));
+                        v_ds.Tables[0].Rows[i][j] = value1 + value2;
+                    }
+                    v_lst.Add(index);
+                    index += 1;
+                }
+                i = index - 1;
+            }
+            for (int i = v_lst.Count - 1; i >= 0; i--)
+            {
+                v_ds.Tables[0].Rows.RemoveAt(v_lst[i]);
+            }
         }
         private void xoaCotDong()
         {
