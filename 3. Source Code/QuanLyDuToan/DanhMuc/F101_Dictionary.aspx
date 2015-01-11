@@ -1,11 +1,29 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="F101_Dictionary.aspx.cs" Inherits="QuanLyDuToan.DanhMuc.F101_Dictionary" %>
+ <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="Server">
+<script>
+    function pageLoad(sender, args) {
+        if (args.get_isPartialLoad()) {
+
+            $(".cssDorpdownlist").select2();
+
+        }
+    }
+    $(document).ready(function () {
+        $(".cssDorpdownlist").select2();
+
+    }
+       )
+    </script>
+
+</asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="Server">
+   
     <div>
         <asp:ScriptManager ID="ScriptManager1" runat="server">
         </asp:ScriptManager>
         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
             <ContentTemplate>
-    <table cellspacing="0" cellpadding="2" style="width: 100%;" class="cssTable" border="0">
+    <table id="main_table" cellspacing="0" cellpadding="2" style="width: 100%;" class="cssTable table" border="0">
         <tr>
             <td class="cssPageTitleBG" colspan="3">
                 <asp:Label ID="lblUser" runat="server" CssClass="cssPageTitle" Text="Danh mục từ điển hệ thống" />
@@ -89,12 +107,12 @@
             <td>
             </td>
             <td colspan="2" align="left">
-                <asp:Button ID="m_cmd_tao_moi" AccessKey="c" CssClass="cssButton" runat="server"
-                    Width="98px" Height="24px" Text="Tạo mới(c)" OnClick="m_cmd_tao_moi_Click" />&nbsp;
-                <asp:Button ID="m_cmd_cap_nhat" AccessKey="u" CssClass="cssButton" runat="server"
-                    Width="98px" Height="24px" Text="Cập nhật(u)" OnClick="m_cmd_cap_nhat_Click" />&nbsp;
-                <asp:Button ID="btnCancel" AccessKey="r" CssClass="cssButton" runat="server" Width="98px"
-                    Height="24px" Text="Xóa trắng(r)" OnClick="btnCancel_Click" />
+                <asp:Button ID="m_cmd_tao_moi" AccessKey="c" CssClass=" btn" runat="server"
+                    Text="Tạo mới(c)" OnClick="m_cmd_tao_moi_Click" />&nbsp;
+                <asp:Button ID="m_cmd_cap_nhat" AccessKey="u" CssClass=" btn" runat="server"
+                    Text="Cập nhật(u)" OnClick="m_cmd_cap_nhat_Click" />&nbsp;
+                <asp:Button ID="btnCancel" AccessKey="r" CssClass=" btn" runat="server" 
+                     Text="Xóa trắng(r)" OnClick="btnCancel_Click" />
             </td>
         </tr>
         <tr>
@@ -115,7 +133,7 @@
                 <asp:Label ID="Label5" CssClass="cssManField" runat="server" Text="Loại từ điển" />
             </td>
             <td>
-                <asp:DropDownList ID="m_cbo_loai_tu_dien_grv" runat="server" Width="264px" AutoPostBack="True"
+                <asp:DropDownList ID="m_cbo_loai_tu_dien_grv" runat="server" Width="264px" CssClass="cssDorpdownlist" AutoPostBack="True"
                     OnSelectedIndexChanged="m_cbo_loai_tu_dien_grv_SelectedIndexChanged" />
             </td>
         </tr>
