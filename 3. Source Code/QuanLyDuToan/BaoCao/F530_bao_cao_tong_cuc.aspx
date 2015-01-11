@@ -75,8 +75,9 @@
 				</tr>
                 <tr>
                     
-                    <td style="width:34%;"></td>
-                    <td>
+                    
+                    <td colspan="4" >
+                        <div style="margin:0 auto; width:300px !important">
                                 <div class="height30" style="margin-top: 10px;">
                              <div class="lb" style="margin-right:23px">Từ ngày</div>
                                <div id="datetimepicker1" class="input-group date" style="width: 200px;">
@@ -95,8 +96,9 @@
                                    </span>
                               </div>
                         </div>
+                            </div>
                     </td>
-                     <td></td>
+                    
 				</tr>
 				<tr>
 					<td colspan="4">
