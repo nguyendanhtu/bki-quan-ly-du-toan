@@ -166,9 +166,9 @@
         </div>
         <div style="color:black; text-align:center; margin-top:20px;">
             <div class="divBoxControl" style="height: 119px;">
-                <div class="height30"style="height: 33px; width: 403px;">
+                <div class="height30"style="height: 34px; width: 403px;">
                     <div class="lb">Tìm kiếm:</div>
-				    <div class="control input-group"style="margin-left: 34px;">
+				    <div class="control input-group"style="margin-left: 30px;">
                         <asp:TextBox ID="m_txt_tu_khoa_tim_kiem" cssclass="form-control" runat="server"></asp:TextBox>
                         <span class="input-group-addon">
                                <span class="glyphicon-search glyphicon"></span>
@@ -177,7 +177,7 @@
                 </div>
                 <div class="height30">
                      <div class="lb" style="margin-right:30px">Từ ngày</div>
-                       <div id="datetimepicker1" class="input-group date datepicker" style="width: 200px;">
+                       <div id="datetimepicker1" class="input-group date" style="width: 200px;">
                           <asp:TextBox ID="m_txt_tu_ngay" placeholder="dd/MM/yyyy" runat="server" CssClass="cssTextBox form-control  date-start" Height="30px" Width="164px"></asp:TextBox>
                            <span class="input-group-addon">
                                <span class="glyphicon-calendar glyphicon"></span>
@@ -186,7 +186,7 @@
                 </div>
                 <div class="height30">
 				    <div class="lb" style="margin-right:30px">Từ ngày</div>
-                          <div id="datetimepicker2" class="input-group date datepicker" style="width: 200px;">
+                          <div id="datetimepicker2" class="input-group date" style="width: 200px;">
                           <asp:TextBox ID="m_txt_den_ngay" placeholder="dd/MM/yyyy" runat="server" CssClass="cssTextBox form-control  date-start" Height="30px" Width="164px"></asp:TextBox>
                            <span class="input-group-addon">
                                <span class="glyphicon-calendar glyphicon"></span>
