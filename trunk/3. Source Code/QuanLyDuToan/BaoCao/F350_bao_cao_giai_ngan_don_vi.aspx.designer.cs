@@ -31,13 +31,13 @@ namespace QuanLyDuToan.BaoCao {
         protected global::System.Web.UI.UpdatePanel UpdatePanel1;
         
         /// <summary>
-        /// m_txt_ten_don_vi control.
+        /// m_ddl_don_vi control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label m_txt_ten_don_vi;
+        protected global::System.Web.UI.WebControls.DropDownList m_ddl_don_vi;
         
         /// <summary>
         /// m_txt_tim_kiem control.

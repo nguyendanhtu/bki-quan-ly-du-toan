@@ -109,8 +109,9 @@
 						<span style="font-weight: bold">BÁO CÁO TÌNH HÌNH GIẢI NGÂN CÁC NGUỒN VỐN NĂM  <%=DateTime.Now.Year.ToString() %></span>
 						<br />
 						<span style="font-weight: bold">ĐƠN VỊ:
-							<asp:Label runat="server" Text="Label" ID="m_txt_ten_don_vi"></asp:Label></span>
-						<br />
+                            <asp:DropDownList runat="server" ID="m_ddl_don_vi" AutoPostBack="True" OnSelectedIndexChanged="m_ddl_don_vi_SelectedIndexChanged"></asp:DropDownList>
+						</span>
+						<br /><br />
 						<div class="divBoxControl height30">
 							<div class="lb">Tìm kiếm:</div>
 							<div class="control">
