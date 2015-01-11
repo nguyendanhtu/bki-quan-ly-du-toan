@@ -39,17 +39,17 @@
         }
 
         .setWidth {
-            /*width:100px;*/
+            width:100px;
         }
 
-        table {
+       .outer table {
           table-layout: fixed; 
           width: 100%;
           font-size:12px;
         }
-        td, th {
+       .outer td, .outer th {
           vertical-align: top;
-          width:100px;
+          /*width:100px;*/
           margin-left: -2px;
         }
 
@@ -168,7 +168,7 @@
             <div class="divBoxControl" style="height: 119px;">
                 <div class="height30"style="height: 34px; width: 403px;margin-bottom: 4px;">
                     <div class="lb">Tìm kiếm:</div>
-				    <div class="control input-group"style="margin-left: 30px;">
+				    <div class="control input-group"style="margin-left: 23px;">
                         <asp:TextBox ID="m_txt_tu_khoa_tim_kiem" cssclass="form-control" runat="server"></asp:TextBox>
                         <span class="input-group-addon">
                                <span class="glyphicon-search glyphicon"></span>
@@ -176,7 +176,7 @@
 				    </div>
                 </div>
                 <div class="height30">
-                     <div class="lb" style="margin-right:30px">Từ ngày</div>
+                     <div class="lb" style="margin-right:23px">Từ ngày</div>
                        <div id="datetimepicker1" class="input-group date" style="width: 200px;">
                           <asp:TextBox ID="m_txt_tu_ngay" placeholder="dd/MM/yyyy" runat="server" CssClass="cssTextBox date-start" Height="30px" Width="164px"></asp:TextBox>
                            <span class="input-group-addon">
@@ -185,9 +185,9 @@
                       </div>
                 </div>
                 <div class="height30">
-				    <div class="lb" style="margin-right:30px">Từ ngày</div>
+				    <div class="lb" style="margin-right:23px">Đến ngày</div>
                           <div id="datetimepicker2" class="input-group date" style="width: 200px;">
-                          <asp:TextBox ID="m_txt_den_ngay" placeholder="dd/MM/yyyy" runat="server" CssClass="cssTextBox date-start" Height="30px" Width="164px"></asp:TextBox>
+                          <asp:TextBox ID="m_txt_den_ngay" placeholder="dd/MM/yyyy" runat="server" CssClass="cssTextBox  date-start" Height="30px" Width="164px"></asp:TextBox>
                            <span class="input-group-addon">
                                <span class="glyphicon-calendar glyphicon"></span>
                            </span>
