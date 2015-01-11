@@ -895,35 +895,44 @@ namespace QuanLyDuToan.DuToan
 		}
 		protected void m_grv_RowDataBound(object sender, GridViewRowEventArgs e)
 		{
-			if (e.Row.RowType == DataControlRowType.DataRow)
-			{
-				LinkButton m_lbl_delete = (LinkButton)e.Row.FindControl("m_lbl_delete");
-				LinkButton m_lbl_update = (LinkButton)e.Row.FindControl("m_lbl_update");
-				if (m_lbl_delete != null)
-				{
-					if (m_lbl_delete.CommandArgument.Trim().Equals("-1"))
-					{
-						m_lbl_delete.Visible = false;
-						e.Row.CssClass = "cssFontBold";
-					}
-					else
-					{
-						m_lbl_delete.Visible = true;
-					}
-				}
-				if (m_lbl_update != null)
-				{
-					if (m_lbl_update.CommandArgument.Trim().Equals("-1"))
-					{
-						m_lbl_update.Visible = false;
-					}
-					else
-					{
-						m_lbl_update.Visible = true;
-					}
-				}
+            try
+            {
+                if (e.Row.RowType == DataControlRowType.DataRow)
+                {
+                    LinkButton m_lbl_delete = (LinkButton)e.Row.FindControl("m_lbl_delete");
+                    LinkButton m_lbl_update = (LinkButton)e.Row.FindControl("m_lbl_update");
+                    if (m_lbl_delete != null)
+                    {
+                        if (m_lbl_delete.CommandArgument.Trim().Equals("-1"))
+                        {
+                            m_lbl_delete.Visible = false;
+                            e.Row.CssClass = "cssFontBold";
+                        }
+                        else
+                        {
+                            m_lbl_delete.Visible = true;
+                        }
+                    }
+                    if (m_lbl_update != null)
+                    {
+                        if (m_lbl_update.CommandArgument.Trim().Equals("-1"))
+                        {
+                            m_lbl_update.Visible = false;
+                        }
+                        else
+                        {
+                            m_lbl_update.Visible = true;
+                        }
+                    }
 
-			}
+                }
+            }
+            catch (Exception ex)
+            {
+
+                CSystemLog_301.ExceptionHandle(this,ex); 
+            }
+		
 		}
 		protected void m_grv_RowCommand(object sender, GridViewCommandEventArgs e)
 		{
@@ -1240,19 +1249,37 @@ namespace QuanLyDuToan.DuToan
 
 		protected void m_rdb_theo_chuong_loai_khoan_muc_CheckedChanged(object sender, EventArgs e)
 		{
+            try
+            {
+                load_data_to_ddl_loai_nhiem_vu();
+                load_panel_loai_chi();
+                m_cmd_cancel_Click(null, null);
+                load_data_to_grid();
+            }
+            catch (Exception ex)
+            {
 
-			load_data_to_ddl_loai_nhiem_vu();
-			load_panel_loai_chi();
-			m_cmd_cancel_Click(null, null);
-            load_data_to_grid();
+                CSystemLog_301.ExceptionHandle(this,ex);
+            }
+
+		
 		}
 
 		protected void m_rdb_theo_quoc_lo_CheckedChanged(object sender, EventArgs e)
 		{
-			load_data_to_ddl_loai_nhiem_vu();
-			load_panel_loai_chi();
-			m_cmd_cancel_Click(null, null);
-            load_data_to_grid();
+            try
+            {
+                load_data_to_ddl_loai_nhiem_vu();
+                load_panel_loai_chi();
+                m_cmd_cancel_Click(null, null);
+                load_data_to_grid();
+            }
+            catch (Exception ex)
+            {
+
+                CSystemLog_301.ExceptionHandle(this,ex);
+            }
+			
 		}
 
 		private void load_panel_loai_chi()

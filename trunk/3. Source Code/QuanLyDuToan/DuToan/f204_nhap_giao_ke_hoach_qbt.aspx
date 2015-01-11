@@ -40,10 +40,10 @@
 	</style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="Server">
-	<asp:ScriptManager ID="ScriptManager1" runat="server">
+	<%--<asp:ScriptManager ID="ScriptManager1" runat="server">
 	</asp:ScriptManager>
 	<asp:UpdatePanel ID="UpdatePanel1" runat="server">
-		<ContentTemplate>
+		<ContentTemplate>--%>
 			<table id="main_table" style="width: 1100px; margin: auto" class="cssTable table" border="0">
 				<tr>
 					<td class="cssPageTitleBG" colspan="4" style="text-align: center">
@@ -356,7 +356,7 @@
 				</tr>
 
 			</table>
-		</ContentTemplate>
+		<%--</ContentTemplate>
 		<Triggers>
 		</Triggers>
 	</asp:UpdatePanel>
@@ -371,7 +371,7 @@
 				</div>
 			</div>
 		</ProgressTemplate>
-	</asp:UpdateProgress>
+	</asp:UpdateProgress>--%>
 </asp:Content>
 
 
