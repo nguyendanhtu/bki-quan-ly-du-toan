@@ -42,8 +42,8 @@
 		}
 
 			.control select, input {
-				width: 220px !important;
-				margin-left: 10px;
+				width: 220px;
+				/*margin-left: 10px;*/
 			}
 
 		.filter {
@@ -117,35 +117,35 @@
 								<asp:TextBox ID="m_txt_tim_kiem" runat="server" CssClass="filter"></asp:TextBox></div>
 						</div>
 						<div style="width: 680px; margin: 0px auto">
-							<div class="boxControl">
+							<div class="boxControl" style="width: 340px;margin-left: 13px;">
 								<div class="height30">
 									<div class="lb">Loại nhiệm vụ</div>
 									<div class="control">
-										<asp:DropDownList ID="m_ddl_loai_nv" runat="server" Width="100px" AutoPostBack="True" CssClass="select2" OnSelectedIndexChanged="m_ddl_loai_nv_SelectedIndexChanged"></asp:DropDownList></div>
+										<asp:DropDownList ID="m_ddl_loai_nv" runat="server" AutoPostBack="True" CssClass="select2" OnSelectedIndexChanged="m_ddl_loai_nv_SelectedIndexChanged"></asp:DropDownList></div>
 								</div>
 								<div class="height30">
 									<div class="lb">Công trình</div>
 									<div class="control">
-										<asp:DropDownList ID="m_ddl_cong_trinh" runat="server" Width="100px" AutoPostBack="True" CssClass="selec2" OnSelectedIndexChanged="m_ddl_cong_trinh_SelectedIndexChanged"></asp:DropDownList></div>
+										<asp:DropDownList ID="m_ddl_cong_trinh" runat="server" AutoPostBack="True" CssClass="selec2" OnSelectedIndexChanged="m_ddl_cong_trinh_SelectedIndexChanged"></asp:DropDownList></div>
 								</div>
 								<div class="height30">
 									<div class="lb">Dự án</div>
 									<div class="control">
-										<asp:DropDownList ID="m_ddl_du_an" runat="server" Width="100px" CssClass="selec2"></asp:DropDownList></div>
+										<asp:DropDownList ID="m_ddl_du_an" runat="server" CssClass="selec2"></asp:DropDownList></div>
 								</div>
 
 							</div>
-							<div class="boxControl">
+							<div class="boxControl" style="width: 301px;margin-left: 26px;">
 								<div class="height30">
-									<div class="lb" style="margin-right: 30px">Từ ngày</div>
+									<div class="lb" style="margin-right: 0px;width: 90px;">Từ ngày</div>
 									<div id="datetimepicker1" class="input-group date datepicker" style="width: 200px;">
 										<asp:TextBox ID="m_txt_tu_ngay" placeholder="dd/MM/yyyy" runat="server" CssClass="cssTextBox form-control  date-start" Height="30px" Width="164px"></asp:TextBox>
 										<span class="input-group-addon"><span class="glyphicon-calendar glyphicon"></span>
 										</span>
 									</div>
 								</div>
-								<div class="height30">
-									<div class="lb" style="margin-right: 30px">Đến ngày</div>
+								<div class="height30" style="margin-top: 6px;">
+									<div class="lb" style="margin-right: 0px;width: 90px;">Đến ngày</div>
 									<div id="datetimepicker2" class="input-group date datepicker" style="width: 200px;">
 										<asp:TextBox ID="m_txt_den_ngay" placeholder="dd/MM/yyyy" runat="server" CssClass="cssTextBox form-control date-end" Height="30px" Width="164px"></asp:TextBox>
 										<span class="input-group-addon"><span class="glyphicon-calendar glyphicon"></span>
