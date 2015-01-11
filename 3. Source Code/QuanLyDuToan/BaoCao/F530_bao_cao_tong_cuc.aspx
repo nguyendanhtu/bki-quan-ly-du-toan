@@ -109,9 +109,6 @@
 				         </td>
                      <td></td>
 				</tr>
-                <tr>
-                    <td></td>
-                </tr>
 				<tr>
 					<td colspan="4">
 						<asp:Label ID="m_lbl_mess" runat="server" CssClass="cssManField"></asp:Label>
