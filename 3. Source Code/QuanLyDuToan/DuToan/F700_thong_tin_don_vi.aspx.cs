@@ -47,11 +47,18 @@ namespace QuanLyDuToan.DuToan
 		}
 		private void get_thong_tin_don_vi(decimal ip_dc_id_don_vi)
 		{
-			US_DM_THONG_TIN_DON_VI v_us = new US_DM_THONG_TIN_DON_VI(ip_dc_id_don_vi, ip_dc_id_don_vi);
-			m_txt_dia_chi.Text = v_us.strDIA_CHI;
-			m_txt_kho_bac.Text = v_us.strKHO_BAC;
-			m_txt_ma_tkkt_nguon_ns.Text = v_us.strMA_TKKT2;
-			m_txt_ma_tkkt_quy_bao_tri.Text = v_us.strMA_TKKT1;
+			US_DM_THONG_TIN_DON_VI v_us = new US_DM_THONG_TIN_DON_VI();
+            if (v_us.isHavingThongTinDonVi(Person.get_id_don_vi())) {
+                v_us.InitByID_DON_VI(Person.get_id_don_vi());
+                m_txt_dia_chi.Text = v_us.strDIA_CHI;
+                m_txt_kho_bac.Text = v_us.strKHO_BAC;
+                m_txt_ma_tkkt_nguon_ns.Text = v_us.strMA_TKKT2;
+                m_txt_ma_tkkt_quy_bao_tri.Text = v_us.strMA_TKKT1;
+            }
+            else {
+                v_us.dcID_DON_VI = Person.get_id_don_vi();
+                v_us.Insert();
+            }
 		}
 		protected void Page_Load(object sender, EventArgs e)
 		{
@@ -76,13 +83,14 @@ namespace QuanLyDuToan.DuToan
 			{
 				if (check_data_is_ok())
 				{
-					US_DM_THONG_TIN_DON_VI v_us = new US_DM_THONG_TIN_DON_VI(Person.get_id_don_vi(),Person.get_id_don_vi());
-					v_us.strDIA_CHI = m_txt_dia_chi.Text.Trim();
-					v_us.strKHO_BAC = m_txt_kho_bac.Text.Trim();
-					v_us.strMA_DVQHNS = m_txt_ma_dvqhns.Text.Trim();
-					v_us.strMA_TKKT1 = m_txt_ma_tkkt_quy_bao_tri.Text.Trim();
-					v_us.strMA_TKKT2 = m_txt_ma_tkkt_nguon_ns.Text.Trim();
-					v_us.Update();
+                    US_DM_THONG_TIN_DON_VI v_us_thong_tin_don_vi = new US_DM_THONG_TIN_DON_VI();
+                    v_us_thong_tin_don_vi.InitByID_DON_VI(Person.get_id_don_vi());
+                    v_us_thong_tin_don_vi.strDIA_CHI = m_txt_dia_chi.Text.Trim();
+                    v_us_thong_tin_don_vi.strKHO_BAC = m_txt_kho_bac.Text.Trim();
+                    v_us_thong_tin_don_vi.strMA_DVQHNS = m_txt_ma_dvqhns.Text.Trim();
+                    v_us_thong_tin_don_vi.strMA_TKKT1 = m_txt_ma_tkkt_quy_bao_tri.Text.Trim();
+                    v_us_thong_tin_don_vi.strMA_TKKT2 = m_txt_ma_tkkt_nguon_ns.Text.Trim();
+                    v_us_thong_tin_don_vi.Update();
 					m_lbl_mess.Text = "Cập nhật dữ liệu thành công!";
 				}
 			}

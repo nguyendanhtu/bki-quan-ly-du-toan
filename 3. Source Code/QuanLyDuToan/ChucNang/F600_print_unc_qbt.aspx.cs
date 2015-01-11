@@ -36,7 +36,8 @@ namespace QuanLyDuToan.ChucNang
 			DS_V_DM_GIAI_NGAN v_ds = new DS_V_DM_GIAI_NGAN();
 			v_ds.EnforceConstraints = false;
 
-			US_DM_THONG_TIN_DON_VI v_us_thong_tin_don_vi = new US_DM_THONG_TIN_DON_VI(Person.get_id_don_vi(), Person.get_id_don_vi());
+			US_DM_THONG_TIN_DON_VI v_us_thong_tin_don_vi = new US_DM_THONG_TIN_DON_VI();
+            v_us_thong_tin_don_vi.InitByID_DON_VI(Person.get_id_don_vi());
 			US_DM_DON_VI v_us_dm_don_vi = new US_DM_DON_VI(Person.get_id_don_vi());
 			v_us_v_giai_ngan.FillDataset(v_ds, "where " + V_DM_GIAI_NGAN.ID_DON_VI + "=" + Person.get_id_don_vi()
 				+" and "+V_DM_GIAI_NGAN.ID+"="+ip_dc_id_dm_unc);
