@@ -87,7 +87,7 @@ namespace QuanLyDuToan.BaoCao
 				, CIPConvert.ToDatetime(m_txt_den_ngay.Text, "dd/MM/yyyy")
 				, m_txt_tim_kiem.Text.Trim()
 				, "N");
-            formatData(v_ds);
+			formatData(v_ds);
 			m_grv.DataSource = v_ds.Tables[0];
 
 			m_grv.DataBind();
@@ -95,36 +95,36 @@ namespace QuanLyDuToan.BaoCao
 
 		}
 
-        private void formatData(DataSet v_ds)
-        {
-            for (int i = 0; i < v_ds.Tables[0].Rows.Count; i++)
-            {
-                for (int j = 7; j < v_ds.Tables[0].Columns.Count; j++)
-                {
-                    v_ds.Tables[0].Rows[i][j] = formatString(v_ds.Tables[0].Rows[i][j].ToString());
-                }
-            }
-        }
+		private void formatData(DataSet v_ds)
+		{
+			for (int i = 0; i < v_ds.Tables[0].Rows.Count; i++)
+			{
+				for (int j = 7; j < v_ds.Tables[0].Columns.Count; j++)
+				{
+					v_ds.Tables[0].Rows[i][j] = formatString(v_ds.Tables[0].Rows[i][j].ToString());
+				}
+			}
+		}
 
-        private string formatString(string str)
-        {
-            var index = 0;
-            var str2 = "";
-            for (int i = str.Length - 1; i >= 0; i--)
-            {
-                str2 = str[i] + str2;
-                index += 1;
-                if (index % 3 == 0 && index != str.Length)
-                {
-                    str2 = "," + str2;
-                }
-            }
-            if (str2.Length == 0)
-            {
-                str2 = "0";
-            }
-            return str2;
-        }
+		private string formatString(string str)
+		{
+			var index = 0;
+			var str2 = "";
+			for (int i = str.Length - 1; i >= 0; i--)
+			{
+				str2 = str[i] + str2;
+				index += 1;
+				if (index % 3 == 0 && index != str.Length)
+				{
+					str2 = "," + str2;
+				}
+			}
+			if (str2.Length == 0)
+			{
+				str2 = "0";
+			}
+			return str2;
+		}
 
 		private bool check_validate_data_is_ok()
 		{
@@ -167,6 +167,13 @@ namespace QuanLyDuToan.BaoCao
 					App_Code.WinFormControls.load_data_to_ddl_loai_nhiem_vu(m_ddl_loai_nv);
 
 					//set value form query string
+					decimal v_dc_id_don_vi = Person.get_id_don_vi();
+					if (Request.QueryString["ip_dc_id_don_vi"] != null)
+					{
+						v_dc_id_don_vi = CIPConvert.ToDecimal(Request.QueryString["ip_dc_id_don_vi"]);
+					}
+					US_DM_DON_VI v_us_don_vi = new US_DM_DON_VI(v_dc_id_don_vi);
+					m_lbl_don_vi.Text = v_us_don_vi.strTEN_DON_VI;
 					if (Request.QueryString["ip_dat_tu_ngay"] != null)
 					{
 						m_txt_tu_ngay.Text = Request.QueryString["ip_dat_tu_ngay"].ToString();
@@ -177,17 +184,30 @@ namespace QuanLyDuToan.BaoCao
 					}
 					if (Request.QueryString["ip_dc_id_loai_nhiem_vu"] != null)
 					{
-						m_ddl_loai_nv.SelectedValue = Request.QueryString["ip_dc_id_loai_nhiem_vu"].ToString();
-						m_ddl_loai_nv_SelectedIndexChanged(null, null);
+						if (CIPConvert.ToDecimal(Request.QueryString["ip_dc_id_loai_nhiem_vu"])>0)
+						{
+							m_ddl_loai_nv.SelectedValue = Request.QueryString["ip_dc_id_loai_nhiem_vu"].ToString();
+							
+						}
+						
 					}
+					m_ddl_loai_nv_SelectedIndexChanged(null, null);
 					if (Request.QueryString["ip_dc_id_cong_trinh"] != null)
 					{
-						m_ddl_cong_trinh.SelectedValue = Request.QueryString["ip_dc_id_cong_trinh"].ToString();
-						m_ddl_cong_trinh_SelectedIndexChanged(null, null);
+						if (CIPConvert.ToDecimal(Request.QueryString["ip_dc_id_cong_trinh"]) > 0)
+						{
+							m_ddl_cong_trinh.SelectedValue = Request.QueryString["ip_dc_id_cong_trinh"].ToString();
+							
+						}
+						
 					}
+					m_ddl_cong_trinh_SelectedIndexChanged(null, null);
 					if (Request.QueryString["ip_dc_id_du_an"] != null)
 					{
-						m_ddl_du_an.SelectedValue = Request.QueryString["ip_dc_id_du_an"].ToString();
+						if (CIPConvert.ToDecimal(Request.QueryString["ip_dc_id_du_an"]) > 0)
+						{
+							m_ddl_du_an.SelectedValue = Request.QueryString["ip_dc_id_du_an"].ToString();
+						}
 					}
 					load_data_to_grid();
 				}
@@ -341,7 +361,12 @@ namespace QuanLyDuToan.BaoCao
 
 		protected void m_ddl_cong_trinh_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			App_Code.WinFormControls.load_data_to_cbo_du_an_theo_cong_trinh_va_loai_nhiem_vu(CIPConvert.ToDecimal(m_ddl_cong_trinh.SelectedValue), CIPConvert.ToDecimal(m_ddl_loai_nv.SelectedValue), m_ddl_du_an);
+			decimal v_dc_id_don_vi = Person.get_id_don_vi();
+			if (Request.QueryString["ip_dc_id_don_vi"] != null)
+			{
+				v_dc_id_don_vi = CIPConvert.ToDecimal(Request.QueryString["ip_dc_id_don_vi"]);
+			}
+			App_Code.WinFormControls.load_data_to_cbo_du_an_theo_cong_trinh_va_loai_nhiem_vu(CIPConvert.ToDecimal(m_ddl_cong_trinh.SelectedValue), CIPConvert.ToDecimal(m_ddl_loai_nv.SelectedValue), m_ddl_du_an, v_dc_id_don_vi);
 		}
 
 
