@@ -20,6 +20,8 @@
         th 
         {
             text-align:center !important;
+            background: #ddd;
+            border-color: #000;
         }
         
         lb {
@@ -52,8 +54,8 @@
 
     <asp:updatepanel id="UpdatePanel1" runat="server">
 		<ContentTemplate>
-		<table id="main_table" style="width: 1970px;" class="cssTable table" border="0">
-				<tr>
+            <table id="main_table" style="width: 1300px;" class="cssTable table" border="0">
+                <tr>
 					<td colspan="4" style="text-align: center">
 						<span style="font-weight: bold">CỘNG HOÀ XÃ HỘI CHỦ NGHĨA VIỆT NAM</span>
 						<br />
@@ -232,10 +234,9 @@
 									</ItemTemplate>
 								    <HeaderStyle Height="10px" HorizontalAlign="Center"/>
                                     <ItemStyle HorizontalAlign="Right" Width="120px" />
-								</asp:TemplateField>
-                               <asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="(9+11)"  HeaderStyle-Height="10px">									
-                             
-								<ItemTemplate>
+								</asp:TemplateField>								
+                                <asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="(9) + (11)"  HeaderStyle-Height="10px">									
+                                    <ItemTemplate>
 										<%# CIPConvert.ToStr( format_so_tien(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_QBT_TONG)) 
                                                 + format_so_tien(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_NS_TONG)), "#,###") %>
 									</ItemTemplate>
