@@ -1,9 +1,24 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="F811_QuanLyChucNang.aspx.cs" Inherits="QuanLyDuToan.Quantri.F811_QuanLyChucNang" %>
-
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="Server">
+<script>
+    function pageLoad(sender, args) {
+        if (args.get_isPartialLoad()) {
+
+            $(".cssDorpdownlist").select2();
+
+
+        }
+    }
+    $(document).ready(function () {
+        $(".cssDorpdownlist").select2();
+
+    }
+       )
+    </script>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="Server">
-    <table cellspacing="0" cellpadding="2" style="width: 100%;" class="cssTable" border="0">
+    <table id="main_table" cellspacing="0" cellpadding="2" style="width: 100%;" class="cssTable table" border="0">
         <tr>
             <td class="cssPageTitleBG" colspan="3">
                 <asp:Label ID="lblUser" runat="server" CssClass="cssPageTitle"
@@ -22,7 +37,7 @@
                     Text="Tên chức năng" />
             </td>
             <td style="width: 30%;">
-                <asp:TextBox ID="m_txt_ten_chuc_nang" CssClass="cssTextBox" CausesValidation="false"
+                <asp:TextBox ID="m_txt_ten_chuc_nang" CssClass="cssTable form-control" CausesValidation="false"
                     runat="server" Width="90%" />
                 &nbsp;
                 <asp:RequiredFieldValidator ID="m_ct_noi_dung" runat="server"
@@ -36,7 +51,7 @@
                     Text="URL của chức năng" AccessKey="L" />
             </td>
             <td align="left">
-                <asp:TextBox ID="m_txt_url_form" Width="90%" runat="server">
+                <asp:TextBox ID="m_txt_url_form" CssClass="form-control" Width="90%" runat="server">
                 </asp:TextBox>
             </td>
             <td>&nbsp;</td>
@@ -48,7 +63,7 @@
             </td>
             <td align="left">
                 <asp:DropDownList ID="m_cbo_chuc_nang_cha" runat="server" Width="80%"
-                    OnSelectedIndexChanged="m_cbo_chuc_nang_cha_SelectedIndexChanged" AutoPostBack="true">
+                    OnSelectedIndexChanged="m_cbo_chuc_nang_cha_SelectedIndexChanged" CssClass="cssDorpdownlist form-control" AutoPostBack="true">
                 </asp:DropDownList>
             </td>
             <td>&nbsp;</td>
@@ -59,7 +74,7 @@
                     Text="Vị trí" />
             </td>
             <td align="left">
-                <asp:DropDownList ID="m_cbo_vi_tri" runat="server" Width="20%"
+                <asp:DropDownList ID="m_cbo_vi_tri" runat="server" Width="20%"  CssClass="cssDorpdownlist form-control"
                     OnSelectedIndexChanged="m_cbo_vi_tri_SelectedIndexChanged" AutoPostBack="true">
                 </asp:DropDownList>
             </td>
@@ -85,7 +100,7 @@
                     Text="Được hiển thị YN?" />
             </td>
             <td valign="top" colspan="2">&nbsp; 
-            <asp:RadioButtonList ID="m_rdl_hien_thi_yn" runat="server"
+            <asp:RadioButtonList ID="m_rdl_hien_thi_yn" runat="server" 
                 RepeatDirection="Horizontal" Width="117px">
                 <asp:ListItem Value="Y" Selected="True">Có</asp:ListItem>
                 <asp:ListItem Value="N">Không</asp:ListItem>
@@ -99,14 +114,14 @@
         <tr>
             <td></td>
             <td colspan="2" align="left">
-                <asp:Button ID="m_cmd_tao_moi" AccessKey="c" CssClass="cssButton"
-                    runat="server" Width="98px" Height="24px" Text="Tạo mới(c)"
+                <asp:Button ID="m_cmd_tao_moi" AccessKey="c" CssClass="btn"
+                    runat="server" Text="Tạo mới(c)"
                     OnClick="m_cmd_tao_moi_Click" />&nbsp;
-			<asp:Button ID="m_cmd_cap_nhat" AccessKey="u" CssClass="cssButton"
-                runat="server" Width="98px" Height="24px" Text="Cập nhật(u)"
+			<asp:Button ID="m_cmd_cap_nhat" AccessKey="u" 
+                runat="server" CssClass="btn"  Text="Cập nhật(u)"
                 OnClick="m_cmd_cap_nhat_Click" />&nbsp;
-			<asp:Button ID="btnCancel" AccessKey="r" CssClass="cssButton" runat="server"
-                Width="98px" Height="24px" Text="Xóa trắng(r)" OnClick="btnCancel_Click" />
+			<asp:Button ID="btnCancel" AccessKey="r" CssClass="btn" runat="server"
+                 Text="Xóa trắng(r)" OnClick="btnCancel_Click" />
                 <asp:HiddenField ID="hdf_id" runat="server" Value="" />
             </td>
         </tr>
@@ -129,7 +144,7 @@
             </td>
             <td>
                 <asp:DropDownList ID="m_cbo_chuc_nang_cap_1" runat="server" Width="320px"
-                    AutoPostBack="True"
+                    AutoPostBack="True" CssClass="cssDorpdownlist"
                     OnSelectedIndexChanged="m_cbo_chuc_nang_cap_1_SelectedIndexChanged" />
             </td>
         </tr>
@@ -138,8 +153,8 @@
                 <span>Từ khoá:</span>
             </td>
             <td>
-                <asp:TextBox ID="m_txt_tim_kiem" runat="server" CssClass="cssTextBox" Style="width: 90%" />
-                <asp:Button ID="m_cmd_tim_kiem" runat="Server" CssClass="cssGoogleButton" CausesValidation="false"
+                <asp:TextBox ID="m_txt_tim_kiem" runat="server" CssClass="form-control" Style="width: 90%" />
+                <asp:Button ID="m_cmd_tim_kiem" runat="Server" CssClass="cssGoogleButton btn" CausesValidation="false"
                     Text="Tìm kiếm" OnClick="m_cmd_tim_kiem_Click" />
             </td>
 
