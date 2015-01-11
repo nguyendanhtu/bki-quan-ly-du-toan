@@ -81,7 +81,7 @@
 
 												</td>
 												<td style="width: 25%; text-align: right">
-													<asp:Button ID="m_cmd_chon_qd_da_nhap" Text="Chọn QĐ" OnClick="m_cmd_chon_qd_da_nhap_Click" runat="server" /></td>
+													<asp:Button ID="m_cmd_chon_qd_da_nhap" CssClass="btn" Text="Chọn QĐ" OnClick="m_cmd_chon_qd_da_nhap_Click" runat="server" /></td>
 												<%--<td style="width: 20%"></td>--%>
 											</tr>
 											<tr>
