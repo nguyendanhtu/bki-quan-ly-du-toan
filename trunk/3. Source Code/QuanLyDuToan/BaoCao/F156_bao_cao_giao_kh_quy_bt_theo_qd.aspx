@@ -51,6 +51,10 @@
          {
              border:1px solid black !important;
          }
+
+	    th {
+	        border-top: 1px solid black !important;
+        }
 	</style>
     <script>
         function pageLoad(sender, args) {

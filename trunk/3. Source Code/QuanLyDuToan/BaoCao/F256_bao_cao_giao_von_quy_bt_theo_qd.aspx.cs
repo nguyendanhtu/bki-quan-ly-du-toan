@@ -94,8 +94,7 @@ namespace QuanLyDuToan.BaoCao
 				, CIPConvert.ToDatetime(m_txt_den_ngay.Text, "dd/MM/yyyy")
 				,""
 				,"N");
-
-			//, CIPConvert.ToDecimal(m_ddl_loai_nv.SelectedValue)
+            //, CIPConvert.ToDecimal(m_ddl_loai_nv.SelectedValue)
 			//	, CIPConvert.ToDecimal(m_ddl_cong_trinh.SelectedValue)
 			//	, CIPConvert.ToDecimal(m_ddl_du_an.SelectedValue)
 			m_grv.DataSource = v_ds.Tables[0];
@@ -287,7 +286,6 @@ namespace QuanLyDuToan.BaoCao
 						e.Row.Cells[i].CssClass = "csscurrency";
 						e.Row.Cells[i].Width = 80;
 					}
-
 				}
 			}
 			catch (Exception v_e)
