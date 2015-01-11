@@ -84,9 +84,9 @@ namespace QuanLyDuToan.BaoCao
                         ts += CIPConvert.ToDecimal(v_str);
                     }
                 }
-                ip_dt.Rows[i]["KHONG_THUONG_XUYEN"] = ktx.ToString();
-                ip_dt.Rows[i]["THUONG_XUYEN"] = tx.ToString();
-                ip_dt.Rows[i]["TONG_SO"] = ts.ToString();
+                ip_dt.Rows[i]["KHONG_THUONG_XUYEN"] = formatString(ktx.ToString());
+                ip_dt.Rows[i]["THUONG_XUYEN"] = formatString(tx.ToString());
+                ip_dt.Rows[i]["TONG_SO"] = formatString(ts.ToString());
                 ktx = 0;
                 tx = 0;
                 ts = 0;
@@ -116,7 +116,21 @@ namespace QuanLyDuToan.BaoCao
                 v_index += 1;
             }
         }
-
+        private string formatString(string str)
+        {
+            var index = 0;
+            var str2 = "";
+            for (int i = str.Length - 1; i >= 0; i--)
+            {
+                str2 = str[i] + str2;
+                index += 1;
+                if (index % 3 == 0 && index != str.Length)
+                {
+                    str2 = "," + str2;
+                }
+            }
+            return str2;
+        }
         private string get_header_text(string p, int ip_index)
         {
             string v_res = "";
