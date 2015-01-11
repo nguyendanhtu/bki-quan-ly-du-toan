@@ -17,15 +17,11 @@
             text-align:center;
         }
 
-        th {
+        th 
+        {
             text-align:center !important;
         }
-        .boxControl {
-	        float:left;
-            width:400px; 
-            height:90px;
-            margin:0 auto;
-        }
+        
         lb {
 	        width:100px; 
             float:left;
@@ -56,9 +52,8 @@
 
     <asp:updatepanel id="UpdatePanel1" runat="server">
 		<ContentTemplate>
-<<<<<<< .mine			<table id="main_table" style="width: 1970px;" class="cssTable table" border="0">
-=======			<table style="width: 1300px;" class="cssTable" border="0">
->>>>>>> .theirs				<tr>
+		<table id="main_table" style="width: 1970px;" class="cssTable table" border="0">
+				<tr>
 					<td colspan="4" style="text-align: center">
 						<span style="font-weight: bold">CỘNG HOÀ XÃ HỘI CHỦ NGHĨA VIỆT NAM</span>
 						<br />
@@ -69,6 +64,17 @@
 					</td>
 				</tr>
                 <tr>
+                    
+                    <td style="width:34%;"></td>
+                    <td  style="text-align:center;width: 222px;">
+                           <div class="lb" style="margin-right:30px">Từ ngày</div>
+                    </td>
+                    <td style="text-align:center;width: 222px;">
+                            <div class="lb" style="margin-right:30px">Đến ngày</div>   
+				     </td>
+                     <td></td>
+				</tr>
+                <tr>
                     <%--<td style="width: 200px;"></td>
                     <td style="display: none;">
                         <span style="font-weight: bold" >Loại đơn vị
@@ -76,25 +82,23 @@
                     </td>--%>
                     <td style="width:34%;"></td>
                     <td  style="text-align:center;width: 222px;">
-                                <div class="height30">
-                                   <div class="lb" style="margin-right:30px">Từ ngày</div>
-                                    <div id="datetimepicker1" class="input-group date datepicker" style="width: 200px;">
-                                        <asp:TextBox ID="m_txt_tu_ngay" placeholder="dd/MM/yyyy" runat="server" CssClass="cssTextBox form-control  date-start" Height="30px" Width="164px"></asp:TextBox>
-                                        <span class="input-group-addon"><span class="glyphicon-calendar glyphicon"></span>
-                                        </span>
-                                    </div>
-                                </div>
+                         <div class="height30">
+                              <div id="datetimepicker1" class="input-group date datepicker" style="width: 200px;">
+                                  <asp:TextBox ID="m_txt_tu_ngay" placeholder="dd/MM/yyyy" runat="server" CssClass="cssTextBox form-control  date-start" Height="30px" Width="164px"></asp:TextBox>
+                                  <span class="input-group-addon">
+                                      <span class="glyphicon-calendar glyphicon"></span>
+                                  </span>
+                              </div>
+                          </div>
                         </td>
                         <td style="text-align:center;width: 222px;">
                                 <div class="height30">
-							        <div class="lb" style="margin-right:30px">Đến ngày</div>
                                     <div id="datetimepicker2" class="input-group date datepicker" style="width: 200px;">
                                         <asp:TextBox ID="m_txt_den_ngay" placeholder="dd/MM/yyyy" runat="server" CssClass="cssTextBox form-control date-end" Height="30px" Width="164px"></asp:TextBox>
                                         <span class="input-group-addon"><span class="glyphicon-calendar glyphicon"></span>
                                         </span>
                                     </div>
                                 </div>
-                           
 				         </td>
                      <td></td>
 				</tr>
@@ -229,9 +233,9 @@
 								    <HeaderStyle Height="10px" HorizontalAlign="Center"/>
                                     <ItemStyle HorizontalAlign="Right" Width="120px" />
 								</asp:TemplateField>
-<<<<<<< .mine                                <asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="(9+11)"  HeaderStyle-Height="10px">									
-=======                                <asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="(9) + (11)"  HeaderStyle-Height="10px">									
->>>>>>> .theirs									<ItemTemplate>
+                               <asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="(9+11)"  HeaderStyle-Height="10px">									
+                             
+								<ItemTemplate>
 										<%# CIPConvert.ToStr( format_so_tien(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_QBT_TONG)) 
                                                 + format_so_tien(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_NS_TONG)), "#,###") %>
 									</ItemTemplate>
