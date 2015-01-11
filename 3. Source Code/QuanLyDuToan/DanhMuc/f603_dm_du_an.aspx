@@ -6,7 +6,7 @@
     </asp:ScriptManager>
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
-            <table cellspacing="0" cellpadding="2" style="width: 99%;" class="cssTable" border="0">
+            <table id="main_table"cellspacing="0" cellpadding="2" style="width: 99%;" class="cssTable table" border="0">
                 <tr>
                     <td class="cssPageTitleBG" colspan="4">
                         <asp:Label ID="m_lbl_title" runat="server" Text="Cập nhật thông tin dự án, quốc lộ" CssClass="cssPageTitle"></asp:Label>
@@ -25,8 +25,8 @@
                         <span class="cssManField">Loại</span>
                     </td>
                     <td style="width: 70%">
-                        <asp:RadioButton ID="m_rdb_quoc_lo" runat="server" CssClass="cssManField" ForeColor="Blue" Text="Quốc lộ" GroupName="loai" Checked="true" />
-                        <asp:RadioButton ID="m_rdb_khac" runat="server" CssClass="cssManField" ForeColor="Blue" Text="Khác" GroupName="loai" />
+                        <asp:RadioButton ID="m_rdb_quoc_lo" runat="server" CssClass="cssManField radio-inline" ForeColor="Blue" Text="Quốc lộ" GroupName="loai" Checked="true" />
+                        <asp:RadioButton ID="m_rdb_khac" runat="server" CssClass="cssManField radio-inline" ForeColor="Blue" Text="Khác" GroupName="loai" />
                     </td>
 
                 </tr>
@@ -35,7 +35,7 @@
                         <span class="cssManField">Tên quốc lộ, dự án</span>
                     </td>
                     <td>
-                        <asp:TextBox ID="m_txt_ten_du_an" runat="server" Width="80%" CssClass="cssTextBox" placeholder="Xây cầu xyz"></asp:TextBox></td>
+                        <asp:TextBox ID="m_txt_ten_du_an" runat="server" Width="80%" CssClass="cssTextBox form-control" placeholder="Xây cầu xyz"></asp:TextBox></td>
                 </tr>
                 <tr>
 
@@ -43,14 +43,14 @@
                         <span class="cssManField">Ghi chú</span>
                     </td>
                     <td>
-                        <asp:TextBox ID="TextBox1" runat="server" Width="80%" CssClass="cssTextBox" placehoder=""></asp:TextBox></td>
+                        <asp:TextBox ID="TextBox1" runat="server" Width="80%" CssClass="cssTextBox form-control" placehoder="Ghi chú thông tin dự án, quốc lộ"></asp:TextBox></td>
                 </tr>
                 <tr>
                     <td></td>
                     <td>
-                        <asp:Button ID="m_cmd_insert" Text="Thêm mới" runat="server" CssClass="cssButton" Height="24px" Width="98px" />
-                        <asp:Button ID="m_cmd_update" Text="Cập nhật" runat="server" CssClass="cssButton" Height="24px" Width="98px" />
-                        <asp:Button ID="m_cmd_cancel" Text="Xoá trắng" runat="server" CssClass="cssButton" Height="24px" Width="98px" />
+                        <asp:Button ID="m_cmd_insert" Text="Thêm mới" runat="server" CssClass="btn" />
+                        <asp:Button ID="m_cmd_update" Text="Cập nhật" runat="server" CssClass="btn"/>
+                        <asp:Button ID="m_cmd_cancel" Text="Xoá trắng" runat="server" CssClass="btn"/>
 
                     </td>
                 </tr>

@@ -268,3 +268,33 @@ D:\0. Working\1. Project\0. QLDT\3. Source Code - Copy\WebsiteUS\bin\Debug\IPExc
 D:\0. Working\1. Project\0. QLDT\3. Source Code - Copy\WebsiteUS\obj\Debug\WebUS.csprojResolveAssemblyReference.cache
 D:\0. Working\1. Project\0. QLDT\3. Source Code - Copy\WebsiteUS\obj\Debug\WebUS.dll
 D:\0. Working\1. Project\0. QLDT\3. Source Code - Copy\WebsiteUS\obj\Debug\WebUS.pdb
+E:\Thực tập\quanlidutoan\3. Source Code\WebsiteUS\bin\Debug\WebUS.dll
+E:\Thực tập\quanlidutoan\3. Source Code\WebsiteUS\bin\Debug\WebUS.pdb
+E:\Thực tập\quanlidutoan\3. Source Code\WebsiteUS\bin\Debug\C1.Common.dll
+E:\Thực tập\quanlidutoan\3. Source Code\WebsiteUS\bin\Debug\C1.Win.C1FlexGrid.Classic.dll
+E:\Thực tập\quanlidutoan\3. Source Code\WebsiteUS\bin\Debug\C1.Win.C1FlexGrid.dll
+E:\Thực tập\quanlidutoan\3. Source Code\WebsiteUS\bin\Debug\C1.Win.C1Input.dll
+E:\Thực tập\quanlidutoan\3. Source Code\WebsiteUS\bin\Debug\IPCommon.dll
+E:\Thực tập\quanlidutoan\3. Source Code\WebsiteUS\bin\Debug\IPData.dll
+E:\Thực tập\quanlidutoan\3. Source Code\WebsiteUS\bin\Debug\IPUserService.dll
+E:\Thực tập\quanlidutoan\3. Source Code\WebsiteUS\bin\Debug\WebDS.dll
+E:\Thực tập\quanlidutoan\3. Source Code\WebsiteUS\bin\Debug\CrystalDecisions.Shared.dll
+E:\Thực tập\quanlidutoan\3. Source Code\WebsiteUS\bin\Debug\CrystalDecisions.Windows.Forms.dll
+E:\Thực tập\quanlidutoan\3. Source Code\WebsiteUS\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
+E:\Thực tập\quanlidutoan\3. Source Code\WebsiteUS\bin\Debug\IPBusinessService.dll
+E:\Thực tập\quanlidutoan\3. Source Code\WebsiteUS\bin\Debug\IPException.dll
+E:\Thực tập\quanlidutoan\3. Source Code\WebsiteUS\bin\Debug\CrystalDecisions.ReportSource.dll
+E:\Thực tập\quanlidutoan\3. Source Code\WebsiteUS\bin\Debug\IPCommon.pdb
+E:\Thực tập\quanlidutoan\3. Source Code\WebsiteUS\bin\Debug\IPCommon.xml
+E:\Thực tập\quanlidutoan\3. Source Code\WebsiteUS\bin\Debug\IPData.pdb
+E:\Thực tập\quanlidutoan\3. Source Code\WebsiteUS\bin\Debug\IPData.xml
+E:\Thực tập\quanlidutoan\3. Source Code\WebsiteUS\bin\Debug\IPUserService.pdb
+E:\Thực tập\quanlidutoan\3. Source Code\WebsiteUS\bin\Debug\IPUserService.xml
+E:\Thực tập\quanlidutoan\3. Source Code\WebsiteUS\bin\Debug\WebDS.pdb
+E:\Thực tập\quanlidutoan\3. Source Code\WebsiteUS\bin\Debug\IPBusinessService.pdb
+E:\Thực tập\quanlidutoan\3. Source Code\WebsiteUS\bin\Debug\IPBusinessService.xml
+E:\Thực tập\quanlidutoan\3. Source Code\WebsiteUS\bin\Debug\IPException.pdb
+E:\Thực tập\quanlidutoan\3. Source Code\WebsiteUS\bin\Debug\IPException.xml
+E:\Thực tập\quanlidutoan\3. Source Code\WebsiteUS\obj\Debug\WebUS.csprojResolveAssemblyReference.cache
+E:\Thực tập\quanlidutoan\3. Source Code\WebsiteUS\obj\Debug\WebUS.dll
+E:\Thực tập\quanlidutoan\3. Source Code\WebsiteUS\obj\Debug\WebUS.pdb

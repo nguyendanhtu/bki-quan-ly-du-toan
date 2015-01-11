@@ -88,3 +88,13 @@ D:\0. Working\1. Project\0. QLDT\3. Source Code - Copy\IPBusinessService\obj\Deb
 D:\0. Working\1. Project\0. QLDT\3. Source Code - Copy\IPBusinessService\obj\Debug\IPBusinessService.dll
 D:\0. Working\1. Project\0. QLDT\3. Source Code - Copy\IPBusinessService\obj\Debug\IPBusinessService.xml
 D:\0. Working\1. Project\0. QLDT\3. Source Code - Copy\IPBusinessService\obj\Debug\IPBusinessService.pdb
+E:\Thực tập\quanlidutoan\3. Source Code\IPBusinessService\bin\IPBusinessService.dll
+E:\Thực tập\quanlidutoan\3. Source Code\IPBusinessService\bin\IPBusinessService.pdb
+E:\Thực tập\quanlidutoan\3. Source Code\IPBusinessService\bin\IPBusinessService.xml
+E:\Thực tập\quanlidutoan\3. Source Code\IPBusinessService\bin\IPException.dll
+E:\Thực tập\quanlidutoan\3. Source Code\IPBusinessService\bin\IPException.pdb
+E:\Thực tập\quanlidutoan\3. Source Code\IPBusinessService\bin\IPException.xml
+E:\Thực tập\quanlidutoan\3. Source Code\IPBusinessService\obj\Debug\IPBusinessService.vbprojResolveAssemblyReference.cache
+E:\Thực tập\quanlidutoan\3. Source Code\IPBusinessService\obj\Debug\IPBusinessService.dll
+E:\Thực tập\quanlidutoan\3. Source Code\IPBusinessService\obj\Debug\IPBusinessService.xml
+E:\Thực tập\quanlidutoan\3. Source Code\IPBusinessService\obj\Debug\IPBusinessService.pdb

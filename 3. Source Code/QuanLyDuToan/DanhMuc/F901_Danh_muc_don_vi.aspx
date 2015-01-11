@@ -6,13 +6,28 @@
             height: 24px;
         }
     </style>
+    <script>
+        function pageLoad(sender, args) {
+            if (args.get_isPartialLoad()) {
+                $("#<%=m_cbo_loai_don_vi.ClientID%>").select2();
+                $("#<%=m_cbo_don_vi_cap_tren.ClientID%>").select2();
+                $("#<%=m_cbo_loai_hinh_don_vi.ClientID%>").select2();
+            }
+        }
+        $(document).ready(function () {
+            $("#<%=m_cbo_loai_don_vi.ClientID%>").select2();
+            $("#<%=m_cbo_don_vi_cap_tren.ClientID%>").select2();
+            $("#<%=m_cbo_loai_hinh_don_vi.ClientID%>").select2();
+        }
+       )
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="Server">
     <asp:ScriptManager ID="ScriptManager1" runat="server">
     </asp:ScriptManager>
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
-            <table cellspacing="0" cellpadding="2" style="width: 100%" class="cssTable" border="0">
+            <table id="main_table"cellspacing="0" cellpadding="2" style="width: 100%" class="cssTable table" border="0">
                 <tr>
                     <td class="cssPageTitleBG" colspan="6">
                         <asp:Label ID="m_lbl_title" runat="server" CssClass="cssManField" ForeColor="White" />
@@ -31,8 +46,8 @@
                         <span class="cssManField">Mã đơn vị:</span>
                     </td>
                     <td style="width: 34%">
-                        <asp:TextBox ID="m_txt_ma_don_vi" CssClass="cssTextBox" runat="server" MaxLength="25"
-                            Width="90%" />
+                        <asp:TextBox ID="m_txt_ma_don_vi" CssClass="cssTextBox form-control" runat="server" MaxLength="25"
+                          placeholder="Nhập mã đơn vị"  Width="90%" />
                     </td>
                     <td style="width: 1%">
                         <asp:RequiredFieldValidator runat="Server" ID="m_rfv_ma_don_vi" Text="(*)" ControlToValidate="m_txt_ma_don_vi"
@@ -52,8 +67,8 @@
                         <span class="cssManField">Tên đơn vị:</span>
                     </td>
                     <td>
-                        <asp:TextBox ID="m_txt_ten_don_vi" CssClass="cssTextBox" runat="server" MaxLength="50"
-                            Width="90%" />
+                        <asp:TextBox ID="m_txt_ten_don_vi" CssClass="cssTextBox form-control" runat="server" MaxLength="50"
+                          placeholder="Nhập tên đơn vị"  Width="90%" />
                     </td>
                     <td style="width: 1%">
                         <asp:RequiredFieldValidator ID="m_rfv_ten_don_vi" runat="Server" ControlToValidate="m_txt_ten_don_vi"
@@ -80,16 +95,16 @@
                 </tr>
                 <tr>
                     <td align="center" colspan="4">
-                        <asp:Button ID="m_cmd_tao_moi" AccessKey="c" CssClass="cssButton" runat="server"
-                            Width="98px" Text="Tạo mới(c)" OnClick="m_cmd_tao_moi_Click" Height="24px" />&nbsp;
-                        <asp:Button ID="m_cmd_cap_nhat" AccessKey="u" CssClass="cssButton" runat="server"
-                            Width="98px" Text="Cập nhật(u)" OnClick="m_cmd_cap_nhat_Click" Height="24px" />&nbsp;
-                        <asp:Button ID="m_cmd_xoa_trang" AccessKey="r" CssClass="cssButton" runat="server"
-                            Width="98px" Text="Xóa trắng(r)" OnClick="m_cmd_xoa_trang_Click" Height="24px" />
+                        <asp:Button ID="m_cmd_tao_moi" AccessKey="c" CssClass="btn" runat="server"
+                             Text="Tạo mới(c)" OnClick="m_cmd_tao_moi_Click"  />&nbsp;
+                        <asp:Button ID="m_cmd_cap_nhat" AccessKey="u" CssClass="btn" runat="server"
+                             Text="Cập nhật(u)" OnClick="m_cmd_cap_nhat_Click"  />&nbsp;
+                        <asp:Button ID="m_cmd_xoa_trang" AccessKey="r" CssClass="btn" runat="server"
+                             Text="Xóa trắng(r)" OnClick="m_cmd_xoa_trang_Click"  />
                     </td>
                 </tr>
             </table>
-            <table cellspacing="0" cellpadding="2" style="width: 100%;" class="cssTable" border="0">
+            <table cellspacing="0" cellpadding="2" style="width: 100%;" class="table" border="0">
                 <tr>
                     <td class="cssPageTitleBG" colspan="6">
                         <asp:Label ID="m_lbl_thong_tin_don_vi" runat="server" CssClass="cssManField" ForeColor="White" />
@@ -106,10 +121,12 @@
                 </tr>
                 <tr>
                     <td align="center">
-                        <asp:TextBox ID="m_txt_tim_kiem" runat="server" Width="200px" CssClass="cssTextBox"></asp:TextBox>
+                        <div class="inline">
+                        <asp:TextBox ID="m_txt_tim_kiem" runat="server" Width="200px" CssClass="cssTextBox form-control"></asp:TextBox>
                         &nbsp;
-                        <asp:Button ID="m_cmd_tim_kiem" runat="server" Text="Tìm kiếm" CssClass="cssButton"
-                            Height="24px" Width="98px" CausesValidation="false" OnClick="m_cmd_tim_kiem_Click" />
+                        <asp:Button ID="m_cmd_tim_kiem" runat="server" Text="Tìm kiếm" CssClass="btn"
+                             CausesValidation="false" OnClick="m_cmd_tim_kiem_Click" />
+                            </div>
                     </td>
                 </tr>
                 <tr>

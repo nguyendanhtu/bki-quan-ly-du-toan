@@ -68,3 +68,44 @@ D:\0. Working\1. Project\0. QLDT\3. Source Code\QuanLyDuToan\bin\WebUS.pdb
 D:\0. Working\1. Project\0. QLDT\3. Source Code\QuanLyDuToan\obj\Debug\QuanLyDuToan.csprojResolveAssemblyReference.cache
 D:\0. Working\1. Project\0. QLDT\3. Source Code\QuanLyDuToan\obj\Debug\QuanLyDuToan.dll
 D:\0. Working\1. Project\0. QLDT\3. Source Code\QuanLyDuToan\obj\Debug\QuanLyDuToan.pdb
+E:\Thực tập\quanlidutoan\3. Source Code\QuanLyDuToan\bin\QuanLyDuToan.dll.config
+E:\Thực tập\quanlidutoan\3. Source Code\QuanLyDuToan\bin\QuanLyDuToan.dll
+E:\Thực tập\quanlidutoan\3. Source Code\QuanLyDuToan\bin\QuanLyDuToan.pdb
+E:\Thực tập\quanlidutoan\3. Source Code\QuanLyDuToan\bin\IPBusinessService.dll
+E:\Thực tập\quanlidutoan\3. Source Code\QuanLyDuToan\bin\IPCommon.dll
+E:\Thực tập\quanlidutoan\3. Source Code\QuanLyDuToan\bin\IPData.dll
+E:\Thực tập\quanlidutoan\3. Source Code\QuanLyDuToan\bin\IPExcelReport.dll
+E:\Thực tập\quanlidutoan\3. Source Code\QuanLyDuToan\bin\IPException.dll
+E:\Thực tập\quanlidutoan\3. Source Code\QuanLyDuToan\bin\IPSystemAdmin.dll
+E:\Thực tập\quanlidutoan\3. Source Code\QuanLyDuToan\bin\IPUserService.dll
+E:\Thực tập\quanlidutoan\3. Source Code\QuanLyDuToan\bin\WebDS.dll
+E:\Thực tập\quanlidutoan\3. Source Code\QuanLyDuToan\bin\WebUS.dll
+E:\Thực tập\quanlidutoan\3. Source Code\QuanLyDuToan\bin\C1.Win.C1FlexGrid.dll
+E:\Thực tập\quanlidutoan\3. Source Code\QuanLyDuToan\bin\C1.Win.C1FlexGrid.Classic.dll
+E:\Thực tập\quanlidutoan\3. Source Code\QuanLyDuToan\bin\CrystalDecisions.Shared.dll
+E:\Thực tập\quanlidutoan\3. Source Code\QuanLyDuToan\bin\CrystalDecisions.Windows.Forms.dll
+E:\Thực tập\quanlidutoan\3. Source Code\QuanLyDuToan\bin\CrystalDecisions.CrystalReports.Engine.dll
+E:\Thực tập\quanlidutoan\3. Source Code\QuanLyDuToan\bin\Interop.Excel.dll
+E:\Thực tập\quanlidutoan\3. Source Code\QuanLyDuToan\bin\SiSButton.dll
+E:\Thực tập\quanlidutoan\3. Source Code\QuanLyDuToan\bin\C1.Common.dll
+E:\Thực tập\quanlidutoan\3. Source Code\QuanLyDuToan\bin\CrystalDecisions.ReportSource.dll
+E:\Thực tập\quanlidutoan\3. Source Code\QuanLyDuToan\bin\Interop.Microsoft.Office.Core.dll
+E:\Thực tập\quanlidutoan\3. Source Code\QuanLyDuToan\bin\IPBusinessService.pdb
+E:\Thực tập\quanlidutoan\3. Source Code\QuanLyDuToan\bin\IPBusinessService.xml
+E:\Thực tập\quanlidutoan\3. Source Code\QuanLyDuToan\bin\IPCommon.pdb
+E:\Thực tập\quanlidutoan\3. Source Code\QuanLyDuToan\bin\IPCommon.xml
+E:\Thực tập\quanlidutoan\3. Source Code\QuanLyDuToan\bin\IPData.pdb
+E:\Thực tập\quanlidutoan\3. Source Code\QuanLyDuToan\bin\IPData.xml
+E:\Thực tập\quanlidutoan\3. Source Code\QuanLyDuToan\bin\IPExcelReport.pdb
+E:\Thực tập\quanlidutoan\3. Source Code\QuanLyDuToan\bin\IPExcelReport.xml
+E:\Thực tập\quanlidutoan\3. Source Code\QuanLyDuToan\bin\IPException.pdb
+E:\Thực tập\quanlidutoan\3. Source Code\QuanLyDuToan\bin\IPException.xml
+E:\Thực tập\quanlidutoan\3. Source Code\QuanLyDuToan\bin\IPSystemAdmin.pdb
+E:\Thực tập\quanlidutoan\3. Source Code\QuanLyDuToan\bin\IPSystemAdmin.xml
+E:\Thực tập\quanlidutoan\3. Source Code\QuanLyDuToan\bin\IPUserService.pdb
+E:\Thực tập\quanlidutoan\3. Source Code\QuanLyDuToan\bin\IPUserService.xml
+E:\Thực tập\quanlidutoan\3. Source Code\QuanLyDuToan\bin\WebDS.pdb
+E:\Thực tập\quanlidutoan\3. Source Code\QuanLyDuToan\bin\WebUS.pdb
+E:\Thực tập\quanlidutoan\3. Source Code\QuanLyDuToan\obj\Debug\QuanLyDuToan.csprojResolveAssemblyReference.cache
+E:\Thực tập\quanlidutoan\3. Source Code\QuanLyDuToan\obj\Debug\QuanLyDuToan.dll
+E:\Thực tập\quanlidutoan\3. Source Code\QuanLyDuToan\obj\Debug\QuanLyDuToan.pdb
