@@ -156,7 +156,10 @@
             </div>
             <div>
                 <asp:Button ID="m_cmd_xem_bao_cao" Text="Xem báo cáo" runat="server" Height="24px" Width="98px" OnClick="m_cmd_xem_bao_cao_Click" />
-                <asp:Button ID="m_cmd_xuat_excel" Text="Xuất excel" runat="server" Height="24px" Width="98px" />
+                <asp:Button ID="m_cmd_xuat_excel" Text="Xuất excel" runat="server" Height="24px" Width="98px" Enabled="False" />
+            </div>
+            <div>
+                <asp:Label ID="m_lbl_mess" runat="server" Visible="false"></asp:Label>
             </div>
         </div>
         <div class="outer">

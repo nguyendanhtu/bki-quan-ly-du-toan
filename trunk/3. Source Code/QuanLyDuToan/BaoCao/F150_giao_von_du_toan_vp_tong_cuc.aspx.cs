@@ -72,8 +72,16 @@ namespace QuanLyDuToan.BaoCao
         {
             var v_index = 0;
             DataTable v_dt = ip_ds.Tables[0];
+            if (v_dt.Columns.Count == 4)
+            {
+                m_grv_bao_cao_giao_von.Visible = false;
+                m_lbl_mess.Text = "Không tìm thấy dữ liệu phù hợp !!!";
+                m_lbl_mess.Visible = true;
+            }
             for (int i = 4; i < v_dt.Columns.Count; i++)
             {
+                m_grv_bao_cao_giao_von.Visible = true;
+                m_lbl_mess.Visible = false;
                 BoundField bfield = new BoundField();
                 bfield.HeaderText = get_header_text(v_dt.Columns[i].ColumnName, v_index);
                 bfield.DataField = v_dt.Columns[i].ColumnName;

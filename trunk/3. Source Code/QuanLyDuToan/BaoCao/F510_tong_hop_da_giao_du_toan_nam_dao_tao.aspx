@@ -206,7 +206,7 @@
             </div>
             <div>
                 <asp:Button ID="m_cmd_xem_bao_cao" Text="Xem báo cáo" runat="server" cssclass="btn" OnClick="m_cmd_xem_bao_cao_Click" />
-                <asp:Button ID="m_cmd_xuat_excel" Text="Xuất excel" OnClick="m_cmd_xuat_excel_Click" runat="server" cssclass="btn" />
+                <asp:Button ID="m_cmd_xuat_excel" Text="Xuất excel" OnClick="m_cmd_xuat_excel_Click" runat="server" cssclass="btn" Enabled="False" />
             </div>
             <div style="margin-top: 15px;">
                 <asp:Label runat="server" Text="Label" ID="m_lbl_mess"></asp:Label>
