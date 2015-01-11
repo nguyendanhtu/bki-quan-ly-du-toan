@@ -48,7 +48,9 @@
 	    .height30 {
 	        height:30px;
         }
-
+	    .csscurrency {
+	        text-align:right !important;
+        }
 	   
       
 
@@ -75,9 +77,11 @@
              border:1px solid black !important;
          }
 	</style>
+    <script src="../Scripts/jquery.doubleScroll.js"></script>
     <script>
         function pageLoad(sender, args) {
             if (args.get_isPartialLoad()) {
+                $('#double-scroll').doubleScroll();
                 $("#<%=m_ddl_loai_nv.ClientID%>").select2();
                 $("#<%=m_ddl_cong_trinh.ClientID%>").select2();
                 $("#<%=m_ddl_du_an.ClientID%>").select2();
@@ -87,6 +91,7 @@
             }
         }
         $(document).ready(function () {
+            $('#double-scroll').doubleScroll();
             $("#<%=m_ddl_loai_nv.ClientID%>").select2();
             $("#<%=m_ddl_cong_trinh.ClientID%>").select2();
             $("#<%=m_ddl_du_an.ClientID%>").select2();
@@ -167,6 +172,7 @@
 				</tr>
 				<tr>
 					<td colspan="4" style="margin: auto;" align="center">
+                        <div style="width: 970px; margin: 0px auto;" id="double-scroll">
 						<asp:GridView ID="m_grv" runat="server" AutoGenerateColumns="true"
 							UseAccessibleHeader="true" DataKeyNames="ID"
 							CssClass="cssGrid" CellPadding="0" ForeColor="Black"
@@ -178,6 +184,7 @@
 							<Columns>
 							</Columns>
 						</asp:GridView>
+                        </div>
 					</td>
 				</tr>
 			</table>

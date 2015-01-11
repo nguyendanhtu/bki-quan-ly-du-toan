@@ -279,7 +279,6 @@ namespace QuanLyDuToan.BaoCao
 						if (v_b_is_number)
 						{
 							v_lbl.Text = CIPConvert.ToStr(WinFormControls.get_so_tien(e.Row.Cells[i].Text),"#,###,##");
-							v_lbl.CssClass = "csscurrency";
 						}
 
 						e.Row.Cells[i].Controls.Add(v_lbl);
