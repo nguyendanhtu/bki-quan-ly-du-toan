@@ -4,17 +4,32 @@
 <%@ Import Namespace="WebDS.CDBNames" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="Server">
 	<style type="text/css">
-		.cssFontBold {
+		.cssFontBold
+         {
 			font-weight: bold;
 		}
 	</style>
+    <script>
+        function pageLoad(sender, args) {
+            if (args.get_isPartialLoad()) {
+                $('.select2').select2();
+                $(".datepicker").datepicker({ format: 'dd/mm/yyyy' });
+
+            }
+        }
+        $(document).ready(function () {
+            $('.select2').select2();
+            $(".datepicker").datepicker({ format: 'dd/mm/yyyy' });
+        }
+       )
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="Server">
 	<asp:ScriptManager ID="ScriptManager1" runat="server">
 	</asp:ScriptManager>
 	<asp:UpdatePanel ID="UpdatePanel1" runat="server">
 		<ContentTemplate>
-			<table style="width: 900px; margin: auto" class="cssTable" border="0">
+			<table id="main_table" style="width: 900px; margin: auto" class="cssTable table" border="0">
 				<tr>
 					<td class="cssPageTitleBG" colspan="4">
 						<asp:Label ID="m_lbl_title" runat="server" Width="100%" Text="Nhập Giao vốn - Nguồn Quỹ bảo trì" CssClass="cssPageTitle"></asp:Label>
@@ -29,7 +44,7 @@
 				<tr>
 					<td style="width: 20%; text-align: right">Loại nhiệm vụ</td>
 					<td>
-						<asp:DropDownList ID="m_ddl_loai_nhiem_vu" runat="server" Width="250px">
+						<asp:DropDownList ID="m_ddl_loai_nhiem_vu" runat="server" CssClass="select2" Width="250px">
 						</asp:DropDownList>
 					</td>
 				</tr>
@@ -39,8 +54,8 @@
 						<span>Ngày tháng</span>
 					</td>
 					<td>
-						<asp:TextBox ID="m_txt_ngay_thang" runat="server" CssClass="cssTextBox" Width="100px" placeholder="dd/MM/yyyy"></asp:TextBox>
-						<asp:Button ID="m_cmd_xem_khoi_luong" runat="server" Text="Tải dữ liệu" OnClick="m_cmd_xem_khoi_luong_Click" />
+						<asp:TextBox ID="m_txt_ngay_thang" runat="server" CssClass="cssTextBox datepicker" Width="100px" placeholder="dd/MM/yyyy"></asp:TextBox>
+						<asp:Button ID="m_cmd_xem_khoi_luong" CssClass="btn" runat="server" Text="Tải dữ liệu" OnClick="m_cmd_xem_khoi_luong_Click" />
 					</td>
 				</tr>
 
@@ -129,8 +144,8 @@
 							</tr>
 							<tr>
 								<td colspan="3" style="text-align: center">
-									<asp:Button ID="m_cmd_cap_nhat" runat="server" Text="Ghi dữ liệu" OnClick="m_cmd_cap_nhat_Click" />
-									<asp:Button ID="m_cmd_xoa_trang" runat="server" Text="Huỷ thao tác" OnClick="m_cmd_xoa_trang_Click" />
+									<asp:Button ID="m_cmd_cap_nhat" runat="server" CssClass="btn"  Text="Ghi dữ liệu" OnClick="m_cmd_cap_nhat_Click" />
+									<asp:Button ID="m_cmd_xoa_trang" runat="server" CssClass="btn" Text="Huỷ thao tác" OnClick="m_cmd_xoa_trang_Click" />
 								</td>
 							</tr>
 						</table>
