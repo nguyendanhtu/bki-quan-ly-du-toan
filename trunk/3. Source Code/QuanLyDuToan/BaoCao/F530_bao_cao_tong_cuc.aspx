@@ -17,7 +17,7 @@
             text-align:center;
         }
 
-        th 
+       th 
         {
             text-align:center !important;
             background: #ddd;
