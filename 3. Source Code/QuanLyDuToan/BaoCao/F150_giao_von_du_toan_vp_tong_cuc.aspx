@@ -51,11 +51,18 @@
           width:100px;
           margin-left: -2px;
         }
+        th {
+            background: #ddd !important;
+            border-color: #000;
+            text-align:center;
+        }
+
         .pinned {
           position:absolute;
           left:0; 
           width:200px;
           border-top:0px;
+          background: #bcbe2c;
         }
         .pinned2 {
           position:absolute;
@@ -63,6 +70,7 @@
           width:100px;
           border-left:0px;
           border-top:0px;
+          background: #bcbe2c;
         }
         .pinned3 {
           position:absolute;
@@ -70,6 +78,7 @@
           width:100px;
           border-left:0px;
           border-top:0px;
+          background: #bcbe2c;
         }
         .pinned4 {
           position:absolute;
@@ -77,6 +86,7 @@
           width:100px;
           border-left:0px;
           border-top:0px;
+          background: #bcbe2c;
         }
         .outer 
         {
@@ -93,6 +103,8 @@
         .thpinned {
             border-top:1px solid gray;
             margin-top: -1px;
+            background: #ddd !important;
+            border-color: #000;
         }
 		
 		.merge3{
@@ -100,12 +112,16 @@
 			border-bottom:0px;
 			border-top:1px solid gray;
             font-weight:bold;
+            background: #ddd !important;
+            border-color: #000;
 		}
 		
 		.merge1{
-			height:28px;
+			height:41px;
 			border-top:1px solid gray;
             font-weight:bold;
+            background: #ddd !important;
+            border-color: #000;
 		}
     </style>
 </asp:Content>

@@ -36,17 +36,18 @@
             font-weight:bold;
         }
     </style>
+    <script src="../Scripts/jquery.doubleScroll.js"></script>
     <script>
         function pageLoad(sender, args) {
             if (args.get_isPartialLoad()) {
-               
+                $('#double-scroll').doubleScroll();
                 $("#<%=m_txt_tu_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
                 $("#<%=m_txt_den_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
 
             }
         }
         $(document).ready(function () {
-           
+            $('#double-scroll').doubleScroll();
             $("#<%=m_txt_tu_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
             $("#<%=m_txt_den_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
         }
@@ -124,7 +125,7 @@
 				</tr>
 				<tr>
 					<td colspan="4" align="center">
-                        <div style="width:1200px;overflow-y:hidden; margin:20px auto;">
+                        <div style="width:1200px;margin:20px auto;" id="double-scroll">
 						<asp:GridView ID="m_grv" runat="server" AutoGenerateColumns="False"
 							CssClass="cssGrid" Width="2600px" CellPadding="0" ForeColor="Black"
 							AllowSorting="True" PageSize="60"
