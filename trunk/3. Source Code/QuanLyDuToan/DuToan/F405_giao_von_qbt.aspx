@@ -60,13 +60,14 @@
                                     </td>
                                     <td style="width: 35%">
                                         <asp:TextBox ID="m_txt_so_qd" runat="server" CssClass="cssTextBox form-control" Width="150px" placeholder="Vd: 371/QĐ-BGTVT"></asp:TextBox>
-                                        <asp:DropDownList ID="m_ddl_quyet_dinh" CssClass="select2" runat="server" Width="156px" Visible="false" OnSelectedIndexChanged="m_ddl_quyet_dinh_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
+                                        <asp:DropDownList ID="m_ddl_quyet_dinh" CssClass="select2" runat="server" Width="176px" Visible="false" OnSelectedIndexChanged="m_ddl_quyet_dinh_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
+                                        <br />
                                         <asp:Button ID="m_cmd_chon_qd_da_nhap" cssclass="btn" Text="Chọn QĐ" OnClick="m_cmd_chon_qd_da_nhap_Click" runat="server" />
                                     </td>
                                     <td style="width: 15%; text-align: right">
                                         <span>Ngày tháng (*)</span>
                                     </td>
-                                    <td style="width: 35%">
+                                    <td style="width: 25%">
                                         <asp:TextBox ID="m_txt_ngay_thang" runat="server" CssClass="cssTextBox form-control datepicker" Width="100px" placeholder="dd/MM/yyyy"></asp:TextBox></td>
                                 </tr>
                                 <tr>
