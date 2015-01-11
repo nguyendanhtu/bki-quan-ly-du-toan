@@ -36,6 +36,50 @@
          {
              border:1px solid black !important;
          }
+		 .cssGrid tr td {
+			padding: 0px;
+            text-align:left;
+		}
+
+	    .boxControl {
+	        float:left;
+            width:50%; 
+            height:90px;
+        }
+
+	    .height30 {
+	        height:30px;
+        }
+
+	    .lb {
+	        width:100px; 
+            float:left;
+            text-align:right;
+            line-height:20px;
+        }
+
+	    .control {
+	        width:240px; 
+            float:left;
+        }
+
+	    .control select
+         {
+	        width:220px !important;
+             }
+         
+        .filter{
+	        width:567px !important;
+            margin-left:10px;    
+        }
+         #main_table tr td
+        {
+            border-top:0px;
+        }
+         table 
+         {
+             border:1px solid black !important;
+         }
 	</style>
     <script>
         function pageLoad(sender, args) {
@@ -70,7 +114,27 @@
 							<span style="font-weight: bold">BÁO CÁO TÌNH HÌNH GIAO VỐN <%=DateTime.Now.Year.ToString() %></span>
 							<br />
 							<br />
-							 <div class="boxControl">
+							 <div style="width:70%; margin:0px auto;" class="height30">
+                            <div class="lb">Tìm kiếm:</div>
+                            <div class="control"><asp:TextBox ID="m_txt_tim_kiem" runat="server" CssClass="filter"></asp:TextBox></div>
+                        </div>
+                        <div style="width:70%; margin:0px auto">
+                            <div class="boxControl">
+                                <div class="height30">
+                                    <div class="lb">Loại nhiệm vụ</div>
+                                    <div class="control"><asp:DropDownList ID="m_ddl_loai_nv" runat="server" Width="100px" AutoPostBack="True" cssclass="select2" OnSelectedIndexChanged="m_ddl_loai_nv_SelectedIndexChanged"></asp:DropDownList></div>
+                                </div>
+                                <div class="height30">
+                                    <div class="lb">Công trình</div>
+                                    <div class="control"><asp:DropDownList ID="m_ddl_cong_trinh" runat="server" Width="100px" AutoPostBack="True" cssclass="selec2" OnSelectedIndexChanged="m_ddl_cong_trinh_SelectedIndexChanged"></asp:DropDownList></div>
+                                </div>
+                                <div class="height30">
+                                    <div class="lb">Dự án</div>
+                                    <div class="control"><asp:DropDownList ID="m_ddl_du_an" runat="server" Width="100px" cssclass="selec2"></asp:DropDownList></div>
+                                </div>
+
+                            </div>
+                            <div class="boxControl">
                                 <div class="height30">
                                    <div class="lb" style="margin-right:30px">Từ ngày</div>
                                     <div id="datetimepicker1" class="input-group date datepicker" style="width: 200px;">
@@ -88,6 +152,7 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>	
 						</p>
 					</td>
 				</tr>
