@@ -1,7 +1,23 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="F800_Users.aspx.cs" Inherits="QuanLyDuToan.Quantri.F800_Users" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="Server">
+<script>
+    function pageLoad(sender, args) {
+        if (args.get_isPartialLoad()) {
+           
+                $(".cssDorpdownlist").select2();
 
+            }
+        }
+    $(document).ready(function () {
+            $(".cssDorpdownlist").select2();
+           
+        }
+       )
+    </script>
+
+</asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="Server">
-    <table cellspacing="0" cellpadding="2" style="width: 100%;" class="cssTable" border="0">
+    <table id="main_table"cellspacing="0" cellpadding="2" style="width: 100%;" class="cssTable table" border="0">
         <tr>
             <td class="cssPageTitleBG" colspan="3">
                 <asp:Label ID="lblUser" runat="server" CssClass="cssPageTitle" Text="Quản lý người dùng" />
@@ -18,7 +34,7 @@
                 <asp:Label ID="Label4" CssClass="cssManField" runat="server" Text="Nhóm người dùng" />
             </td>
             <td style="width: 30%;">
-                <asp:DropDownList ID="m_cbo_user_group" runat="server" Width="264px" CssClass="cssDorpdownlist"
+                <asp:DropDownList ID="m_cbo_user_group" runat="server" Width="264px" CssClass="cssDorpdownlist form-control"
                     AutoPostBack="true" OnSelectedIndexChanged="m_cbo_loai_tu_dien_SelectedIndexChanged" />
             </td>
             <td style="width: 5%;">
@@ -31,7 +47,7 @@
                 <asp:Label ID="lblFullName0" CssClass="cssManField" runat="server" Text="Họ và tên người dùng(*)" />
             </td>
             <td style="width: 30%;">
-                <asp:TextBox ID="m_txt_ho_va_ten" CssClass="cssTextBox" runat="server" MaxLength="25"
+                <asp:TextBox ID="m_txt_ho_va_ten" CssClass="cssTextBox form-control" runat="server" MaxLength="25"
                     Width="200px" />
             </td>
             <td style="width: 5%;">
@@ -44,7 +60,7 @@
                 <asp:Label ID="lblFullName" CssClass="cssManField" runat="server" Text="Tên đăng nhập(*)" />
             </td>
             <td style="width: 30%;">
-                <asp:TextBox ID="m_txt_ten_dang_nhap" CssClass="cssTextBox" runat="server" MaxLength="25"
+                <asp:TextBox ID="m_txt_ten_dang_nhap" CssClass="cssTextBox form-control" runat="server" MaxLength="25"
                     Width="120px" />
             </td>
             <td style="width: 5%;">
@@ -85,7 +101,7 @@
                 <asp:Label ID="m_lbl_ghi_chu" runat="server" CssClass="cssManField" Text="Tài khoản bị khóa?" />
             </td>
             <td align="left">
-                <asp:CheckBox ID="m_chk_lock_yn" runat="server" />
+                <asp:CheckBox ID="m_chk_lock_yn"  runat="server" />
             </td>
         </tr>
         <tr>
@@ -101,12 +117,12 @@
             <td>
             </td>
             <td colspan="2" align="left">
-                <asp:Button ID="m_cmd_tao_moi" AccessKey="c" CssClass="cssButton" runat="server"
-                    Width="98px" Height="24px" Text="Tạo mới(c)" OnClick="m_cmd_tao_moi_Click" />&nbsp;
-                <asp:Button ID="m_cmd_cap_nhat" AccessKey="u" CssClass="cssButton" runat="server"
-                    Width="98px" Height="24px" Text="Cập nhật(u)" OnClick="m_cmd_cap_nhat_Click" />&nbsp;
-                <asp:Button ID="btnCancel" AccessKey="r" CssClass="cssButton" runat="server" Width="98px"
-                    Height="24px" Text="Xóa trắng(r)" OnClick="btnCancel_Click" />
+                <asp:Button ID="m_cmd_tao_moi" AccessKey="c" CssClass="btn" runat="server"
+                     Text="Tạo mới(c)" OnClick="m_cmd_tao_moi_Click" />&nbsp;
+                <asp:Button ID="m_cmd_cap_nhat" AccessKey="u" CssClass="btn" runat="server"
+                    Text="Cập nhật(u)" OnClick="m_cmd_cap_nhat_Click" />&nbsp;
+                <asp:Button ID="btnCancel" AccessKey="r" CssClass="btn" runat="server" 
+                     Text="Xóa trắng(r)" OnClick="btnCancel_Click" />
             </td>
         </tr>
         <tr>
@@ -127,7 +143,7 @@
                 <asp:Label ID="Label5" CssClass="cssManField" runat="server" Text="Nhóm người dùng" />
             </td>
             <td>
-                <asp:DropDownList ID="m_cbo_user_group_on_grid" runat="server" Width="264px" AutoPostBack="True"
+                <asp:DropDownList ID="m_cbo_user_group_on_grid" runat="server" Width="264px" CssClass="cssDorpdownlist" AutoPostBack="True"
                     OnSelectedIndexChanged="m_cbo_loai_tu_dien_grv_SelectedIndexChanged" />
             </td>
         </tr>
