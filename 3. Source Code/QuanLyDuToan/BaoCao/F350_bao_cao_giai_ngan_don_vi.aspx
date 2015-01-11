@@ -146,7 +146,7 @@
 							</div>
 							<div class="boxControl" style="width: 301px;margin-left: 26px;">
 								<div class="height30">
-									<div class="lb" style="margin-right: 0px;width: 90px;">Từ ngày</div>
+									<div class="lb" style="margin-right: 0px;width: 90px; margin-top:6px;">Từ ngày</div>
 									<div id="datetimepicker1" class="input-group date datepicker" style="width: 200px;">
 										<asp:TextBox ID="m_txt_tu_ngay" placeholder="dd/MM/yyyy" runat="server" CssClass="cssTextBox form-control  date-start" Height="30px" Width="164px"></asp:TextBox>
 										<span class="input-group-addon"><span class="glyphicon-calendar glyphicon"></span>
@@ -154,7 +154,7 @@
 									</div>
 								</div>
 								<div class="height30" style="margin-top: 6px;">
-									<div class="lb" style="margin-right: 0px;width: 90px;">Đến ngày</div>
+									<div class="lb" style="margin-right: 0px;width: 90px;margin-top:6px;">Đến ngày</div>
 									<div id="datetimepicker2" class="input-group date datepicker" style="width: 200px;">
 										<asp:TextBox ID="m_txt_den_ngay" placeholder="dd/MM/yyyy" runat="server" CssClass="cssTextBox form-control date-end" Height="30px" Width="164px"></asp:TextBox>
 										<span class="input-group-addon"><span class="glyphicon-calendar glyphicon"></span>
