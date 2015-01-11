@@ -87,12 +87,45 @@ namespace QuanLyDuToan.BaoCao
 				, CIPConvert.ToDatetime(m_txt_den_ngay.Text, "dd/MM/yyyy")
 				, m_txt_tim_kiem.Text.Trim()
 				, "N");
+            formatData(v_ds);
 			m_grv.DataSource = v_ds.Tables[0];
 
 			m_grv.DataBind();
 			//m_grv.Columns[1].HeaderText = "Nội dung";
 
 		}
+
+        private void formatData(DataSet v_ds)
+        {
+            for (int i = 0; i < v_ds.Tables[0].Rows.Count; i++)
+            {
+                for (int j = 7; j < v_ds.Tables[0].Columns.Count; j++)
+                {
+                    v_ds.Tables[0].Rows[i][j] = formatString(v_ds.Tables[0].Rows[i][j].ToString());
+                }
+            }
+        }
+
+        private string formatString(string str)
+        {
+            var index = 0;
+            var str2 = "";
+            for (int i = str.Length - 1; i >= 0; i--)
+            {
+                str2 = str[i] + str2;
+                index += 1;
+                if (index % 3 == 0 && index != str.Length)
+                {
+                    str2 = "," + str2;
+                }
+            }
+            if (str2.Length == 0)
+            {
+                str2 = "0";
+            }
+            return str2;
+        }
+
 		private bool check_validate_data_is_ok()
 		{
 			if (!CValidateTextBox.IsValid(m_txt_tu_ngay, DataType.DateType, allowNull.NO))
@@ -280,7 +313,6 @@ namespace QuanLyDuToan.BaoCao
 						if (v_b_is_number)
 						{
 							v_lbl.Text = CIPConvert.ToStr(WinFormControls.get_so_tien(e.Row.Cells[i].Text), "#,###,##");
-							v_lbl.CssClass = "csscurrency";
 						}
 
 						e.Row.Cells[i].Controls.Add(v_lbl);

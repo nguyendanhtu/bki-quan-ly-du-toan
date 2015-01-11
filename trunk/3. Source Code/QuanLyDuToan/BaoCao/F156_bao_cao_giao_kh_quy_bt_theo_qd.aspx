@@ -55,6 +55,10 @@
 	    th {
 	        border-top: 1px solid black !important;
         }
+        .csscurrency
+        {
+            text-align: right !important;
+        }
 	</style>
     <script>
         function pageLoad(sender, args) {
