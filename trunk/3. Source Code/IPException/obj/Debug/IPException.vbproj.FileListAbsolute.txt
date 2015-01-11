@@ -55,3 +55,9 @@ D:\0. Working\1. Project\0. QLDT\3. Source Code - Copy\IPException\bin\IPExcepti
 D:\0. Working\1. Project\0. QLDT\3. Source Code - Copy\IPException\obj\Debug\IPException.dll
 D:\0. Working\1. Project\0. QLDT\3. Source Code - Copy\IPException\obj\Debug\IPException.xml
 D:\0. Working\1. Project\0. QLDT\3. Source Code - Copy\IPException\obj\Debug\IPException.pdb
+E:\Thực tập\quanlidutoan\3. Source Code\IPException\bin\IPException.dll
+E:\Thực tập\quanlidutoan\3. Source Code\IPException\bin\IPException.pdb
+E:\Thực tập\quanlidutoan\3. Source Code\IPException\bin\IPException.xml
+E:\Thực tập\quanlidutoan\3. Source Code\IPException\obj\Debug\IPException.dll
+E:\Thực tập\quanlidutoan\3. Source Code\IPException\obj\Debug\IPException.xml
+E:\Thực tập\quanlidutoan\3. Source Code\IPException\obj\Debug\IPException.pdb

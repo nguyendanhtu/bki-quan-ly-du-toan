@@ -232,3 +232,29 @@ D:\0. Working\1. Project\0. QLDT\3. Source Code - Copy\IPUserService\obj\Debug\I
 D:\0. Working\1. Project\0. QLDT\3. Source Code - Copy\IPUserService\obj\Debug\IPUserService.dll
 D:\0. Working\1. Project\0. QLDT\3. Source Code - Copy\IPUserService\obj\Debug\IPUserService.xml
 D:\0. Working\1. Project\0. QLDT\3. Source Code - Copy\IPUserService\obj\Debug\IPUserService.pdb
+E:\Thực tập\quanlidutoan\3. Source Code\IPUserService\bin\IPUserService.dll
+E:\Thực tập\quanlidutoan\3. Source Code\IPUserService\bin\IPUserService.pdb
+E:\Thực tập\quanlidutoan\3. Source Code\IPUserService\bin\IPUserService.xml
+E:\Thực tập\quanlidutoan\3. Source Code\IPUserService\bin\C1.Win.C1FlexGrid.dll
+E:\Thực tập\quanlidutoan\3. Source Code\IPUserService\bin\IPBusinessService.dll
+E:\Thực tập\quanlidutoan\3. Source Code\IPUserService\bin\IPCommon.dll
+E:\Thực tập\quanlidutoan\3. Source Code\IPUserService\bin\IPData.dll
+E:\Thực tập\quanlidutoan\3. Source Code\IPUserService\bin\IPException.dll
+E:\Thực tập\quanlidutoan\3. Source Code\IPUserService\bin\C1.Win.C1FlexGrid.Classic.dll
+E:\Thực tập\quanlidutoan\3. Source Code\IPUserService\bin\CrystalDecisions.Shared.dll
+E:\Thực tập\quanlidutoan\3. Source Code\IPUserService\bin\CrystalDecisions.Windows.Forms.dll
+E:\Thực tập\quanlidutoan\3. Source Code\IPUserService\bin\CrystalDecisions.CrystalReports.Engine.dll
+E:\Thực tập\quanlidutoan\3. Source Code\IPUserService\bin\C1.Common.dll
+E:\Thực tập\quanlidutoan\3. Source Code\IPUserService\bin\CrystalDecisions.ReportSource.dll
+E:\Thực tập\quanlidutoan\3. Source Code\IPUserService\bin\IPBusinessService.pdb
+E:\Thực tập\quanlidutoan\3. Source Code\IPUserService\bin\IPBusinessService.xml
+E:\Thực tập\quanlidutoan\3. Source Code\IPUserService\bin\IPCommon.pdb
+E:\Thực tập\quanlidutoan\3. Source Code\IPUserService\bin\IPCommon.xml
+E:\Thực tập\quanlidutoan\3. Source Code\IPUserService\bin\IPData.pdb
+E:\Thực tập\quanlidutoan\3. Source Code\IPUserService\bin\IPData.xml
+E:\Thực tập\quanlidutoan\3. Source Code\IPUserService\bin\IPException.pdb
+E:\Thực tập\quanlidutoan\3. Source Code\IPUserService\bin\IPException.xml
+E:\Thực tập\quanlidutoan\3. Source Code\IPUserService\obj\Debug\IPUserService.vbprojResolveAssemblyReference.cache
+E:\Thực tập\quanlidutoan\3. Source Code\IPUserService\obj\Debug\IPUserService.dll
+E:\Thực tập\quanlidutoan\3. Source Code\IPUserService\obj\Debug\IPUserService.xml
+E:\Thực tập\quanlidutoan\3. Source Code\IPUserService\obj\Debug\IPUserService.pdb

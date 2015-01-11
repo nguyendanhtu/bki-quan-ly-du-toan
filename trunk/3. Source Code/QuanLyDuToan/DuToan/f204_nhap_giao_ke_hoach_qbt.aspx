@@ -17,6 +17,7 @@
 			$("#<%=m_txt_so_tien_nam_truoc_chuyen_sang.ClientID%>").bind({
 				blur: function () { $(this).val(tinhTongChiTx()); }
 			});
+		    $(".select2").datepicker({ format: 'dd/M/yy' });
 		});
 		function pageLoad(sender, args) {
 			if (args.get_isPartialLoad()) {
@@ -42,7 +43,7 @@
 	</asp:ScriptManager>
 	<asp:UpdatePanel ID="UpdatePanel1" runat="server">
 		<ContentTemplate>
-			<table style="width: 1100px; margin: auto" class="cssTable" border="0">
+			<table id="main_table" style="width: 1100px; margin: auto" class="cssTable table" border="0">
 				<tr>
 					<td class="cssPageTitleBG" colspan="4" style="text-align: center">
 						<asp:Label ID="m_lbl_title" runat="server" Width="100%" Text="Nhập giao kế hoạch - Nguồn Quỹ bảo trì" CssClass="cssPageTitle" Font-Bold="true"></asp:Label>
@@ -50,7 +51,7 @@
 				</tr>
 				<tr>
 					<td colspan="2" valign="top" style="width: 420px">
-						<table class="cssTable" style="width: 100%">
+						<table class="cssTable table" style="width: 100%">
 							<tr>
 								<td colspan="4">
 									<asp:Panel ID="m_pnl_thong_tin_ve_qd_giao_ke_hoach" GroupingText="Thông tin chung" runat="server">
@@ -63,9 +64,9 @@
 											<tr>
 												<td style="text-align: right"><span>Loại quyết định (*)</span></td>
 												<td colspan="3">
-													<asp:RadioButton ID="m_rdb_kh_dau_nam" runat="server" Text="KH đầu năm" GroupName="loai" Checked="true" AutoPostBack="true" />
-													<asp:RadioButton ID="m_rdb_bo_sung" runat="server" Text="Bổ sung" GroupName="loai" AutoPostBack="true" />
-													<asp:RadioButton ID="m_rdb_dieu_chinh" runat="server" Text="Điều chỉnh" GroupName="loai" AutoPostBack="true" />
+													<asp:RadioButton ID="m_rdb_kh_dau_nam" cssclass="radio-inline" server" Text="KH đầu năm" GroupName="loai" Checked="true" AutoPostBack="true" />
+													<asp:RadioButton ID="m_rdb_bo_sung" cssclass="radio-inline" runat="server" Text="Bổ sung" GroupName="loai" AutoPostBack="true" />
+													<asp:RadioButton ID="m_rdb_dieu_chinh" cssclass="radio-inline" runat="server" Text="Điều chỉnh" GroupName="loai" AutoPostBack="true" />
 													<asp:HiddenField ID="m_hdf_id_giao_kh" runat="server" />
 												</td>
 											</tr>
@@ -74,8 +75,8 @@
 													<span>Số QĐ (*)</span>
 												</td>
 												<td style="width: 35%">
-													<asp:TextBox ID="m_txt_so_qd" runat="server" CssClass="cssTextBox" Width="150px"></asp:TextBox>
-													<asp:DropDownList ID="m_ddl_quyet_dinh" runat="server" Width="155px" Visible="false" OnSelectedIndexChanged="m_ddl_quyet_dinh_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
+													<asp:TextBox ID="m_txt_so_qd" runat="server" CssClass="btn" Width="150px"></asp:TextBox>
+													<asp:DropDownList ID="m_ddl_quyet_dinh" CssClass="select2" runat="server" Width="155px" Visible="false" OnSelectedIndexChanged="m_ddl_quyet_dinh_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
 
 												</td>
 												<td style="width: 25%; text-align: right">
@@ -125,7 +126,7 @@
 											<tr>
 												<td style="text-align: right">Loại nhiệm vụ (*)</td>
 												<td colspan="2">
-													<asp:DropDownList ID="m_ddl_loai_nhiem_vu" runat="server" Width="176px"></asp:DropDownList>
+													<asp:DropDownList ID="m_ddl_loai_nhiem_vu" cssclass="select2" runat="server" Width="176px"></asp:DropDownList>
 												</td>
 											</tr>
 											

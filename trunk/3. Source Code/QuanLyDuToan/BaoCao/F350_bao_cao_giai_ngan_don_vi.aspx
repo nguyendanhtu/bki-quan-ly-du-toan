@@ -31,7 +31,7 @@
         }
 
 	    .control {
-	        width:200px; 
+	        width:240px; 
             float:left;
         }
 
@@ -49,7 +49,35 @@
             width:51%; 
             margin:0px auto;
         }
+          #main_table tr td
+        {
+            border-top:0px;
+        }
+         table 
+         {
+             border:1px solid black !important;
+         }
     </style>
+    <script>
+        function pageLoad(sender, args) {
+            if (args.get_isPartialLoad()) {
+                $("#<%=m_ddl_loai_nv.ClientID%>").select2();
+                $("#<%=m_ddl_cong_trinh.ClientID%>").select2();
+                $("#<%=m_ddl_du_an.ClientID%>").select2();
+                $("#<%=m_txt_tu_ngay.ClientID%>").datepicker({ format: 'dd/M/yy' });
+                $("#<%=m_txt_den_ngay.ClientID%>").datepicker({ format: 'dd/M/yy' });
+            }
+        }
+        $(document).ready(function () {
+            $("#<%=m_ddl_loai_nv.ClientID%>").select2();
+            $("#<%=m_ddl_cong_trinh.ClientID%>").select2();
+            $("#<%=m_ddl_du_an.ClientID%>").select2();
+            $("#<%=m_txt_tu_ngay.ClientID%>").datepicker({ format: 'dd/M/yy' });
+            $("#<%=m_txt_den_ngay.ClientID%>").datepicker({ format: 'dd/M/yy' });
+
+        }
+       )
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server">
@@ -57,7 +85,7 @@
 
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
-            <table style="width: 100%;" class="cssTable" border="0">
+            <table id="main_table" style="width: 100%;" class="cssTable table" border="0">
                 <tr>
                     <td colspan="4" style="text-align: center">
                         <span style="font-weight: bold">CỘNG HOÀ XÃ HỘI CHỦ NGHĨA VIỆT NAM</span>
@@ -73,32 +101,42 @@
                             <div class="lb">Tìm kiếm:</div>
                             <div class="control"><asp:TextBox ID="m_txt_tim_kiem" runat="server" CssClass="filter"></asp:TextBox></div>
                         </div>
-                        <div class="divBoxControl">
+                         <div style="width:680px; margin:0px auto">
                             <div class="boxControl">
                                 <div class="height30">
                                     <div class="lb">Loại nhiệm vụ</div>
-                                    <div class="control"><asp:DropDownList ID="m_ddl_loai_nv" runat="server" Width="100px" AutoPostBack="True" OnSelectedIndexChanged="m_ddl_loai_nv_SelectedIndexChanged"></asp:DropDownList></div>
+                                    <div class="control"><asp:DropDownList ID="m_ddl_loai_nv" runat="server" Width="100px" AutoPostBack="True" cssclass="select2" OnSelectedIndexChanged="m_ddl_loai_nv_SelectedIndexChanged"></asp:DropDownList></div>
                                 </div>
                                 <div class="height30">
                                     <div class="lb">Công trình</div>
-                                    <div class="control"><asp:DropDownList ID="m_ddl_cong_trinh" runat="server" Width="100px" AutoPostBack="True" OnSelectedIndexChanged="m_ddl_cong_trinh_SelectedIndexChanged"></asp:DropDownList></div>
+                                    <div class="control"><asp:DropDownList ID="m_ddl_cong_trinh" runat="server" Width="100px" AutoPostBack="True" cssclass="selec2" OnSelectedIndexChanged="m_ddl_cong_trinh_SelectedIndexChanged"></asp:DropDownList></div>
                                 </div>
                                 <div class="height30">
                                     <div class="lb">Dự án</div>
-                                    <div class="control"><asp:DropDownList ID="m_ddl_du_an" runat="server" Width="100px"></asp:DropDownList></div>
+                                    <div class="control"><asp:DropDownList ID="m_ddl_du_an" runat="server" Width="100px" cssclass="selec2"></asp:DropDownList></div>
                                 </div>
+
                             </div>
                             <div class="boxControl">
                                 <div class="height30">
-                                    <div class="lb">Từ ngày</div>
-							        <div class="control"><asp:TextBox ID="m_txt_tu_ngay" placeholder="dd/MM/yyyy" runat="server" CssClass="cssTextBox" Width="100px"></asp:TextBox></div>
+                                   <div class="lb" style="margin-right:30px">Từ ngày</div>
+                                    <div id="datetimepicker1" class="input-group date datepicker" style="width: 200px;">
+                                        <asp:TextBox ID="m_txt_tu_ngay" placeholder="dd/MM/yyyy" runat="server" CssClass="cssTextBox form-control  date-start" Height="30px" Width="164px"></asp:TextBox>
+                                        <span class="input-group-addon"><span class="glyphicon-calendar glyphicon"></span>
+                                        </span>
+                                    </div>
                                 </div>
                                 <div class="height30">
-							        <div class="lb">Đến ngày</div>
-							        <div class="control"><asp:TextBox ID="m_txt_den_ngay" placeholder="dd/MM/yyyy" runat="server" CssClass="cssTextBox" Width="100px"></asp:TextBox></div>
+							        <div class="lb" style="margin-right:30px">Đến ngày</div>
+                                    <div id="datetimepicker2" class="input-group date datepicker" style="width: 200px;">
+                                        <asp:TextBox ID="m_txt_den_ngay" placeholder="dd/MM/yyyy" runat="server" CssClass="cssTextBox form-control date-end" Height="30px" Width="164px"></asp:TextBox>
+                                        <span class="input-group-addon"><span class="glyphicon-calendar glyphicon"></span>
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>                        
+                        </div>				
+                      		                 
                    
                     </td>
                 </tr>

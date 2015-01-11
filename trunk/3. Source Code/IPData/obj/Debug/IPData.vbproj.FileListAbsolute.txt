@@ -64,3 +64,10 @@ D:\0. Working\1. Project\0. QLDT\3. Source Code - Copy\IPData\bin\IPData.xml
 D:\0. Working\1. Project\0. QLDT\3. Source Code - Copy\IPData\obj\Debug\IPData.dll
 D:\0. Working\1. Project\0. QLDT\3. Source Code - Copy\IPData\obj\Debug\IPData.xml
 D:\0. Working\1. Project\0. QLDT\3. Source Code - Copy\IPData\obj\Debug\IPData.pdb
+E:\Thực tập\quanlidutoan\3. Source Code\IPData\bin\IPData.dll.config
+E:\Thực tập\quanlidutoan\3. Source Code\IPData\bin\IPData.dll
+E:\Thực tập\quanlidutoan\3. Source Code\IPData\bin\IPData.pdb
+E:\Thực tập\quanlidutoan\3. Source Code\IPData\bin\IPData.xml
+E:\Thực tập\quanlidutoan\3. Source Code\IPData\obj\Debug\IPData.dll
+E:\Thực tập\quanlidutoan\3. Source Code\IPData\obj\Debug\IPData.xml
+E:\Thực tập\quanlidutoan\3. Source Code\IPData\obj\Debug\IPData.pdb

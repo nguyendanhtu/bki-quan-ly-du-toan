@@ -325,3 +325,39 @@ D:\0. Working\1. Project\0. QLDT\3. Source Code - Copy\IPSystemAdmin\obj\Debug\I
 D:\0. Working\1. Project\0. QLDT\3. Source Code - Copy\IPSystemAdmin\obj\Debug\IPSystemAdmin.dll
 D:\0. Working\1. Project\0. QLDT\3. Source Code - Copy\IPSystemAdmin\obj\Debug\IPSystemAdmin.xml
 D:\0. Working\1. Project\0. QLDT\3. Source Code - Copy\IPSystemAdmin\obj\Debug\IPSystemAdmin.pdb
+E:\Thực tập\quanlidutoan\3. Source Code\IPSystemAdmin\bin\IPSystemAdmin.dll
+E:\Thực tập\quanlidutoan\3. Source Code\IPSystemAdmin\bin\IPSystemAdmin.pdb
+E:\Thực tập\quanlidutoan\3. Source Code\IPSystemAdmin\bin\IPSystemAdmin.xml
+E:\Thực tập\quanlidutoan\3. Source Code\IPSystemAdmin\bin\C1.Common.dll
+E:\Thực tập\quanlidutoan\3. Source Code\IPSystemAdmin\bin\C1.Win.C1FlexGrid.Classic.dll
+E:\Thực tập\quanlidutoan\3. Source Code\IPSystemAdmin\bin\C1.Win.C1FlexGrid.dll
+E:\Thực tập\quanlidutoan\3. Source Code\IPSystemAdmin\bin\IPBusinessService.dll
+E:\Thực tập\quanlidutoan\3. Source Code\IPSystemAdmin\bin\IPCommon.dll
+E:\Thực tập\quanlidutoan\3. Source Code\IPSystemAdmin\bin\IPData.dll
+E:\Thực tập\quanlidutoan\3. Source Code\IPSystemAdmin\bin\IPException.dll
+E:\Thực tập\quanlidutoan\3. Source Code\IPSystemAdmin\bin\IPUserService.dll
+E:\Thực tập\quanlidutoan\3. Source Code\IPSystemAdmin\bin\SiSButton.dll
+E:\Thực tập\quanlidutoan\3. Source Code\IPSystemAdmin\bin\SiSMenu.dll
+E:\Thực tập\quanlidutoan\3. Source Code\IPSystemAdmin\bin\CrystalDecisions.Shared.dll
+E:\Thực tập\quanlidutoan\3. Source Code\IPSystemAdmin\bin\CrystalDecisions.Windows.Forms.dll
+E:\Thực tập\quanlidutoan\3. Source Code\IPSystemAdmin\bin\CrystalDecisions.CrystalReports.Engine.dll
+E:\Thực tập\quanlidutoan\3. Source Code\IPSystemAdmin\bin\CrystalDecisions.ReportSource.dll
+E:\Thực tập\quanlidutoan\3. Source Code\IPSystemAdmin\bin\IPBusinessService.pdb
+E:\Thực tập\quanlidutoan\3. Source Code\IPSystemAdmin\bin\IPBusinessService.xml
+E:\Thực tập\quanlidutoan\3. Source Code\IPSystemAdmin\bin\IPCommon.pdb
+E:\Thực tập\quanlidutoan\3. Source Code\IPSystemAdmin\bin\IPCommon.xml
+E:\Thực tập\quanlidutoan\3. Source Code\IPSystemAdmin\bin\IPData.pdb
+E:\Thực tập\quanlidutoan\3. Source Code\IPSystemAdmin\bin\IPData.xml
+E:\Thực tập\quanlidutoan\3. Source Code\IPSystemAdmin\bin\IPException.pdb
+E:\Thực tập\quanlidutoan\3. Source Code\IPSystemAdmin\bin\IPException.xml
+E:\Thực tập\quanlidutoan\3. Source Code\IPSystemAdmin\bin\IPUserService.pdb
+E:\Thực tập\quanlidutoan\3. Source Code\IPSystemAdmin\bin\IPUserService.xml
+E:\Thực tập\quanlidutoan\3. Source Code\IPSystemAdmin\obj\Debug\IPSystemAdmin.vbprojResolveAssemblyReference.cache
+E:\Thực tập\quanlidutoan\3. Source Code\IPSystemAdmin\obj\Debug\IP.Core.IPSystemAdmin.f100_TuDien.resources
+E:\Thực tập\quanlidutoan\3. Source Code\IPSystemAdmin\obj\Debug\IP.Core.IPSystemAdmin.f101_Dang_Nhap.resources
+E:\Thực tập\quanlidutoan\3. Source Code\IPSystemAdmin\obj\Debug\IP.Core.IPSystemAdmin.f102_TuDien_DE.resources
+E:\Thực tập\quanlidutoan\3. Source Code\IPSystemAdmin\obj\Debug\IP.Core.IPSystemAdmin.f996_license.resources
+E:\Thực tập\quanlidutoan\3. Source Code\IPSystemAdmin\obj\Debug\IPSystemAdmin.vbproj.GenerateResource.Cache
+E:\Thực tập\quanlidutoan\3. Source Code\IPSystemAdmin\obj\Debug\IPSystemAdmin.dll
+E:\Thực tập\quanlidutoan\3. Source Code\IPSystemAdmin\obj\Debug\IPSystemAdmin.xml
+E:\Thực tập\quanlidutoan\3. Source Code\IPSystemAdmin\obj\Debug\IPSystemAdmin.pdb

@@ -287,3 +287,34 @@ D:\0. Working\1. Project\0. QLDT\3. Source Code - Copy\IPCommon\obj\Debug\IPComm
 D:\0. Working\1. Project\0. QLDT\3. Source Code - Copy\IPCommon\obj\Debug\IPCommon.dll
 D:\0. Working\1. Project\0. QLDT\3. Source Code - Copy\IPCommon\obj\Debug\IPCommon.xml
 D:\0. Working\1. Project\0. QLDT\3. Source Code - Copy\IPCommon\obj\Debug\IPCommon.pdb
+E:\Thực tập\quanlidutoan\3. Source Code\IPCommon\bin\IPCommon.dll
+E:\Thực tập\quanlidutoan\3. Source Code\IPCommon\bin\IPCommon.pdb
+E:\Thực tập\quanlidutoan\3. Source Code\IPCommon\bin\IPCommon.xml
+E:\Thực tập\quanlidutoan\3. Source Code\IPCommon\bin\C1.Common.dll
+E:\Thực tập\quanlidutoan\3. Source Code\IPCommon\bin\C1.Win.C1FlexGrid.Classic.dll
+E:\Thực tập\quanlidutoan\3. Source Code\IPCommon\bin\C1.Win.C1FlexGrid.dll
+E:\Thực tập\quanlidutoan\3. Source Code\IPCommon\bin\CrystalDecisions.CrystalReports.Engine.dll
+E:\Thực tập\quanlidutoan\3. Source Code\IPCommon\bin\CrystalDecisions.ReportSource.dll
+E:\Thực tập\quanlidutoan\3. Source Code\IPCommon\bin\CrystalDecisions.Shared.dll
+E:\Thực tập\quanlidutoan\3. Source Code\IPCommon\bin\CrystalDecisions.Web.dll
+E:\Thực tập\quanlidutoan\3. Source Code\IPCommon\bin\CrystalDecisions.Windows.Forms.dll
+E:\Thực tập\quanlidutoan\3. Source Code\IPCommon\bin\CrystalReportPluginLib.dll
+E:\Thực tập\quanlidutoan\3. Source Code\IPCommon\obj\Debug\IP.Core.IPCommon.ctlButton2.resources
+E:\Thực tập\quanlidutoan\3. Source Code\IPCommon\obj\Debug\IP.Core.IPCommon.ctlButton3.resources
+E:\Thực tập\quanlidutoan\3. Source Code\IPCommon\obj\Debug\IP.Core.IPCommon.ctlClock.resources
+E:\Thực tập\quanlidutoan\3. Source Code\IPCommon\obj\Debug\IP.Core.IPCommon.MessageForms.MsgButtonYes_No_Cancel.resources
+E:\Thực tập\quanlidutoan\3. Source Code\IPCommon\obj\Debug\IP.Core.IPCommon.MessageForms.MsgBtn_Yes_No.resources
+E:\Thực tập\quanlidutoan\3. Source Code\IPCommon\obj\Debug\IP.Core.IPCommon.DataGrid_Custom.resources
+E:\Thực tập\quanlidutoan\3. Source Code\IPCommon\obj\Debug\IP.Core.IPCommon.f370_REPORT_VIEW.resources
+E:\Thực tập\quanlidutoan\3. Source Code\IPCommon\obj\Debug\IP.Core.IPCommon.frmEditText.resources
+E:\Thực tập\quanlidutoan\3. Source Code\IPCommon\obj\Debug\IP.Core.IPCommon.frmIcons.resources
+E:\Thực tập\quanlidutoan\3. Source Code\IPCommon\obj\Debug\IP.Core.IPCommon.frmSearchDate.resources
+E:\Thực tập\quanlidutoan\3. Source Code\IPCommon\obj\Debug\IP.Core.IPCommon.frmSearchNumeric.resources
+E:\Thực tập\quanlidutoan\3. Source Code\IPCommon\obj\Debug\IP.Core.IPCommon.frmSearchString.resources
+E:\Thực tập\quanlidutoan\3. Source Code\IPCommon\obj\Debug\IP.Core.IPCommon.MessageForms.MsgBoxForm_Yes_No.resources
+E:\Thực tập\quanlidutoan\3. Source Code\IPCommon\obj\Debug\IP.Core.IPCommon.MessageForms.MsgBoxFormYes_No_Cancel.resources
+E:\Thực tập\quanlidutoan\3. Source Code\IPCommon\obj\Debug\IP.Core.IPCommon.MessageForms.MsgBoxForm_OK.resources
+E:\Thực tập\quanlidutoan\3. Source Code\IPCommon\obj\Debug\IPCommon.vbproj.GenerateResource.Cache
+E:\Thực tập\quanlidutoan\3. Source Code\IPCommon\obj\Debug\IPCommon.dll
+E:\Thực tập\quanlidutoan\3. Source Code\IPCommon\obj\Debug\IPCommon.xml
+E:\Thực tập\quanlidutoan\3. Source Code\IPCommon\obj\Debug\IPCommon.pdb

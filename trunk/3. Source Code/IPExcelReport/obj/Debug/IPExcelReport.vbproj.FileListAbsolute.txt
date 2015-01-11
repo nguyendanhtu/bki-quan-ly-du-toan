@@ -187,3 +187,24 @@ D:\0. Working\1. Project\0. QLDT\3. Source Code - Copy\IPExcelReport\obj\Debug\I
 D:\0. Working\1. Project\0. QLDT\3. Source Code - Copy\IPExcelReport\obj\Debug\IPExcelReport.dll
 D:\0. Working\1. Project\0. QLDT\3. Source Code - Copy\IPExcelReport\obj\Debug\IPExcelReport.xml
 D:\0. Working\1. Project\0. QLDT\3. Source Code - Copy\IPExcelReport\obj\Debug\IPExcelReport.pdb
+E:\Thực tập\quanlidutoan\3. Source Code\IPExcelReport\bin\IPExcelReport.dll
+E:\Thực tập\quanlidutoan\3. Source Code\IPExcelReport\bin\IPExcelReport.pdb
+E:\Thực tập\quanlidutoan\3. Source Code\IPExcelReport\bin\IPExcelReport.xml
+E:\Thực tập\quanlidutoan\3. Source Code\IPExcelReport\bin\C1.Win.C1FlexGrid.dll
+E:\Thực tập\quanlidutoan\3. Source Code\IPExcelReport\bin\Interop.Excel.dll
+E:\Thực tập\quanlidutoan\3. Source Code\IPExcelReport\bin\Interop.Microsoft.Office.Core.dll
+E:\Thực tập\quanlidutoan\3. Source Code\IPExcelReport\bin\Interop.Office.dll
+E:\Thực tập\quanlidutoan\3. Source Code\IPExcelReport\bin\IPCommon.dll
+E:\Thực tập\quanlidutoan\3. Source Code\IPExcelReport\bin\C1.Win.C1FlexGrid.Classic.dll
+E:\Thực tập\quanlidutoan\3. Source Code\IPExcelReport\bin\CrystalDecisions.Shared.dll
+E:\Thực tập\quanlidutoan\3. Source Code\IPExcelReport\bin\CrystalDecisions.Windows.Forms.dll
+E:\Thực tập\quanlidutoan\3. Source Code\IPExcelReport\bin\CrystalDecisions.CrystalReports.Engine.dll
+E:\Thực tập\quanlidutoan\3. Source Code\IPExcelReport\bin\C1.Common.dll
+E:\Thực tập\quanlidutoan\3. Source Code\IPExcelReport\bin\CrystalDecisions.ReportSource.dll
+E:\Thực tập\quanlidutoan\3. Source Code\IPExcelReport\bin\IPCommon.pdb
+E:\Thực tập\quanlidutoan\3. Source Code\IPExcelReport\bin\IPCommon.xml
+E:\Thực tập\quanlidutoan\3. Source Code\IPExcelReport\obj\Debug\IPExcelReport.vbprojResolveAssemblyReference.cache
+E:\Thực tập\quanlidutoan\3. Source Code\IPExcelReport\obj\Debug\IPExcelReport.dll.licenses
+E:\Thực tập\quanlidutoan\3. Source Code\IPExcelReport\obj\Debug\IPExcelReport.dll
+E:\Thực tập\quanlidutoan\3. Source Code\IPExcelReport\obj\Debug\IPExcelReport.xml
+E:\Thực tập\quanlidutoan\3. Source Code\IPExcelReport\obj\Debug\IPExcelReport.pdb

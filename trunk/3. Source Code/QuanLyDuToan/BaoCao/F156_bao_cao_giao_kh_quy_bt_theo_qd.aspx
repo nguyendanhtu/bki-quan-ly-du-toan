@@ -9,6 +9,7 @@
 	<style type="text/css">
 		.cssGrid tr td {
 			padding: 0px;
+            text-align:left;
 		}
 
 	    .boxControl {
@@ -29,20 +30,49 @@
         }
 
 	    .control {
-	        width:200px; 
+	        width:240px; 
             float:left;
         }
 
-	    .control select, input {
+	    .control select
+         {
 	        width:220px !important;
-            margin-left:10px;    
-        }
-
+             }
+         
         .filter{
 	        width:567px !important;
             margin-left:10px;    
         }
+         #main_table tr td
+        {
+            border-top:0px;
+        }
+         table 
+         {
+             border:1px solid black !important;
+         }
 	</style>
+    <script>
+        function pageLoad(sender, args) {
+            if (args.get_isPartialLoad()) {
+                $("#<%=m_ddl_loai_nv.ClientID%>").select2();
+                $("#<%=m_ddl_cong_trinh.ClientID%>").select2();
+                $("#<%=m_ddl_du_an.ClientID%>").select2();
+                $("#<%=m_txt_tu_ngay.ClientID%>").datepicker({ format: 'dd/M/yy' });
+                $("#<%=m_txt_den_ngay.ClientID%>").datepicker({ format: 'dd/M/yy' });
+               
+            }
+        }
+        $(document).ready(function () 
+        {
+            $("#<%=m_ddl_loai_nv.ClientID%>").select2();
+            $("#<%=m_ddl_cong_trinh.ClientID%>").select2();
+            $("#<%=m_ddl_du_an.ClientID%>").select2();
+            $("#<%=m_txt_tu_ngay.ClientID%>").datepicker({ format: 'dd/M/yy' });
+            $("#<%=m_txt_den_ngay.ClientID%>").datepicker({ format: 'dd/M/yy' });
+        }
+       )
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="Server">
 	<asp:ScriptManager ID="ScriptManager1" runat="server">
@@ -50,8 +80,9 @@
 
 	<asp:UpdatePanel ID="UpdatePanel1" runat="server">
 		<ContentTemplate>
-			<table style="width: 1000px; margin: auto" class="cssTable" border="0">
-				<tr>
+			<table id="main_table" style="width: 1000px; margin: auto;" class="cssTable table">
+				<thead>
+                <tr>
 					<td colspan="4" style="text-align: center">
 						<p>
 							<span style="font-weight: bold">BÁO CÁO TÌNH HÌNH GIAO KẾ HOẠCH <%=DateTime.Now.Year.ToString() %></span>
@@ -64,49 +95,58 @@
                             <div class="boxControl">
                                 <div class="height30">
                                     <div class="lb">Loại nhiệm vụ</div>
-                                    <div class="control"><asp:DropDownList ID="m_ddl_loai_nv" runat="server" Width="100px" AutoPostBack="True" OnSelectedIndexChanged="m_ddl_loai_nv_SelectedIndexChanged"></asp:DropDownList></div>
+                                    <div class="control"><asp:DropDownList ID="m_ddl_loai_nv" runat="server" Width="100px" AutoPostBack="True" cssclass="select2" OnSelectedIndexChanged="m_ddl_loai_nv_SelectedIndexChanged"></asp:DropDownList></div>
                                 </div>
                                 <div class="height30">
                                     <div class="lb">Công trình</div>
-                                    <div class="control"><asp:DropDownList ID="m_ddl_cong_trinh" runat="server" Width="100px" AutoPostBack="True" OnSelectedIndexChanged="m_ddl_cong_trinh_SelectedIndexChanged"></asp:DropDownList></div>
+                                    <div class="control"><asp:DropDownList ID="m_ddl_cong_trinh" runat="server" Width="100px" AutoPostBack="True" cssclass="selec2" OnSelectedIndexChanged="m_ddl_cong_trinh_SelectedIndexChanged"></asp:DropDownList></div>
                                 </div>
                                 <div class="height30">
                                     <div class="lb">Dự án</div>
-                                    <div class="control"><asp:DropDownList ID="m_ddl_du_an" runat="server" Width="100px"></asp:DropDownList></div>
+                                    <div class="control"><asp:DropDownList ID="m_ddl_du_an" runat="server" Width="100px" cssclass="selec2"></asp:DropDownList></div>
                                 </div>
+
                             </div>
                             <div class="boxControl">
                                 <div class="height30">
-                                    <div class="lb">Từ ngày</div>
-							        <div class="control"><asp:TextBox ID="m_txt_tu_ngay" placeholder="dd/MM/yyyy" runat="server" CssClass="cssTextBox" Width="100px"></asp:TextBox></div>
+                                   <div class="lb" style="margin-right:30px">Từ ngày</div>
+                                    <div id="datetimepicker1" class="input-group date datepicker" style="width: 200px;">
+                                        <asp:TextBox ID="m_txt_tu_ngay" placeholder="dd/MM/yyyy" runat="server" CssClass="cssTextBox form-control  date-start" Height="30px" Width="164px"></asp:TextBox>
+                                        <span class="input-group-addon"><span class="glyphicon-calendar glyphicon"></span>
+                                        </span>
+                                    </div>
                                 </div>
                                 <div class="height30">
-							        <div class="lb">Đến ngày</div>
-							        <div class="control"><asp:TextBox ID="m_txt_den_ngay" placeholder="dd/MM/yyyy" runat="server" CssClass="cssTextBox" Width="100px"></asp:TextBox></div>
+							        <div class="lb" style="margin-right:30px">Đến ngày</div>
+                                    <div id="datetimepicker2" class="input-group date datepicker" style="width: 200px;">
+                                        <asp:TextBox ID="m_txt_den_ngay" placeholder="dd/MM/yyyy" runat="server" CssClass="cssTextBox form-control date-end" Height="30px" Width="164px"></asp:TextBox>
+                                        <span class="input-group-addon"><span class="glyphicon-calendar glyphicon"></span>
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
                         </div>							
 					</td>
 				</tr>
-
-
+           </thead>
+            <tbody>
 				<tr>
 
 					<td colspan="4" style="text-align: center">
-						<asp:Button ID="m_cmd_xem_bao_cao" Text="Xem báo cáo" OnClick="m_cmd_xem_bao_cao_Click" runat="server" />
-						<asp:Button ID="m_cmd_xuat_excel" Text="Xuất excel" runat="server" OnClick="m_cmd_xuat_excel_Click" />
+						<asp:Button classcss="btn btn-default" ID="m_cmd_xem_bao_cao" Text="Xem báo cáo" OnClick="m_cmd_xem_bao_cao_Click" runat="server" />
+						<asp:Button classcss="btn btn-default" ID="m_cmd_xuat_excel" Text="Xuất excel" runat="server" OnClick="m_cmd_xuat_excel_Click" />
 					</td>
 				</tr>
 				<tr>
 					<td colspan="4">
-						<asp:Label ID="m_lbl_mess" runat="server" CssClass="cssManField"></asp:Label>
+						<asp:Label ID="m_lbl_mess" runat="server" CssClass="cssManField" ></asp:Label>
 					</td>
 				</tr>
 				<tr>
-					<td colspan="4" style="margin: auto;" align="center">
+					<td colspan="4" style="margin: auto" align="center">
 						<asp:GridView ID="m_grv" runat="server" AutoGenerateColumns="true"
 							UseAccessibleHeader="true" DataKeyNames="ID"
-							CssClass="cssGrid" CellPadding="0" ForeColor="Black"
+							CssClass="cssGrid table" CellPadding="0" ForeColor="Black"
 							AllowSorting="True" PageSize="60" ShowHeader="true" AllowPaging="false"
 							EmptyDataText="Không có dữ liệu phù hợp" OnRowCreated="m_grv_OnRowCreated"
 							OnRowDataBound="m_grv_RowDataBound"
@@ -117,6 +157,7 @@
 						</asp:GridView>
 					</td>
 				</tr>
+               </tbody>
 			</table>
 		</ContentTemplate>
 		<Triggers>

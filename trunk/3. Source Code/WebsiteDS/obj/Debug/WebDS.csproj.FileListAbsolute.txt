@@ -43,3 +43,8 @@ D:\0. Working\1. Project\0. QLDT\3. Source Code - Copy\WebsiteDS\bin\Debug\WebDS
 D:\0. Working\1. Project\0. QLDT\3. Source Code - Copy\WebsiteDS\bin\Debug\WebDS.pdb
 D:\0. Working\1. Project\0. QLDT\3. Source Code - Copy\WebsiteDS\obj\Debug\WebDS.dll
 D:\0. Working\1. Project\0. QLDT\3. Source Code - Copy\WebsiteDS\obj\Debug\WebDS.pdb
+E:\Thực tập\quanlidutoan\3. Source Code\WebsiteDS\bin\Debug\WebDS.dll.config
+E:\Thực tập\quanlidutoan\3. Source Code\WebsiteDS\bin\Debug\WebDS.dll
+E:\Thực tập\quanlidutoan\3. Source Code\WebsiteDS\bin\Debug\WebDS.pdb
+E:\Thực tập\quanlidutoan\3. Source Code\WebsiteDS\obj\Debug\WebDS.dll
+E:\Thực tập\quanlidutoan\3. Source Code\WebsiteDS\obj\Debug\WebDS.pdb

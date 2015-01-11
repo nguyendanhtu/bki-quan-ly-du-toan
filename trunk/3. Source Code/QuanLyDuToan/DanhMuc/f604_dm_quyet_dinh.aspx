@@ -1,12 +1,24 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="f604_dm_quyet_dinh.aspx.cs" Inherits="QuanLyDuToan.DanhMuc.f604_dm_quyet_dinh" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="Server">
+    <script>
+        function pageLoad(sender, args) {
+            if (args.get_isPartialLoad()) {
+                $("#<%=m_txt_ngay_thang.ClientID%>").datepicker({ format: 'dd/M/yy' });
+            }
+        }
+        $(document).ready(function () {
+            $("#<%=m_txt_ngay_thang.ClientID%>").datepicker({ format: 'dd/M/yy' });
+        }
+       )
+    </script>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="Server">
     <asp:ScriptManager ID="ScriptManager1" runat="server">
     </asp:ScriptManager>
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
-            <table cellspacing="0" cellpadding="2" style="width: 99%;" class="cssTable" border="0">
+            <table id="main_table" cellspacing="0" cellpadding="2" style="width: 99%; " class="cssTable table" border="0">
                 <tr>
                     <td class="cssPageTitleBG" colspan="4">
                         <asp:Label ID="m_lbl_title" runat="server" Text="Cập nhật thông tin quyết định" CssClass="cssPageTitle"></asp:Label>
@@ -25,8 +37,8 @@
                         <span class="cssManField">Loại quyết định</span>
                     </td>
                     <td style="width: 70%">
-                        <asp:RadioButton ID="m_rdb_giao_ke_hoach" runat="server" CssClass="cssManField" ForeColor="Blue" Text="Giao kế hoạch" GroupName="loai" Checked="true" />
-                        <asp:RadioButton ID="m_rdb_giao_von" runat="server" CssClass="cssManField" ForeColor="Blue" Text="Giao vốn" GroupName="loai" />
+                        <asp:RadioButton ID="m_rdb_giao_ke_hoach" runat="server" CssClass="cssManField radio-inline" ForeColor="Blue" Text="Giao kế hoạch" GroupName="loai" Checked="true" />
+                        <asp:RadioButton ID="m_rdb_giao_von" runat="server" CssClass="cssManField radio-inline" ForeColor="Blue" Text="Giao vốn" GroupName="loai" />
                     </td>
 
                 </tr>
@@ -35,7 +47,7 @@
                         <span class="cssManField">Số quyết định</span>
                     </td>
                     <td>
-                        <asp:TextBox ID="m_txt_so_quyet_dinh" runat="server" Width="50%" CssClass="cssTextBox" placeholder=""></asp:TextBox></td>
+                        <asp:TextBox ID="m_txt_so_quyet_dinh" runat="server" Width="50%" CssClass="cssTextBox form-control" placeholder="Nhập số quyết định"></asp:TextBox></td>
                 </tr>
                 <tr>
 
@@ -43,21 +55,26 @@
                         <span class="cssManField">Nội dung</span>
                     </td>
                     <td>
-                        <asp:TextBox ID="m_txt_noi_dung" runat="server" Width="80%" CssClass="cssTextBox" placehoder=""></asp:TextBox></td>
+                        <asp:TextBox ID="m_txt_noi_dung" runat="server" Width="80%" CssClass="cssTextBox form-control" placehoder="Nhập nội dung quyết định"></asp:TextBox></td>
                 </tr>
                 <tr>
                     <td align="right">
                         <span class="cssManField">Ngày tháng</span>
                     </td>
                     <td>
-                        <asp:TextBox ID="m_txt_ngay_thang" runat="server" Width="50%" CssClass="cssTextBox" placeholder="dd/mm/yyyy"></asp:TextBox></td>
+                        <div id="datetimepicker1" class="input-group date datepicker" style="width: 210px;">
+                             <asp:TextBox ID="m_txt_ngay_thang" placeholder="dd/MM/yyyy" runat="server" CssClass="cssTextBox form-control  date-start" Height="30px" Width="164px"></asp:TextBox>
+                             <span class="input-group-addon"><span class="glyphicon-calendar glyphicon"></span>
+                             </span>
+                        </div>
+                    </td>
                 </tr>
                 <tr>
                     <td></td>
                     <td>
-                        <asp:Button ID="m_cmd_insert" Text="Thêm quyết định" runat="server" CssClass="cssButton" Height="24px" Width="98px" />
-                        <asp:Button ID="m_cmd_update" Text="Cập nhật" runat="server" CssClass="cssButton" Height="24px" Width="98px" />
-                        <asp:Button ID="m_cmd_cancel" Text="Xoá trắng" runat="server" CssClass="cssButton" Height="24px" Width="98px" />
+                        <asp:Button ID="m_cmd_insert" Text="Thêm quyết định" runat="server" CssClass="btn" />
+                        <asp:Button ID="m_cmd_update" Text="Cập nhật" runat="server" CssClass="btn"  />
+                        <asp:Button ID="m_cmd_cancel" Text="Xoá trắng" runat="server" CssClass="btn"  />
 
                     </td>
                 </tr>
@@ -95,7 +112,7 @@
                                         <%# Container.DataItemIndex + 1 %>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                <asp:BoundField DataField="so_quyet_dinh" HeaderText="Đơn vị" />
+                                <asp:BoundField DataField="so_quyet_dinh" HeaderText="Số quyết định" />
                                 <asp:BoundField DataField="noi_dung" HeaderText="Nội dung" />
                                 <%--<asp:BoundField DataField="loai" HeaderText="Loại" />--%>
                                 <asp:BoundField DataField="ngay_thang" DataFormatString="{0:dd/MM/yyyy}" HeaderText="Ngày tháng" />
