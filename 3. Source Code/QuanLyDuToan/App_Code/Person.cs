@@ -21,9 +21,17 @@ namespace QuanLyDuToan.App_Code
 
 		public static bool check_data_thong_tin_don_vi_is_full()
 		{
-			US_DM_THONG_TIN_DON_VI v_us = new US_DM_THONG_TIN_DON_VI(Person.get_id_don_vi(), Person.get_id_don_vi());
-			if (v_us.strMA_TKKT1.Trim().Equals("") && v_us.strMA_TKKT2.Trim().Equals("")||v_us.strMA_DVQHNS.Equals(""))
-				return false;
+            try {
+                US_DM_THONG_TIN_DON_VI v_us = new US_DM_THONG_TIN_DON_VI();
+                v_us.InitByID_DON_VI(Person.get_id_don_vi());
+                if (v_us.strMA_TKKT1.Trim().Equals("") && v_us.strMA_TKKT2.Trim().Equals("") || v_us.strMA_DVQHNS.Equals(""))
+                    return false;
+            }
+            catch  {
+
+                return false;
+            }
+			
 			return true;
 		}
 		public static decimal get_user_id()
