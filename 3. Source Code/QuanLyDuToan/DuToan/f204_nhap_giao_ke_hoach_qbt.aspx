@@ -81,7 +81,7 @@
 													<span>Số QĐ (*)</span>
 												</td>
 												<td style="width: 35%">
-													<asp:TextBox ID="m_txt_so_qd" runat="server" CssClass="btn" Width="150px"></asp:TextBox>
+													<asp:TextBox ID="m_txt_so_qd" runat="server" CssClass="form-control" Width="150px" placeholder="Vd: 371/QĐ-BGTVT"></asp:TextBox>
 													<asp:DropDownList ID="m_ddl_quyet_dinh" CssClass="select2" runat="server" Width="155px" Visible="false" OnSelectedIndexChanged="m_ddl_quyet_dinh_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
 
 												</td>
@@ -97,7 +97,7 @@
 											<tr>
 												<td style="text-align: right"><span>Nội dung (*)</span></td>
 												<td colspan="3">
-													<asp:TextBox ID="m_txt_noi_dung" runat="server" CssClass="cssTextBox form-control" TextMode="MultiLine" Rows="3" Width="100%" placeholder="Vd: 371/QĐ-BGTVT"></asp:TextBox>
+													<asp:TextBox ID="m_txt_noi_dung" runat="server" CssClass="cssTextBox form-control" TextMode="MultiLine" Rows="3" Width="100%" ></asp:TextBox>
 												</td>
 											</tr>
 											<tr>
@@ -210,7 +210,7 @@
 														<span>Nội dung dự toán (*)</span>
 													</td>
 													<td>
-														<asp:TextBox ID="m_txt_noi_dung_du_toan" placehorder="Nội dung dự toán" CssClass="btn" Width="176px" runat="server">
+														<asp:TextBox ID="m_txt_noi_dung_du_toan" placehorder="Nội dung dự toán" CssClass="form-control" Width="176px" runat="server">
 														</asp:TextBox>
 													</td>
 												</tr>
