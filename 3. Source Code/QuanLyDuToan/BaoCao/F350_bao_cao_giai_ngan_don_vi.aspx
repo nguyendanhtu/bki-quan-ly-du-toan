@@ -69,7 +69,10 @@
             pointer-events: none;
             cursor: default;
         }
-        
+         select
+        {
+            width:220px !important ;
+        }
 	</style>
     <script src="../Scripts/jquery.doubleScroll.js"></script>
 	<script>
@@ -78,7 +81,8 @@
 		        $('#double-scroll').doubleScroll();
 				$("#<%=m_ddl_loai_nv.ClientID%>").select2();
     			$("#<%=m_ddl_cong_trinh.ClientID%>").select2();
-    			$("#<%=m_ddl_du_an.ClientID%>").select2();
+		        $("#<%=m_ddl_du_an.ClientID%>").select2();
+		        $("#<%=m_ddl_don_vi.ClientID%>").select2();
     			$("#<%=m_txt_tu_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
     			$("#<%=m_txt_den_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
     		}
@@ -87,7 +91,8 @@
 	        $('#double-scroll').doubleScroll();
 			$("#<%=m_ddl_loai_nv.ClientID%>").select2();
 			$("#<%=m_ddl_cong_trinh.ClientID%>").select2();
-			$("#<%=m_ddl_du_an.ClientID%>").select2();
+	        $("#<%=m_ddl_du_an.ClientID%>").select2();
+	        $("#<%=m_ddl_don_vi.ClientID%>").select2();
 			$("#<%=m_txt_tu_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
 			$("#<%=m_txt_den_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
 
