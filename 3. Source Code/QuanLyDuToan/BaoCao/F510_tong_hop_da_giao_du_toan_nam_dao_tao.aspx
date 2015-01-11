@@ -172,7 +172,7 @@
 		    <span style="font-weight: bold">Độc lập - Tự do - Hạnh Phúc</span>
 		    <br />
 		    <br />
-		    <span style="font-weight: bold">TỔNG HỢP ĐÃ GIAO DỰ TOÁN NĂM <asp:Label runat="server" Text="Label" ID="m_lbl_nam"></asp:Label> - ĐÀO TẠO (490-498; 490-497; 490-501)</span>
+		    <span style="font-weight: bold">TỔNG HỢP ĐÃ GIAO DỰ TOÁN NĂM <asp:Label runat="server" Text="Label" ID="m_lbl_nam">2014</asp:Label> - ĐÀO TẠO (490-498; 490-497; 490-501)</span>
         </div>
         <div style="color:black; text-align:center; margin-top:20px;">
             <div class="divBoxControl" style="height: 119px;">

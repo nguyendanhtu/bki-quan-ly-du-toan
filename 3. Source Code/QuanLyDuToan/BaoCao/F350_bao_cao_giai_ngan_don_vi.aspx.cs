@@ -105,7 +105,7 @@ namespace QuanLyDuToan.BaoCao
 				, CIPConvert.ToDatetime(m_txt_tu_ngay.Text, "dd/MM/yyyy")
 				, CIPConvert.ToDatetime(m_txt_den_ngay.Text, "dd/MM/yyyy")
 				, CIPConvert.ToDatetime(m_txt_tu_ngay.Text, "dd/MM/yyyy")
-				, m_dc_id_don_vi
+				, CIPConvert.ToDecimal(m_ddl_don_vi.SelectedValue)
 				, Person.get_user_id()
 				, v_dc_id_du_an
 				, v_dc_id_cong_trinh
@@ -151,6 +151,7 @@ namespace QuanLyDuToan.BaoCao
 			{
 				if (!IsPostBack)
 				{
+                    load_data_to_ddl_don_vi();
 					DateTime v_dat_now = DateTime.Now;
 					DateTime v_dat_dau_nam = v_dat_now.AddDays(-v_dat_now.Day + 1);
 					v_dat_dau_nam = v_dat_dau_nam.AddMonths(-v_dat_dau_nam.Month + 1);
@@ -161,7 +162,7 @@ namespace QuanLyDuToan.BaoCao
 					{
 						m_dc_id_don_vi = CIPConvert.ToDecimal(Request.QueryString["ip_dc_id_don_vi"]);
 						US_DM_DON_VI v_us_don_vi = new US_DM_DON_VI(m_dc_id_don_vi);
-						m_txt_ten_don_vi.Text = v_us_don_vi.strTEN_DON_VI;
+                        m_ddl_don_vi.SelectedValue = m_dc_id_don_vi.ToString();
 					}
 					else
 					{
@@ -191,6 +192,17 @@ namespace QuanLyDuToan.BaoCao
 				CSystemLog_301.ExceptionHandle(this, v_e);
 			}
 		}
+
+        private void load_data_to_ddl_don_vi()
+        {
+            US_DM_DON_VI v_us = new US_DM_DON_VI();
+            DS_DM_DON_VI v_ds = new DS_DM_DON_VI();
+            v_us.FillDataset(v_ds);
+            m_ddl_don_vi.DataSource = v_ds.DM_DON_VI;
+            m_ddl_don_vi.DataTextField = DM_DON_VI.TEN_DON_VI;
+            m_ddl_don_vi.DataValueField = DM_DON_VI.ID;
+            m_ddl_don_vi.DataBind();
+        }
 		protected void m_cmd_xem_bao_cao_Click(object sender, EventArgs e)
 		{
 			try
@@ -490,5 +502,10 @@ namespace QuanLyDuToan.BaoCao
 		{
 			App_Code.WinFormControls.load_data_to_cbo_du_an_theo_cong_trinh_va_loai_nhiem_vu(CIPConvert.ToDecimal(m_ddl_cong_trinh.SelectedValue), CIPConvert.ToDecimal(m_ddl_loai_nv.SelectedValue), m_ddl_du_an);
 		}
+
+        protected void m_ddl_don_vi_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            load_data_to_grid();
+        }
 	}
 }
