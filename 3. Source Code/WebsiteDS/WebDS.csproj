@@ -178,6 +178,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DS_HT_USER_GROUP.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DS_RPT_150_TONG_HOP_DA_GIAO_DU_TOAN_VP.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_RPT_150_TONG_HOP_DA_GIAO_DU_TOAN_VP.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DS_RPT_510_TONG_HOP_DA_GIAO.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -519,6 +524,17 @@
     </None>
     <None Include="DS_HT_USER_GROUP.xss">
       <DependentUpon>DS_HT_USER_GROUP.xsd</DependentUpon>
+    </None>
+    <None Include="DS_RPT_150_TONG_HOP_DA_GIAO_DU_TOAN_VP.xsc">
+      <DependentUpon>DS_RPT_150_TONG_HOP_DA_GIAO_DU_TOAN_VP.xsd</DependentUpon>
+    </None>
+    <None Include="DS_RPT_150_TONG_HOP_DA_GIAO_DU_TOAN_VP.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_RPT_150_TONG_HOP_DA_GIAO_DU_TOAN_VP.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DS_RPT_150_TONG_HOP_DA_GIAO_DU_TOAN_VP.xss">
+      <DependentUpon>DS_RPT_150_TONG_HOP_DA_GIAO_DU_TOAN_VP.xsd</DependentUpon>
     </None>
     <None Include="DS_RPT_510_TONG_HOP_DA_GIAO.xsc">
       <DependentUpon>DS_RPT_510_TONG_HOP_DA_GIAO.xsd</DependentUpon>

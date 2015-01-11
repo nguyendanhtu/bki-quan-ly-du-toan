@@ -62,6 +62,7 @@
     <Content Include="bootstrap-3.2.0-dist\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="bootstrap-3.2.0-dist\fonts\glyphicons-halflings-regular.woff" />
     <None Include="Properties\PublishProfiles\QuanLyDuToan.pubxml" />
+    <Content Include="BaoCao\F150_giao_von_du_toan_vp_tong_cuc.aspx" />
     <Content Include="BaoCao\F356_bao_cao_giai_ngan_quy_bt_theo_dm.aspx" />
     <Content Include="BaoCao\F256_bao_cao_giao_von_quy_bt_theo_qd.aspx" />
     <Content Include="bootstrap-3.2.0-dist\css\bootstrap-theme.css" />
@@ -593,6 +594,13 @@
     <Compile Include="App_Code\WinformReport.cs" />
     <Compile Include="App_Code\WinformControls.cs" />
     <Compile Include="App_Code\Person.cs" />
+    <Compile Include="BaoCao\F150_giao_von_du_toan_vp_tong_cuc.aspx.cs">
+      <DependentUpon>F150_giao_von_du_toan_vp_tong_cuc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BaoCao\F150_giao_von_du_toan_vp_tong_cuc.aspx.designer.cs">
+      <DependentUpon>F150_giao_von_du_toan_vp_tong_cuc.aspx</DependentUpon>
+    </Compile>
     <Compile Include="BaoCao\F356_bao_cao_giai_ngan_quy_bt_theo_dm.aspx.cs">
       <DependentUpon>F356_bao_cao_giai_ngan_quy_bt_theo_dm.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
