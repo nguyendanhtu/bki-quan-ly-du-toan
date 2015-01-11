@@ -88,7 +88,8 @@ namespace QuanLyDuToan.DuToan
 
 		private void xoa_trang_control_unc()
 		{
-			US_DM_THONG_TIN_DON_VI v_us = new US_DM_THONG_TIN_DON_VI(Person.get_id_don_vi(), Person.get_id_don_vi());
+			US_DM_THONG_TIN_DON_VI v_us = new US_DM_THONG_TIN_DON_VI();
+            v_us.InitByID_DON_VI(Person.get_id_don_vi());
 			m_lbl_dia_chi.Text = v_us.strDIA_CHI;
 			m_lbl_tai_kho_bac_nha_nuoc.Text = v_us.strKHO_BAC;
 			m_lbl_ma_tkkt.Text = "";
@@ -503,7 +504,8 @@ namespace QuanLyDuToan.DuToan
 		{
 			US_DM_DON_VI v_us_dv = new US_DM_DON_VI(Person.get_id_don_vi());
 			m_lbl_don_vi_tra_tien.Text = v_us_dv.strTEN_DON_VI;
-			US_DM_THONG_TIN_DON_VI v_us_ttdv = new US_DM_THONG_TIN_DON_VI(Person.get_id_don_vi(), Person.get_id_don_vi());
+			US_DM_THONG_TIN_DON_VI v_us_ttdv = new US_DM_THONG_TIN_DON_VI();
+            v_us_ttdv.InitByID_DON_VI( Person.get_id_don_vi());
 			m_lbl_dia_chi.Text = v_us_ttdv.strDIA_CHI;
 			m_lbl_tai_kho_bac_nha_nuoc.Text = v_us_ttdv.strKHO_BAC;
 			m_lbl_ma_tkkt.Text = v_us_ttdv.strMA_TKKT1;
@@ -539,7 +541,8 @@ namespace QuanLyDuToan.DuToan
 					m_cmd_print.Visible = true;
 				}
 				US_DM_GIAI_NGAN v_us = new US_DM_GIAI_NGAN(CIPConvert.ToDecimal(m_hdf_id_dm_uy_nhiem_chi.Value));
-				US_DM_THONG_TIN_DON_VI v_us_thong_tin_don_vi = new US_DM_THONG_TIN_DON_VI(Person.get_id_don_vi(), Person.get_id_don_vi());
+				US_DM_THONG_TIN_DON_VI v_us_thong_tin_don_vi = new US_DM_THONG_TIN_DON_VI();
+                v_us_thong_tin_don_vi.InitByID_DON_VI( Person.get_id_don_vi());
 				m_lbl_dia_chi.Text = v_us_thong_tin_don_vi.strDIA_CHI;
 				m_txt_so_unc.Text = v_us.strSO_UNC;
 				m_txt_ngay_thang.Text = CIPConvert.ToStr(v_us.datNGAY_THANG, "dd/MM/yyyy");
