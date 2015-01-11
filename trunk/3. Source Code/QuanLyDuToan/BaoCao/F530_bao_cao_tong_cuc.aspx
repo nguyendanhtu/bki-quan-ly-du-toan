@@ -24,7 +24,7 @@
             border-color: #000;
         }
         
-        lb {
+        .lb {
 	        width:100px; 
             float:left;
             text-align:right;
@@ -76,40 +76,26 @@
                 <tr>
                     
                     <td style="width:34%;"></td>
-                    <td  style="text-align:center;width: 222px;">
-                           <div class="lb" style="margin-right:30px">Từ ngày</div>
-                    </td>
-                    <td style="text-align:center;width: 222px;">
-                            <div class="lb" style="margin-right:30px">Đến ngày</div>   
-				     </td>
-                     <td></td>
-				</tr>
-                <tr>
-                    <%--<td style="width: 200px;"></td>
-                    <td style="display: none;">
-                        <span style="font-weight: bold" >Loại đơn vị
-                        <asp:DropDownList id="m_cbo_loai_don_vi" Width="200px" runat="server"></asp:DropDownList></span>
-                    </td>--%>
-                    <td style="width:34%;"></td>
-                    <td  style="text-align:center;width: 222px;">
-                         <div class="height30">
-                              <div id="datetimepicker1" class="input-group date datepicker" style="width: 200px;">
-                                  <asp:TextBox ID="m_txt_tu_ngay" placeholder="dd/MM/yyyy" runat="server" CssClass="cssTextBox form-control  date-start" Height="30px" Width="164px"></asp:TextBox>
-                                  <span class="input-group-addon">
-                                      <span class="glyphicon-calendar glyphicon"></span>
-                                  </span>
+                    <td>
+                                <div class="height30" style="margin-top: 10px;">
+                             <div class="lb" style="margin-right:23px">Từ ngày</div>
+                               <div id="datetimepicker1" class="input-group date" style="width: 200px;">
+                                  <asp:TextBox ID="m_txt_tu_ngay" placeholder="dd/MM/yyyy" runat="server" CssClass="cssTextBox date-start" Height="30px" Width="164px"></asp:TextBox>
+                                   <span class="input-group-addon">
+                                       <span class="glyphicon-calendar glyphicon"></span>
+                                   </span>
                               </div>
-                          </div>
-                        </td>
-                        <td style="text-align:center;width: 222px;">
-                                <div class="height30">
-                                    <div id="datetimepicker2" class="input-group date datepicker" style="width: 200px;">
-                                        <asp:TextBox ID="m_txt_den_ngay" placeholder="dd/MM/yyyy" runat="server" CssClass="cssTextBox form-control date-end" Height="30px" Width="164px"></asp:TextBox>
-                                        <span class="input-group-addon"><span class="glyphicon-calendar glyphicon"></span>
-                                        </span>
-                                    </div>
-                                </div>
-				         </td>
+                        </div>
+                        <div class="height30" style="margin-top: 10px;">
+				            <div class="lb" style="margin-right:23px">Đến ngày</div>
+                                  <div id="datetimepicker2" class="input-group date" style="width: 200px;">
+                                  <asp:TextBox ID="m_txt_den_ngay" placeholder="dd/MM/yyyy" runat="server" CssClass="cssTextBox  date-start" Height="30px" Width="164px"></asp:TextBox>
+                                   <span class="input-group-addon">
+                                       <span class="glyphicon-calendar glyphicon"></span>
+                                   </span>
+                              </div>
+                        </div>
+                    </td>
                      <td></td>
 				</tr>
 				<tr>
