@@ -13,6 +13,11 @@
             background: #ddd;
             border-color: #000;
         }
+
+        th {
+            text-align:center;
+        }
+
         .boxControl {
 	        float:left;
             width:50%; 
@@ -85,7 +90,7 @@
 
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
-            <table id="main_table" style="width: 100%;" class="cssTable table" border="0">
+            <table id="main_table" style="width: 1300px;" class="cssTable table" border="0">
                 <tr>
                     <td colspan="4" style="text-align: center">
                         <span style="font-weight: bold">CỘNG HOÀ XÃ HỘI CHỦ NGHĨA VIỆT NAM</span>
@@ -155,23 +160,28 @@
                 </tr>
                 <tr>
                     <td colspan="4" align="center">
-                        <asp:GridView ID="m_grv" runat="server" AutoGenerateColumns="false"
-							CssClass="cssGrid" Width="100%" CellPadding="0" ForeColor="Black"
-							AllowSorting="True" PageSize="60" ShowHeader="true"
-							EmptyDataText="Không có dữ liệu phù hợp" OnRowCreated="m_grv_RowCreated">
+                        <div style="overflow-y:hidden; width:1200px; margin:0px auto;">
+                            <asp:GridView ID="m_grv" runat="server" AutoGenerateColumns="False"
+							CssClass="cssGrid" Width="2500px" CellPadding="0" ForeColor="Black"
+							AllowSorting="True" PageSize="60"
+							EmptyDataText="Không có dữ liệu phù hợp" OnRowCreated="m_grv_RowCreated" EnableModelValidation="True">
 
 							<Columns>
-								<asp:TemplateField ItemStyle-HorizontalAlign="Center" HeaderText="a" HeaderStyle-Width="2%" HeaderStyle-Height="10px">									
+								<asp:TemplateField ItemStyle-HorizontalAlign="Center" HeaderText="(a)" HeaderStyle-Width="2%" HeaderStyle-Height="10px">									
 									<ItemTemplate>
 										<%# Container.DataItemIndex + 1 %>
 									</ItemTemplate>
+								    <HeaderStyle Height="10px" Width="2%" HorizontalAlign="Center"/>
+                                    <ItemStyle HorizontalAlign="Center" />
 								</asp:TemplateField>
-								<asp:TemplateField ItemStyle-HorizontalAlign="Left" HeaderText="b" HeaderStyle-Width="150px" HeaderStyle-Height="10px">									
+								<asp:TemplateField ItemStyle-HorizontalAlign="Left" HeaderText="(b)" HeaderStyle-Width="150px" HeaderStyle-Height="10px">									
 									<ItemTemplate>
 										<%# Eval(GRID_GIAI_NGAN.NOI_DUNG)%>
 									</ItemTemplate>
+								    <HeaderStyle Height="10px" Width="150px" HorizontalAlign="Center"/>
+                                    <ItemStyle HorizontalAlign="Left" />
 								</asp:TemplateField>
-                                <asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="1"  HeaderStyle-Height="10px">									
+                                <asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="(1)"  HeaderStyle-Height="10px">									
 									<ItemTemplate>
 										<a href="F156_bao_cao_giao_kh_quy_bt_theo_qd.aspx<%# format_link_to_chi_tiet(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.REPORT_LEVEL)
                                                     ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID_DON_VI)
@@ -180,23 +190,31 @@
                                                     ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID) ) %>"" 
                                             title"Xem chi tiết"><%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_QBT, "{0:#,##0}")%></a>
 									</ItemTemplate>
+								    <HeaderStyle Height="10px" HorizontalAlign="Center"/>
+                                    <ItemStyle HorizontalAlign="Right" Width="120px" />
 								</asp:TemplateField>
-                                <asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="2"  HeaderStyle-Height="10px">									
+                                <asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="(2)"  HeaderStyle-Height="10px">									
 									<ItemTemplate>
 										<%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_NS, "{0:#,##0}")%>
 									</ItemTemplate>
+								    <HeaderStyle Height="10px" HorizontalAlign="Center"/>
+                                    <ItemStyle HorizontalAlign="Right" Width="120px" />
 								</asp:TemplateField>                                
-                                <asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="3=1+2"  HeaderStyle-Height="10px">									
+                                <asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="(3) = (1) + (2)"  HeaderStyle-Height="10px">									
 									<ItemTemplate>
 										<%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_TONG, "{0:#,##0}")%>
 									</ItemTemplate>
+								    <HeaderStyle Height="10px" HorizontalAlign="Center"/>
+                                    <ItemStyle HorizontalAlign="Right" Width="120px" />
 								</asp:TemplateField>					
-								<asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="4"  HeaderStyle-Height="10px">									
+								<asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="(4)"  HeaderStyle-Height="10px">									
 									<ItemTemplate>
 										<%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_QBT_TRONG_THANG, "{0:#,##0}")%>
 									</ItemTemplate>
+								    <HeaderStyle Height="10px" HorizontalAlign="Center"/>
+                                    <ItemStyle HorizontalAlign="Right" Width="120px" />
 								</asp:TemplateField>	
-                                <asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="5"  HeaderStyle-Height="10px">									
+                                <asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="(5)"  HeaderStyle-Height="10px">									
 									<ItemTemplate>
                                         <a href="F256_bao_cao_giao_von_quy_bt_theo_qd.aspx<%# format_link_to_chi_tiet(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.REPORT_LEVEL)
                                                     ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID_DON_VI)
@@ -205,29 +223,39 @@
                                                     ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID) ) %>"" 
                                             title"Xem chi tiết"><%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_QBT_TONG, "{0:#,##0}")%></a>										
 									</ItemTemplate>
+								    <HeaderStyle Height="10px" HorizontalAlign="Center"/>
+                                    <ItemStyle HorizontalAlign="Right" Width="120px" />
 								</asp:TemplateField>	
-                                <asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="6"  HeaderStyle-Height="10px">									
+                                <asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="(6)"  HeaderStyle-Height="10px">									
 									<ItemTemplate>
 										<%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_NS_TRONG_THANG, "{0:#,##0}")%>
 									</ItemTemplate>
+								    <HeaderStyle Height="10px" HorizontalAlign="Center"/>
+                                    <ItemStyle HorizontalAlign="Right" Width="120px" />
 								</asp:TemplateField>	
-                                <asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="7"  HeaderStyle-Height="10px">									
+                                <asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="(7)"  HeaderStyle-Height="10px">									
 									<ItemTemplate>
 										<%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_NS_TONG, "{0:#,##0}")%>
 									</ItemTemplate>
+								    <HeaderStyle Height="10px" HorizontalAlign="Center"/>
+                                    <ItemStyle HorizontalAlign="Right" Width="120px" />
 								</asp:TemplateField>	
-                                <asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="8=5+7"  HeaderStyle-Height="10px">									
+                                <asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="(8) = (5) + (7)"  HeaderStyle-Height="10px">									
 									<ItemTemplate>
 										<%# CIPConvert.ToStr( format_so_tien( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_QBT_LUY_KE) )
                                                 + format_so_tien( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_NS_LUY_KE)), "#,###") %>
 									</ItemTemplate>
+								    <HeaderStyle Height="10px" HorizontalAlign="Center"/>
+                                    <ItemStyle HorizontalAlign="Right" Width="120px" />
 								</asp:TemplateField>	
-								<asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="9"  HeaderStyle-Height="10px">									
+								<asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="(9)"  HeaderStyle-Height="10px">									
 									<ItemTemplate>
 										<%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_QBT_TRONG_THANG, "{0:#,##0}")%>
 									</ItemTemplate>
+								    <HeaderStyle Height="10px" HorizontalAlign="Center"/>
+                                    <ItemStyle HorizontalAlign="Right" Width="120px" />
 								</asp:TemplateField>
-                                <asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="10"  HeaderStyle-Height="10px">									
+                                <asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="(10)"  HeaderStyle-Height="10px">									
 									<ItemTemplate>
 										<a href="F356_bao_cao_giai_ngan_quy_bt_theo_dm.aspx<%# format_link_to_chi_tiet(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.REPORT_LEVEL)
                                                     ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID_DON_VI)
@@ -236,18 +264,24 @@
                                                     ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID) ) %>"" 
                                             title"Xem chi tiết"><%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_QBT_TONG, "{0:#,##0}")%>
 									</ItemTemplate>
+								    <HeaderStyle Height="10px" HorizontalAlign="Center"/>
+                                    <ItemStyle HorizontalAlign="Right" Width="120px" />
 								</asp:TemplateField>
-                                <asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="11"  HeaderStyle-Height="10px">									
+                                <asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="(11)"  HeaderStyle-Height="10px">									
 									<ItemTemplate>
 										<%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_NS_TRONG_THANG, "{0:#,##0}")%>
 									</ItemTemplate>
+								    <HeaderStyle Height="10px" HorizontalAlign="Center"/>
+                                    <ItemStyle HorizontalAlign="Right" Width="120px" />
 								</asp:TemplateField>
-                                <asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="12"  HeaderStyle-Height="10px">									
+                                <asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="(12)"  HeaderStyle-Height="10px">									
 									<ItemTemplate>
 										<%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_NS_TONG, "{0:#,##0}")%>
 									</ItemTemplate>
+								    <HeaderStyle Height="10px" HorizontalAlign="Center"/>
+                                    <ItemStyle HorizontalAlign="Right" Width="120px" />
 								</asp:TemplateField>
-                                <asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="13=9+11"  HeaderStyle-Height="10px">									
+                                <asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="(13) = (9) + (11)"  HeaderStyle-Height="10px">									
 									<ItemTemplate>
 										<a href="F356_bao_cao_giai_ngan_quy_bt_theo_dm.aspx<%# format_link_to_chi_tiet(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.REPORT_LEVEL)
                                                     ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID_DON_VI)
@@ -257,30 +291,39 @@
                                             title"Xem chi tiết"><%# CIPConvert.ToStr( format_so_tien(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_QBT_TONG)) 
                                                 + format_so_tien(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_NS_TONG)), "#,###") %>
 									</ItemTemplate>
+								    <HeaderStyle Height="10px" HorizontalAlign="Center"/>
+                                    <ItemStyle HorizontalAlign="Right" Width="120px" />
 								</asp:TemplateField>
                                 								
-								<asp:TemplateField  ItemStyle-HorizontalAlign="Right" HeaderText="14=8-13" HeaderStyle-Height="10px" >									
+								<asp:TemplateField  ItemStyle-HorizontalAlign="Right" HeaderText="(14) = (8) - (13)" HeaderStyle-Height="10px" >									
 									 <ItemTemplate>
 										<%# CIPConvert.ToStr( (format_so_tien(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_QBT_TONG)) 
                                             + format_so_tien( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_NS_TONG))) 
                                             - (format_so_tien(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_QBT_TONG)) 
                                             + format_so_tien(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_NS_TONG)))  , "#,###") %>
 									 </ItemTemplate>
+                                     <HeaderStyle Height="10px" HorizontalAlign="Center"/>
+                                     <ItemStyle HorizontalAlign="Right" Width="120px" />
                                 </asp:TemplateField>
-                                <asp:TemplateField  ItemStyle-HorizontalAlign="Right" HeaderText="15=1-5" HeaderStyle-Height="10px" >									
+                                <asp:TemplateField  ItemStyle-HorizontalAlign="Right" HeaderText="(15) = (1) - (5)" HeaderStyle-Height="10px" >									
 									 <ItemTemplate>
 										<%# CIPConvert.ToStr(format_so_tien(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_QBT))  
                                                         - format_so_tien(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_QBT_TONG)), "#,###") %>
 									 </ItemTemplate>
+                                     <HeaderStyle Height="10px" HorizontalAlign="Center"/>
+                                     <ItemStyle HorizontalAlign="Right" Width="120px" />
                                 </asp:TemplateField>
-								<asp:TemplateField  ItemStyle-HorizontalAlign="Right" HeaderText="16=2-7" HeaderStyle-Height="10px" >									
+								<asp:TemplateField  ItemStyle-HorizontalAlign="Right" HeaderText="(16) = (2) - (7)" HeaderStyle-Height="10px" >									
 									 <ItemTemplate>
 										 <%# CIPConvert.ToStr( format_so_tien(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_NS)) 
                                                         - format_so_tien(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_NS_TONG)), "#,###") %>						
 									 </ItemTemplate>
+								     <HeaderStyle Height="10px" HorizontalAlign="Center"/>
+                                     <ItemStyle HorizontalAlign="Right" Width="120px" />
 								</asp:TemplateField>		                               				                                
 							</Columns>
 						</asp:GridView>
+                        </div>
                     </td>
                 </tr>
             </table>
