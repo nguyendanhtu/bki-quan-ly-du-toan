@@ -1,7 +1,23 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="F815_PhanQuyenSuDungDuLieuUserGroup.aspx.cs" Inherits="QuanLyDuToan.Quantri.F815_PhanQuyenSuDungDuLieuUserGroup" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="Server">
+<script>
+    function pageLoad(sender, args) {
+        if (args.get_isPartialLoad()) {
 
+            $(".cssDorpdownlist").select2();
+
+        }
+    }
+    $(document).ready(function () {
+        $(".cssDorpdownlist").select2();
+
+    }
+       )
+    </script>
+
+</asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
-    <table cellspacing="0" cellpadding="2" style="width:100%;" class="cssTable" border="0">
+    <table id="main_table"cellspacing="0" cellpadding="2" style="width:100%;" class="cssTable table" border="0">
 	<tr>
 		<td class="cssPageTitleBG" colspan="6">
 		    <asp:label id="lblUser" runat="server" CssClass="cssPageTitle" 
@@ -27,9 +43,9 @@
 		<td >
 		    &nbsp;</td>
 		<td >
-			<asp:button id="m_cmd_cap_nhat" accessKey="u" CssClass="cssButton" 
-                runat="server" Width="98px" Text="Cập nhật(u)" 
-                onclick="m_cmd_cap_nhat_Click" Height="22px"  />
+			<asp:button id="m_cmd_cap_nhat" accessKey="u" CssClass="btn" 
+                runat="server" Text="Cập nhật(u)" 
+                onclick="m_cmd_cap_nhat_Click"   />
 		    </td>
 		<td >
 			<asp:customvalidator id="m_cvt_loai_tu_dien" runat="server" 
