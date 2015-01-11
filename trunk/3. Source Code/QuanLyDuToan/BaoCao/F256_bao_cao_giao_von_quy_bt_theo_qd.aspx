@@ -49,12 +49,8 @@
 	        height:30px;
         }
 
-	    .lb {
-	        width:100px; 
-            float:left;
-            text-align:right;
-            line-height:20px;
-        }
+	   
+      
 
 	    .control {
 	        width:240px; 
