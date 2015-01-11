@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-	<table cellspacing="0" cellpadding="2" style="width:100%;" class="cssTable" border="0">
+	<table id="main_table" cellspacing="0" cellpadding="2" style="width:100%;" class="cssTable table bordertop0" border="0">
 	<tr>
 		<td class="cssPageTitleBG" colspan="3">
 		    <asp:label id="lblUser" runat="server" CssClass="cssPageTitle" 
@@ -21,7 +21,7 @@
                 Text="Mật khẩu cũ (*)"/>
 		</td>
 		<td style="width:30%;">
-			<asp:textbox id="m_txt_old_password" CssClass="cssTextBox"  runat="server" TextMode="Password"
+			<asp:textbox id="m_txt_old_password" CssClass="cssTextBox form-control"  runat="server" TextMode="Password"
                 MaxLength="35" Width="200px" />
 		</td>
 		<td style="width:5%;">  
@@ -36,7 +36,7 @@
                 Text="Mật khẩu mới (*)" />
 		</td>
 		<td style="width:30%;">
-			<asp:textbox id="m_txt_new_password" CssClass="cssTextBox"  runat="server" TextMode="Password"
+			<asp:textbox id="m_txt_new_password" CssClass="cssTextBox form-control"  runat="server" TextMode="Password"
                 MaxLength="35" Width="200px" />
 		</td>
 		<td style="width:5%;"> 
@@ -66,12 +66,12 @@
 	<tr>
 	    <td></td>
 		<td colspan="2" align="left">
-			<asp:button id="m_cmd_doi_mat_khau" accessKey="c" CssClass="cssButton" 
-                runat="server" Width="98px" Text="Lưu" onclick="m_cmd_doi_mat_khau_Click" 
-                CausesValidation="False" Height="25px"/>&nbsp;&nbsp;&nbsp;
-			<asp:button id="m_cmd_thoat" accessKey="u" CssClass="cssButton" 
-                runat="server" Width="98px" Text="Thoát" onclick="m_cmd_thoat_Click" 
-                CausesValidation="False" Height="25px" />
+			<asp:button id="m_cmd_doi_mat_khau" accessKey="c" CssClass="btn" 
+                runat="server"  Text="Lưu" onclick="m_cmd_doi_mat_khau_Click" 
+                CausesValidation="False" />&nbsp;&nbsp;&nbsp;
+			<asp:button id="m_cmd_thoat" accessKey="u" CssClass="btn" 
+                runat="server"  Text="Thoát" onclick="m_cmd_thoat_Click" 
+                CausesValidation="False"  />
 			</td>
 	</tr>
 </table>
