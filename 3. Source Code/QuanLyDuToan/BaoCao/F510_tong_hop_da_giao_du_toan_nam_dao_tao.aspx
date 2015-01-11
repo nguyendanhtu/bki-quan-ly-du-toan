@@ -45,12 +45,18 @@
         table {
           table-layout: fixed; 
           width: 100%;
+          font-size:12px;
         }
         td, th {
           vertical-align: top;
           width:100px;
           margin-left: -2px;
         }
+
+        th {
+            text-align:center;
+        }
+
         .pinned {
           position:absolute;
           left:0; 
@@ -119,7 +125,7 @@
 		}
 		
 		.merge1{
-			height:28px;
+			height:35px;
 			border-top:1px solid gray;
             font-weight:bold;
 		}
