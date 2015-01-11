@@ -6,13 +6,13 @@
     <script>
         function pageLoad(sender, args) {
             if (args.get_isPartialLoad()) {
-                $('.select2').select2();
+               
                 $(".datepicker").datepicker({ format: 'dd/mm/yyyy' });
 
             }
         }
         $(document).ready(function () {
-            $('.select2').select2();
+           
             $(".datepicker").datepicker({ format: 'dd/mm/yyyy' });
         }
        )
@@ -35,7 +35,7 @@
 			<div style="color: black; text-align: center; margin-top: 20px;">
 
 				<span>Từ khóa tìm kiếm: </span>
-				<asp:TextBox cssclass="form-control" runat="server" ID="m_txt_tu_khoa_tim_kiem" Style="width: 200px;"></asp:TextBox>
+				<asp:TextBox  runat="server" ID="m_txt_tu_khoa_tim_kiem" Style="width: 200px;"></asp:TextBox>
 				<span>Từ ngày: </span>
 				<asp:TextBox runat="server" CssClass="datepicker" ID="m_txt_tu_ngay" Style="width: 200px; text-align: right"></asp:TextBox>
 				<span>Đến ngày: </span>
