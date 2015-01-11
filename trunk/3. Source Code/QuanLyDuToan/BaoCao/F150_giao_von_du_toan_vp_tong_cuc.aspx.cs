@@ -20,6 +20,8 @@ namespace QuanLyDuToan.BaoCao
         {
             if (!IsPostBack)
             {
+                US_DM_DON_VI v_us = new US_DM_DON_VI(Person.get_id_don_vi());
+                m_lbl_ten_don_vi.Text = v_us.strTEN_DON_VI.ToUpper();
                 set_default_input();
                 load_data_2_grid();   
             }
