@@ -54,7 +54,11 @@
 						<span>Ngày tháng</span>
 					</td>
 					<td>
-						<asp:TextBox ID="m_txt_ngay_thang" runat="server" CssClass="cssTextBox datepicker" Width="100px" placeholder="dd/MM/yyyy"></asp:TextBox>
+                       <div id="datetimepicker1" class="input-group date" style="width: 210px;">
+                             <asp:TextBox ID="m_txt_ngay_thang" placeholder="dd/MM/yyyy" runat="server" CssClass="cssTextBox form-control  date-start  datepicker" Height="30px" Width="171px"></asp:TextBox>
+                             <span class="input-group-addon"><span class="glyphicon-calendar glyphicon"></span>
+                             </span>
+                        </div>
 						<asp:Button ID="m_cmd_xem_khoi_luong" CssClass="btn" runat="server" Text="Tải dữ liệu" OnClick="m_cmd_xem_khoi_luong_Click" />
 					</td>
 				</tr>

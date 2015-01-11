@@ -411,3 +411,7 @@ div.accountInfo
  {
      overflow: hidden;
  }
+
+.margin_r20 {
+    margin-right: 20px;
+}

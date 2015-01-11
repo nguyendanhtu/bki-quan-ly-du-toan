@@ -13,14 +13,14 @@
             if (args.get_isPartialLoad())
             {
                 $('.select2').select2();
-                $(".datepicker").datepicker({ format: 'dd/mm/yyyy' });
+                $("#<%=m_txt_ngay_thang.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
 
             }
         }
         $(document).ready(function ()
         {
             $('.select2').select2();
-            $(".datepicker").datepicker({ format: 'dd/mm/yyyy' });
+            $("#<%=m_txt_ngay_thang.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
         }
        )
     </script>
@@ -55,7 +55,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td style="width: 15%; text-align: right">
+                                    <td style="width: 15%;padding-top: 14px; text-align: right">
                                         <span>Số QĐ (*)</span>
                                     </td>
                                     <td style="width: 35%">
@@ -64,11 +64,16 @@
                                         <br />
                                         <asp:Button ID="m_cmd_chon_qd_da_nhap" cssclass="btn" Text="Chọn QĐ" OnClick="m_cmd_chon_qd_da_nhap_Click" runat="server" />
                                     </td>
-                                    <td style="width: 15%; text-align: right">
+                                    <td style="width: 15%; padding-top: 16px; text-align: right">
                                         <span>Ngày tháng (*)</span>
                                     </td>
                                     <td style="width: 25%">
-                                        <asp:TextBox ID="m_txt_ngay_thang" runat="server" CssClass="cssTextBox form-control datepicker" Width="100px" placeholder="dd/MM/yyyy"></asp:TextBox></td>
+                                        <div id="datetimepicker1" class="input-group date datepicker" style="width: 210px;">
+                                             <asp:TextBox ID="m_txt_ngay_thang" placeholder="dd/MM/yyyy" runat="server" CssClass="cssTextBox form-control  date-start" Height="30px" Width="164px"></asp:TextBox>
+                                             <span class="input-group-addon"><span class="glyphicon-calendar glyphicon"></span>
+                                             </span>
+                                        </div>
+                                       </td>
                                 </tr>
                                 <tr>
                                     <td style="text-align: right"><span>Nội dung (*)</span></td>
@@ -93,7 +98,7 @@
                 <tr>
                     <td>
                         <asp:Panel ID="m_pnl" runat="server" GroupingText="Nội dung chi tiết">
-                            <table style="width: 100%;">
+                            <table class="table bordertop0" style="width: 100%;">
                                 <tr>
                                     <td style="width: 20%">Loại nhiệm vụ</td>
                                     <td>
@@ -186,7 +191,7 @@
                                             </tr>
                                             <tr>
                                                 <td colspan="3" style="text-align: center">
-                                                    <asp:Button ID="m_cmd_cap_nhat" cssclass="btn" runat="server" Text="Ghi dữ liệu" OnClick="m_cmd_cap_nhat_Click" />
+                                                    <asp:Button ID="m_cmd_cap_nhat" cssclass="btn margin_r20" runat="server" Text="Ghi dữ liệu" OnClick="m_cmd_cap_nhat_Click" />
                                                     <asp:Button ID="m_cmd_xoa_trang" cssclass="btn" runat="server" Text="Huỷ thao tác" OnClick="m_cmd_xoa_trang_Click" />
                                                 </td>
                                             </tr>

@@ -21,7 +21,7 @@
 				blur: function () { $(this).val(tinhTongChiTx()); }
 			});
 		    $('.select2').select2();
-		    $(".datepicker").datepicker({ format: 'dd/mm/yyyy' });
+		    $("#<%=m_txt_ngay_thang.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
 		});
 		function pageLoad(sender, args) {
 			if (args.get_isPartialLoad()) {
@@ -33,7 +33,7 @@
 					blur: function () { $(this).val(tinhTongChiTx()); }
 				});
 			    $('.select2').select2();
-			    $(".datepicker").datepicker({ format: 'dd/mm/yyyy' });
+			    $("#<%=m_txt_ngay_thang.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
 			}
 		}
 
@@ -77,7 +77,7 @@
 												</td>
 											</tr>
 											<tr>
-												<td style="width: 30%; text-align: right">
+												<td style="width: 40%; text-align: right">
 													<span>Số QĐ (*)</span>
 												</td>
 												<td style="width: 35%">
@@ -92,7 +92,12 @@
 											<tr>
 												<td style="text-align: right"><span>Ngày tháng (*)</span></td>
 												<td>
-													<asp:TextBox ID="m_txt_ngay_thang" runat="server" CssClass="cssTextBox datepicker" Width="150px" placeholder="dd/MM/yyyy"></asp:TextBox></td>
+													 <div id="datetimepicker1" class="input-group date datepicker" style="width: 210px;">
+                                                         <asp:TextBox ID="m_txt_ngay_thang" placeholder="dd/MM/yyyy" runat="server" CssClass="cssTextBox form-control  date-start" Height="30px" Width="164px"></asp:TextBox>
+                                                         <span class="input-group-addon"><span class="glyphicon-calendar glyphicon"></span>
+                                                         </span>
+                                                    </div>
+												</td>
 											</tr>
 											<tr>
 												<td style="text-align: right"><span>Nội dung (*)</span></td>
