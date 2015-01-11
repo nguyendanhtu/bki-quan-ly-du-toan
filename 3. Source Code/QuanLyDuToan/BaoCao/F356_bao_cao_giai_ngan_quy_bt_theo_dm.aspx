@@ -104,6 +104,7 @@
 						<p>
 							<span style="font-weight: bold">BÁO CÁO TÌNH HÌNH GIẢI NGÂN <%=DateTime.Now.Year.ToString() %></span>
 							<br />
+							<asp:Label ID="m_lbl_don_vi" runat="server" ForeColor="Black" Font-Bold="true"></asp:Label>
 							<br />
 										 <div style="width:70%; margin:0 auto;" class="height30">
                             <div class="lb">Tìm kiếm:</div>

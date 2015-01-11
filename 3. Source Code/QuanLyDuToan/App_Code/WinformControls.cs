@@ -147,17 +147,16 @@ namespace QuanLyDuToan.App_Code
 		}
 
 		public static void load_data_to_cbo_du_an_theo_cong_trinh_va_loai_nhiem_vu(decimal ip_id_cong_trinh,
-			decimal ip_id_loai_nhiem_vu, DropDownList ddl)
+			decimal ip_id_loai_nhiem_vu, DropDownList ddl, decimal ip_dc_id_don_vi)
 		{
 			DS_DM_CONG_TRINH_DU_AN_GOI_THAU v_ds = new DS_DM_CONG_TRINH_DU_AN_GOI_THAU();
 			US_DM_CONG_TRINH_DU_AN_GOI_THAU v_us = new US_DM_CONG_TRINH_DU_AN_GOI_THAU();
-			decimal v_dc_id_don_vi = Person.get_id_don_vi();
 			string v_str_data_default = "---Chọn dự án---";
 
 			v_ds.EnforceConstraints = false;
 			v_ds.Clear();
 
-			v_us.loadDanhMucDuanTheoCongTrinhVaLoaiNhiemVu(v_ds, v_dc_id_don_vi, ip_id_cong_trinh, ip_id_loai_nhiem_vu);
+			v_us.loadDanhMucDuanTheoCongTrinhVaLoaiNhiemVu(v_ds, ip_dc_id_don_vi, ip_id_cong_trinh, ip_id_loai_nhiem_vu);
 
 			ddl.DataTextField = DM_CONG_TRINH_DU_AN_GOI_THAU.TEN;
 			ddl.DataValueField = DM_CONG_TRINH_DU_AN_GOI_THAU.ID;
