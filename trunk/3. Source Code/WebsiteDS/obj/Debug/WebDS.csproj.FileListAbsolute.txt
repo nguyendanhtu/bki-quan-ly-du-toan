@@ -48,3 +48,4 @@ E:\Thực tập\quanlidutoan\3. Source Code\WebsiteDS\bin\Debug\WebDS.dll
 E:\Thực tập\quanlidutoan\3. Source Code\WebsiteDS\bin\Debug\WebDS.pdb
 E:\Thực tập\quanlidutoan\3. Source Code\WebsiteDS\obj\Debug\WebDS.dll
 E:\Thực tập\quanlidutoan\3. Source Code\WebsiteDS\obj\Debug\WebDS.pdb
+E:\Thực tập\quanlidutoan\3. Source Code\WebsiteDS\obj\Debug\WebDS.csprojResolveAssemblyReference.cache

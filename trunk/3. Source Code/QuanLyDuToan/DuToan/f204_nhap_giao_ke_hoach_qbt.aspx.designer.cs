@@ -58,6 +58,15 @@ namespace QuanLyDuToan.DuToan {
         protected global::System.Web.UI.WebControls.Label m_lbl_mess_qd;
         
         /// <summary>
+        /// m_rdb_kh_dau_nam control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton m_rdb_kh_dau_nam;
+        
+        /// <summary>
         /// m_rdb_bo_sung control.
         /// </summary>
         /// <remarks>

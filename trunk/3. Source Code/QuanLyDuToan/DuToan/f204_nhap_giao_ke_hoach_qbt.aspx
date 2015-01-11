@@ -17,7 +17,7 @@
 			$("#<%=m_txt_so_tien_nam_truoc_chuyen_sang.ClientID%>").bind({
 				blur: function () { $(this).val(tinhTongChiTx()); }
 			});
-		    $(".select2").datepicker({ format: 'dd/M/yy' });
+		    $(".select2").select2();
 		});
 		function pageLoad(sender, args) {
 			if (args.get_isPartialLoad()) {
@@ -28,6 +28,7 @@
 				$("#<%=m_txt_so_tien_nam_truoc_chuyen_sang.ClientID%>").bind({
 					blur: function () { $(this).val(tinhTongChiTx()); }
 				});
+			    $(".select2").select2();
 			}
 		}
 
@@ -64,7 +65,7 @@
 											<tr>
 												<td style="text-align: right"><span>Loại quyết định (*)</span></td>
 												<td colspan="3">
-													<asp:RadioButton ID="m_rdb_kh_dau_nam" cssclass="radio-inline" server" Text="KH đầu năm" GroupName="loai" Checked="true" AutoPostBack="true" />
+													<asp:RadioButton ID="m_rdb_kh_dau_nam" cssclass="radio-inline" runat="server" Text="KH đầu năm" GroupName="loai" Checked="true" AutoPostBack="true" />
 													<asp:RadioButton ID="m_rdb_bo_sung" cssclass="radio-inline" runat="server" Text="Bổ sung" GroupName="loai" AutoPostBack="true" />
 													<asp:RadioButton ID="m_rdb_dieu_chinh" cssclass="radio-inline" runat="server" Text="Điều chỉnh" GroupName="loai" AutoPostBack="true" />
 													<asp:HiddenField ID="m_hdf_id_giao_kh" runat="server" />
