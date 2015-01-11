@@ -55,6 +55,8 @@
 
         th {
             text-align:center;
+            background: #ddd !important;
+            border-color: #000;
         }
 
         .pinned {
@@ -62,6 +64,7 @@
           left:0; 
           width:200px;
           border-top:0px;
+          background: #bcbe2c;
         }
         .pinned2 {
           position:absolute;
@@ -69,6 +72,7 @@
           width:100px;
           border-left:0px;
           border-top:0px;
+          background: #bcbe2c;
         }
         .pinned3 {
           position:absolute;
@@ -76,6 +80,7 @@
           width:100px;
           border-left:0px;
           border-top:0px;
+          background: #bcbe2c;
         }
         .pinned4 {
           position:absolute;
@@ -83,6 +88,7 @@
           width:100px;
           border-left:0px;
           border-top:0px;
+          background: #bcbe2c;
         }
 
         .pinned5 {
@@ -91,6 +97,7 @@
           width:100px;
           border-left:0px;
           border-top:0px;
+          background: #bcbe2c;
         }
 
         .outer 
@@ -115,6 +122,8 @@
 			border-bottom:0px;
 			border-top:1px solid gray;
             font-weight:bold;
+            background: #ddd !important;
+            border-color: #000;
 		}
 
         .merge4{
@@ -122,16 +131,17 @@
 			border-bottom:0px;
 			border-top:1px solid gray;
             font-weight:bold;
+            background: #ddd !important;
+            border-color: #000;
 		}
 		
 		.merge1{
 			height:35px;
 			border-top:1px solid gray;
             font-weight:bold;
+            background: #ddd !important;
+            border-color: #000;
 		}
-        .nullValue {
-            height:20px;
-        }
     </style>
      <script>
          function pageLoad(sender, args) {
