@@ -79,6 +79,49 @@ namespace QuanLyDuToan.BaoCao
 			}
 			return v_str_link;
 		}
+		public string format_link_to_chi_tiet_trong_thang(object ip_level, object ip_id_don_vi, object ip_id_loai_nhiem_vu, object ip_id_cong_trinh, object ip_id_du_an)
+		{
+			string v_str_link = "";
+			if (ip_level != DBNull.Value)
+			{
+				switch (CIPConvert.ToStr(ip_level))
+				{
+					case "3":
+						v_str_link += "?ip_dc_id_don_vi=" + CIPConvert.ToStr(ip_id_don_vi)
+									 + "&ip_dc_id_loai_nhiem_vu=" + CIPConvert.ToStr(ip_id_loai_nhiem_vu)
+									 + "&ip_dc_id_cong_trinh=" + "-1"
+									 + "&ip_dc_id_du_an=" + "-1"
+									 + "&ip_dat_tu_ngay=" + m_txt_tu_ngay.Text
+									 + "&ip_dat_den_ngay=" + m_txt_den_ngay.Text;
+						break;
+					case "2":
+						v_str_link += "?ip_dc_id_don_vi=" + CIPConvert.ToStr(ip_id_don_vi)
+									 + "&ip_dc_id_loai_nhiem_vu=" + CIPConvert.ToStr(ip_id_loai_nhiem_vu)
+									 + "&ip_dc_id_cong_trinh=" + CIPConvert.ToStr(ip_id_cong_trinh)
+									 + "&ip_dc_id_du_an=" + "-1"
+									 + "&ip_dat_tu_ngay=" + m_txt_tu_ngay.Text
+									 + "&ip_dat_den_ngay=" + m_txt_den_ngay.Text;
+						break;
+					case "1":
+						v_str_link += "?ip_dc_id_don_vi=" + CIPConvert.ToStr(ip_id_don_vi)
+									 + "&ip_dc_id_loai_nhiem_vu=" + CIPConvert.ToStr(ip_id_loai_nhiem_vu)
+									 + "&ip_dc_id_cong_trinh=" + CIPConvert.ToStr(ip_id_cong_trinh)
+									 + "&ip_dc_id_du_an=" + CIPConvert.ToStr(ip_id_du_an)
+									  + "&ip_dat_tu_ngay=" + CIPConvert.ToStr(WinFormControls.get_dau_nam_form_date(CIPConvert.ToDatetime(m_txt_tu_ngay.Text, "dd/MM/yyyy")), "dd/MM/yyyy")
+									 + "&ip_dat_den_ngay=" + m_txt_den_ngay.Text;
+						break;
+					default:
+						v_str_link += "?ip_dc_id_don_vi=" + CIPConvert.ToStr(ip_id_don_vi)
+									 + "&ip_dc_id_loai_nhiem_vu=" + CIPConvert.ToStr(ip_id_loai_nhiem_vu)
+									 + "&ip_dc_id_cong_trinh=" + CIPConvert.ToStr(ip_id_cong_trinh)
+									 + "&ip_dc_id_du_an=" + CIPConvert.ToStr(ip_id_du_an)
+									  + "&ip_dat_tu_ngay=" + CIPConvert.ToStr(WinFormControls.get_dau_nam_form_date(CIPConvert.ToDatetime(m_txt_tu_ngay.Text, "dd/MM/yyyy")), "dd/MM/yyyy")
+									 + "&ip_dat_den_ngay=" + m_txt_den_ngay.Text;
+						break;
+				}
+			}
+			return v_str_link;
+		}
 
 		private void load_data_to_grid()
 		{

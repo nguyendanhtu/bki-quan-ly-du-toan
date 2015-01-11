@@ -3,7 +3,7 @@
 <%@ Import Namespace="IP.Core.IPCommon" %>
 <%@ Import Namespace="WebDS.CDBNames" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
-    <style type="text/css">
+	<style type="text/css">
 		.cssGrid tr td {
 			padding: 0px;
 		}
@@ -14,9 +14,9 @@
 		}
 
 		th {
-            text-align:center !important;
-            background: #ddd;
-            border-color: #000;
+			text-align: center !important;
+			background: #ddd;
+			border-color: #000;
 		}
 
 		.boxControl {
@@ -63,45 +63,46 @@
 		table {
 			border: 1px solid black !important;
 		}
-        .a0{
-            color:maroon !important;
-            font-weight:bold;
-            pointer-events: none;
-            cursor: default;
-        }
-         select
-        {
-            width:220px !important ;
-        }
+
+		.a0 {
+			color: maroon !important;
+			font-weight: bold;
+			pointer-events: none;
+			cursor: default;
+		}
+
+		select {
+			width: 220px !important;
+		}
 	</style>
-    <script src="../Scripts/jquery.doubleScroll.js"></script>
+	<script src="../Scripts/jquery.doubleScroll.js"></script>
 	<script>
 		function pageLoad(sender, args) {
-		    if (args.get_isPartialLoad()) {
-		        $('#double-scroll').doubleScroll();
+			if (args.get_isPartialLoad()) {
+				$('#double-scroll').doubleScroll();
 				$("#<%=m_ddl_loai_nv.ClientID%>").select2();
-    			$("#<%=m_ddl_cong_trinh.ClientID%>").select2();
-		        $("#<%=m_ddl_du_an.ClientID%>").select2();
-		        $("#<%=m_ddl_don_vi.ClientID%>").select2();
-    			$("#<%=m_txt_tu_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
-    			$("#<%=m_txt_den_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
-    		}
+		        $("#<%=m_ddl_cong_trinh.ClientID%>").select2();
+		    	$("#<%=m_ddl_du_an.ClientID%>").select2();
+		    	$("#<%=m_ddl_don_vi.ClientID%>").select2();
+		    	$("#<%=m_txt_tu_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
+		    	$("#<%=m_txt_den_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
+		    }
 		}
-	    $(document).ready(function () {
-	        $('#double-scroll').doubleScroll();
+		$(document).ready(function () {
+			$('#double-scroll').doubleScroll();
 			$("#<%=m_ddl_loai_nv.ClientID%>").select2();
-			$("#<%=m_ddl_cong_trinh.ClientID%>").select2();
-	        $("#<%=m_ddl_du_an.ClientID%>").select2();
-	        $("#<%=m_ddl_don_vi.ClientID%>").select2();
-			$("#<%=m_txt_tu_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
-			$("#<%=m_txt_den_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
+	        $("#<%=m_ddl_cong_trinh.ClientID%>").select2();
+	    	$("#<%=m_ddl_du_an.ClientID%>").select2();
+	    	$("#<%=m_ddl_don_vi.ClientID%>").select2();
+	    	$("#<%=m_txt_tu_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
+	    	$("#<%=m_txt_den_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
 
-		}
+	    }
        )
 	</script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    <asp:ScriptManager ID="ScriptManager1" runat="server">
+	<asp:ScriptManager ID="ScriptManager1" runat="server">
 	</asp:ScriptManager>
 
 	<asp:UpdatePanel ID="UpdatePanel1" runat="server">
@@ -119,32 +120,37 @@
 						<span style="font-weight: bold">ĐƠN VỊ:
                             <asp:DropDownList runat="server" ID="m_ddl_don_vi" AutoPostBack="True" OnSelectedIndexChanged="m_ddl_don_vi_SelectedIndexChanged"></asp:DropDownList>
 						</span>
-						<br /><br />
+						<br />
+						<br />
 						<div class="divBoxControl height30">
 							<div class="lb">Tìm kiếm:</div>
 							<div class="control">
-								<asp:TextBox ID="m_txt_tim_kiem" runat="server" CssClass="filter"></asp:TextBox></div>
+								<asp:TextBox ID="m_txt_tim_kiem" runat="server" CssClass="filter"></asp:TextBox>
+							</div>
 						</div>
 						<div style="width: 680px; margin: 0px auto">
-							<div class="boxControl" style="width: 340px;margin-left: 13px;">
+							<div class="boxControl" style="width: 340px; margin-left: 13px;">
 								<div class="height30">
 									<div class="lb">Loại nhiệm vụ</div>
 									<div class="control">
-										<asp:DropDownList ID="m_ddl_loai_nv" runat="server" AutoPostBack="True" CssClass="select2" OnSelectedIndexChanged="m_ddl_loai_nv_SelectedIndexChanged"></asp:DropDownList></div>
+										<asp:DropDownList ID="m_ddl_loai_nv" runat="server" AutoPostBack="True" CssClass="select2" OnSelectedIndexChanged="m_ddl_loai_nv_SelectedIndexChanged"></asp:DropDownList>
+									</div>
 								</div>
 								<div class="height30">
 									<div class="lb">Công trình</div>
 									<div class="control">
-										<asp:DropDownList ID="m_ddl_cong_trinh" runat="server" AutoPostBack="True" CssClass="selec2" OnSelectedIndexChanged="m_ddl_cong_trinh_SelectedIndexChanged"></asp:DropDownList></div>
+										<asp:DropDownList ID="m_ddl_cong_trinh" runat="server" AutoPostBack="True" CssClass="selec2" OnSelectedIndexChanged="m_ddl_cong_trinh_SelectedIndexChanged"></asp:DropDownList>
+									</div>
 								</div>
 								<div class="height30">
 									<div class="lb">Dự án</div>
 									<div class="control">
-										<asp:DropDownList ID="m_ddl_du_an" runat="server" CssClass="selec2"></asp:DropDownList></div>
+										<asp:DropDownList ID="m_ddl_du_an" runat="server" CssClass="selec2"></asp:DropDownList>
+									</div>
 								</div>
 
 							</div>
-							<div class="boxControl" style="width: 301px;margin-left: 26px;">
+							<div class="boxControl" style="width: 301px; margin-left: 26px;">
 								<div class="height30">
 									<div class="lb" style="margin-right: 0px;width: 90px; margin-top:6px;">Từ ngày</div>
 									<div id="datetimepicker1" class="input-group date datepicker" style="width: 200px;">
@@ -244,7 +250,12 @@
 									</asp:TemplateField>
 									<asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="(4)" HeaderStyle-Height="10px">
 										<ItemTemplate>
-											<font class='a<%# Eval(GRID_GIAI_NGAN.ID)%>'><%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_QBT_TRONG_THANG, "{0:#,##0}")%></font>
+											<a class='a<%# Eval(GRID_GIAI_NGAN.ID)%>' href="F256_bao_cao_giao_von_quy_bt_theo_qd.aspx<%# format_link_to_chi_tiet_trong_thang(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.REPORT_LEVEL)
+                                                    ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID_DON_VI)
+                                                    ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.REPORT_LEVEL)
+                                                    ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.STT)
+                                                    ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID) ) %>"
+												title="Xem chi tiết"><%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_QBT_TRONG_THANG, "{0:#,##0}")%></a>
 										</ItemTemplate>
 										<HeaderStyle Height="10px" HorizontalAlign="Center" />
 										<ItemStyle HorizontalAlign="Right" Width="120px" />
@@ -263,14 +274,15 @@
 									</asp:TemplateField>
 									<asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="(6)" HeaderStyle-Height="10px">
 										<ItemTemplate>
-											<font class='a<%# Eval(GRID_GIAI_NGAN.ID)%>'><%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_QBT_LUY_KE, "{0:#,##0}")%></font>
+											<font class='a<%# Eval(GRID_GIAI_NGAN.ID)%>'><%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_NS_TRONG_THANG, "{0:#,##0}")%></font>
 										</ItemTemplate>
 										<HeaderStyle Height="10px" HorizontalAlign="Center" />
 										<ItemStyle HorizontalAlign="Right" Width="120px" />
 									</asp:TemplateField>
 									<asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="(7)" HeaderStyle-Height="10px">
 										<ItemTemplate>
-											<font class='a<%# Eval(GRID_GIAI_NGAN.ID)%>'><%# CIPConvert.ToStr( format_so_tien( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_NS_TRONG_THANG)) , "#,###")
+
+											<font class='a<%# Eval(GRID_GIAI_NGAN.ID)%>'><%# CIPConvert.ToStr( format_so_tien( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_NS_LUY_KE)) , "#,###")
 											%></font>
 										</ItemTemplate>
 										<HeaderStyle Height="10px" HorizontalAlign="Center" />
@@ -286,7 +298,13 @@
 									</asp:TemplateField>
 									<asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="(8)" HeaderStyle-Height="10px">
 										<ItemTemplate>
-											<font class='a<%# Eval(GRID_GIAI_NGAN.ID)%>'><%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_QBT_TRONG_THANG, "{0:#,##0}")%></font>
+											
+											<a class='a<%# Eval(GRID_GIAI_NGAN.ID)%>' href="F356_bao_cao_giai_ngan_quy_bt_theo_dm.aspx<%# format_link_to_chi_tiet_trong_thang(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.REPORT_LEVEL)
+                                                    ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID_DON_VI)
+                                                    ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.REPORT_LEVEL)
+                                                    ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.STT)
+                                                    ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID) ) %>"
+												title="Xem chi tiết"><%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_QBT_TRONG_THANG, "{0:#,##0}")%></a>
 										</ItemTemplate>
 										<HeaderStyle Height="10px" HorizontalAlign="Center" />
 										<ItemStyle HorizontalAlign="Right" Width="120px" />
@@ -298,7 +316,7 @@
                                                     ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.REPORT_LEVEL)
                                                     ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.STT)
                                                     ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID) ) %>"
-												title="Xem chi tiết"<%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_QBT_LUY_KE, "{0:#,##0}")%>></a>
+												title="Xem chi tiết" <%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_QBT_LUY_KE, "{0:#,##0}")%>></a>
 										</ItemTemplate>
 										<HeaderStyle Height="10px" HorizontalAlign="Center" />
 										<ItemStyle HorizontalAlign="Right" Width="120px" />
@@ -317,8 +335,7 @@
                                                     ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.REPORT_LEVEL)
                                                     ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.STT)
                                                     ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID) ) %>"
-												title="Xem chi tiết"><%# CIPConvert.ToStr( format_so_tien(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_QBT_TONG)) 
-                                                + format_so_tien(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_NS_LUY_KE)), "#,###") %>
+												title="Xem chi tiết"><%# CIPConvert.ToStr( format_so_tien(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_NS_LUY_KE)) , "#,###") %>
 										</ItemTemplate>
 										<HeaderStyle Height="10px" HorizontalAlign="Center" />
 										<ItemStyle HorizontalAlign="Right" Width="120px" />
