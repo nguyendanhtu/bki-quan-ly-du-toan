@@ -112,22 +112,22 @@ namespace QuanLyDuToan.DuToan {
         protected global::System.Web.UI.WebControls.Button m_cmd_cho_them_qd;
         
         /// <summary>
-        /// chiTheoQuocLoDuAn control.
+        /// m_rdb_theo_quoc_lo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton chiTheoQuocLoDuAn;
+        protected global::System.Web.UI.WebControls.RadioButton m_rdb_theo_quoc_lo;
         
         /// <summary>
-        /// chiTheoLoaiKhoanMuc control.
+        /// m_rdb_theo_chuong_loai_khoan_muc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton chiTheoLoaiKhoanMuc;
+        protected global::System.Web.UI.WebControls.RadioButton m_rdb_theo_chuong_loai_khoan_muc;
         
         /// <summary>
         /// m_ddl_loai_nhiem_vu control.
@@ -346,15 +346,6 @@ namespace QuanLyDuToan.DuToan {
         protected global::System.Web.UI.WebControls.Button m_cmd_ghi_chi_tiet_qd;
         
         /// <summary>
-        /// m_cmd_cap_nhat_chi_tiet_qd control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button m_cmd_cap_nhat_chi_tiet_qd;
-        
-        /// <summary>
         /// m_lbl_mess_grid control.
         /// </summary>
         /// <remarks>
@@ -434,14 +425,5 @@ namespace QuanLyDuToan.DuToan {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField m_hdf_bool_them_cong_trinh;
-        
-        /// <summary>
-        /// m_hdf_form_mode control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField m_hdf_form_mode;
     }
 }

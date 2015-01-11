@@ -72,7 +72,7 @@
 					}
 					return formatString((parseFloat(xoaDauPhay(str1)) + parseFloat(xoaDauPhay(str2))).toString());
 				}
-				var isChecked = $('#<%=chiTheoQuocLoDuAn.ClientID%>').attr('checked') ? true : false;
+				var isChecked = $('#<%=m_rdb_theo_quoc_lo.ClientID%>').attr('checked') ? true : false;
 				if (isChecked == true) {
 					$("#group_qlda").show();
 					$("#group_lkm").hide();
@@ -97,13 +97,13 @@
 					$(this).hide();
 				});
 
-				$("#<%=chiTheoQuocLoDuAn.ClientID%>").click(function () {
+				$("#<%=m_rdb_theo_quoc_lo.ClientID%>").click(function () {
 					$("#group_qlda").show();
 					$("#group_lkm").hide();
 					$("#<%=m_ddl_loai_nhiem_vu.ClientID%>").show();
 					$("#<%=m_ddl_loai_nhiem_vu_lkm.ClientID%>").hide();
 				});
-				$("#<%=chiTheoLoaiKhoanMuc.ClientID%>").click(function () {
+				$("#<%=m_rdb_theo_chuong_loai_khoan_muc.ClientID%>").click(function () {
 					$("#group_qlda").hide();
 					$("#group_lkm").show();
 					$("#<%=m_ddl_loai_nhiem_vu.ClientID%>").hide();
@@ -160,7 +160,7 @@
 				}
 				return formatString((parseFloat(xoaDauPhay(str1)) + parseFloat(xoaDauPhay(str2))).toString());
 			}
-			var isChecked = $('#<%=chiTheoQuocLoDuAn.ClientID%>').attr('checked') ? true : false;
+			var isChecked = $('#<%=m_rdb_theo_quoc_lo.ClientID%>').attr('checked') ? true : false;
 			if (isChecked == true) {
 				$("#group_qlda").show();
 				$("#group_lkm").hide();
@@ -186,13 +186,13 @@
 				$(this).hide();
 			});
 
-			$("#<%=chiTheoQuocLoDuAn.ClientID%>").click(function () {
+			$("#<%=m_rdb_theo_quoc_lo.ClientID%>").click(function () {
 				$("#group_qlda").show();
 				$("#group_lkm").hide();
 				$("#<%=m_ddl_loai_nhiem_vu.ClientID%>").show();
 				$("#<%=m_ddl_loai_nhiem_vu_lkm.ClientID%>").hide();
 			});
-			$("#<%=chiTheoLoaiKhoanMuc.ClientID%>").click(function () {
+			$("#<%=m_rdb_theo_chuong_loai_khoan_muc.ClientID%>").click(function () {
 				$("#group_qlda").hide();
 				$("#group_lkm").show();
 				$("#<%=m_ddl_loai_nhiem_vu.ClientID%>").hide();
@@ -260,8 +260,8 @@
 							<legend>Chi tiết quyết định</legend>
 							<div class="lbl">Chi theo (*)</div>
 							<div class="ctr">
-								<asp:RadioButton ID="chiTheoQuocLoDuAn" runat="server" Text="Theo Quốc lộ/dự án" GroupName="chitheo" Checked="true" /><br />
-								<asp:RadioButton ID="chiTheoLoaiKhoanMuc" runat="server" Text="Theo Loại khoản mục" GroupName="chitheo" />
+								<asp:RadioButton ID="m_rdb_theo_quoc_lo" runat="server" Text="Theo Quốc lộ/dự án" GroupName="chitheo" Checked="true" /><br />
+								<asp:RadioButton ID="m_rdb_theo_chuong_loai_khoan_muc" runat="server" Text="Theo Loại khoản mục" GroupName="chitheo" />
 							</div>
 							<div id="group_qlda" style="">
 								<div class="lbl">Loại nhiệm vụ (*)</div>
