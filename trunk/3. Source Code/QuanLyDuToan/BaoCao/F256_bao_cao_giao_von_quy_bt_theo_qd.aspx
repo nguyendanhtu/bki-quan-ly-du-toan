@@ -12,10 +12,8 @@
         {
             width:962px;
         }
-         .height30 {
-	        height:30px;
-              float:left;
-        }
+        
+       
          .boxControl {
             margin:0 auto;
 	       width:423px;
@@ -83,20 +81,21 @@
 	</style>
     <script>
         function pageLoad(sender, args) {
-            if (args.get_isPartialLoad())
-            {
-              
-                $("#<%=m_txt_tu_ngay.ClientID%>").datepicker({ dateFormat: 'dd/mm/yyyy' });
-                $("#<%=m_txt_den_ngay.ClientID%>").datepicker({ dateFormat: 'dd/mm/yyyy' });
+            if (args.get_isPartialLoad()) {
+                $("#<%=m_ddl_loai_nv.ClientID%>").select2();
+                $("#<%=m_ddl_cong_trinh.ClientID%>").select2();
+                $("#<%=m_ddl_du_an.ClientID%>").select2();
+                $("#<%=m_txt_tu_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
+                $("#<%=m_txt_den_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
 
             }
         }
-        $(document).ready(function ()
-        {
-           
-            $("#<%=m_txt_tu_ngay.ClientID%>").datepicker({ dateFormat: 'dd/mm/yyyy' });
-            $("#<%=m_txt_den_ngay.ClientID%>").datepicker({ dateFormat: 'dd/mm/yyyy' });
-
+        $(document).ready(function () {
+            $("#<%=m_ddl_loai_nv.ClientID%>").select2();
+            $("#<%=m_ddl_cong_trinh.ClientID%>").select2();
+            $("#<%=m_ddl_du_an.ClientID%>").select2();
+            $("#<%=m_txt_tu_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
+            $("#<%=m_txt_den_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
         }
        )
     </script>
@@ -114,7 +113,7 @@
 							<span style="font-weight: bold">BÁO CÁO TÌNH HÌNH GIAO VỐN <%=DateTime.Now.Year.ToString() %></span>
 							<br />
 							<br />
-							 <div style="width:70%; margin:0px auto;" class="height30">
+							 <div style="width:70%; margin:0 auto;" class="height30">
                             <div class="lb">Tìm kiếm:</div>
                             <div class="control"><asp:TextBox ID="m_txt_tim_kiem" runat="server" CssClass="filter"></asp:TextBox></div>
                         </div>
