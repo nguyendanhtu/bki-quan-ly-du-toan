@@ -31,6 +31,42 @@ namespace QuanLyDuToan.BaoCao {
         protected global::System.Web.UI.UpdatePanel UpdatePanel1;
         
         /// <summary>
+        /// m_txt_tim_kiem control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox m_txt_tim_kiem;
+        
+        /// <summary>
+        /// m_ddl_loai_nv control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList m_ddl_loai_nv;
+        
+        /// <summary>
+        /// m_ddl_cong_trinh control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList m_ddl_cong_trinh;
+        
+        /// <summary>
+        /// m_ddl_du_an control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList m_ddl_du_an;
+        
+        /// <summary>
         /// m_txt_tu_ngay control.
         /// </summary>
         /// <remarks>

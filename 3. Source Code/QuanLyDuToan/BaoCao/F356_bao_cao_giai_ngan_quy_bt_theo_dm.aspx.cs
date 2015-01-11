@@ -47,18 +47,6 @@ namespace QuanLyDuToan.BaoCao
 			DataTable v_dt = new DataTable();
 			decimal v_dc_id_loai_nhiem_vu, v_dc_id_cong_trinh, v_dc_id_du_an,v_dc_id_don_vi;
 			v_dc_id_cong_trinh = v_dc_id_du_an = v_dc_id_loai_nhiem_vu = -1;
-			if (Request.QueryString["ip_dc_id_loai_nhiem_vu"]!=null)
-			{
-				v_dc_id_loai_nhiem_vu = CIPConvert.ToDecimal(Request.QueryString["ip_dc_id_loai_nhiem_vu"]);
-			}
-			if (Request.QueryString["ip_dc_id_cong_trinh"] != null)
-			{
-				v_dc_id_cong_trinh = CIPConvert.ToDecimal(Request.QueryString["ip_dc_id_cong_trinh"]);
-			}
-			if (Request.QueryString["ip_dc_id_du_an"] != null)
-			{
-				v_dc_id_du_an = CIPConvert.ToDecimal(Request.QueryString["ip_dc_id_du_an"]);
-			}
 			if (Request.QueryString["ip_dc_id_don_vi"] != null)
 			{
 				v_dc_id_don_vi = CIPConvert.ToDecimal(Request.QueryString["ip_dc_id_don_vi"]);
@@ -67,7 +55,34 @@ namespace QuanLyDuToan.BaoCao
 					v_dc_id_don_vi = Person.get_id_don_vi();	
 				}
 			}
-			else v_dc_id_don_vi = Person.get_id_don_vi();
+            else v_dc_id_don_vi = Person.get_id_don_vi();
+            if (Request.QueryString["ip_dc_id_loai_nhiem_vu"] != null)
+            {
+                v_dc_id_loai_nhiem_vu = CIPConvert.ToDecimal(Request.QueryString["ip_dc_id_loai_nhiem_vu"]);
+                if (v_dc_id_loai_nhiem_vu > 0)
+                {
+                    m_ddl_loai_nv.SelectedValue = v_dc_id_loai_nhiem_vu.ToString();
+                    m_ddl_loai_nv_SelectedIndexChanged(null, null);
+                }
+            }
+            if (Request.QueryString["ip_dc_id_cong_trinh"] != null)
+            {
+                v_dc_id_cong_trinh = CIPConvert.ToDecimal(Request.QueryString["ip_dc_id_cong_trinh"]);
+                if (v_dc_id_cong_trinh > 0)
+                {
+                    m_ddl_cong_trinh.SelectedValue = v_dc_id_cong_trinh.ToString();
+                    m_ddl_cong_trinh_SelectedIndexChanged(null, null);
+                }
+            }
+            if (Request.QueryString["ip_dc_id_du_an"] != null)
+            {
+                v_dc_id_du_an = CIPConvert.ToDecimal(Request.QueryString["ip_dc_id_du_an"]);
+                if (v_dc_id_du_an > 0)
+                {
+                    m_ddl_du_an.SelectedValue = v_dc_id_cong_trinh.ToString();
+                }
+            }
+			
 			v_ds.Tables.Add(v_dt);
 			v_ds.AcceptChanges();
 
@@ -126,12 +141,27 @@ namespace QuanLyDuToan.BaoCao
 					v_dat_dau_nam = v_dat_dau_nam.AddMonths(-v_dat_dau_nam.Month + 1);
 					m_txt_tu_ngay.Text = CIPConvert.ToStr(v_dat_dau_nam, "dd/MM/yyyy");
 					m_txt_den_ngay.Text = CIPConvert.ToStr(v_dat_now, "dd/MM/yyyy");
-
+                    App_Code.WinFormControls.load_data_to_ddl_loai_nhiem_vu(m_ddl_loai_nv);
 					//m_dc_id_cong_trinh_du_an = CIPConvert.ToDecimal(Request.QueryString["id_cong_trinh_du_an"]);
 					//m_dat_tu_ngay = CIPConvert.ToDatetime(Request.QueryString["tu_ngay"]);
 					//m_dat_den_ngay = CIPConvert.ToDatetime(Request.QueryString["den_ngay"]);
 					//m_str_is_nguon_ngan_sach = Request.QueryString["is_nguon_ngan_sach"];
 					//m_str_ten_du_an = Request.QueryString["ten_du_an"];
+                    if (Request.QueryString["ip_dc_id_loai_nhiem_vu"] != null)
+                    {
+                        m_ddl_loai_nv.SelectedValue = Request.QueryString["ip_dc_id_loai_nhiem_vu"].ToString();
+                        m_ddl_loai_nv_SelectedIndexChanged(null, null);
+                    }
+                    if (Request.QueryString["ip_dc_id_cong_trinh"] != null)
+                    {
+                        m_ddl_cong_trinh.SelectedValue = Request.QueryString["ip_dc_id_cong_trinh"].ToString();
+                        m_ddl_cong_trinh_SelectedIndexChanged(null, null);
+                    }
+                    if (Request.QueryString["ip_dc_id_du_an"] != null)
+                    {
+                        m_ddl_du_an.SelectedValue = Request.QueryString["ip_dc_id_du_an"].ToString();
+                    }
+                    load_data_to_grid();
 					load_data_to_grid();
 				}
 			}
@@ -286,6 +316,18 @@ namespace QuanLyDuToan.BaoCao
 			//base.VerifyRenderingInServerForm(control);
 		}
 
-
+        protected void m_ddl_loai_nv_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            decimal v_dc_id_don_vi = Person.get_id_don_vi();
+            if (Request.QueryString["ip_dc_id_don_vi"] != null)
+            {
+                v_dc_id_don_vi = CIPConvert.ToDecimal(Request.QueryString["ip_dc_id_don_vi"]);
+            }
+            App_Code.WinFormControls.load_data_to_cbo_cong_trinh_theo_loai_nhiem_vu(CIPConvert.ToDecimal(m_ddl_loai_nv.SelectedValue), m_ddl_cong_trinh, v_dc_id_don_vi);
+        }
+        protected void m_ddl_cong_trinh_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            App_Code.WinFormControls.load_data_to_cbo_du_an_theo_cong_trinh_va_loai_nhiem_vu(CIPConvert.ToDecimal(m_ddl_cong_trinh.SelectedValue), CIPConvert.ToDecimal(m_ddl_loai_nv.SelectedValue), m_ddl_du_an);
+        }
 	}
 }
