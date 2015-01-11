@@ -1,5 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="f603_dm_du_an.aspx.cs" Inherits="QuanLyDuToan.DanhMuc.f603_dm_du_an" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="Server">
+    <style type="text/css">
+        
+        </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="Server">
     <asp:ScriptManager ID="ScriptManager1" runat="server">
