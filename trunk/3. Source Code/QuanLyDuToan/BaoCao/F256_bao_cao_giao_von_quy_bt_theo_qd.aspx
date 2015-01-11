@@ -42,16 +42,16 @@
             if (args.get_isPartialLoad())
             {
               
-                $("#<%=m_txt_tu_ngay.ClientID%>").datepicker({ dateFormat: 'dd/M/yy' });
-                $("#<%=m_txt_den_ngay.ClientID%>").datepicker({ dateFormat: 'dd/M/yy' });
+                $("#<%=m_txt_tu_ngay.ClientID%>").datepicker({ dateFormat: 'dd/mm/yyyy' });
+                $("#<%=m_txt_den_ngay.ClientID%>").datepicker({ dateFormat: 'dd/mm/yyyy' });
 
             }
         }
         $(document).ready(function ()
         {
            
-            $("#<%=m_txt_tu_ngay.ClientID%>").datepicker({ dateFormat: 'dd/M/yy' });
-            $("#<%=m_txt_den_ngay.ClientID%>").datepicker({ dateFormat: 'dd/M/yy' });
+            $("#<%=m_txt_tu_ngay.ClientID%>").datepicker({ dateFormat: 'dd/mm/yyyy' });
+            $("#<%=m_txt_den_ngay.ClientID%>").datepicker({ dateFormat: 'dd/mm/yyyy' });
 
         }
        )

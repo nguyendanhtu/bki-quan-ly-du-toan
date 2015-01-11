@@ -403,3 +403,11 @@ div.accountInfo
         {
             border-top:0px;
         }
+ .bordertop0 tr td
+        {
+            border-top:0px;
+        }
+ .select2
+ {
+     overflow: hidden;
+ }

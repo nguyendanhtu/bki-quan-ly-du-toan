@@ -3,11 +3,11 @@
     <script>
         function pageLoad(sender, args) {
             if (args.get_isPartialLoad()) {
-                $("#<%=m_txt_ngay_thang.ClientID%>").datepicker({ format: 'dd/M/yy' });
+                $("#<%=m_txt_ngay_thang.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
             }
         }
         $(document).ready(function () {
-            $("#<%=m_txt_ngay_thang.ClientID%>").datepicker({ format: 'dd/M/yy' });
+            $("#<%=m_txt_ngay_thang.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
         }
        )
     </script>
