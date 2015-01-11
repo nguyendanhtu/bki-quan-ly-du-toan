@@ -42,16 +42,16 @@
             /*width:100px;*/
         }
 
-        table {
+        .outer table {
           table-layout: fixed; 
           width: 100%;
         }
-        td, th {
+        .outer td, th {
           vertical-align: top;
           width:100px;
           margin-left: -2px;
         }
-        th {
+        .outer th {
             background: #ddd !important;
             border-color: #000;
             text-align:center;
@@ -124,6 +124,20 @@
             border-color: #000;
 		}
     </style>
+     <script>
+         function pageLoad(sender, args) {
+             if (args.get_isPartialLoad()) {
+                 $("#<%=m_txt_tu_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
+                 $("#<%=m_txt_den_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
+
+             }
+         }
+         $(document).ready(function () {
+             $("#<%=m_txt_tu_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
+             $("#<%=m_txt_den_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
+         }
+       )
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server">
@@ -140,25 +154,40 @@
 		    <span style="font-weight: bold">TỔNG HỢP ĐÃ GIAO DỰ TOÁN CHO <asp:Label runat="server" ID="m_lbl_ten_don_vi"></asp:Label></span>
         </div>
         <div style="color:black; text-align:center; margin-top:20px;">
-            <div class="divBoxControl">
-                <div class="height30">
+            <div class="divBoxControl" style="height: 119px;">
+                <div class="height30"style="height: 34px; width: 403px;margin-bottom: 4px;">
                     <div class="lb">Tìm kiếm:</div>
-				    <div class="control"><asp:TextBox ID="m_txt_tu_khoa_tim_kiem" runat="server"></asp:TextBox></div>
+				    <div class="control input-group"style="margin-left: 23px;">
+                        <asp:TextBox ID="m_txt_tu_khoa_tim_kiem" cssclass="form-control" runat="server"></asp:TextBox>
+                        <span class="input-group-addon">
+                               <span class="glyphicon-search glyphicon"></span>
+                           </span>
+				    </div>
                 </div>
                 <div class="height30">
-                    <div class="lb">Từ ngày</div>
-				    <div class="control"><asp:TextBox ID="m_txt_tu_ngay" placeholder="dd/MM/yyyy" runat="server" CssClass="cssTextBox" Width="100px"></asp:TextBox></div>
+                     <div class="lb" style="margin-right:23px">Từ ngày</div>
+                       <div id="datetimepicker1" class="input-group date" style="width: 200px;">
+                          <asp:TextBox ID="m_txt_tu_ngay" placeholder="dd/MM/yyyy" runat="server" CssClass="cssTextBox date-start" Height="30px" Width="164px"></asp:TextBox>
+                           <span class="input-group-addon">
+                               <span class="glyphicon-calendar glyphicon"></span>
+                           </span>
+                      </div>
                 </div>
-                <div class="height30">
-				    <div class="lb">Đến ngày</div>
-				    <div class="control"><asp:TextBox ID="m_txt_den_ngay" placeholder="dd/MM/yyyy" runat="server" CssClass="cssTextBox" Width="100px"></asp:TextBox></div>
+                <div class="height30" style="margin-top:6px;">
+				    <div class="lb" style="margin-right:23px">Đến ngày</div>
+                          <div id="datetimepicker2" class="input-group date" style="width: 200px;">
+                          <asp:TextBox ID="m_txt_den_ngay" placeholder="dd/MM/yyyy" runat="server" CssClass="cssTextBox  date-start" Height="30px" Width="164px"></asp:TextBox>
+                           <span class="input-group-addon">
+                               <span class="glyphicon-calendar glyphicon"></span>
+                           </span>
+                      </div>
                 </div>
             </div>
             <div>
                 <asp:Button ID="m_cmd_xem_bao_cao" Text="Xem báo cáo" runat="server" Height="24px" Width="98px" OnClick="m_cmd_xem_bao_cao_Click" />
                 <asp:Button ID="m_cmd_xuat_excel" Text="Xuất excel" runat="server" Height="24px" Width="98px" Enabled="False" />
             </div>
-            <div>
+            <div style="margin-top:6px;">
                 <asp:Label ID="m_lbl_mess" runat="server" Visible="false"></asp:Label>
             </div>
         </div>
