@@ -137,7 +137,7 @@
 		    <span style="font-weight: bold">Độc lập - Tự do - Hạnh Phúc</span>
 		    <br />
 		    <br />
-		    <span style="font-weight: bold">TỔNG HỢP ĐÃ GIAO DỰ TOÁN CHO VĂN PHÒNG TỔNG CỤC</span>
+		    <span style="font-weight: bold">TỔNG HỢP ĐÃ GIAO DỰ TOÁN CHO <asp:Label runat="server" ID="m_lbl_ten_don_vi"></asp:Label></span>
         </div>
         <div style="color:black; text-align:center; margin-top:20px;">
             <div class="divBoxControl">
