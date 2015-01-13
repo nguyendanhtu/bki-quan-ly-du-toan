@@ -48,7 +48,6 @@
         }
         .outer td, th {
           vertical-align: top;
-          width:100px;
           margin-left: -2px;
         }
         .outer th {
@@ -59,7 +58,7 @@
 
         .pinned {
           position:absolute;
-          left:0; 
+          left:0;
           width:200px;
           border-top:0px;
           background: #bcbe2c;
