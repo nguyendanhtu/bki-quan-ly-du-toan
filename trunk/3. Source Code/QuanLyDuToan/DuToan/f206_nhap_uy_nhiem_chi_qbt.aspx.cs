@@ -842,6 +842,10 @@ namespace QuanLyDuToan.DuToan
 						e.Row.Font.Bold = true;
 						return;
 					}
+					if (CIPConvert.ToDecimal(m_grv_unc.DataKeys[e.Row.RowIndex].Value)>20000)
+					{
+						return;
+					}
 					US_GD_CHI_TIET_GIAI_NGAN v_us = new US_GD_CHI_TIET_GIAI_NGAN(CIPConvert.ToDecimal(m_grv_unc.DataKeys[e.Row.RowIndex].Value));
 					DateTime v_dat_now = CIPConvert.ToDatetime(m_txt_ngay_thang.Text, "dd/MM/yyyy");
 					DateTime v_dat_dau_nam = v_dat_now.AddDays(-v_dat_now.Day + 1);
