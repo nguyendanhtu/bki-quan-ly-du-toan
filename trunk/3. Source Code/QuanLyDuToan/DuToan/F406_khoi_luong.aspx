@@ -4,25 +4,24 @@
 <%@ Import Namespace="WebDS.CDBNames" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="Server">
 	<style type="text/css">
-		.cssFontBold
-         {
+		.cssFontBold {
 			font-weight: bold;
 		}
 	</style>
-    <script>
-        function pageLoad(sender, args) {
-            if (args.get_isPartialLoad()) {
-                $('.select2').select2();
-                $(".datepicker").datepicker({ format: 'dd/mm/yyyy' });
+	<script>
+		function pageLoad(sender, args) {
+			if (args.get_isPartialLoad()) {
+				$('.select2').select2();
+				$(".datepicker").datepicker({ format: 'dd/mm/yyyy' });
 
-            }
-        }
-        $(document).ready(function () {
-            $('.select2').select2();
-            $(".datepicker").datepicker({ format: 'dd/mm/yyyy' });
-        }
+			}
+		}
+		$(document).ready(function () {
+			$('.select2').select2();
+			$(".datepicker").datepicker({ format: 'dd/mm/yyyy' });
+		}
        )
-    </script>
+	</script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="Server">
 	<asp:ScriptManager ID="ScriptManager1" runat="server">
@@ -35,7 +34,11 @@
 						<asp:Label ID="m_lbl_title" runat="server" Width="100%" Text="Nhập Giao vốn - Nguồn Quỹ bảo trì" CssClass="cssPageTitle"></asp:Label>
 					</td>
 				</tr>
-
+				<tr>
+					<td style="text-align: right">Đơn vị:</td>
+					<td colspan="2">
+						<asp:DropDownList ID="m_ddl_don_vi" CssClass="select2" runat="server" Width="200px" AutoPostBack="true" OnSelectedIndexChanged="m_ddl_don_vi_SelectedIndexChanged"></asp:DropDownList></td>
+				</tr>
 				<tr>
 					<td colspan="2">
 						<asp:Label ID="m_lbl_mess_qd" runat="server" CssClass="cssManField"></asp:Label>
@@ -54,11 +57,11 @@
 						<span>Ngày tháng</span>
 					</td>
 					<td>
-                       <div id="datetimepicker1" class="input-group date" style="width: 210px;">
-                             <asp:TextBox ID="m_txt_ngay_thang" placeholder="dd/MM/yyyy" runat="server" CssClass="cssTextBox form-control  date-start  datepicker" Height="30px" Width="171px"></asp:TextBox>
-                             <span class="input-group-addon"><span class="glyphicon-calendar glyphicon"></span>
-                             </span>
-                        </div>
+						<div id="datetimepicker1" class="input-group date" style="width: 210px;">
+							<asp:TextBox ID="m_txt_ngay_thang" placeholder="dd/MM/yyyy" runat="server" CssClass="cssTextBox form-control  date-start  datepicker" Height="30px" Width="171px"></asp:TextBox>
+							<span class="input-group-addon"><span class="glyphicon-calendar glyphicon"></span>
+							</span>
+						</div>
 						<asp:Button ID="m_cmd_xem_khoi_luong" CssClass="btn" runat="server" Text="Tải dữ liệu" OnClick="m_cmd_xem_khoi_luong_Click" />
 					</td>
 				</tr>
@@ -148,7 +151,7 @@
 							</tr>
 							<tr>
 								<td colspan="3" style="text-align: center">
-									<asp:Button ID="m_cmd_cap_nhat" runat="server" CssClass="btn"  Text="Ghi dữ liệu" OnClick="m_cmd_cap_nhat_Click" />
+									<asp:Button ID="m_cmd_cap_nhat" runat="server" CssClass="btn" Text="Ghi dữ liệu" OnClick="m_cmd_cap_nhat_Click" />
 									<asp:Button ID="m_cmd_xoa_trang" runat="server" CssClass="btn" Text="Huỷ thao tác" OnClick="m_cmd_xoa_trang_Click" />
 								</td>
 							</tr>

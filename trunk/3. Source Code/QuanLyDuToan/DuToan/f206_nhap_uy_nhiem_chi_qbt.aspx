@@ -43,16 +43,18 @@
 								<td>
 
 									<table cellspacing="0" cellpadding="2" style="width: 100%;" border="0">
+										
 										<tr>
 											<td colspan="2">
 												<asp:Label ID="m_lbl_mess_master" runat="server" CssClass="cssManField"></asp:Label></td>
 										</tr>
+
 										<tr>
 											<td style="width: 20%; text-align: right">
 												<span>Đơn vị trả tiền</span>
 											</td>
 											<td style="width: 30%">
-												<asp:Label ID="m_lbl_don_vi_tra_tien" runat="server" ForeColor="Black" Font-Bold="true"></asp:Label>
+												<asp:DropDownList ID="m_ddl_don_vi" CssClass="select2" runat="server" Width="200px" OnSelectedIndexChanged="m_ddl_don_vi_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
 											</td>
 											<td style="width: 25%"></td>
 											<td style="width: 25%"></td>

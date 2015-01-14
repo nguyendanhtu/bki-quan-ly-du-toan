@@ -113,7 +113,7 @@ namespace QuanLyDuToan.DuToan
 			US_GRID_GIAO_VON v_us = new US_GRID_GIAO_VON();
 
 			v_us.get_grid_giao_von_qbt(v_ds, ip_id_quyet_dinh,
-				Person.get_id_don_vi(), v_dat_dau_nam, v_dat_cuoi_nam,
+				CIPConvert.ToDecimal(m_ddl_don_vi.SelectedValue), v_dat_dau_nam, v_dat_cuoi_nam,
 				ip_id_loai_nhiem_vu, ip_id_cong_trinh, ip_id_du_an);
 
 			m_grv.DataSource = v_ds.Tables[0];
@@ -132,6 +132,8 @@ namespace QuanLyDuToan.DuToan
 		}
 		private void set_inital_form_mode()
 		{
+			//load dropdownlist danh sach don vi ma don vi X duoc xem du lieu
+			WinFormControls.load_data_to_ddl_don_vi_get_list_don_vi_duoc_xem_du_lieu(Person.get_id_don_vi(), m_ddl_don_vi);
 			xoa_trang();
 			load_data_to_cbo();
 			load_data_to_grid();
@@ -543,6 +545,18 @@ namespace QuanLyDuToan.DuToan
 				DateTime v_dat_cuoi_nam = v_dat_dau_nam.AddYears(1);
 				WinFormControls.load_data_to_cbo_du_an_cong_trinh_from_giao_kh(ip_loai_du_an
 					, op_ddl);
+			}
+		}
+
+		protected void m_ddl_don_vi_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			try
+			{
+				load_data_to_grid();
+			}
+			catch (Exception v_e)
+			{
+				CSystemLog_301.ExceptionHandle(this, v_e);
 			}
 		}
 

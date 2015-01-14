@@ -68,14 +68,14 @@ namespace QuanLyDuToan.DuToan
 				v_dat_dau_nam
 				, v_dat_cuoi_nam
 				, v_dat_now
-				, Person.get_id_don_vi());
+				, CIPConvert.ToDecimal(m_ddl_don_vi.SelectedValue));
 
 			//2. Load data tu grid_giao_von len luoi de sua thong tin
 			DS_GRID_GIAO_VON v_ds = new DS_GRID_GIAO_VON();
 			US_GRID_GIAO_VON v_us = new US_GRID_GIAO_VON();
 
 			v_us.get_grid_khoi_luong(v_ds
-				, Person.get_id_don_vi()
+				, CIPConvert.ToDecimal(m_ddl_don_vi.SelectedValue)
 				, v_dat_now
 				, CIPConvert.ToDecimal(m_ddl_loai_nhiem_vu.SelectedValue));
 
@@ -95,6 +95,8 @@ namespace QuanLyDuToan.DuToan
 		}
 		private void set_inital_form_mode()
 		{
+			//load dropdownlist danh sach don vi ma don vi X duoc xem du lieu
+			WinFormControls.load_data_to_ddl_don_vi_get_list_don_vi_duoc_xem_du_lieu(Person.get_id_don_vi(), m_ddl_don_vi);
 			xoa_trang();
 			load_data_to_cbo();
 			load_data_to_grid();
@@ -324,6 +326,18 @@ namespace QuanLyDuToan.DuToan
 		}
 
 		protected void m_cmd_xem_khoi_luong_Click(object sender, EventArgs e)
+		{
+			try
+			{
+				load_data_to_grid();
+			}
+			catch (Exception v_e)
+			{
+				CSystemLog_301.ExceptionHandle(this, v_e);
+			}
+		}
+
+		protected void m_ddl_don_vi_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			try
 			{

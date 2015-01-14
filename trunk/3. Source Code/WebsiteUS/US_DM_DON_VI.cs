@@ -359,6 +359,17 @@ namespace WebUS
             this.FillDataset(op_ds_don_vi, v_str_sql_condition);
         }
 
+		/*
+		 * TuDM
+		 * Load danh sach don vi ma don vi X duoc xem du lieu
+		 */
+		public void load_danh_sach_don_vi_X_duoc_xem_du_lieu(decimal ip_dc_id_don_vi, DS_DM_DON_VI op_ds)
+		{
+			CStoredProc v_sp = new CStoredProc("pr_dm_don_vi_get_list_don_vi_duoc_xem_du_lieu");
+			v_sp.addDecimalInputParam("@ip_dc_id_don_vi", ip_dc_id_don_vi);
+			v_sp.fillDataSetByCommand(this, op_ds);
+		}
+
         #endregion
     }
 }

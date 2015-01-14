@@ -616,6 +616,8 @@ namespace QuanLyDuToan.DuToan
 
 		private void set_inital_form_mode()
 		{
+			//load dropdownlist danh sach don vi ma don vi X duoc xem du lieu
+			WinFormControls.load_data_to_ddl_don_vi_get_list_don_vi_duoc_xem_du_lieu(Person.get_id_don_vi(), m_ddl_don_vi);
 			xoa_trang();
 			load_data_to_cbo_quyet_dinh();
 
@@ -1184,7 +1186,6 @@ namespace QuanLyDuToan.DuToan
 			}
 			return true;
 		}
-		// NinhVH viêt
 
 		protected void m_cmd_them_quoc_lo_Click(object sender, EventArgs e)
 		{
@@ -1296,8 +1297,19 @@ namespace QuanLyDuToan.DuToan
 			}
 		}
 
+		protected void m_ddl_don_vi_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			try
+			{
+				load_data_to_grid();
+			}
+			catch (Exception v_e)
+			{
+				CSystemLog_301.ExceptionHandle(this, v_e);
+			}
+		}
 
-		// End NinhVH
+
 
 		#endregion
 

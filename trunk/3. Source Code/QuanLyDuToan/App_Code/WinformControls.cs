@@ -230,13 +230,13 @@ namespace QuanLyDuToan.App_Code
 			op_ddl_quyet_dinh.DataBind();
 			op_ddl_quyet_dinh.Items.Insert(0, new ListItem(v_str_data_default, "-1"));
 		}
-		public static void load_data_to_cbo_dm_uy_nhiem_chi(DropDownList op_ddl, bool ip_b_is_nguon_ns)
+		public static void load_data_to_cbo_dm_uy_nhiem_chi(DropDownList op_ddl, bool ip_b_is_nguon_ns, decimal ip_dc_id_don_vi)
 		{
 			US_DM_GIAI_NGAN v_us = new WebUS.US_DM_GIAI_NGAN();
 			DS_DM_GIAI_NGAN v_ds = new DS_DM_GIAI_NGAN();
 			string v_str_is_nguon_ns = "N";
 			if (ip_b_is_nguon_ns) v_str_is_nguon_ns = "Y";
-			v_us.FillDataset(v_ds, "where id_don_vi=" + Person.get_id_don_vi() + " and is_nguon_ns_yn ='" + v_str_is_nguon_ns + "' order by ngay_thang desc");
+			v_us.FillDataset(v_ds, "where id_don_vi=" + ip_dc_id_don_vi + " and is_nguon_ns_yn ='" + v_str_is_nguon_ns + "' order by ngay_thang desc");
 			for (int i = 0; i < v_ds.DM_GIAI_NGAN.Count; i++)
 			{
 				v_ds.Tables[0].Rows[i][DM_GIAI_NGAN.SO_UNC] =
@@ -258,11 +258,13 @@ namespace QuanLyDuToan.App_Code
 			US_DM_QUYET_DINH v_us = new US_DM_QUYET_DINH();
 			string v_str_querry = "";
 			if (ip_loai_quyet_dinh == LOAI_QUYET_DINH.GIAO_VON)
-				v_str_querry = "where id_don_vi=" + v_dc_id_don_vi + " and id_loai_quyet_dinh= " + ID_LOAI_QUYET_DINH.GIAO_VON;
+				v_str_querry = "where "// id_don_vi=" + v_dc_id_don_vi 
+					+ "  id_loai_quyet_dinh= " + ID_LOAI_QUYET_DINH.GIAO_VON;
 			else if (ip_loai_quyet_dinh == LOAI_QUYET_DINH.GIAO_KE_HOACH)
-				v_str_querry = "where id_don_vi=" + v_dc_id_don_vi + " and id_loai_quyet_dinh= " + ID_LOAI_QUYET_DINH.GIAO_KE_HOACH;
+				v_str_querry = "where "//id_don_vi=" + v_dc_id_don_vi 
+					+ " id_loai_quyet_dinh= " + ID_LOAI_QUYET_DINH.GIAO_KE_HOACH;
 			else if (ip_loai_quyet_dinh == LOAI_QUYET_DINH.TAT_CA)
-				v_str_querry = "where id_don_vi=" + v_dc_id_don_vi;
+				v_str_querry = "where";// id_don_vi=" + v_dc_id_don_vi;
 			v_str_querry += " order by ngay_thang desc";
 			v_us.FillDataset(v_ds, v_str_querry);
 			for (int v = 0; v < v_ds.DM_QUYET_DINH.Count; v++)
@@ -476,7 +478,16 @@ namespace QuanLyDuToan.App_Code
 
 		#endregion
 
-
+		public static void load_data_to_ddl_don_vi_get_list_don_vi_duoc_xem_du_lieu(decimal ip_dc_id_don_vi, DropDownList op_ddl)
+		{
+			DS_DM_DON_VI v_ds=new DS_DM_DON_VI();
+			US_DM_DON_VI v_us=new US_DM_DON_VI();
+			v_us.load_danh_sach_don_vi_X_duoc_xem_du_lieu(ip_dc_id_don_vi,v_ds);
+			op_ddl.DataValueField = DM_DON_VI.ID;
+			op_ddl.DataTextField = DM_DON_VI.TEN_DON_VI;
+			op_ddl.DataSource = v_ds.DM_DON_VI;
+			op_ddl.DataBind();
+		}
 
 		public static DateTime get_dau_nam_form_date(DateTime ip_dat)
 		{

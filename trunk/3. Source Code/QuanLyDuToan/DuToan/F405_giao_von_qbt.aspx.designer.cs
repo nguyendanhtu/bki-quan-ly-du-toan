@@ -49,6 +49,15 @@ namespace QuanLyDuToan.DuToan {
         protected global::System.Web.UI.WebControls.Panel m_pnl_thong_tin_ve_qd_giao_ke_hoach;
         
         /// <summary>
+        /// m_ddl_don_vi control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList m_ddl_don_vi;
+        
+        /// <summary>
         /// m_lbl_mess_qd control.
         /// </summary>
         /// <remarks>
