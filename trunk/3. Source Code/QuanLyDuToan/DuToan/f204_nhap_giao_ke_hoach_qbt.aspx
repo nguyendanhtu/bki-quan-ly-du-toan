@@ -15,10 +15,10 @@
 		$(document).ready(function () {
 
 			$("#<%=m_txt_so_tien.ClientID%>").bind({
-				blur: function () { $(this).val(tinhTongChiTx()); }
+				blur: function () { tinhTongChiTx(); }
 			});
 			$("#<%=m_txt_so_tien_nam_truoc_chuyen_sang.ClientID%>").bind({
-				blur: function () { $(this).val(tinhTongChiTx()); }
+				blur: function () { tinhTongChiTx(); }
 			});
 		    $('.select2').select2();
 		    $("#<%=m_txt_ngay_thang.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
@@ -27,10 +27,10 @@
 			if (args.get_isPartialLoad()) {
 
 				$("#<%=m_txt_so_tien.ClientID%>").bind({
-					blur: function () { $(this).val(tinhTongChiTx()); }
+					blur: function () { tinhTongChiTx(); }
 				});
 				$("#<%=m_txt_so_tien_nam_truoc_chuyen_sang.ClientID%>").bind({
-					blur: function () { $(this).val(tinhTongChiTx()); }
+					blur: function () {tinhTongChiTx(); }
 				});
 			    $('.select2').select2();
 			    $("#<%=m_txt_ngay_thang.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
