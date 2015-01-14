@@ -49,13 +49,13 @@ namespace QuanLyDuToan.DuToan {
         protected global::System.Web.UI.WebControls.Label m_lbl_mess_master;
         
         /// <summary>
-        /// m_lbl_don_vi_tra_tien control.
+        /// m_ddl_don_vi control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label m_lbl_don_vi_tra_tien;
+        protected global::System.Web.UI.WebControls.DropDownList m_ddl_don_vi;
         
         /// <summary>
         /// m_lbl_dia_chi control.
