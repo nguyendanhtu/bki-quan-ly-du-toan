@@ -148,24 +148,6 @@ namespace QuanLyDuToan.DuToan {
         protected global::System.Web.UI.WebControls.TextBox m_txt_noi_dung;
         
         /// <summary>
-        /// m_cmd_luu_qd control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button m_cmd_luu_qd;
-        
-        /// <summary>
-        /// m_cmd_nhap_qd_moi control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button m_cmd_nhap_qd_moi;
-        
-        /// <summary>
         /// m_hdf_id_quyet_dinh control.
         /// </summary>
         /// <remarks>

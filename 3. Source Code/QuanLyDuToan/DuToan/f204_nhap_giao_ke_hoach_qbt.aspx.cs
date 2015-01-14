@@ -611,7 +611,7 @@ namespace QuanLyDuToan.DuToan
 			m_txt_so_qd.Enabled = false;
 			m_txt_noi_dung.Enabled = false;
 			m_txt_ngay_thang.Enabled = false;
-			m_cmd_luu_qd.Visible = false;
+			//m_cmd_luu_qd.Visible = false;
 		}
 
 		private void set_inital_form_mode()
@@ -1029,7 +1029,7 @@ namespace QuanLyDuToan.DuToan
 			m_txt_so_qd.Visible = false;
 			m_txt_noi_dung.Visible = false;
 			m_txt_ngay_thang.Visible = false;
-			m_cmd_luu_qd.Visible = false;
+			//m_cmd_luu_qd.Visible = false;
 
 			//reload_data_to_ddl();
 
@@ -1093,7 +1093,7 @@ namespace QuanLyDuToan.DuToan
 			m_txt_noi_dung.Visible = true;
 			m_txt_ngay_thang.Visible = true;
 
-			m_cmd_luu_qd.Visible = true;
+			//m_cmd_luu_qd.Visible = true;
 
 			m_txt_so_qd.Text = "";
 			m_txt_noi_dung.Text = "";

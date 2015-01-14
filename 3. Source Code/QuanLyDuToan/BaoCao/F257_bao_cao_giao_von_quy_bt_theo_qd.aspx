@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="F257_bao_cao_giao_von_quy_bt_theo_qd.aspx.cs" Inherits="QuanLyDuToan.BaoCao.F257_bao_cao_giao_von" %>
 <%@ Import Namespace="IP.Core.IPCommon" %>
 <%@ Import Namespace="WebDS.CDBNames" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
+<asp:Content ID="Content1" ContentPlaceHolderID="HeaBdContent" runat="server">
      <style type="text/css">
 		.cssGrid tr td {
 			padding: 0px;
