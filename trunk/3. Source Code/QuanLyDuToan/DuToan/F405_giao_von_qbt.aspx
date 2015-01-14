@@ -88,8 +88,8 @@
 								<tr>
 									<td></td>
 									<td colspan="1">
-										<asp:Button ID="m_cmd_luu_qd" CssClass="btn" Text="Lưu QĐ" runat="server" OnClick="m_cmd_luu_qd_Click" />
-										<asp:Button ID="m_cmd_nhap_qd_moi" CssClass="btn" Text="Nhập QĐ mới" runat="server" OnClick="m_cmd_nhap_qd_moi_Click" />
+										<%--<asp:Button ID="m_cmd_luu_qd" CssClass="btn" Text="Lưu QĐ" runat="server" OnClick="m_cmd_luu_qd_Click" />
+										<asp:Button ID="m_cmd_nhap_qd_moi" CssClass="btn" Text="Nhập QĐ mới" runat="server" OnClick="m_cmd_nhap_qd_moi_Click" />--%>
 										<asp:HiddenField ID="m_hdf_id_quyet_dinh" runat="server" />
 										<asp:HiddenField ID="m_hdf_form_mode" runat="server" />
 									</td>

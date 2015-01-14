@@ -70,7 +70,7 @@ namespace QuanLyDuToan.DuToan
 			m_txt_so_qd.Enabled = false;
 			m_txt_noi_dung.Enabled = false;
 			m_txt_ngay_thang.Enabled = false;
-			m_cmd_luu_qd.Visible = false;
+			//m_cmd_luu_qd.Visible = false;
 		}
 
 		private void load_data_to_grid()
@@ -297,7 +297,7 @@ namespace QuanLyDuToan.DuToan
 			m_txt_so_qd.Visible = false;
 			m_txt_noi_dung.Visible = false;
 			m_txt_ngay_thang.Visible = false;
-			m_cmd_luu_qd.Visible = false;
+			//m_cmd_luu_qd.Visible = false;
 		}
 
 		private void load_data_when_quyet_dinh_is_selected()
@@ -356,7 +356,7 @@ namespace QuanLyDuToan.DuToan
 			m_txt_noi_dung.Visible = true;
 			m_txt_ngay_thang.Visible = true;
 
-			m_cmd_luu_qd.Visible = true;
+			//m_cmd_luu_qd.Visible = true;
 
 			m_txt_so_qd.Text = "";
 			m_txt_noi_dung.Text = "";
