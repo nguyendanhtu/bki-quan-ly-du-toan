@@ -5,7 +5,6 @@
         <style type="text/css">
 		.cssGrid tr td {
 			padding: 0px;
-            text-align:left;
 		}
 
 	    .boxControl {
@@ -65,7 +64,6 @@
                 $("#<%=m_txt_tu_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
                 $("#<%=m_txt_den_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
                 $("#<%=m_ddl_quyet_dinh.ClientID%>").appendTo(".header_quyet_dinh");
-                $("#<%=m_ddl_quyet_dinh.ClientID%>").hide();
             }
         }
         $(document).ready(function () {
@@ -75,8 +73,7 @@
             $("#<%=m_txt_tu_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
             $("#<%=m_txt_den_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
             $("#<%=m_ddl_quyet_dinh.ClientID%>").appendTo(".header_quyet_dinh");
-            $("#<%=m_ddl_quyet_dinh.ClientID%>").hide();          }
-       )
+        });
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
@@ -140,7 +137,7 @@
 				<tr>
 
 					<td colspan="4" style="text-align: center">
-						<asp:Button classcss="btn" ID="m_cmd_xem_bao_cao" Text="Xem báo cáo" runat="server" />
+						<asp:Button classcss="btn" ID="m_cmd_xem_bao_cao" Text="Xem báo cáo" runat="server" OnClick="m_cmd_xem_bao_cao_Click" />
 						<asp:Button classcss="btn" ID="m_cmd_xuat_excel" Text="Xuất excel" runat="server" />
 					</td>
 				</tr>
@@ -159,14 +156,12 @@
 							HeaderStyle-Height="65px" RowStyle-Height="28px" EnableModelValidation="True">
 
 							<Columns>
-							    <asp:BoundField HeaderText="Nội dung">
+							    <asp:BoundField HeaderText="Nội dung" DataField="noi_dung">
                                 <HeaderStyle HorizontalAlign="Center" />
                                 </asp:BoundField>
-                                <asp:BoundField HeaderText="Tổng tiền">
-                                <HeaderStyle HorizontalAlign="Center" />
-                                </asp:BoundField>
-                                <asp:BoundField HeaderText="Quyết định">
-                                <HeaderStyle HorizontalAlign="Center" CssClass="header_quyet_dinh"/>
+                                <asp:BoundField DataField="tong_tien_qd" DataFormatString="{0:N0}">
+                                <HeaderStyle HorizontalAlign="Center" CssClass="header_quyet_dinh" />
+                                <ItemStyle HorizontalAlign="Right" Width="30%" />
                                 </asp:BoundField>
 							</Columns>
 						    <HeaderStyle Height="65px" />

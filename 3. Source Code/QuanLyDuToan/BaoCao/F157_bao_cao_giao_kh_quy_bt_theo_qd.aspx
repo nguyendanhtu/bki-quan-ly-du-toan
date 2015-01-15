@@ -5,7 +5,6 @@
     <style type="text/css">
 		.cssGrid tr td {
 			padding: 0px;
-            text-align:left;
 		}
 
 	    .boxControl {
@@ -65,7 +64,7 @@
                 $("#<%=m_txt_tu_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
                 $("#<%=m_txt_den_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
                 $("#<%=m_ddl_quyet_dinh.ClientID%>").appendTo(".header_quyet_dinh");
-                $("#<%=m_ddl_quyet_dinh.ClientID%>").hide();
+                //$("#<%=m_ddl_quyet_dinh.ClientID%>").hide();
             }
         }
         $(document).ready(function () {
@@ -75,7 +74,7 @@
             $("#<%=m_txt_tu_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
             $("#<%=m_txt_den_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
             $("#<%=m_ddl_quyet_dinh.ClientID%>").appendTo(".header_quyet_dinh");
-            $("#<%=m_ddl_quyet_dinh.ClientID%>").hide(); 
+            //$("#<%=m_ddl_quyet_dinh.ClientID%>").hide(); 
         }
        )
     </script>
@@ -103,11 +102,11 @@
                             <div class="boxControl">
                                 <div class="height30">
                                     <div class="lb">Loại nhiệm vụ</div>
-                                    <div class="control"><asp:DropDownList ID="m_ddl_loai_nv" runat="server" Width="100px" AutoPostBack="True" cssclass="select2"></asp:DropDownList></div>
+                                    <div class="control"><asp:DropDownList ID="m_ddl_loai_nv" runat="server" Width="100px" AutoPostBack="True" cssclass="select2" OnSelectedIndexChanged="m_ddl_loai_nv_SelectedIndexChanged"></asp:DropDownList></div>
                                 </div>
                                 <div class="height30">
                                     <div class="lb">Công trình</div>
-                                    <div class="control"><asp:DropDownList ID="m_ddl_cong_trinh" runat="server" Width="100px" AutoPostBack="True" cssclass="selec2"></asp:DropDownList></div>
+                                    <div class="control"><asp:DropDownList ID="m_ddl_cong_trinh" runat="server" Width="100px" AutoPostBack="True" cssclass="selec2" OnSelectedIndexChanged="m_ddl_cong_trinh_SelectedIndexChanged"></asp:DropDownList></div>
                                 </div>
                                 <div class="height30">
                                     <div class="lb">Dự án</div>
@@ -141,7 +140,7 @@
 				<tr>
 
 					<td colspan="4" style="text-align: center">
-						<asp:Button classcss="btn" ID="m_cmd_xem_bao_cao" Text="Xem báo cáo" runat="server" />
+						<asp:Button classcss="btn" ID="m_cmd_xem_bao_cao" Text="Xem báo cáo" runat="server" OnClick="m_cmd_xem_bao_cao_Click" />
 						<asp:Button classcss="btn" ID="m_cmd_xuat_excel" Text="Xuất excel" runat="server" />
 					</td>
 				</tr>
@@ -160,14 +159,12 @@
 							HeaderStyle-Height="65px" RowStyle-Height="28px" EnableModelValidation="True">
 
 							<Columns>
-							    <asp:BoundField HeaderText="Nội dung">
+							    <asp:BoundField HeaderText="Nội dung" DataField="noi_dung">
                                 <HeaderStyle HorizontalAlign="Center" />
                                 </asp:BoundField>
-                                <asp:BoundField HeaderText="Tổng tiền">
-                                <HeaderStyle HorizontalAlign="Center" />
-                                </asp:BoundField>
-                                <asp:BoundField HeaderText="Quyết định">
-                                <HeaderStyle HorizontalAlign="Center" CssClass="header_quyet_dinh" />
+                                <asp:BoundField DataField="tong_tien_theo_qd" DataFormatString="{0:N0}">
+                                <HeaderStyle HorizontalAlign="Center" CssClass="header_quyet_dinh" Width="30%" />
+                                <ItemStyle HorizontalAlign="Right" />
                                 </asp:BoundField>
 							</Columns>
 						    <HeaderStyle Height="65px" />

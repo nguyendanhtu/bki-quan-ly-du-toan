@@ -339,6 +339,7 @@ namespace QuanLyDuToan.App_Code
 			, DateTime ip_dat_den_ngay
 			, string ip_str_tu_khoa
 			, eTAT_CA ip_e_tat_ca
+            , string ip_str_proc
 			, DropDownList ip_obj_cbo_quyet_dinh)
 		{
 
@@ -346,26 +347,30 @@ namespace QuanLyDuToan.App_Code
 
 			US_DM_QUYET_DINH v_us_dm_quyet_dinh = new US_DM_QUYET_DINH();
 			DS_DM_QUYET_DINH v_ds_dm_quyet_dinh = new DS_DM_QUYET_DINH();
+            DataSet v_ds = new DataSet();
+            DataTable v_dt = new DataTable();
+            v_ds.Tables.Add(v_dt);
 
 			string v_str_user_name = HttpContext.Current.Session[SESSION.UserName].ToString();
 
-
+            v_ds_dm_quyet_dinh.EnforceConstraints = false;
 			v_us_dm_quyet_dinh.get_ds_quyet_dinh(
-				v_ds_dm_quyet_dinh
+                v_ds
 				, ip_dc_id_don_vi
 			, ip_dc_id_loai_nhiem_vu
 			, ip_dc_id_cong_trinh
 			, ip_dc_id_du_an
 			, ip_dat_tu_ngay
 			, ip_dat_den_ngay
-			, ip_str_tu_khoa);
+			, ip_str_tu_khoa
+            , ip_str_proc);
 
-			DataView v_dv_quyet_dinh = v_ds_dm_quyet_dinh.DM_QUYET_DINH.DefaultView;
-			v_dv_quyet_dinh.Sort = DM_QUYET_DINH.SO_QUYET_DINH + " ASC";
+            DataView v_dv_quyet_dinh = v_ds.Tables[0].DefaultView;
+			//v_dv_quyet_dinh.Sort = DM_QUYET_DINH.SO_QUYET_DINH + " ASC";
 
 
 			ip_obj_cbo_quyet_dinh.DataSource = v_dv_quyet_dinh.ToTable();
-			ip_obj_cbo_quyet_dinh.DataTextField = DM_QUYET_DINH.SO_QUYET_DINH;
+            ip_obj_cbo_quyet_dinh.DataTextField = DM_QUYET_DINH.SO_QUYET_DINH;
 			ip_obj_cbo_quyet_dinh.DataValueField = DM_QUYET_DINH.ID;
 			ip_obj_cbo_quyet_dinh.DataBind();
 

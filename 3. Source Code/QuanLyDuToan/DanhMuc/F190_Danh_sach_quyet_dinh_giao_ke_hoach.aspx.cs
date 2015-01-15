@@ -86,7 +86,8 @@ namespace QuanLyDuToan.DanhMuc
 				, v_dc_id_du_an
 				, v_dat_tu_ngay
 				, v_dat_den_ngay,
-				m_txt_tu_khoa_tim_kiem.Text.Trim());
+				m_txt_tu_khoa_tim_kiem.Text.Trim(),
+                "pr_A190_danh_sach_quyet_dinh_giao_kh");
 			m_grv_bao_cao_giao_von.DataSource = v_ds.Tables[0];
 			m_grv_bao_cao_giao_von.DataBind();
 

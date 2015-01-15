@@ -1006,5 +1006,57 @@ namespace WebUS
 			v_prc.addNVarcharInputParam("@ip_nguon_ns", ip_str_nguon_ns);
 			v_prc.fillDataSetByCommand(this, ip_ds);
 		}
+
+        public void FillData2Dataset(
+            DataSet ip_ds,
+            DateTime ip_dat_tu_ngay,
+            DateTime ip_dat_den_ngay,
+            decimal ip_dc_id_don_vi,
+            decimal ip_dc_id_loai_nhiem_vu,
+            decimal ip_dc_id_cong_trinh,
+            decimal ip_dc_id_du_an,
+            string ip_str_tu_khoa,
+            string ip_str_nguon_ns,
+            decimal ip_dc_id_quyet_dinh,
+            string ip_str_proc)
+        {
+            CStoredProc v_prc = new CStoredProc(ip_str_proc);
+            v_prc.addDatetimeInputParam("@ip_dat_tu_ngay", ip_dat_tu_ngay);
+            v_prc.addDatetimeInputParam("@ip_dat_den_ngay", ip_dat_den_ngay);
+            v_prc.addDecimalInputParam("@ip_dc_id_don_vi", ip_dc_id_don_vi);
+            v_prc.addDecimalInputParam("@ip_dc_id_loai_nhiem_vu", ip_dc_id_loai_nhiem_vu);
+            v_prc.addDecimalInputParam("@ip_dc_id_cong_trinh", ip_dc_id_cong_trinh);
+            v_prc.addDecimalInputParam("@ip_dc_id_du_an", ip_dc_id_du_an);
+            v_prc.addNVarcharInputParam("@ip_str_tu_khoa", ip_str_tu_khoa);
+            v_prc.addNVarcharInputParam("@ip_nguon_ns", ip_str_nguon_ns);
+            v_prc.addDecimalInputParam("@ip_dc_id_quyet_dinh", ip_dc_id_quyet_dinh);
+            v_prc.fillDataSetByCommand(this, ip_ds);
+        }
+
+        public void FillData2DatasetGiaiNgan(
+            DataSet ip_ds,
+            DateTime ip_dat_tu_ngay,
+            DateTime ip_dat_den_ngay,
+            decimal ip_dc_id_don_vi,
+            decimal ip_dc_id_loai_nhiem_vu,
+            decimal ip_dc_id_cong_trinh,
+            decimal ip_dc_id_du_an,
+            string ip_str_tu_khoa,
+            string ip_str_nguon_ns,
+            decimal ip_dc_id_giai_ngan,
+            string ip_str_proc)
+        {
+            CStoredProc v_prc = new CStoredProc(ip_str_proc);
+            v_prc.addDatetimeInputParam("@ip_dat_tu_ngay", ip_dat_tu_ngay);
+            v_prc.addDatetimeInputParam("@ip_dat_den_ngay", ip_dat_den_ngay);
+            v_prc.addDecimalInputParam("@ip_dc_id_don_vi", ip_dc_id_don_vi);
+            v_prc.addDecimalInputParam("@ip_dc_id_loai_nhiem_vu", ip_dc_id_loai_nhiem_vu);
+            v_prc.addDecimalInputParam("@ip_dc_id_cong_trinh", ip_dc_id_cong_trinh);
+            v_prc.addDecimalInputParam("@ip_dc_id_du_an", ip_dc_id_du_an);
+            v_prc.addNVarcharInputParam("@ip_str_tu_khoa", ip_str_tu_khoa);
+            v_prc.addNVarcharInputParam("@ip_nguon_ns", ip_str_nguon_ns);
+            v_prc.addDecimalInputParam("@ip_dc_id_giai_ngan", ip_dc_id_giai_ngan);
+            v_prc.fillDataSetByCommand(this, ip_ds);
+        }
 	}
 }
