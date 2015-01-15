@@ -680,11 +680,13 @@ namespace WebUS
 		public void bc_tinh_hinh_giai_ngan_tong_cuc(DataSet op_ds
 				, DateTime ip_dat_tu_ngay
 				, DateTime ip_dat_den_ngay
+                , DateTime ip_dat_dau_nam
 				, decimal ip_dc_user_id)
 		{
 			CStoredProc v_sp = new CStoredProc("pr_A530_Bao_cao_tong_hop_hinh_hinh_giai_ngan");
 			v_sp.addDatetimeInputParam("@ip_dat_tu_ngay", ip_dat_tu_ngay);
 			v_sp.addDatetimeInputParam("@ip_dat_den_ngay", ip_dat_den_ngay);
+            v_sp.addDatetimeInputParam("@ip_dat_dau_nam", ip_dat_dau_nam);
 			v_sp.addDecimalInputParam("@ip_dc_id_user", ip_dc_user_id);
 			v_sp.fillDataSetByCommand(this, op_ds);
 		}
