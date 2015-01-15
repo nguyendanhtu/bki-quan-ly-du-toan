@@ -949,7 +949,8 @@ namespace WebUS
 			, DateTime ip_dat_tu_ngay
 			, DateTime ip_dat_den_ngay
 			, string ip_str_tu_khoa
-			,string ip_str_nguon_ns)
+			,string ip_str_nguon_ns
+            ,decimal ip_dc_id_quyet_dinh)
 		{
 			CStoredProc v_prc = new CStoredProc("pr_A156_giao_ke_hoach_theo_quyet_dinh");
 			v_prc.addDecimalInputParam("@ip_dc_id_don_vi", ip_id_don_vi);
@@ -960,6 +961,7 @@ namespace WebUS
 			v_prc.addDatetimeInputParam("@ip_dat_den_ngay", ip_dat_den_ngay);
 			v_prc.addNVarcharInputParam("@ip_str_tu_khoa", ip_str_tu_khoa);
 			v_prc.addNVarcharInputParam("@ip_nguon_ns", ip_str_nguon_ns);
+            v_prc.addDecimalInputParam("@ip_dc_id_quyet_dinh", ip_dc_id_quyet_dinh);
 			v_prc.fillDataSetByCommand(this, ip_ds);
 		}
 		public void bc_giao_von_quy_bao_tri_theo_qd(DataSet ip_ds
