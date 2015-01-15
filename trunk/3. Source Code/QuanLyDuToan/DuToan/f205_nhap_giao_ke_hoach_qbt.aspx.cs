@@ -49,19 +49,19 @@ namespace QuanLyDuToan.DuToan
 		{
 			try
 			{
-                decimal v_id_dc_loai = 1;
+                //decimal v_id_dc_loai = 1;
                 decimal v_id_dc_reported_user;
                 // Chú thích: id_dc_loai = 1 - Loại dự án
                 //            id_dc_loai = 2 - CLKM
                 //Kiểm tra xem thuộc loại nào:
-                if (m_rdb_theo_quoc_lo.Checked == true)
-                {
-                    v_id_dc_loai = 1;
-                }
-                if (m_rdb_theo_chuong_loai_khoan_muc.Checked == true)
-                {
-                    v_id_dc_loai = 2;
-                }
+				//if (m_rdb_theo_quoc_lo.Checked == true)
+				//{
+				//	v_id_dc_loai = 1;
+				//}
+				//if (m_rdb_theo_chuong_loai_khoan_muc.Checked == true)
+				//{
+				//	v_id_dc_loai = 2;
+				//}
                 //Lấy id_reported_user
                 v_id_dc_reported_user = Person.get_user_id();
 				//1. Get dataset
@@ -90,7 +90,7 @@ namespace QuanLyDuToan.DuToan
 				{
 					v_str_is_nguon_ns = "Y";
 				}
-				v_us.get_grid_giao_kh_qbt(v_ds, v_dc_id_quyet_dinh, v_str_is_nguon_ns, v_id_dc_reported_user, v_id_dc_loai);
+				v_us.get_grid_giao_kh_qbt(v_ds, v_dc_id_quyet_dinh, v_str_is_nguon_ns, v_id_dc_reported_user);
 				m_grv.DataSource = v_ds.Tables[0];
 				m_grv.DataBind();
 				if (!m_hdf_id_giao_kh.Value.Equals(""))
