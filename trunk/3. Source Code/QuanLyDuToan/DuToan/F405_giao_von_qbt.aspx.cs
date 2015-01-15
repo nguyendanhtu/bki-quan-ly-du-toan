@@ -69,7 +69,7 @@ namespace QuanLyDuToan.DuToan
 		{
 			m_txt_so_qd.Enabled = false;
 			m_txt_noi_dung.Enabled = false;
-			m_txt_ngay_thang.Enabled = false;
+			//m_txt_ngay_thang.Enabled = false;
 			//m_cmd_luu_qd.Visible = false;
 		}
 
@@ -86,6 +86,17 @@ namespace QuanLyDuToan.DuToan
 			//var v_id_du_an = string.IsNullOrEmpty(m_ddl_du_an.SelectedValue) ? -1 : CIPConvert.ToDecimal(m_ddl_du_an.SelectedValue);
 
 			load_data_to_grid(v_dc_id_quyet_dinh, v_id_loai_nv, -1, -1);
+			//Neu khong phai don vi minh, thi khong duoc sua du lieu
+			if (m_ddl_don_vi.SelectedValue != Person.get_id_don_vi().ToString())
+			{
+				m_cmd_cap_nhat.Visible = false;
+				m_cmd_xoa_trang.Visible = false;
+			}
+			else
+			{
+				m_cmd_cap_nhat.Visible = true;
+				m_cmd_xoa_trang.Visible = true;
+			}
 		}
 
 		private void load_data_to_grid(decimal ip_id_quyet_dinh, decimal ip_id_loai_nhiem_vu = -1,
@@ -230,20 +241,20 @@ namespace QuanLyDuToan.DuToan
 		private decimal insert_quyet_dinh()
 		{
 			US_DM_QUYET_DINH v_us = new US_DM_QUYET_DINH();
-			if (m_rdb_kh_dau_nam.Checked == true)
-			{
-				v_us.dcID_LOAI_QUYET_DINH_GIAO = ID_LOAI_GIAO_DICH.KH_DAU_NAM;
-			}
-			else if (m_rdb_bo_sung.Checked == true)
-			{
-				v_us.dcID_LOAI_QUYET_DINH_GIAO = ID_LOAI_GIAO_DICH.BO_SUNG;
-			}
-			else v_us.dcID_LOAI_QUYET_DINH_GIAO = ID_LOAI_GIAO_DICH.DIEU_CHINH;
+			//if (m_rdb_kh_dau_nam.Checked == true)
+			//{
+			//	v_us.dcID_LOAI_QUYET_DINH_GIAO = ID_LOAI_GIAO_DICH.KH_DAU_NAM;
+			//}
+			//else if (m_rdb_bo_sung.Checked == true)
+			//{
+			//	v_us.dcID_LOAI_QUYET_DINH_GIAO = ID_LOAI_GIAO_DICH.BO_SUNG;
+			//}
+			//else v_us.dcID_LOAI_QUYET_DINH_GIAO = ID_LOAI_GIAO_DICH.DIEU_CHINH;
 			v_us.dcID_DON_VI = Person.get_id_don_vi();
 			v_us.dcID_LOAI_QUYET_DINH = ID_LOAI_QUYET_DINH.GIAO_VON;
 			v_us.strNOI_DUNG = m_txt_noi_dung.Text.Trim();
 			v_us.strSO_QUYET_DINH = m_txt_so_qd.Text.Trim();
-			v_us.datNGAY_THANG = CIPConvert.ToDatetime(m_txt_ngay_thang.Text.Trim(), "dd/MM/yyyy");
+			//v_us.datNGAY_THANG = CIPConvert.ToDatetime(m_txt_ngay_thang.Text.Trim(), "dd/MM/yyyy");
 			v_us.Insert();
 			return v_us.dcID;
 		}
@@ -252,7 +263,7 @@ namespace QuanLyDuToan.DuToan
 		{
 			m_txt_so_qd.Enabled = false;
 			m_txt_noi_dung.Enabled = false;
-			m_txt_ngay_thang.Enabled = false;
+			//m_txt_ngay_thang.Enabled = false;
 		}
 
 		private bool check_data_quyet_dinh_is_ok()
@@ -269,23 +280,23 @@ namespace QuanLyDuToan.DuToan
 				m_txt_noi_dung.Focus();
 				return false;
 			}
-			if (m_txt_ngay_thang.Text.Trim().Equals(""))
-			{
-				m_lbl_mess_qd.Text = "Bạn phải nhập Ngày tháng!";
-				m_txt_ngay_thang.Focus();
-				return false;
-			}
+			//if (m_txt_ngay_thang.Text.Trim().Equals(""))
+			//{
+			//	m_lbl_mess_qd.Text = "Bạn phải nhập Ngày tháng!";
+			//	m_txt_ngay_thang.Focus();
+			//	return false;
+			//}
 			DateTime v_dat_ngay_thang = DateTime.Now;
-			try
-			{
-				v_dat_ngay_thang = CIPConvert.ToDatetime(m_txt_ngay_thang.Text.Trim());
-			}
-			catch (Exception)
-			{
-				m_lbl_mess_qd.Text = "Bạn phải nhập Ngày tháng!";
-				m_txt_ngay_thang.Focus();
-				return false;
-			}
+			//try
+			//{
+			//	v_dat_ngay_thang = CIPConvert.ToDatetime(m_txt_ngay_thang.Text.Trim());
+			//}
+			//catch (Exception)
+			//{
+			//	m_lbl_mess_qd.Text = "Bạn phải nhập Ngày tháng!";
+			//	m_txt_ngay_thang.Focus();
+			//	return false;
+			//}
 			return true;
 		}
 
@@ -296,21 +307,22 @@ namespace QuanLyDuToan.DuToan
 			m_ddl_quyet_dinh.Visible = true;
 			m_txt_so_qd.Visible = false;
 			m_txt_noi_dung.Visible = false;
-			m_txt_ngay_thang.Visible = false;
+			//m_txt_ngay_thang.Visible = false;
 			//m_cmd_luu_qd.Visible = false;
 		}
 
 		private void load_data_when_quyet_dinh_is_selected()
 		{
-			m_txt_so_qd.Visible = true;
+			m_txt_so_qd.Visible = false;
 			m_txt_noi_dung.Visible = true;
-			m_txt_ngay_thang.Visible = true;
+			//m_txt_ngay_thang.Visible = true;
 
 			disable_edit_quyet_dinh();
 			US_DM_QUYET_DINH v_us = new US_DM_QUYET_DINH(CIPConvert.ToDecimal(m_ddl_quyet_dinh.SelectedValue)); ;
 			m_txt_so_qd.Text = v_us.strSO_QUYET_DINH;
 			m_txt_noi_dung.Text = v_us.strNOI_DUNG;
-			m_txt_ngay_thang.Text = CIPConvert.ToStr(v_us.datNGAY_THANG, "dd/MM/yyyy");
+			//m_txt_ngay_thang.Text = CIPConvert.ToStr(v_us.datNGAY_THANG, "dd/MM/yyyy");
+			m_lbl_ngay_thang.Text = CIPConvert.ToStr(v_us.datNGAY_THANG, "dd/MM/yyyy");
 
 			//reload_data_to_ddl();
 			load_data_to_grid();
@@ -319,27 +331,30 @@ namespace QuanLyDuToan.DuToan
 		protected void m_ddl_quyet_dinh_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			if (m_ddl_quyet_dinh.SelectedValue == null) return;
-			m_ddl_quyet_dinh.Visible = false;
+			m_ddl_quyet_dinh.Visible = true;
 			m_hdf_id_quyet_dinh.Value = m_ddl_quyet_dinh.SelectedValue;
 			load_data_when_quyet_dinh_is_selected();
 			US_DM_QUYET_DINH v_us = new US_DM_QUYET_DINH(CIPConvert.ToDecimal(m_ddl_quyet_dinh.SelectedValue));
 			if (v_us.dcID_LOAI_QUYET_DINH_GIAO == ID_LOAI_GIAO_DICH.KH_DAU_NAM)
 			{
-				m_rdb_kh_dau_nam.Checked = true;
-				m_rdb_dieu_chinh.Checked = false;
-				m_rdb_bo_sung.Checked = false;
+				//m_rdb_kh_dau_nam.Checked = true;
+				//m_rdb_dieu_chinh.Checked = false;
+				//m_rdb_bo_sung.Checked = false;
+				m_lbl_loai_quyet_dinh.Text = "Đầu năm";
 			}
 			else if (v_us.dcID_LOAI_QUYET_DINH_GIAO == ID_LOAI_GIAO_DICH.BO_SUNG)
 			{
-				m_rdb_kh_dau_nam.Checked = false;
-				m_rdb_dieu_chinh.Checked = false;
-				m_rdb_bo_sung.Checked = true;
+				//m_rdb_kh_dau_nam.Checked = false;
+				//m_rdb_dieu_chinh.Checked = false;
+				//m_rdb_bo_sung.Checked = true;
+				m_lbl_loai_quyet_dinh.Text = "Bổ sung";
 			}
 			else if (v_us.dcID_LOAI_QUYET_DINH_GIAO == ID_LOAI_GIAO_DICH.DIEU_CHINH)
 			{
-				m_rdb_kh_dau_nam.Checked = false;
-				m_rdb_dieu_chinh.Checked = true;
-				m_rdb_bo_sung.Checked = false;
+				//m_rdb_kh_dau_nam.Checked = false;
+				//m_rdb_dieu_chinh.Checked = true;
+				//m_rdb_bo_sung.Checked = false;
+				m_lbl_loai_quyet_dinh.Text = "Điều chỉnh";
 			}
 
 		}
@@ -347,20 +362,20 @@ namespace QuanLyDuToan.DuToan
 		{
 			m_hdf_id_quyet_dinh.Value = "";
 
-			m_ddl_quyet_dinh.Visible = false;
+			m_ddl_quyet_dinh.Visible = true;
 			m_txt_so_qd.Enabled = true;
 			m_txt_noi_dung.Enabled = true;
-			m_txt_ngay_thang.Enabled = true;
+			//m_txt_ngay_thang.Enabled = true;
 
-			m_txt_so_qd.Visible = true;
+			m_txt_so_qd.Visible = false;
 			m_txt_noi_dung.Visible = true;
-			m_txt_ngay_thang.Visible = true;
+			//m_txt_ngay_thang.Visible = true;
 
 			//m_cmd_luu_qd.Visible = true;
 
 			m_txt_so_qd.Text = "";
 			m_txt_noi_dung.Text = "";
-			m_txt_ngay_thang.Text = "";
+			//m_txt_ngay_thang.Text = "";
 
 		}
 		protected void m_cmd_luu_qd_Click(object sender, EventArgs e)

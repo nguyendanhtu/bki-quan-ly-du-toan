@@ -12,13 +12,13 @@
 		function pageLoad(sender, args) {
 			if (args.get_isPartialLoad()) {
 				$('.select2').select2();
-				$("#<%=m_txt_ngay_thang.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
+				//$("#m_txt_ngay_thang.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
 
 			}
 		}
 		$(document).ready(function () {
 			$('.select2').select2();
-			$("#<%=m_txt_ngay_thang.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
+			//$("#m_txt_ngay_thang.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
         }
        )
 	</script>
@@ -51,9 +51,10 @@
 								<tr>
 									<td style="text-align: right"><span>Loại quyết định</span></td>
 									<td>
-										<asp:RadioButton ID="m_rdb_kh_dau_nam" CssClass="radio-inline" Style="margin-left: 10px;" runat="server" Text="KH đầu năm" GroupName="loai" Checked="true" AutoPostBack="true" />
+										<asp:Label ID="m_lbl_loai_quyet_dinh" runat="server" CssClass="cssManField" Font-Bold="true" ForeColor="Blue"></asp:Label>
+										<%--<asp:RadioButton ID="m_rdb_kh_dau_nam" CssClass="radio-inline" Style="margin-left: 10px;" runat="server" Text="KH đầu năm" GroupName="loai" Checked="true" AutoPostBack="true" />
 										<asp:RadioButton ID="m_rdb_bo_sung" CssClass="radio-inline" runat="server" Text="Bổ sung" GroupName="loai" AutoPostBack="true" />
-										<asp:RadioButton ID="m_rdb_dieu_chinh" CssClass="radio-inline" runat="server" Text="Điều chỉnh" GroupName="loai" AutoPostBack="true" />
+										<asp:RadioButton ID="m_rdb_dieu_chinh" CssClass="radio-inline" runat="server" Text="Điều chỉnh" GroupName="loai" AutoPostBack="true" />--%>
 										<asp:HiddenField ID="HiddenField1" runat="server" />
 									</td>
 								</tr>
@@ -62,20 +63,21 @@
 										<span>Số QĐ (*)</span>
 									</td>
 									<td style="width: 35%">
-										<asp:TextBox ID="m_txt_so_qd" runat="server" CssClass="cssTextBox form-control" Width="150px" placeholder="Vd: 371/QĐ-BGTVT"></asp:TextBox>
-										<asp:DropDownList ID="m_ddl_quyet_dinh" CssClass="select2" runat="server" Width="176px" Visible="false" OnSelectedIndexChanged="m_ddl_quyet_dinh_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
-										<br />
-										<asp:Button ID="m_cmd_chon_qd_da_nhap" CssClass="btn" Text="Chọn QĐ" OnClick="m_cmd_chon_qd_da_nhap_Click" runat="server" />
+										<asp:TextBox ID="m_txt_so_qd" runat="server" CssClass="cssTextBox form-control" Width="150px" placeholder="Vd: 371/QĐ-BGTVT" Visible="false"></asp:TextBox>
+										<asp:DropDownList ID="m_ddl_quyet_dinh" CssClass="select2" runat="server" Width="176px" Visible="true" OnSelectedIndexChanged="m_ddl_quyet_dinh_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
+										
+										<asp:Button ID="m_cmd_chon_qd_da_nhap" CssClass="btn btn-sm" Text="Chọn QĐ" OnClick="m_cmd_chon_qd_da_nhap_Click" runat="server" />
 									</td>
 									<td style="width: 15%; padding-top: 16px; text-align: right">
 										<span>Ngày tháng (*)</span>
 									</td>
-									<td style="width: 25%">
-										<div id="datetimepicker1" class="input-group date datepicker" style="width: 210px;">
+									<td style="width: 25%; vertical-align:middle">
+										<%--<div id="datetimepicker1" class="input-group date datepicker" style="width: 210px;">
 											<asp:TextBox ID="m_txt_ngay_thang" placeholder="dd/MM/yyyy" runat="server" CssClass="cssTextBox form-control  date-start" Height="30px" Width="164px"></asp:TextBox>
 											<span class="input-group-addon"><span class="glyphicon-calendar glyphicon"></span>
 											</span>
-										</div>
+										</div>--%>
+										<asp:Label ID="m_lbl_ngay_thang" runat="server" CssClass="cssManField" Font-Bold="true" ForeColor="Blue"></asp:Label>
 									</td>
 								</tr>
 								<tr>
@@ -194,6 +196,7 @@
 											</tr>
 											<tr>
 												<td colspan="3" style="text-align: center">
+													<br />
 													<asp:Button ID="m_cmd_cap_nhat" CssClass="btn margin_r20" runat="server" Text="Ghi dữ liệu" OnClick="m_cmd_cap_nhat_Click" />
 													<asp:Button ID="m_cmd_xoa_trang" CssClass="btn" runat="server" Text="Huỷ thao tác" OnClick="m_cmd_xoa_trang_Click" />
 												</td>
