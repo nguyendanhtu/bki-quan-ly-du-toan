@@ -321,7 +321,7 @@ namespace QuanLyDuToan.DuToan
 			{
 				if (m_hdf_id_quyet_dinh.Value.Trim().Equals(""))
 				{
-					m_lbl_mess_detail.Text = "Bạn phải nhập QĐ giao Kế hoạch hoặc Chọn QĐ đã nhập!";
+					m_lbl_mess_chon_qd.Text = "Bạn phải nhập QĐ giao Kế hoạch hoặc Chọn QĐ đã nhập!";
 					m_txt_so_qd.Focus();
 					return false;
 				}
@@ -329,6 +329,7 @@ namespace QuanLyDuToan.DuToan
 				{
 					m_lbl_mess_detail.Text += "\n Bạn phải chọn Loại nhiệm vụ!";
 					m_ddl_loai_nhiem_vu.Focus();
+                    m_lbl_mess_detail.Focus();
 					return false;
 				}
 				if (m_pnl_chuong_loai_khoan_muc.Visible == true)
@@ -337,30 +338,35 @@ namespace QuanLyDuToan.DuToan
 					{
 						m_lbl_mess_detail.Text = "Bạn phải chọn Loại nhiệm vụ!";
 						m_ddl_chuong.Focus();
+                        m_ddl_loai_nhiem_vu.Focus();
 						return false;
 					}
 					if (m_ddl_loai.SelectedValue == "-1")
 					{
 						m_lbl_mess_detail.Text = "Bạn phải chọn Loại!";
 						m_ddl_loai.Focus();
+                        m_ddl_loai_nhiem_vu.Focus();
 						return false;
 					}
 					if (m_ddl_khoan.SelectedValue == "-1")
 					{
 						m_lbl_mess_detail.Text = "Bạn phải chọn Khoản!";
 						m_ddl_khoan.Focus();
+                        m_ddl_loai_nhiem_vu.Focus();
 						return false;
 					}
 					if (m_ddl_muc.SelectedValue == "-1")
 					{
 						m_lbl_mess_detail.Text = "Bạn phải chọn Mục!";
 						m_ddl_muc.Focus();
+                        m_ddl_loai_nhiem_vu.Focus();
 						return false;
 					}
 					if (m_ddl_tieu_muc.Items.Count > 1 && m_ddl_tieu_muc.SelectedValue == "-1")
 					{
 						m_lbl_mess_detail.Text = "Bạn phải chọn Tiểu mục!";
 						m_ddl_tieu_muc.Focus();
+                        m_ddl_loai_nhiem_vu.Focus();
 						return false;
 					}
 				}
@@ -371,12 +377,14 @@ namespace QuanLyDuToan.DuToan
 					{
 						m_lbl_mess_detail.Text = "Bạn phải chọn Quốc lộ/Công trình!";
 						m_ddl_cong_trinh.Focus();
+                        m_ddl_loai_nhiem_vu.Focus();
 						return false;
 					}
 					else if (!CValidateTextBox.IsValid(m_txt_quoc_lo, DataType.StringType, allowNull.NO) && CIPConvert.ToDecimal(m_ddl_cong_trinh.SelectedValue) == -1)
 					{
 						m_lbl_mess_detail.Text += "\n Bạn phải nhập Tên quốc lộ/Công trình!";
 						m_txt_quoc_lo.Focus();
+                        m_ddl_loai_nhiem_vu.Focus();
 						return false;
 					}
 					//kiem tra Du An
@@ -384,12 +392,14 @@ namespace QuanLyDuToan.DuToan
 					{
 						m_lbl_mess_detail.Text += "\n Bạn phải chọn Dự án!";
 						m_ddl_du_an.Focus();
+                        m_ddl_loai_nhiem_vu.Focus();
 						return false;
 					}
 					else if (!CValidateTextBox.IsValid(m_txt_du_an, DataType.StringType, allowNull.NO) && CIPConvert.ToDecimal(m_ddl_du_an.SelectedValue) == -1)
 					{
 						m_lbl_mess_detail.Text += "\n Bạn phải nhập Tên dự án!";
 						m_txt_du_an.Focus();
+                        m_ddl_loai_nhiem_vu.Focus();
 						return false;
 					}
 					//bo dinh dang #,###,##
@@ -402,6 +412,7 @@ namespace QuanLyDuToan.DuToan
 					{
 						m_lbl_mess_detail.Text += "\n Bạn phải nhập Số tiền!";
 						m_txt_so_tien_nam_truoc_chuyen_sang.Focus();
+                        m_ddl_loai_nhiem_vu.Focus();
 						return false;
 					}
 
@@ -409,6 +420,7 @@ namespace QuanLyDuToan.DuToan
 					{
 						m_lbl_mess_detail.Text += "\n Bạn phải nhập Số tiền!";
 						m_txt_so_tien.Focus();
+                        m_ddl_loai_nhiem_vu.Focus();
 						return false;
 					}
 				}
@@ -984,6 +996,7 @@ namespace QuanLyDuToan.DuToan
 			try
 			{
 				m_lbl_mess_detail.Text = "";
+                m_lbl_mess_chon_qd.Text = "";
 				set_form_mode(LOAI_FORM.THEM);
 				save_data();
 			}
@@ -1023,6 +1036,7 @@ namespace QuanLyDuToan.DuToan
 
 		protected void m_cmd_chon_qd_da_nhap_Click(object sender, EventArgs e)
 		{
+            m_lbl_mess_chon_qd.Text = "";
 			m_hdf_id_quyet_dinh.Value = m_ddl_quyet_dinh.SelectedValue;
 			load_data_to_cbo_quyet_dinh();
 			m_ddl_quyet_dinh.Visible = true;
