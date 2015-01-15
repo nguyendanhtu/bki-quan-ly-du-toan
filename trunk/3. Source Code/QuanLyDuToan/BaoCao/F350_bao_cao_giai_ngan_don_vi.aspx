@@ -316,7 +316,7 @@
                                                     ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.REPORT_LEVEL)
                                                     ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.STT)
                                                     ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID) ) %>"
-												title="Xem chi tiết" <%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_QBT_LUY_KE, "{0:#,##0}")%>></a>
+												title="Xem chi tiết" ><%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_QBT_LUY_KE, "{0:#,##0}")%></a>
 										</ItemTemplate>
 										<HeaderStyle Height="10px" HorizontalAlign="Center" />
 										<ItemStyle HorizontalAlign="Right" Width="120px" />
