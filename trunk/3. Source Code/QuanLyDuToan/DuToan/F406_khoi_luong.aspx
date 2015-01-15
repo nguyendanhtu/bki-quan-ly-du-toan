@@ -24,9 +24,9 @@
 	</script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="Server">
-	<asp:ScriptManager ID="ScriptManager1" runat="server">
-	</asp:ScriptManager>
-	<asp:UpdatePanel ID="UpdatePanel1" runat="server">
+	<asp:scriptmanager id="ScriptManager1" runat="server">
+	</asp:scriptmanager>
+	<asp:updatepanel id="UpdatePanel1" runat="server">
 		<ContentTemplate>
 			<table id="main_table" style="width: 900px; margin: auto" class="cssTable table" border="0">
 				<tr>
@@ -37,7 +37,7 @@
 				<tr>
 					<td style="text-align: right">Đơn vị:</td>
 					<td colspan="2">
-						<asp:DropDownList ID="m_ddl_don_vi" CssClass="select2" runat="server" Width="200px" AutoPostBack="true" OnSelectedIndexChanged="m_ddl_don_vi_SelectedIndexChanged"></asp:DropDownList></td>
+						<asp:DropDownList ID="m_ddl_don_vi" CssClass="select2" runat="server" Width="250px" AutoPostBack="true" OnSelectedIndexChanged="m_ddl_don_vi_SelectedIndexChanged"></asp:DropDownList></td>
 				</tr>
 				<tr>
 					<td colspan="2">
@@ -57,12 +57,14 @@
 						<span>Ngày tháng</span>
 					</td>
 					<td>
-						<div id="datetimepicker1" class="input-group date" style="width: 210px;">
+						<div id="datetimepicker1" class="input-group date" style="width: 350px;">
 							<asp:TextBox ID="m_txt_ngay_thang" placeholder="dd/MM/yyyy" runat="server" CssClass="cssTextBox form-control  date-start  datepicker" Height="30px" Width="171px"></asp:TextBox>
-							<span class="input-group-addon"><span class="glyphicon-calendar glyphicon"></span>
-							</span>
+							
+							<%--<span class="input-group-addon"><span class="glyphicon-calendar glyphicon"></span>
+							</span>--%>
+							<asp:Button ID="m_cmd_xem_khoi_luong" CssClass="btn btn-sm" runat="server" Text="Tải dữ liệu" OnClick="m_cmd_xem_khoi_luong_Click" />
 						</div>
-						<asp:Button ID="m_cmd_xem_khoi_luong" CssClass="btn" runat="server" Text="Tải dữ liệu" OnClick="m_cmd_xem_khoi_luong_Click" />
+						
 					</td>
 				</tr>
 
@@ -151,6 +153,7 @@
 							</tr>
 							<tr>
 								<td colspan="3" style="text-align: center">
+									<br />
 									<asp:Button ID="m_cmd_cap_nhat" runat="server" CssClass="btn" Text="Ghi dữ liệu" OnClick="m_cmd_cap_nhat_Click" />
 									<asp:Button ID="m_cmd_xoa_trang" runat="server" CssClass="btn" Text="Huỷ thao tác" OnClick="m_cmd_xoa_trang_Click" />
 								</td>
@@ -170,8 +173,8 @@
 		<Triggers>
 			<%--<asp:PostBackTrigger ControlID="m_cmd_xuat_excel" />--%>
 		</Triggers>
-	</asp:UpdatePanel>
-	<asp:UpdateProgress ID="UpdateProgress1" runat="server">
+	</asp:updatepanel>
+	<asp:updateprogress id="UpdateProgress1" runat="server">
 		<ProgressTemplate>
 			<div class="cssLoadWapper">
 				<div class="cssLoadContent">
@@ -182,7 +185,7 @@
 				</div>
 			</div>
 		</ProgressTemplate>
-	</asp:UpdateProgress>
+	</asp:updateprogress>
 </asp:Content>
 
 
