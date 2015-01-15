@@ -8,6 +8,7 @@ using WebUS;
 using WebDS;
 using WebDS.CDBNames;
 using IP.Core.IPCommon;
+using QuanLyDuToan.App_Code;
 
 namespace QuanLyDuToan.DanhMuc
 {
@@ -18,6 +19,8 @@ namespace QuanLyDuToan.DanhMuc
             if (!IsPostBack)
             {
                 set_default_input();
+                //load dropdownlist danh sach don vi ma don vi X duoc xem du lieu
+                WinFormControls.load_data_to_ddl_don_vi_get_list_don_vi_duoc_xem_du_lieu(Person.get_id_don_vi(), m_ddl_don_vi);
                 load_data_2_grid();    
             }            
         }
@@ -48,6 +51,17 @@ namespace QuanLyDuToan.DanhMuc
         protected void m_cmd_tim_kiem_Click(object sender, EventArgs e)
         {
             load_data_2_grid();
+        }
+        protected void m_ddl_don_vi_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                load_data_2_grid();
+            }
+            catch (Exception v_e)
+            {
+                CSystemLog_301.ExceptionHandle(this, v_e);
+            }
         }
     }
 }

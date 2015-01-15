@@ -30,6 +30,11 @@
 		    <span style="font-weight: bold">DANH SÁCH QUYẾT ĐỊNH GIAO VỐN</span>
         </div>
         <div style="color:black; text-align:center; margin-top:20px;">
+            <tr>
+									<td style="text-align: right">Đơn vị:</td>
+									<td colspan="2">
+										<asp:DropDownList ID="m_ddl_don_vi" CssClass="select2" runat="server" AutoPostBack="true" OnSelectedIndexChanged="m_ddl_don_vi_SelectedIndexChanged" Width="200px"></asp:DropDownList></td>
+                </tr>
             <span>Từ khóa tìm kiếm: </span><asp:textbox runat="server" id="m_txt_tu_khoa_tim_kiem" style="width:200px;"></asp:textbox>
            <span>Từ ngày: </span>
 		   <asp:TextBox runat="server" CssClass="datepicker" ID="m_txt_tu_ngay" Style="width: 200px; text-align: right"></asp:TextBox>
