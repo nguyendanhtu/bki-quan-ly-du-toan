@@ -355,6 +355,15 @@ namespace QuanLyDuToan.DuToan {
         protected global::System.Web.UI.WebControls.DropDownList m_ddl_tieu_muc;
         
         /// <summary>
+        /// m_lbl_mess_noi_dung_du_toan control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label m_lbl_mess_noi_dung_du_toan;
+        
+        /// <summary>
         /// m_txt_noi_dung_du_toan control.
         /// </summary>
         /// <remarks>
@@ -380,6 +389,15 @@ namespace QuanLyDuToan.DuToan {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButton m_rdb_chi_khong_thuong_xuyen;
+        
+        /// <summary>
+        /// m_lbl_mess_so_tien control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label m_lbl_mess_so_tien;
         
         /// <summary>
         /// m_txt_so_tien_nam_truoc_chuyen_sang control.
@@ -416,6 +434,15 @@ namespace QuanLyDuToan.DuToan {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox m_txt_ghi_chu;
+        
+        /// <summary>
+        /// m_lbl_mess_ghi_du_lieu control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label m_lbl_mess_ghi_du_lieu;
         
         /// <summary>
         /// m_cmd_insert control.
