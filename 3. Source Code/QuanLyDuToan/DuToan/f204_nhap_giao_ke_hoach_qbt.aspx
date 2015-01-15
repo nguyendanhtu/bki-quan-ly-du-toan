@@ -95,6 +95,11 @@
 													<asp:Button ID="m_cmd_chon_qd_da_nhap" CssClass="btn" Text="Chọn QĐ" OnClick="m_cmd_chon_qd_da_nhap_Click" runat="server" /></td>
 												<%--<td style="width: 20%"></td>--%>
 											</tr>
+                                            <tr>
+												<td colspan="3">
+													<asp:Label ID="m_lbl_mess_chon_qd" CssClass="cssManField" runat="server"></asp:Label>
+												</td>
+											</tr>
 											<tr>
 												<td style="text-align: right"><span>Ngày tháng (*)</span></td>
 												<td>
