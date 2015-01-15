@@ -49,7 +49,8 @@ namespace QuanLyDuToan.BaoCao
 									 + "&ip_dc_id_cong_trinh=" + "-1"
 									 + "&ip_dc_id_du_an=" + "-1"
 									 + "&ip_dat_tu_ngay=" + CIPConvert.ToStr(WinFormControls.get_dau_nam_form_date(CIPConvert.ToDatetime(m_txt_tu_ngay.Text, "dd/MM/yyyy")), "dd/MM/yyyy")
-									 + "&ip_dat_den_ngay=" + m_txt_den_ngay.Text;
+									 + "&ip_dat_den_ngay=" + m_txt_den_ngay.Text
+                                      + "&ip_dc_id_quyet_dinh ="+"-1";
 						break;
 					case "2":
 						v_str_link += "?ip_dc_id_don_vi=" + CIPConvert.ToStr(ip_id_don_vi)
@@ -57,7 +58,8 @@ namespace QuanLyDuToan.BaoCao
 									 + "&ip_dc_id_cong_trinh=" + CIPConvert.ToStr(ip_id_cong_trinh)
 									 + "&ip_dc_id_du_an=" + "-1"
 									 + "&ip_dat_tu_ngay=" + m_txt_tu_ngay.Text
-									 + "&ip_dat_den_ngay=" + m_txt_den_ngay.Text;
+									 + "&ip_dat_den_ngay=" + m_txt_den_ngay.Text
+                                     + "&ip_dc_id_quyet_dinh=" + "-1";
 						break;
 					case "1":
 						v_str_link += "?ip_dc_id_don_vi=" + CIPConvert.ToStr(ip_id_don_vi)
@@ -65,7 +67,8 @@ namespace QuanLyDuToan.BaoCao
 									 + "&ip_dc_id_cong_trinh=" + CIPConvert.ToStr(ip_id_cong_trinh)
 									 + "&ip_dc_id_du_an=" + CIPConvert.ToStr(ip_id_du_an)
 									  + "&ip_dat_tu_ngay=" + CIPConvert.ToStr(WinFormControls.get_dau_nam_form_date(CIPConvert.ToDatetime(m_txt_tu_ngay.Text, "dd/MM/yyyy")), "dd/MM/yyyy")
-									 + "&ip_dat_den_ngay=" + m_txt_den_ngay.Text;
+									 + "&ip_dat_den_ngay=" + m_txt_den_ngay.Text
+                                     + "&ip_dc_id_quyet_dinh=" + "-1";
 						break;
 					default:
 						v_str_link += "?ip_dc_id_don_vi=" + CIPConvert.ToStr(ip_id_don_vi)
@@ -73,7 +76,8 @@ namespace QuanLyDuToan.BaoCao
 									 + "&ip_dc_id_cong_trinh=" + CIPConvert.ToStr(ip_id_cong_trinh)
 									 + "&ip_dc_id_du_an=" + CIPConvert.ToStr(ip_id_du_an)
 									  + "&ip_dat_tu_ngay=" + CIPConvert.ToStr(WinFormControls.get_dau_nam_form_date(CIPConvert.ToDatetime(m_txt_tu_ngay.Text, "dd/MM/yyyy")), "dd/MM/yyyy")
-									 + "&ip_dat_den_ngay=" + m_txt_den_ngay.Text;
+									 + "&ip_dat_den_ngay=" + m_txt_den_ngay.Text
+                                     + "&ip_dc_id_quyet_dinh=" + "-1";
 						break;
 				}
 			}
@@ -92,7 +96,9 @@ namespace QuanLyDuToan.BaoCao
 									 + "&ip_dc_id_cong_trinh=" + "-1"
 									 + "&ip_dc_id_du_an=" + "-1"
 									 + "&ip_dat_tu_ngay=" + m_txt_tu_ngay.Text
-									 + "&ip_dat_den_ngay=" + m_txt_den_ngay.Text;
+									 + "&ip_dat_den_ngay=" + m_txt_den_ngay.Text
+                                     + "&ip_dc_id_quyet_dinh="+ "-1";
+                                      
 						break;
 					case "2":
 						v_str_link += "?ip_dc_id_don_vi=" + CIPConvert.ToStr(ip_id_don_vi)
@@ -100,7 +106,8 @@ namespace QuanLyDuToan.BaoCao
 									 + "&ip_dc_id_cong_trinh=" + CIPConvert.ToStr(ip_id_cong_trinh)
 									 + "&ip_dc_id_du_an=" + "-1"
 									 + "&ip_dat_tu_ngay=" + m_txt_tu_ngay.Text
-									 + "&ip_dat_den_ngay=" + m_txt_den_ngay.Text;
+									 + "&ip_dat_den_ngay=" + m_txt_den_ngay.Text
+                                     + "&ip_dc_id_quyet_dinh="+ "-1";
 						break;
 					case "1":
 						v_str_link += "?ip_dc_id_don_vi=" + CIPConvert.ToStr(ip_id_don_vi)
@@ -108,7 +115,8 @@ namespace QuanLyDuToan.BaoCao
 									 + "&ip_dc_id_cong_trinh=" + CIPConvert.ToStr(ip_id_cong_trinh)
 									 + "&ip_dc_id_du_an=" + CIPConvert.ToStr(ip_id_du_an)
 									  + "&ip_dat_tu_ngay=" + CIPConvert.ToStr(WinFormControls.get_dau_nam_form_date(CIPConvert.ToDatetime(m_txt_tu_ngay.Text, "dd/MM/yyyy")), "dd/MM/yyyy")
-									 + "&ip_dat_den_ngay=" + m_txt_den_ngay.Text;
+									 + "&ip_dat_den_ngay=" + m_txt_den_ngay.Text
+                                     + "&ip_dc_id_quyet_dinh="+ "-1";
 						break;
 					default:
 						v_str_link += "?ip_dc_id_don_vi=" + CIPConvert.ToStr(ip_id_don_vi)
@@ -116,7 +124,8 @@ namespace QuanLyDuToan.BaoCao
 									 + "&ip_dc_id_cong_trinh=" + CIPConvert.ToStr(ip_id_cong_trinh)
 									 + "&ip_dc_id_du_an=" + CIPConvert.ToStr(ip_id_du_an)
 									  + "&ip_dat_tu_ngay=" + CIPConvert.ToStr(WinFormControls.get_dau_nam_form_date(CIPConvert.ToDatetime(m_txt_tu_ngay.Text, "dd/MM/yyyy")), "dd/MM/yyyy")
-									 + "&ip_dat_den_ngay=" + m_txt_den_ngay.Text;
+									 + "&ip_dat_den_ngay=" + m_txt_den_ngay.Text
+                                      + "&ip_dc_id_quyet_dinh=" + "-1";
 						break;
 				}
 			}
