@@ -213,9 +213,10 @@ namespace WebUS
 			, DateTime ip_dat_tu_ngay
 			, DateTime ip_dat_den_ngay
 			,string ip_str_tu_khoa
+            ,string ip_str_proc
 			)
 		{
-			CStoredProc v_sp = new CStoredProc("pr_A190_danh_sach_quyet_dinh_giao_kh");
+            CStoredProc v_sp = new CStoredProc(ip_str_proc);
 			v_sp.addDecimalInputParam("@ip_dc_id_don_vi", ip_dc_id_don_vi);
 			v_sp.addDecimalInputParam("@ip_dc_id_loai_nhiem_vu", ip_dc_id_loai_nhiem_vu);
 			v_sp.addDecimalInputParam("@ip_dc_id_cong_trinh", ip_dc_id_cong_trinh);

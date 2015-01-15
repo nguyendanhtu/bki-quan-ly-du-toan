@@ -11,7 +11,6 @@ using IP.Core.IPCommon;
 using QuanLyDuToan.App_Code;
 using System.Data;
 using System.Diagnostics;
-
 namespace QuanLyDuToan.BaoCao
 {
 	public partial class F156_bao_cao_giao_kh_quy_bt_theo_qd : System.Web.UI.Page
