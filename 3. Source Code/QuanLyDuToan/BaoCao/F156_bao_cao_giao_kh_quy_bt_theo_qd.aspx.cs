@@ -54,6 +54,7 @@ namespace QuanLyDuToan.BaoCao
 			DataTable v_dt = new DataTable();
 			decimal v_dc_id_loai_nhiem_vu, v_dc_id_cong_trinh, v_dc_id_du_an, v_dc_id_don_vi;
 			v_dc_id_cong_trinh = v_dc_id_du_an = v_dc_id_loai_nhiem_vu = -1;
+            decimal v_dc_id_quyet_dinh = -1;
 			if (Request.QueryString["ip_dc_id_loai_nhiem_vu"] != null)
 			{
 				v_dc_id_loai_nhiem_vu = CIPConvert.ToDecimal(Request.QueryString["ip_dc_id_loai_nhiem_vu"]);
@@ -86,7 +87,8 @@ namespace QuanLyDuToan.BaoCao
 				, CIPConvert.ToDatetime(m_txt_tu_ngay.Text, "dd/MM/yyyy")
 				, CIPConvert.ToDatetime(m_txt_den_ngay.Text, "dd/MM/yyyy")
 				, m_txt_tim_kiem.Text.Trim()
-				, "N");
+				, "N"
+                ,v_dc_id_quyet_dinh);
 			formatData(v_ds);
 			m_grv.DataSource = v_ds.Tables[0];
 
