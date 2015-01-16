@@ -130,12 +130,12 @@ namespace QuanLyDuToan.DuToan
 			m_grv.DataSource = v_ds.Tables[0];
 			m_grv.DataBind();
 
-			if (!m_hdf_id_giao_kh.Value.Equals(""))
-			{
-				m_grv.SelectedIndex = -1;
-				for (int i = 0; i < m_grv.Rows.Count; i++)
-					if (CIPConvert.ToDecimal(m_grv.DataKeys[i].Value) == CIPConvert.ToDecimal(m_hdf_id_giao_kh.Value)) m_grv.SelectedIndex = i;
-			}
+			//if (!m_hdf_id_giao_kh.Value.Equals(""))
+			//{
+			//	m_grv.SelectedIndex = -1;
+			//	for (int i = 0; i < m_grv.Rows.Count; i++)
+			//		if (CIPConvert.ToDecimal(m_grv.DataKeys[i].Value) == CIPConvert.ToDecimal(m_hdf_id_giao_kh.Value)) m_grv.SelectedIndex = i;
+			//}
 
 
 
@@ -143,10 +143,27 @@ namespace QuanLyDuToan.DuToan
 		}
 		private void set_inital_form_mode()
 		{
+			xoa_trang();
+			decimal v_dc_id_quyet_dinh = -1;
+			decimal v_dc_id_don_vi = Person.get_id_don_vi(); ;
+			if (Request.QueryString["ip_dc_id_quyet_dinh"] != null)
+			{
+
+				v_dc_id_quyet_dinh = CIPConvert.ToDecimal(Request.QueryString["ip_dc_id_quyet_dinh"]);
+
+			}
+			if (Request.QueryString["ip_dc_id_don_vi"] != null)
+			{
+				v_dc_id_don_vi = CIPConvert.ToDecimal(Request.QueryString["ip_dc_id_don_vi"]);
+			}
+
+			
 			//load dropdownlist danh sach don vi ma don vi X duoc xem du lieu
 			WinFormControls.load_data_to_ddl_don_vi_get_list_don_vi_duoc_xem_du_lieu(Person.get_id_don_vi(), m_ddl_don_vi);
-			xoa_trang();
 			load_data_to_cbo();
+			m_ddl_quyet_dinh.SelectedValue = v_dc_id_quyet_dinh.ToString();
+			m_ddl_quyet_dinh_SelectedIndexChanged(null, null);
+			m_ddl_don_vi.SelectedValue = v_dc_id_quyet_dinh.ToString();
 			load_data_to_grid();
 		}
 		private void xoa_trang()
@@ -203,7 +220,12 @@ namespace QuanLyDuToan.DuToan
 			}
 			load_data_to_grid();
 		}
-
+		private void delete_gd_chi_tiet_giao_kh_by_ID()
+		{
+			m_us.DeleteByID(CIPConvert.ToDecimal(m_hdf_id_giao_kh.Value));
+			load_data_to_grid();
+			m_lbl_mess_detail.Text = "Xoá bản ghi thành công!";
+		}
 		protected string format_so_tien(string ip_str_so_tien)
 		{
 			string op_str_so_tien = "";
@@ -413,14 +435,7 @@ namespace QuanLyDuToan.DuToan
 			{
 				if (!IsPostBack)
 				{
-
-					if (Request.QueryString["ip_dc_id_quyet_dinh"] != null)
-					{
-						decimal v_dc_id_quyet_dinh = CIPConvert.ToDecimal(Request.QueryString["ip_dc_id_quyet_dinh"]);
-						load_data_to_cbo();
-						m_ddl_quyet_dinh.SelectedValue = v_dc_id_quyet_dinh.ToString();
-						m_ddl_quyet_dinh_SelectedIndexChanged(null, null);
-					}
+					
 					set_inital_form_mode();
 				}
 			}
@@ -465,6 +480,11 @@ namespace QuanLyDuToan.DuToan
 					if (m_lbl_delete.CommandArgument.Trim().Equals("-1") | m_lbl_delete.CommandArgument.Trim().Equals(""))
 					{
 						e.Row.CssClass = "cssFontBold";
+						m_lbl_delete.Visible = false;
+					}
+					else
+					{
+						m_lbl_delete.Visible = true;
 					}
 				}
 			}
@@ -493,7 +513,7 @@ namespace QuanLyDuToan.DuToan
 					set_form_mode(LOAI_FORM.XOA);
 					m_hdf_id_giao_kh.Value = CIPConvert.ToStr(e.CommandArgument);
 					if (!check_validate_is_ok("")) return;
-					//delete_dm_han_muc_by_ID();
+					delete_gd_chi_tiet_giao_kh_by_ID();
 				}
 			}
 			catch (Exception v_e)

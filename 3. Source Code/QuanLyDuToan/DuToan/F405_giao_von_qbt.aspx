@@ -141,10 +141,10 @@
 														OnRowDataBound="m_grv_RowDataBound"
 														HeaderStyle-Height="70px">
 														<Columns>
-															<asp:TemplateField HeaderText="Xóa" HeaderStyle-Width="2%" Visible="false">
+															<asp:TemplateField HeaderText="Xóa" HeaderStyle-Width="2%" Visible="true">
 																<ItemTemplate>
 																	<asp:LinkButton ID="m_lbl_delete" runat="server" CausesValidation="false" CommandArgument='<%#Eval("ID")%>'
-																		CommandName="Xoa" ToolTip="Xóa" OnClientClick="return confirm ('Bạn có thực sự muốn xóa bản ghi này?')">
+																		CommandName="Xoa" ToolTip="Xóa" OnClientClick="return confirm ('Nếu xoá bản ghi này sẽ ảnh hưởng đến dữ liệu báo cáo, Bạn có thực sự muốn xóa bản ghi này?')">
                      <img alt="Xóa" src="../Images/Button/deletered.png" />
 																	</asp:LinkButton>
 																</ItemTemplate>
