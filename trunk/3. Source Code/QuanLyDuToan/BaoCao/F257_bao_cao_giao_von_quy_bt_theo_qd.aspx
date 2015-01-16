@@ -63,7 +63,14 @@
                 $("#<%=m_ddl_du_an.ClientID%>").select2();
                 $("#<%=m_txt_tu_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
                 $("#<%=m_txt_den_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
-                $("#<%=m_ddl_quyet_dinh.ClientID%>").appendTo(".header_quyet_dinh");
+                $("#quyet_dinh").appendTo(".header_quyet_dinh");
+                m_anchor_so_quyet_dinh.innerHTML = $("#<%=m_ddl_quyet_dinh.ClientID%> option:selected").text();
+                $("#m_anchor_so_quyet_dinh").attr("href", "../DuToan/F405_giao_von_qbt.aspx?ip_dc_id_quyet_dinh=" + $("#<%=m_ddl_quyet_dinh.ClientID%>").val() + "&ip_dc_id_don_vi=" + $("#<%=m_ddl_don_vi.ClientID%>").val());
+
+                $("#<%=m_ddl_quyet_dinh.ClientID%>").on('change', function () {
+                    m_anchor_so_quyet_dinh.innerHTML = $("#<%=m_ddl_quyet_dinh.ClientID%> option:selected").text();
+                    $("#m_anchor_so_quyet_dinh").attr("href", "../DuToan/F405_giao_von_qbt.aspx?ip_dc_id_quyet_dinh=" + $("#<%=m_ddl_quyet_dinh.ClientID%>").val() + "&ip_dc_id_don_vi=" + $("#<%=m_ddl_don_vi.ClientID%>").val());
+            });
             }
         }
         $(document).ready(function () {
@@ -72,9 +79,15 @@
             $("#<%=m_ddl_du_an.ClientID%>").select2();
             $("#<%=m_txt_tu_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
             $("#<%=m_txt_den_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
-            $("#<%=m_ddl_quyet_dinh.ClientID%>").appendTo(".header_quyet_dinh");
-        }
-       )
+            $("#quyet_dinh").appendTo(".header_quyet_dinh");
+            m_anchor_so_quyet_dinh.innerHTML = $("#<%=m_ddl_quyet_dinh.ClientID%> option:selected").text();
+            $("#m_anchor_so_quyet_dinh").attr("href", "../DuToan/F405_giao_von_qbt.aspx?ip_dc_id_quyet_dinh=" + $("#<%=m_ddl_quyet_dinh.ClientID%>").val() + "&ip_dc_id_don_vi=" + $("#<%=m_ddl_don_vi.ClientID%>").val());
+
+            $("#<%=m_ddl_quyet_dinh.ClientID%>").on('change', function () {
+                m_anchor_so_quyet_dinh.innerHTML = $("#<%=m_ddl_quyet_dinh.ClientID%> option:selected").text();
+                $("#m_anchor_so_quyet_dinh").attr("href", "../DuToan/F405_giao_von_qbt.aspx?ip_dc_id_quyet_dinh=" + $("#<%=m_ddl_quyet_dinh.ClientID%>").val() + "&ip_dc_id_don_vi=" + $("#<%=m_ddl_don_vi.ClientID%>").val());
+            });
+        })
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
@@ -172,7 +185,11 @@
 				</tr>
                </tbody>
 			</table>
+            
+            <div id="quyet_dinh">
             <asp:DropDownList ID="m_ddl_quyet_dinh" runat="server" Width="100px" AutoPostBack="True" cssclass="select2"></asp:DropDownList>
+            <a id="m_anchor_so_quyet_dinh">Xem chi tiết quyết định</a>
+            </div>
 		</ContentTemplate>
 		<Triggers>
 			 <asp:PostBackTrigger ControlID="m_cmd_xuat_excel" />

@@ -883,6 +883,15 @@ namespace QuanLyDuToan.DuToan
 						m_ddl_quyet_dinh.SelectedValue = v_dc_id_quyet_dinh.ToString();
 						m_ddl_quyet_dinh_SelectedIndexChanged(null, null);
 					}
+
+                    if (Request.QueryString["ip_dc_id_don_vi"] != null)
+                    {
+                        decimal v_dc_id_don_vi = CIPConvert.ToDecimal(Request.QueryString["ip_dc_id_don_vi"]);
+                        WinFormControls.load_data_to_ddl_don_vi_get_list_don_vi_duoc_xem_du_lieu(Person.get_id_don_vi(), m_ddl_don_vi);
+                        m_ddl_don_vi.SelectedValue = v_dc_id_don_vi.ToString();
+                        m_ddl_quyet_dinh_SelectedIndexChanged(null, null);
+                    }
+
 					//kiem tra xem dang nhap Nguon nao
 					if (Request.QueryString["ip_nguon_ns"] == "Y")
 					{

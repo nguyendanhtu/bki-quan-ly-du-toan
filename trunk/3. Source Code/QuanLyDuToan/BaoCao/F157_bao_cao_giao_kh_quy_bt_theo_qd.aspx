@@ -65,11 +65,11 @@
                 $("#<%=m_txt_den_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
                 $("#quyet_dinh").appendTo(".header_quyet_dinh");
                 m_anchor_so_quyet_dinh.innerHTML = $("#<%=m_ddl_quyet_dinh.ClientID%> option:selected").text();
-                $("#m_anchor_so_quyet_dinh").attr("href", "../DuToan/f204_nhap_giao_ke_hoach_qbt.aspx?ip_nguon_ns=N&ip_dc_id_quyet_dinh=" + $("#<%=m_ddl_quyet_dinh.ClientID%>").val());
+                $("#m_anchor_so_quyet_dinh").attr("href", "../DuToan/f204_nhap_giao_ke_hoach_qbt.aspx?ip_nguon_ns=N&ip_dc_id_quyet_dinh=" + $("#<%=m_ddl_quyet_dinh.ClientID%>").val() + "&ip_dc_id_don_vi=" + $("#<%=m_ddl_don_vi.ClientID%>").val());
 
                 $("#<%=m_ddl_quyet_dinh.ClientID%>").on('change', function () {
                     m_anchor_so_quyet_dinh.innerHTML = $("#<%=m_ddl_quyet_dinh.ClientID%> option:selected").text();
-                    $("#m_anchor_so_quyet_dinh").attr("href", "../DuToan/f204_nhap_giao_ke_hoach_qbt.aspx?ip_nguon_ns=N&ip_dc_id_quyet_dinh=" + $("#<%=m_ddl_quyet_dinh.ClientID%>").val());
+                    $("#m_anchor_so_quyet_dinh").attr("href", "../DuToan/f204_nhap_giao_ke_hoach_qbt.aspx?ip_nguon_ns=N&ip_dc_id_quyet_dinh=" + $("#<%=m_ddl_quyet_dinh.ClientID%>").val() + "&ip_dc_id_don_vi=" + $("#<%=m_ddl_don_vi.ClientID%>").val()); 
                 });
 
                 
@@ -83,11 +83,11 @@
             $("#<%=m_txt_den_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
             $("#quyet_dinh").appendTo(".header_quyet_dinh");
             m_anchor_so_quyet_dinh.innerHTML = $("#<%=m_ddl_quyet_dinh.ClientID%> option:selected").text();
-            $("#m_anchor_so_quyet_dinh").attr("href", "../DuToan/f204_nhap_giao_ke_hoach_qbt.aspx?ip_nguon_ns=N&ip_dc_id_quyet_dinh=" + $("#<%=m_ddl_quyet_dinh.ClientID%>").val());
+            $("#m_anchor_so_quyet_dinh").attr("href", "../DuToan/f204_nhap_giao_ke_hoach_qbt.aspx?ip_nguon_ns=N&ip_dc_id_quyet_dinh=" + $("#<%=m_ddl_quyet_dinh.ClientID%>").val() + "&ip_dc_id_don_vi=" + $("#<%=m_ddl_don_vi.ClientID%>").val());
 
             $("#<%=m_ddl_quyet_dinh.ClientID%>").on('change', function () {
                 m_anchor_so_quyet_dinh.innerHTML = $("#<%=m_ddl_quyet_dinh.ClientID%> option:selected").text();
-                $("#m_anchor_so_quyet_dinh").attr("href", "../DuToan/f204_nhap_giao_ke_hoach_qbt.aspx?ip_nguon_ns=N&ip_dc_id_quyet_dinh=" + $("#<%=m_ddl_quyet_dinh.ClientID%>").val());
+                $("#m_anchor_so_quyet_dinh").attr("href", "../DuToan/f204_nhap_giao_ke_hoach_qbt.aspx?ip_nguon_ns=N&ip_dc_id_quyet_dinh=" + $("#<%=m_ddl_quyet_dinh.ClientID%>").val() + "&ip_dc_id_don_vi=" + $("#<%=m_ddl_don_vi.ClientID%>").val());
             });
 
             
