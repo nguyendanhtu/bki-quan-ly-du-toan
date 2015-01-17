@@ -30,9 +30,9 @@ namespace QuanLyDuToan.DanhMuc
             US_V_DM_QUYET_DINH v_us = new US_V_DM_QUYET_DINH();
             DS_V_DM_QUYET_DINH v_ds = new DS_V_DM_QUYET_DINH();
             v_ds.EnforceConstraints = false;
-            v_us.FillDatasetByIdLoaiQuyetDinh(
-                v_ds, 
-                ID_LOAI_QUYET_DINH.GIAO_VON,
+            v_us.FillDatasetByIdDonVi(
+                v_ds,
+                CIPConvert.ToDecimal(m_ddl_don_vi.SelectedValue),
                 CIPConvert.ToDatetime(m_txt_tu_ngay.Text,c_configuration.DEFAULT_DATETIME_FORMAT),
                 CIPConvert.ToDatetime(m_txt_den_ngay.Text,c_configuration.DEFAULT_DATETIME_FORMAT),
                 m_txt_tu_khoa_tim_kiem.Text
