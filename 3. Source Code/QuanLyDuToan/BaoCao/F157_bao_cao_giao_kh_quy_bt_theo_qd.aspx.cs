@@ -183,9 +183,7 @@ namespace QuanLyDuToan.BaoCao
         {
             US_DM_DON_VI v_us = new US_DM_DON_VI(Person.get_id_don_vi());
             WinformReport.export_gridview_2_excel(
-            m_grv
-            , "[" + v_us.strTEN_DON_VI + "]BaoCaoTinhHinhGiaoKeHoach.xls"
-            );
+            m_grv, "[" + v_us.strTEN_DON_VI + "]BaoCaoTinhHinhGiaoKeHoach.xls");
         }
     }
 }
