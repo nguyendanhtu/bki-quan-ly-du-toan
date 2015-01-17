@@ -18,6 +18,14 @@ namespace QuanLyDuToan.DanhMuc
             {
                 if (!IsPostBack)
                 {
+                    if (Request.QueryString["ip_dat_tu_ngay"] != null)
+                    {
+                        m_txt_tu_ngay.Text = Request.QueryString["ip_dat_tu_ngay"].ToString();
+                    }
+                    if (Request.QueryString["ip_dat_den_ngay"] != null)
+                    {
+                        m_txt_den_ngay.Text = Request.QueryString["ip_dat_den_ngay"].ToString();
+                    }
                     set_inital_form_mode();
                 }
             }

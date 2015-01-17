@@ -362,6 +362,10 @@ namespace QuanLyDuToan.DuToan
 					if (Request.QueryString["ip_nguon_ns"].ToString().Equals("Y") && m_rbl_ma_tkkt.Items.Count > 1)
 						m_rbl_ma_tkkt.Items[1].Selected = true;//chọn mã tkkt Nguồn NS
 				}
+                if (Request.QueryString["ip_dc_id_don_vi"] != null)
+                {
+                    m_ddl_don_vi.SelectedValue = Request.QueryString["ip_dc_id_don_vi"].ToString();
+                }
 				data_to_grid_unc();
 				load_thong_tin_don_vi();
 			}
