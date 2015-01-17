@@ -19,7 +19,7 @@ namespace QuanLyDuToan.DanhMuc
 {
 	public partial class F190_Danh_sach_quyet_dinh_giao_ke_hoach : System.Web.UI.Page
 	{
-        US_DM_QUYET_DINH m_us = new US_DM_QUYET_DINH();
+        US_V_DM_QUYET_DINH_KH m_us = new US_V_DM_QUYET_DINH_KH();
         
 		#region Private Methods
 		private bool check_validate_data_is_ok()
@@ -77,20 +77,17 @@ namespace QuanLyDuToan.DanhMuc
 					m_lbl_info.Text += "- Dự án: " + v_us_du_an.strTEN;
 				}
 			}
-			US_DM_QUYET_DINH v_us = new US_DM_QUYET_DINH();
-			DataSet v_ds = new DataSet();
-			DataTable v_dt = new DataTable();
-			v_ds.Tables.Add(v_dt);
-			v_us.get_ds_quyet_dinh(v_ds
-				, Person.get_id_don_vi()
-				, v_dc_id_loai_nhiem_vu
-				, v_dc_id_id_cong_trinh
-				, v_dc_id_du_an
-				, v_dat_tu_ngay
-				, v_dat_den_ngay,
-				m_txt_tu_khoa_tim_kiem.Text.Trim(),
-                "pr_A190_danh_sach_quyet_dinh_giao_kh");
-			m_grv_bao_cao_giao_von.DataSource = v_ds.Tables[0];
+            US_V_DM_QUYET_DINH_KH v_us = new US_V_DM_QUYET_DINH_KH();
+            DS_V_DM_QUYET_DINH_KH v_ds = new DS_V_DM_QUYET_DINH_KH();
+            v_ds.EnforceConstraints = false;
+            v_us.FillDatasetGiaoKHByIdDonVi(
+                v_ds,
+                CIPConvert.ToDecimal(m_ddl_don_vi.SelectedValue),
+                CIPConvert.ToDatetime(m_txt_tu_ngay.Text, c_configuration.DEFAULT_DATETIME_FORMAT),
+                CIPConvert.ToDatetime(m_txt_den_ngay.Text, c_configuration.DEFAULT_DATETIME_FORMAT),
+                m_txt_tu_khoa_tim_kiem.Text
+                );
+            m_grv_bao_cao_giao_von.DataSource = v_ds.V_DM_QUYET_DINH_KH;
 			m_grv_bao_cao_giao_von.DataBind();
 
 		}
@@ -150,6 +147,7 @@ namespace QuanLyDuToan.DanhMuc
                     {
                         m_txt_den_ngay.Text = CIPConvert.ToStr(DateTime.Now, "dd/MM/yyyy");
                     }
+                    WinFormControls.load_data_to_ddl_don_vi_get_list_don_vi_duoc_xem_du_lieu(Person.get_id_don_vi(), m_ddl_don_vi);
                     load_data_2_ddl_loai_quyet_dinh_giao();
 					load_data_to_grid();
 				}
@@ -181,6 +179,17 @@ namespace QuanLyDuToan.DanhMuc
 				CSystemLog_301.ExceptionHandle(this, v_e);
 			}
 		}
+        protected void m_ddl_don_vi_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                load_data_to_grid();
+            }
+            catch (Exception v_e)
+            {
+                CSystemLog_301.ExceptionHandle(this, v_e);
+            }
+        }
 		#endregion
 
         protected void m_cmd_insert_Click(object sender, EventArgs e)

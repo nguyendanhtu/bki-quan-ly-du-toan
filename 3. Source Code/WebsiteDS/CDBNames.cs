@@ -560,6 +560,19 @@ namespace WebDS.CDBNames
         public const string TEN_LOAI_QUYET_DINH_GIAO = "TEN_LOAI_QUYET_DINH_GIAO";
         public const string TEN_DON_VI = "TEN_DON_VI";
     }
+    public class V_DM_QUYET_DINH_KH
+    {
+        public const string ID = "ID";
+        public const string ID_DON_VI = "ID_DON_VI";
+        public const string SO_QUYET_DINH = "SO_QUYET_DINH";
+        public const string NOI_DUNG = "NOI_DUNG";
+        public const string NGAY_THANG = "NGAY_THANG";
+        public const string ID_LOAI_QUYET_DINH = "ID_LOAI_QUYET_DINH";
+        public const string TEN_LOAI_QUYET_DINH = "TEN_LOAI_QUYET_DINH";
+        public const string ID_LOAI_QUYET_DINH_GIAO = "ID_LOAI_QUYET_DINH_GIAO";
+        public const string TEN_LOAI_QUYET_DINH_GIAO = "TEN_LOAI_QUYET_DINH_GIAO";
+        public const string TEN_DON_VI = "TEN_DON_VI";
+    }
 
     public class V_DM_CHUONG_LOAI_KHOAN_MUC_TIEU_MUC
     {

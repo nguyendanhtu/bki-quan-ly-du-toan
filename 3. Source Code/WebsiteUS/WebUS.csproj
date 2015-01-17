@@ -104,6 +104,7 @@
     <Compile Include="US_V_DM_CHUONG_LOAI_KHOAN_MUC_TIEU_MUC.cs" />
     <Compile Include="US_V_DM_GIAI_NGAN.cs" />
     <Compile Include="US_V_DM_QUYET_DINH.cs" />
+    <Compile Include="US_V_DM_QUYET_DINH_KH.cs" />
     <Compile Include="US_V_GD_GIAI_NGAN_QBT.cs" />
     <Compile Include="US_V_GD_GIAO_KH_QBT.cs" />
     <Compile Include="US_V_GD_GIAO_VON_QBT.cs" />

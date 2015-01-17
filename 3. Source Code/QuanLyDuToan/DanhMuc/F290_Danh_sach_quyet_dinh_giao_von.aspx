@@ -70,6 +70,7 @@
 							<a class="link405" href='../DuToan/F405_giao_von_qbt.aspx?ip_dc_id_quyet_dinh=<%#Eval("ID") %>'
                                             title"Xem chi tiết"><%#  Eval("SO_QUYET_DINH") %></a>
 								</ItemTemplate>
+						    <ItemStyle Width="150px" />
 						</asp:TemplateField>
                     <asp:BoundField HeaderText="Nội dung" HtmlEncode="False" DataField="NOI_DUNG">
                     <ItemStyle HorizontalAlign="Left" />
@@ -77,7 +78,7 @@
                     <asp:BoundField HeaderText="Ngày tháng" HtmlEncode="False" DataField="NGAY_THANG" DataFormatString="{0:d}">
                     <ItemStyle HorizontalAlign="Right" Width="150px" />
                     </asp:BoundField>
-                    <asp:BoundField DataField="TEN_DON_VI" HeaderText="Đơn vị">
+                    <asp:BoundField DataField="TEN_DON_VI" HeaderText="Đơn vị" Visible="False">
                     <ItemStyle Width="200px" />
                     </asp:BoundField>
                     <asp:BoundField DataField="QBT" HeaderText="Số tiền Quỹ bảo trì" DataFormatString="{0:N0}">
