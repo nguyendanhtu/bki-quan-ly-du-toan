@@ -21,6 +21,14 @@ namespace QuanLyDuToan.BaoCao
             {
                 WinFormControls.load_data_to_ddl_loai_nhiem_vu(m_ddl_loai_nv);
 
+                //load ngay thang mac dinh
+                DateTime v_dat_now = DateTime.Now;
+                DateTime v_dat_dau_nam = v_dat_now.AddDays(-v_dat_now.Day + 1);
+                v_dat_dau_nam = v_dat_dau_nam.AddMonths(-v_dat_dau_nam.Month + 1);
+                m_txt_tu_ngay.Text = CIPConvert.ToStr(v_dat_dau_nam, "dd/MM/yyyy");
+                m_txt_den_ngay.Text = CIPConvert.ToStr(v_dat_now, "dd/MM/yyyy");
+
+                //load ngay thang theo link
                 if (Request.QueryString["ip_dat_tu_ngay"] != null)
                 {
                     m_txt_tu_ngay.Text = Request.QueryString["ip_dat_tu_ngay"];
@@ -30,11 +38,6 @@ namespace QuanLyDuToan.BaoCao
                     m_txt_den_ngay.Text = Request.QueryString["ip_dat_den_ngay"];
                 }
 
-                DateTime v_dat_now = DateTime.Now;
-                DateTime v_dat_dau_nam = v_dat_now.AddDays(-v_dat_now.Day + 1);
-                v_dat_dau_nam = v_dat_dau_nam.AddMonths(-v_dat_dau_nam.Month + 1);
-                m_txt_tu_ngay.Text = CIPConvert.ToStr(v_dat_dau_nam, "dd/MM/yyyy");
-                m_txt_den_ngay.Text = CIPConvert.ToStr(v_dat_now, "dd/MM/yyyy");
                 load_data_2_ddl();
                 load_data_2_grid();
             }            
@@ -82,7 +85,7 @@ namespace QuanLyDuToan.BaoCao
             decimal v_id_dc_id_cong_trinh = -1;
             if (Request.QueryString["ip_dc_id_cong_trinh"] != null)
             {
-                v_id_dc_id_cong_trinh = CIPConvert.ToDecimal(Request.QueryString["ip_dc_id_don_vi"]);
+                v_id_dc_id_cong_trinh = CIPConvert.ToDecimal(Request.QueryString["ip_dc_id_cong_trinh"]);
             }
             m_ddl_cong_trinh.SelectedValue = CIPConvert.ToStr(v_id_dc_id_cong_trinh);
             //load ddl du an
@@ -91,7 +94,7 @@ namespace QuanLyDuToan.BaoCao
             {
                 v_id_dc_id_du_an = CIPConvert.ToDecimal(Request.QueryString["ip_dc_id_du_an"]);
             }
-            m_ddl_cong_trinh.SelectedValue = CIPConvert.ToStr(v_id_dc_id_du_an);
+            m_ddl_du_an.SelectedValue = CIPConvert.ToStr(v_id_dc_id_du_an);
         }
 
         private void load_data_2_ddl_quyet_dinh()
@@ -116,9 +119,17 @@ namespace QuanLyDuToan.BaoCao
             {
                 v_dc_id_loai_nhiem_vu = CIPConvert.ToDecimal(Request.QueryString["ip_dc_id_loai_nhiem_vu"]);
             }
+            decimal v_id_dc_id_du_an = -1;
+            if (Request.QueryString["ip_dc_id_du_an"] != null)
+            {
+                v_id_dc_id_du_an = CIPConvert.ToDecimal(Request.QueryString["ip_dc_id_du_an"]);
+            }
+            //m_ddl_cong_trinh.SelectedValue = CIPConvert.ToStr(v_id_dc_id_du_an);
             App_Code.WinFormControls.load_data_to_ddl_loai_nhiem_vu(m_ddl_loai_nv);
             m_ddl_loai_nv.SelectedValue = CIPConvert.ToStr(v_dc_id_loai_nhiem_vu);
-            App_Code.WinFormControls.load_data_to_cbo_cong_trinh_theo_loai_nhiem_vu(CIPConvert.ToDecimal(m_ddl_loai_nv.SelectedValue), m_ddl_cong_trinh, v_dc_id_don_vi);  
+            //load cong trinh theo loai nhiem vu
+            App_Code.WinFormControls.load_data_to_cbo_cong_trinh_theo_loai_nhiem_vu(CIPConvert.ToDecimal(m_ddl_loai_nv.SelectedValue), m_ddl_cong_trinh, v_dc_id_don_vi);
+            App_Code.WinFormControls.load_data_to_cbo_du_an_theo_cong_trinh_va_loai_nhiem_vu(CIPConvert.ToDecimal(m_ddl_cong_trinh.SelectedValue), CIPConvert.ToDecimal(m_ddl_loai_nv.SelectedValue), m_ddl_du_an, v_dc_id_don_vi);
         }
 
         private void load_data_2_ddl_don_vi()
