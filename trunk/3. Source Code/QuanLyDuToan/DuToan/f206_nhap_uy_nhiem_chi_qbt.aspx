@@ -98,7 +98,7 @@
 												<span>Mã TKKT</span>
 											</td>
 											<td>
-												<asp:RadioButtonList ID="m_rbl_ma_tkkt" runat="server" RepeatDirection="Horizontal" CssClass="radioButtonList">
+												<asp:RadioButtonList ID="m_rbl_ma_tkkt" runat="server" RepeatDirection="Horizontal" Enabled="false" CssClass="radioButtonList">
 												</asp:RadioButtonList>
 
 											</td>
