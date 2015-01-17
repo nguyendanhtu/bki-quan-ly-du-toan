@@ -62,13 +62,13 @@
 			</div>
 		</ContentTemplate>
 	</asp:UpdatePanel>
-	<asp:UpdateProgress ID="updateprogress1" runat="server">
+	<asp:UpdateProgress ID="UpdateProgress1" runat="server">
 		<ProgressTemplate>
-			<div class="cssloadwapper">
-				<div class="cssloadcontent">
-					<img src="../images/loadingbar.gif" alt="" />
+			<div class="cssLoadWapper">
+				<div class="cssLoadContent">
+					<img src="../Images/loadingBar.gif" alt="" />
 					<p>
-						đang gửi yêu cầu, hãy đợi ...
+						Đang gửi yêu cầu, hãy đợi ...
 					</p>
 				</div>
 			</div>
