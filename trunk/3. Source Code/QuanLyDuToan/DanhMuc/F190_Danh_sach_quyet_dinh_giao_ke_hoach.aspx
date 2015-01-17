@@ -19,7 +19,7 @@
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-	<asp:ScriptManager ID="ScriptManager1" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server">
 	</asp:ScriptManager>
 
 	<asp:UpdatePanel ID="UpdatePanel1" runat="server">
@@ -75,6 +75,15 @@
 			<div style="text-align: center">
 				<asp:Button runat="server" Text="Xuất excel" ID="m_cmd_xuat_excel" OnClick="m_cmd_xuat_excel_Click"></asp:Button>
 			</div>
+            <div>
+                <asp:TextBox ID="m_txt_so_quyet_dinh" runat="server"></asp:TextBox>
+                <asp:TextBox ID="m_txt_ngay_thang" runat="server"></asp:TextBox>
+                <asp:TextBox ID="m_txt_noi_dung" runat="server"></asp:TextBox>
+                <asp:DropDownList ID="m_ddl_loai_quyet_dinh_giao" runat="server"></asp:DropDownList>
+            </div>
+            <div>
+                <asp:Button runat="server" Text="Thêm quyết định" ID="m_cmd_insert" OnClick="m_cmd_insert_Click"></asp:Button>
+            </div>
 		</ContentTemplate>
 	</asp:UpdatePanel>
 	<asp:UpdateProgress ID="updateprogress1" runat="server">
