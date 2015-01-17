@@ -14,6 +14,16 @@
         $(document).ready(function () {
            
             $(".datepicker").datepicker({ format: 'dd/mm/yyyy' });
+            var v_lst = $('.link204');
+            for (var i = 0; i < v_lst.length; i++) {
+                v_lst[i].href = v_lst[i].href + "&ip_dc_id_don_vi=" + $("#<%=m_ddl_don_vi.ClientID%>").val();
+            }
+            $("#<%=m_ddl_don_vi.ClientID%>").on('change', function () {
+                var v_lst = $('.link204');
+                for (var i = 0; i < v_lst.length; i++) {
+                    v_lst[i].href = v_lst[i].href + "&ip_dc_id_don_vi=" + $("#<%=m_ddl_don_vi.ClientID%>").val();
+                }
+            });
         }
        )
     </script>
@@ -33,7 +43,11 @@
 				<span style="font-weight: bold">DANH SÁCH QUYẾT ĐỊNH GIAO KẾ HOẠCH</span>
 			</div>
 			<div style="color: black; text-align: center; margin-top: 20px;">
-
+                <tr>
+									<td style="text-align: right">Đơn vị:</td>
+									<td colspan="2">
+										<asp:DropDownList ID="m_ddl_don_vi" CssClass="select2" runat="server" AutoPostBack="true" OnSelectedIndexChanged="m_ddl_don_vi_SelectedIndexChanged" Width="200px"></asp:DropDownList></td>
+                </tr>
 				<span>Từ khóa tìm kiếm: </span>
 				<asp:TextBox  runat="server" ID="m_txt_tu_khoa_tim_kiem" Style="width: 200px;"></asp:TextBox>
 				<span>Từ ngày: </span>
@@ -54,7 +68,7 @@
 					<Columns>
 						<asp:TemplateField HeaderText="Số quyết định" ItemStyle-Width="150px">
 							<ItemTemplate>
-							<a href='../DuToan/f204_nhap_giao_ke_hoach_qbt.aspx?ip_dc_id_quyet_dinh=<%#Eval("ID") %>'
+							<a class="link204" href='../DuToan/f204_nhap_giao_ke_hoach_qbt.aspx?ip_dc_id_quyet_dinh=<%#Eval("ID") %>'
                                             title"Xem chi tiết"><%#  Eval("SO_QUYET_DINH") %></a>
 								</ItemTemplate>
 						</asp:TemplateField>
@@ -65,8 +79,14 @@
 						<asp:BoundField HeaderText="Nội dung" HtmlEncode="False" DataField="NOI_DUNG">
 							<ItemStyle HorizontalAlign="Left" />
 						</asp:BoundField>
+                        <asp:BoundField DataField="QBT" HeaderText="Số tiền Quỹ bảo trì" DataFormatString="{0:N0}">
+                    <ItemStyle HorizontalAlign="Right" Width="120px" />
+                    </asp:BoundField>
+                    <asp:BoundField DataField="NS" HeaderText="Số tiền Ngân sách" DataFormatString="{0:N0}">
+                    <ItemStyle HorizontalAlign="Right" Width="120px" />
+                    </asp:BoundField>
 						<asp:TemplateField HeaderText="Tổng tiền" ItemStyle-HorizontalAlign="Right">
-							<ItemTemplate><%#CIPConvert.ToStr(Eval("TONG_TIEN"),"#,###,##") %></ItemTemplate>
+							<ItemTemplate><%#CIPConvert.ToStr(Eval("TONG"),"#,###,##") %></ItemTemplate>
 						</asp:TemplateField>
 					</Columns>
 
@@ -76,13 +96,13 @@
 				<asp:Button runat="server" Text="Xuất excel" ID="m_cmd_xuat_excel" OnClick="m_cmd_xuat_excel_Click"></asp:Button>
 			</div>
             <div>
-                <asp:TextBox ID="m_txt_so_quyet_dinh" runat="server"></asp:TextBox>
-                <asp:TextBox ID="m_txt_ngay_thang" runat="server"></asp:TextBox>
-                <asp:TextBox ID="m_txt_noi_dung" runat="server"></asp:TextBox>
-                <asp:DropDownList ID="m_ddl_loai_quyet_dinh_giao" runat="server"></asp:DropDownList>
+                <asp:TextBox ID="m_txt_so_quyet_dinh" runat="server" Visible="False"></asp:TextBox>
+                <asp:TextBox ID="m_txt_ngay_thang" runat="server" Visible="False"></asp:TextBox>
+                <asp:TextBox ID="m_txt_noi_dung" runat="server" Visible="False"></asp:TextBox>
+                <asp:DropDownList ID="m_ddl_loai_quyet_dinh_giao" runat="server" Visible="False"></asp:DropDownList>
             </div>
             <div>
-                <asp:Button runat="server" Text="Thêm quyết định" ID="m_cmd_insert" OnClick="m_cmd_insert_Click"></asp:Button>
+                <asp:Button runat="server" Text="Thêm quyết định" ID="m_cmd_insert" OnClick="m_cmd_insert_Click" Visible="False"></asp:Button>
             </div>
 		</ContentTemplate>
 	</asp:UpdatePanel>
