@@ -4,10 +4,7 @@
 <%@ Import Namespace="WebDS.CDBNames" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="Server">
 	<style type="text/css">
-		.cssGrid tr td {
-			padding: 0px;
-           
-		}
+		
         .cssGrid
         {
             width:962px;
@@ -30,10 +27,7 @@
         {
             border-top:0px;
         }
-         table 
-         {
-             border:1px solid black !important;
-         }
+       
 		 .cssGrid tr td {
 			padding: 0px;
             text-align:left;
@@ -70,17 +64,17 @@
         {
             border-top:0px;
         }
-         table 
-         {
-             border:1px solid black !important;
-         }
+       
 	</style>
      <script>
          function pageLoad(sender, args) {
              if (args.get_isPartialLoad()) {
                 
                 $("#<%=m_txt_tu_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
-                $("#<%=m_txt_den_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
+                 $("#<%=m_txt_den_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
+                 $(".select2").select2();
+                 $("#<%=m_ddl_cong_trinh.ClientID%>").select2();
+                 $("#<%=m_ddl_du_an.ClientID%>").select2();
 
             }
         }
@@ -88,6 +82,9 @@
             
             $("#<%=m_txt_tu_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
             $("#<%=m_txt_den_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
+            $(".select2").select2();
+            $("#<%=m_ddl_cong_trinh.ClientID%>").select2();
+            $("#<%=m_ddl_du_an.ClientID%>").select2();
         }
        )
     </script>
