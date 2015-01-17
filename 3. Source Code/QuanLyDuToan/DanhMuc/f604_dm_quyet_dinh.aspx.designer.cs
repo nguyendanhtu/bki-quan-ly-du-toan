@@ -76,6 +76,42 @@ namespace QuanLyDuToan.DanhMuc {
         protected global::System.Web.UI.WebControls.RadioButton m_rdb_giao_von;
         
         /// <summary>
+        /// m_lbl_loai_quyet_dinh_giao control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label m_lbl_loai_quyet_dinh_giao;
+        
+        /// <summary>
+        /// m_rdb_loai_quyet_dinh_giao_dau_nam control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton m_rdb_loai_quyet_dinh_giao_dau_nam;
+        
+        /// <summary>
+        /// m_rdb_loai_quyet_dinh_giao_bo_sung control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton m_rdb_loai_quyet_dinh_giao_bo_sung;
+        
+        /// <summary>
+        /// m_rdb_loai_quyet_dinh_giao_dieu_chinh control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton m_rdb_loai_quyet_dinh_giao_dieu_chinh;
+        
+        /// <summary>
         /// m_txt_so_quyet_dinh control.
         /// </summary>
         /// <remarks>
@@ -128,6 +164,24 @@ namespace QuanLyDuToan.DanhMuc {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button m_cmd_cancel;
+        
+        /// <summary>
+        /// m_hdf_form_mode control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField m_hdf_form_mode;
+        
+        /// <summary>
+        /// m_hdf_id_quyet_dinh control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField m_hdf_id_quyet_dinh;
         
         /// <summary>
         /// m_lbl_grid_title control.
