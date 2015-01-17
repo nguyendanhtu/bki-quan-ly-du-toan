@@ -60,6 +60,7 @@
             if (args.get_isPartialLoad()) {
                 $("#<%=m_ddl_loai_nv.ClientID%>").select2();
                 $("#<%=m_ddl_cong_trinh.ClientID%>").select2();
+                $(".select2").select2();
                 $("#<%=m_ddl_du_an.ClientID%>").select2();
                 $("#<%=m_txt_tu_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
                 $("#<%=m_txt_den_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
@@ -88,6 +89,7 @@
         $(document).ready(function () {
             $("#<%=m_ddl_loai_nv.ClientID%>").select2();
             $("#<%=m_ddl_cong_trinh.ClientID%>").select2();
+            $(".select2").select2();
             $("#<%=m_ddl_du_an.ClientID%>").select2();
             $("#<%=m_txt_tu_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
             $("#<%=m_txt_den_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
@@ -127,7 +129,7 @@
 						<p>
 							<span style="font-weight: bold">BÁO CÁO TÌNH HÌNH GIAO KẾ HOẠCH <%=DateTime.Now.Year.ToString() %></span>
 							<br />
-                            <asp:DropDownList ID="m_ddl_don_vi" runat="server" Width="100px" AutoPostBack="True" cssclass="select2"></asp:DropDownList>
+                            <asp:DropDownList ID="m_ddl_don_vi" runat="server" Width="180px" AutoPostBack="True" cssclass="select2"></asp:DropDownList>
                         </p>
 						<div style="width:70%; margin:0px auto;" class="height30">
                             <div class="lb">Tìm kiếm:</div>
@@ -210,7 +212,7 @@
                </tbody>
 			</table>
             <div id="quyet_dinh">
-            <asp:DropDownList ID="m_ddl_quyet_dinh" runat="server" Width="100px" cssclass="select2"></asp:DropDownList><br />
+            <asp:DropDownList ID="m_ddl_quyet_dinh" runat="server" Width="180px" cssclass="select2"></asp:DropDownList><br />
             <a id="m_anchor_so_quyet_dinh">Xem chi tiết quyết định</a>
             </div>
 		</ContentTemplate>
