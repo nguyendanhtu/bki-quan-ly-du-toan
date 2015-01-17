@@ -45,6 +45,11 @@ namespace QuanLyDuToan.BaoCao
 
         private void load_data_2_grid()
         {
+            decimal v_dc_id_don_vi = Person.get_id_don_vi();
+            if (Request.QueryString["ip_dc_id_don_vi"] != null)
+            {
+                v_dc_id_don_vi = CIPConvert.ToDecimal(Request.QueryString["ip_dc_id_don_vi"]);
+            }
             if (CIPConvert.ToDecimal(m_ddl_quyet_dinh.SelectedValue) == -1)
             {
                 BoundField field = (BoundField)this.m_grv.Columns[1];
@@ -64,7 +69,7 @@ namespace QuanLyDuToan.BaoCao
                 v_ds,
                 CIPConvert.ToDatetime(m_txt_tu_ngay.Text, c_configuration.DEFAULT_DATETIME_FORMAT),
                 CIPConvert.ToDatetime(m_txt_den_ngay.Text, c_configuration.DEFAULT_DATETIME_FORMAT),
-                Person.get_id_don_vi(),
+                v_dc_id_don_vi,
                 CIPConvert.ToDecimal(m_ddl_loai_nv.SelectedValue.Trim() == "" ? "-1" : m_ddl_loai_nv.SelectedValue.Trim()),
                 CIPConvert.ToDecimal(m_ddl_cong_trinh.SelectedValue.Trim() == "" ? "-1" : m_ddl_cong_trinh.SelectedValue.Trim()),
                 CIPConvert.ToDecimal(m_ddl_du_an.SelectedValue.Trim() == "" ? "-1" : m_ddl_du_an.SelectedValue.Trim()),
@@ -83,7 +88,6 @@ namespace QuanLyDuToan.BaoCao
             load_data_2_ddl_quyet_dinh();
             //load ddl cong trinh
             decimal v_dc_id_don_vi = Person.get_id_don_vi();
-            decimal v_dc_id_loai_nhiem_vu = -1;
             if (Request.QueryString["ip_dc_id_don_vi"] != null)
             {
                 v_dc_id_don_vi = CIPConvert.ToDecimal(Request.QueryString["ip_dc_id_don_vi"]);
