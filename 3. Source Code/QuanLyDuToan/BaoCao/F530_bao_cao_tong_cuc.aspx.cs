@@ -84,7 +84,6 @@ namespace QuanLyDuToan.BaoCao
         }
         private void export_excel()
         {
-
 			WinformReport.export_gridview_2_excel(
 			 m_grv
 			 , "BaoCaoTinhHinhGiaiNganCacDonVi.xls"
