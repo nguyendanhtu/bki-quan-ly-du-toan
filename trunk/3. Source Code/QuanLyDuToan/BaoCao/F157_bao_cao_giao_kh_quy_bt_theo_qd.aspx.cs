@@ -82,12 +82,19 @@ namespace QuanLyDuToan.BaoCao
             load_data_2_ddl_loai_nv();
             load_data_2_ddl_quyet_dinh();
             //load ddl cong trinh
+            decimal v_dc_id_don_vi = Person.get_id_don_vi();
+            decimal v_dc_id_loai_nhiem_vu = -1;
+            if (Request.QueryString["ip_dc_id_don_vi"] != null)
+            {
+                v_dc_id_don_vi = CIPConvert.ToDecimal(Request.QueryString["ip_dc_id_don_vi"]);
+            }
             decimal v_id_dc_id_cong_trinh = -1;
             if (Request.QueryString["ip_dc_id_cong_trinh"] != null)
             {
                 v_id_dc_id_cong_trinh = CIPConvert.ToDecimal(Request.QueryString["ip_dc_id_cong_trinh"]);
             }
             m_ddl_cong_trinh.SelectedValue = CIPConvert.ToStr(v_id_dc_id_cong_trinh);
+            App_Code.WinFormControls.load_data_to_cbo_du_an_theo_cong_trinh_va_loai_nhiem_vu(CIPConvert.ToDecimal(m_ddl_cong_trinh.SelectedValue), CIPConvert.ToDecimal(m_ddl_loai_nv.SelectedValue), m_ddl_du_an, v_dc_id_don_vi);
             //load ddl du an
             decimal v_id_dc_id_du_an = -1;
             if (Request.QueryString["ip_dc_id_du_an"] != null)
