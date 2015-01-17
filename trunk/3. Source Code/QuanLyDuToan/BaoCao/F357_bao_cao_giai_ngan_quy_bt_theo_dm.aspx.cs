@@ -105,7 +105,6 @@ namespace QuanLyDuToan.BaoCao
             load_data_2_ddl_quyet_dinh();
             //load ddl cong trinh
             decimal v_dc_id_don_vi = Person.get_id_don_vi();
-            decimal v_dc_id_loai_nhiem_vu = -1;
             if (Request.QueryString["ip_dc_id_don_vi"] != null)
             {
                 v_dc_id_don_vi = CIPConvert.ToDecimal(Request.QueryString["ip_dc_id_don_vi"]);
@@ -143,7 +142,12 @@ namespace QuanLyDuToan.BaoCao
 
         private void load_data_2_ddl_don_vi()
         {
-            WinFormControls.load_data_to_ddl_don_vi_get_list_don_vi_duoc_xem_du_lieu(Person.get_id_don_vi(), m_ddl_don_vi);
+            decimal v_dc_id_don_vi = Person.get_id_don_vi();
+            if (Request.QueryString["ip_dc_id_don_vi"] != null)
+            {
+                v_dc_id_don_vi = CIPConvert.ToDecimal(Request.QueryString["ip_dc_id_don_vi"]);
+            }
+            WinFormControls.load_data_to_ddl_don_vi_get_list_don_vi_duoc_xem_du_lieu(v_dc_id_don_vi, m_ddl_don_vi);
         }
 
         protected void m_ddl_loai_nv_SelectedIndexChanged(object sender, EventArgs e)
