@@ -69,7 +69,7 @@
 										<asp:Button ID="m_cmd_chon_qd_da_nhap" CssClass="btn btn-sm" Text="Chọn QĐ" OnClick="m_cmd_chon_qd_da_nhap_Click" runat="server" />
 									</td>
 									<td style="width: 15%; padding-top: 16px; text-align: right">
-										<span>Ngày tháng (*)</span>
+										<span>Ngày tháng</span>
 									</td>
 									<td style="width: 25%; vertical-align:middle">
 										<%--<div id="datetimepicker1" class="input-group date datepicker" style="width: 210px;">

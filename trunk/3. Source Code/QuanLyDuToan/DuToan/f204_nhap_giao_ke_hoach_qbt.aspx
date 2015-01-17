@@ -21,7 +21,7 @@
 				blur: function () { tinhTongChiTx(); }
 			});
 			$('.select2').select2();
-			$("#<%=m_txt_ngay_thang.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
+			//$("#<=m_txt_ngay_thang.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
 		});
 		function pageLoad(sender, args) {
 			if (args.get_isPartialLoad()) {
@@ -33,7 +33,7 @@
 					blur: function () {tinhTongChiTx(); }
 				});
 				$('.select2').select2();
-				$("#<%=m_txt_ngay_thang.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
+				//$("#<=m_txt_ngay_thang.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
 			}
 		}
 
@@ -74,11 +74,12 @@
 											</tr>
 
 											<tr>
-												<td style="text-align: right"><span>Loại quyết định (*)</span></td>
+												<td style="text-align: right"><span>Loại quyết định</span></td>
 												<td colspan="3">
-													<asp:RadioButton ID="m_rdb_kh_dau_nam" Style="margin-left: 10px;" CssClass="radio-inline" runat="server" Text="KH đầu năm" GroupName="loai" Checked="true" AutoPostBack="true" />
+													<asp:Label ID="m_lbl_loai_quyet_dinh" runat="server" CssClass="cssManField" Font-Bold="true" ForeColor="Blue"></asp:Label>
+													<%--<asp:RadioButton ID="m_rdb_kh_dau_nam" Style="margin-left: 10px;" CssClass="radio-inline" runat="server" Text="KH đầu năm" GroupName="loai" Checked="true" AutoPostBack="true" />
 													<asp:RadioButton ID="m_rdb_bo_sung" CssClass="radio-inline" runat="server" Text="Bổ sung" GroupName="loai" AutoPostBack="true" />
-													<asp:RadioButton ID="m_rdb_dieu_chinh" CssClass="radio-inline" runat="server" Text="Điều chỉnh" GroupName="loai" AutoPostBack="true" />
+													<asp:RadioButton ID="m_rdb_dieu_chinh" CssClass="radio-inline" runat="server" Text="Điều chỉnh" GroupName="loai" AutoPostBack="true" />--%>
 													<asp:HiddenField ID="m_hdf_id_giao_kh" runat="server" />
 												</td>
 											</tr>
@@ -101,18 +102,19 @@
 												</td>
 											</tr>
 											<tr>
-												<td style="text-align: right"><span>Ngày tháng (*)</span></td>
+												<td style="text-align: right"><span>Ngày tháng</span></td>
 												<td>
-													<div id="datetimepicker1" class="input-group date datepicker" style="width: 210px;">
+													<asp:Label ID="m_lbl_ngay_thang" runat="server" CssClass="cssManField" Font-Bold="true" ForeColor="Blue"></asp:Label>
+													<%--<div id="datetimepicker1" class="input-group date datepicker" style="width: 210px;">
 														<asp:TextBox ID="m_txt_ngay_thang" placeholder="dd/MM/yyyy" runat="server" CssClass="cssTextBox form-control  date-start" Height="30px" Width="164px"></asp:TextBox>
 														<span class="input-group-addon"><span class="glyphicon-calendar glyphicon"></span>
 														</span>
-													</div>
+													</div>--%>
 												</td>
 											</tr>
 											<tr>
 												<td style="text-align: right"><span>Nội dung (*)</span></td>
-												<td colspan="3">
+												<td colspan="2">
 													<asp:TextBox ID="m_txt_noi_dung" runat="server" CssClass="cssTextBox form-control" TextMode="MultiLine" Rows="3" Width="100%"></asp:TextBox>
 												</td>
 											</tr>
