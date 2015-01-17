@@ -342,6 +342,22 @@ namespace QuanLyDuToan.BaoCao
 				HeaderCell.CssClass = "HeaderStyle";
 				HeaderRow.Cells.Add(HeaderCell);
 
+                //Adding cell
+                HeaderCell = new TableHeaderCell();
+                HeaderCell.Text = "Giá trị thực hiện đã nghiệm thu A - B";
+                HeaderCell.HorizontalAlign = HorizontalAlign.Center;
+                HeaderCell.RowSpan = 2;
+                HeaderCell.CssClass = "HeaderStyle";
+                HeaderRow.Cells.Add(HeaderCell);
+
+                //Adding cell
+                HeaderCell = new TableHeaderCell();
+                HeaderCell.Text = "Số chưa GN cho nhà thầu theo nghiệm thu A - B";
+                HeaderCell.HorizontalAlign = HorizontalAlign.Center;
+                HeaderCell.RowSpan = 2;
+                HeaderCell.CssClass = "HeaderStyle";
+                HeaderRow.Cells.Add(HeaderCell);
+
 				//Adding the Row at the 0th position (first row) in the Grid
 				ProductGrid.Controls[0].Controls.AddAt(0, HeaderRow);
 
@@ -510,6 +526,7 @@ namespace QuanLyDuToan.BaoCao
 				HeaderCell3.ColumnSpan = 1; // For merging three columns (tso, txuyen, ktxuyen,ctmtqg)
 				HeaderCell3.CssClass = "HeaderStyle";
 				HeaderRow3.Cells.Add(HeaderCell3);
+
 
 				//Adding the Row at the 0th position (first row) in the Grid
 				ProductGrid.Controls[0].Controls.AddAt(2, HeaderRow3);
