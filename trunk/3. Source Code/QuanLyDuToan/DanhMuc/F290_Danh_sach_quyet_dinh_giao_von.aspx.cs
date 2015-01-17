@@ -44,8 +44,22 @@ namespace QuanLyDuToan.DanhMuc
         private void set_default_input()
         {
             m_txt_tu_khoa_tim_kiem.Text = "";
-            m_txt_tu_ngay.Text = (new DateTime(DateTime.Now.Year, 1, 1)).ToString(c_configuration.DEFAULT_DATETIME_FORMAT);
-            m_txt_den_ngay.Text = (DateTime.Now.Date).ToString(c_configuration.DEFAULT_DATETIME_FORMAT);
+            if (Request.QueryString["ip_dat_tu_ngay"].ToString().Trim() != "")
+            {
+                m_txt_tu_ngay.Text = Request.QueryString["ip_dat_tu_ngay"].ToString();
+            }
+            else
+            {
+                m_txt_tu_ngay.Text = (new DateTime(DateTime.Now.Year, 1, 1)).ToString(c_configuration.DEFAULT_DATETIME_FORMAT);
+            }
+            if (Request.QueryString["ip_dat_den_ngay"].ToString().Trim() != "")
+            {
+                m_txt_den_ngay.Text = Request.QueryString["ip_dat_den_ngay"].ToString();
+            }
+            else
+            {
+                m_txt_den_ngay.Text = (DateTime.Now.Date).ToString(c_configuration.DEFAULT_DATETIME_FORMAT);
+            }
         }
 
         protected void m_cmd_tim_kiem_Click(object sender, EventArgs e)

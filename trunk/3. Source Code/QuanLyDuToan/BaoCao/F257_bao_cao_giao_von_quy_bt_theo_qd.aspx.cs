@@ -48,6 +48,16 @@ namespace QuanLyDuToan.BaoCao
 
         private void load_data_2_grid()
         {
+            if (CIPConvert.ToDecimal(m_ddl_quyet_dinh.SelectedValue) == -1)
+            {
+                BoundField field = (BoundField)this.m_grv.Columns[1];
+                field.DataField = "tong_tien";
+            }
+            else
+            {
+                BoundField field = (BoundField)this.m_grv.Columns[1];
+                field.DataField = "tong_tien_qd";
+            }
             DataSet v_ds = new DataSet();
             DataTable v_dt = new DataTable();
             v_ds.Tables.Add(v_dt);
@@ -81,7 +91,7 @@ namespace QuanLyDuToan.BaoCao
                 CIPConvert.ToDatetime(m_txt_tu_ngay.Text, c_configuration.DEFAULT_DATETIME_FORMAT),
                 CIPConvert.ToDatetime(m_txt_den_ngay.Text, c_configuration.DEFAULT_DATETIME_FORMAT),
                 m_txt_tim_kiem.Text.Trim(),
-                WinFormControls.eTAT_CA.NO,
+                WinFormControls.eTAT_CA.YES,
                 "pr_A290_danh_sach_quyet_dinh_giao_von",
                 m_ddl_quyet_dinh);
         }
@@ -118,6 +128,7 @@ namespace QuanLyDuToan.BaoCao
 
         protected void m_cmd_xem_bao_cao_Click(object sender, EventArgs e)
         {
+            load_data_2_ddl_quyet_dinh();
             load_data_2_grid();
         }
     }
