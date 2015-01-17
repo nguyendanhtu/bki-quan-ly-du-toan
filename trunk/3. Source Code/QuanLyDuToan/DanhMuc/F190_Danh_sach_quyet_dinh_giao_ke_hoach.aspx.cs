@@ -134,7 +134,7 @@ namespace QuanLyDuToan.DanhMuc
 			{
 				if (!IsPostBack)
 				{
-                    if (Request.QueryString["ip_dat_tu_ngay"].ToString().Trim() != "")
+                    if (Request.QueryString["ip_dat_tu_ngay"] != null)
                     {
                         m_txt_tu_ngay.Text = Request.QueryString["ip_dat_tu_ngay"].ToString();
                     }
@@ -142,7 +142,7 @@ namespace QuanLyDuToan.DanhMuc
                     {
                         m_txt_tu_ngay.Text = CIPConvert.ToStr(WinFormControls.get_dau_nam_form_date(DateTime.Now), "dd/MM/yyyy");
                     }
-                    if (Request.QueryString["ip_dat_den_ngay"].ToString().Trim() != "")
+                    if (Request.QueryString["ip_dat_den_ngay"] != null)
                     {
                         m_txt_den_ngay.Text = Request.QueryString["ip_dat_den_ngay"].ToString();
                     }
