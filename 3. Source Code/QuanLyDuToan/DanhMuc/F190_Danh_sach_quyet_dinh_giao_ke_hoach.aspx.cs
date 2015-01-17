@@ -107,9 +107,22 @@ namespace QuanLyDuToan.DanhMuc
 			{
 				if (!IsPostBack)
 				{
-					m_txt_tu_ngay.Text = CIPConvert.ToStr(WinFormControls.get_dau_nam_form_date(DateTime.Now), "dd/MM/yyyy");
-					m_txt_den_ngay.Text = CIPConvert.ToStr(DateTime.Now, "dd/MM/yyyy");
-
+                    if (Request.QueryString["ip_dat_tu_ngay"].ToString().Trim() != "")
+                    {
+                        m_txt_tu_ngay.Text = Request.QueryString["ip_dat_tu_ngay"].ToString();
+                    }
+                    else
+                    {
+                        m_txt_tu_ngay.Text = CIPConvert.ToStr(WinFormControls.get_dau_nam_form_date(DateTime.Now), "dd/MM/yyyy");
+                    }
+                    if (Request.QueryString["ip_dat_den_ngay"].ToString().Trim() != "")
+                    {
+                        m_txt_den_ngay.Text = Request.QueryString["ip_dat_den_ngay"].ToString();
+                    }
+                    else
+                    {
+                        m_txt_den_ngay.Text = CIPConvert.ToStr(DateTime.Now, "dd/MM/yyyy");
+                    }
 					load_data_to_grid();
 				}
 			}
