@@ -3,14 +3,31 @@
     <script>
         function pageLoad(sender, args) {
             if (args.get_isPartialLoad()) {
-               
                 $(".datepicker").datepicker({ format: 'dd/mm/yyyy' });
-
+                var v_lst = $('.link405');
+                for (var i = 0; i < v_lst.length; i++) {
+                    v_lst[i].href = v_lst[i].href + "&ip_dc_id_don_vi=" + $("#<%=m_ddl_don_vi.ClientID%>").val();
+                }
+                $("#<%=m_ddl_don_vi.ClientID%>").on('change', function () {
+                    var v_lst = $('.link405');
+                    for (var i = 0; i < v_lst.length; i++) {
+                        v_lst[i].href = v_lst[i].href + "&ip_dc_id_don_vi=" + $("#<%=m_ddl_don_vi.ClientID%>").val();
+                    }
+                });
             }
         }
         $(document).ready(function () {
-         
             $(".datepicker").datepicker({ format: 'dd/mm/yyyy' });
+            var v_lst = $('.link405');
+            for (var i = 0; i < v_lst.length; i++) {
+                v_lst[i].href = v_lst[i].href + "&ip_dc_id_don_vi=" + $("#<%=m_ddl_don_vi.ClientID%>").val();
+                }
+            $("#<%=m_ddl_don_vi.ClientID%>").on('change', function () {
+                var v_lst = $('.link405');
+                for (var i = 0; i < v_lst.length; i++) {
+                    v_lst[i].href = v_lst[i].href + "&ip_dc_id_don_vi=" + $("#<%=m_ddl_don_vi.ClientID%>").val();
+                    }
+            });
         }
        )
     </script>
@@ -47,7 +64,7 @@
                 <Columns>
                     <asp:TemplateField HeaderText="Số quyết định" ItemStyle-Width="150px">
 							<ItemTemplate>
-							<a href='../DuToan/F405_giao_von_qbt.aspx?ip_dc_id_quyet_dinh=<%#Eval("ID") %>'
+							<a class="link405" href='../DuToan/F405_giao_von_qbt.aspx?ip_dc_id_quyet_dinh=<%#Eval("ID") %>'
                                             title"Xem chi tiết"><%#  Eval("SO_QUYET_DINH") %></a>
 								</ItemTemplate>
 						</asp:TemplateField>
