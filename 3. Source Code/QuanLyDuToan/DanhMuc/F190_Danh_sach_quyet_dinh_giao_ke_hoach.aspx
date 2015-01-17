@@ -15,7 +15,8 @@
            
             $(".datepicker").datepicker({ format: 'dd/mm/yyyy' });
             var v_lst = $('.link204');
-            for (var i = 0; i < v_lst.length; i++) {
+            for (var i = 0; i < v_lst.length; i++)
+            {
                 v_lst[i].href = v_lst[i].href + "&ip_dc_id_don_vi=" + $("#<%=m_ddl_don_vi.ClientID%>").val();
             }
             $("#<%=m_ddl_don_vi.ClientID%>").on('change', function () {
@@ -46,7 +47,11 @@
                 <tr>
 									<td style="text-align: right">Đơn vị:</td>
 									<td colspan="2">
-										<asp:DropDownList ID="m_ddl_don_vi" CssClass="select2" runat="server" AutoPostBack="true" OnSelectedIndexChanged="m_ddl_don_vi_SelectedIndexChanged" Width="200px"></asp:DropDownList></td>
+										<asp:DropDownList ID="m_ddl_don_vi" CssClass="select2" runat="server" AutoPostBack="true" OnSelectedIndexChanged="m_ddl_don_vi_SelectedIndexChanged" Width="200px">
+
+										</asp:DropDownList>
+
+									</td>
                 </tr>
 				<span>Từ khóa tìm kiếm: </span>
 				<asp:TextBox  runat="server" ID="m_txt_tu_khoa_tim_kiem" Style="width: 200px;"></asp:TextBox>
@@ -106,13 +111,13 @@
             </div>
 		</ContentTemplate>
 	</asp:UpdatePanel>
-	<asp:UpdateProgress ID="updateprogress1" runat="server">
+	<asp:UpdateProgress ID="UpdateProgress1" runat="server">
 		<ProgressTemplate>
-			<div class="cssloadwapper">
-				<div class="cssloadcontent">
-					<img src="../images/loadingbar.gif" alt="" />
+			<div class="cssLoadWapper">
+				<div class="cssLoadContent">
+					<img src="../Images/loadingBar.gif" alt="" />
 					<p>
-						đang gửi yêu cầu, hãy đợi ...
+						Đang gửi yêu cầu, hãy đợi ...
 					</p>
 				</div>
 			</div>
