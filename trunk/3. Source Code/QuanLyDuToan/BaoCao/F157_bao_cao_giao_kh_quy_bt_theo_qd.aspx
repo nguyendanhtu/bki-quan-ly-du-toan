@@ -28,10 +28,18 @@
 	        width:240px; 
             float:left;
         }
+        .control1 {
+	        width:240px; 
+            float:left;
+        }
 
 	    .control select
          {
 	        width:220px !important;
+             }
+        .control1 select
+         {
+	        width:203px !important;
              }
          
         .filter{
@@ -42,14 +50,8 @@
         {
             border-top:0px;
         }
-         table 
-         {
-             border:1px solid black !important;
-         }
+         
 
-	    th {
-	        border-top: 1px solid black !important;
-        }
         .csscurrency
         {
             text-align: right !important;
@@ -160,14 +162,21 @@
                                         </span>
                                     </div>
                                 </div>
-                                <div class="height30">
+                                <div class="height30" style="margin-bottom: 5px;">
 							        <div class="lb" style="margin-right:30px">Đến ngày</div>
                                     <div id="datetimepicker2" class="input-group date datepicker" style="width: 200px;">
                                         <asp:TextBox ID="m_txt_den_ngay" placeholder="dd/MM/yyyy" runat="server" CssClass="cssTextBox form-control date-end" Height="30px" Width="164px"></asp:TextBox>
                                         <span class="input-group-addon"><span class="glyphicon-calendar glyphicon"></span>
                                         </span>
                                     </div>
+                                </div
+                                 <div class="height30">
+							        <div class="lb" style="margin-right:34px">Quyết định</div>
+                                     <div class="control1" style="width: 203px !important;">
+                                         <asp:DropDownList ID="m_ddl_quyet_dinh" runat="server" cssclass="select2"></asp:DropDownList>
+                                    </div>
                                 </div>
+                                
                             </div>
                         </div>							
 					</td>
@@ -212,7 +221,6 @@
                </tbody>
 			</table>
             <div id="quyet_dinh">
-            <asp:DropDownList ID="m_ddl_quyet_dinh" runat="server" Width="180px" cssclass="select2"></asp:DropDownList><br />
             <a id="m_anchor_so_quyet_dinh">Xem chi tiết quyết định</a>
             </div>
 		</ContentTemplate>
