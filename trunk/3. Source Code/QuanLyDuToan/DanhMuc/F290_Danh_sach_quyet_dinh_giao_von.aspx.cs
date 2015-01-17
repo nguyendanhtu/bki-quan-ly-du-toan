@@ -65,7 +65,16 @@ namespace QuanLyDuToan.DanhMuc
 
         protected void m_cmd_tim_kiem_Click(object sender, EventArgs e)
         {
-            load_data_2_grid();
+            try
+            {
+                load_data_2_grid();
+            }
+            catch (Exception ex)
+            {
+
+                CSystemLog_301.ExceptionHandle(this,ex);
+            }
+            
         }
         protected void m_ddl_don_vi_SelectedIndexChanged(object sender, EventArgs e)
         {
