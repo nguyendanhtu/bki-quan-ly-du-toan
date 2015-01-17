@@ -31,7 +31,7 @@
 			<table id="main_table" style="width: 900px; margin: auto" class="cssTable table" border="0">
 				<tr>
 					<td class="cssPageTitleBG" colspan="4">
-						<asp:Label ID="m_lbl_title" runat="server" Width="100%" Text="Nhập Giao vốn - Nguồn Quỹ bảo trì" CssClass="cssPageTitle"></asp:Label>
+						<asp:Label ID="m_lbl_title" runat="server" Width="100%" Text="Nhập Giá trị thực hiện" CssClass="cssPageTitle"></asp:Label>
 					</td>
 				</tr>
 				<tr>

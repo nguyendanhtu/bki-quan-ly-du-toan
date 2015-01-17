@@ -302,6 +302,7 @@ namespace QuanLyDuToan.DuToan
 		{
 			try
 			{
+				m_lbl_mess_grid.Text = "";
 				load_data_to_grid();
 			}
 			catch (Exception v_e)
