@@ -14,10 +14,13 @@
                         v_lst[i].href = v_lst[i].href + "&ip_dc_id_don_vi=" + $("#<%=m_ddl_don_vi.ClientID%>").val();
                     }
                 });
+                $(".select2").select2();
+
             }
         }
         $(document).ready(function () {
             $(".datepicker").datepicker({ format: 'dd/mm/yyyy' });
+            $(".select2").select2();
             var v_lst = $('.link405');
             for (var i = 0; i < v_lst.length; i++) {
                 v_lst[i].href = v_lst[i].href + "&ip_dc_id_don_vi=" + $("#<%=m_ddl_don_vi.ClientID%>").val();
@@ -54,9 +57,9 @@
                 </tr>
             <span>Từ khóa tìm kiếm: </span><asp:textbox runat="server" id="m_txt_tu_khoa_tim_kiem" style="width:200px;"></asp:textbox>
            <span>Từ ngày: </span>
-		   <asp:TextBox runat="server" CssClass="datepicker" ID="m_txt_tu_ngay" Style="width: 200px; text-align: right"></asp:TextBox>
+		   <asp:TextBox runat="server" CssClass="datepicker" ID="m_txt_tu_ngay" Style="width: 150px; text-align: right"></asp:TextBox>
 			<span>Đến ngày: </span>
-			<asp:TextBox runat="server" ID="m_txt_den_ngay" CssClass="datepicker"  Style="width: 200px; text-align: right"></asp:TextBox>
+			<asp:TextBox runat="server" ID="m_txt_den_ngay" CssClass="datepicker"  Style="width: 150px; text-align: right"></asp:TextBox>
             <asp:button runat="server" cssclass="btn" text="Tìm kiếm" id="m_cmd_tim_kiem" OnClick="m_cmd_tim_kiem_Click"/>
         </div>
         <div style="width:1160px; margin:20px auto;">
@@ -91,7 +94,7 @@
             </asp:gridview>
         </div>
         <div style="text-align:center">
-            <asp:Button runat="server" Text="Xuất excel" id="m_cmd_xuat_excel"></asp:Button>
+            <asp:Button CssClass="btn" runat="server" Text="Xuất excel" id="m_cmd_xuat_excel"></asp:Button>
         </div>
     </ContentTemplate>
         </asp:UpdatePanel>
