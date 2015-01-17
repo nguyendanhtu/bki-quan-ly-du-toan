@@ -67,31 +67,13 @@ namespace QuanLyDuToan.DuToan {
         protected global::System.Web.UI.WebControls.Label m_lbl_mess_qd;
         
         /// <summary>
-        /// m_rdb_kh_dau_nam control.
+        /// m_lbl_loai_quyet_dinh control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton m_rdb_kh_dau_nam;
-        
-        /// <summary>
-        /// m_rdb_bo_sung control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton m_rdb_bo_sung;
-        
-        /// <summary>
-        /// m_rdb_dieu_chinh control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton m_rdb_dieu_chinh;
+        protected global::System.Web.UI.WebControls.Label m_lbl_loai_quyet_dinh;
         
         /// <summary>
         /// m_hdf_id_giao_kh control.
@@ -139,13 +121,13 @@ namespace QuanLyDuToan.DuToan {
         protected global::System.Web.UI.WebControls.Label m_lbl_mess_chon_qd;
         
         /// <summary>
-        /// m_txt_ngay_thang control.
+        /// m_lbl_ngay_thang control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox m_txt_ngay_thang;
+        protected global::System.Web.UI.WebControls.Label m_lbl_ngay_thang;
         
         /// <summary>
         /// m_txt_noi_dung control.
