@@ -161,7 +161,7 @@ namespace QuanLyDuToan.BaoCao
 				, CIPConvert.ToDatetime(m_txt_den_ngay.Text, "dd/MM/yyyy")
 				,WinFormControls.get_dau_nam_form_date( CIPConvert.ToDatetime(m_txt_tu_ngay.Text, "dd/MM/yyyy"))
 				, CIPConvert.ToDecimal(m_ddl_don_vi.SelectedValue)
-				, Person.get_user_id()
+				, no_random()
 				, v_dc_id_du_an
 				, v_dc_id_cong_trinh
 				, v_dc_id_loai_nhiem_vu
@@ -171,6 +171,12 @@ namespace QuanLyDuToan.BaoCao
 			m_grv.DataBind();
 
 		}
+        public decimal no_random()
+        {
+            Random no_random = new Random();
+            return no_random.Next(1,1000); //random a number in 1 - 1000
+             
+        }
 		public string ConvertToUnsign3(string str)
 		{
 			System.Text.RegularExpressions.Regex regex = new System.Text.RegularExpressions.Regex("\\p{IsCombiningDiacriticalMarks}+");
@@ -346,7 +352,7 @@ namespace QuanLyDuToan.BaoCao
                 HeaderCell = new TableHeaderCell();
                 HeaderCell.Text = "Giá trị thực hiện đã nghiệm thu A - B";
                 HeaderCell.HorizontalAlign = HorizontalAlign.Center;
-                HeaderCell.RowSpan = 2;
+                HeaderCell.RowSpan = 3;
                 HeaderCell.CssClass = "HeaderStyle";
                 HeaderRow.Cells.Add(HeaderCell);
 
@@ -354,7 +360,7 @@ namespace QuanLyDuToan.BaoCao
                 HeaderCell = new TableHeaderCell();
                 HeaderCell.Text = "Số chưa GN cho nhà thầu theo nghiệm thu A - B";
                 HeaderCell.HorizontalAlign = HorizontalAlign.Center;
-                HeaderCell.RowSpan = 2;
+                HeaderCell.RowSpan = 3;
                 HeaderCell.CssClass = "HeaderStyle";
                 HeaderRow.Cells.Add(HeaderCell);
 
