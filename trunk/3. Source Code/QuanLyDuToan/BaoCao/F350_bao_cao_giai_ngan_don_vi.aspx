@@ -3,7 +3,7 @@
 <%@ Import Namespace="IP.Core.IPCommon" %>
 <%@ Import Namespace="WebDS.CDBNames" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
-	<style type="text/css">
+    <style type="text/css">
 		.cssGrid tr td {
 			padding: 0px;
 		}
@@ -102,7 +102,7 @@
 	</script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-	<asp:ScriptManager ID="ScriptManager1" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server">
 	</asp:ScriptManager>
 
 	<asp:UpdatePanel ID="UpdatePanel1" runat="server">
@@ -183,7 +183,7 @@
 
 					<td colspan="4" style="text-align: center">
 						<asp:Button ID="m_cmd_xem_bao_cao" Text="Xem báo cáo" OnClick="m_cmd_xem_bao_cao_Click" runat="server" Height="24px" Width="98px" />
-						<asp:Button ID="m_cmd_xuat_excel" Text="Xuất excel" OnClick="m_cmd_xuat_excel_Click" runat="server" Height="24px" Width="98px" Enabled="False" />
+						<asp:Button ID="m_cmd_xuat_excel" Text="Xuất excel" OnClick="m_cmd_xuat_excel_Click" runat="server" Height="24px" Width="98px" />
 					</td>
 				</tr>
 				<tr>
