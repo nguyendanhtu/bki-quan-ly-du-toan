@@ -47,7 +47,7 @@ namespace QuanLyDuToan.BaoCao
                 CIPConvert.ToDecimal(m_ddl_du_an.SelectedValue.Trim() == "" ? "-1" : m_ddl_du_an.SelectedValue.Trim()),
                 m_txt_tim_kiem.Text.Trim(),
                 "N",
-                CIPConvert.ToDecimal(m_ddl_quyet_dinh.SelectedValue),
+                CIPConvert.ToDecimal(m_ddl_quyet_dinh.SelectedValue.Trim() == "" ? "-1" : m_ddl_quyet_dinh.SelectedValue.Trim()),
                 "pr_A357_bao_cao_giai_ngan");
             m_grv.DataSource = v_ds.Tables[0];
             m_grv.DataBind();
@@ -63,11 +63,15 @@ namespace QuanLyDuToan.BaoCao
         {
             US_DM_GIAI_NGAN v_us = new US_DM_GIAI_NGAN();
             DS_DM_GIAI_NGAN v_ds = new DS_DM_GIAI_NGAN();
-            v_us.FillDataset(v_ds, " where ID_DON_VI = " + Person.get_id_don_vi().ToString());
+            v_us.FillDataset(v_ds, 
+                " where ID_DON_VI = " + Person.get_id_don_vi().ToString());// + 
+                //" and NGAY_THANG >= " + m_txt_tu_ngay.Text +
+                //" and NGAY_THANG <= " + m_txt_den_ngay.Text);
             m_ddl_quyet_dinh.DataSource = v_ds.DM_GIAI_NGAN;
             m_ddl_quyet_dinh.DataValueField = DM_GIAI_NGAN.ID;
             m_ddl_quyet_dinh.DataTextField = DM_GIAI_NGAN.SO_UNC;
             m_ddl_quyet_dinh.DataBind();
+            m_ddl_quyet_dinh.Items.Insert(0, new ListItem(CONST_QLDB.TAT_CA, CONST_QLDB.ID_TAT_CA.ToString()));
         }
 
         private void load_data_2_ddl_don_vi()
@@ -97,6 +101,7 @@ namespace QuanLyDuToan.BaoCao
 
         protected void m_cmd_xem_bao_cao_Click(object sender, EventArgs e)
         {
+            load_data_2_ddl_quyet_dinh();
             load_data_2_grid();
         }
     }
