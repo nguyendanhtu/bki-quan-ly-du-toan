@@ -45,6 +45,11 @@ namespace QuanLyDuToan.BaoCao
         {
             try
             {
+                decimal v_dc_id_don_vi = Person.get_id_don_vi();
+                if (Request.QueryString["ip_dc_id_don_vi"] != null)
+                {
+                    v_dc_id_don_vi = CIPConvert.ToDecimal(Request.QueryString["ip_dc_id_don_vi"]);
+                }
                 DataSet v_ds = new DataSet();
                 DataTable v_dt = new DataTable();
                 v_ds.Tables.Add(v_dt);
@@ -55,7 +60,7 @@ namespace QuanLyDuToan.BaoCao
                     v_ds,
                     CIPConvert.ToDatetime(m_txt_tu_ngay.Text, c_configuration.DEFAULT_DATETIME_FORMAT),
                     CIPConvert.ToDatetime(m_txt_den_ngay.Text, c_configuration.DEFAULT_DATETIME_FORMAT),
-                    Person.get_id_don_vi(),
+                    v_dc_id_don_vi,
                     CIPConvert.ToDecimal(m_ddl_loai_nv.SelectedValue.Trim() == "" ? "-1" : m_ddl_loai_nv.SelectedValue.Trim()),
                     CIPConvert.ToDecimal(m_ddl_cong_trinh.SelectedValue.Trim() == "" ? "-1" : m_ddl_cong_trinh.SelectedValue.Trim()),
                     CIPConvert.ToDecimal(m_ddl_du_an.SelectedValue.Trim() == "" ? "-1" : m_ddl_du_an.SelectedValue.Trim()),
