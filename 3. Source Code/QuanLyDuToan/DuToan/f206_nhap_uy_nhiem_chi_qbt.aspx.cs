@@ -350,6 +350,10 @@ namespace QuanLyDuToan.DuToan
 					m_cmd_print.Visible = true;
 				}
 				load_data_to_cbo_dm_uy_nhiem_chi();
+				
+				load_thong_tin_don_vi();
+				//data_to_grid_unc();
+
 				if (Request.QueryString["ip_dc_id_dm_giai_ngan"] != null)
 				{
 					decimal v_dc_id_quyet_dinh = CIPConvert.ToDecimal(Request.QueryString["ip_dc_id_dm_giai_ngan"]);
@@ -361,13 +365,15 @@ namespace QuanLyDuToan.DuToan
 				{
 					if (Request.QueryString["ip_nguon_ns"].ToString().Equals("Y") && m_rbl_ma_tkkt.Items.Count > 1)
 						m_rbl_ma_tkkt.Items[1].Selected = true;//chọn mã tkkt Nguồn NS
+					if (Request.QueryString["ip_nguon_ns"].ToString().Equals("N") && m_rbl_ma_tkkt.Items.Count > 1)
+						m_rbl_ma_tkkt.Items[0].Selected = true;//chọn mã tkkt Nguồn QBT
 				}
                 if (Request.QueryString["ip_dc_id_don_vi"] != null)
                 {
                     m_ddl_don_vi.SelectedValue = Request.QueryString["ip_dc_id_don_vi"].ToString();
                 }
 				data_to_grid_unc();
-				load_thong_tin_don_vi();
+				//load_thong_tin_don_vi();
 			}
 		}
 
@@ -617,6 +623,16 @@ namespace QuanLyDuToan.DuToan
 			v_us.get_grid_giai_ngan(v_ds, CIPConvert.ToDecimal(m_ddl_don_vi.SelectedValue), CIPConvert.ToDecimal(m_hdf_id_dm_uy_nhiem_chi.Value), CIPConvert.ToDecimal(m_ddl_don_vi.SelectedValue), v_str_is_nguon_ns);
 			m_grv_unc.DataSource = v_ds.Tables[0];
 			m_grv_unc.DataBind();
+
+			//kiem tra neu khong phai don vi minh thi khong cho sua du lieu
+			if (m_ddl_don_vi.SelectedValue != Person.get_id_don_vi().ToString())
+			{
+				m_grv_unc.Columns[5].Visible = false;//cot Thao tac
+			}
+			else
+			{
+				m_grv_unc.Columns[5].Visible = true;
+			}
 		}
 
 		private void data_to_ddl_du_an_cong_trinh_grid(DropDownList op_ddl, string ip_str)
@@ -949,13 +965,13 @@ namespace QuanLyDuToan.DuToan
 					v_txt_grid_edit_so_tien_nop_thue.Text = v_txt_grid_edit_so_tien_nop_thue.Text.Trim().Replace(",", "").Replace(".", "");
 					v_txt_grid_edit_so_tien_tt_cho_dv_huong.Text = v_txt_grid_edit_so_tien_tt_cho_dv_huong.Text.Trim().Replace(",", "").Replace(".", "");
 					//1. Check validate data
-					if (m_ddl_grid_edit_du_an_quoc_lo.SelectedValue == null)
+					if (m_ddl_grid_edit_du_an_quoc_lo.SelectedValue.Equals(""))
 					{
 						m_lbl_mess_detail.Text = "Bạn chọn lại Loại nhiệm vụ! Trong mục này không có Quốc lộ/Dự án nào!";
 						m_ddl_grid_edit_loai_nhiem_vu.Focus();
 						return;
 					}
-					if (m_ddl_grid_edit_du_an.SelectedValue == null)
+					if (m_ddl_grid_edit_du_an.SelectedValue.Equals(""))
 					{
 						m_lbl_mess_detail.Text = "Bạn chọn lại Quốc lộ/Dự án! Trong mục này không mục chi nào!";
 						m_ddl_grid_edit_du_an_quoc_lo.Focus();
