@@ -119,6 +119,21 @@ namespace QuanLyDuToan.DuToan
 		{
 			try
 			{
+				//Kiem tra neu khong phai la don vi nhap thi chi cho xem
+				if (m_ddl_don_vi.SelectedValue != Person.get_id_don_vi().ToString())
+				{
+					m_grv.Columns[0].Visible = false;
+					m_cmd_insert.Visible = false;
+					m_cmd_update.Visible = false;
+					m_cmd_cancel.Visible = false;
+				}
+				else
+				{
+					m_grv.Columns[0].Visible = true;
+					m_cmd_insert.Visible = true;
+					m_cmd_update.Visible = true;
+					m_cmd_cancel.Visible = true;
+				}
 				//decimal v_id_dc_loai = 1;
 				decimal v_id_dc_reported_user;
 				// Chú thích: id_dc_loai = 1 - Loại dự án
@@ -672,6 +687,7 @@ namespace QuanLyDuToan.DuToan
 			//load_data_to_ddl_loai_nhiem_vu();
 			load_panel_loai_chi();
 			load_data_to_grid();
+			
 		}
 		private void xoa_trang()
 		{

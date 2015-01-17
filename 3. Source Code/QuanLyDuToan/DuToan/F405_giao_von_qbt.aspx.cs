@@ -91,11 +91,13 @@ namespace QuanLyDuToan.DuToan
 			{
 				m_cmd_cap_nhat.Visible = false;
 				m_cmd_xoa_trang.Visible = false;
+				m_grv.Columns[0].Visible = false;
 			}
 			else
 			{
 				m_cmd_cap_nhat.Visible = true;
 				m_cmd_xoa_trang.Visible = true;
+				m_grv.Columns[0].Visible = true;
 			}
 		}
 
@@ -117,7 +119,7 @@ namespace QuanLyDuToan.DuToan
 			//1. Update noi dung chi tu Giao kh sang Giao von
 			US_GD_CHI_TIET_GIAO_VON v_us_giao_von = new US_GD_CHI_TIET_GIAO_VON();
 			v_us_giao_von.update_noi_dung_chi_from_giao_kh_sang_giao_von(v_dat_dau_nam,
-				v_dat_cuoi_nam, Person.get_id_don_vi(), ip_id_quyet_dinh);
+				v_dat_cuoi_nam, CIPConvert.ToDecimal( m_ddl_don_vi.SelectedValue), ip_id_quyet_dinh);
 
 			//2. Load data tu grid_giao_von len luoi de sua thong tin
 			DS_GRID_GIAO_VON v_ds = new DS_GRID_GIAO_VON();
@@ -340,6 +342,7 @@ namespace QuanLyDuToan.DuToan
 			//m_txt_ngay_thang.Visible = true;
 
 			disable_edit_quyet_dinh();
+			if (CIPConvert.ToDecimal(m_ddl_quyet_dinh.SelectedValue) < 0) return;
 			US_DM_QUYET_DINH v_us = new US_DM_QUYET_DINH(CIPConvert.ToDecimal(m_ddl_quyet_dinh.SelectedValue)); ;
 			m_txt_so_qd.Text = v_us.strSO_QUYET_DINH;
 			m_txt_noi_dung.Text = v_us.strNOI_DUNG;
@@ -356,6 +359,7 @@ namespace QuanLyDuToan.DuToan
 			m_ddl_quyet_dinh.Visible = true;
 			m_hdf_id_quyet_dinh.Value = m_ddl_quyet_dinh.SelectedValue;
 			load_data_when_quyet_dinh_is_selected();
+			if (CIPConvert.ToDecimal(m_ddl_quyet_dinh.SelectedValue) < 0) return;
 			US_DM_QUYET_DINH v_us = new US_DM_QUYET_DINH(CIPConvert.ToDecimal(m_ddl_quyet_dinh.SelectedValue));
 			if (v_us.dcID_LOAI_QUYET_DINH_GIAO == ID_LOAI_GIAO_DICH.KH_DAU_NAM)
 			{
