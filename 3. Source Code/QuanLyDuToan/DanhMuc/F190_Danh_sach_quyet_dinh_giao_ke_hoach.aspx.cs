@@ -19,6 +19,8 @@ namespace QuanLyDuToan.DanhMuc
 {
 	public partial class F190_Danh_sach_quyet_dinh_giao_ke_hoach : System.Web.UI.Page
 	{
+        US_DM_QUYET_DINH m_us = new US_DM_QUYET_DINH();
+        
 		#region Private Methods
 		private bool check_validate_data_is_ok()
 		{
@@ -98,6 +100,31 @@ namespace QuanLyDuToan.DanhMuc
 			
 		}
 
+        private void us_2_form(){
+            m_txt_noi_dung.Text = m_us.strNOI_DUNG;
+            m_txt_so_quyet_dinh.Text = m_us.strSO_QUYET_DINH;
+            m_txt_ngay_thang.Text = CIPConvert.ToStr(m_us.datNGAY_THANG, c_configuration.DEFAULT_DATETIME_FORMAT);
+            m_ddl_loai_quyet_dinh_giao.SelectedValue = m_us.dcID_LOAI_QUYET_DINH_GIAO.ToString();
+        }
+
+        private void form_2_us() {
+            m_us.strNOI_DUNG = m_txt_noi_dung.Text;
+            m_us.strSO_QUYET_DINH = m_txt_so_quyet_dinh.Text;
+            m_us.datNGAY_THANG = CIPConvert.ToDatetime(m_txt_ngay_thang.Text, c_configuration.DEFAULT_DATETIME_FORMAT);
+            m_us.dcID_LOAI_QUYET_DINH_GIAO = CIPConvert.ToDecimal(m_ddl_loai_quyet_dinh_giao.SelectedValue);
+            m_us.dcID_LOAI_QUYET_DINH = 647;//id giao ke hoach
+        }
+
+        private void load_data_2_ddl_loai_quyet_dinh_giao() {
+            US_CM_DM_TU_DIEN v_us = new US_CM_DM_TU_DIEN();
+            DS_CM_DM_TU_DIEN v_ds = new DS_CM_DM_TU_DIEN();
+            v_us.fill_tu_dien_cung_loai_ds("LOAI_GIAO_DICH", v_ds);
+            m_ddl_loai_quyet_dinh_giao.DataSource = v_ds.CM_DM_TU_DIEN;
+            m_ddl_loai_quyet_dinh_giao.DataValueField = CM_DM_TU_DIEN.ID;
+            m_ddl_loai_quyet_dinh_giao.DataTextField = CM_DM_TU_DIEN.TEN;
+            m_ddl_loai_quyet_dinh_giao.DataBind();
+        }
+
 		#endregion
 
 		#region Events
@@ -123,6 +150,7 @@ namespace QuanLyDuToan.DanhMuc
                     {
                         m_txt_den_ngay.Text = CIPConvert.ToStr(DateTime.Now, "dd/MM/yyyy");
                     }
+                    load_data_2_ddl_loai_quyet_dinh_giao();
 					load_data_to_grid();
 				}
 			}
@@ -154,5 +182,34 @@ namespace QuanLyDuToan.DanhMuc
 			}
 		}
 		#endregion
+
+        protected void m_cmd_insert_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                form_2_us();
+                if (check_us())
+                {
+                    m_us.Insert();
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        private bool check_us()
+        {
+            if (m_us.strSO_QUYET_DINH.Trim() == "")
+            {
+                return false;
+            }
+            if (m_us.strNOI_DUNG.Trim() == "")
+            {
+                return false;
+            }
+            return true;
+        }
 	}
 }
