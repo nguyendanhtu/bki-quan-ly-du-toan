@@ -30,14 +30,13 @@ namespace QuanLyDuToan.DanhMuc
             US_V_DM_QUYET_DINH v_us = new US_V_DM_QUYET_DINH();
             DS_V_DM_QUYET_DINH v_ds = new DS_V_DM_QUYET_DINH();
             v_ds.EnforceConstraints = false;
-			//Tran Anh commit thieu US
-			//v_us.FillDatasetByIdDonVi(
-			//	v_ds,
-			//	CIPConvert.ToDecimal(m_ddl_don_vi.SelectedValue),
-			//	CIPConvert.ToDatetime(m_txt_tu_ngay.Text,c_configuration.DEFAULT_DATETIME_FORMAT),
-			//	CIPConvert.ToDatetime(m_txt_den_ngay.Text,c_configuration.DEFAULT_DATETIME_FORMAT),
-			//	m_txt_tu_khoa_tim_kiem.Text
-			//	);
+			v_us.FillDatasetByIdDonVi(
+				v_ds,
+				CIPConvert.ToDecimal(m_ddl_don_vi.SelectedValue),
+				CIPConvert.ToDatetime(m_txt_tu_ngay.Text,c_configuration.DEFAULT_DATETIME_FORMAT),
+				CIPConvert.ToDatetime(m_txt_den_ngay.Text,c_configuration.DEFAULT_DATETIME_FORMAT),
+				m_txt_tu_khoa_tim_kiem.Text
+				);
             m_grv.DataSource = v_ds.V_DM_QUYET_DINH;
             m_grv.DataBind();
         }
@@ -45,7 +44,7 @@ namespace QuanLyDuToan.DanhMuc
         private void set_default_input()
         {
             m_txt_tu_khoa_tim_kiem.Text = "";
-            if (Request.QueryString["ip_dat_tu_ngay"].ToString().Trim() != "")
+            if (Request.QueryString["ip_dat_tu_ngay"] != null)
             {
                 m_txt_tu_ngay.Text = Request.QueryString["ip_dat_tu_ngay"].ToString();
             }
@@ -53,7 +52,7 @@ namespace QuanLyDuToan.DanhMuc
             {
                 m_txt_tu_ngay.Text = (new DateTime(DateTime.Now.Year, 1, 1)).ToString(c_configuration.DEFAULT_DATETIME_FORMAT);
             }
-            if (Request.QueryString["ip_dat_den_ngay"].ToString().Trim() != "")
+            if (Request.QueryString["ip_dat_den_ngay"] != null)
             {
                 m_txt_den_ngay.Text = Request.QueryString["ip_dat_den_ngay"].ToString();
             }
