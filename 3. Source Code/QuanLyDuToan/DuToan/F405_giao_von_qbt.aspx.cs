@@ -165,7 +165,7 @@ namespace QuanLyDuToan.DuToan
 			load_data_to_cbo();
 			m_ddl_quyet_dinh.SelectedValue = v_dc_id_quyet_dinh.ToString();
 			m_ddl_quyet_dinh_SelectedIndexChanged(null, null);
-			m_ddl_don_vi.SelectedValue = v_dc_id_quyet_dinh.ToString();
+            m_ddl_don_vi.SelectedValue = v_dc_id_don_vi.ToString();
 			load_data_to_grid();
 		}
 		private void xoa_trang()
