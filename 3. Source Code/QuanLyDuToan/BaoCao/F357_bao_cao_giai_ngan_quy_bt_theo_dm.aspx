@@ -23,7 +23,14 @@
             text-align:right;
             line-height:20px;
         }
-
+         .control1 {
+	        width:240px; 
+            float:left;
+        }
+         .control1 select
+         {
+	        width:203px !important;
+             }
 	    .control {
 	        width:240px; 
             float:left;
@@ -61,6 +68,7 @@
                 $("#<%=m_ddl_loai_nv.ClientID%>").select2();
                 $("#<%=m_ddl_cong_trinh.ClientID%>").select2();
                 $("#<%=m_ddl_du_an.ClientID%>").select2();
+                $(".select2").select2();
                 $("#<%=m_txt_tu_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
                 $("#<%=m_txt_den_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
                 $("#quyet_dinh").appendTo(".header_quyet_dinh");
@@ -86,6 +94,7 @@
             $("#<%=m_ddl_loai_nv.ClientID%>").select2();
             $("#<%=m_ddl_cong_trinh.ClientID%>").select2();
             $("#<%=m_ddl_du_an.ClientID%>").select2();
+            $(".select2").select2();
             $("#<%=m_txt_tu_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
             $("#<%=m_txt_den_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
             $("#quyet_dinh").appendTo(".header_quyet_dinh");
@@ -121,7 +130,7 @@
 						<p>
 							<span style="font-weight: bold">BÁO CÁO TÌNH HÌNH GIAO KẾ HOẠCH <%=DateTime.Now.Year.ToString() %></span>
 							<br />
-                            <asp:DropDownList ID="m_ddl_don_vi" runat="server" Width="100px" AutoPostBack="True" cssclass="select2"></asp:DropDownList>
+                            <asp:DropDownList ID="m_ddl_don_vi" runat="server" Width="180px" AutoPostBack="True" cssclass="select2"></asp:DropDownList>
                         </p>
 						<div style="width:70%; margin:0px auto;" class="height30">
                             <div class="lb">Tìm kiếm:</div>
@@ -152,12 +161,18 @@
                                         </span>
                                     </div>
                                 </div>
-                                <div class="height30">
+                                <div class="height30" style="margin-bottom: 5px;">
 							        <div class="lb" style="margin-right:30px">Đến ngày</div>
                                     <div id="datetimepicker2" class="input-group date datepicker" style="width: 200px;">
                                         <asp:TextBox ID="m_txt_den_ngay" placeholder="dd/MM/yyyy" runat="server" CssClass="cssTextBox form-control date-end" Height="30px" Width="164px"></asp:TextBox>
                                         <span class="input-group-addon"><span class="glyphicon-calendar glyphicon"></span>
                                         </span>
+                                    </div>
+                                </div>
+                                <div class="height30">
+							        <div class="lb" style="margin-right:34px">Quyết định</div>
+                                     <div class="control1" style="width: 203px !important;">
+                                         <asp:DropDownList ID="m_ddl_quyet_dinh" runat="server" cssclass="select2"></asp:DropDownList>
                                     </div>
                                 </div>
                             </div>
@@ -204,7 +219,6 @@
                </tbody>
 			</table>
             <div id="quyet_dinh">
-            <asp:DropDownList ID="m_ddl_quyet_dinh" runat="server" Width="100px" cssclass="select2"></asp:DropDownList>
             <a id="m_anchor_so_quyet_dinh">Xem chi tiết quyết định</a>
             </div>
 		</ContentTemplate>
