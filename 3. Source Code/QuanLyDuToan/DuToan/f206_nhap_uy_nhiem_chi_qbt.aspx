@@ -63,7 +63,7 @@
 											<td style="text-align: right">
 												<span>Địa chỉ</span>
 											</td>
-											<td>
+											<td colspan="2">
 												<asp:Label ID="m_lbl_dia_chi" runat="server" ForeColor="Black"></asp:Label>
 											</td>
 
