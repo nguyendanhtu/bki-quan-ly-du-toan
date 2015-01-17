@@ -101,7 +101,7 @@ namespace QuanLyDuToan.BaoCao
             {
                 v_id_dc_id_du_an = CIPConvert.ToDecimal(Request.QueryString["ip_dc_id_du_an"]);
             }
-            m_ddl_du_an.SelectedValue = CIPConvert.ToStr(v_id_dc_id_du_an);
+            m_ddl_du_an.SelectedValue = CIPConvert.ToStr(v_id_dc_id_du_an);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
         }
 
         private void load_data_2_ddl_quyet_dinh()
