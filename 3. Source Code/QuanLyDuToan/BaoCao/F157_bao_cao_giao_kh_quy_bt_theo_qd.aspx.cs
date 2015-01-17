@@ -155,12 +155,30 @@ namespace QuanLyDuToan.BaoCao
 
         protected void m_ddl_loai_nv_SelectedIndexChanged(object sender, EventArgs e)
         {
-            App_Code.WinFormControls.load_data_to_cbo_cong_trinh_theo_loai_nhiem_vu(CIPConvert.ToDecimal(m_ddl_loai_nv.SelectedValue), m_ddl_cong_trinh,CIPConvert.ToDecimal(m_ddl_don_vi.SelectedValue));
+            try
+            {
+                App_Code.WinFormControls.load_data_to_cbo_cong_trinh_theo_loai_nhiem_vu(CIPConvert.ToDecimal(m_ddl_loai_nv.SelectedValue), m_ddl_cong_trinh, CIPConvert.ToDecimal(m_ddl_don_vi.SelectedValue));
+            }
+            catch (Exception v_e)
+            {
+                
+                CSystemLog_301.ExceptionHandle(this,v_e);
+            }
+            
         }
 
         protected void m_ddl_cong_trinh_SelectedIndexChanged(object sender, EventArgs e)
         {
-            App_Code.WinFormControls.load_data_to_cbo_du_an_theo_cong_trinh_va_loai_nhiem_vu(CIPConvert.ToDecimal(m_ddl_cong_trinh.SelectedValue), CIPConvert.ToDecimal(m_ddl_loai_nv.SelectedValue), m_ddl_du_an, CIPConvert.ToDecimal(m_ddl_don_vi.SelectedValue));
+            try
+            {
+                App_Code.WinFormControls.load_data_to_cbo_du_an_theo_cong_trinh_va_loai_nhiem_vu(CIPConvert.ToDecimal(m_ddl_cong_trinh.SelectedValue), CIPConvert.ToDecimal(m_ddl_loai_nv.SelectedValue), m_ddl_du_an, CIPConvert.ToDecimal(m_ddl_don_vi.SelectedValue));
+            }
+            catch (Exception v_e)
+            {
+
+                CSystemLog_301.ExceptionHandle(this, v_e);
+            }
+            
         }
 
         protected void m_cmd_xem_bao_cao_Click(object sender, EventArgs e)
