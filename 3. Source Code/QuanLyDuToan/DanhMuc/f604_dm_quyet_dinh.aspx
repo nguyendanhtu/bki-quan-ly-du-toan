@@ -94,6 +94,7 @@
 					</td>
 				</tr>
 			</table>
+			
 			<table cellspacing="0" cellpadding="2" style="width: 99%;" class="cssTable" border="0">
 				<tr>
 					<td class="cssPageTitleBG" colspan="4">
@@ -120,10 +121,10 @@
 								ForeColor="#333333"></SelectedRowStyle>
 							<Columns>
 
-								<asp:TemplateField HeaderText="Xóa" HeaderStyle-Width="3%">
+								<asp:TemplateField HeaderText="Xóa" HeaderStyle-Width="3%" HeaderStyle-Height="70px">
 									<ItemTemplate>
 										<asp:LinkButton ID="m_lbl_delete" runat="server" CausesValidation="false" CommandArgument='<%#Eval("ID")%>'
-											CommandName="Xoa" ToolTip="Xóa" OnClientClick="return confirm ('Bạn có thực sự muốn xóa bản ghi này?')">
+											CommandName="Xoa" ToolTip="Xóa" OnClientClick='<%#get_delete_client_script(Eval("so_don_vi").ToString()) %>'>
                      <img alt="Xóa" src="../Images/Button/deletered.png" />
 													
 										</asp:LinkButton>
@@ -149,6 +150,7 @@
 								<asp:BoundField DataField="noi_dung" HeaderText="Nội dung" />
 								<%--<asp:BoundField DataField="loai" HeaderText="Loại" />--%>
 								<asp:BoundField DataField="ngay_thang" DataFormatString="{0:dd/MM/yyyy}" HeaderText="Ngày tháng" />
+								<asp:BoundField DataField="so_don_vi" HeaderText="Số đơn vị đã nhập dữ liệu" HeaderStyle-Width="100px" ItemStyle-HorizontalAlign="Right"  HeaderStyle-HorizontalAlign="Center" />
 							</Columns>
 						</asp:GridView>
 					</td>

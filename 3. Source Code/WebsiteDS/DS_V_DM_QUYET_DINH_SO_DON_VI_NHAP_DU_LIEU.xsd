@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DS_V_DM_QUYET_DINH_SO_DON_VI_NHAP_DU_LIEU" targetNamespace="http://tempuri.org/DS_V_DM_QUYET_DINH_SO_DON_VI_NHAP_DU_LIEU.xsd" xmlns:mstns="http://tempuri.org/DS_V_DM_QUYET_DINH_SO_DON_VI_NHAP_DU_LIEU.xsd" xmlns="http://tempuri.org/DS_V_DM_QUYET_DINH_SO_DON_VI_NHAP_DU_LIEU.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="BKI_QLDTConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="BKI_QLDTConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.WebDS.Properties.Settings.GlobalReference.Default.BKI_QLDTConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="v_dm_quyet_dinh_so_don_vi_nhap_du_lieuTableAdapter" GeneratorDataComponentClassName="v_dm_quyet_dinh_so_don_vi_nhap_du_lieuTableAdapter" Name="v_dm_quyet_dinh_so_don_vi_nhap_du_lieu" UserDataComponentName="v_dm_quyet_dinh_so_don_vi_nhap_du_lieuTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="BKI_QLDTConnectionString (Settings)" DbObjectName="BKI_QLDT.dbo.v_dm_quyet_dinh_so_don_vi_nhap_du_lieu" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT ID, ID_DON_VI, SO_QUYET_DINH, NOI_DUNG, NGAY_THANG, ID_LOAI_QUYET_DINH, ID_LOAI_QUYET_DINH_GIAO, SO_DON_VI FROM dbo.v_dm_quyet_dinh_so_don_vi_nhap_du_lieu</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ID" DataSetColumn="ID" />
+              <Mapping SourceColumn="ID_DON_VI" DataSetColumn="ID_DON_VI" />
+              <Mapping SourceColumn="SO_QUYET_DINH" DataSetColumn="SO_QUYET_DINH" />
+              <Mapping SourceColumn="NOI_DUNG" DataSetColumn="NOI_DUNG" />
+              <Mapping SourceColumn="NGAY_THANG" DataSetColumn="NGAY_THANG" />
+              <Mapping SourceColumn="ID_LOAI_QUYET_DINH" DataSetColumn="ID_LOAI_QUYET_DINH" />
+              <Mapping SourceColumn="ID_LOAI_QUYET_DINH_GIAO" DataSetColumn="ID_LOAI_QUYET_DINH_GIAO" />
+              <Mapping SourceColumn="SO_DON_VI" DataSetColumn="SO_DON_VI" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DS_V_DM_QUYET_DINH_SO_DON_VI_NHAP_DU_LIEU" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DS_V_DM_QUYET_DINH_SO_DON_VI_NHAP_DU_LIEU" msprop:Generator_UserDSName="DS_V_DM_QUYET_DINH_SO_DON_VI_NHAP_DU_LIEU">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="v_dm_quyet_dinh_so_don_vi_nhap_du_lieu" msprop:Generator_TableClassName="v_dm_quyet_dinh_so_don_vi_nhap_du_lieuDataTable" msprop:Generator_TableVarName="tablev_dm_quyet_dinh_so_don_vi_nhap_du_lieu" msprop:Generator_TablePropName="v_dm_quyet_dinh_so_don_vi_nhap_du_lieu" msprop:Generator_RowDeletingName="v_dm_quyet_dinh_so_don_vi_nhap_du_lieuRowDeleting" msprop:Generator_RowChangingName="v_dm_quyet_dinh_so_don_vi_nhap_du_lieuRowChanging" msprop:Generator_RowEvHandlerName="v_dm_quyet_dinh_so_don_vi_nhap_du_lieuRowChangeEventHandler" msprop:Generator_RowDeletedName="v_dm_quyet_dinh_so_don_vi_nhap_du_lieuRowDeleted" msprop:Generator_UserTableName="v_dm_quyet_dinh_so_don_vi_nhap_du_lieu" msprop:Generator_RowChangedName="v_dm_quyet_dinh_so_don_vi_nhap_du_lieuRowChanged" msprop:Generator_RowEvArgName="v_dm_quyet_dinh_so_don_vi_nhap_du_lieuRowChangeEvent" msprop:Generator_RowClassName="v_dm_quyet_dinh_so_don_vi_nhap_du_lieuRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:decimal" />
+              <xs:element name="ID_DON_VI" msprop:Generator_ColumnVarNameInTable="columnID_DON_VI" msprop:Generator_ColumnPropNameInRow="ID_DON_VI" msprop:Generator_ColumnPropNameInTable="ID_DON_VIColumn" msprop:Generator_UserColumnName="ID_DON_VI" type="xs:decimal" />
+              <xs:element name="SO_QUYET_DINH" msprop:Generator_ColumnVarNameInTable="columnSO_QUYET_DINH" msprop:Generator_ColumnPropNameInRow="SO_QUYET_DINH" msprop:Generator_ColumnPropNameInTable="SO_QUYET_DINHColumn" msprop:Generator_UserColumnName="SO_QUYET_DINH">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="35" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NOI_DUNG" msprop:Generator_ColumnVarNameInTable="columnNOI_DUNG" msprop:Generator_ColumnPropNameInRow="NOI_DUNG" msprop:Generator_ColumnPropNameInTable="NOI_DUNGColumn" msprop:Generator_UserColumnName="NOI_DUNG">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NGAY_THANG" msprop:Generator_ColumnVarNameInTable="columnNGAY_THANG" msprop:Generator_ColumnPropNameInRow="NGAY_THANG" msprop:Generator_ColumnPropNameInTable="NGAY_THANGColumn" msprop:Generator_UserColumnName="NGAY_THANG" type="xs:dateTime" />
+              <xs:element name="ID_LOAI_QUYET_DINH" msprop:Generator_ColumnVarNameInTable="columnID_LOAI_QUYET_DINH" msprop:Generator_ColumnPropNameInRow="ID_LOAI_QUYET_DINH" msprop:Generator_ColumnPropNameInTable="ID_LOAI_QUYET_DINHColumn" msprop:Generator_UserColumnName="ID_LOAI_QUYET_DINH" type="xs:decimal" />
+              <xs:element name="ID_LOAI_QUYET_DINH_GIAO" msprop:Generator_ColumnVarNameInTable="columnID_LOAI_QUYET_DINH_GIAO" msprop:Generator_ColumnPropNameInRow="ID_LOAI_QUYET_DINH_GIAO" msprop:Generator_ColumnPropNameInTable="ID_LOAI_QUYET_DINH_GIAOColumn" msprop:Generator_UserColumnName="ID_LOAI_QUYET_DINH_GIAO" type="xs:decimal" />
+              <xs:element name="SO_DON_VI" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSO_DON_VI" msprop:Generator_ColumnPropNameInRow="SO_DON_VI" msprop:Generator_ColumnPropNameInTable="SO_DON_VIColumn" msprop:Generator_UserColumnName="SO_DON_VI" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:v_dm_quyet_dinh_so_don_vi_nhap_du_lieu" />
+      <xs:field xpath="mstns:ID" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

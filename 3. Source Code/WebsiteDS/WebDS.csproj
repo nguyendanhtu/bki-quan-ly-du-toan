@@ -228,6 +228,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DS_V_DM_QUYET_DINH_KH.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DS_V_DM_QUYET_DINH_SO_DON_VI_NHAP_DU_LIEU.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_V_DM_QUYET_DINH_SO_DON_VI_NHAP_DU_LIEU.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DS_V_GD_GIAI_NGAN_QBT.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -639,6 +644,17 @@
     </None>
     <None Include="DS_V_DM_QUYET_DINH_KH.xss">
       <DependentUpon>DS_V_DM_QUYET_DINH_KH.xsd</DependentUpon>
+    </None>
+    <None Include="DS_V_DM_QUYET_DINH_SO_DON_VI_NHAP_DU_LIEU.xsc">
+      <DependentUpon>DS_V_DM_QUYET_DINH_SO_DON_VI_NHAP_DU_LIEU.xsd</DependentUpon>
+    </None>
+    <None Include="DS_V_DM_QUYET_DINH_SO_DON_VI_NHAP_DU_LIEU.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_V_DM_QUYET_DINH_SO_DON_VI_NHAP_DU_LIEU.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DS_V_DM_QUYET_DINH_SO_DON_VI_NHAP_DU_LIEU.xss">
+      <DependentUpon>DS_V_DM_QUYET_DINH_SO_DON_VI_NHAP_DU_LIEU.xsd</DependentUpon>
     </None>
     <None Include="DS_V_GD_GIAI_NGAN_QBT.xsc">
       <DependentUpon>DS_V_GD_GIAI_NGAN_QBT.xsd</DependentUpon>

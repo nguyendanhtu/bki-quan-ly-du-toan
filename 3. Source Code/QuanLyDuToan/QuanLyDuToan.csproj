@@ -13,12 +13,13 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>QuanLyDuToan</RootNamespace>
     <AssemblyName>QuanLyDuToan</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -40,11 +41,12 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
@@ -52,6 +54,7 @@
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Web.Mobile" />
+    <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Account\Login.aspx" />
@@ -76,10 +79,15 @@
     <Content Include="bootstrap-3.2.0-dist\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="bootstrap-3.2.0-dist\js\bootstrap.js" />
     <Content Include="bootstrap-3.2.0-dist\js\bootstrap.min.js" />
+    <Content Include="UserControl\MessageBoxUserControl.ascx" />
     <Content Include="DanhMuc\test.aspx" />
     <Content Include="DuToan\f205_nhap_giao_ke_hoach_qbt.aspx" />
     <Content Include="DuToan\F406_khoi_luong.aspx" />
     <Content Include="DuToan\F700_thong_tin_don_vi.aspx" />
+    <Content Include="Images\1.jpg" />
+    <Content Include="Images\2.jpg" />
+    <Content Include="Images\3.jpg" />
+    <Content Include="Images\4.jpg" />
     <Content Include="Reports\Templates\A350_TPL_BAO_CAO_TINH_HINH_GIAI_NGAN_CAC_NGUON_VON_NAM.xls" />
     <Content Include="Reports\Templates\A530_TPL_BAO_CAO_TINH_HINH_GIAI_NGAN_CAC_NGUON_VON_NAM.xls" />
     <Content Include="Reports\Templates\A256_TPL_BAO_CAO_GIAO_VON.xls" />
@@ -498,6 +506,7 @@
     <Content Include="Styles\Admin.css" />
     <Content Include="Styles\jquery-ui.css" />
     <Content Include="Styles\Login.css" />
+    <Content Include="Styles\MessageBox.css" />
     <Content Include="Styles\plugins\datepicker\datepicker.css" />
     <Content Include="Styles\Site.css" />
     <Content Include="Styles\style.css" />
@@ -597,6 +606,8 @@
       <DependentUpon>Logout.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Code\CSystemMessage.cs" />
+    <Compile Include="App_Code\MessageBox.cs" />
+    <Compile Include="App_Code\MessageBoxCore.cs" />
     <Compile Include="App_Code\WinformReport.cs" />
     <Compile Include="App_Code\WinformControls.cs" />
     <Compile Include="App_Code\Person.cs" />
@@ -760,6 +771,13 @@
     </Compile>
     <Compile Include="ChucNang\F600_print_unc_qbt.aspx.designer.cs">
       <DependentUpon>F600_print_unc_qbt.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\MessageBoxUserControl.ascx.cs">
+      <DependentUpon>MessageBoxUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\MessageBoxUserControl.ascx.designer.cs">
+      <DependentUpon>MessageBoxUserControl.ascx</DependentUpon>
     </Compile>
     <Compile Include="DanhMuc\F004_Danh_sach_chuong_loai_khoan_muc.aspx.cs">
       <DependentUpon>F004_Danh_sach_chuong_loai_khoan_muc.aspx</DependentUpon>
@@ -968,9 +986,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Control\" />
     <Folder Include="ExportExcel\" />
     <Folder Include="Reports\Output\" />
+    <Folder Include="Test\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Site.Master" />
