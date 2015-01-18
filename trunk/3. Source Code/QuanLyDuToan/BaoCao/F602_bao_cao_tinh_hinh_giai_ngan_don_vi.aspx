@@ -31,7 +31,7 @@
 
 	<asp:UpdatePanel ID="UpdatePanel1" runat="server">
 		<ContentTemplate>
-			<table style="width: 150%;" class="cssTable" border="0">
+			<table id="main_table" style="width: 150%;" class="cssTable table" border="0">
 				<tr>
 					<td colspan="4" style="text-align: center">
 						<div style="width: 900px; margin: auto">
@@ -194,6 +194,15 @@
 									</ItemTemplate>
 								</asp:TemplateField>--%>
 							</Columns>
+                            <AlternatingRowStyle BackColor="White" />
+							<EditRowStyle BackColor="#7C6F57" />
+							<FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
+							<HeaderStyle BackColor="#810c15" Font-Bold="True" ForeColor="White" />
+							<PagerSettings Position="TopAndBottom" />
+							<PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
+							<RowStyle BackColor="#E3EAEB" />
+							<SelectedRowStyle CssClass="cssSelectedRow" BackColor="#C5BBAF" Font-Bold="True"
+								ForeColor="#333333"></SelectedRowStyle>
 						</asp:GridView>
 					</td>
 				</tr>
