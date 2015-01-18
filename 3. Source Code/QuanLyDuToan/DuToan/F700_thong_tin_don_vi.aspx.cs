@@ -91,7 +91,7 @@ namespace QuanLyDuToan.DuToan
                     v_us_thong_tin_don_vi.strMA_TKKT1 = m_txt_ma_tkkt_quy_bao_tri.Text.Trim();
                     v_us_thong_tin_don_vi.strMA_TKKT2 = m_txt_ma_tkkt_nguon_ns.Text.Trim();
                     v_us_thong_tin_don_vi.Update();
-					m_lbl_mess.Text = "Cập nhật dữ liệu thành công!";
+					m_lbl_mess.Text = "Cập nhật dữ liệu thành công! Bạn đã có thể sử dụng các chức năng của chương trình";
 				}
 			}
 			catch (Exception v_e)
