@@ -45,7 +45,7 @@ namespace QuanLyDuToan.BaoCao {
                 if (ip_id_cong_trinh == DBNull.Value) ip_id_cong_trinh = -1;
                 if (ip_id_du_an == DBNull.Value) ip_id_du_an = -1;
                 switch (CIPConvert.ToStr(ip_level)) {
-                    case "3":
+                    case "1":
                         v_str_link += "?ip_dc_id_don_vi=" + CIPConvert.ToStr(ip_id_don_vi)
                                      + "&ip_dc_id_loai_nhiem_vu=" + CIPConvert.ToStr(ip_id_loai_nhiem_vu)
                                      + "&ip_dc_id_cong_trinh=" + "-1"
@@ -64,7 +64,7 @@ namespace QuanLyDuToan.BaoCao {
                                      + "&ip_dat_den_ngay=" + m_txt_den_ngay.Text
                                      + "&ip_dc_id_quyet_dinh=" + "-1";
                         break;
-                    case "1":
+                    case "3":
                         v_str_link += "?ip_dc_id_don_vi=" + CIPConvert.ToStr(ip_id_don_vi)
                                      + "&ip_dc_id_loai_nhiem_vu=" + CIPConvert.ToStr(ip_id_loai_nhiem_vu)
                                      + "&ip_dc_id_cong_trinh=" + CIPConvert.ToStr(ip_id_cong_trinh)
