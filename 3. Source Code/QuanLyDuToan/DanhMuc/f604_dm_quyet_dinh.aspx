@@ -149,8 +149,8 @@
 								<asp:BoundField DataField="so_quyet_dinh" HeaderText="Số quyết định" />
 								<asp:BoundField DataField="noi_dung" HeaderText="Nội dung" />
 								<%--<asp:BoundField DataField="loai" HeaderText="Loại" />--%>
-								<asp:BoundField DataField="ngay_thang" DataFormatString="{0:dd/MM/yyyy}" HeaderText="Ngày tháng" />
-								<asp:BoundField DataField="so_don_vi" HeaderText="Số đơn vị đã nhập dữ liệu" HeaderStyle-Width="100px" ItemStyle-HorizontalAlign="Right"  HeaderStyle-HorizontalAlign="Center" />
+								<asp:BoundField DataField="ngay_thang" DataFormatString="{0:dd/MM/yyyy}" HeaderText="Ngày tháng"  ItemStyle-HorizontalAlign="Center"  HeaderStyle-HorizontalAlign="Center" />
+								<asp:BoundField DataField="so_don_vi" HeaderText="Số đơn vị đã nhập dữ liệu" HeaderStyle-Width="100px" ItemStyle-HorizontalAlign="Center"  HeaderStyle-HorizontalAlign="Center" />
 							</Columns>
 						</asp:GridView>
 					</td>

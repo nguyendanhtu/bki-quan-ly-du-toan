@@ -159,6 +159,7 @@ namespace QuanLyDuToan.DanhMuc
 				}
 			}
 			load_rdb_loai_quyet_dinh_giao_from_select_loai_quyet_dinh();
+			m_txt_so_quyet_dinh.Focus();
 		}
 		private int getCountQuyetDinhCoSo(string ip_str_so_quyet_dinh)
 		{
