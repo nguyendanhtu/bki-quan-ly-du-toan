@@ -185,7 +185,11 @@ namespace QuanLyDuToan.DuToan
 
 				if (v_dc_id_quyet_dinh < 0) return;
 				
-				v_us.get_grid_giao_kh_qbt(v_ds, v_dc_id_quyet_dinh, v_str_is_nguon_ns, v_id_dc_reported_user);
+				v_us.get_grid_giao_kh_qbt(v_ds
+					, v_dc_id_quyet_dinh
+					, v_str_is_nguon_ns
+					, v_id_dc_reported_user
+					, CIPConvert.ToDecimal(m_ddl_don_vi.SelectedValue));
 				m_grv.DataSource = v_ds.Tables[0];
 				m_grv.DataBind();
 				if (!m_hdf_id_giao_kh.Value.Equals(""))

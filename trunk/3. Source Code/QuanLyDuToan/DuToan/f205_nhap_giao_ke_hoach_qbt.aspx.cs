@@ -90,7 +90,11 @@ namespace QuanLyDuToan.DuToan
 				{
 					v_str_is_nguon_ns = "Y";
 				}
-				v_us.get_grid_giao_kh_qbt(v_ds, v_dc_id_quyet_dinh, v_str_is_nguon_ns, v_id_dc_reported_user);
+				v_us.get_grid_giao_kh_qbt(v_ds
+					, v_dc_id_quyet_dinh
+					, v_str_is_nguon_ns
+					, v_id_dc_reported_user
+					, Person.get_id_don_vi());
 				m_grv.DataSource = v_ds.Tables[0];
 				m_grv.DataBind();
 				if (!m_hdf_id_giao_kh.Value.Equals(""))
