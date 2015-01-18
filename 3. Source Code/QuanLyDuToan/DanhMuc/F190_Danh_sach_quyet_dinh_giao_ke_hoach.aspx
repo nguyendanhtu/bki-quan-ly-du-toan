@@ -8,7 +8,16 @@
             if (args.get_isPartialLoad()) {
                
                 $(".datepicker").datepicker({ format: 'dd/mm/yyyy' });
-
+                var v_lst = $('.link204');
+                for (var i = 0; i < v_lst.length; i++) {
+                    v_lst[i].href = v_lst[i].href + "&ip_dc_id_don_vi=" + $("#<%=m_ddl_don_vi.ClientID%>").val();
+            }
+            $("#<%=m_ddl_don_vi.ClientID%>").on('change', function () {
+                    var v_lst = $('.link204');
+                    for (var i = 0; i < v_lst.length; i++) {
+                        v_lst[i].href = v_lst[i].href + "&ip_dc_id_don_vi=" + $("#<%=m_ddl_don_vi.ClientID%>").val();
+                }
+            });
             }
         }
         $(document).ready(function () {
