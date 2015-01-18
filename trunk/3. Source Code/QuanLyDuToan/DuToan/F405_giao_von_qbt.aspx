@@ -7,6 +7,25 @@
 		.cssFontBold {
 			font-weight: bold;
 		}
+        .rounded_corners
+    {
+        border: 1px solid Black;
+        -webkit-border-radius: 8px;
+        -moz-border-radius: 8px;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+    .rounded_corners td, .rounded_corners th
+    {
+        border: 1px solid Black;
+        font-family: Arial;
+        font-size: 10pt;
+        text-align: center;
+    }
+    .rounded_corners table table td
+    {
+        border-style: none;
+    }
 	</style>
 	<script>
 		function pageLoad(sender, args) {
@@ -22,6 +41,7 @@
         }
        )
 	</script>
+    
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="Server">
 	<asp:ScriptManager ID="ScriptManager1" runat="server">
@@ -191,7 +211,17 @@
                                                                 <ItemStyle HorizontalAlign="Center"></ItemStyle>
                                                             </asp:TemplateField>--%>
 														</Columns>
-													</asp:GridView>
+                                                           <AlternatingRowStyle BackColor="White" />
+							                                <EditRowStyle BackColor="#7C6F57" />
+							                                <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
+							                                <HeaderStyle BackColor="#810c15" Font-Bold="True" ForeColor="White" />
+							                                <PagerSettings Position="TopAndBottom" />
+							                                <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
+							                                <RowStyle BackColor="#E3EAEB" />
+							                                <SelectedRowStyle CssClass="cssSelectedRow" BackColor="#C5BBAF" Font-Bold="True"
+								                                ForeColor="#333333"></SelectedRowStyle>
+                                                    </asp:GridView>
+													
 												</td>
 											</tr>
 											<tr>
