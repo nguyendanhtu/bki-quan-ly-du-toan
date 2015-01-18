@@ -157,7 +157,7 @@
                                 <div class="height30">
                                    <div class="lb" style="margin-right:30px">Từ ngày</div>
                                     <div id="datetimepicker1" class="input-group date datepicker" style="width: 200px;">
-                                        <asp:TextBox ID="m_txt_tu_ngay" placeholder="dd/MM/yyyy" runat="server" CssClass="cssTextBox form-control  date-start" Height="30px" Width="164px"></asp:TextBox>
+                                        <asp:TextBox ID="m_txt_tu_ngay" placeholder="dd/MM/yyyy" runat="server" CssClass="cssTextBox form-control  date-start" Height="30px" Width="164px" OnTextChanged="m_txt_tu_ngay_TextChanged"></asp:TextBox>
                                         <span class="input-group-addon"><span class="glyphicon-calendar glyphicon"></span>
                                         </span>
                                     </div>
@@ -165,7 +165,7 @@
                                 <div class="height30" style="margin-bottom: 5px;">
 							        <div class="lb" style="margin-right:30px">Đến ngày</div>
                                     <div id="datetimepicker2" class="input-group date datepicker" style="width: 200px;">
-                                        <asp:TextBox ID="m_txt_den_ngay" placeholder="dd/MM/yyyy" runat="server" CssClass="cssTextBox form-control date-end" Height="30px" Width="164px"></asp:TextBox>
+                                        <asp:TextBox ID="m_txt_den_ngay" placeholder="dd/MM/yyyy" runat="server" CssClass="cssTextBox form-control date-end" Height="30px" Width="164px" OnTextChanged="m_txt_den_ngay_TextChanged"></asp:TextBox>
                                         <span class="input-group-addon"><span class="glyphicon-calendar glyphicon"></span>
                                         </span>
                                     </div>
@@ -187,7 +187,7 @@
 
 					<td colspan="4" style="text-align: center">
 						<asp:Button classcss="btn" ID="m_cmd_xem_bao_cao" Text="Xem báo cáo" runat="server" OnClick="m_cmd_xem_bao_cao_Click" />
-						<asp:Button classcss="btn" ID="m_cmd_xuat_excel" Text="Xuất excel" runat="server" OnClick="m_cmd_xuat_excel_Click" Enabled="False" />
+						<asp:Button classcss="btn" ID="m_cmd_xuat_excel" Text="Xuất excel" runat="server" OnClick="m_cmd_xuat_excel_Click" />
 					</td>
 				</tr>
 				<tr>

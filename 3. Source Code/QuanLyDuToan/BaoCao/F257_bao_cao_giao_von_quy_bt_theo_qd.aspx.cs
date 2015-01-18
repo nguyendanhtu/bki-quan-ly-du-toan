@@ -123,8 +123,12 @@ namespace QuanLyDuToan.BaoCao
 
         protected void m_cmd_xem_bao_cao_Click(object sender, EventArgs e)
         {
-            load_data_2_ddl_quyet_dinh();
             load_data_2_grid();
+        }
+
+        public override void VerifyRenderingInServerForm(Control control)
+        {
+            //base.VerifyRenderingInServerForm(control);
         }
 
         protected void m_cmd_xuat_excel_Click(object sender, EventArgs e)
@@ -134,6 +138,16 @@ namespace QuanLyDuToan.BaoCao
             m_grv
             , "[" + v_us.strTEN_DON_VI + "]BaoCaoTinhHinhGiaoVon.xls"
             );
+        }
+
+        protected void m_txt_tu_ngay_TextChanged(object sender, EventArgs e)
+        {
+            load_data_2_ddl_quyet_dinh();
+        }
+
+        protected void m_txt_den_ngay_TextChanged(object sender, EventArgs e)
+        {
+            load_data_2_ddl_quyet_dinh();
         }
     }
 }

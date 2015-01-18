@@ -153,6 +153,11 @@ namespace QuanLyDuToan.BaoCao
             WinFormControls.load_data_to_ddl_don_vi_get_list_don_vi_duoc_xem_du_lieu(id_dc_don_vi, m_ddl_don_vi);
         }
 
+        public override void VerifyRenderingInServerForm(Control control)
+        {
+            //base.VerifyRenderingInServerForm(control);
+        }
+
         protected void m_ddl_loai_nv_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -183,7 +188,6 @@ namespace QuanLyDuToan.BaoCao
 
         protected void m_cmd_xem_bao_cao_Click(object sender, EventArgs e)
         {
-            load_data_2_ddl_quyet_dinh();
             load_data_2_grid();
         }
 
@@ -192,6 +196,16 @@ namespace QuanLyDuToan.BaoCao
             US_DM_DON_VI v_us = new US_DM_DON_VI(Person.get_id_don_vi());
             WinformReport.export_gridview_2_excel(
             m_grv, "[" + v_us.strTEN_DON_VI + "]BaoCaoTinhHinhGiaoKeHoach.xls");
+        }
+
+        protected void m_txt_tu_ngay_TextChanged(object sender, EventArgs e)
+        {
+            load_data_2_ddl_quyet_dinh();
+        }
+
+        protected void m_txt_den_ngay_TextChanged(object sender, EventArgs e)
+        {
+            load_data_2_ddl_quyet_dinh();
         }
     }
 }
