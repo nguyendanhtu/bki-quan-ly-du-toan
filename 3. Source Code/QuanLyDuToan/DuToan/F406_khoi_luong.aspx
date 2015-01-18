@@ -119,7 +119,7 @@
 													<asp:TextBox ID="m_txt_so_tien_ngan_sach_grid" runat="server" Style="text-align: right" CssClass="csscurrency"
 														Text='<%#format_so_tien(Eval(GRID_GIAO_VON.QUY).ToString()) %>' Visible='<%# !visible_label_so_tien(Eval("ID").ToString()) %>'></asp:TextBox>
 													<asp:Label ID="m_lbl_so_tien_ngan_sach_grid" runat="server" Style="text-align: right" CssClass="csscurrency"
-														Visible='<%# visible_label_so_tien(Eval("ID").ToString()) %>' Text='<%#format_so_tien(Eval(GRID_GIAO_VON.NS).ToString()) %>'></asp:Label>
+														Visible='<%# visible_label_so_tien(Eval("ID").ToString()) %>' Text='<%#format_so_tien(Eval(GRID_GIAO_VON.QUY).ToString()) %>'></asp:Label>
 												</ItemTemplate>
 											</asp:TemplateField>
 											<asp:TemplateField HeaderText="Số chưa giải ngân cho nhà thầu theo ng/thu A-B" ItemStyle-HorizontalAlign="Right" ItemStyle-Width="100px">
@@ -129,7 +129,7 @@
 														Text='<%#format_so_tien(Eval(GRID_GIAO_VON.NS).ToString()) %>'></asp:TextBox>
 													<asp:Label ID="m_lbl_so_tien_quy_bao_tri_grid" runat="server" Style="text-align: right" CssClass="csscurrency"
 														Visible='<%# visible_label_so_tien(Eval("ID").ToString()) %>'
-														Text='<%#format_so_tien(Eval(GRID_GIAO_VON.QUY).ToString()) %>'></asp:Label>
+														Text='<%#format_so_tien(Eval(GRID_GIAO_VON.NS).ToString()) %>'></asp:Label>
 												</ItemTemplate>
 											</asp:TemplateField>
 											<%-- <asp:TemplateField HeaderText="Tổng" ItemStyle-HorizontalAlign="Right" ItemStyle-Width="100px">
