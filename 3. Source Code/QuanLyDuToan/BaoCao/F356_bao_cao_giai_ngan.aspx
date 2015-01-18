@@ -43,7 +43,8 @@
                     <ItemStyle HorizontalAlign="Right" Width="120px" />
                     </asp:BoundField>
                 </Columns>
-
+                <AlternatingRowStyle BackColor="White" />
+						
             </asp:gridview>
         </div>
         <div style="text-align:center">

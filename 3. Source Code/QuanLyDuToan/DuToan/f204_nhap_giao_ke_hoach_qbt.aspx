@@ -20,8 +20,19 @@
 			$("#<%=m_txt_so_tien_nam_truoc_chuyen_sang.ClientID%>").bind({
 				blur: function () { tinhTongChiTx(); }
 			});
-			$('.select2').select2();
-			//$("#<=m_txt_ngay_thang.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
+		    
+		    $("#<%=m_ddl_don_vi.ClientID%>").select2();
+		    $("#<%=m_ddl_quyet_dinh.ClientID%>").select2();
+		    $("#<%=m_ddl_loai_nhiem_vu.ClientID%>").select2();
+		    $("#<%=m_ddl_cong_trinh.ClientID%>").select2();
+		    $("#<%=m_ddl_chuong.ClientID%>").select2();
+		    $("#<%=m_ddl_loai.ClientID%>").select2();
+		    $("#<%=m_ddl_khoan.ClientID%>").select2();
+		    $("#<%=m_ddl_muc.ClientID%>").select2();
+		    $("#<%=m_ddl_tieu_muc.ClientID%>").select2();
+		    $("#<%=m_ddl_du_an.ClientID%>").select2();
+		   
+		    
 		});
 		function pageLoad(sender, args) {
 			if (args.get_isPartialLoad()) {
@@ -32,7 +43,16 @@
 				$("#<%=m_txt_so_tien_nam_truoc_chuyen_sang.ClientID%>").bind({
 					blur: function () {tinhTongChiTx(); }
 				});
-				$('.select2').select2();
+			    $("#<%=m_ddl_don_vi.ClientID%>").select2();
+			    $("#<%=m_ddl_quyet_dinh.ClientID%>").select2();
+			    $("#<%=m_ddl_loai_nhiem_vu.ClientID%>").select2();
+			    $("#<%=m_ddl_cong_trinh.ClientID%>").select2();
+			    $("#<%=m_ddl_chuong.ClientID%>").select2();
+			    $("#<%=m_ddl_loai.ClientID%>").select2();
+			    $("#<%=m_ddl_khoan.ClientID%>").select2();
+			    $("#<%=m_ddl_muc.ClientID%>").select2();
+			    $("#<%=m_ddl_tieu_muc.ClientID%>").select2();
+			    $("#<%=m_ddl_du_an.ClientID%>").select2();
 				//$("#<=m_txt_ngay_thang.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
 			}
 		}
@@ -387,6 +407,15 @@
 											</asp:TemplateField>
 
 										</Columns>
+                                        <AlternatingRowStyle BackColor="White" />
+							<EditRowStyle BackColor="#7C6F57" />
+							<FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
+							<HeaderStyle BackColor="#810c15" Font-Bold="True" ForeColor="White" />
+							<PagerSettings Position="TopAndBottom" />
+							<PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
+							<RowStyle BackColor="#E3EAEB" />
+							<SelectedRowStyle CssClass="cssSelectedRow" BackColor="#C5BBAF" Font-Bold="True"
+								ForeColor="#333333"></SelectedRowStyle>
 									</asp:GridView>
 								</td>
 							</tr>

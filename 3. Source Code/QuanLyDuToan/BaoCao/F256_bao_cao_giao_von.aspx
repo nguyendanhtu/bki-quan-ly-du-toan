@@ -38,7 +38,15 @@
                     <ItemStyle HorizontalAlign="Right" Width="120px" />
                     </asp:BoundField>
                 </Columns>
-
+                <AlternatingRowStyle BackColor="White" />
+				<EditRowStyle BackColor="#7C6F57" />
+				<FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
+				<HeaderStyle BackColor="#810c15" Font-Bold="True" ForeColor="White" />
+				<PagerSettings Position="TopAndBottom" />
+				<PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
+				<RowStyle BackColor="#E3EAEB" />
+				<SelectedRowStyle CssClass="cssSelectedRow" BackColor="#C5BBAF" Font-Bold="True"
+				ForeColor="#333333"></SelectedRowStyle>
             </asp:gridview>
         </div>
         <div style="text-align:center">
