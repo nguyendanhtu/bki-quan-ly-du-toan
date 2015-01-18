@@ -62,7 +62,7 @@
             if (args.get_isPartialLoad()) {
                 $("#<%=m_ddl_loai_nv.ClientID%>").select2();
                 $("#<%=m_ddl_cong_trinh.ClientID%>").select2();
-                $(".select2").select2();
+                //$(".select2").select2();
                 $("#<%=m_ddl_du_an.ClientID%>").select2();
                 $("#<%=m_txt_tu_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
                 $("#<%=m_txt_den_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
@@ -91,7 +91,7 @@
         $(document).ready(function () {
             $("#<%=m_ddl_loai_nv.ClientID%>").select2();
             $("#<%=m_ddl_cong_trinh.ClientID%>").select2();
-            $(".select2").select2();
+            //$(".select2").select2();
             $("#<%=m_ddl_du_an.ClientID%>").select2();
             $("#<%=m_txt_tu_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
             $("#<%=m_txt_den_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
