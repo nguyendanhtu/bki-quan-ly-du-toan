@@ -34,6 +34,11 @@
 					</td>
 				</tr>
 				<tr>
+					<td colspan="4">
+						<asp:Label ID="m_lbl_mess" runat="server" CssClass="cssManField"></asp:Label>
+					</td>
+				</tr>
+				<tr>
 					<td style="text-align: right; width: 30%">
 						<span class="cssManField">Loại quyết định</span>
 					</td>
@@ -96,11 +101,7 @@
 						<span class="expand-collapse-text"></span>
 					</td>
 				</tr>
-				<tr>
-					<td colspan="4">
-						<asp:Label ID="m_lbl_mess" runat="server" CssClass="cssManField"></asp:Label>
-					</td>
-				</tr>
+				
 				<tr>
 					<td colspan="4" align="center">
 						<asp:GridView ID="m_grv" runat="server" AllowPaging="True" AutoGenerateColumns="False"
