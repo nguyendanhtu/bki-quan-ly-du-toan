@@ -164,7 +164,7 @@ namespace QuanLyDuToan.DanhMuc
 		{
 			DS_DM_QUYET_DINH v_ds = new DS_DM_QUYET_DINH();
 			US_DM_QUYET_DINH v_us = new US_DM_QUYET_DINH();
-			v_us.FillDataset(v_ds, "where " + DM_QUYET_DINH.SO_QUYET_DINH + " = '" + ip_str_so_quyet_dinh + "'");
+			v_us.FillDataset(v_ds, "where " + DM_QUYET_DINH.SO_QUYET_DINH + " = N'" + ip_str_so_quyet_dinh + "'");
 			return v_ds.DM_QUYET_DINH.Count;
 		}
 		private bool check_validate_data_is_ok()
