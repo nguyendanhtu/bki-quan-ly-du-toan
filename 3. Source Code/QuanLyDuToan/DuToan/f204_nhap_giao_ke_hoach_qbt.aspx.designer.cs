@@ -175,6 +175,15 @@ namespace QuanLyDuToan.DuToan {
         protected global::System.Web.UI.WebControls.Label m_lbl_mess_detail;
         
         /// <summary>
+        /// m_lbl_mess_ghi_du_lieu control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label m_lbl_mess_ghi_du_lieu;
+        
+        /// <summary>
         /// m_rdb_theo_quoc_lo control.
         /// </summary>
         /// <remarks>
@@ -416,15 +425,6 @@ namespace QuanLyDuToan.DuToan {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox m_txt_ghi_chu;
-        
-        /// <summary>
-        /// m_lbl_mess_ghi_du_lieu control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label m_lbl_mess_ghi_du_lieu;
         
         /// <summary>
         /// m_cmd_insert control.

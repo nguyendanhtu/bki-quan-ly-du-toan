@@ -139,6 +139,11 @@
 													<asp:Label ID="m_lbl_mess_detail" CssClass="cssManField" runat="server"></asp:Label>
 												</td>
 											</tr>
+											 <tr>
+												<td colspan="2">
+													<asp:Label ID="m_lbl_mess_ghi_du_lieu" runat="server" CssClass="cssManField" ForeColor="#009933"></asp:Label>
+												</td>
+											</tr>
 											<tr>
 												<td style="text-align: right">Chi theo (*)</td>
 												<td colspan="2">
@@ -284,11 +289,7 @@
 													<asp:TextBox ID="m_txt_ghi_chu" TextMode="MultiLine" runat="server" Rows="4" CssClass="cssTextBox form-control" Width="100%"></asp:TextBox>
 												</td>
 											</tr>
-                                            <tr>
-												<td colspan="2">
-													<asp:Label ID="m_lbl_mess_ghi_du_lieu" runat="server" CssClass="cssManField" ForeColor="#009933"></asp:Label>
-												</td>
-											</tr>
+                                           
 											<tr>
 
 												<td colspan="3" style="text-align: center">

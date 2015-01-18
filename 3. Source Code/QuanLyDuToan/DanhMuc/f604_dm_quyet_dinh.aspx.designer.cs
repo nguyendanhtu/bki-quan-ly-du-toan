@@ -58,6 +58,15 @@ namespace QuanLyDuToan.DanhMuc {
         protected global::System.Web.UI.WebControls.Label m_lbl_error;
         
         /// <summary>
+        /// m_lbl_mess control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label m_lbl_mess;
+        
+        /// <summary>
         /// m_rdb_giao_ke_hoach control.
         /// </summary>
         /// <remarks>
@@ -191,15 +200,6 @@ namespace QuanLyDuToan.DanhMuc {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label m_lbl_grid_title;
-        
-        /// <summary>
-        /// m_lbl_mess control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label m_lbl_mess;
         
         /// <summary>
         /// m_grv control.

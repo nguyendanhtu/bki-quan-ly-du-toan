@@ -130,9 +130,16 @@ namespace QuanLyDuToan.DuToan
 				else
 				{
 					m_grv.Columns[0].Visible = true;
-					m_cmd_insert.Visible = true;
-					m_cmd_update.Visible = true;
-					m_cmd_cancel.Visible = true;
+					if (get_form_mode(m_hdf_form_mode) == LOAI_FORM.SUA)
+					{
+						m_cmd_update.Visible = true;
+						m_cmd_cancel.Visible = true;
+					}
+					else if (get_form_mode(m_hdf_form_mode) == LOAI_FORM.THEM)
+					{
+						m_cmd_insert.Visible = true;
+						m_cmd_cancel.Visible = true;
+					}
 				}
 				//decimal v_id_dc_loai = 1;
 				decimal v_id_dc_reported_user;
@@ -347,7 +354,7 @@ namespace QuanLyDuToan.DuToan
 					m_lbl_mess_detail.Focus();
 					return false;
 				}
-				if (m_pnl_chuong_loai_khoan_muc.Visible == true)
+				if (m_pnl_chuong_loai_khoan_muc.Visible == true)// Chi theo Loai khoan muc
 				{
 					if (m_ddl_chuong.SelectedValue == "-1")
 					{
@@ -384,8 +391,14 @@ namespace QuanLyDuToan.DuToan
 						m_ddl_loai_nhiem_vu.Focus();
 						return false;
 					}
+					if (m_txt_noi_dung_du_toan.Text == "")
+					{
+						m_lbl_mess_noi_dung_du_toan.Text += "\n Bạn phải nhập Nội dung dự toán!";
+						m_txt_noi_dung_du_toan.Focus();
+						return false;
+					}
 				}
-				else
+				else//Chi theo Cong trinh/Du an
 				{
 					//kiem tra Cong trinh
 					if (m_ddl_cong_trinh.Visible == true && m_ddl_cong_trinh.SelectedValue == "-1")
@@ -439,12 +452,7 @@ namespace QuanLyDuToan.DuToan
 					//    return false;
 					//}
 				}
-				if (m_txt_noi_dung_du_toan.Text == "")
-				{
-					m_lbl_mess_noi_dung_du_toan.Text += "\n Bạn phải nhập Nội dung dự toán!";
-					m_txt_noi_dung_du_toan.Focus();
-					return false;
-				}
+
 				//bo dinh dang #,###,##
 				m_txt_so_tien_nam_truoc_chuyen_sang.Text = m_txt_so_tien_nam_truoc_chuyen_sang.Text.Trim().Replace(",", "").Replace(".", "");
 				m_txt_so_tien.Text = m_txt_so_tien.Text.Trim().Replace(",", "").Replace(".", "");
@@ -688,7 +696,7 @@ namespace QuanLyDuToan.DuToan
 			//load_data_to_ddl_loai_nhiem_vu();
 			load_panel_loai_chi();
 			load_data_to_grid();
-			
+
 		}
 		private void xoa_trang()
 		{
