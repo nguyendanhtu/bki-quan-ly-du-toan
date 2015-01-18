@@ -357,6 +357,9 @@ namespace QuanLyDuToan.DanhMuc
 					//set select row in gridview
 					GridViewRow gvr = (GridViewRow)(((LinkButton)e.CommandSource).NamingContainer);
 					m_grv.SelectedIndex = gvr.RowIndex;
+					m_cmd_update.Visible = true;
+					m_cmd_cancel.Visible = true;
+					m_cmd_insert.Visible = false;
 				}
 				else if (e.CommandName == "Xoa")
 				{
@@ -420,6 +423,9 @@ namespace QuanLyDuToan.DanhMuc
 			m_txt_so_quyet_dinh.Text = "";
 			m_txt_noi_dung.Text = "";
 			set_form_mode(LOAI_FORM.THEM);
+			m_cmd_cancel.Visible = true;
+			m_cmd_insert.Visible = true;
+			m_cmd_update.Visible = false;
 			m_hdf_id_quyet_dinh.Value = "-1";
 			m_grv.SelectedIndex = -1;
 		}
