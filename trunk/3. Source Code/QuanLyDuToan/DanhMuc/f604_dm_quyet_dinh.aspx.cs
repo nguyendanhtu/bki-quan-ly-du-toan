@@ -8,6 +8,11 @@ using WebDS.CDBNames;
 using WebDS;
 using WebUS;
 using IP.Core.IPCommon;
+using QuanLyDuToan;
+using System.Web.Services;
+using QuanLyDuToan.App_Code;
+
+
 namespace QuanLyDuToan.DanhMuc
 {
 	public partial class f604_dm_quyet_dinh : System.Web.UI.Page
@@ -15,7 +20,10 @@ namespace QuanLyDuToan.DanhMuc
 
 
 		#region Public Methods
-
+		public string get_delete_client_script(string ip_str_so_don_vi)
+		{
+			return "return confirm('QĐ này hiện có " + ip_str_so_don_vi + " đơn vị nhập dữ liệu. Bạn có muốn xoá QĐ này và tất cả dữ liệu mà các đơn vị đã nhập không?')";
+		}
 		#endregion
 
 		#region Data Structure
@@ -199,6 +207,7 @@ namespace QuanLyDuToan.DanhMuc
 				 * Thong bao: Co x don vi da nhap du lieu cua quyet dinh nay, ban co muon xoa du lieu
 				 * Hoi nguoi dung co that su muon xoa khong, neu xoa thi se xoa het du lieu cua quyet dinh nay
 				 */
+				
 				//return false;
 			}
 
@@ -226,6 +235,7 @@ namespace QuanLyDuToan.DanhMuc
 
 			return true;
 		}
+		
 		private void save_data()
 		{
 			if (check_validate_data_is_ok())
@@ -277,8 +287,8 @@ namespace QuanLyDuToan.DanhMuc
 		}
 		private void load_data_to_grid()
 		{
-			US_DM_QUYET_DINH v_us = new US_DM_QUYET_DINH();
-			DS_DM_QUYET_DINH v_ds = new DS_DM_QUYET_DINH();
+			US_V_DM_QUYET_DINH_SO_DON_VI_NHAP_DU_LIEU v_us = new US_V_DM_QUYET_DINH_SO_DON_VI_NHAP_DU_LIEU();
+			DS_V_DM_QUYET_DINH_SO_DON_VI_NHAP_DU_LIEU v_ds = new DS_V_DM_QUYET_DINH_SO_DON_VI_NHAP_DU_LIEU();
 			string v_str_sub_query = "";
 			if (m_rdb_giao_ke_hoach.Checked == true)
 			{
@@ -290,7 +300,7 @@ namespace QuanLyDuToan.DanhMuc
 
 			}
 			v_us.FillDataset(v_ds, v_str_sub_query + " order by ngay_thang desc");
-			m_grv.DataSource = v_ds.DM_QUYET_DINH;
+			m_grv.DataSource = v_ds.v_dm_quyet_dinh_so_don_vi_nhap_du_lieu;
 			m_grv.DataBind();
 		}
 		#endregion
