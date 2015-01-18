@@ -3,7 +3,7 @@
 <%@ Import Namespace="IP.Core.IPCommon" %>
 <%@ Import Namespace="WebDS.CDBNames" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="Server">
-	<style type="text/css">
+    <style type="text/css">
 		.radioButtonList {
 			list-style: none;
 			margin:0px 0px 0px 12px;
@@ -12,7 +12,7 @@
 		}
 
 			.radioButtonList.horizontal li {
-				display: inline-block;
+				display:list-item;
 			}
 
 			.radioButtonList label {
@@ -53,7 +53,7 @@
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="Server">
-	<asp:ScriptManager ID="ScriptManager1" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server">
 	</asp:ScriptManager>
 	<asp:UpdatePanel ID="UpdatePanel1" runat="server">
 		<ContentTemplate>
@@ -465,31 +465,23 @@
 
 											</td>
 											<td style="width: 70%; vertical-align: top">
-												<table class="table bordertop0"  style="width: 100%">
+												<table class="table bordertop0"  style="width: 100%;margin-bottom:0px;">
 													<tr>
 														<td colspan="2" style="text-align: center; font-weight: bold">KBNN A</td>
 													</tr>
 													<tr>
 														<td style="border-right: 1px solid gray; width: 50%">
-															<p style="text-align: center; font-weight: bold" class="para">BỘ PHẬN KIỂM SOÁT CHI NGÀY:................</p>
+															<p style="text-align: center;font-size:13px; font-weight: bold" width: 293px; class="para">BỘ PHẬN KIỂM SOÁT CHI NGÀY:..............</p>
 															<br />
 															<p style="font-size: 13px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Kiểm soát&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;Phụ trách</p>
 														</td>
 														<td>
-															<p style="text-align: center; font-weight: bold;" class="para">BỘ PHẬN KẾ TOÁN GHI SỔ NGÀY:................</p>
+															<p style="text-align: center;font-size:13px; font-weight: bold;" class="para">BỘ PHẬN KẾ TOÁN GHI SỔ NGÀY:................</p>
 															<br />
-															<p style="font-size: 13px">&nbsp;&nbsp;&nbsp;&nbsp; Kế toán&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Kế toán trưởng&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Giám đốc&nbsp; </p>
+															<p style="font-size: 13px;width: 305px;">&nbsp;&nbsp;&nbsp;&nbsp; Kế toán&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Kế toán trưởng&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Giám đốc&nbsp; </p>
 														</td>
 													</tr>
-													<tr>
-														<td style="border-right: 1px solid gray"></td>
-													</tr>
-													<tr>
-														<td style="border-right: 1px solid gray"></td>
-													</tr>
-													<tr>
-														<td style="border-right: 1px solid gray"></td>
-													</tr>
+													
 												</table>
 											</td>
 										</tr>
@@ -498,7 +490,7 @@
 							</tr>
 							<tr>
 								<td colspan="3">
-									<table class="table bordertop0" style="width: 100%; border-top: 1px solid gray">
+									<table class="table bordertop0" style="width: 100%; border-top: 1px solid gray;">
 										<tr>
 											<td style="width: 50%; text-align: center; border-right: 1px solid gray; border-bottom: hidden">
 												<p>NGÂN HÀNG A GHI SỐ NGÀY........</p>
@@ -511,23 +503,15 @@
 												<p class="para" style="font-weight: bold; text-align: center">Kế toán&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Kế toán trưởng&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;Giám đốc</p>
 											</td>
 										</tr>
-										<tr>
-											<td style="border-right: 1px solid gray; border-bottom: hidden"></td>
-										</tr>
-										<tr>
-											<td style="border-right: 1px solid gray"></td>
-										</tr>
-										<tr>
-											<td style="border-right: 1px solid gray"></td>
-										</tr>
+										
 									</table>
 								</td>
 							</tr>
 							<tr>
 								<td colspan="6" style="text-align: center">
-									<asp:Button ID="m_cmd_save_info_unc" Text="Lưu thông tin" runat="server" CssClass="cssButton btn" Height="24px" Width="98px"
+									<asp:Button ID="m_cmd_save_info_unc" Text="Lưu thông tin" runat="server" CssClass="btn" Height="24px" Width="98px"
 										OnClick="m_cmd_save_info_unc_Click" />
-									<asp:HyperLink ID="m_cmd_print" runat="server" CssClass="cssButton btn btn-link" Height="24px" Width="98px"
+									<asp:HyperLink ID="m_cmd_print" runat="server" CssClass="btn btn-link" Height="24px" Width="98px"
 										Target="_blank" Text="Xem bản in" Visible="false"></asp:HyperLink></td>
 							</tr>
 						</table>
