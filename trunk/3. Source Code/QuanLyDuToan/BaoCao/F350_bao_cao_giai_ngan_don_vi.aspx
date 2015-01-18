@@ -393,14 +393,7 @@
                                      <ItemStyle HorizontalAlign="Right" Width="120px" />
 								</asp:TemplateField>
 								</Columns>
-                                <AlternatingRowStyle BackColor="White" />
-							<EditRowStyle BackColor="#7C6F57" />
-							
-							<PagerSettings Position="TopAndBottom" />
-							<PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
-							<RowStyle BackColor="#E3EAEB" />
-							<SelectedRowStyle CssClass="cssSelectedRow" BackColor="#C5BBAF" Font-Bold="True"
-								ForeColor="#333333"></SelectedRowStyle>
+                                
 							</asp:GridView>
 						</div>
 					</td>

@@ -78,15 +78,7 @@
 							    <asp:BoundField DataField="SO_TIEN_QUY_BT" HeaderText="Số tiền Quỹ bảo trì" HeaderStyle-Width="150px" />
                                 <asp:BoundField DataField="SO_TIEN_NS" HeaderText="Số tiền Ngân sách" HeaderStyle-Width="150px" />			
 							</Columns>
-                            <AlternatingRowStyle BackColor="White" />
-							<EditRowStyle BackColor="#7C6F57" />
-							<FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
-							<HeaderStyle BackColor="#810c15" Font-Bold="True" ForeColor="White" />
-							<PagerSettings Position="TopAndBottom" />
-							<PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
-							<RowStyle BackColor="#E3EAEB" />
-							<SelectedRowStyle CssClass="cssSelectedRow" BackColor="#C5BBAF" Font-Bold="True"
-								ForeColor="#333333"></SelectedRowStyle>
+                           
 						</asp:GridView>
 					</td>
 				</tr>
