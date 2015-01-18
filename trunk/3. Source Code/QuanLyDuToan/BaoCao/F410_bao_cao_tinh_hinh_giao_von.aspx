@@ -9,6 +9,25 @@
             padding: 0px;
         }
     </style>
+     function pageLoad(sender, args) {
+            if (args.get_isPartialLoad()) {
+                $("#<%=m_ddl_loai_nv.ClientID%>").select2();
+                $("#<%=m_ddl_cong_trinh.ClientID%>").select2();
+                $("#<%=m_ddl_du_an.ClientID%>").select2();
+                $("#<%=m_txt_tu_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
+                $("#<%=m_txt_den_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
+               
+            }
+        }
+        $(document).ready(function () 
+        {
+            $("#<%=m_ddl_loai_nv.ClientID%>").select2();
+            $("#<%=m_ddl_cong_trinh.ClientID%>").select2();
+            $("#<%=m_ddl_du_an.ClientID%>").select2();
+            $("#<%=m_txt_tu_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
+            $("#<%=m_txt_den_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
+        }
+       )
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="Server">
 	<asp:ScriptManager ID="ScriptManager1" runat="server">
@@ -16,7 +35,7 @@
 
 	<asp:UpdatePanel ID="UpdatePanel1" runat="server">
 		<ContentTemplate>
-			<table style="width: 900px;margin:auto;" class="cssTable" border="0">
+			<table id="main_table" style="width: 900px;margin:auto;" class="cssTable table" border="0">
 				<tr>
 					<td colspan="4" style="text-align: center">
 						<span style="font-weight: bold">CỘNG HOÀ XÃ HỘI CHỦ NGHĨA VIỆT NAM</span>
@@ -97,6 +116,15 @@
 								</asp:TemplateField>
 
 							</Columns>
+                            <AlternatingRowStyle BackColor="White" />
+							<EditRowStyle BackColor="#7C6F57" />
+							<FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
+							<HeaderStyle BackColor="#810c15" Font-Bold="True" ForeColor="White" />
+							<PagerSettings Position="TopAndBottom" />
+							<PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
+							<RowStyle BackColor="#E3EAEB" />
+							<SelectedRowStyle CssClass="cssSelectedRow" BackColor="#C5BBAF" Font-Bold="True"
+								ForeColor="#333333"></SelectedRowStyle>
 						</asp:GridView>
 					</td>
 				</tr>

@@ -8,6 +8,24 @@
 			padding: 0px;
 		}
 	</style>
+    <script>
+        function pageLoad(sender, args) {
+            if (args.get_isPartialLoad())
+            {
+                
+                $("#<%=m_txt_tu_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
+                $("#<%=m_txt_den_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
+
+            }
+        }
+        $(document).ready(function ()
+        {
+           
+            $("#<%=m_txt_tu_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
+            $("#<%=m_txt_den_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
+        }
+       )
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="Server">
 	<asp:ScriptManager ID="ScriptManager1" runat="server">
@@ -15,7 +33,7 @@
 
 	<asp:UpdatePanel ID="UpdatePanel1" runat="server">
 		<ContentTemplate>
-			<table style="width: 100%;" class="cssTable" border="0">
+			<table id="main_table" style="width: 100%;" class="cssTable table " border="0">
 				<tr>
 					<td colspan="4" style="text-align: center">
 						<span style="font-weight: bold">CỘNG HOÀ XÃ HỘI CHỦ NGHĨA VIỆT NAM</span>
@@ -40,8 +58,8 @@
 				<tr>
 
 					<td colspan="4" style="text-align: center">
-						<asp:Button ID="m_cmd_xem_bao_cao" Text="Xem báo cáo" OnClick="m_cmd_xem_bao_cao_Click" runat="server" CssClass="cssButton" Height="24px" Width="98px" />
-						<asp:Button ID="m_cmd_xuat_excel" Text="Xuất excel" runat="server" CssClass="cssButton" Height="24px" Width="98px" />
+						<asp:Button ID="m_cmd_xem_bao_cao" Text="Xem báo cáo" OnClick="m_cmd_xem_bao_cao_Click" runat="server" CssClass="cssButton btn" Height="24px" Width="98px" />
+						<asp:Button ID="m_cmd_xuat_excel" Text="Xuất excel" runat="server" CssClass="cssButton btn" Height="24px" Width="98px" />
 					</td>
 				</tr>
 				<tr>
@@ -63,6 +81,15 @@
 							    <asp:BoundField DataField="SO_TIEN_QUY_BT" HeaderText="Số tiền Quỹ bảo trì" HeaderStyle-Width="150px" />
                                 <asp:BoundField DataField="SO_TIEN_NS" HeaderText="Số tiền Ngân sách" HeaderStyle-Width="150px" />			
 							</Columns>
+                            <AlternatingRowStyle BackColor="White" />
+							<EditRowStyle BackColor="#7C6F57" />
+							<FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
+							<HeaderStyle BackColor="#810c15" Font-Bold="True" ForeColor="White" />
+							<PagerSettings Position="TopAndBottom" />
+							<PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
+							<RowStyle BackColor="#E3EAEB" />
+							<SelectedRowStyle CssClass="cssSelectedRow" BackColor="#C5BBAF" Font-Bold="True"
+							ForeColor="#333333"></SelectedRowStyle>
 						</asp:GridView>
 					</td>
 				</tr>

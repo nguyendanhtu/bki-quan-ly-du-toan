@@ -72,7 +72,7 @@
                 
                 $("#<%=m_txt_tu_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
                  $("#<%=m_txt_den_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
-                 $(".select2").select2();
+                 $("#<%=m_ddl_loai_nv.ClientID%>").select2();
                  $("#<%=m_ddl_cong_trinh.ClientID%>").select2();
                  $("#<%=m_ddl_du_an.ClientID%>").select2();
 
@@ -82,7 +82,7 @@
             
             $("#<%=m_txt_tu_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
             $("#<%=m_txt_den_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
-            $(".select2").select2();
+            $("#<%=m_ddl_loai_nv.ClientID%>").select2();
             $("#<%=m_ddl_cong_trinh.ClientID%>").select2();
             $("#<%=m_ddl_du_an.ClientID%>").select2();
         }
@@ -168,7 +168,15 @@
 							EmptyDataText="Không có dữ liệu phù hợp" OnRowCreated="m_grv_OnRowCreated"
 							OnRowDataBound="m_grv_RowDataBound"
 							HeaderStyle-Height="65px" RowStyle-Height="28px">
-
+                             <AlternatingRowStyle BackColor="White" />
+							<EditRowStyle BackColor="#7C6F57" />
+							<FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
+							<HeaderStyle BackColor="#810c15" Font-Bold="True" ForeColor="White" />
+							<PagerSettings Position="TopAndBottom" />
+							<PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
+							<RowStyle BackColor="#E3EAEB" />
+							<SelectedRowStyle CssClass="cssSelectedRow" BackColor="#C5BBAF" Font-Bold="True"
+								ForeColor="#333333"></SelectedRowStyle>
 							<Columns>
 							</Columns>
 						</asp:GridView>

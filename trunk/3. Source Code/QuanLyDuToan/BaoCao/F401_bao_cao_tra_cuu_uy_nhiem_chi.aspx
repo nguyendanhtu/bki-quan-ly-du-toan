@@ -50,7 +50,15 @@
 							CssClass="cssGrid" Width="100%" CellPadding="0" ForeColor="Black"
 							AllowSorting="True" PageSize="60" ShowHeader="true"
 							EmptyDataText="Không có dữ liệu phù hợp">
-
+                             <AlternatingRowStyle BackColor="White" />
+							<EditRowStyle BackColor="#7C6F57" />
+							<FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
+							<HeaderStyle BackColor="#810c15" Font-Bold="True" ForeColor="White" />
+							<PagerSettings Position="TopAndBottom" />
+							<PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
+							<RowStyle BackColor="#E3EAEB" />
+							<SelectedRowStyle CssClass="cssSelectedRow" BackColor="#C5BBAF" Font-Bold="True"
+								ForeColor="#333333"></SelectedRowStyle>
 							<Columns>
 								<asp:TemplateField HeaderText="STT" ItemStyle-HorizontalAlign="Center" HeaderStyle-Width="2%" HeaderStyle-Height="40px">
 									<ItemTemplate>
