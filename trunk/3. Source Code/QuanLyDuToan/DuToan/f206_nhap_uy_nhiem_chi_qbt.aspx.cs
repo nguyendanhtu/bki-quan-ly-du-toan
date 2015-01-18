@@ -332,7 +332,7 @@ namespace QuanLyDuToan.DuToan
 		}
 		protected void Page_Load(object sender, EventArgs e)
 		{
-
+			m_rbl_ma_tkkt.Enabled = false;
 			if (!IsPostBack)
 			{
 				m_txt_ngay_thang.Text = CIPConvert.ToStr(DateTime.Now, "dd/MM/yyyy");
