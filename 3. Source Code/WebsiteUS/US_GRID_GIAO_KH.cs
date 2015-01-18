@@ -292,13 +292,18 @@ namespace WebUS
 		}
 		#endregion
 
-		public void get_grid_giao_kh_qbt(DataSet op_ds, decimal ip_dc_id_quyet_dinh, string ip_str_nguon_ns, decimal ip_dc_id_reported_user//, decimal ip_dc_id_loai
+		public void get_grid_giao_kh_qbt(DataSet op_ds
+			, decimal ip_dc_id_quyet_dinh
+			, string ip_str_nguon_ns
+			, decimal ip_dc_id_reported_user
+			, decimal ip_dc_id_don_vi
 			)
 		{
 			CStoredProc v_sp = new CStoredProc("pr_get_grid_giao_kh_qbt");
 			v_sp.addDecimalInputParam("@ip_dc_id_quyet_dinh", ip_dc_id_quyet_dinh);
 			v_sp.addNVarcharInputParam("@ip_str_nguon_ns", ip_str_nguon_ns);
             v_sp.addDecimalInputParam("@ip_dc_reported_user", ip_dc_id_reported_user);
+			v_sp.addDecimalInputParam("@ip_dc_id_don_vi", ip_dc_id_don_vi);
 			//v_sp.addDecimalInputParam("@ip_dc_loai",@ip_dc_id_loai);
 			v_sp.fillDataSetByCommand(this, op_ds);
 		}
