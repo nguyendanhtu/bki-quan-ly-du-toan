@@ -44,15 +44,7 @@
 							CssClass="cssGrid" Width="100%" CellPadding="0" ForeColor="#333333"
 							AllowSorting="True" PageSize="60"
 							EmptyDataText="Không có dữ liệu phù hợp" EnableModelValidation="True">
-							<AlternatingRowStyle BackColor="White" />
-							<EditRowStyle BackColor="#7C6F57" />
-							<FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
-							<HeaderStyle BackColor="#810c15" Font-Bold="True" ForeColor="White" />
-							<PagerSettings Position="TopAndBottom" />
-							<PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
-							<RowStyle BackColor="#E3EAEB" />
-							<SelectedRowStyle CssClass="cssSelectedRow" BackColor="#C5BBAF" Font-Bold="True"
-								ForeColor="#333333"></SelectedRowStyle>
+							
 							<Columns>
 
 								<asp:BoundField DataField="SO_QUYET_DINH" HeaderText="Số QĐ" HeaderStyle-Width="20%" >
