@@ -183,6 +183,8 @@ namespace QuanLyDuToan.DuToan
 					v_str_is_nguon_ns = "Y";
 				}
 
+				if (v_dc_id_quyet_dinh < 0) return;
+				
 				v_us.get_grid_giao_kh_qbt(v_ds, v_dc_id_quyet_dinh, v_str_is_nguon_ns, v_id_dc_reported_user);
 				m_grv.DataSource = v_ds.Tables[0];
 				m_grv.DataBind();
@@ -466,7 +468,7 @@ namespace QuanLyDuToan.DuToan
 					return false;
 				}
 
-				if (CIPConvert.ToDecimal(m_txt_so_tien.Text) <= 0)
+				if (CIPConvert.ToDecimal(m_txt_so_tien.Text) <= 0||m_txt_so_tien.Text.Count()>13)
 				{
 					m_lbl_mess_so_tien.Text += "\n Bạn phải nhập Số tiền mục này!";
 					m_txt_so_tien.Focus();
