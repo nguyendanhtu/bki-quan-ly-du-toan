@@ -860,7 +860,8 @@ namespace QuanLyDuToan.DuToan
 					}
 					//dropdownlist Loai khoan muc -tieu muc
 					DropDownList m_ddl_grid_muc_tieu_muc = (DropDownList)e.Row.FindControl("m_ddl_grid_muc_tieu_muc");
-					m_ddl_grid_muc_tieu_muc.Width = 300;
+					m_ddl_grid_muc_tieu_muc.Visible = false;
+					//m_ddl_grid_muc_tieu_muc.Width = 300;
 
 					load_data_to_cbo_muc_tieu_muc(m_ddl_grid_muc_tieu_muc
 						, CIPConvert.ToDecimal(m_ddl_grid_edit_loai_nhiem_vu.SelectedValue));
