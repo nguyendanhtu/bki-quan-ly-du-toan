@@ -226,5 +226,15 @@ namespace WebUS
 			v_sp.addNVarcharInputParam("@ip_str_tu_khoa", ip_str_tu_khoa);
 			v_sp.fillDataSetByCommand(this, op_ds);
 		}
-	}
+
+        public void FillDatasetByLoaiQD(DS_DM_QUYET_DINH op_ds, DateTime ip_dat_tu_ngay, DateTime ip_dat_den_ngay, decimal ip_dc_id_loai_quyet_dinh, decimal ip_dc_id_loai_quyet_dinh_giao)
+        {
+            CStoredProc v_sp = new CStoredProc("pr_DM_QUYET_DINH_get_ds_by_loai_qd");
+            v_sp.addDatetimeInputParam("@ip_dat_tu_ngay", ip_dat_tu_ngay);
+            v_sp.addDatetimeInputParam("@ip_dat_den_ngay", ip_dat_den_ngay);
+            v_sp.addDecimalInputParam("@ip_dc_id_loai_quyet_dinh", ip_dc_id_loai_quyet_dinh);
+            v_sp.addDecimalInputParam("@ip_dc_id_loai_quyet_dinh_giao", ip_dc_id_loai_quyet_dinh_giao);
+            v_sp.fillDataSetByCommand(this, op_ds);
+        }
+    }
 }

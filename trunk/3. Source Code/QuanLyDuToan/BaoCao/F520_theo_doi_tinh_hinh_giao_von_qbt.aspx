@@ -1,5 +1,28 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="F520_theo_doi_tinh_hinh_giao_von_qbt.aspx.cs" Inherits="QuanLyDuToan.BaoCao.F520_theo_doi_tinh_hinh_giao_von_qbt" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
+    <style>
+        th, td {
+            width:100px;
+            padding-right:5px;
+        }
+
+        th {
+            text-align:center;
+        }
+
+        .keHoachClass {
+            background-color:#edb681;
+        }
+
+        .soDuClass {
+            background-color:#abe093;
+        }
+
+        .giaoVonClass {
+            background-color:#a4a3d7;
+            color:white;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server">
@@ -8,7 +31,15 @@
 	<asp:UpdatePanel ID="UpdatePanel1" runat="server">
 	<ContentTemplate>
         <div>
-                <asp:gridview runat="server" id="m_grv_bao_cao_giao_von" AutoGenerateColumns="False" EnableModelValidation="True">
+            <asp:TextBox ID="m_txt_tu_ngay" runat="server"></asp:TextBox>
+            <asp:TextBox ID="m_txt_den_ngay" runat="server"></asp:TextBox>
+        </div>
+        <div>
+            <asp:Button ID="m_cmd_xem_bao_cao" Text="Xem báo cáo" runat="server" cssclass="btn" OnClick="m_cmd_xem_bao_cao_Click" />
+            <asp:Button ID="m_cmd_xuat_excel" Text="Xuất excel" runat="server" cssclass="btn" Enabled="true" OnClick="m_cmd_xuat_excel_Click" />
+        </div>
+        <div style="width:1200px; overflow-y:hidden; margin:0px auto;">
+                <asp:gridview Width="2500px" runat="server" id="m_grv_bao_cao_giao_von" AutoGenerateColumns="False" EnableModelValidation="True">
                     <Columns>
                         <asp:BoundField DataField="TEN_DON_VI" HeaderText="Đơn vị" HtmlEncode="False" >
                         <HeaderStyle Width="200px" CssClass="pinned thpinned"/>
@@ -16,10 +47,6 @@
                         </asp:BoundField>
                     </Columns>
                 </asp:gridview>
-            </div>
-            <div>
-                <asp:Button ID="m_cmd_xem_bao_cao" Text="Xem báo cáo" runat="server" cssclass="btn" />
-                <asp:Button ID="m_cmd_xuat_excel" Text="Xuất excel" runat="server" cssclass="btn" Enabled="true" />
             </div>
         </ContentTemplate>
 	<Triggers>

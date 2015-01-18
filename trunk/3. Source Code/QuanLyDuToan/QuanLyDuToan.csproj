@@ -63,7 +63,6 @@
     <Content Include="BaoCao\F257_bao_cao_giao_von_quy_bt_theo_qd.aspx" />
     <Content Include="BaoCao\F357_bao_cao_giai_ngan_quy_bt_theo_dm.aspx" />
     <Content Include="BaoCao\F520_theo_doi_tinh_hinh_giao_von_qbt.aspx" />
-    <Content Include="BaoCao\F520_tong_hop_giao_du_toan_cho_don_vi.aspx" />
     <Content Include="bootstrap-3.2.0-dist\css\bootstrap-theme.css.map" />
     <Content Include="bootstrap-3.2.0-dist\css\bootstrap.css.map" />
     <Content Include="bootstrap-3.2.0-dist\fonts\glyphicons-halflings-regular.eot" />
@@ -709,13 +708,6 @@
     </Compile>
     <Compile Include="BaoCao\F520_theo_doi_tinh_hinh_giao_von_qbt.aspx.designer.cs">
       <DependentUpon>F520_theo_doi_tinh_hinh_giao_von_qbt.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="BaoCao\F520_tong_hop_giao_du_toan_cho_don_vi.aspx.cs">
-      <DependentUpon>F520_tong_hop_giao_du_toan_cho_don_vi.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="BaoCao\F520_tong_hop_giao_du_toan_cho_don_vi.aspx.designer.cs">
-      <DependentUpon>F520_tong_hop_giao_du_toan_cho_don_vi.aspx</DependentUpon>
     </Compile>
     <Compile Include="BaoCao\F530_bao_cao_tong_cuc.aspx.cs">
       <DependentUpon>F530_bao_cao_tong_cuc.aspx</DependentUpon>
