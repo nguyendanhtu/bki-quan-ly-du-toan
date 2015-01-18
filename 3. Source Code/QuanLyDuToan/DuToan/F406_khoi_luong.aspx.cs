@@ -30,6 +30,7 @@ namespace QuanLyDuToan.DuToan
 
 		private void load_data_to_grid()
 		{
+			m_lbl_mess_qd.Text = "";
 			decimal v_dc_id_quyet_dinh = -1;
 			//if (!m_hdf_id_quyet_dinh.Value.Trim().Equals(""))
 			//{
