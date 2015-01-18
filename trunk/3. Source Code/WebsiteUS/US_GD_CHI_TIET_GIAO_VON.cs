@@ -437,5 +437,35 @@ namespace WebUS
 			v_sp.addDecimalInputParam("@ip_dc_id_quyet_dinh", ip_dc_id_quyet_dinh);
 			v_sp.ExecuteCommand(this);
 		}
-	}
+
+        public void FillDatasetWithProcedure(
+            string ip_str_proc_name
+            , DataSet ip_ds
+            , DateTime ip_dat_tu_ngay
+            , DateTime ip_dat_den_ngay
+            , decimal ip_dc_id_quyet_dinh
+            , decimal ip_dc_id_loai_quyet_dinh_giao)
+        {
+            CStoredProc v_sp = new CStoredProc(ip_str_proc_name);
+            v_sp.addDatetimeInputParam("@ip_dat_tu_ngay", ip_dat_tu_ngay);
+            v_sp.addDatetimeInputParam("@ip_dat_den_ngay", ip_dat_den_ngay);
+            v_sp.addDecimalInputParam("@ip_dc_id_loai_quyet_dinh_giao", ip_dc_id_loai_quyet_dinh_giao);
+            v_sp.addDecimalInputParam("@ip_dc_id_quyet_dinh", ip_dc_id_quyet_dinh);
+            v_sp.fillDataSetByCommand(this, ip_ds);
+        }
+
+        public void FillDatasetWithProcedure(
+            string ip_str_proc_name
+            , DataSet ip_ds
+            , DateTime ip_dat_tu_ngay
+            , DateTime ip_dat_den_ngay
+            , decimal ip_dc_id_quyet_dinh)
+        {
+            CStoredProc v_sp = new CStoredProc(ip_str_proc_name);
+            v_sp.addDatetimeInputParam("@ip_dat_tu_ngay", ip_dat_tu_ngay);
+            v_sp.addDatetimeInputParam("@ip_dat_den_ngay", ip_dat_den_ngay);
+            v_sp.addDecimalInputParam("@ip_dc_id_quyet_dinh", ip_dc_id_quyet_dinh);
+            v_sp.fillDataSetByCommand(this, ip_ds);
+        }
+    }
 }
