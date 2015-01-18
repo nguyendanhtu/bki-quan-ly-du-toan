@@ -6,8 +6,9 @@
 	<style type="text/css">
 		.radioButtonList {
 			list-style: none;
-			margin: 0;
+			margin:0px 0px 0px 12px;
 			padding: 0;
+            
 		}
 
 			.radioButtonList.horizontal li {
@@ -22,6 +23,13 @@
             {
                 display:inline;
             }
+
+            .radio-inline tr td
+            {
+                width:169px;
+                padding-left:8px;
+            }
+
 	</style>
      <script>
          function pageLoad(sender, args) {
@@ -81,7 +89,7 @@
 										</tr>
 
 										<tr>
-											<td style="width: 20%; text-align: right">
+											<td style="width: 25%; text-align: right">
 												<span>Đơn vị trả tiền</span>
 											</td>
 											<td style="width: 30%">
@@ -128,23 +136,39 @@
 											<td style="text-align: right">
 												<span>Mã TKKT</span>
 											</td>
-											<td>
-												<asp:RadioButtonList ID="m_rbl_ma_tkkt" runat="server" RepeatDirection="Horizontal" Enabled="false" CssClass="radioButtonList">
+											<td colspan="2">
+												<asp:RadioButtonList ID="m_rbl_ma_tkkt" runat="server" RepeatDirection="Horizontal" Enabled="false" CssClass="radioButtonList radio-inline">
 												</asp:RadioButtonList>
-
 											</td>
-											<td style="text-align: right"><span>&nbsp;&nbsp; Mã ĐVQHNS:</span><asp:Label ID="m_lbl_ma_dvqhns" runat="server" ForeColor="Black"></asp:Label><span>&nbsp;&nbsp; Mã CTMT, DA và HTCT (*):</span></td>
-											<td>
-
-												<asp:TextBox ID="m_txt_ma_ctmt_da_htct" Width="40%" runat="server" CssClass="cssTextBox form-control"></asp:TextBox>
-												<asp:Button ID="m_cmd_luu_unc" runat="server" CssClass="btn" OnClick="m_cmd_luu_unc_Click" Text="Lưu UNC" />
-											</td>
+											
 										</tr>
+                                        <tr>
+                                            <td style="text-align: right">
+                                                <span>&nbsp;&nbsp; Mã CTMT, DA và HTCT (*):</span>
+                                            </td>
+                                            <td>
+                                                <asp:TextBox ID="m_txt_ma_ctmt_da_htct" Width="150px" runat="server" CssClass="cssTextBox form-control"></asp:TextBox>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align: right">
+                                                <span>&nbsp;&nbsp; Mã ĐVQHNS:</span>
+											</td>
+											<td>
+                                                <asp:Label ID="m_lbl_ma_dvqhns" runat="server" ForeColor="Black"></asp:Label>
+											</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+
+                                            </td>
+                                             <td  style="margin:auto;">
+                                                <asp:Button ID="m_cmd_luu_unc"  runat="server" CssClass="btn" OnClick="m_cmd_luu_unc_Click" Text="Lưu UNC" />
+                                            </td>
+                                        </tr>
 										<tr>
 											<td></td>
 											<td>
-
-
 												<asp:HiddenField ID="m_hdf_id_dm_uy_nhiem_chi" runat="server" />
 												<asp:HiddenField ID="m_hdf_form_mode" runat="server" />
 											</td>
