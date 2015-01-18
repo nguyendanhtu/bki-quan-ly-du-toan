@@ -115,8 +115,12 @@ namespace WebDS.CDBNames
         public const string ID_REPORTED_USER = "ID_REPORTED_USER";
         public const string GIA_TRI_THUC_HIEN = "GIA_TRI_THUC_HIEN";
         public const string SO_CHUA_GN = "SO_CHUA_GN";
+        public const string TONG_SO_KM = "TONG_SO_KM";
+        public const string ID_CONG_TRINH_KHOAN = "ID_CONG_TRINH_KHOAN";
+        public const string ID_LOAI_NHIEM_VU = "ID_LOAI_NHIEM_VU";
+        public const string ID_DU_AN_MUC_TIEU_MUC = "ID_DU_AN_MUC_TIEU_MUC";
+        public const string CONG_TRINH_KHOAN_YN = "CONG_TRINH_KHOAN_YN";
     }
-
 
 	public class V_DM_GIAI_NGAN
 	{

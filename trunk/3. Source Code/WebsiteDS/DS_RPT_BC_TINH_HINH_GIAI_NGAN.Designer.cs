@@ -335,6 +335,14 @@ namespace WebDS {
             
             private global::System.Data.DataColumn columnTONG_SO_KM;
             
+            private global::System.Data.DataColumn columnID_CONG_TRINH_KHOAN;
+            
+            private global::System.Data.DataColumn columnID_LOAI_NHIEM_VU;
+            
+            private global::System.Data.DataColumn columnID_DU_AN_MUC_TIEU_MUC;
+            
+            private global::System.Data.DataColumn columnCONG_TRINH_KHOAN_YN;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public RPT_BC_TINH_HINH_GIAI_NGANDataTable() {
@@ -594,6 +602,38 @@ namespace WebDS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ID_CONG_TRINH_KHOANColumn {
+                get {
+                    return this.columnID_CONG_TRINH_KHOAN;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ID_LOAI_NHIEM_VUColumn {
+                get {
+                    return this.columnID_LOAI_NHIEM_VU;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ID_DU_AN_MUC_TIEU_MUCColumn {
+                get {
+                    return this.columnID_DU_AN_MUC_TIEU_MUC;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CONG_TRINH_KHOAN_YNColumn {
+                get {
+                    return this.columnCONG_TRINH_KHOAN_YN;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -657,7 +697,11 @@ namespace WebDS {
                         decimal ID_REPORTED_USER, 
                         decimal GIA_TRI_THUC_HIEN, 
                         decimal SO_CHUA_GN, 
-                        decimal TONG_SO_KM) {
+                        decimal TONG_SO_KM, 
+                        decimal ID_CONG_TRINH_KHOAN, 
+                        decimal ID_LOAI_NHIEM_VU, 
+                        decimal ID_DU_AN_MUC_TIEU_MUC, 
+                        string CONG_TRINH_KHOAN_YN) {
                 RPT_BC_TINH_HINH_GIAI_NGANRow rowRPT_BC_TINH_HINH_GIAI_NGANRow = ((RPT_BC_TINH_HINH_GIAI_NGANRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         ID,
@@ -687,7 +731,11 @@ namespace WebDS {
                         ID_REPORTED_USER,
                         GIA_TRI_THUC_HIEN,
                         SO_CHUA_GN,
-                        TONG_SO_KM};
+                        TONG_SO_KM,
+                        ID_CONG_TRINH_KHOAN,
+                        ID_LOAI_NHIEM_VU,
+                        ID_DU_AN_MUC_TIEU_MUC,
+                        CONG_TRINH_KHOAN_YN};
                 rowRPT_BC_TINH_HINH_GIAI_NGANRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowRPT_BC_TINH_HINH_GIAI_NGANRow);
                 return rowRPT_BC_TINH_HINH_GIAI_NGANRow;
@@ -744,6 +792,10 @@ namespace WebDS {
                 this.columnGIA_TRI_THUC_HIEN = base.Columns["GIA_TRI_THUC_HIEN"];
                 this.columnSO_CHUA_GN = base.Columns["SO_CHUA_GN"];
                 this.columnTONG_SO_KM = base.Columns["TONG_SO_KM"];
+                this.columnID_CONG_TRINH_KHOAN = base.Columns["ID_CONG_TRINH_KHOAN"];
+                this.columnID_LOAI_NHIEM_VU = base.Columns["ID_LOAI_NHIEM_VU"];
+                this.columnID_DU_AN_MUC_TIEU_MUC = base.Columns["ID_DU_AN_MUC_TIEU_MUC"];
+                this.columnCONG_TRINH_KHOAN_YN = base.Columns["CONG_TRINH_KHOAN_YN"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -805,9 +857,18 @@ namespace WebDS {
                 base.Columns.Add(this.columnSO_CHUA_GN);
                 this.columnTONG_SO_KM = new global::System.Data.DataColumn("TONG_SO_KM", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTONG_SO_KM);
+                this.columnID_CONG_TRINH_KHOAN = new global::System.Data.DataColumn("ID_CONG_TRINH_KHOAN", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnID_CONG_TRINH_KHOAN);
+                this.columnID_LOAI_NHIEM_VU = new global::System.Data.DataColumn("ID_LOAI_NHIEM_VU", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnID_LOAI_NHIEM_VU);
+                this.columnID_DU_AN_MUC_TIEU_MUC = new global::System.Data.DataColumn("ID_DU_AN_MUC_TIEU_MUC", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnID_DU_AN_MUC_TIEU_MUC);
+                this.columnCONG_TRINH_KHOAN_YN = new global::System.Data.DataColumn("CONG_TRINH_KHOAN_YN", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCONG_TRINH_KHOAN_YN);
                 this.columnSTT.MaxLength = 15;
                 this.columnNOI_DUNG.MaxLength = 250;
                 this.columnREPORT_LEVEL.MaxLength = 15;
+                this.columnCONG_TRINH_KHOAN_YN.MaxLength = 1;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1417,6 +1478,74 @@ namespace WebDS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal ID_CONG_TRINH_KHOAN {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableRPT_BC_TINH_HINH_GIAI_NGAN.ID_CONG_TRINH_KHOANColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ID_CONG_TRINH_KHOAN\' in table \'RPT_BC_TINH_HINH_GIAI_NGAN\' " +
+                                "is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRPT_BC_TINH_HINH_GIAI_NGAN.ID_CONG_TRINH_KHOANColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal ID_LOAI_NHIEM_VU {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableRPT_BC_TINH_HINH_GIAI_NGAN.ID_LOAI_NHIEM_VUColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ID_LOAI_NHIEM_VU\' in table \'RPT_BC_TINH_HINH_GIAI_NGAN\' is " +
+                                "DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRPT_BC_TINH_HINH_GIAI_NGAN.ID_LOAI_NHIEM_VUColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal ID_DU_AN_MUC_TIEU_MUC {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableRPT_BC_TINH_HINH_GIAI_NGAN.ID_DU_AN_MUC_TIEU_MUCColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ID_DU_AN_MUC_TIEU_MUC\' in table \'RPT_BC_TINH_HINH_GIAI_NGAN" +
+                                "\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRPT_BC_TINH_HINH_GIAI_NGAN.ID_DU_AN_MUC_TIEU_MUCColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string CONG_TRINH_KHOAN_YN {
+                get {
+                    try {
+                        return ((string)(this[this.tableRPT_BC_TINH_HINH_GIAI_NGAN.CONG_TRINH_KHOAN_YNColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CONG_TRINH_KHOAN_YN\' in table \'RPT_BC_TINH_HINH_GIAI_NGAN\' " +
+                                "is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRPT_BC_TINH_HINH_GIAI_NGAN.CONG_TRINH_KHOAN_YNColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsIDNull() {
                 return this.IsNull(this.tableRPT_BC_TINH_HINH_GIAI_NGAN.IDColumn);
             }
@@ -1750,6 +1879,54 @@ namespace WebDS {
             public void SetTONG_SO_KMNull() {
                 this[this.tableRPT_BC_TINH_HINH_GIAI_NGAN.TONG_SO_KMColumn] = global::System.Convert.DBNull;
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsID_CONG_TRINH_KHOANNull() {
+                return this.IsNull(this.tableRPT_BC_TINH_HINH_GIAI_NGAN.ID_CONG_TRINH_KHOANColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetID_CONG_TRINH_KHOANNull() {
+                this[this.tableRPT_BC_TINH_HINH_GIAI_NGAN.ID_CONG_TRINH_KHOANColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsID_LOAI_NHIEM_VUNull() {
+                return this.IsNull(this.tableRPT_BC_TINH_HINH_GIAI_NGAN.ID_LOAI_NHIEM_VUColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetID_LOAI_NHIEM_VUNull() {
+                this[this.tableRPT_BC_TINH_HINH_GIAI_NGAN.ID_LOAI_NHIEM_VUColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsID_DU_AN_MUC_TIEU_MUCNull() {
+                return this.IsNull(this.tableRPT_BC_TINH_HINH_GIAI_NGAN.ID_DU_AN_MUC_TIEU_MUCColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetID_DU_AN_MUC_TIEU_MUCNull() {
+                this[this.tableRPT_BC_TINH_HINH_GIAI_NGAN.ID_DU_AN_MUC_TIEU_MUCColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCONG_TRINH_KHOAN_YNNull() {
+                return this.IsNull(this.tableRPT_BC_TINH_HINH_GIAI_NGAN.CONG_TRINH_KHOAN_YNColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCONG_TRINH_KHOAN_YNNull() {
+                this[this.tableRPT_BC_TINH_HINH_GIAI_NGAN.CONG_TRINH_KHOAN_YNColumn] = global::System.Convert.DBNull;
+            }
         }
         
         /// <summary>
@@ -1939,10 +2116,14 @@ namespace WebDS.DS_RPT_BC_TINH_HINH_GIAI_NGANTableAdapters {
             tableMapping.ColumnMappings.Add("GIA_TRI_THUC_HIEN", "GIA_TRI_THUC_HIEN");
             tableMapping.ColumnMappings.Add("SO_CHUA_GN", "SO_CHUA_GN");
             tableMapping.ColumnMappings.Add("TONG_SO_KM", "TONG_SO_KM");
+            tableMapping.ColumnMappings.Add("ID_CONG_TRINH_KHOAN", "ID_CONG_TRINH_KHOAN");
+            tableMapping.ColumnMappings.Add("ID_LOAI_NHIEM_VU", "ID_LOAI_NHIEM_VU");
+            tableMapping.ColumnMappings.Add("ID_DU_AN_MUC_TIEU_MUC", "ID_DU_AN_MUC_TIEU_MUC");
+            tableMapping.ColumnMappings.Add("CONG_TRINH_KHOAN_YN", "CONG_TRINH_KHOAN_YN");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[RPT_BC_TINH_HINH_GIAI_NGAN] ([ID], [STT], [NOI_DUNG], [KH_QBT], [KH_NS], [KH_NAM_TRUOC_CHUYEN_SANG], [KH_TONG], [DN_QBT_TRONG_THANG], [DN_QBT_LUY_KE], [DN_QBT_TONG], [DN_NS_TRONG_THANG], [DN_NS_LUY_KE], [DN_NS_TONG], [DTT_QBT_TRONG_THANG], [DTT_QBT_LUY_KE], [DTT_QBT_TONG], [DTT_NS_TRONG_THANG], [DTT_NS_LUY_KE], [DTT_NS_TONG], [CN_QBT], [CN_NS], [ID_DON_VI], [REPORT_LEVEL], [ID_CHA], [ID_REPORTED_USER], [GIA_TRI_THUC_HIEN], [SO_CHUA_GN], [TONG_SO_KM]) VALUES (@ID, @STT, @NOI_DUNG, @KH_QBT, @KH_NS, @KH_NAM_TRUOC_CHUYEN_SANG, @KH_TONG, @DN_QBT_TRONG_THANG, @DN_QBT_LUY_KE, @DN_QBT_TONG, @DN_NS_TRONG_THANG, @DN_NS_LUY_KE, @DN_NS_TONG, @DTT_QBT_TRONG_THANG, @DTT_QBT_LUY_KE, @DTT_QBT_TONG, @DTT_NS_TRONG_THANG, @DTT_NS_LUY_KE, @DTT_NS_TONG, @CN_QBT, @CN_NS, @ID_DON_VI, @REPORT_LEVEL, @ID_CHA, @ID_REPORTED_USER, @GIA_TRI_THUC_HIEN, @SO_CHUA_GN, @TONG_SO_KM)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[RPT_BC_TINH_HINH_GIAI_NGAN] ([ID], [STT], [NOI_DUNG], [KH_QBT], [KH_NS], [KH_NAM_TRUOC_CHUYEN_SANG], [KH_TONG], [DN_QBT_TRONG_THANG], [DN_QBT_LUY_KE], [DN_QBT_TONG], [DN_NS_TRONG_THANG], [DN_NS_LUY_KE], [DN_NS_TONG], [DTT_QBT_TRONG_THANG], [DTT_QBT_LUY_KE], [DTT_QBT_TONG], [DTT_NS_TRONG_THANG], [DTT_NS_LUY_KE], [DTT_NS_TONG], [CN_QBT], [CN_NS], [ID_DON_VI], [REPORT_LEVEL], [ID_CHA], [ID_REPORTED_USER], [GIA_TRI_THUC_HIEN], [SO_CHUA_GN], [TONG_SO_KM], [ID_CONG_TRINH_KHOAN], [ID_LOAI_NHIEM_VU], [ID_DU_AN_MUC_TIEU_MUC], [CONG_TRINH_KHOAN_YN]) VALUES (@ID, @STT, @NOI_DUNG, @KH_QBT, @KH_NS, @KH_NAM_TRUOC_CHUYEN_SANG, @KH_TONG, @DN_QBT_TRONG_THANG, @DN_QBT_LUY_KE, @DN_QBT_TONG, @DN_NS_TRONG_THANG, @DN_NS_LUY_KE, @DN_NS_TONG, @DTT_QBT_TRONG_THANG, @DTT_QBT_LUY_KE, @DTT_QBT_TONG, @DTT_NS_TRONG_THANG, @DTT_NS_LUY_KE, @DTT_NS_TONG, @CN_QBT, @CN_NS, @ID_DON_VI, @REPORT_LEVEL, @ID_CHA, @ID_REPORTED_USER, @GIA_TRI_THUC_HIEN, @SO_CHUA_GN, @TONG_SO_KM, @ID_CONG_TRINH_KHOAN, @ID_LOAI_NHIEM_VU, @ID_DU_AN_MUC_TIEU_MUC, @CONG_TRINH_KHOAN_YN)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@STT", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "STT", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1956,7 +2137,7 @@ namespace WebDS.DS_RPT_BC_TINH_HINH_GIAI_NGANTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DN_QBT_TONG", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "DN_QBT_TONG", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DN_NS_TRONG_THANG", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "DN_NS_TRONG_THANG", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DN_NS_LUY_KE", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "DN_NS_LUY_KE", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DN_NS_TONG", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "DN_NS_TONG", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DN_NS_TONG", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 21, 0, "DN_NS_TONG", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DTT_QBT_TRONG_THANG", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "DTT_QBT_TRONG_THANG", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DTT_QBT_LUY_KE", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "DTT_QBT_LUY_KE", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DTT_QBT_TONG", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "DTT_QBT_TONG", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1972,6 +2153,10 @@ namespace WebDS.DS_RPT_BC_TINH_HINH_GIAI_NGANTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@GIA_TRI_THUC_HIEN", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "GIA_TRI_THUC_HIEN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SO_CHUA_GN", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "SO_CHUA_GN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TONG_SO_KM", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "TONG_SO_KM", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_CONG_TRINH_KHOAN", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "ID_CONG_TRINH_KHOAN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_LOAI_NHIEM_VU", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "ID_LOAI_NHIEM_VU", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_DU_AN_MUC_TIEU_MUC", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "ID_DU_AN_MUC_TIEU_MUC", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CONG_TRINH_KHOAN_YN", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CONG_TRINH_KHOAN_YN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1987,7 +2172,7 @@ namespace WebDS.DS_RPT_BC_TINH_HINH_GIAI_NGANTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT ID, STT, NOI_DUNG, KH_QBT, KH_NS, KH_NAM_TRUOC_CHUYEN_SANG, KH_TONG, DN_QBT_TRONG_THANG, DN_QBT_LUY_KE, DN_QBT_TONG, DN_NS_TRONG_THANG, DN_NS_LUY_KE, DN_NS_TONG, DTT_QBT_TRONG_THANG, DTT_QBT_LUY_KE, DTT_QBT_TONG, DTT_NS_TRONG_THANG, DTT_NS_LUY_KE, DTT_NS_TONG, CN_QBT, CN_NS, ID_DON_VI, REPORT_LEVEL, ID_CHA, ID_REPORTED_USER, GIA_TRI_THUC_HIEN, SO_CHUA_GN, TONG_SO_KM FROM dbo.RPT_BC_TINH_HINH_GIAI_NGAN";
+            this._commandCollection[0].CommandText = @"SELECT ID, STT, NOI_DUNG, KH_QBT, KH_NS, KH_NAM_TRUOC_CHUYEN_SANG, KH_TONG, DN_QBT_TRONG_THANG, DN_QBT_LUY_KE, DN_QBT_TONG, DN_NS_TRONG_THANG, DN_NS_LUY_KE, DN_NS_TONG, DTT_QBT_TRONG_THANG, DTT_QBT_LUY_KE, DTT_QBT_TONG, DTT_NS_TRONG_THANG, DTT_NS_LUY_KE, DTT_NS_TONG, CN_QBT, CN_NS, ID_DON_VI, REPORT_LEVEL, ID_CHA, ID_REPORTED_USER, GIA_TRI_THUC_HIEN, SO_CHUA_GN, TONG_SO_KM, ID_CONG_TRINH_KHOAN, ID_LOAI_NHIEM_VU, ID_DU_AN_MUC_TIEU_MUC, CONG_TRINH_KHOAN_YN FROM dbo.RPT_BC_TINH_HINH_GIAI_NGAN";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -2076,7 +2261,11 @@ namespace WebDS.DS_RPT_BC_TINH_HINH_GIAI_NGANTableAdapters {
                     global::System.Nullable<decimal> ID_REPORTED_USER, 
                     global::System.Nullable<decimal> GIA_TRI_THUC_HIEN, 
                     global::System.Nullable<decimal> SO_CHUA_GN, 
-                    global::System.Nullable<decimal> TONG_SO_KM) {
+                    global::System.Nullable<decimal> TONG_SO_KM, 
+                    global::System.Nullable<decimal> ID_CONG_TRINH_KHOAN, 
+                    global::System.Nullable<decimal> ID_LOAI_NHIEM_VU, 
+                    global::System.Nullable<decimal> ID_DU_AN_MUC_TIEU_MUC, 
+                    string CONG_TRINH_KHOAN_YN) {
             if ((ID.HasValue == true)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = ((decimal)(ID.Value));
             }
@@ -2244,6 +2433,30 @@ namespace WebDS.DS_RPT_BC_TINH_HINH_GIAI_NGANTableAdapters {
             }
             else {
                 this.Adapter.InsertCommand.Parameters[27].Value = global::System.DBNull.Value;
+            }
+            if ((ID_CONG_TRINH_KHOAN.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[28].Value = ((decimal)(ID_CONG_TRINH_KHOAN.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[28].Value = global::System.DBNull.Value;
+            }
+            if ((ID_LOAI_NHIEM_VU.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[29].Value = ((decimal)(ID_LOAI_NHIEM_VU.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[29].Value = global::System.DBNull.Value;
+            }
+            if ((ID_DU_AN_MUC_TIEU_MUC.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[30].Value = ((decimal)(ID_DU_AN_MUC_TIEU_MUC.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[30].Value = global::System.DBNull.Value;
+            }
+            if ((CONG_TRINH_KHOAN_YN == null)) {
+                this.Adapter.InsertCommand.Parameters[31].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[31].Value = ((string)(CONG_TRINH_KHOAN_YN));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
