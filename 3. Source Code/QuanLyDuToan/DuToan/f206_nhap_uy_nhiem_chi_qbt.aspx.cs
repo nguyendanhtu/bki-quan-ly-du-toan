@@ -966,18 +966,33 @@ namespace QuanLyDuToan.DuToan
 					v_txt_grid_edit_so_tien_nop_thue.Text = v_txt_grid_edit_so_tien_nop_thue.Text.Trim().Replace(",", "").Replace(".", "");
 					v_txt_grid_edit_so_tien_tt_cho_dv_huong.Text = v_txt_grid_edit_so_tien_tt_cho_dv_huong.Text.Trim().Replace(",", "").Replace(".", "");
 					//1. Check validate data
-					if (m_ddl_grid_edit_du_an_quoc_lo.SelectedValue.Equals(""))
+					//1.1 Chi theo Cong trinh/Du an
+					if (m_rdb_grid_edit_theo_quoc_lo_cong_trinh.Checked==true)
 					{
-						m_lbl_mess_detail.Text = "Bạn chọn lại Loại nhiệm vụ! Trong mục này không có Quốc lộ/Dự án nào!";
-						m_ddl_grid_edit_loai_nhiem_vu.Focus();
-						return;
+						if (m_ddl_grid_edit_du_an_quoc_lo.SelectedValue.Equals(""))
+						{
+							m_lbl_mess_detail.Text = "Bạn chọn lại Loại nhiệm vụ! Trong mục này không có Quốc lộ/Dự án nào!";
+							m_ddl_grid_edit_loai_nhiem_vu.Focus();
+							return;
+						}
+						if (m_ddl_grid_edit_du_an.SelectedValue.Equals(""))
+						{
+							m_lbl_mess_detail.Text = "Bạn chọn lại Quốc lộ/Dự án! Trong mục này không mục chi nào!";
+							m_ddl_grid_edit_du_an_quoc_lo.Focus();
+							return;
+						}
 					}
-					if (m_ddl_grid_edit_du_an.SelectedValue.Equals(""))
+					//1.2 Chi theo Loai khoan muc
+					else if (m_rdb_grid_edit_theo_chuong_loai_khoan_muc.Checked==true)
 					{
-						m_lbl_mess_detail.Text = "Bạn chọn lại Quốc lộ/Dự án! Trong mục này không mục chi nào!";
-						m_ddl_grid_edit_du_an_quoc_lo.Focus();
-						return;
+						if (m_ddl_grid_muc_tieu_muc.SelectedValue.Equals(""))
+						{
+							m_lbl_mess_detail.Text = "Bạn chọn lại Loại nhiệm vụ! Không có Mục/Tiểu mục nào trong Loại nhiệm vụ này!";
+							m_ddl_grid_edit_du_an_quoc_lo.Focus();
+							return;
+						}
 					}
+					
 					if (!CValidateTextBox.IsValid(v_txt_grid_edit_ghi_chu, DataType.StringType, allowNull.NO))
 					{
 						m_lbl_mess_detail.Text = "Bạn phải nhập Nội dung thanh toán!";
