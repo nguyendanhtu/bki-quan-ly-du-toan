@@ -308,7 +308,10 @@ namespace QuanLyDuToan.DuToan
 			v_dat_dau_nam = v_dat_dau_nam.AddDays(-v_dat_dau_nam.Day + 1);
 			v_dat_dau_nam = v_dat_dau_nam.AddMonths(-v_dat_dau_nam.Month + 1);
 			DateTime v_dat_cuoi_nam = v_dat_dau_nam.AddYears(1);
-			DataSet v_ds_muc_tieu_muc = WinFormControls.get_dataset_muc_tieu_muc_giao_von(ip_dc_id_loai_nhiem_vu, v_dat_dau_nam, v_dat_cuoi_nam);
+			DataSet v_ds_muc_tieu_muc = WinFormControls.get_dataset_muc_tieu_muc_giao_von(ip_dc_id_loai_nhiem_vu
+				, v_dat_dau_nam
+				, v_dat_cuoi_nam
+				,CIPConvert.ToDecimal(m_ddl_don_vi.SelectedValue));
 			op_ddl.DataTextField = GET_MUC_TIEU_MUC.DISPLAY;
 			op_ddl.DataValueField = GET_MUC_TIEU_MUC.ID;
 			op_ddl.DataSource = v_ds_muc_tieu_muc.Tables[0];
@@ -368,10 +371,11 @@ namespace QuanLyDuToan.DuToan
 					if (Request.QueryString["ip_nguon_ns"].ToString().Equals("N") && m_rbl_ma_tkkt.Items.Count > 1)
 						m_rbl_ma_tkkt.Items[0].Selected = true;//chọn mã tkkt Nguồn QBT
 				}
-                if (Request.QueryString["ip_dc_id_don_vi"] != null)
-                {
-                    m_ddl_don_vi.SelectedValue = Request.QueryString["ip_dc_id_don_vi"].ToString();
-                }
+				if (Request.QueryString["ip_dc_id_don_vi"] != null)
+				{
+					m_ddl_don_vi.SelectedValue = Request.QueryString["ip_dc_id_don_vi"].ToString();
+				}
+				else m_ddl_don_vi.SelectedValue = Person.get_id_don_vi().ToString();
 				data_to_grid_unc();
 				//load_thong_tin_don_vi();
 			}
@@ -507,18 +511,26 @@ namespace QuanLyDuToan.DuToan
 				//v_us.strKHO_BAC_NHA_NUOC = m_lbl_tai_kho_bac_nha_nuoc.Text.Trim();
 				v_us.strMA_CTMT_DA_HTCT = m_txt_ma_ctmt_da_htct.Text.Trim();
 				v_us.strMA_DVQHNS = m_lbl_ma_dvqhns.Text.Trim();
-				if (m_rbl_ma_tkkt.SelectedIndex == 0)
+				//if (m_rbl_ma_tkkt.SelectedIndex == 0)
+				//{
+				//	v_us.strIS_NGUON_NS_YN = "N";
+				//}
+				//else v_us.strIS_NGUON_NS_YN = "Y";
+				if (Request.QueryString["ip_nguon_ns"]!=null)
 				{
-					v_us.strIS_NGUON_NS_YN = "N";
+					if (Request.QueryString["ip_nguon_ns"].ToString().Equals("N"))
+					{
+						v_us.strIS_NGUON_NS_YN = "N";
+					}
 				}
-				else v_us.strIS_NGUON_NS_YN = "Y";
+				else v_us.strIS_NGUON_NS_YN="Y";
 				//v_us.strMA_TKKT = m_rbl_ma_tkkt.SelectedItem.Text;
 				v_us.strSO_UNC = m_txt_so_unc.Text.Trim();
 				v_us.datNGAY_THANG = CIPConvert.ToDatetime(m_txt_ngay_thang.Text.Trim(), "dd/MM/yyyy");
 				v_us.Insert();
 				//do not edit
 				disable_control_unc();
-				m_lbl_mess_master.Text = "Lưu QĐ thành công!";
+				m_lbl_mess_master.Text = "Lưu Uỷ nhiệm chi thành công!";
 				//set id to hiddenfield
 				m_hdf_id_dm_uy_nhiem_chi.Value = v_us.dcID.ToString();
 				data_to_grid_unc();

@@ -449,7 +449,11 @@ namespace QuanLyDuToan.DuToan
 			v_dat_dau_nam = v_dat_dau_nam.AddDays(-v_dat_dau_nam.Day + 1);
 			v_dat_dau_nam = v_dat_dau_nam.AddMonths(-v_dat_dau_nam.Month + 1);
 			DateTime v_dat_cuoi_nam = v_dat_dau_nam.AddYears(1);
-			DataSet v_ds_muc_tieu_muc = WinFormControls.get_dataset_muc_tieu_muc_giao_von(990,v_dat_dau_nam, v_dat_cuoi_nam);
+			DataSet v_ds_muc_tieu_muc = WinFormControls.get_dataset_muc_tieu_muc_giao_von(
+				990
+				,v_dat_dau_nam
+				, v_dat_cuoi_nam
+				,Person.get_id_don_vi());
 			op_ddl.DataTextField = GET_MUC_TIEU_MUC.DISPLAY;
 			op_ddl.DataValueField = GET_MUC_TIEU_MUC.ID;
 			op_ddl.DataSource = v_ds_muc_tieu_muc.Tables[0];
