@@ -706,14 +706,14 @@ namespace QuanLyDuToan.App_Code
 		public static DataSet get_dataset_muc_tieu_muc_giao_von(
 			decimal ip_dc_id_loai_nhiem_vu
 			, DateTime ip_dat_tu_ngay
-			, DateTime ip_dat_den_ngay)
+			, DateTime ip_dat_den_ngay
+			,decimal ip_dc_id_don_vi)
 		{
-			decimal v_dc_id_don_vi = Person.get_id_don_vi();
 			US_DM_DON_VI v_us = new WebUS.US_DM_DON_VI();
 			CStoredProc v_sp = new CStoredProc("pr_get_chuong_loai_khoan_muc_tieu_muc_giao_von");
 			v_sp.addDatetimeInputParam("@ip_dat_den_ngay", ip_dat_den_ngay);
 			v_sp.addDatetimeInputParam("@ip_dat_tu_ngay", ip_dat_tu_ngay);
-			v_sp.addDecimalInputParam("@ip_dc_id_don_vi", v_dc_id_don_vi);
+			v_sp.addDecimalInputParam("@ip_dc_id_don_vi", ip_dc_id_don_vi);
 			v_sp.addDecimalInputParam("@ip_dc_id_loai_nhiem_vu", ip_dc_id_loai_nhiem_vu);
 			DataSet op_ds = new DataSet();
 			DataTable v_dt = new DataTable();
