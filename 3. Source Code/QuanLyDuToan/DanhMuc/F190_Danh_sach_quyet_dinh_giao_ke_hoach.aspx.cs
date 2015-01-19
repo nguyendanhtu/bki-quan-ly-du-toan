@@ -147,6 +147,10 @@ namespace QuanLyDuToan.DanhMuc
                     {
                         m_txt_den_ngay.Text = CIPConvert.ToStr(DateTime.Now, "dd/MM/yyyy");
                     }
+                    if (Request.QueryString["ip_dc_id_don_vi"] != null)
+                    {
+                        m_ddl_don_vi.SelectedValue = Request.QueryString["ip_dc_id_don_vi"].ToString();
+                    }
                     WinFormControls.load_data_to_ddl_don_vi_get_list_don_vi_duoc_xem_du_lieu(Person.get_id_don_vi(), m_ddl_don_vi);
                     load_data_2_ddl_loai_quyet_dinh_giao();
 					load_data_to_grid();

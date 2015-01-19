@@ -60,6 +60,10 @@ namespace QuanLyDuToan.DanhMuc
             {
                 m_txt_den_ngay.Text = (DateTime.Now.Date).ToString(c_configuration.DEFAULT_DATETIME_FORMAT);
             }
+            if (Request.QueryString["ip_dc_id_don_vi"] != null)
+            {
+                m_ddl_don_vi.SelectedValue = Request.QueryString["ip_dc_id_don_vi"].ToString();
+            }
         }
 
         protected void m_cmd_tim_kiem_Click(object sender, EventArgs e)
