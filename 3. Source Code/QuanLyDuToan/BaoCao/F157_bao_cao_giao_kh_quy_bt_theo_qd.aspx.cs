@@ -54,6 +54,11 @@ namespace QuanLyDuToan.BaoCao
                 //load dropdownlisst
                 //đơn vị
                 load_data_2_ddl_don_vi();
+                if (Request.QueryString["ip_dc_id_don_vi"] != null)
+                {
+                    var v_dc_id_don_vi = CIPConvert.ToDecimal(Request.QueryString["ip_dc_id_don_vi"]);
+                    m_ddl_don_vi.SelectedValue = v_dc_id_don_vi.ToString();
+                }
                 //loại nhiệm vụ
                 App_Code.WinFormControls.load_data_to_ddl_loai_nhiem_vu(m_ddl_loai_nv);
                 m_ddl_loai_nv.SelectedValue = CIPConvert.ToStr(v_dc_id_loai_nhiem_vu);
