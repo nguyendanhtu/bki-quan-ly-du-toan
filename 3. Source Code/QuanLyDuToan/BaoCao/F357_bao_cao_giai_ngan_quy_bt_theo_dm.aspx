@@ -147,12 +147,12 @@
 									<div class="height30">
 										<div class="lb">Loại nhiệm vụ</div>
 										<div class="control">
-											<asp:DropDownList ID="m_ddl_loai_nv" runat="server" Width="100px" AutoPostBack="True" CssClass="select2"></asp:DropDownList></div>
+											<asp:DropDownList ID="m_ddl_loai_nv" runat="server" Width="100px" AutoPostBack="True" CssClass="select2" OnSelectedIndexChanged="m_ddl_loai_nv_SelectedIndexChanged"></asp:DropDownList></div>
 									</div>
 									<div class="height30">
 										<div class="lb">Công trình</div>
 										<div class="control">
-											<asp:DropDownList ID="m_ddl_cong_trinh" runat="server" Width="100px" AutoPostBack="True" CssClass="selec2"></asp:DropDownList></div>
+											<asp:DropDownList ID="m_ddl_cong_trinh" runat="server" Width="100px" AutoPostBack="True" CssClass="selec2" OnSelectedIndexChanged="m_ddl_cong_trinh_SelectedIndexChanged"></asp:DropDownList></div>
 									</div>
 									<div class="height30">
 										<div class="lb">Dự án</div>
