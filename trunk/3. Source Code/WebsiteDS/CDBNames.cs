@@ -469,6 +469,11 @@ namespace WebDS.CDBNames
 
     public class c_configuration {
         public const string DEFAULT_DATETIME_FORMAT = "dd/MM/yyyy";
+        public const decimal TAT_CA = -1;
+        public const decimal GIAO_KE_HOACH = 647;
+        public const decimal GIAO_VON = 648;
+        public const decimal GIAO_BO_SUNG = 653;
+        public const decimal GIAO_DAU_NAM = 652;
     }
 
 	public enum e_user_group
