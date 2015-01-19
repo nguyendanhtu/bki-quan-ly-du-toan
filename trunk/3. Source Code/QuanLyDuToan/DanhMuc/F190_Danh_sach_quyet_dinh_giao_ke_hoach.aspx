@@ -3,11 +3,25 @@
 <%@ Import Namespace="WebDS.CDBNames" %>
 <%@ Import Namespace="IP.Core.IPCommon" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
+    <style>
+         .height30 {
+	        height:30px;
+        }
+
+	    .lb {
+	        width:100px; 
+            float:left;
+            text-align:right;
+            line-height:20px;
+        }
+    </style>
     <script>
         function pageLoad(sender, args) {
             if (args.get_isPartialLoad()) {
                
-                $(".datepicker").datepicker({ format: 'dd/mm/yyyy' });
+                $("#<%=m_txt_tu_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
+                $("#<%=m_txt_den_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
+                $("#m_ddl_don_vi").select2();
                 var v_lst = $('.link204');
                 for (var i = 0; i < v_lst.length; i++) {
                     v_lst[i].href = v_lst[i].href + "&ip_dc_id_don_vi=" + $("#<%=m_ddl_don_vi.ClientID%>").val();
@@ -22,7 +36,9 @@
         }
         $(document).ready(function () {
            
-            $(".datepicker").datepicker({ format: 'dd/mm/yyyy' });
+            $("#<%=m_txt_tu_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
+            $("#<%=m_txt_den_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
+            $("#m_ddl_don_vi").select2();
             var v_lst = $('.link204');
             for (var i = 0; i < v_lst.length; i++)
             {
@@ -52,24 +68,21 @@
 				<br />
 				<span style="font-weight: bold">DANH SÁCH QUYẾT ĐỊNH GIAO KẾ HOẠCH</span>
 			</div>
-			<div style="color: black; text-align: center; margin-top: 20px;">
-                <tr>
+            <div style="color:black; text-align:center; margin-top:20px;">
+            <tr>
 									<td style="text-align: right">Đơn vị:</td>
 									<td colspan="2">
-										<asp:DropDownList ID="m_ddl_don_vi" CssClass="select2" runat="server" AutoPostBack="true" OnSelectedIndexChanged="m_ddl_don_vi_SelectedIndexChanged" Width="200px">
-
-										</asp:DropDownList>
-
-									</td>
+										<asp:DropDownList ID="m_ddl_don_vi" CssClass="select2" runat="server" AutoPostBack="true" OnSelectedIndexChanged="m_ddl_don_vi_SelectedIndexChanged" Width="200px"></asp:DropDownList></td>
                 </tr>
-				<span>Từ khóa tìm kiếm: </span>
-				<asp:TextBox  runat="server" ID="m_txt_tu_khoa_tim_kiem" Style="width: 200px;"></asp:TextBox>
-				<span>Từ ngày: </span>
-				<asp:TextBox runat="server" CssClass="datepicker" ID="m_txt_tu_ngay" Style="width: 200px; text-align: right"></asp:TextBox>
-				<span>Đến ngày: </span>
-				<asp:TextBox runat="server" ID="m_txt_den_ngay" CssClass="datepicker"  Style="width: 200px; text-align: right"></asp:TextBox>
-				<asp:Button runat="server" CssClass="btn" Text="Tìm kiếm" ID="m_cmd_tim_kiem" OnClick="m_cmd_tim_kiem_Click" />
-			</div>
+            <span>Từ khóa tìm kiếm: </span><asp:textbox runat="server" id="m_txt_tu_khoa_tim_kiem" style="width:200px;"></asp:textbox>
+           <span>Từ ngày: </span>
+		   <asp:TextBox runat="server" CssClass="datepicker" ID="m_txt_tu_ngay" Style="width: 150px; text-align: right"></asp:TextBox>
+			<span>Đến ngày: </span>
+			<asp:TextBox runat="server" ID="m_txt_den_ngay" CssClass="datepicker"  Style="width: 150px; text-align: right"></asp:TextBox>
+            <asp:button runat="server" cssclass="btn" text="Tìm kiếm" id="Button1" OnClick="m_cmd_tim_kiem_Click"/>
+        </div>
+           
+
 			<div style="text-align: center">
 				<asp:Label ID="m_lbl_mess" runat="server" CssClass="cssManField"></asp:Label>
 				<br />

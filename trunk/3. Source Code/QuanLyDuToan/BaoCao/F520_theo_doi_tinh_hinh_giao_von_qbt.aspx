@@ -87,7 +87,7 @@
                     <asp:TextBox ID="m_txt_den_ngay" placeholder="dd/MM/yyyy" runat="server" CssClass="cssTextBox form-control date-end" Height="30px" Width="164px"></asp:TextBox>
                     <span class="input-group-addon"><span class="glyphicon-calendar glyphicon"></span>
                     </span>
-                 </div>
+                    </div>
             </div>      
         </div>
         <div style="width:350px; text-align:center; margin:auto;height: 45px;">
