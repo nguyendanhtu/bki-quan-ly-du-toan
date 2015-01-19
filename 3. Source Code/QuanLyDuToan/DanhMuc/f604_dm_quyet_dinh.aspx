@@ -1,6 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="f604_dm_quyet_dinh.aspx.cs" Inherits="QuanLyDuToan.DanhMuc.f604_dm_quyet_dinh" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="Server">
+    <style>
+      
+    </style>
 	<script>
 		function pageLoad(sender, args) {
 			if (args.get_isPartialLoad()) {
@@ -42,18 +45,18 @@
 					<td style="text-align: right; width: 30%">
 						<span class="cssManField">Loại quyết định</span>
 					</td>
-					<td style="width: 70%">
-						<asp:RadioButton ID="m_rdb_giao_ke_hoach" runat="server" CssClass="cssManField radio-inline" ForeColor="Blue" Text="Giao kế hoạch" GroupName="loai" Checked="true" AutoPostBack="true" OnCheckedChanged="m_rdb_giao_ke_hoach_CheckedChanged" />
-						<asp:RadioButton ID="m_rdb_giao_von" runat="server" CssClass="cssManField radio-inline" ForeColor="Blue" Text="Giao vốn" GroupName="loai" AutoPostBack="true" OnCheckedChanged="m_rdb_giao_von_CheckedChanged" />
+					<td id="td_radio" style="width: 70%">
+						<asp:RadioButton ID="m_rdb_giao_ke_hoach" runat="server" CssClass=" radio-inline"  ForeColor="Blue" Text="Giao kế hoạch" GroupName="loai" Checked="true" AutoPostBack="true" OnCheckedChanged="m_rdb_giao_ke_hoach_CheckedChanged" />
+						<asp:RadioButton ID="m_rdb_giao_von" runat="server" CssClass=" radio-inline"  ForeColor="Blue" Text="Giao vốn" GroupName="loai" AutoPostBack="true" OnCheckedChanged="m_rdb_giao_von_CheckedChanged" />
 					</td>
 				</tr>
 				<tr>
 					<td style="text-align: right">
-						<asp:Label ID="m_lbl_loai_quyet_dinh_giao" runat="server" Text="Loại"></asp:Label></td>
+						<asp:Label ID="m_lbl_loai_quyet_dinh_giao" runat="server" Text="Loại" CssClass="cssManField"></asp:Label></td>
 					<td>
-						<asp:RadioButton ID="m_rdb_loai_quyet_dinh_giao_dau_nam" runat="server" Text="Đầu năm" GroupName="loai_quyet_dinh_giao" Checked="true" />
-						<asp:RadioButton ID="m_rdb_loai_quyet_dinh_giao_bo_sung" runat="server" Text="Bổ sung" GroupName="loai_quyet_dinh_giao" />
-						<asp:RadioButton ID="m_rdb_loai_quyet_dinh_giao_dieu_chinh" runat="server" Text="Điều chỉnh" GroupName="loai_quyet_dinh_giao" />
+						<asp:RadioButton ID="m_rdb_loai_quyet_dinh_giao_dau_nam" cssclass="radio-inline" runat="server" Text="Đầu năm" GroupName="loai_quyet_dinh_giao" Checked="true" />
+						<asp:RadioButton ID="m_rdb_loai_quyet_dinh_giao_bo_sung" runat="server" cssclass="radio-inline" Text="Bổ sung" GroupName="loai_quyet_dinh_giao" />
+						<asp:RadioButton ID="m_rdb_loai_quyet_dinh_giao_dieu_chinh" runat="server" cssclass="radio-inline" Text="Điều chỉnh" GroupName="loai_quyet_dinh_giao" />
 					</td>
 				</tr>
 				<tr>
