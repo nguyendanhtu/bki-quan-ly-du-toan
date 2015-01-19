@@ -131,7 +131,7 @@ namespace QuanLyDuToan.BaoCao
                         bfield.ItemStyle.CssClass = "soDuClass";
                         break;
                     case "ChinhThuc":
-                        bfield.HeaderText = "KH giao chính thức 2014";
+                        bfield.HeaderText = "KH giao chính thức " + CIPConvert.ToDatetime(m_txt_tu_ngay.Text,c_configuration.DEFAULT_DATETIME_FORMAT).Year.ToString();
                         bfield.ItemStyle.CssClass = "keHoachClass";
                         break;
                     case "TongVon":
