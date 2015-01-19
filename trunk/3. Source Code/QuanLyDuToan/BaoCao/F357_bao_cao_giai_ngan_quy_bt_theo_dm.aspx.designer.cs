@@ -31,6 +31,15 @@ namespace QuanLyDuToan.BaoCao {
         protected global::System.Web.UI.UpdatePanel UpdatePanel1;
         
         /// <summary>
+        /// m_lbl_nguon control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label m_lbl_nguon;
+        
+        /// <summary>
         /// m_ddl_don_vi control.
         /// </summary>
         /// <remarks>
