@@ -57,5 +57,10 @@ namespace QuanLyDuToan.BaoCao
             , "[" + v_us.strTEN_DON_VI + "]BaoCaoTinhHinhGiaoVon.xls"
             );
         }
+
+        public override void VerifyRenderingInServerForm(Control control)
+        {
+            //base.VerifyRenderingInServerForm(control);
+        }
     }
 }
