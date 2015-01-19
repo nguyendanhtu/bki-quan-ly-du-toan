@@ -6,6 +6,10 @@
             padding-right:5px;
         }
 
+        #m_grv_bao_cao_giao_von{
+            min-width:1200px;
+            }
+
         th {
             text-align:center;
         }
@@ -92,7 +96,7 @@
         </div>
         <div style="width:1200px; overflow-y:hidden; margin:0px auto;">
                 <div id="double-scroll" >
-                <asp:gridview Width="2500px" runat="server" id="m_grv_bao_cao_giao_von" AutoGenerateColumns="False" EnableModelValidation="True">
+                <asp:gridview runat="server" id="m_grv_bao_cao_giao_von" AutoGenerateColumns="False" EnableModelValidation="True" ClientIDMode="Static">
                     <Columns>
                         <asp:BoundField DataField="TEN_DON_VI" HeaderText="Đơn vị" HtmlEncode="False" >
                         <HeaderStyle Width="200px" CssClass="pinned thpinned"/>
