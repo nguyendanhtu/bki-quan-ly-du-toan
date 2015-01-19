@@ -64,7 +64,7 @@ namespace QuanLyDuToan.BaoCao
 				v_ds.AcceptChanges();
 				v_ds.EnforceConstraints = false;
 				string v_str_is_nguon_ns = "N";
-				if (Request.QueryString["ip_nguon_ns"]!=null)
+				if (Request.QueryString["ip_nguon_ns"] != null)
 				{
 					if (Request.QueryString["ip_nguon_ns"].ToString().Equals("Y"))
 					{
@@ -157,9 +157,11 @@ namespace QuanLyDuToan.BaoCao
 
 			WinFormControls.load_data_to_cbo_dm_uy_nhiem_chi(
 				m_ddl_quyet_dinh
+				, CIPConvert.ToDatetime(m_txt_tu_ngay.Text, "dd/MM/yyyy")
+				, CIPConvert.ToDatetime(m_txt_den_ngay.Text, "dd/MM/yyyy")
 				, v_str_nguon_ns
 				, CIPConvert.ToDecimal(m_ddl_don_vi.SelectedValue)
-				,"---Tất cả---");
+				, "---Tất cả---");
 			//US_DM_GIAI_NGAN v_us = new US_DM_GIAI_NGAN();
 			//DS_DM_GIAI_NGAN v_ds = new DS_DM_GIAI_NGAN();
 			//v_us.FillDataset(v_ds,

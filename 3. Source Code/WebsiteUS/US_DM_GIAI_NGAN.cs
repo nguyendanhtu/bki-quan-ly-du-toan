@@ -21,6 +21,7 @@ namespace WebUS
 	public class US_DM_GIAI_NGAN : US_Object
 	{
 		private const string c_TableName = "DM_GIAI_NGAN";
+
 		#region "Public Properties"
 		public decimal dcID
 		{
@@ -531,6 +532,22 @@ namespace WebUS
 			v_cmdSQL = v_objMkCmd.getSelectCmd();
 			this.FillDatasetByCommand(pm_objDS, v_cmdSQL);
 			pm_objDR = getRowClone(pm_objDS.Tables[pm_strTableName].Rows[0]);
+		}
+		#endregion
+
+		#region "Additonal"
+		public void get_dm_uy_nhiem_chi_by_don_vi_va_ngay_thang(DS_DM_GIAI_NGAN op_ds
+			, decimal ip_dc_id_don_vi
+			, DateTime ip_dat_tu_ngay
+			, DateTime ip_dat_den_ngay
+			, string ip_nguon_ns)
+		{
+			CStoredProc v_sp=new CStoredProc("pr_get_dm_uy_nhiem_chi_by_don_vi_va_ngay_thang");
+			v_sp.addDecimalInputParam("@ip_dc_id_don_vi", ip_dc_id_don_vi);
+			v_sp.addDatetimeInputParam("@ip_dat_tu_ngay", ip_dat_tu_ngay);
+			v_sp.addDatetimeInputParam("@ip_dat_den_ngay", ip_dat_den_ngay);
+			v_sp.addNVarcharInputParam("@ip_nguon_ns", ip_nguon_ns);
+			v_sp.fillDataSetByCommand(this, op_ds);
 		}
 		#endregion
 	}
