@@ -38,8 +38,8 @@ namespace QuanLyDuToan.BaoCao
                 ,v_ds
                 ,CIPConvert.ToDatetime(str_tu_ngay,c_configuration.DEFAULT_DATETIME_FORMAT)
                 ,CIPConvert.ToDatetime(str_den_ngay,c_configuration.DEFAULT_DATETIME_FORMAT)
-                ,-1
-                ,-1);
+                ,c_configuration.TAT_CA
+                , c_configuration.TAT_CA);
             for (int i = 0; i < v_ds.Tables[0].Columns.Count; i++)
             {
                 v_dt_bao_cao.Columns.Add(v_ds.Tables[0].Columns[i].ColumnName);
@@ -49,7 +49,14 @@ namespace QuanLyDuToan.BaoCao
                 var row = v_dt_bao_cao.NewRow();
                 for (int j = 0; j <  v_ds.Tables[0].Columns.Count; j++)
                 {
-                    row[j] = v_ds.Tables[0].Rows[i][j];
+                    if (j == 2)
+                    {
+                        row[j] = formatString(v_ds.Tables[0].Rows[i][j].ToString());
+                    }
+                    else
+                    {
+                        row[j] = v_ds.Tables[0].Rows[i][j];
+                    }                    
                 }
                 v_dt_bao_cao.Rows.Add(row);
             }
@@ -61,8 +68,8 @@ namespace QuanLyDuToan.BaoCao
                 ,v_ds
                 ,CIPConvert.ToDatetime(str_tu_ngay,c_configuration.DEFAULT_DATETIME_FORMAT)
                 ,CIPConvert.ToDatetime(str_den_ngay,c_configuration.DEFAULT_DATETIME_FORMAT)
-                ,-1
-                ,652);
+                ,c_configuration.TAT_CA
+                ,c_configuration.GIAO_DAU_NAM);
             GhepThemCot(v_dt_bao_cao,v_ds.Tables[0],"ChinhThuc");
             List<decimal> v_lst_ds_qd = getDanhSachQDBS();
             foreach (var item in v_lst_ds_qd)
@@ -74,7 +81,7 @@ namespace QuanLyDuToan.BaoCao
                 ,CIPConvert.ToDatetime(str_tu_ngay,c_configuration.DEFAULT_DATETIME_FORMAT)
                 ,CIPConvert.ToDatetime(str_den_ngay,c_configuration.DEFAULT_DATETIME_FORMAT)
                 ,item
-                ,653);
+                ,c_configuration.GIAO_BO_SUNG);
                 GhepThemCot(v_dt_bao_cao,v_ds.Tables[0], "QD"+item.ToString());
             }
             //2. tính cột số dư năm trước chuyên sang
@@ -84,7 +91,7 @@ namespace QuanLyDuToan.BaoCao
                 , v_ds
                 , CIPConvert.ToDatetime(str_tu_ngay, c_configuration.DEFAULT_DATETIME_FORMAT)
                 , CIPConvert.ToDatetime(str_den_ngay, c_configuration.DEFAULT_DATETIME_FORMAT)
-                , -1);
+                , c_configuration.TAT_CA);
             GhepThemCot(v_dt_bao_cao, v_ds.Tables[0],"SoDu");
             //3. tính cột "tổng giao vốn", các cột "giao vốn theo các quyết định"
             v_ds.Clear();
@@ -93,7 +100,7 @@ namespace QuanLyDuToan.BaoCao
                 , v_ds
                 , CIPConvert.ToDatetime(str_tu_ngay, c_configuration.DEFAULT_DATETIME_FORMAT)
                 , CIPConvert.ToDatetime(str_den_ngay, c_configuration.DEFAULT_DATETIME_FORMAT)
-                , -1);
+                , c_configuration.TAT_CA);
             GhepThemCot(v_dt_bao_cao, v_ds.Tables[0], "TongVon");
 
             v_lst_ds_qd = getDanhSachQDGiaoVon();
@@ -167,12 +174,12 @@ namespace QuanLyDuToan.BaoCao
         private List<decimal> getDanhSachQDGiaoVon()
         {
 
-            DateTime v_dat_tu_ngay = CIPConvert.ToDatetime("01/01/2014",c_configuration.DEFAULT_DATETIME_FORMAT);
-            DateTime v_dat_den_ngay = CIPConvert.ToDatetime("01/01/2015",c_configuration.DEFAULT_DATETIME_FORMAT);
+            DateTime v_dat_tu_ngay = CIPConvert.ToDatetime(m_txt_tu_ngay.Text,c_configuration.DEFAULT_DATETIME_FORMAT);
+            DateTime v_dat_den_ngay = CIPConvert.ToDatetime(m_txt_den_ngay.Text,c_configuration.DEFAULT_DATETIME_FORMAT);
             List<decimal> v_lst = new List<decimal>();
             US_DM_QUYET_DINH v_us = new US_DM_QUYET_DINH();
             DS_DM_QUYET_DINH v_ds = new DS_DM_QUYET_DINH();
-            v_us.FillDatasetByLoaiQD(v_ds,v_dat_tu_ngay,v_dat_den_ngay,648, -1);
+            v_us.FillDatasetByLoaiQD(v_ds,v_dat_tu_ngay,v_dat_den_ngay,c_configuration.GIAO_VON, -1);
             for (int i = 0; i < v_ds.Tables[0].Rows.Count; i++)
             {
                 v_lst.Add(CIPConvert.ToDecimal(v_ds.Tables[0].Rows[i][DM_QUYET_DINH.ID].ToString()));
@@ -183,11 +190,11 @@ namespace QuanLyDuToan.BaoCao
         private List<decimal> getDanhSachQDBS()
         {
             List<decimal> v_lst = new List<decimal>();
-            DateTime v_dat_tu_ngay = CIPConvert.ToDatetime("01/01/2014", c_configuration.DEFAULT_DATETIME_FORMAT);
-            DateTime v_dat_den_ngay = CIPConvert.ToDatetime("01/01/2015", c_configuration.DEFAULT_DATETIME_FORMAT);
+            DateTime v_dat_tu_ngay = CIPConvert.ToDatetime(m_txt_tu_ngay.Text, c_configuration.DEFAULT_DATETIME_FORMAT);
+            DateTime v_dat_den_ngay = CIPConvert.ToDatetime(m_txt_den_ngay.Text, c_configuration.DEFAULT_DATETIME_FORMAT);
             US_DM_QUYET_DINH v_us = new US_DM_QUYET_DINH();
             DS_DM_QUYET_DINH v_ds = new DS_DM_QUYET_DINH();
-            v_us.FillDatasetByLoaiQD(v_ds, v_dat_tu_ngay, v_dat_den_ngay, 647, 653);
+            v_us.FillDatasetByLoaiQD(v_ds, v_dat_tu_ngay, v_dat_den_ngay, c_configuration.GIAO_KE_HOACH, c_configuration.GIAO_BO_SUNG);
             for (int i = 0; i < v_ds.Tables[0].Rows.Count; i++)
             {
                 v_lst.Add(CIPConvert.ToDecimal(v_ds.Tables[0].Rows[i][DM_QUYET_DINH.ID].ToString()));
