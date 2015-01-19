@@ -49,14 +49,7 @@ namespace QuanLyDuToan.BaoCao
                 var row = v_dt_bao_cao.NewRow();
                 for (int j = 0; j <  v_ds.Tables[0].Columns.Count; j++)
                 {
-                    if (j == 2)
-                    {
-                        row[j] = formatString(v_ds.Tables[0].Rows[i][j].ToString());
-                    }
-                    else
-                    {
-                        row[j] = v_ds.Tables[0].Rows[i][j];
-                    }                    
+                    row[j] = v_ds.Tables[0].Rows[i][j];
                 }
                 v_dt_bao_cao.Rows.Add(row);
             }
@@ -161,7 +154,7 @@ namespace QuanLyDuToan.BaoCao
                 
                 bfield.DataField = ip_dt.Columns[i].ColumnName;
                 bfield.ItemStyle.HorizontalAlign = HorizontalAlign.Right;
-                bfield.DataFormatString = "{0:N0}";
+                bfield.HtmlEncode = false;
                 m_grv_bao_cao_giao_von.Columns.Add(bfield);
             }
         }
@@ -207,24 +200,8 @@ namespace QuanLyDuToan.BaoCao
             v_dt_bao_cao.Columns.Add(ip_str_column_name);
             for (int i = 0; i < v_dt_bao_cao.Rows.Count; i++)
             {
-                v_dt_bao_cao.Rows[i][v_dt_bao_cao.Columns.Count - 1] = formatString(dataTable.Rows[i][2].ToString());
+                v_dt_bao_cao.Rows[i][v_dt_bao_cao.Columns.Count - 1] = dataTable.Rows[i][2].ToString();
             }
-        }
-
-        private string formatString(string str)
-        {
-            var index = 0;
-            var str2 = "";
-            for (int i = str.Length - 1; i >= 0; i--)
-            {
-                str2 = str[i] + str2;
-                index += 1;
-                if (index % 3 == 0 && index != str.Length)
-                {
-                    str2 = "," + str2;
-                }
-            }
-            return str2;
         }
 
         protected void m_cmd_xem_bao_cao_Click(object sender, EventArgs e)

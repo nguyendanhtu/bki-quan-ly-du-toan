@@ -48,6 +48,10 @@ namespace QuanLyDuToan.BaoCao
                 //load dropdownlist
                 //load đơn vị & quyết định
                 load_data_2_ddl();
+                if (Request.QueryString["ip_dc_id_quyet_dinh"] != null)
+                {
+                    m_ddl_quyet_dinh.SelectedValue = Request.QueryString["ip_dc_id_quyet_dinh"].ToString();
+                }
                 WinFormControls.load_data_to_ddl_loai_nhiem_vu(m_ddl_loai_nv);
                 m_ddl_loai_nv.SelectedValue = CIPConvert.ToStr(v_dc_ip_loai_nhiem_vu);
                 //load công trình
