@@ -486,9 +486,9 @@ namespace QuanLyDuToan.DanhMuc
 		}
 		protected void m_grv_dm_don_vi_PageIndexChanging(object sender, GridViewPageEventArgs e)
 		{
-			load_data_2_grid();
+			
 			m_grv_dm_don_vi.PageIndex = e.NewPageIndex;
-			m_grv_dm_don_vi.DataBind();
+			load_data_2_grid();
 		}
 		protected void m_cbo_don_vi_cap_tren_SelectedIndexChanged(object sender, EventArgs e)
 		{
