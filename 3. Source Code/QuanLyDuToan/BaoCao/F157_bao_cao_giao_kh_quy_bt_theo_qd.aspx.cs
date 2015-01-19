@@ -175,5 +175,17 @@ namespace QuanLyDuToan.BaoCao
         {
             load_data_2_ddl_quyet_dinh();
         }
+
+		protected void m_ddl_quyet_dinh_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			try
+			{
+				load_data_2_grid();
+			}
+			catch (Exception v_e)
+			{
+				CSystemLog_301.ExceptionHandle(this, v_e);
+			}
+		}
     }
 }

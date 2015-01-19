@@ -249,6 +249,25 @@ namespace QuanLyDuToan.App_Code
 			op_ddl.DataBind();
 			op_ddl.Items.Insert(0, new ListItem("---Chọn UNC---", "-1"));
 		}
+		public static void load_data_to_cbo_dm_uy_nhiem_chi(DropDownList op_ddl, bool ip_b_is_nguon_ns, decimal ip_dc_id_don_vi,string ip_str_text_tat_ca)
+		{
+			US_DM_GIAI_NGAN v_us = new WebUS.US_DM_GIAI_NGAN();
+			DS_DM_GIAI_NGAN v_ds = new DS_DM_GIAI_NGAN();
+			string v_str_is_nguon_ns = "N";
+			if (ip_b_is_nguon_ns) v_str_is_nguon_ns = "Y";
+			v_us.FillDataset(v_ds, "where id_don_vi=" + ip_dc_id_don_vi + " and is_nguon_ns_yn ='" + v_str_is_nguon_ns + "' order by ngay_thang desc");
+			for (int i = 0; i < v_ds.DM_GIAI_NGAN.Count; i++)
+			{
+				v_ds.Tables[0].Rows[i][DM_GIAI_NGAN.SO_UNC] =
+				   CIPConvert.ToStr(v_ds.Tables[0].Rows[i][DM_GIAI_NGAN.NGAY_THANG], "dd/MM/yyyy") + " " + v_ds.Tables[0].Rows[i][DM_GIAI_NGAN.SO_UNC];
+				v_ds.AcceptChanges();
+			}
+			op_ddl.DataTextField = DM_GIAI_NGAN.SO_UNC;
+			op_ddl.DataValueField = DM_GIAI_NGAN.ID;
+			op_ddl.DataSource = v_ds.DM_GIAI_NGAN;
+			op_ddl.DataBind();
+			op_ddl.Items.Insert(0, new ListItem(ip_str_text_tat_ca, "-1"));
+		}
 		public static void load_data_to_cbo_quyet_dinh_by_loai_quyet_dinh(
 			LOAI_QUYET_DINH ip_loai_quyet_dinh
 			, DropDownList op_ddl_quyet_dinh)
