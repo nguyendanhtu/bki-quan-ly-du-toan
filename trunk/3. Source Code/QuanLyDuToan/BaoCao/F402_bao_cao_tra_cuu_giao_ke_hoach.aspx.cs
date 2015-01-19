@@ -118,5 +118,18 @@ namespace QuanLyDuToan.BaoCao
 
         }
         #endregion
+
+        protected void m_cmd_xuat_excel_Click(object sender, EventArgs e)
+        {
+            WinformReport.export_gridview_2_excel(
+            m_grv
+            , "BaoCaoTraCuuGiaoKeHoach.xls"
+            );
+        }
+
+        public override void VerifyRenderingInServerForm(Control control)
+        {
+            //base.VerifyRenderingInServerForm(control);
+        }
     }
 }
