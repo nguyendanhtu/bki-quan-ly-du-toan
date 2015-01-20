@@ -922,6 +922,7 @@ namespace QuanLyDuToan.DuToan
 						m_ddl_don_vi.SelectedValue = v_dc_id_don_vi.ToString();
 						m_ddl_quyet_dinh_SelectedIndexChanged(null, null);
 					}
+					else m_ddl_don_vi.SelectedValue = Person.get_id_don_vi().ToString();
 
 					//kiem tra xem dang nhap Nguon nao
 					if (Request.QueryString["ip_nguon_ns"] == "Y")

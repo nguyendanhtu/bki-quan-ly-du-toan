@@ -32,6 +32,8 @@ namespace QuanLyDuToan.ChucNang
 		private void load_content_print(decimal ip_dc_id_dm_unc)
 		{
 			US_DM_GIAI_NGAN v_us = new US_DM_GIAI_NGAN(ip_dc_id_dm_unc);
+			m_lbl_so_unc.Text = v_us.strSO_UNC;
+			m_lbl_so_tien_ghi_bang_chu.Text = v_us.strTTDVH_SO_TIEN;
 			US_V_DM_GIAI_NGAN v_us_v_giai_ngan = new US_V_DM_GIAI_NGAN();
 			DS_V_DM_GIAI_NGAN v_ds = new DS_V_DM_GIAI_NGAN();
 			v_ds.EnforceConstraints = false;
@@ -48,6 +50,13 @@ namespace QuanLyDuToan.ChucNang
 			//load data to Noi dung thanh toan
 			m_grv.DataSource = v_ds.V_DM_GIAI_NGAN;
 			m_grv.DataBind();
+
+			decimal v_dc_tong_tien=0;
+			for (int i = 0; i < v_ds.V_DM_GIAI_NGAN.Count; i++)
+			{
+			 v_dc_tong_tien+=CIPConvert.ToDecimal( v_ds.Tables[0].Rows[i][V_DM_GIAI_NGAN.SO_TIEN_NOP_THUE])
+				 +CIPConvert.ToDecimal(v_ds.Tables[0].Rows[i][V_DM_GIAI_NGAN.SO_TIEN_TT_CHO_DV_HUONG]);
+			}
 			//load info Don vi tra tien
 			m_lbl_don_vi_tra_tien.Text = v_us_dm_don_vi.strTEN_DON_VI;
 			m_lbl_dia_chi.Text = v_us_thong_tin_don_vi.strDIA_CHI;
@@ -56,6 +65,7 @@ namespace QuanLyDuToan.ChucNang
 			m_lbl_ma_dvqhns.Text = v_us.strMA_DVQHNS;
 			m_lbl_ma_ctmt_da_htct.Text = v_us.strMA_CTMT_DA_HTCT;
 			m_lbl_so_tien_ghi_bang_chu.Text = "...........................................................................................................";
+			m_lbl_so_tien_ghi_bang_chu.Text = IP.Core.IPCommon.CRead.ChuyenSo(v_dc_tong_tien.ToString());
 			//load info Nop thue
 			m_lbl_nt_ten_don_vi.Text = v_us.strNT_TEN_DON_VI;
 			m_lbl_nt_ma_so_thue.Text = v_us.strNT_MA_SO_THUE;

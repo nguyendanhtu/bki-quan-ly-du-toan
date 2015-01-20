@@ -28,10 +28,12 @@ namespace QuanLyDuToan.BaoCao
                 if (Request.QueryString["ip_dat_tu_ngay"] != null)
                 {
                     v_dat_dau_nam = CIPConvert.ToDatetime(Request.QueryString["ip_dat_tu_ngay"]);
+					m_txt_tu_ngay.Text = CIPConvert.ToStr(v_dat_dau_nam, "dd/MM/yyyy");
                 }
                 if (Request.QueryString["ip_dat_den_ngay"] != null)
                 {
                     v_dat_now = CIPConvert.ToDatetime(Request.QueryString["ip_dat_den_ngay"]);
+					m_txt_den_ngay.Text = CIPConvert.ToStr(v_dat_now, "dd/MM/yyyy");
                 }
                 if (Request.QueryString["ip_dc_id_du_an"] != null) {
                     v_dc_ip_du_an = CIPConvert.ToDecimal(Request.QueryString["ip_dc_id_du_an"]);
