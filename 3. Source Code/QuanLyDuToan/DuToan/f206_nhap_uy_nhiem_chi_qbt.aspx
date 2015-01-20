@@ -279,10 +279,10 @@
 																<table class="table bordertop0" style="width: 100%">
 																	<tr>
 																		<td style="width: 50%; text-align: center">
-																			<asp:LinkButton ID="lbtnUpdate" cssclass="btn btn-link cssManField " runat="server"  CommandName="Update" 
+																			<asp:LinkButton ID="lbtnUpdate" cssclass=" btn-link cssManField " runat="server"  CommandName="Update" 
 																				Text="Cập nhật" /></td>
 																		<td style="width: 50%; text-align: center">
-																			<asp:LinkButton ID="lbtnCancel" cssclass="btn btn-link cssManField" runat="server" CommandName="Cancel" 
+																			<asp:LinkButton ID="lbtnCancel" cssclass=" btn-link cssManField" runat="server" CommandName="Cancel" 
 																				Text="Huỷ thao tác" /></td>
 																	</tr>
 																</table>
@@ -293,10 +293,10 @@
 																<table style="width: 100%">
 																	<tr>
 																		<td style="width: 50%; text-align: center">
-																			<asp:LinkButton ID="lbtnEdit" runat="server" CommandName="Edit" CssClass="cssButton btn"
+																			<asp:LinkButton ID="lbtnEdit" runat="server" CommandName="Edit" CssClass="cssButton "
 																				Text="Sửa" Visible='<%#thao_tac_visible(Eval(GRID_GIAI_NGAN.ID).ToString()) %>' /></td>
 																		<td style="width: 50%; text-align: center">
-																			<asp:LinkButton ID="lbtnDelete" runat="server" CommandName="Delete" CssClass="cssButton btn"
+																			<asp:LinkButton ID="lbtnDelete" runat="server" CommandName="Delete" CssClass="cssButton "
 																				OnClientClick="return confirm('Are you sure you want to delete this record?')"
 																				Text="Xoá" CausesValidation="false" Visible='<%#thao_tac_visible(Eval(GRID_GIAI_NGAN.ID).ToString()) %>' />
 																		</td>
@@ -509,9 +509,9 @@
 							</tr>
 							<tr>
 								<td colspan="6" style="text-align: center">
-									<asp:Button ID="m_cmd_save_info_unc" Text="Lưu thông tin" runat="server" CssClass="btn" Height="24px" Width="98px"
+									<asp:Button ID="m_cmd_save_info_unc" Text="Lưu thông tin" runat="server" CssClass="btn btn-default" 
 										OnClick="m_cmd_save_info_unc_Click" />
-									<asp:HyperLink ID="m_cmd_print" runat="server" CssClass="btn btn-link" Height="24px" Width="98px"
+									<asp:HyperLink ID="m_cmd_print" runat="server" CssClass="btn btn-primary"
 										Target="_blank" Text="Xem bản in" Visible="false"></asp:HyperLink></td>
 							</tr>
 						</table>
