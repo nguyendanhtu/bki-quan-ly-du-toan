@@ -84,6 +84,7 @@ namespace QuanLyDuToan.BaoCao
 					v_str_is_nguon_ns,
 					CIPConvert.ToDecimal(m_ddl_quyet_dinh.SelectedValue),
 					"pr_A357_bao_cao_giai_ngan");
+				
 				m_grv.DataSource = v_ds.Tables[0];
 				m_grv.DataBind();
 			}

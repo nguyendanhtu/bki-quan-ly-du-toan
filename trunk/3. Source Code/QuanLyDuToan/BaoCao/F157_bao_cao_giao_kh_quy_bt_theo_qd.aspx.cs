@@ -34,6 +34,7 @@ namespace QuanLyDuToan.BaoCao
                 if (Request.QueryString["ip_dat_tu_ngay"] != null)
                 {
                     m_txt_tu_ngay.Text = Request.QueryString["ip_dat_tu_ngay"];
+
                 }
                 if (Request.QueryString["ip_dat_den_ngay"] != null)
                 {
