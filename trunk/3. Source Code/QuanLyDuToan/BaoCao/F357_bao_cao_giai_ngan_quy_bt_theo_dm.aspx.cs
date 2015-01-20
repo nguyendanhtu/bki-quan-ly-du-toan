@@ -58,6 +58,7 @@ namespace QuanLyDuToan.BaoCao
 				//{
 				//	v_dc_id_don_vi = CIPConvert.ToDecimal(Request.QueryString["ip_dc_id_don_vi"]);
 				//}
+				
 				DataSet v_ds = new DataSet();
 				DataTable v_dt = new DataTable();
 				v_ds.Tables.Add(v_dt);
@@ -86,6 +87,17 @@ namespace QuanLyDuToan.BaoCao
 					"pr_A357_bao_cao_giai_ngan");
 				
 				m_grv.DataSource = v_ds.Tables[0];
+				if (CIPConvert.ToDecimal(m_ddl_quyet_dinh.SelectedValue) == -1)
+				{
+					BoundField field = (BoundField)this.m_grv.Columns[1];
+					field.DataField = "Tổng cộng";
+					//field.DataField = "tong_tien_qd";
+				}
+				else
+				{
+					BoundField field = (BoundField)this.m_grv.Columns[1];
+					field.DataField = "tong_tien_qd";
+				}
 				m_grv.DataBind();
 			}
 			catch (Exception ex)
