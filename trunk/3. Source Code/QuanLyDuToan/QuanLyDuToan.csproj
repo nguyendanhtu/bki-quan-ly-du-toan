@@ -79,6 +79,7 @@
     <Content Include="bootstrap-3.2.0-dist\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="bootstrap-3.2.0-dist\js\bootstrap.js" />
     <Content Include="bootstrap-3.2.0-dist\js\bootstrap.min.js" />
+    <Content Include="Scripts\plugins\datepicker\locales\bootstrap-datepicker.vi.js" />
     <Content Include="UserControl\MessageBoxUserControl.ascx" />
     <Content Include="DanhMuc\test.aspx" />
     <Content Include="DuToan\f205_nhap_giao_ke_hoach_qbt.aspx" />
