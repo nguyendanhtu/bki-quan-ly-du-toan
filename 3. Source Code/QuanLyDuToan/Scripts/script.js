@@ -16,13 +16,26 @@
     });*/
 
     //Định dạng chuối ký tự kiểu tiền tệ
-    $(".csscurrency").bind({
-        blur: function () { $(this).val(getFormatedNumberString($(this).val())); },
-        focus: function () { $(this).val(getNumber($(this).val())); }
-    });
+    //$(".csscurrency").bind({
+    //    blur: function () { $(this).val(getFormatedNumberString($(this).val())); },
+    //    focus: function () { $(this).val(getNumber($(this).val())); }
+    //});
     $(".format_so_tien").keyup(function () {
     	$(this).val(formatString($(this).val()));
     });
+    $(document).on("keyup", ".format_so_tien", function (e) {
+    	e.preventDefault();
+    	$(this).val(formatString($(this).val()));
+    })
+    $(document).on("blur", ".csscurrency", function (e) {
+    	e.preventDefault();
+    	$(this).val(getFormatedNumberString($(this).val()));
+    })
+    $(document).on("focus", ".csscurrency", function (e) {
+    	e.preventDefault();
+    	$(this).val(getNumber($(this).val()));
+    })
+    
 });
 
 //function getFormatedNumberString(ip_str_number) {

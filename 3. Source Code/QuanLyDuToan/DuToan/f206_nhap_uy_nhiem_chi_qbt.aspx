@@ -38,7 +38,7 @@
                 $("#<%=m_ddl_cong_trinh.ClientID%>").select2();--%>
                 
                  $(".select2").select2();
-                $("#<%=m_txt_ngay_thang.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
+                 $("#<%=m_txt_ngay_thang.ClientID%>").datepicker({ format: 'dd/mm/yyyy', language: 'vi' });
 
             }
         }
@@ -47,7 +47,7 @@
             $("#<%=m_ddl_cong_trinh.ClientID%>").select2();
             $("#<%=m_ddl_du_an.ClientID%>").select2();--%>
             $(".select2").select2();
-            $("#<%=m_txt_ngay_thang.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
+            $("#<%=m_txt_ngay_thang.ClientID%>").datepicker({ format: 'dd/mm/yyyy', language: 'vi' });
         }
        )
     </script>
@@ -250,11 +250,11 @@
 																	runat="server"></asp:Label>
 															</ItemTemplate>
 															<EditItemTemplate>
-																<asp:TextBox ID="m_txt_grid_edit_so_tien_nop_thue"  Width = "100px" runat="server" Style="text-align: right" CssClass="csscurrency form-control"
+																<asp:TextBox ID="m_txt_grid_edit_so_tien_nop_thue"  Width = "100px" runat="server" Style="text-align: right" CssClass="csscurrency form-control format_so_tien"
 																	Text='<%#Eval(GRID_GIAI_NGAN.SO_TIEN_NT) %>'></asp:TextBox>
 															</EditItemTemplate>
 															<FooterTemplate>
-																<asp:TextBox ID="m_txt_grid_so_tien_nop_thue" Width = "100px" runat="server" CssClass="csscurrency" Style="text-align: right"></asp:TextBox>
+																<asp:TextBox ID="m_txt_grid_so_tien_nop_thue" Width = "100px" runat="server" CssClass="csscurrency  format_so_tien" Style="text-align: right"></asp:TextBox>
 															</FooterTemplate>
 														</asp:TemplateField>
 														<asp:TemplateField HeaderText="Số tiền thanh toán cho đơn vị hưởng" HeaderStyle-Width="100px" ItemStyle-HorizontalAlign="Right">
@@ -262,11 +262,11 @@
 																<asp:Label ID="m_lbl_grid_so_tien_tt_cho_dv_huong" Width = "100px" Text='<%#format_so_tien(Eval(GRID_GIAI_NGAN.SO_TIEN_TTCDVH).ToString()) %>' runat="server"></asp:Label>
 															</ItemTemplate>
 															<EditItemTemplate>
-																<asp:TextBox ID="m_txt_grid_edit_so_tien_tt_cho_dv_huong" Width = "100px" runat="server" CssClass="csscurrency form-control" Style="text-align: right"
+																<asp:TextBox ID="m_txt_grid_edit_so_tien_tt_cho_dv_huong" Width = "100px" runat="server" CssClass="csscurrency form-control  format_so_tien" Style="text-align: right"
 																	Text='<%#Eval(GRID_GIAI_NGAN.SO_TIEN_TTCDVH) %>'></asp:TextBox>
 															</EditItemTemplate>
 															<FooterTemplate>
-																<asp:TextBox ID="m_txt_grid_so_tien_thanh_toan_cho_don_vi_huong" Width = "100px" CssClass="csscurrency" runat="server" Style="text-align: right"></asp:TextBox>
+																<asp:TextBox ID="m_txt_grid_so_tien_thanh_toan_cho_don_vi_huong" Width = "100px" CssClass="csscurrency  format_so_tien" runat="server" Style="text-align: right"></asp:TextBox>
 															</FooterTemplate>
 														</asp:TemplateField>
 														<asp:TemplateField HeaderText="Tổng" HeaderStyle-Width="100px" ItemStyle-HorizontalAlign="Right">
