@@ -278,6 +278,14 @@
 												</td>
 											</tr>
 											<tr>
+                                                <td style="text-align:right">
+                                                    <span>Số km</span>
+                                                </td>
+                                                <td colspan="2" style="text-align:left">
+                                                    <asp:TextBox ID="m_txt_so_km" runat="server" CssClass="csscurrency" Style="text-align: right" Text="0" Width="170px" AutoPostBack="false"></asp:TextBox>(km)
+                                                </td>
+											</tr>
+                                            <tr>
 												<td style="text-align: right">
 													<span>Kinh phí năm trước chuyển sang</span>
 												</td>
@@ -380,6 +388,12 @@
 											</asp:TemplateField>
 											<asp:BoundField DataField="NOI_DUNG" HeaderText="Nhiệm vụ chi" />
 
+                                            <asp:TemplateField HeaderText="Số km" ItemStyle-HorizontalAlign="Right" ItemStyle-Width="100px">
+												<ItemTemplate>
+													<asp:Label ID="m_lbl_so_km_grid" runat="server" Text='<%#format_so_tien(Eval(GRID_GIAO_KH.s).ToString()) %>'>
+														</asp:Label>
+												</ItemTemplate>
+											</asp:TemplateField>
 
 											<asp:TemplateField HeaderText="Kinh phí năm trước chuyển sang" ItemStyle-HorizontalAlign="Right" ItemStyle-Width="100px">
 												<ItemTemplate>
