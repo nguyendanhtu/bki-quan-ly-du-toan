@@ -83,7 +83,7 @@
     <Content Include="UserControl\MessageBoxUserControl.ascx" />
     <Content Include="DanhMuc\test.aspx" />
     <Content Include="DuToan\f205_nhap_giao_ke_hoach_qbt.aspx" />
-    <Content Include="DuToan\F406_khoi_luong.aspx" />
+    <Content Include="DuToan\F404_nhap_khoi_luong.aspx" />
     <Content Include="DuToan\F700_thong_tin_don_vi.aspx" />
     <Content Include="Images\1.jpg" />
     <Content Include="Images\2.jpg" />
@@ -124,10 +124,10 @@
     <Content Include="DanhMuc\F901_Danh_muc_don_vi.aspx" />
     <Content Include="DanhMuc\TempWebForm.aspx" />
     <Content Include="Default.aspx" />
-    <Content Include="DuToan\f204_nhap_giao_ke_hoach_qbt.aspx" />
-    <Content Include="DuToan\f206_nhap_uy_nhiem_chi_qbt.aspx" />
+    <Content Include="DuToan\F104_nhap_du_toan_ke_hoach.aspx" />
+    <Content Include="DuToan\F304_nhap_giai_ngan_theo_unc.aspx" />
     <Content Include="DuToan\F208_nhap_giao_ke_hoach_ns.aspx" />
-    <Content Include="DuToan\F405_giao_von_qbt.aspx" />
+    <Content Include="DuToan\F204_nhap_giao_von_QBT.aspx" />
     <Content Include="DuToan\F407_bao_cao_tinh_hinh_giai_ngan.aspx" />
     <Content Include="DuToan\F409_giao_von_ns.aspx" />
     <Content Include="DuToan\F410_nhap_uy_nhiem_chi_ns.aspx" />
@@ -864,26 +864,26 @@
     <Compile Include="DuToan\f205_nhap_giao_ke_hoach_qbt.aspx.designer.cs">
       <DependentUpon>f205_nhap_giao_ke_hoach_qbt.aspx</DependentUpon>
     </Compile>
-    <Compile Include="DuToan\F406_khoi_luong.aspx.cs">
-      <DependentUpon>F406_khoi_luong.aspx</DependentUpon>
+    <Compile Include="DuToan\F404_nhap_khoi_luong.aspx.cs">
+      <DependentUpon>F404_nhap_khoi_luong.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="DuToan\F406_khoi_luong.aspx.designer.cs">
-      <DependentUpon>F406_khoi_luong.aspx</DependentUpon>
+    <Compile Include="DuToan\F404_nhap_khoi_luong.aspx.designer.cs">
+      <DependentUpon>F404_nhap_khoi_luong.aspx</DependentUpon>
     </Compile>
-    <Compile Include="DuToan\f204_nhap_giao_ke_hoach_qbt.aspx.cs">
-      <DependentUpon>f204_nhap_giao_ke_hoach_qbt.aspx</DependentUpon>
+    <Compile Include="DuToan\F104_nhap_du_toan_ke_hoach.aspx.cs">
+      <DependentUpon>F104_nhap_du_toan_ke_hoach.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="DuToan\f204_nhap_giao_ke_hoach_qbt.aspx.designer.cs">
-      <DependentUpon>f204_nhap_giao_ke_hoach_qbt.aspx</DependentUpon>
+    <Compile Include="DuToan\F104_nhap_du_toan_ke_hoach.aspx.designer.cs">
+      <DependentUpon>F104_nhap_du_toan_ke_hoach.aspx</DependentUpon>
     </Compile>
-    <Compile Include="DuToan\f206_nhap_uy_nhiem_chi_qbt.aspx.cs">
-      <DependentUpon>f206_nhap_uy_nhiem_chi_qbt.aspx</DependentUpon>
+    <Compile Include="DuToan\F304_nhap_giai_ngan_theo_unc.aspx.cs">
+      <DependentUpon>F304_nhap_giai_ngan_theo_unc.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="DuToan\f206_nhap_uy_nhiem_chi_qbt.aspx.designer.cs">
-      <DependentUpon>f206_nhap_uy_nhiem_chi_qbt.aspx</DependentUpon>
+    <Compile Include="DuToan\F304_nhap_giai_ngan_theo_unc.aspx.designer.cs">
+      <DependentUpon>F304_nhap_giai_ngan_theo_unc.aspx</DependentUpon>
     </Compile>
     <Compile Include="DuToan\F208_nhap_giao_ke_hoach_ns.aspx.cs">
       <DependentUpon>F208_nhap_giao_ke_hoach_ns.aspx</DependentUpon>
@@ -892,12 +892,12 @@
     <Compile Include="DuToan\F208_nhap_giao_ke_hoach_ns.aspx.designer.cs">
       <DependentUpon>F208_nhap_giao_ke_hoach_ns.aspx</DependentUpon>
     </Compile>
-    <Compile Include="DuToan\F405_giao_von_qbt.aspx.cs">
-      <DependentUpon>F405_giao_von_qbt.aspx</DependentUpon>
+    <Compile Include="DuToan\F204_nhap_giao_von_QBT.aspx.cs">
+      <DependentUpon>F204_nhap_giao_von_QBT.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="DuToan\F405_giao_von_qbt.aspx.designer.cs">
-      <DependentUpon>F405_giao_von_qbt.aspx</DependentUpon>
+    <Compile Include="DuToan\F204_nhap_giao_von_QBT.aspx.designer.cs">
+      <DependentUpon>F204_nhap_giao_von_QBT.aspx</DependentUpon>
     </Compile>
     <Compile Include="DuToan\F407_bao_cao_tinh_hinh_giai_ngan.aspx.cs">
       <DependentUpon>F407_bao_cao_tinh_hinh_giai_ngan.aspx</DependentUpon>

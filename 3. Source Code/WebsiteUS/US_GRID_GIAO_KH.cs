@@ -299,7 +299,7 @@ namespace WebUS
 			, decimal ip_dc_id_don_vi
 			)
 		{
-			CStoredProc v_sp = new CStoredProc("pr_get_grid_giao_kh_qbt");
+			CStoredProc v_sp = new CStoredProc("pr_F104_nhap_du_toan_ke_hoach");
 			v_sp.addDecimalInputParam("@ip_dc_id_quyet_dinh", ip_dc_id_quyet_dinh);
 			v_sp.addNVarcharInputParam("@ip_str_nguon_ns", ip_str_nguon_ns);
             v_sp.addDecimalInputParam("@ip_dc_reported_user", ip_dc_id_reported_user);
