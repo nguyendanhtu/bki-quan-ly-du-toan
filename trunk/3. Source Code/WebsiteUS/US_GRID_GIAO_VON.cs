@@ -320,7 +320,7 @@ namespace WebUS
 			, decimal ip_dc_id_loai_nv, decimal ip_dc_id_cong_trinh
 			, decimal ip_dc_id_du_an)
 		{
-			CStoredProc v_sp = new CStoredProc("pr_get_grid_giao_von_qbt");
+			CStoredProc v_sp = new CStoredProc("pr_F204_nhap_giao_von_QBT");
 			v_sp.addDecimalInputParam("@ip_dc_id_quyet_dinh", ip_dc_id_quyet_dinh);
 			v_sp.addDecimalInputParam("@ip_dc_id_don_vi", ip_dc_id_don_vi);
 			v_sp.addDatetimeInputParam("@ip_dat_tu_ngay", ip_dat_tu_ngay);
@@ -337,7 +337,7 @@ namespace WebUS
 			, decimal ip_dc_id_loai_nv
 			)
 		{
-			CStoredProc v_sp = new CStoredProc("pr_get_grid_khoi_luong_qbt");
+			CStoredProc v_sp = new CStoredProc("pr_F404_nhap_khoi_luong");
 			v_sp.addDecimalInputParam("@ip_dc_id_don_vi", ip_dc_id_don_vi);
 			v_sp.addDatetimeInputParam("@ip_dat_ngay_nhap", ip_dat_ngay_nhap);
 			v_sp.addDecimalInputParam("@ip_dc_id_loai_nhiem_vu", ip_dc_id_loai_nv);

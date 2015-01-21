@@ -329,7 +329,7 @@ namespace WebUS
 			, decimal ip_dc_id_user
 			, string ip_str_is_nguon_ns)
 		{
-			CStoredProc v_sp = new CStoredProc("pr_get_grid_giai_ngan");
+			CStoredProc v_sp = new CStoredProc("pr_F304_nhap_giai_ngan_theo_unc");
 			v_sp.addDecimalInputParam("@ip_dc_id_don_vi", ip_dc_id_don_vi);
 			v_sp.addDecimalInputParam("@ip_dc_id_dm_uy_nhiem_chi", ip_dc_id_dm_uy_nhiem_chi);
 			v_sp.addDecimalInputParam("@ip_dc_id_user", ip_dc_id_user);
