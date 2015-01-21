@@ -525,6 +525,8 @@ namespace QuanLyDuToan.DuToan
 					break;
 			}
 
+            m_us.strGHI_CHU_2 = m_txt_so_km.Text.Replace(",", "").Replace(".", "").Trim();//ghi vao ghi chu 2
+
 			m_us.dcID_LOAI_NHIEM_VU = CIPConvert.ToDecimal(m_ddl_loai_nhiem_vu.SelectedValue);
 			//neu form mode la Quy BT thi so_tien_ns=0
 			if (Request.QueryString["ip_nguon_ns"] == "N")
@@ -600,6 +602,8 @@ namespace QuanLyDuToan.DuToan
 					m_rdb_chi_khong_thuong_xuyen.Checked = true;
 				}
 			}
+
+            m_txt_so_km.Text = m_us.strGHI_CHU_2;
 
 			if (Request.QueryString["ip_nguon_ns"] == "N")
 			{
