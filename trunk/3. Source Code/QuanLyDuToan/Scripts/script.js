@@ -20,6 +20,9 @@
         blur: function () { $(this).val(getFormatedNumberString($(this).val())); },
         focus: function () { $(this).val(getNumber($(this).val())); }
     });
+    $(".format_so_tien").keyup(function () {
+    	$(this).val(formatString($(this).val()));
+    });
 });
 
 //function getFormatedNumberString(ip_str_number) {
@@ -70,6 +73,24 @@ function getNumber(ip_str_number) {
         ip_str_number = "0";
     return ip_str_number;
 }
+function formatString(str) {
+	var index = 0;
+	var count_comma = 0;
+	var str2 = "";
+	for (i = str.length - 1; i >= 0; i--) {
+		if (!isNaN(str[i])) {
+			str2 = str[i] + str2;
+			index += 1;
+			if (index % 3 == 0 && index != str.length - count_comma) {
+				str2 = "," + str2;
+			}
+		}
+		else {
+			count_comma += 1;
+		}
+	}
+	return str2;
+}
 
 function pageLoad(sender, args) {
     if (args.get_isPartialLoad()) {
@@ -92,6 +113,9 @@ function pageLoad(sender, args) {
         $(".csscurrency").bind({
             blur: function () { $(this).val(getFormatedNumberString($(this).val())); },
             focus: function () { $(this).val(getNumber($(this).val())); }
+        });
+        $(".format_so_tien").keyup(function () {
+        	$(this).val(formatString($(this).val()));
         });
     }
 }

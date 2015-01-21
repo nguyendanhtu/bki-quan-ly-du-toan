@@ -282,7 +282,7 @@
 													<span>Kinh phí năm trước chuyển sang</span>
 												</td>
 												<td colspan="2" style="text-align: left">
-													<asp:TextBox ID="m_txt_so_tien_nam_truoc_chuyen_sang" runat="server" CssClass="csscurrency" Style="text-align: right" Text="0" Width="170px" AutoPostBack="false"></asp:TextBox>(đ)
+													<asp:TextBox ID="m_txt_so_tien_nam_truoc_chuyen_sang" runat="server" CssClass="csscurrency format_so_tien" Style="text-align: right" Text="0" Width="170px" AutoPostBack="false"></asp:TextBox>(đ)
 												</td>
 											</tr>
 											<tr>
@@ -290,7 +290,7 @@
 													<asp:Label ID="m_lbl_so_tien" runat="server" Text="Kinh phí Quỹ bảo trì (*)"></asp:Label>
 												</td>
 												<td colspan="2">
-													<asp:TextBox ID="m_txt_so_tien" runat="server" CssClass="csscurrency" Text="0" Style="text-align: right" Width="170px"></asp:TextBox>(đ)
+													<asp:TextBox ID="m_txt_so_tien" runat="server" CssClass="csscurrency format_so_tien" Text="0" Style="text-align: right" Width="170px"></asp:TextBox>(đ)
 												</td>
 											</tr>
 											<tr>
