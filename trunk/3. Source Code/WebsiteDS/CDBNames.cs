@@ -82,6 +82,7 @@ namespace WebDS.CDBNames
 		public const string REPORT_LEVEL = "REPORT_LEVEL";
 		public const string ID_REPORTED_USER = "ID_REPORTED_USER";
 		public const string ID_CHA = "ID_CHA";
+		public const string So_KM = "So_KM";
 	}
 
 

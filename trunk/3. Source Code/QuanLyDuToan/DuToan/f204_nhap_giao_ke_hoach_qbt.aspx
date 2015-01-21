@@ -390,7 +390,7 @@
 
                                             <asp:TemplateField HeaderText="Số km" ItemStyle-HorizontalAlign="Right" ItemStyle-Width="100px">
 												<ItemTemplate>
-													<asp:Label ID="m_lbl_so_km_grid" runat="server" Text='<%#format_so_tien(Eval(GRID_GIAO_KH.s).ToString()) %>'>
+													<asp:Label ID="m_lbl_so_km_grid" runat="server" Text='<%#format_so_tien(Eval(GRID_GIAO_KH.So_KM).ToString()) %>'>
 														</asp:Label>
 												</ItemTemplate>
 											</asp:TemplateField>
