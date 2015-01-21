@@ -185,7 +185,13 @@
                                                                         Visible='<%# visible_label_so_tien(Eval("ID").ToString()) %>' Text='<%#format_so_tien(Eval(GRID_GIAO_VON.NS).ToString()) %>'></asp:Label>
                                                                 </ItemTemplate>
                                                             </asp:TemplateField>--%>
-															<asp:TemplateField HeaderText="Kinh phí Quỹ bảo trì" ItemStyle-HorizontalAlign="Right" ItemStyle-Width="100px">
+                                                              <asp:TemplateField HeaderText="Còn lại" ItemStyle-HorizontalAlign="Right" ItemStyle-Width="100px">
+																<ItemTemplate>
+																	<asp:Label ID="m_lbl_so_tien_con_lai" runat="server" Style="text-align: right"
+																		Text='<%#format_so_tien((CIPConvert.ToDecimal(Eval(GRID_GIAO_VON.KE_HOACH_CHI))-CIPConvert.ToDecimal(Eval(GRID_GIAO_VON.TONG))).ToString()) %>'></asp:Label>
+																</ItemTemplate>
+															</asp:TemplateField>
+															<asp:TemplateField HeaderText="Kinh phí Quỹ bảo trì" ItemStyle-BackColor="LightBlue" ItemStyle-HorizontalAlign="Right" ItemStyle-Width="100px">
 																<ItemTemplate>
 																	<asp:TextBox ID="m_txt_so_tien_quy_bao_tri_grid" runat="server" Style="text-align: right" CssClass="csscurrency format_so_tien"
 																		Visible='<%# !visible_label_so_tien(Eval("ID").ToString()) %>'
@@ -195,7 +201,8 @@
 																		Text='<%#format_so_tien(Eval(GRID_GIAO_VON.QUY).ToString()) %>'></asp:Label>
 																</ItemTemplate>
 															</asp:TemplateField>
-															<asp:TemplateField HeaderText="Tổng" ItemStyle-HorizontalAlign="Right" ItemStyle-Width="100px">
+                                               
+															<asp:TemplateField HeaderText="Đã giao vốn" ItemStyle-HorizontalAlign="Right" ItemStyle-Width="100px">
 																<ItemTemplate>
 																	<asp:Label ID="m_lbl_so_tien_tong_grid" runat="server" Style="text-align: right"
 																		Text='<%#format_so_tien(Eval(GRID_GIAO_VON.TONG).ToString()) %>'></asp:Label>
