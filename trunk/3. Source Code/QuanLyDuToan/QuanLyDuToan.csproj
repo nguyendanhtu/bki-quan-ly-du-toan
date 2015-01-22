@@ -104,7 +104,7 @@
     <Content Include="BaoCao\F403_bao_cao_tra_cuu_giao_von.aspx" />
     <Content Include="BaoCao\F402_bao_cao_tra_cuu_giao_ke_hoach.aspx" />
     <Content Include="BaoCao\F410_bao_cao_tinh_hinh_giao_von.aspx" />
-    <Content Include="BaoCao\F510_tong_hop_da_giao_du_toan_nam_dao_tao.aspx" />
+    <Content Include="BaoCao\F510_giao_du_toan_theo_loai_khoan_nguon_ns.aspx" />
     <Content Include="BaoCao\F530_Bao_cao_tong_hop_hinh_hinh_giai_ngan.aspx" />
     <Content Include="BaoCao\F701_tinh_hinh_giai_ngan_von_don_vi.aspx" />
     <Content Include="BaoCao\F156_bao_cao_giao_kh_quy_bt_theo_qd.aspx" />
@@ -117,8 +117,8 @@
     <Content Include="DanhMuc\F004_Danh_sach_chuong_loai_khoan_muc.aspx" />
     <Content Include="DanhMuc\F101_Dictionary.aspx" />
     <Content Include="DanhMuc\F190_Danh_sach_quyet_dinh_giao_ke_hoach.aspx" />
-    <Content Include="DanhMuc\F290_Danh_sach_quyet_dinh_giao_von.aspx" />
-    <Content Include="DanhMuc\F390_Danh_sach_uy_nhiem_chi.aspx" />
+    <Content Include="DanhMuc\F290_danh_sach_quyet_dinh_giao_von.aspx" />
+    <Content Include="DanhMuc\F390_v_danh_sach_uy_nhiem_chi.aspx" />
     <Content Include="DanhMuc\f603_dm_du_an.aspx" />
     <Content Include="DanhMuc\f604_dm_quyet_dinh.aspx" />
     <Content Include="DanhMuc\F901_Danh_muc_don_vi.aspx" />
@@ -696,12 +696,12 @@
     <Compile Include="BaoCao\F410_bao_cao_tinh_hinh_giao_von.aspx.designer.cs">
       <DependentUpon>F410_bao_cao_tinh_hinh_giao_von.aspx</DependentUpon>
     </Compile>
-    <Compile Include="BaoCao\F510_tong_hop_da_giao_du_toan_nam_dao_tao.aspx.cs">
-      <DependentUpon>F510_tong_hop_da_giao_du_toan_nam_dao_tao.aspx</DependentUpon>
+    <Compile Include="BaoCao\F510_giao_du_toan_theo_loai_khoan_nguon_ns.aspx.cs">
+      <DependentUpon>F510_giao_du_toan_theo_loai_khoan_nguon_ns.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="BaoCao\F510_tong_hop_da_giao_du_toan_nam_dao_tao.aspx.designer.cs">
-      <DependentUpon>F510_tong_hop_da_giao_du_toan_nam_dao_tao.aspx</DependentUpon>
+    <Compile Include="BaoCao\F510_giao_du_toan_theo_loai_khoan_nguon_ns.aspx.designer.cs">
+      <DependentUpon>F510_giao_du_toan_theo_loai_khoan_nguon_ns.aspx</DependentUpon>
     </Compile>
     <Compile Include="BaoCao\F520_theo_doi_tinh_hinh_giao_von_qbt.aspx.cs">
       <DependentUpon>F520_theo_doi_tinh_hinh_giao_von_qbt.aspx</DependentUpon>
@@ -801,19 +801,19 @@
     <Compile Include="DanhMuc\F190_Danh_sach_quyet_dinh_giao_ke_hoach.aspx.designer.cs">
       <DependentUpon>F190_Danh_sach_quyet_dinh_giao_ke_hoach.aspx</DependentUpon>
     </Compile>
-    <Compile Include="DanhMuc\F290_Danh_sach_quyet_dinh_giao_von.aspx.cs">
-      <DependentUpon>F290_Danh_sach_quyet_dinh_giao_von.aspx</DependentUpon>
+    <Compile Include="DanhMuc\F290_danh_sach_quyet_dinh_giao_von.aspx.cs">
+      <DependentUpon>F290_danh_sach_quyet_dinh_giao_von.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="DanhMuc\F290_Danh_sach_quyet_dinh_giao_von.aspx.designer.cs">
-      <DependentUpon>F290_Danh_sach_quyet_dinh_giao_von.aspx</DependentUpon>
+    <Compile Include="DanhMuc\F290_danh_sach_quyet_dinh_giao_von.aspx.designer.cs">
+      <DependentUpon>F290_danh_sach_quyet_dinh_giao_von.aspx</DependentUpon>
     </Compile>
-    <Compile Include="DanhMuc\F390_Danh_sach_uy_nhiem_chi.aspx.cs">
-      <DependentUpon>F390_Danh_sach_uy_nhiem_chi.aspx</DependentUpon>
+    <Compile Include="DanhMuc\F390_v_danh_sach_uy_nhiem_chi.aspx.cs">
+      <DependentUpon>F390_v_danh_sach_uy_nhiem_chi.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="DanhMuc\F390_Danh_sach_uy_nhiem_chi.aspx.designer.cs">
-      <DependentUpon>F390_Danh_sach_uy_nhiem_chi.aspx</DependentUpon>
+    <Compile Include="DanhMuc\F390_v_danh_sach_uy_nhiem_chi.aspx.designer.cs">
+      <DependentUpon>F390_v_danh_sach_uy_nhiem_chi.aspx</DependentUpon>
     </Compile>
     <Compile Include="DanhMuc\f603_dm_du_an.aspx.cs">
       <DependentUpon>f603_dm_du_an.aspx</DependentUpon>

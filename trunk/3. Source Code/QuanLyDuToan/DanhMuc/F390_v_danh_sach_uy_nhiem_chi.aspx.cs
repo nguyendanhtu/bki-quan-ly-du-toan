@@ -18,7 +18,7 @@ using IP.Core.IPData;
 
 namespace QuanLyDuToan.DanhMuc
 {
-    public partial class F390_Danh_sach_uy_nhiem_chi : System.Web.UI.Page
+	public partial class F390_v_danh_sach_uy_nhiem_chi : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

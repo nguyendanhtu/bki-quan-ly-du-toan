@@ -7,10 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace QuanLyDuToan.DanhMuc {
-    
-    
-    public partial class F390_Danh_sach_uy_nhiem_chi {
+namespace QuanLyDuToan.BaoCao {
+
+
+	public partial class F510_giao_du_toan_theo_loai_khoan_nguon_ns
+	{
         
         /// <summary>
         /// ScriptManager1 control.
@@ -31,13 +32,13 @@ namespace QuanLyDuToan.DanhMuc {
         protected global::System.Web.UI.UpdatePanel UpdatePanel1;
         
         /// <summary>
-        /// m_ddl_don_vi control.
+        /// m_lbl_nam control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList m_ddl_don_vi;
+        protected global::System.Web.UI.WebControls.Label m_lbl_nam;
         
         /// <summary>
         /// m_txt_tu_khoa_tim_kiem control.
@@ -67,22 +68,13 @@ namespace QuanLyDuToan.DanhMuc {
         protected global::System.Web.UI.WebControls.TextBox m_txt_den_ngay;
         
         /// <summary>
-        /// m_cmd_tim_kiem control.
+        /// m_cmd_xem_bao_cao control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button m_cmd_tim_kiem;
-        
-        /// <summary>
-        /// m_grv_bao_cao_giao_von control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView m_grv_bao_cao_giao_von;
+        protected global::System.Web.UI.WebControls.Button m_cmd_xem_bao_cao;
         
         /// <summary>
         /// m_cmd_xuat_excel control.
@@ -92,6 +84,24 @@ namespace QuanLyDuToan.DanhMuc {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button m_cmd_xuat_excel;
+        
+        /// <summary>
+        /// m_lbl_mess control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label m_lbl_mess;
+        
+        /// <summary>
+        /// m_grv_bao_cao_giao_von control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView m_grv_bao_cao_giao_von;
         
         /// <summary>
         /// UpdateProgress1 control.
