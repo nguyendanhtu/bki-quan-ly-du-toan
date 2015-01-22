@@ -376,7 +376,7 @@
 												<ItemTemplate>
 													<asp:LinkButton ID="m_lbl_update" runat="server" CausesValidation="false" CommandArgument='<%#Eval("ID")%>'
 														CommandName="Sua" ToolTip="Sửa">
-                     <img alt="Xóa" src="../Images/Button/edit.png" />
+                     <img alt="Sửa" src="../Images/Button/edit.png" />
 													
 													</asp:LinkButton>
 												</ItemTemplate>
