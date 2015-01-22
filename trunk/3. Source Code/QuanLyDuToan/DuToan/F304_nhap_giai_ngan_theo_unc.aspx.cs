@@ -336,6 +336,8 @@ namespace QuanLyDuToan.DuToan
 		protected void Page_Load(object sender, EventArgs e)
 		{
 			m_rbl_ma_tkkt.Enabled = false;
+			m_lbl_mess_detail.Text = "";
+			m_lbl_mess_grid.Text = "";
 			if (!IsPostBack)
 			{
 				m_txt_ngay_thang.Text = CIPConvert.ToStr(DateTime.Now, "dd/MM/yyyy");
@@ -522,6 +524,7 @@ namespace QuanLyDuToan.DuToan
 					{
 						v_us.strIS_NGUON_NS_YN = "N";
 					}
+					else v_us.strIS_NGUON_NS_YN = "Y";
 				}
 				else v_us.strIS_NGUON_NS_YN="Y";
 				//v_us.strMA_TKKT = m_rbl_ma_tkkt.SelectedItem.Text;
@@ -1009,7 +1012,13 @@ namespace QuanLyDuToan.DuToan
 							return;
 						}
 					}
-					
+
+					if (m_hdf_id_dm_uy_nhiem_chi.Value.Trim().Equals("")||m_hdf_id_dm_uy_nhiem_chi.Value.Trim().Equals("-1"))
+					{
+						m_lbl_mess_detail.Text = "Bạn phải chọn Uỷ nhiệm chi đã có hoặc Nhập mới một Uỷ nhiệm chi!";
+						m_txt_so_unc.Focus();
+						return;
+					}
 					if (!CValidateTextBox.IsValid(v_txt_grid_edit_ghi_chu, DataType.StringType, allowNull.NO))
 					{
 						m_lbl_mess_detail.Text = "Bạn phải nhập Nội dung thanh toán!";
