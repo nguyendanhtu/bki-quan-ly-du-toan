@@ -95,7 +95,7 @@
 					<Columns>
 						<asp:TemplateField HeaderText="Số quyết định" ItemStyle-Width="150px">
 							<ItemTemplate>
-							<a class="link204" href='../DuToan/f204_nhap_giao_ke_hoach_qbt.aspx?ip_dc_id_quyet_dinh=<%#Eval("ID") %>'
+							<a class="link204" href='../DuToan/F004_Danh_sach_chuong_loai_khoan_muc.aspx?ip_dc_id_quyet_dinh=<%#Eval("ID") %>'
                                             title"Xem chi tiết"><%#  Eval("SO_QUYET_DINH") %></a>
 								</ItemTemplate>
 						</asp:TemplateField>
