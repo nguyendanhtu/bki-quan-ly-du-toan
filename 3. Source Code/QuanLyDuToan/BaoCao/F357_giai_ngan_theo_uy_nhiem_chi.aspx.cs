@@ -200,7 +200,12 @@ namespace QuanLyDuToan.BaoCao
 
 		protected void m_ddl_loai_nv_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			App_Code.WinFormControls.load_data_to_cbo_cong_trinh_theo_loai_nhiem_vu(CIPConvert.ToDecimal(m_ddl_loai_nv.SelectedValue), m_ddl_cong_trinh, CIPConvert.ToDecimal(m_ddl_don_vi.SelectedValue));
+			App_Code.WinFormControls.load_data_to_cbo_cong_trinh_theo_loai_nhiem_vu(
+				CIPConvert.ToDecimal(m_ddl_loai_nv.SelectedValue)
+				, m_ddl_cong_trinh
+				, CIPConvert.ToDecimal(m_ddl_don_vi.SelectedValue));
+
+			m_ddl_cong_trinh_SelectedIndexChanged(null, null);
 		}
 
 		protected void m_ddl_cong_trinh_SelectedIndexChanged(object sender, EventArgs e)
