@@ -3,119 +3,119 @@
 <%@ Import Namespace="WebDS.CDBNames" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
     <style type="text/css">
-		.cssGrid tr td {
-			padding: 0px;
-		}
+    	.cssGrid tr td {
+    		padding: 0px;
+    	}
 
-	    .boxControl {
-	        float:left;
-            width:50%; 
-            height:90px;
-        }
+    	.boxControl {
+    		float: left;
+    		width: 50%;
+    		height: 90px;
+    	}
 
-	    .height30 {
-	        height:30px;
-        }
+    	.height30 {
+    		height: 30px;
+    	}
 
-	    .lb {
-	        width:100px; 
-            float:left;
-            text-align:right;
-            line-height:20px;
-        }
+    	.lb {
+    		width: 100px;
+    		float: left;
+    		text-align: right;
+    		line-height: 20px;
+    	}
 
-	    .control {
-	        width:240px; 
-            float:left;
-        }
-        .control1 {
-	        width:240px; 
-            float:left;
-        }
+    	.control {
+    		width: 240px;
+    		float: left;
+    	}
 
-	    .control select
-         {
-	        width:220px !important;
-             }
-        .control1 select
-         {
-	        width:203px !important;
-             }
-         
-        .filter{
-	        width:567px !important;
-            margin-left:10px;    
-        }
-         #main_table tr td
-        {
-            border-top:0px;
-        }
-         
+    	.control1 {
+    		width: 240px;
+    		float: left;
+    	}
 
-        .csscurrency
-        {
-            text-align: right !important;
-        }
-	</style>
+    	.control select {
+    		width: 220px !important;
+    	}
+
+    	.control1 select {
+    		width: 203px !important;
+    	}
+
+    	.filter {
+    		width: 567px !important;
+    		margin-left: 10px;
+    	}
+
+    	#main_table tr td {
+    		border-top: 0px;
+    	}
+
+
+    	.csscurrency {
+    		text-align: right !important;
+    	}
+    </style>
     <script>
-        function pageLoad(sender, args) {
-            if (args.get_isPartialLoad()) {
-                $("#<%=m_ddl_loai_nv.ClientID%>").select2();
-                $("#<%=m_ddl_cong_trinh.ClientID%>").select2();
-                $("#<%=m_ddl_du_an.ClientID%>").select2();
-                $("#<%=m_ddl_quyet_dinh.ClientID%>").select2(); 
-                $("#<%=m_txt_tu_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
-                $("#<%=m_txt_den_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
-                $("#quyet_dinh").appendTo(".header_quyet_dinh");
-                m_anchor_so_quyet_dinh.innerHTML = $("#<%=m_ddl_quyet_dinh.ClientID%> option:selected").text();
+    	function pageLoad(sender, args) {
+    		if (args.get_isPartialLoad()) {
+    			$("#<%=m_ddl_loai_nv.ClientID%>").select2();
+    			$("#<%=m_ddl_don_vi.ClientID%>").select2();
+            	$("#<%=m_ddl_cong_trinh.ClientID%>").select2();
+            	$("#<%=m_ddl_du_an.ClientID%>").select2();
+            	$("#<%=m_ddl_quyet_dinh.ClientID%>").select2();
+            	$("#<%=m_txt_tu_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
+            	$("#<%=m_txt_den_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
+            	$("#quyet_dinh").appendTo(".header_quyet_dinh");
+            	m_anchor_so_quyet_dinh.innerHTML = $("#<%=m_ddl_quyet_dinh.ClientID%> option:selected").text();
                 if ($("#<%=m_ddl_quyet_dinh.ClientID%>").val().toString() == "-1") {
-                    $("#m_anchor_so_quyet_dinh").attr("href", "../DanhMuc/F190_Danh_sach_quyet_dinh_giao_ke_hoach.aspx?ip_dat_tu_ngay=" + $("#<%=m_txt_tu_ngay.ClientID%>").val() + "&ip_dat_den_ngay=" + $("#<%=m_txt_den_ngay.ClientID%>").val()+ "&ip_dc_id_don_vi=" + $("#m_ddl_don_vi").val());
+            		$("#m_anchor_so_quyet_dinh").attr("href", "../DanhMuc/F190_Danh_sach_quyet_dinh_giao_ke_hoach.aspx?ip_dat_tu_ngay=" + $("#<%=m_txt_tu_ngay.ClientID%>").val() + "&ip_dat_den_ngay=" + $("#<%=m_txt_den_ngay.ClientID%>").val() + "&ip_dc_id_don_vi=" + $("#m_ddl_don_vi").val());
                 }
                 else {
-                    $("#m_anchor_so_quyet_dinh").attr("href", "../DuToan/f204_nhap_giao_ke_hoach_qbt.aspx?ip_nguon_ns=N&ip_dc_id_quyet_dinh=" + $("#<%=m_ddl_quyet_dinh.ClientID%>").val() + "&ip_dc_id_don_vi=" + $("#<%=m_ddl_don_vi.ClientID%>").val());
+                	$("#m_anchor_so_quyet_dinh").attr("href", "../DuToan/f204_nhap_giao_ke_hoach_qbt.aspx?ip_nguon_ns=N&ip_dc_id_quyet_dinh=" + $("#<%=m_ddl_quyet_dinh.ClientID%>").val() + "&ip_dc_id_don_vi=" + $("#<%=m_ddl_don_vi.ClientID%>").val());
                 }
 
-                $("#<%=m_ddl_quyet_dinh.ClientID%>").on('change', function () {
-                    m_anchor_so_quyet_dinh.innerHTML = $("#<%=m_ddl_quyet_dinh.ClientID%> option:selected").text();
-                    if ($("#<%=m_ddl_quyet_dinh.ClientID%>").val().toString() == "-1") {
-                        $("#m_anchor_so_quyet_dinh").attr("href", "../DanhMuc/F190_Danh_sach_quyet_dinh_giao_ke_hoach.aspx?ip_dat_tu_ngay=" + $("#<%=m_txt_tu_ngay.ClientID%>").val() + "&ip_dat_den_ngay=" + $("#<%=m_txt_den_ngay.ClientID%>").val()+ "&ip_dc_id_don_vi=" + $("#m_ddl_don_vi").val());
+				$("#<%=m_ddl_quyet_dinh.ClientID%>").on('change', function () {
+            		m_anchor_so_quyet_dinh.innerHTML = $("#<%=m_ddl_quyet_dinh.ClientID%> option:selected").text();
+                	if ($("#<%=m_ddl_quyet_dinh.ClientID%>").val().toString() == "-1") {
+                		$("#m_anchor_so_quyet_dinh").attr("href", "../DanhMuc/F190_Danh_sach_quyet_dinh_giao_ke_hoach.aspx?ip_dat_tu_ngay=" + $("#<%=m_txt_tu_ngay.ClientID%>").val() + "&ip_dat_den_ngay=" + $("#<%=m_txt_den_ngay.ClientID%>").val() + "&ip_dc_id_don_vi=" + $("#m_ddl_don_vi").val());
                     }
                     else {
-                        $("#m_anchor_so_quyet_dinh").attr("href", "../DuToan/f204_nhap_giao_ke_hoach_qbt.aspx?ip_nguon_ns=N&ip_dc_id_quyet_dinh=" + $("#<%=m_ddl_quyet_dinh.ClientID%>").val() + "&ip_dc_id_don_vi=" + $("#<%=m_ddl_don_vi.ClientID%>").val());
+                    	$("#m_anchor_so_quyet_dinh").attr("href", "../DuToan/f204_nhap_giao_ke_hoach_qbt.aspx?ip_nguon_ns=N&ip_dc_id_quyet_dinh=" + $("#<%=m_ddl_quyet_dinh.ClientID%>").val() + "&ip_dc_id_don_vi=" + $("#<%=m_ddl_don_vi.ClientID%>").val());
                     }
                 });
 
-                
-            }
-        }
-        $(document).ready(function () {
-        	$("#<%=m_ddl_loai_nv.ClientID%>").select2();
+
+			}
+		}
+		$(document).ready(function () {
+			$("#<%=m_ddl_loai_nv.ClientID%>").select2();
         	$("#<%=m_ddl_don_vi.ClientID%>").select2();
-            $("#<%=m_ddl_cong_trinh.ClientID%>").select2();
-             $("#<%=m_ddl_du_an.ClientID%>").select2();
-            $("#<%=m_ddl_quyet_dinh.ClientID%>").select2(); 
-            $("#<%=m_txt_tu_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
-            $("#<%=m_txt_den_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
-            $("#quyet_dinh").appendTo(".header_quyet_dinh");
-            m_anchor_so_quyet_dinh.innerHTML = $("#<%=m_ddl_quyet_dinh.ClientID%> option:selected").text();
+        	$("#<%=m_ddl_cong_trinh.ClientID%>").select2();
+        	$("#<%=m_ddl_du_an.ClientID%>").select2();
+        	$("#<%=m_ddl_quyet_dinh.ClientID%>").select2();
+        	$("#<%=m_txt_tu_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
+        	$("#<%=m_txt_den_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
+        	$("#quyet_dinh").appendTo(".header_quyet_dinh");
+        	m_anchor_so_quyet_dinh.innerHTML = $("#<%=m_ddl_quyet_dinh.ClientID%> option:selected").text();
             if ($("#<%=m_ddl_quyet_dinh.ClientID%>").val().toString() == "-1") {
-                $("#m_anchor_so_quyet_dinh").attr("href", "../DanhMuc/F190_Danh_sach_quyet_dinh_giao_ke_hoach.aspx?ip_dat_tu_ngay=" + $("#<%=m_txt_tu_ngay.ClientID%>").val() + "&ip_dat_den_ngay=" + $("#<%=m_txt_den_ngay.ClientID%>").val() + "&ip_dc_id_don_vi=" + $("#m_ddl_don_vi").val());
+        		$("#m_anchor_so_quyet_dinh").attr("href", "../DanhMuc/F190_danh_sach_quyet_dinh_giao_kh.aspx?ip_dat_tu_ngay=" + $("#<%=m_txt_tu_ngay.ClientID%>").val() + "&ip_dat_den_ngay=" + $("#<%=m_txt_den_ngay.ClientID%>").val() + "&ip_dc_id_don_vi=" + $("#m_ddl_don_vi").val());
             }
             else {
-                $("#m_anchor_so_quyet_dinh").attr("href", "../DuToan/f204_nhap_giao_ke_hoach_qbt.aspx?ip_nguon_ns=N&ip_dc_id_quyet_dinh=" + $("#<%=m_ddl_quyet_dinh.ClientID%>").val() + "&ip_dc_id_don_vi=" + $("#<%=m_ddl_don_vi.ClientID%>").val());
+            	$("#m_anchor_so_quyet_dinh").attr("href", "../DuToan/F104_nhap_du_toan_ke_hoach.aspx?ip_nguon_ns=N&ip_dc_id_quyet_dinh=" + $("#<%=m_ddl_quyet_dinh.ClientID%>").val() + "&ip_dc_id_don_vi=" + $("#<%=m_ddl_don_vi.ClientID%>").val());
             }
 
-            $("#<%=m_ddl_quyet_dinh.ClientID%>").on('change', function () {
-                m_anchor_so_quyet_dinh.innerHTML = $("#<%=m_ddl_quyet_dinh.ClientID%> option:selected").text();
-                if ($("#<%=m_ddl_quyet_dinh.ClientID%>").val().toString() == "-1") {
-                    $("#m_anchor_so_quyet_dinh").attr("href", "../DanhMuc/F190_Danh_sach_quyet_dinh_giao_ke_hoach.aspx?ip_dat_tu_ngay=" + $("#<%=m_txt_tu_ngay.ClientID%>").val() + "&ip_dat_den_ngay=" + $("#<%=m_txt_den_ngay.ClientID%>").val() + "&ip_dc_id_don_vi=" + $("#m_ddl_don_vi").val());
+        	$("#<%=m_ddl_quyet_dinh.ClientID%>").on('change', function () {
+        		m_anchor_so_quyet_dinh.innerHTML = $("#<%=m_ddl_quyet_dinh.ClientID%> option:selected").text();
+            	if ($("#<%=m_ddl_quyet_dinh.ClientID%>").val().toString() == "-1") {
+            		$("#m_anchor_so_quyet_dinh").attr("href", "../DanhMuc/F190_danh_sach_quyet_dinh_giao_kh.aspx?ip_dat_tu_ngay=" + $("#<%=m_txt_tu_ngay.ClientID%>").val() + "&ip_dat_den_ngay=" + $("#<%=m_txt_den_ngay.ClientID%>").val() + "&ip_dc_id_don_vi=" + $("#m_ddl_don_vi").val());
                 }
                 else {
-                    $("#m_anchor_so_quyet_dinh").attr("href", "../DuToan/f204_nhap_giao_ke_hoach_qbt.aspx?ip_nguon_ns=N&ip_dc_id_quyet_dinh=" + $("#<%=m_ddl_quyet_dinh.ClientID%>").val() + "&ip_dc_id_don_vi=" + $("#<%=m_ddl_don_vi.ClientID%>").val());
+                	$("#m_anchor_so_quyet_dinh").attr("href", "../DuToan/F104_nhap_du_toan_ke_hoach.aspx?ip_nguon_ns=N&ip_dc_id_quyet_dinh=" + $("#<%=m_ddl_quyet_dinh.ClientID%>").val() + "&ip_dc_id_don_vi=" + $("#<%=m_ddl_don_vi.ClientID%>").val());
                 }
             });
 
-            
+
         })
     </script>
 </asp:Content>
@@ -187,8 +187,8 @@
 				<tr>
 
 					<td colspan="4" style="text-align: center">
-						<asp:Button classcss="btn btn-sm" ID="m_cmd_xem_bao_cao" Text="Xem báo cáo" runat="server" OnClick="m_cmd_xem_bao_cao_Click" />
-						<asp:Button classcss="btn btn-sm" ID="m_cmd_xuat_excel" Text="Xuất excel" runat="server" OnClick="m_cmd_xuat_excel_Click" />
+						<asp:Button CssClass="btn btn-sm btn-primary" ID="m_cmd_xem_bao_cao" Text="Xem báo cáo" runat="server" OnClick="m_cmd_xem_bao_cao_Click" />
+						<asp:Button CssClass="btn btn-sm btn-success" ID="m_cmd_xuat_excel" Text="Xuất excel" runat="server" OnClick="m_cmd_xuat_excel_Click" />
 					</td>
 				</tr>
 				<tr>
