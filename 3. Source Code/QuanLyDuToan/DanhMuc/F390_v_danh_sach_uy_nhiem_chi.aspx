@@ -94,9 +94,12 @@
 				</asp:GridView>
 			</div>
 			<div style="text-align: center">
-				<asp:Button runat="server" Text="Xuất excel" ID="m_cmd_xuat_excel"></asp:Button>
+				<asp:Button runat="server" Text="Xuất excel" CssClass="btn btn-success" ID="m_cmd_xuat_excel"></asp:Button>
 			</div>
 		</ContentTemplate>
+		<Triggers>
+			<asp:PostBackTrigger ControlID="m_cmd_xuat_excel" />
+		</Triggers>
 	</asp:UpdatePanel>
 	<asp:UpdateProgress ID="UpdateProgress1" runat="server">
 		<ProgressTemplate>
