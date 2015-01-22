@@ -160,11 +160,6 @@
 													<asp:Label ID="m_lbl_mess_detail" CssClass="cssManField" runat="server"></asp:Label>
 												</td>
 											</tr>
-											 <tr>
-												<td colspan="3">
-													<asp:Label ID="m_lbl_mess_ghi_du_lieu" runat="server" CssClass="cssManField" ForeColor="#009933"></asp:Label>
-												</td>
-											</tr>
 											<tr>
 												<td style="text-align: right">Chi theo (*)</td>
 												<td colspan="2">
