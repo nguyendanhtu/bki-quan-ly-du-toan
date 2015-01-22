@@ -8,10 +8,9 @@
 //------------------------------------------------------------------------------
 
 namespace QuanLyDuToan.DanhMuc {
-
-
-	public partial class F190_danh_sach_quyet_dinh_giao_kh
-	{
+    
+    
+    public partial class F190_danh_sach_quyet_dinh_giao_kh {
         
         /// <summary>
         /// ScriptManager1 control.
@@ -41,15 +40,6 @@ namespace QuanLyDuToan.DanhMuc {
         protected global::System.Web.UI.WebControls.DropDownList m_ddl_don_vi;
         
         /// <summary>
-        /// m_txt_tu_khoa_tim_kiem control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox m_txt_tu_khoa_tim_kiem;
-        
-        /// <summary>
         /// m_txt_tu_ngay control.
         /// </summary>
         /// <remarks>
@@ -66,6 +56,15 @@ namespace QuanLyDuToan.DanhMuc {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox m_txt_den_ngay;
+        
+        /// <summary>
+        /// m_txt_tu_khoa_tim_kiem control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox m_txt_tu_khoa_tim_kiem;
         
         /// <summary>
         /// Button1 control.
