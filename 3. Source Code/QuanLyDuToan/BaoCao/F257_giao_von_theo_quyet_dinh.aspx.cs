@@ -12,7 +12,7 @@ using WebUS;
 
 namespace QuanLyDuToan.BaoCao
 {
-    public partial class F257_bao_cao_giao_von : System.Web.UI.Page
+	public partial class F257_giao_von_theo_quyet_dinh : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -61,11 +61,11 @@ namespace QuanLyDuToan.BaoCao
                 m_ddl_cong_trinh.SelectedValue = CIPConvert.ToStr(v_dc_ip_cong_trinh);
                 App_Code.WinFormControls.load_data_to_cbo_du_an_theo_cong_trinh_va_loai_nhiem_vu(CIPConvert.ToDecimal(m_ddl_cong_trinh.SelectedValue), CIPConvert.ToDecimal(m_ddl_loai_nv.SelectedValue), m_ddl_du_an, CIPConvert.ToDecimal(m_ddl_don_vi.SelectedValue));
                 m_ddl_du_an.SelectedValue = CIPConvert.ToStr(v_dc_ip_du_an);
-                load_data_2_grid();
+                load_data_to_grid();
             }            
         }
 
-        private void load_data_2_grid()
+        private void load_data_to_grid()
         {
             if (CIPConvert.ToDecimal(m_ddl_quyet_dinh.SelectedValue) == -1)
             {
@@ -94,7 +94,7 @@ namespace QuanLyDuToan.BaoCao
                 m_txt_tim_kiem.Text.Trim(),
                 "N",
                 CIPConvert.ToDecimal(m_ddl_quyet_dinh.SelectedValue),
-                "pr_A257_giao_von_theo_quyet_dinh");
+				"pr_F257_giao_von_theo_quyet_dinh");
             m_grv.DataSource = v_ds.Tables[0];
             m_grv.DataBind();
         }
@@ -141,7 +141,7 @@ namespace QuanLyDuToan.BaoCao
 
         protected void m_cmd_xem_bao_cao_Click(object sender, EventArgs e)
         {
-            load_data_2_grid();
+            load_data_to_grid();
         }
 
         public override void VerifyRenderingInServerForm(Control control)
@@ -172,7 +172,7 @@ namespace QuanLyDuToan.BaoCao
 		{
 			try
 			{
-				load_data_2_grid();
+				load_data_to_grid();
 			}
 			catch (Exception v_e)
 			{

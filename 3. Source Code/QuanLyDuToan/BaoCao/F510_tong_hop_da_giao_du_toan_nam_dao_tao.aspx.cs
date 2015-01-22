@@ -20,11 +20,11 @@ namespace QuanLyDuToan.BaoCao
             if (!IsPostBack)
             {
                 set_default_input();
-                load_data_2_grid();   
+                load_data_to_grid();   
             }
         }
 
-        private void load_data_2_grid()
+        private void load_data_to_grid()
         {
             xoaCotDong();
             DataSet v_ds = new DataSet();
@@ -282,7 +282,7 @@ namespace QuanLyDuToan.BaoCao
 
         protected void m_cmd_xem_bao_cao_Click(object sender, EventArgs e)
         {
-            load_data_2_grid();
+            load_data_to_grid();
         }
     }
 }

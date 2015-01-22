@@ -759,7 +759,7 @@ namespace WebUS
                 , DateTime ip_dat_dau_nam
 				, decimal ip_dc_user_id)
 		{
-			CStoredProc v_sp = new CStoredProc("pr_A530_Bao_cao_tong_hop_hinh_hinh_giai_ngan");
+			CStoredProc v_sp = new CStoredProc("pr_F530_Bao_cao_tong_hop_hinh_hinh_giai_ngan");
 			v_sp.addDatetimeInputParam("@ip_dat_tu_ngay", ip_dat_tu_ngay);
 			v_sp.addDatetimeInputParam("@ip_dat_den_ngay", ip_dat_den_ngay);
             v_sp.addDatetimeInputParam("@ip_dat_dau_nam", ip_dat_dau_nam);
@@ -802,7 +802,7 @@ namespace WebUS
 			, string ip_str_tu_khoa
 			, string ip_str_nguon_ns)
 		{
-			CStoredProc v_sp = new CStoredProc("pr_350_tinh_hinh_giai_ngan");
+			CStoredProc v_sp = new CStoredProc("pr_F350_tinh_hinh_giai_ngan");
 			v_sp.addDatetimeInputParam("@ip_dat_tu_ngay", ip_dat_tu_ngay);
 			v_sp.addDatetimeInputParam("@ip_dat_den_ngay", ip_dat_den_ngay);
 			v_sp.addDatetimeInputParam("@ip_dat_dau_nam", ip_dat_dau_nam);

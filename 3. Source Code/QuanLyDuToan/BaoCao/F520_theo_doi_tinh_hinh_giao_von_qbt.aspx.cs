@@ -19,11 +19,11 @@ namespace QuanLyDuToan.BaoCao
             if (!IsPostBack)
             {
                 set_default_input();
-                load_data_2_grid();
+                load_data_to_grid();
             }
         }
 
-        private void load_data_2_grid() {
+        private void load_data_to_grid() {
             //0. tính cột "tổng kế hoạch"
             string str_tu_ngay = m_txt_tu_ngay.Text;
             string str_den_ngay = m_txt_den_ngay.Text;
@@ -207,7 +207,7 @@ namespace QuanLyDuToan.BaoCao
         protected void m_cmd_xem_bao_cao_Click(object sender, EventArgs e)
         {
             xoaCotDong();
-            load_data_2_grid();
+            load_data_to_grid();
         }
 
         private void set_default_input()

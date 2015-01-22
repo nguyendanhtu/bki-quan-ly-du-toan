@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="F157_bao_cao_giao_kh_quy_bt_theo_qd.aspx.cs" Inherits="QuanLyDuToan.BaoCao.F157_bao_cao_giao_kh_quy_bt_theo_qd" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="F157_giao_ke_hoach_theo_quyet_dinh.aspx.cs" Inherits="QuanLyDuToan.BaoCao.F157_giao_ke_hoach_theo_quyet_dinh" %>
 <%@ Import Namespace="IP.Core.IPCommon" %>
 <%@ Import Namespace="WebDS.CDBNames" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">

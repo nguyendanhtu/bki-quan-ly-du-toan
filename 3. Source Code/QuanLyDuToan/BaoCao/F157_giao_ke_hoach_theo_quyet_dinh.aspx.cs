@@ -13,7 +13,7 @@ using WebUS;
 
 namespace QuanLyDuToan.BaoCao
 {
-    public partial class F157_bao_cao_giao_kh_quy_bt_theo_qd : System.Web.UI.Page
+	public partial class F157_giao_ke_hoach_theo_quyet_dinh : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -71,11 +71,11 @@ namespace QuanLyDuToan.BaoCao
 
                 m_ddl_du_an.SelectedValue = CIPConvert.ToStr(v_id_dc_id_du_an);
                 load_data_2_ddl_quyet_dinh(); 
-                load_data_2_grid();
+                load_data_to_grid();
             }            
         }
 
-        private void load_data_2_grid()
+        private void load_data_to_grid()
         {
             if (CIPConvert.ToDecimal(m_ddl_quyet_dinh.SelectedValue) == -1)
             {
@@ -103,7 +103,7 @@ namespace QuanLyDuToan.BaoCao
                 m_txt_tim_kiem.Text.Trim(),
                 "N",
                 CIPConvert.ToDecimal(m_ddl_quyet_dinh.SelectedValue),
-                "pr_A157_giao_ke_hoach_theo_quyet_dinh");
+				"pr_F157_giao_ke_hoach_theo_quyet_dinh");
             m_grv.DataSource = v_ds.Tables[0];
             m_grv.DataBind();
         }
@@ -162,7 +162,7 @@ namespace QuanLyDuToan.BaoCao
 
         protected void m_cmd_xem_bao_cao_Click(object sender, EventArgs e)
         {
-            load_data_2_grid();
+            load_data_to_grid();
         }
 
         protected void m_cmd_xuat_excel_Click(object sender, EventArgs e)
@@ -186,7 +186,7 @@ namespace QuanLyDuToan.BaoCao
 		{
 			try
 			{
-				load_data_2_grid();
+				load_data_to_grid();
 			}
 			catch (Exception v_e)
 			{
