@@ -90,7 +90,7 @@
 				<br />
 
 			</div>
-			<div style="width: 800px; margin: 20px auto;">
+			<div style="width: 900px; margin: 20px auto;">
 				<asp:GridView runat="server" ID="m_grv_bao_cao_giao_von" Style="width: 100%;" AutoGenerateColumns="False" EnableModelValidation="True">
 					<Columns>
 						<asp:TemplateField HeaderText="Số quyết định" ItemStyle-Width="150px">
@@ -106,6 +106,9 @@
 						<asp:BoundField HeaderText="Nội dung" HtmlEncode="False" DataField="NOI_DUNG">
 							<ItemStyle HorizontalAlign="Left" />
 						</asp:BoundField>
+                        <asp:BoundField DataField="NTCS" HeaderText="Số tiền năm trước chuyển sang" DataFormatString="{0:N0}">
+                    <ItemStyle HorizontalAlign="Right" Width="120px" />
+                    </asp:BoundField>
                         <asp:BoundField DataField="QBT" HeaderText="Số tiền Quỹ bảo trì" DataFormatString="{0:N0}">
                     <ItemStyle HorizontalAlign="Right" Width="120px" />
                     </asp:BoundField>
