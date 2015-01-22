@@ -13,7 +13,7 @@ using WebUS;
 
 namespace QuanLyDuToan.BaoCao
 {
-	public partial class F357_bao_cao_giai_ngan : System.Web.UI.Page
+	public partial class F357_giai_ngan_theo_uy_nhiem_chi : System.Web.UI.Page
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
@@ -84,7 +84,7 @@ namespace QuanLyDuToan.BaoCao
 					m_txt_tim_kiem.Text.Trim(),
 					v_str_is_nguon_ns,
 					CIPConvert.ToDecimal(m_ddl_quyet_dinh.SelectedValue),
-					"pr_A357_bao_cao_giai_ngan");
+					"pr_F357_giai_ngan_theo_uy_nhiem_chi");
 				
 				m_grv.DataSource = v_ds.Tables[0];
 				if (CIPConvert.ToDecimal(m_ddl_quyet_dinh.SelectedValue) == -1)

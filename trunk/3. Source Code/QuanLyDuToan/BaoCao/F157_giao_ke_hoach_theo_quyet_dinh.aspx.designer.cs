@@ -8,9 +8,10 @@
 //------------------------------------------------------------------------------
 
 namespace QuanLyDuToan.BaoCao {
-    
-    
-    public partial class F350_bao_cao_giai_ngan_don_vi {
+
+
+	public partial class F157_giao_ke_hoach_theo_quyet_dinh
+	{
         
         /// <summary>
         /// ScriptManager1 control.
@@ -94,13 +95,13 @@ namespace QuanLyDuToan.BaoCao {
         protected global::System.Web.UI.WebControls.TextBox m_txt_den_ngay;
         
         /// <summary>
-        /// m_lbl_mess control.
+        /// m_ddl_quyet_dinh control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label m_lbl_mess;
+        protected global::System.Web.UI.WebControls.DropDownList m_ddl_quyet_dinh;
         
         /// <summary>
         /// m_cmd_xem_bao_cao control.
@@ -119,6 +120,15 @@ namespace QuanLyDuToan.BaoCao {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button m_cmd_xuat_excel;
+        
+        /// <summary>
+        /// m_lbl_mess control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label m_lbl_mess;
         
         /// <summary>
         /// m_grv control.

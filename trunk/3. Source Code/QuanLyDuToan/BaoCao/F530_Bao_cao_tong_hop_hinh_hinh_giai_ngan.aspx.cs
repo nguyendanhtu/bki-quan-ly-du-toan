@@ -17,7 +17,7 @@ using System.Data;
 
 namespace QuanLyDuToan.BaoCao
 {
-    public partial class F530_bao_cao_tong_cuc : System.Web.UI.Page
+	public partial class F530_Bao_cao_tong_hop_hinh_hinh_giai_ngan : System.Web.UI.Page
 	{
 		#region Public Methods
 		public string get_query_string(string ip_str_id_don_vi)

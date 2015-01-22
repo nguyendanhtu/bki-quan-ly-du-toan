@@ -59,9 +59,9 @@
   <ItemGroup>
     <Content Include="Account\Login.aspx" />
     <Content Include="Account\Logout.aspx" />
-    <Content Include="BaoCao\F157_bao_cao_giao_kh_quy_bt_theo_qd.aspx" />
-    <Content Include="BaoCao\F257_bao_cao_giao_von_quy_bt_theo_qd.aspx" />
-    <Content Include="BaoCao\F357_bao_cao_giai_ngan_quy_bt_theo_dm.aspx" />
+    <Content Include="BaoCao\F157_giao_ke_hoach_theo_quyet_dinh.aspx" />
+    <Content Include="BaoCao\F257_giao_von_theo_quyet_dinh.aspx" />
+    <Content Include="BaoCao\F357_giai_ngan_theo_uy_nhiem_chi.aspx" />
     <Content Include="BaoCao\F520_theo_doi_tinh_hinh_giao_von_qbt.aspx" />
     <Content Include="bootstrap-3.2.0-dist\css\bootstrap-theme.css.map" />
     <Content Include="bootstrap-3.2.0-dist\css\bootstrap.css.map" />
@@ -99,13 +99,13 @@
     <Content Include="Account\ChangePassword.aspx" />
     <Content Include="Account\Default.aspx" />
     <Content Include="BaoCao\F256_bao_cao_giao_von.aspx" />
-    <Content Include="BaoCao\F350_bao_cao_giai_ngan_don_vi.aspx" />
+    <Content Include="BaoCao\F350_tinh_hinh_giai_ngan.aspx" />
     <Content Include="BaoCao\F356_bao_cao_giai_ngan.aspx" />
     <Content Include="BaoCao\F403_bao_cao_tra_cuu_giao_von.aspx" />
     <Content Include="BaoCao\F402_bao_cao_tra_cuu_giao_ke_hoach.aspx" />
     <Content Include="BaoCao\F410_bao_cao_tinh_hinh_giao_von.aspx" />
     <Content Include="BaoCao\F510_tong_hop_da_giao_du_toan_nam_dao_tao.aspx" />
-    <Content Include="BaoCao\F530_bao_cao_tong_cuc.aspx" />
+    <Content Include="BaoCao\F530_Bao_cao_tong_hop_hinh_hinh_giai_ngan.aspx" />
     <Content Include="BaoCao\F701_tinh_hinh_giai_ngan_von_don_vi.aspx" />
     <Content Include="BaoCao\F156_bao_cao_giao_kh_quy_bt_theo_qd.aspx" />
     <Content Include="BaoCao\F401_bao_cao_tra_cuu_uy_nhiem_chi.aspx" />
@@ -619,19 +619,19 @@
     <Compile Include="BaoCao\F150_giao_von_du_toan_vp_tong_cuc.aspx.designer.cs">
       <DependentUpon>F150_giao_von_du_toan_vp_tong_cuc.aspx</DependentUpon>
     </Compile>
-    <Compile Include="BaoCao\F157_bao_cao_giao_kh_quy_bt_theo_qd.aspx.cs">
-      <DependentUpon>F157_bao_cao_giao_kh_quy_bt_theo_qd.aspx</DependentUpon>
+    <Compile Include="BaoCao\F157_giao_ke_hoach_theo_quyet_dinh.aspx.cs">
+      <DependentUpon>F157_giao_ke_hoach_theo_quyet_dinh.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="BaoCao\F157_bao_cao_giao_kh_quy_bt_theo_qd.aspx.designer.cs">
-      <DependentUpon>F157_bao_cao_giao_kh_quy_bt_theo_qd.aspx</DependentUpon>
+    <Compile Include="BaoCao\F157_giao_ke_hoach_theo_quyet_dinh.aspx.designer.cs">
+      <DependentUpon>F157_giao_ke_hoach_theo_quyet_dinh.aspx</DependentUpon>
     </Compile>
-    <Compile Include="BaoCao\F257_bao_cao_giao_von_quy_bt_theo_qd.aspx.cs">
-      <DependentUpon>F257_bao_cao_giao_von_quy_bt_theo_qd.aspx</DependentUpon>
+    <Compile Include="BaoCao\F257_giao_von_theo_quyet_dinh.aspx.cs">
+      <DependentUpon>F257_giao_von_theo_quyet_dinh.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="BaoCao\F257_bao_cao_giao_von_quy_bt_theo_qd.aspx.designer.cs">
-      <DependentUpon>F257_bao_cao_giao_von_quy_bt_theo_qd.aspx</DependentUpon>
+    <Compile Include="BaoCao\F257_giao_von_theo_quyet_dinh.aspx.designer.cs">
+      <DependentUpon>F257_giao_von_theo_quyet_dinh.aspx</DependentUpon>
     </Compile>
     <Compile Include="BaoCao\F356_bao_cao_giai_ngan_quy_bt_theo_dm.aspx.cs">
       <DependentUpon>F356_bao_cao_giai_ngan_quy_bt_theo_dm.aspx</DependentUpon>
@@ -654,12 +654,12 @@
     <Compile Include="BaoCao\F256_bao_cao_giao_von.aspx.designer.cs">
       <DependentUpon>F256_bao_cao_giao_von.aspx</DependentUpon>
     </Compile>
-    <Compile Include="BaoCao\F350_bao_cao_giai_ngan_don_vi.aspx.cs">
-      <DependentUpon>F350_bao_cao_giai_ngan_don_vi.aspx</DependentUpon>
+    <Compile Include="BaoCao\F350_tinh_hinh_giai_ngan.aspx.cs">
+      <DependentUpon>F350_tinh_hinh_giai_ngan.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="BaoCao\F350_bao_cao_giai_ngan_don_vi.aspx.designer.cs">
-      <DependentUpon>F350_bao_cao_giai_ngan_don_vi.aspx</DependentUpon>
+    <Compile Include="BaoCao\F350_tinh_hinh_giai_ngan.aspx.designer.cs">
+      <DependentUpon>F350_tinh_hinh_giai_ngan.aspx</DependentUpon>
     </Compile>
     <Compile Include="BaoCao\F356_bao_cao_giai_ngan.aspx.cs">
       <DependentUpon>F356_bao_cao_giai_ngan.aspx</DependentUpon>
@@ -668,12 +668,12 @@
     <Compile Include="BaoCao\F356_bao_cao_giai_ngan.aspx.designer.cs">
       <DependentUpon>F356_bao_cao_giai_ngan.aspx</DependentUpon>
     </Compile>
-    <Compile Include="BaoCao\F357_bao_cao_giai_ngan_quy_bt_theo_dm.aspx.cs">
-      <DependentUpon>F357_bao_cao_giai_ngan_quy_bt_theo_dm.aspx</DependentUpon>
+    <Compile Include="BaoCao\F357_giai_ngan_theo_uy_nhiem_chi.aspx.cs">
+      <DependentUpon>F357_giai_ngan_theo_uy_nhiem_chi.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="BaoCao\F357_bao_cao_giai_ngan_quy_bt_theo_dm.aspx.designer.cs">
-      <DependentUpon>F357_bao_cao_giai_ngan_quy_bt_theo_dm.aspx</DependentUpon>
+    <Compile Include="BaoCao\F357_giai_ngan_theo_uy_nhiem_chi.aspx.designer.cs">
+      <DependentUpon>F357_giai_ngan_theo_uy_nhiem_chi.aspx</DependentUpon>
     </Compile>
     <Compile Include="BaoCao\F403_bao_cao_tra_cuu_giao_von.aspx.cs">
       <DependentUpon>F403_bao_cao_tra_cuu_giao_von.aspx</DependentUpon>
@@ -710,12 +710,12 @@
     <Compile Include="BaoCao\F520_theo_doi_tinh_hinh_giao_von_qbt.aspx.designer.cs">
       <DependentUpon>F520_theo_doi_tinh_hinh_giao_von_qbt.aspx</DependentUpon>
     </Compile>
-    <Compile Include="BaoCao\F530_bao_cao_tong_cuc.aspx.cs">
-      <DependentUpon>F530_bao_cao_tong_cuc.aspx</DependentUpon>
+    <Compile Include="BaoCao\F530_Bao_cao_tong_hop_hinh_hinh_giai_ngan.aspx.cs">
+      <DependentUpon>F530_Bao_cao_tong_hop_hinh_hinh_giai_ngan.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="BaoCao\F530_bao_cao_tong_cuc.aspx.designer.cs">
-      <DependentUpon>F530_bao_cao_tong_cuc.aspx</DependentUpon>
+    <Compile Include="BaoCao\F530_Bao_cao_tong_hop_hinh_hinh_giai_ngan.aspx.designer.cs">
+      <DependentUpon>F530_Bao_cao_tong_hop_hinh_hinh_giai_ngan.aspx</DependentUpon>
     </Compile>
     <Compile Include="BaoCao\F701_tinh_hinh_giai_ngan_von_don_vi.aspx.cs">
       <DependentUpon>F701_tinh_hinh_giai_ngan_von_don_vi.aspx</DependentUpon>

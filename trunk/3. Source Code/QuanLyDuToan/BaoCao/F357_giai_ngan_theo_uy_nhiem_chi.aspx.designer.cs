@@ -8,9 +8,10 @@
 //------------------------------------------------------------------------------
 
 namespace QuanLyDuToan.BaoCao {
-    
-    
-    public partial class F357_bao_cao_giai_ngan {
+
+
+	public partial class F357_giai_ngan_theo_uy_nhiem_chi
+	{
         
         /// <summary>
         /// ScriptManager1 control.

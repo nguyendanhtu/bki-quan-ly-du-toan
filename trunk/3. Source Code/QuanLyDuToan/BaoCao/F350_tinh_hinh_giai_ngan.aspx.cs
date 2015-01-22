@@ -14,7 +14,7 @@ using System.Data;
 
 namespace QuanLyDuToan.BaoCao
 {
-	public partial class F350_bao_cao_giai_ngan_don_vi : System.Web.UI.Page
+	public partial class F350_tinh_hinh_giai_ngan : System.Web.UI.Page
 	{
 		#region Data Member
 		decimal m_dc_id_don_vi;

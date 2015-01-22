@@ -77,22 +77,24 @@ namespace QuanLyDuToan.DuToan
 
 			m_grv.DataSource = v_ds.Tables[0];
 			m_grv.DataBind();
-
-			if (!m_hdf_id_giao_kh.Value.Equals(""))
+			//an nut cap nhat neu khong phai la don vi duoc sua du lieu
+			if (m_ddl_don_vi.SelectedValue != Person.get_id_don_vi().ToString())
 			{
-				m_grv.SelectedIndex = -1;
-				for (int i = 0; i < m_grv.Rows.Count; i++)
-					if (CIPConvert.ToDecimal(m_grv.DataKeys[i].Value) == CIPConvert.ToDecimal(m_hdf_id_giao_kh.Value)) m_grv.SelectedIndex = i;
+				m_cmd_cap_nhat.Visible = false;
+				m_cmd_xoa_trang.Visible = false;
 			}
-
-
-
-
+			else
+			{
+				m_cmd_cap_nhat.Visible = true;
+				m_cmd_xoa_trang.Visible = true;
+			}
 		}
 		private void set_inital_form_mode()
 		{
 			//load dropdownlist danh sach don vi ma don vi X duoc xem du lieu
-			WinFormControls.load_data_to_ddl_don_vi_get_list_don_vi_duoc_xem_du_lieu(Person.get_id_don_vi(), m_ddl_don_vi);
+			WinFormControls.load_data_to_ddl_don_vi_get_list_don_vi_duoc_xem_du_lieu(
+				Person.get_id_don_vi()
+				, m_ddl_don_vi);
 			xoa_trang();
 			load_data_to_cbo();
 			load_data_to_grid();
