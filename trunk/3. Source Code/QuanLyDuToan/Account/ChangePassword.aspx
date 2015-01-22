@@ -5,7 +5,7 @@
 	<table id="main_table" cellspacing="0" cellpadding="2" style="width:100%;" class="cssTable table bordertop0" border="0">
 	<tr>
 		<td class="cssPageTitleBG" colspan="3">
-		    <asp:label id="lblUser" runat="server" CssClass="cssPageTitle" 
+		    <asp:label id="lblUser" runat="server" CssClass="cssPageTitle" Width="400px" 
                 Text="Thay đổi mật khẩu"/>
 		</td>
 	</tr>	
@@ -66,10 +66,10 @@
 	<tr>
 	    <td></td>
 		<td colspan="2" align="left">
-			<asp:button id="m_cmd_doi_mat_khau" accessKey="c" CssClass="btn" 
+			<asp:button id="m_cmd_doi_mat_khau" accessKey="c" CssClass="btn btn-primary" 
                 runat="server"  Text="Lưu" onclick="m_cmd_doi_mat_khau_Click" 
                 CausesValidation="False" />&nbsp;&nbsp;&nbsp;
-			<asp:button id="m_cmd_thoat" accessKey="u" CssClass="btn" 
+			<asp:button id="m_cmd_thoat" accessKey="u" CssClass="btn  btn-primary" 
                 runat="server"  Text="Thoát" onclick="m_cmd_thoat_Click" 
                 CausesValidation="False"  />
 			</td>
