@@ -117,11 +117,11 @@
             <td>
             </td>
             <td colspan="2" align="left">
-                <asp:Button ID="m_cmd_tao_moi" AccessKey="c" CssClass="btn" runat="server"
+                <asp:Button ID="m_cmd_tao_moi" AccessKey="c" CssClass="btn btn-primary" runat="server"
                      Text="Tạo mới(c)" OnClick="m_cmd_tao_moi_Click" />&nbsp;
-                <asp:Button ID="m_cmd_cap_nhat" AccessKey="u" CssClass="btn" runat="server"
+                <asp:Button ID="m_cmd_cap_nhat" AccessKey="u" CssClass="btn btn-primary" runat="server"
                     Text="Cập nhật(u)" OnClick="m_cmd_cap_nhat_Click" />&nbsp;
-                <asp:Button ID="btnCancel" AccessKey="r" CssClass="btn" runat="server" 
+                <asp:Button ID="btnCancel" AccessKey="r" CssClass="btn btn-primary" runat="server" 
                      Text="Xóa trắng(r)" OnClick="btnCancel_Click" />
             </td>
         </tr>
