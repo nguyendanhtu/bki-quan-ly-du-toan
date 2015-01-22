@@ -168,6 +168,7 @@ body
     font-size: 12px;
     font-family: Tahoma;
     font-size: 13px;
+    min-width: 400px;
     color: White;
     font-weight: bold;
     text-align: left;
