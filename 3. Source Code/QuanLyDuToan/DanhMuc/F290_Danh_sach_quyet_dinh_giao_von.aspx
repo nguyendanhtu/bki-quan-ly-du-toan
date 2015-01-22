@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="F290_Danh_sach_quyet_dinh_giao_von.aspx.cs" Inherits="QuanLyDuToan.DanhMuc.F290_Danh_sach_quyet_dinh_giao_von" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="F290_danh_sach_quyet_dinh_giao_von.aspx.cs" Inherits="QuanLyDuToan.DanhMuc.F290_danh_sach_quyet_dinh_giao_von" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
     <script>
         function pageLoad(sender, args) {

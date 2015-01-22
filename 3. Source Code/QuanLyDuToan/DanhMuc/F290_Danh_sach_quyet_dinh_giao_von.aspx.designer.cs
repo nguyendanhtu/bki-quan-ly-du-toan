@@ -8,9 +8,10 @@
 //------------------------------------------------------------------------------
 
 namespace QuanLyDuToan.DanhMuc {
-    
-    
-    public partial class F290_Danh_sach_quyet_dinh_giao_von {
+
+
+	public partial class F290_danh_sach_quyet_dinh_giao_von
+	{
         
         /// <summary>
         /// ScriptManager1 control.

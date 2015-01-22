@@ -12,7 +12,7 @@ using IP.Core.IPCommon;
 
 namespace QuanLyDuToan.BaoCao
 {
-    public partial class F520_theo_doi_tinh_hinh_giao_von_qbt : System.Web.UI.Page
+	public partial class F520_theo_doi_giao_von_QBT : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

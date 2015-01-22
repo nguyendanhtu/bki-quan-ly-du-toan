@@ -12,7 +12,7 @@ using QuanLyDuToan.App_Code;
 
 namespace QuanLyDuToan.DanhMuc
 {
-    public partial class F290_Danh_sach_quyet_dinh_giao_von : System.Web.UI.Page
+	public partial class F290_danh_sach_quyet_dinh_giao_von : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -21,11 +21,11 @@ namespace QuanLyDuToan.DanhMuc
                 set_default_input();
                 //load dropdownlist danh sach don vi ma don vi X duoc xem du lieu
                 WinFormControls.load_data_to_ddl_don_vi_get_list_don_vi_duoc_xem_du_lieu(Person.get_id_don_vi(), m_ddl_don_vi);
-                load_data_2_grid();    
+                load_data_to_grid();    
             }            
         }
 
-        private void load_data_2_grid()
+        private void load_data_to_grid()
         {
             US_V_DM_QUYET_DINH v_us = new US_V_DM_QUYET_DINH();
             DS_V_DM_QUYET_DINH v_ds = new DS_V_DM_QUYET_DINH();
@@ -70,7 +70,7 @@ namespace QuanLyDuToan.DanhMuc
         {
             try
             {
-                load_data_2_grid();
+                load_data_to_grid();
             }
             catch (Exception ex)
             {
@@ -83,7 +83,7 @@ namespace QuanLyDuToan.DanhMuc
         {
             try
             {
-                load_data_2_grid();
+                load_data_to_grid();
             }
             catch (Exception v_e)
             {

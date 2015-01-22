@@ -346,7 +346,7 @@ namespace WebUS
         }
         public void FillDatasetByIdDonVi(DS_V_DM_QUYET_DINH ip_ds, decimal ip_dc_id_don_vi, DateTime ip_dat_tu_ngay, DateTime ip_dat_den_ngay, string ip_str_filter)
         {
-            CStoredProc v_prc = new CStoredProc("pr_A291_danh_sach_quyet_dinh_giao_von");
+			CStoredProc v_prc = new CStoredProc("pr_F290_danh_sach_quyet_dinh_giao_von");
             v_prc.addDecimalInputParam("@ip_dc_id_don_vi", ip_dc_id_don_vi);
             v_prc.addDatetimeInputParam("@ip_dat_tu_ngay", ip_dat_tu_ngay);
             v_prc.addDatetimeInputParam("@ip_dat_den_ngay", ip_dat_den_ngay);

@@ -17,7 +17,7 @@ using IP.Core.IPData;
 
 namespace QuanLyDuToan.DanhMuc
 {
-	public partial class F190_Danh_sach_quyet_dinh_giao_ke_hoach : System.Web.UI.Page
+	public partial class F190_danh_sach_quyet_dinh_giao_kh : System.Web.UI.Page
 	{
         US_V_DM_QUYET_DINH_KH m_us = new US_V_DM_QUYET_DINH_KH();
         

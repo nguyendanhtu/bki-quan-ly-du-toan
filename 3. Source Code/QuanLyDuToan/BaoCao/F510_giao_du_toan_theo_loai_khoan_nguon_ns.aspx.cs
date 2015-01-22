@@ -12,7 +12,7 @@ using WebUS;
 using IP.Core.IPCommon;
 namespace QuanLyDuToan.BaoCao
 {
-    public partial class F510_tong_hop_da_giao_du_toan_nam_dao_tao : System.Web.UI.Page
+	public partial class F510_giao_du_toan_theo_loai_khoan_nguon_ns : System.Web.UI.Page
     {
         List<string> m_lst_str_header = new List<string>();
         protected void Page_Load(object sender, EventArgs e)
@@ -33,8 +33,8 @@ namespace QuanLyDuToan.BaoCao
             v_ds.AcceptChanges();
             US_RPT_BC_TINH_HINH_GIAI_NGAN v_us = new US_RPT_BC_TINH_HINH_GIAI_NGAN();
             v_us.FillDatasetByProc(
-                v_ds, 
-                "pr_A510_giao_du_toan_theo_khoan",
+                v_ds,
+				"pr_F510_giao_du_toan_theo_loai_khoan_nguon_ns",
                 CIPConvert.ToDatetime(m_txt_tu_ngay.Text,c_configuration.DEFAULT_DATETIME_FORMAT),
                 CIPConvert.ToDatetime(m_txt_den_ngay.Text, c_configuration.DEFAULT_DATETIME_FORMAT),
                 m_txt_tu_khoa_tim_kiem.Text);

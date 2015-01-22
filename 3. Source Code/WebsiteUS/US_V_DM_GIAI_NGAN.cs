@@ -613,7 +613,7 @@ public class US_V_DM_GIAI_NGAN : US_Object
 #endregion
     public void FillDatasetByProc(DataSet ip_ds, DateTime ip_dat_tu_ngay, DateTime ip_dat_den_ngay, decimal ip_id_don_vi, string ip_so_unc)
     {
-        CStoredProc v_prc = new CStoredProc("pr_A390_v_danh_sach_uy_nhiem_chi");
+		CStoredProc v_prc = new CStoredProc("pr_F390_v_danh_sach_uy_nhiem_chi");
         v_prc.addDatetimeInputParam("@TU_NGAY", ip_dat_tu_ngay);
         v_prc.addDatetimeInputParam("@DEN_NGAY", ip_dat_den_ngay);
         v_prc.addDecimalInputParam("@ID_DON_VI", ip_id_don_vi);
