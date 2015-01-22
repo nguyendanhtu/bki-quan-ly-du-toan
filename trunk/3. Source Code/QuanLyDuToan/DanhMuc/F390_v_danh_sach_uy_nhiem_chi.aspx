@@ -69,8 +69,8 @@
 					<Columns>
 						<asp:TemplateField HeaderText="Số UNC" ItemStyle-Width="150px">
 							<ItemTemplate>
-							<a class="link206" href='../DuToan/f206_nhap_uy_nhiem_chi_qbt.aspx?ip_dc_id_dm_giai_ngan=<%#Eval("ID") %>&ip_nguon_ns=<%#Eval("IS_NGUON_NS_YN") %>'
-                                            title"Xem chi tiết"><%#  Eval("SO_UNC") %></a>
+							<a class="link206" href='../DuToan/F304_nhap_giai_ngan_theo_unc.aspx?ip_dc_id_dm_giai_ngan=<%#Eval("ID") %>&ip_nguon_ns=<%#Eval("IS_NGUON_NS_YN") %>'
+                                            title="Xem chi tiết"><%#  Eval("SO_UNC") %></a>
 								</ItemTemplate>
 						</asp:TemplateField>
 						
