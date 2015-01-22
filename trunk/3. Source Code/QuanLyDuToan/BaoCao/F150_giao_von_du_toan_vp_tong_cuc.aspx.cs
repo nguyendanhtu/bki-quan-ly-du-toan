@@ -31,11 +31,11 @@ namespace QuanLyDuToan.BaoCao
                 {
                     m_txt_den_ngay.Text = Request.QueryString["ip_dat_den_ngay"].ToString();
                 }
-                load_data_2_grid();   
+                load_data_to_grid();   
             }
         }
 
-        private void load_data_2_grid()
+        private void load_data_to_grid()
         {
             xoaCotDong();
             DataSet v_ds = new DataSet();
@@ -45,7 +45,7 @@ namespace QuanLyDuToan.BaoCao
             US_RPT_BC_TINH_HINH_GIAI_NGAN v_us = new US_RPT_BC_TINH_HINH_GIAI_NGAN();
             v_us.FillDatasetByProc(
                 v_ds,
-                "pr_A150_giao_du_toan_vp_tong_cuc",
+				"pr_F150_giao_du_toan_vp_tong_cuc",
                 CIPConvert.ToDatetime(m_txt_tu_ngay.Text,c_configuration.DEFAULT_DATETIME_FORMAT),
                 CIPConvert.ToDatetime(m_txt_den_ngay.Text,c_configuration.DEFAULT_DATETIME_FORMAT),
                 Person.get_id_don_vi(),
@@ -178,7 +178,7 @@ namespace QuanLyDuToan.BaoCao
 
         protected void m_cmd_xem_bao_cao_Click(object sender, EventArgs e)
         {
-            load_data_2_grid();
+            load_data_to_grid();
         }
 
         #region Merge header
