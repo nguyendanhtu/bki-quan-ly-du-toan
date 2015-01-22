@@ -234,7 +234,7 @@
 											<tr>
 												<td colspan="3" style="text-align: center">
 													<br />
-													<asp:Button ID="m_cmd_cap_nhat" CssClass="btn margin_r20" runat="server" Text="Ghi dữ liệu" OnClick="m_cmd_cap_nhat_Click" />
+													<asp:Button ID="m_cmd_cap_nhat" CssClass="btn margin_r20 btn-primary" runat="server" Text="Ghi dữ liệu" OnClick="m_cmd_cap_nhat_Click" />
 													<asp:Button ID="m_cmd_xoa_trang" CssClass="btn" runat="server" Text="Huỷ thao tác" OnClick="m_cmd_xoa_trang_Click" />
 												</td>
 											</tr>
