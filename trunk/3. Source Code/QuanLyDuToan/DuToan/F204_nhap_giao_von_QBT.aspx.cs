@@ -443,6 +443,9 @@ namespace QuanLyDuToan.DuToan
 		{
 			try
 			{
+				m_lbl_mess_detail.Text = "";
+				m_lbl_mess_grid.Text = "";
+				m_lbl_mess_qd.Text = "";
 				if (!IsPostBack)
 				{
 

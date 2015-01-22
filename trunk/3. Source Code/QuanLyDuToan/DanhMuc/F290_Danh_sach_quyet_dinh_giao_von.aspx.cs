@@ -90,5 +90,23 @@ namespace QuanLyDuToan.DanhMuc
                 CSystemLog_301.ExceptionHandle(this, v_e);
             }
         }
+
+		/* Để xuất excel
+		 * 1. Dùng 
+		 * WinformReport.export_gridview_2_excel(
+			m_grv
+			, "TenBaoCao.xls"
+			);
+		 * 2. Thêm 
+		 * <Triggers>
+			 <asp:PostBackTrigger ControlID="m_cmd_xuat_excel" />
+		</Triggers>
+		 * Trong aspx
+		 * 3. Thêm hàm VerifyRenderingInServerForm
+		*/
+		public override void VerifyRenderingInServerForm(Control control)
+		{
+			//base.VerifyRenderingInServerForm(control);
+		}
     }
 }

@@ -123,7 +123,7 @@
 				</asp:GridView>
 			</div>
 			<div style="text-align: center">
-				<asp:Button runat="server" Text="Xuất excel" ID="m_cmd_xuat_excel" OnClick="m_cmd_xuat_excel_Click"></asp:Button>
+				<asp:Button runat="server" Text="Xuất excel" ID="m_cmd_xuat_excel" CssClass="btn btn-success" OnClick="m_cmd_xuat_excel_Click"></asp:Button>
 			</div>
             <div>
                 <asp:TextBox ID="m_txt_so_quyet_dinh" runat="server" Visible="False"></asp:TextBox>
@@ -135,6 +135,9 @@
                 <asp:Button runat="server" Text="Thêm quyết định" ID="m_cmd_insert" OnClick="m_cmd_insert_Click" Visible="False"></asp:Button>
             </div>
 		</ContentTemplate>
+		<Triggers>
+			<asp:PostBackTrigger ControlID="m_cmd_xuat_excel" />
+		</Triggers>
 	</asp:UpdatePanel>
 	<asp:UpdateProgress ID="UpdateProgress1" runat="server">
 		<ProgressTemplate>
