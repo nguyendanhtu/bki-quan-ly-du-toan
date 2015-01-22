@@ -116,9 +116,9 @@
 												<asp:DropDownList ID="m_ddl_unc" CssClass="select2" Visible="false" runat="server" Width="152px"
 													OnSelectedIndexChanged="m_ddl_unc_SelectedIndexChanged" AutoPostBack="true">
 												</asp:DropDownList>
-												<asp:Button ID="m_cmd_chon_unc" runat="server" Text="Chọn UNC" CssClass="btn"
+												<asp:Button ID="m_cmd_chon_unc" runat="server" Text="Chọn UNC" CssClass="btn btn-sm"
 													OnClick="m_cmd_chon_unc_Click" />
-												<asp:Button ID="m_cmd_nhap_moi_unc" runat="server" Text="Nhập mới UNC" CssClass="btn"
+												<asp:Button ID="m_cmd_nhap_moi_unc" runat="server" Text="Nhập mới UNC" CssClass="btn btn-sm"
 													OnClick="m_cmd_nhap_moi_unc_Click" />
 
 											</td>
@@ -163,7 +163,7 @@
 
                                             </td>
                                              <td  style="margin:auto;">
-                                                <asp:Button ID="m_cmd_luu_unc"  runat="server" CssClass="btn" OnClick="m_cmd_luu_unc_Click" Text="Lưu UNC" />
+                                                <asp:Button ID="m_cmd_luu_unc"  runat="server" CssClass="btn btn-sm btn-primary" OnClick="m_cmd_luu_unc_Click" Text="Lưu Uỷ nhiệm chi" />
                                             </td>
                                         </tr>
 										<tr>
@@ -279,10 +279,10 @@
 																<table class="table bordertop0" style="width: 100%">
 																	<tr>
 																		<td style="width: 50%; text-align: center">
-																			<asp:LinkButton ID="lbtnUpdate" cssclass=" btn-link cssManField " runat="server"  CommandName="Update" 
+																			<asp:LinkButton ID="lbtnUpdate" cssclass="btn btn-primary btn-sm" runat="server"  CommandName="Update" ForeColor="White"
 																				Text="Cập nhật" /></td>
 																		<td style="width: 50%; text-align: center">
-																			<asp:LinkButton ID="lbtnCancel" cssclass=" btn-link cssManField" runat="server" CommandName="Cancel" 
+																			<asp:LinkButton ID="lbtnCancel" cssclass="btn btn-primary  btn-sm" runat="server" CommandName="Cancel"  ForeColor="White"
 																				Text="Huỷ thao tác" /></td>
 																	</tr>
 																</table>
@@ -293,12 +293,17 @@
 																<table style="width: 100%">
 																	<tr>
 																		<td style="width: 50%; text-align: center">
-																			<asp:LinkButton ID="lbtnEdit" runat="server" CommandName="Edit" CssClass="cssButton "
-																				Text="Sửa" Visible='<%#thao_tac_visible(Eval(GRID_GIAI_NGAN.ID).ToString()) %>' /></td>
+																			<asp:LinkButton ID="lbtnEdit" runat="server" CommandName="Edit" CssClass="btn btn-sm"
+																				Text="Sửa" Visible='<%#thao_tac_visible(Eval(GRID_GIAI_NGAN.ID).ToString()) %>' ForeColor="White">   <img alt="Sửa" src="../Images/Button/edit.png" /></asp:LinkButton></td>
 																		<td style="width: 50%; text-align: center">
-																			<asp:LinkButton ID="lbtnDelete" runat="server" CommandName="Delete" CssClass="cssButton "
-																				OnClientClick="return confirm('Are you sure you want to delete this record?')"
-																				Text="Xoá" CausesValidation="false" Visible='<%#thao_tac_visible(Eval(GRID_GIAI_NGAN.ID).ToString()) %>' />
+																			<asp:LinkButton ID="lbtnDelete" runat="server" CommandName="Delete" CssClass="btn btn-sm" 
+																				OnClientClick="return confirm('Bạn có chắc chắn muốn xoá mục chi này không?')" 
+
+																				Text="Xoá" CausesValidation="false" Visible='<%#thao_tac_visible(Eval(GRID_GIAI_NGAN.ID).ToString()) %>'
+																				ForeColor="White"
+																				
+																				><img alt="Xóa" src="../Images/Button/deletered.png" /> </asp:LinkButton>
+																				
 																		</td>
 																	</tr>
 
@@ -307,7 +312,7 @@
 
 															</ItemTemplate>
 															<FooterTemplate>
-																<asp:LinkButton ID="lbtnAdd" runat="server" cssclass="btn btn-link cssManField" CommandName="Add" 
+																<asp:LinkButton ID="lbtnAdd" runat="server" cssclass="btn btn-sm btn-primary" CommandName="Add" ForeColor="White"
 																	Text="Thêm mới" />
 															</FooterTemplate>
 														</asp:TemplateField>
@@ -509,9 +514,9 @@
 							</tr>
 							<tr>
 								<td colspan="6" style="text-align: center">
-									<asp:Button ID="m_cmd_save_info_unc" Text="Lưu thông tin" runat="server" CssClass="btn btn-default" 
+									<asp:Button ID="m_cmd_save_info_unc" Text="Lưu thông tin" runat="server" CssClass="btn btn-sm btn-primary" 
 										OnClick="m_cmd_save_info_unc_Click" />
-									<asp:HyperLink ID="m_cmd_print" runat="server" CssClass="btn btn-primary"
+									<asp:HyperLink ID="m_cmd_print" runat="server" CssClass="btn btn-sm btn-success"
 										Target="_blank" Text="Xem bản in" Visible="false"></asp:HyperLink></td>
 							</tr>
 						</table>
