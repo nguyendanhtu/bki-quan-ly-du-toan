@@ -62,7 +62,7 @@
 							
 							<%--<span class="input-group-addon"><span class="glyphicon-calendar glyphicon"></span>
 							</span>--%>
-							<asp:Button ID="m_cmd_xem_khoi_luong" CssClass="btn btn-sm" runat="server" Text="Tải dữ liệu" OnClick="m_cmd_xem_khoi_luong_Click" />
+							<asp:Button ID="m_cmd_xem_khoi_luong" CssClass="btn btn-sm btn-primary" runat="server" Text="Tải dữ liệu" OnClick="m_cmd_xem_khoi_luong_Click" />
 						</div>
 						
 					</td>
@@ -154,8 +154,8 @@
 							<tr>
 								<td colspan="3" style="text-align: center">
 									<br />
-									<asp:Button ID="m_cmd_cap_nhat" runat="server" CssClass="btn" Text="Ghi dữ liệu" OnClick="m_cmd_cap_nhat_Click" />
-									<asp:Button ID="m_cmd_xoa_trang" runat="server" CssClass="btn" Text="Huỷ thao tác" OnClick="m_cmd_xoa_trang_Click" />
+									<asp:Button ID="m_cmd_cap_nhat" runat="server" CssClass="btn btn-sm btn-success" Text="Ghi dữ liệu" OnClick="m_cmd_cap_nhat_Click" />
+									<asp:Button ID="m_cmd_xoa_trang" runat="server" CssClass="btn btn-sm" Text="Huỷ thao tác" OnClick="m_cmd_xoa_trang_Click" />
 								</td>
 							</tr>
 						</table>

@@ -114,7 +114,7 @@
 
 												</td>
 												<td style="width: 25%; text-align: right">
-													<asp:Button ID="m_cmd_chon_qd_da_nhap" CssClass="btn" Text="Chọn QĐ" OnClick="m_cmd_chon_qd_da_nhap_Click" runat="server" /></td>
+													<asp:Button ID="m_cmd_chon_qd_da_nhap" CssClass="btn btn-sm btn-primary" Text="Chọn QĐ" OnClick="m_cmd_chon_qd_da_nhap_Click" runat="server" /></td>
 												<%--<td style="width: 20%"></td>--%>
 											</tr>
                                             <tr>
@@ -183,8 +183,8 @@
 														<asp:DropDownList ID="m_ddl_cong_trinh" runat="server" CssClass="select2" Width="155px" OnSelectedIndexChanged="m_ddl_cong_trinh_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
 													</td>
 													<td>
-														<asp:Button ID="m_cmd_them_quoc_lo" CssClass="btn" Style="width: 80px" Text="Nhập mới" OnClick="m_cmd_them_quoc_lo_Click" runat="server" />
-														<asp:Button ID="m_cmd_chon_quoc_lo" CssClass="btn" Style="width: 80px" Text="Chọn" Visible="false" OnClick="m_cmd_chon_quoc_lo_Click" runat="server" />
+														<asp:Button ID="m_cmd_them_quoc_lo" CssClass="btn btn-sm btn-primary" Text="Nhập mới" OnClick="m_cmd_them_quoc_lo_Click" runat="server" />
+														<asp:Button ID="m_cmd_chon_quoc_lo" CssClass="btn btn-sm btn-primary"  Text="Chọn" Visible="false" OnClick="m_cmd_chon_quoc_lo_Click" runat="server" />
 													</td>
 												</tr>
 												<tr>
@@ -194,8 +194,8 @@
 														<asp:DropDownList ID="m_ddl_du_an" runat="server" CssClass="select2" Width="155px" AutoPostBack="true"></asp:DropDownList>
 													</td>
 													<td>
-														<asp:Button ID="m_cmd_chon_du_an" CssClass="btn" Style="width: 80px" Text="Chọn" Visible="false" OnClick="m_cmd_chon_du_an_Click" runat="server" />
-														<asp:Button ID="m_cmd_them_du_an" CssClass="btn" Style="width: 80px" Text="Nhập mới" OnClick="m_cmd_them_du_an_Click" runat="server" />
+														<asp:Button ID="m_cmd_chon_du_an" CssClass="btn btn-sm btn-primary" Text="Chọn" Visible="false" OnClick="m_cmd_chon_du_an_Click" runat="server" />
+														<asp:Button ID="m_cmd_them_du_an" CssClass="btn btn-sm btn-primary" Text="Nhập mới" OnClick="m_cmd_them_du_an_Click" runat="server" />
 													</td>
 												</tr>
 											</asp:Panel>
@@ -317,9 +317,9 @@
 											<tr>
 
 												<td colspan="3" style="text-align: center">
-													<asp:Button ID="m_cmd_insert" CssClass="btn btn-primary" Text="Ghi dữ liệu" runat="server" OnClick="m_cmd_insert_Click" />
-													<asp:Button ID="m_cmd_update" CssClass="btn" Text="Cập nhật" runat="server" OnClick="m_cmd_update_Click" />
-													<asp:Button ID="m_cmd_cancel" CssClass="btn" Text="Huỷ thao tác" runat="server" OnClick="m_cmd_cancel_Click" />
+													<asp:Button ID="m_cmd_insert" CssClass="btn btn-sm btn-success" Text="Ghi dữ liệu" runat="server" OnClick="m_cmd_insert_Click" />
+													<asp:Button ID="m_cmd_update" CssClass="btn btn-sm btn-success" Text="Cập nhật" runat="server" OnClick="m_cmd_update_Click" />
+													<asp:Button ID="m_cmd_cancel" CssClass="btn btn-sm" Text="Huỷ thao tác" runat="server" OnClick="m_cmd_cancel_Click" />
 													<asp:HiddenField ID="m_hdf_id_du_an" runat="server" />
 												</td>
 											</tr>

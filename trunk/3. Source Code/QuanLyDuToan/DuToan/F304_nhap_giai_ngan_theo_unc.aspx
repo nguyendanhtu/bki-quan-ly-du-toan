@@ -112,13 +112,13 @@
 												<span>Số UNC (*)</span>
 											</td>
 											<td colspan="2">
-												<asp:TextBox ID="m_txt_so_unc" runat="server" placeholder="59Qtu" CssClass="cssTextBox form-control" Width="150px"></asp:TextBox>
-												<asp:DropDownList ID="m_ddl_unc" CssClass="select2" Visible="false" runat="server" Width="152px"
+												<asp:TextBox ID="m_txt_so_unc" runat="server" placeholder="59Qtu" CssClass="cssTextBox form-control" Width="200px"></asp:TextBox>
+												<asp:DropDownList ID="m_ddl_unc" CssClass="select2" Visible="false" runat="server" Width="200px"
 													OnSelectedIndexChanged="m_ddl_unc_SelectedIndexChanged" AutoPostBack="true">
 												</asp:DropDownList>
-												<asp:Button ID="m_cmd_chon_unc" runat="server" Text="Chọn UNC" CssClass="btn btn-sm"
+												<asp:Button ID="m_cmd_chon_unc" runat="server" Text="Chọn UNC" CssClass="btn btn-sm btn-primary"
 													OnClick="m_cmd_chon_unc_Click" />
-												<asp:Button ID="m_cmd_nhap_moi_unc" runat="server" Text="Nhập mới UNC" CssClass="btn btn-sm"
+												<asp:Button ID="m_cmd_nhap_moi_unc" runat="server" Text="Nhập mới UNC" CssClass="btn btn-sm btn-primary"
 													OnClick="m_cmd_nhap_moi_unc_Click" />
 
 											</td>
@@ -163,7 +163,7 @@
 
                                             </td>
                                              <td  style="margin:auto;">
-                                                <asp:Button ID="m_cmd_luu_unc"  runat="server" CssClass="btn btn-sm btn-primary" OnClick="m_cmd_luu_unc_Click" Text="Lưu Uỷ nhiệm chi" />
+                                                <asp:Button ID="m_cmd_luu_unc"  runat="server" CssClass="btn btn-sm btn-success" OnClick="m_cmd_luu_unc_Click" Text="Lưu Uỷ nhiệm chi" />
                                             </td>
                                         </tr>
 										<tr>
@@ -279,10 +279,10 @@
 																<table class="table bordertop0" style="width: 100%">
 																	<tr>
 																		<td style="width: 50%; text-align: center">
-																			<asp:LinkButton ID="lbtnUpdate" cssclass="btn btn-primary btn-sm" runat="server"  CommandName="Update" ForeColor="White"
+																			<asp:Button ID="lbtnUpdate" cssclass="btn btn-success btn-sm" runat="server"  CommandName="Update" ForeColor="White"
 																				Text="Cập nhật" /></td>
 																		<td style="width: 50%; text-align: center">
-																			<asp:LinkButton ID="lbtnCancel" cssclass="btn btn-primary  btn-sm" runat="server" CommandName="Cancel"  ForeColor="White"
+																			<asp:Button ID="lbtnCancel" cssclass="btn btn-sm" runat="server" CommandName="Cancel"
 																				Text="Huỷ thao tác" /></td>
 																	</tr>
 																</table>
@@ -296,7 +296,7 @@
 																			<asp:LinkButton ID="lbtnEdit" runat="server" CommandName="Edit" CssClass="btn btn-sm"
 																				Text="Sửa" Visible='<%#thao_tac_visible(Eval(GRID_GIAI_NGAN.ID).ToString()) %>' ForeColor="White">   <img alt="Sửa" src="../Images/Button/edit.png" /></asp:LinkButton></td>
 																		<td style="width: 50%; text-align: center">
-																			<asp:LinkButton ID="lbtnDelete" runat="server" CommandName="Delete" CssClass="btn btn-sm" 
+																			<asp:LinkButton ID="lbtnDelete" runat="server" CommandName="Delete" CssClass="btn btn-sm btn-" 
 																				OnClientClick="return confirm('Bạn có chắc chắn muốn xoá mục chi này không?')" 
 
 																				Text="Xoá" CausesValidation="false" Visible='<%#thao_tac_visible(Eval(GRID_GIAI_NGAN.ID).ToString()) %>'
@@ -312,7 +312,7 @@
 
 															</ItemTemplate>
 															<FooterTemplate>
-																<asp:LinkButton ID="lbtnAdd" runat="server" cssclass="btn btn-sm btn-primary" CommandName="Add" ForeColor="White"
+																<asp:LinkButton ID="lbtnAdd" runat="server" cssclass="btn btn-sm btn-success" CommandName="Add" ForeColor="White"
 																	Text="Thêm mới" />
 															</FooterTemplate>
 														</asp:TemplateField>
@@ -514,9 +514,9 @@
 							</tr>
 							<tr>
 								<td colspan="6" style="text-align: center">
-									<asp:Button ID="m_cmd_save_info_unc" Text="Lưu thông tin" runat="server" CssClass="btn btn-sm btn-primary" 
+									<asp:Button ID="m_cmd_save_info_unc" Text="Lưu thông tin" runat="server" CssClass="btn btn-sm btn-success" 
 										OnClick="m_cmd_save_info_unc_Click" />
-									<asp:HyperLink ID="m_cmd_print" runat="server" CssClass="btn btn-sm btn-success"
+									<asp:HyperLink ID="m_cmd_print" runat="server" CssClass="btn btn-sm btn-primary" ForeColor="White"
 										Target="_blank" Text="Xem bản in" Visible="false"></asp:HyperLink></td>
 							</tr>
 						</table>
