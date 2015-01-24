@@ -465,6 +465,7 @@ namespace WebUS
             v_sp.addDatetimeInputParam("@ip_dat_tu_ngay", ip_dat_tu_ngay);
             v_sp.addDatetimeInputParam("@ip_dat_den_ngay", ip_dat_den_ngay);
             v_sp.addDecimalInputParam("@ip_dc_id_quyet_dinh", ip_dc_id_quyet_dinh);
+			v_sp.addDecimalInputParam("@ip_dc_id_loai_quyet_dinh_giao", ip_dc_id_quyet_dinh);
             v_sp.fillDataSetByCommand(this, ip_ds);
         }
     }

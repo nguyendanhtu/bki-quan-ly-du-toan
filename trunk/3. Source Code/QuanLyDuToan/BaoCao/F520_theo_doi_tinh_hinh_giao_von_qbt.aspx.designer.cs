@@ -10,7 +10,7 @@
 namespace QuanLyDuToan.BaoCao {
 
 
-	public partial class F520_theo_doi_giao_von_QBT
+	public partial class F520_theo_doi_tinh_hinh_giao_von_qbt
 	{
         
         /// <summary>

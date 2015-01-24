@@ -12,7 +12,7 @@ using IP.Core.IPCommon;
 
 namespace QuanLyDuToan.BaoCao
 {
-	public partial class F520_theo_doi_giao_von_QBT : System.Web.UI.Page
+	public partial class F520_theo_doi_tinh_hinh_giao_von_qbt : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -34,7 +34,7 @@ namespace QuanLyDuToan.BaoCao
             v_ds.AcceptChanges();
             US_GD_CHI_TIET_GIAO_VON v_us = new US_GD_CHI_TIET_GIAO_VON();
             v_us.FillDatasetWithProcedure(
-                "pr_520_lay_tong_tien_giao_kh_qbt"
+				"pr_F520_lay_tong_tien_giao_kh_qbt"
                 ,v_ds
                 ,CIPConvert.ToDatetime(str_tu_ngay,c_configuration.DEFAULT_DATETIME_FORMAT)
                 ,CIPConvert.ToDatetime(str_den_ngay,c_configuration.DEFAULT_DATETIME_FORMAT)
@@ -57,7 +57,7 @@ namespace QuanLyDuToan.BaoCao
             //1. tính "kế hoạch chính thức",các cột "kế hoạch bổ sung"
             v_ds.Clear();
             v_us.FillDatasetWithProcedure(
-                "pr_520_lay_tong_tien_giao_kh_qbt"
+				"pr_F520_lay_tong_tien_giao_von_qbt"
                 ,v_ds
                 ,CIPConvert.ToDatetime(str_tu_ngay,c_configuration.DEFAULT_DATETIME_FORMAT)
                 ,CIPConvert.ToDatetime(str_den_ngay,c_configuration.DEFAULT_DATETIME_FORMAT)
@@ -69,7 +69,7 @@ namespace QuanLyDuToan.BaoCao
             {
                 v_ds.Clear();
                 v_us.FillDatasetWithProcedure(
-                "pr_520_lay_tong_tien_giao_kh_qbt"
+				"pr_F520_lay_tong_tien_nam_truoc_chuyen_sang"
                 ,v_ds
                 ,CIPConvert.ToDatetime(str_tu_ngay,c_configuration.DEFAULT_DATETIME_FORMAT)
                 ,CIPConvert.ToDatetime(str_den_ngay,c_configuration.DEFAULT_DATETIME_FORMAT)
@@ -80,7 +80,7 @@ namespace QuanLyDuToan.BaoCao
             //2. tính cột số dư năm trước chuyên sang
             v_ds.Clear();
             v_us.FillDatasetWithProcedure(
-                "pr_520_lay_tong_tien_nam_truoc_chuyen_sang"
+				"pr_F520_lay_tong_tien_nam_truoc_chuyen_sang"
                 , v_ds
                 , CIPConvert.ToDatetime(str_tu_ngay, c_configuration.DEFAULT_DATETIME_FORMAT)
                 , CIPConvert.ToDatetime(str_den_ngay, c_configuration.DEFAULT_DATETIME_FORMAT)
@@ -89,7 +89,7 @@ namespace QuanLyDuToan.BaoCao
             //3. tính cột "tổng giao vốn", các cột "giao vốn theo các quyết định"
             v_ds.Clear();
             v_us.FillDatasetWithProcedure(
-                "pr_520_lay_tong_tien_giao_von_qbt"
+				"pr_F520_lay_tong_tien_giao_von_qbt"
                 , v_ds
                 , CIPConvert.ToDatetime(str_tu_ngay, c_configuration.DEFAULT_DATETIME_FORMAT)
                 , CIPConvert.ToDatetime(str_den_ngay, c_configuration.DEFAULT_DATETIME_FORMAT)
@@ -101,7 +101,7 @@ namespace QuanLyDuToan.BaoCao
             {
                 v_ds.Clear();
                 v_us.FillDatasetWithProcedure(
-                    "pr_520_lay_tong_tien_giao_von_qbt"
+					"pr_F520_lay_tong_tien_giao_von_qbt"
                     , v_ds
                     , CIPConvert.ToDatetime(str_tu_ngay, c_configuration.DEFAULT_DATETIME_FORMAT)
                     , CIPConvert.ToDatetime(str_den_ngay, c_configuration.DEFAULT_DATETIME_FORMAT)
