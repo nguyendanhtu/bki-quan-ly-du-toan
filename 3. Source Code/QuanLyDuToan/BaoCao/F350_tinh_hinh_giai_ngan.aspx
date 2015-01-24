@@ -182,8 +182,8 @@
 				<tr>
 
 					<td colspan="4" style="text-align: center">
-						<asp:Button ID="m_cmd_xem_bao_cao" Text="Xem báo cáo" OnClick="m_cmd_xem_bao_cao_Click" runat="server" Height="24px" Width="98px" />
-						<asp:Button ID="m_cmd_xuat_excel" Text="Xuất excel" OnClick="m_cmd_xuat_excel_Click" runat="server" Height="24px" Width="98px" />
+						<asp:Button ID="m_cmd_xem_bao_cao" Text="Xem báo cáo" OnClick="m_cmd_xem_bao_cao_Click" runat="server" CssClass="btn btn-sm btn-primary"  />
+						<asp:Button ID="m_cmd_xuat_excel" Text="Xuất excel" OnClick="m_cmd_xuat_excel_Click" runat="server" CssClass="btn btn-sm btn-primary" />
 					</td>
 				</tr>
 				<tr>
@@ -211,7 +211,7 @@
 									</asp:TemplateField>
 									<asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="(1)" HeaderStyle-Height="10px">
 										<ItemTemplate>
-											<a class='a<%# Eval(GRID_GIAI_NGAN.ID)%>' href="F157_bao_cao_giao_kh_quy_bt_theo_qd.aspx<%# format_link_to_chi_tiet(
+											<a class='a<%# Eval(GRID_GIAI_NGAN.ID)%>' href="F157_giao_ke_hoach_theo_quyet_dinh.aspx<%# format_link_to_chi_tiet(
                                                     Eval(RPT_BC_TINH_HINH_GIAI_NGAN.REPORT_LEVEL)
                                                     ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID_DON_VI)
                                                     ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID_LOAI_NHIEM_VU)
@@ -251,7 +251,7 @@
 									</asp:TemplateField>
 									<asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="(4)" HeaderStyle-Height="10px">
 										<ItemTemplate>
-											<a class='a<%# Eval(GRID_GIAI_NGAN.ID)%>' href="F257_bao_cao_giao_von_quy_bt_theo_qd.aspx<%# format_link_to_chi_tiet_trong_thang(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.REPORT_LEVEL)
+											<a class='a<%# Eval(GRID_GIAI_NGAN.ID)%>' href="F257_giao_von_theo_quyet_dinh.aspx<%# format_link_to_chi_tiet_trong_thang(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.REPORT_LEVEL)
                                                    ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID_DON_VI)
                                                     ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID_LOAI_NHIEM_VU)
                                                     ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID_CONG_TRINH_KHOAN)
@@ -263,7 +263,7 @@
 									</asp:TemplateField>
 									<asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="(5)" HeaderStyle-Height="10px">
 										<ItemTemplate>
-											<a class='a<%# Eval(GRID_GIAI_NGAN.ID)%>' href="F257_bao_cao_giao_von_quy_bt_theo_qd.aspx<%# format_link_to_chi_tiet(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.REPORT_LEVEL)
+											<a class='a<%# Eval(GRID_GIAI_NGAN.ID)%>' href="F257_giao_von_theo_quyet_dinh.aspx<%# format_link_to_chi_tiet(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.REPORT_LEVEL)
                                                    ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID_DON_VI)
                                                     ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID_LOAI_NHIEM_VU)
                                                     ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID_CONG_TRINH_KHOAN)
@@ -300,7 +300,7 @@
 									<asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="(8)" HeaderStyle-Height="10px">
 										<ItemTemplate>
 											
-											<a class='a<%# Eval(GRID_GIAI_NGAN.ID)%>' href="F357_bao_cao_giai_ngan_quy_bt_theo_dm.aspx<%# format_link_to_chi_tiet_trong_thang(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.REPORT_LEVEL)
+											<a class='a<%# Eval(GRID_GIAI_NGAN.ID)%>' href="F357_giai_ngan_theo_uy_nhiem_chi.aspx<%# format_link_to_chi_tiet_trong_thang(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.REPORT_LEVEL)
                                                     ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID_DON_VI)
                                                     ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID_LOAI_NHIEM_VU)
                                                     ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID_CONG_TRINH_KHOAN)
@@ -312,7 +312,7 @@
 									</asp:TemplateField>
 									<asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="(9)" HeaderStyle-Height="10px">
 										<ItemTemplate>
-											<a class='a<%# Eval(GRID_GIAI_NGAN.ID)%>' href="F357_bao_cao_giai_ngan_quy_bt_theo_dm.aspx<%# format_link_to_chi_tiet(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.REPORT_LEVEL)
+											<a class='a<%# Eval(GRID_GIAI_NGAN.ID)%>' href="F357_giai_ngan_theo_uy_nhiem_chi.aspx<%# format_link_to_chi_tiet(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.REPORT_LEVEL)
                                                   ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID_DON_VI)
                                                     ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID_LOAI_NHIEM_VU)
                                                     ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID_CONG_TRINH_KHOAN)
@@ -331,7 +331,7 @@
 									</asp:TemplateField>
 									<asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="(11)" HeaderStyle-Height="10px">
 										<ItemTemplate>
-											<a class='a<%# Eval(GRID_GIAI_NGAN.ID)%>' href="F357_bao_cao_giai_ngan_quy_bt_theo_dm.aspx<%# format_link_to_chi_tiet(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.REPORT_LEVEL)
+											<a class='a<%# Eval(GRID_GIAI_NGAN.ID)%>' href="F357_giai_ngan_theo_uy_nhiem_chi.aspx<%# format_link_to_chi_tiet(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.REPORT_LEVEL)
                                                     ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID_DON_VI)
                                                     ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID_LOAI_NHIEM_VU)
                                                     ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID_CONG_TRINH_KHOAN)

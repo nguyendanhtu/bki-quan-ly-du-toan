@@ -189,7 +189,7 @@
 
 					<td colspan="4" style="text-align: center">
 						<asp:Button CssClass="btn btn-sm btn-primary" ID="m_cmd_xem_bao_cao" Text="Xem báo cáo" runat="server" OnClick="m_cmd_xem_bao_cao_Click" />
-						<asp:Button CssClass="btn btn-sm btn-success" ID="m_cmd_xuat_excel" Text="Xuất excel" runat="server" OnClick="m_cmd_xuat_excel_Click" />
+						<asp:Button CssClass="btn btn-sm btn-primary" ID="m_cmd_xuat_excel" Text="Xuất excel" runat="server" OnClick="m_cmd_xuat_excel_Click" />
 					</td>
 				</tr>
 				<tr>

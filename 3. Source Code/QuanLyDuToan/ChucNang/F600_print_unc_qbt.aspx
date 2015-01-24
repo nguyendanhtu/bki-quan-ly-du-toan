@@ -333,7 +333,7 @@
 
 										</td>
 										<td style="width: 70%; vertical-align: top">
-											<table style="width: 100%">
+											<table style="width: 100%;" cellspacing="0px">
 												<tr>
 													<td colspan="2" style="text-align: center; font-weight: bold">KBNN A</td>
 												</tr>
@@ -366,7 +366,7 @@
 						</tr>
 						<tr>
 							<td colspan="3">
-								<table style="width: 100%; border-top: 1px solid gray">
+								<table style="width: 100%; border-top: 1px solid gray"  cellspacing="0px">
 									<tr>
 										<td style="width: 50%; text-align: center; border-right: 1px solid gray; border-bottom: hidden">
 											<p>NGÂN HÀNG A GHI SỐ NGÀY........</p>

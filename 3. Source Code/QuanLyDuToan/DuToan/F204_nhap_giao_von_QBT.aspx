@@ -84,9 +84,9 @@
 									</td>
 									<td style="width: 35%">
 										<asp:TextBox ID="m_txt_so_qd" runat="server" CssClass="cssTextBox form-control" Width="150px" placeholder="Vd: 371/QĐ-BGTVT" Visible="false"></asp:TextBox>
-										<asp:DropDownList ID="m_ddl_quyet_dinh" CssClass="select2" runat="server" Width="176px" Visible="true" OnSelectedIndexChanged="m_ddl_quyet_dinh_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
+										<asp:DropDownList ID="m_ddl_quyet_dinh" CssClass="select2" runat="server" Width="200px" Visible="true" OnSelectedIndexChanged="m_ddl_quyet_dinh_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
 										
-										<asp:Button ID="m_cmd_chon_qd_da_nhap" CssClass="btn btn-sm" Text="Chọn QĐ" OnClick="m_cmd_chon_qd_da_nhap_Click" runat="server" />
+										<asp:Button ID="m_cmd_chon_qd_da_nhap" CssClass="btn btn-sm btn-primary" Text="Chọn QĐ" OnClick="m_cmd_chon_qd_da_nhap_Click" runat="server" />
 									</td>
 									<td style="width: 15%; padding-top: 16px; text-align: right">
 										<span>Ngày tháng</span>
@@ -125,9 +125,9 @@
 						<asp:Panel ID="m_pnl" runat="server" GroupingText="Nội dung chi tiết">
 							<table class="table bordertop0" style="width: 100%;">
 								<tr>
-									<td style="width: 20%">Loại nhiệm vụ</td>
+									<td style="width: 15%;text-align:right">Loại nhiệm vụ</td>
 									<td>
-										<asp:DropDownList CssClass="select2" ID="m_ddl_loai_nhiem_vu" runat="server" Width="250px" AutoPostBack="true" OnSelectedIndexChanged="m_ddl_loai_nhiem_vu_SelectedIndexChanged">
+										<asp:DropDownList CssClass="select2" ID="m_ddl_loai_nhiem_vu" runat="server" Width="200px" AutoPostBack="true" OnSelectedIndexChanged="m_ddl_loai_nhiem_vu_SelectedIndexChanged">
 										</asp:DropDownList>
 									</td>
 								</tr>
@@ -219,14 +219,6 @@
                                                             </asp:TemplateField>--%>
 														</Columns>
                                                            <AlternatingRowStyle BackColor="White" />
-							                                <EditRowStyle BackColor="#7C6F57" />
-							                                <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
-							                                <HeaderStyle BackColor="#810c15" Font-Bold="True" ForeColor="White" />
-							                                <PagerSettings Position="TopAndBottom" />
-							                                <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
-							                                <RowStyle BackColor="#E3EAEB" />
-							                                <SelectedRowStyle CssClass="cssSelectedRow" BackColor="#C5BBAF" Font-Bold="True"
-								                                ForeColor="#333333"></SelectedRowStyle>
                                                     </asp:GridView>
 													
 												</td>
@@ -234,8 +226,8 @@
 											<tr>
 												<td colspan="3" style="text-align: center">
 													<br />
-													<asp:Button ID="m_cmd_cap_nhat" CssClass="btn margin_r20 btn-primary" runat="server" Text="Ghi dữ liệu" OnClick="m_cmd_cap_nhat_Click" />
-													<asp:Button ID="m_cmd_xoa_trang" CssClass="btn" runat="server" Text="Huỷ thao tác" OnClick="m_cmd_xoa_trang_Click" />
+													<asp:Button ID="m_cmd_cap_nhat" CssClass="btn btn-sm btn-success" runat="server" Text="Ghi dữ liệu" OnClick="m_cmd_cap_nhat_Click" />
+													<asp:Button ID="m_cmd_xoa_trang" CssClass="btn btn-sm" runat="server" Text="Huỷ thao tác" OnClick="m_cmd_xoa_trang_Click" />
 												</td>
 											</tr>
 										</table>
