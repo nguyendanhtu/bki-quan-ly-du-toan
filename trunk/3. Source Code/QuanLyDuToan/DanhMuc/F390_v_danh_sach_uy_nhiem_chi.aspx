@@ -41,29 +41,58 @@
 
 	<asp:UpdatePanel ID="UpdatePanel1" runat="server">
 		<ContentTemplate>
-			<div style="width:1100px; margin: auto">
-				<div style="text-align: center;">
+			<div style="width: 1100px; margin: auto; border: 1px solid">
+
+
+				<div style="text-align: center;margin-bottom:-33px">
 					<span style="font-weight: bold">CỘNG HOÀ XÃ HỘI CHỦ NGHĨA VIỆT NAM</span>
 					<br />
 					<span style="font-weight: bold">Độc lập - Tự do - Hạnh Phúc</span>
 					<br />
 					<br />
-					<span style="font-weight: bold">DANH SÁCH ỦY NHIỆM CHI</span>
+					<span style="font-weight: bold">DANH SÁCH QUYẾT ĐỊNH GIAO KẾ HOẠCH</span>
+					<br />
+					Đơn vị <asp:DropDownList ID="m_ddl_don_vi" CssClass="select2" runat="server" AutoPostBack="true" OnSelectedIndexChanged="m_ddl_don_vi_SelectedIndexChanged" Width="200px"></asp:DropDownList>
 				</div>
-				<div style="color: black; text-align: center; margin-top: 20px;">
-					<tr>
-						<td style="text-align: right">Đơn vị:</td>
-						<td colspan="2">
-							<asp:DropDownList ID="m_ddl_don_vi" CssClass="select2" runat="server" AutoPostBack="true" OnSelectedIndexChanged="m_ddl_don_vi_SelectedIndexChanged" Width="200px"></asp:DropDownList></td>
-					</tr>
-					<span>Từ khóa tìm kiếm: </span>
-					<asp:TextBox runat="server" ID="m_txt_tu_khoa_tim_kiem" Style="width: 200px;"></asp:TextBox>
-					<span>Từ ngày: </span>
-					<asp:TextBox runat="server" CssClass="datepicker" ID="m_txt_tu_ngay" Style="width: 200px; text-align: right"></asp:TextBox>
-					<span>Đến ngày: </span>
-					<asp:TextBox runat="server" ID="m_txt_den_ngay" CssClass="datepicker" Style="width: 200px; text-align: right"></asp:TextBox>
-					<asp:Button runat="server" CssClass="btn" Text="Tìm kiếm" ID="m_cmd_tim_kiem" OnClick="m_cmd_tim_kiem_Click" />
-				</div>
+				<div style="color: black; text-align: left; margin: 50px">
+					<table style="margin:50px auto; margin-top:20px; padding-top:">
+						<tr style="height:59px">
+							<td>Từ khóa tìm kiếm </td>
+							<td colspan="4">
+								<asp:TextBox runat="server" ID="m_txt_tu_khoa_tim_kiem" CssClass="form-control" Width="439px"></asp:TextBox>
+								</td>
+						</tr>
+                        <tr>
+							<td  style="text-align:right">Từ ngày </td>
+							<td style="text-align:left">
+								<asp:TextBox runat="server" CssClass="form-control" ID="m_txt_tu_ngay" Style="width: 164px; text-align: right"></asp:TextBox></td>
+							<td style="width:32px"></td>
+							<td>Đến ngày </td>
+							<td style="text-align:left">
+								<asp:TextBox runat="server" ID="m_txt_den_ngay" CssClass="form-control" Style="width: 164px; text-align: right"></asp:TextBox></td>
+						</tr>
+						<tr>
+							<td style="height:10px"></td>
+						</tr>
+                        <tr>
+                            <td colspan="2" style="text-align: right"><asp:Button Width="79px" runat="server" CssClass="btn btn-primary btn-sm" Text="Tìm kiếm" ID="Button1" OnClick="m_cmd_tim_kiem_Click" /></td>
+                            <td style="width:32px"></td>
+                            <td><asp:Button runat="server" Text="Xuất excel" CssClass="btn btn-sm btn-primary" ID="m_cmd_xuat_excel" OnClick="m_cmd_xuat_excel_Click"></asp:Button></td>
+                        </tr>
+						
+					</table>
+
+
+					<div>
+
+
+						<div style="text-align: center">
+							<asp:Label ID="m_lbl_mess" runat="server" CssClass="cssManField"></asp:Label>
+							<br />
+							<asp:Label ID="m_lbl_info" runat="server" CssClass="cssManField"></asp:Label>
+							<br />
+
+						</div>
 				<div style="width: 800px; margin: 20px auto;">
 					<asp:GridView runat="server" ID="m_grv_bao_cao_giao_von" Style="width: 100%;" AutoGenerateColumns="False" EnableModelValidation="True">
 						<Columns>
@@ -93,9 +122,7 @@
 
 					</asp:GridView>
 				</div>
-				<div style="text-align: center">
-					<asp:Button runat="server" Text="Xuất excel" CssClass="btn btn-sm btn-primary" ID="m_cmd_xuat_excel" OnClick="m_cmd_xuat_excel_Click"></asp:Button>
-				</div>
+				
 			</div>
 		</ContentTemplate>
 		<Triggers>

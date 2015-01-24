@@ -8,10 +8,9 @@
 //------------------------------------------------------------------------------
 
 namespace QuanLyDuToan.DanhMuc {
-
-
-	public partial class F290_danh_sach_quyet_dinh_giao_von
-	{
+    
+    
+    public partial class F290_danh_sach_quyet_dinh_giao_von {
         
         /// <summary>
         /// ScriptManager1 control.
@@ -68,13 +67,40 @@ namespace QuanLyDuToan.DanhMuc {
         protected global::System.Web.UI.WebControls.TextBox m_txt_den_ngay;
         
         /// <summary>
-        /// m_cmd_tim_kiem control.
+        /// Button1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button m_cmd_tim_kiem;
+        protected global::System.Web.UI.WebControls.Button Button1;
+        
+        /// <summary>
+        /// m_cmd_xuat_excel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button m_cmd_xuat_excel;
+        
+        /// <summary>
+        /// m_lbl_mess control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label m_lbl_mess;
+        
+        /// <summary>
+        /// m_lbl_info control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label m_lbl_info;
         
         /// <summary>
         /// m_grv control.
@@ -86,13 +112,40 @@ namespace QuanLyDuToan.DanhMuc {
         protected global::System.Web.UI.WebControls.GridView m_grv;
         
         /// <summary>
-        /// m_cmd_xuat_excel control.
+        /// m_txt_so_quyet_dinh control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button m_cmd_xuat_excel;
+        protected global::System.Web.UI.WebControls.TextBox m_txt_so_quyet_dinh;
+        
+        /// <summary>
+        /// m_txt_ngay_thang control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox m_txt_ngay_thang;
+        
+        /// <summary>
+        /// m_txt_noi_dung control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox m_txt_noi_dung;
+        
+        /// <summary>
+        /// m_ddl_loai_quyet_dinh_giao control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList m_ddl_loai_quyet_dinh_giao;
         
         /// <summary>
         /// UpdateProgress1 control.

@@ -8,10 +8,9 @@
 //------------------------------------------------------------------------------
 
 namespace QuanLyDuToan.DanhMuc {
-
-
-	public partial class F390_v_danh_sach_uy_nhiem_chi
-	{
+    
+    
+    public partial class F390_v_danh_sach_uy_nhiem_chi {
         
         /// <summary>
         /// ScriptManager1 control.
@@ -68,13 +67,40 @@ namespace QuanLyDuToan.DanhMuc {
         protected global::System.Web.UI.WebControls.TextBox m_txt_den_ngay;
         
         /// <summary>
-        /// m_cmd_tim_kiem control.
+        /// Button1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button m_cmd_tim_kiem;
+        protected global::System.Web.UI.WebControls.Button Button1;
+        
+        /// <summary>
+        /// Button2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button2;
+        
+        /// <summary>
+        /// m_lbl_mess control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label m_lbl_mess;
+        
+        /// <summary>
+        /// m_lbl_info control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label m_lbl_info;
         
         /// <summary>
         /// m_grv_bao_cao_giao_von control.
