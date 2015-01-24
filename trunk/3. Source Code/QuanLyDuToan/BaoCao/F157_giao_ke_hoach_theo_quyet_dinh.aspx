@@ -221,7 +221,7 @@
 										<HeaderStyle HorizontalAlign="Center" Width="30%" />
 										<ItemStyle HorizontalAlign="Right" />
 									</asp:BoundField>
-									<asp:BoundField DataField="tong_tien" DataFormatString="{0:N0}"></asp:BoundField>
+									<asp:BoundField DataField="tong_tien" DataFormatString="{0:N0}"  ItemStyle-HorizontalAlign="Right"></asp:BoundField>
 									<asp:TemplateField>
 										<HeaderStyle HorizontalAlign="Center" CssClass="header_quyet_dinh" Width="30%" />
 										<ItemStyle HorizontalAlign="Right" />
