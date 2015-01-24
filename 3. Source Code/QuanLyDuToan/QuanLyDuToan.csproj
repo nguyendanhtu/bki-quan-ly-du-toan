@@ -92,7 +92,7 @@
     <Content Include="Downloadify\test.html" />
     <Content Include="Scripts\ExportExcel.js" />
     <Content Include="Scripts\plugins\datepicker\locales\bootstrap-datepicker.vi.js" />
-    <Content Include="Template\Temp1.txt" />
+    <Content Include="Template\TPL_F530.txt" />
     <Content Include="UserControl\MessageBoxUserControl.ascx" />
     <Content Include="DanhMuc\test.aspx" />
     <Content Include="DuToan\f205_nhap_giao_ke_hoach_qbt.aspx" />

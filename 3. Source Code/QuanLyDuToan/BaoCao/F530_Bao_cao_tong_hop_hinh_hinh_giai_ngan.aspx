@@ -43,11 +43,11 @@
 		function pageLoad(sender, args) {
 			if (args.get_isPartialLoad()) {
 				var m = new Map();
-                m.set("<nam>", "2015");
-                m.set("<thang>", "9");
+                m.set("<year>", "2015");
+                m.set("<month>", "9");
                 m.set("<tu_ngay>", m_txt_tu_ngay.value);
                 m.set("<den_ngay>", m_txt_den_ngay.value);
-                getData("temp1", "m_grv", "Bao_cao_tong_hop_tinh_hinh_giai_ngan", m);
+                getData("TPL_F530", "m_grv", "Bao_cao_tong_hop_tinh_hinh_giai_ngan", m);
 
 				$('#double-scroll').doubleScroll();
 				$("#<%=m_txt_tu_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
@@ -61,7 +61,7 @@
             m.set("<thang>", "9");
             m.set("<tu_ngay>", m_txt_tu_ngay.value);
             m.set("<den_ngay>", m_txt_den_ngay.value);
-            getData("temp1", "m_grv", "Bao_cao_tong_hop_tinh_hinh_giai_ngan", m);
+            getData("TPL_F530", "m_grv", "Bao_cao_tong_hop_tinh_hinh_giai_ngan", m);
 
             $('#double-scroll').doubleScroll();
             $("#<%=m_txt_tu_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
@@ -121,11 +121,15 @@
 				<tr>
 
 					<td colspan="4" style="text-align: center">
-						<asp:Button ID="m_cmd_xem_bao_cao" Text="Xem báo cáo" OnClick="m_cmd_xem_bao_cao_Click" runat="server" CssClass="btn btn-sm btn-primary" />
-						<asp:Button ID="m_cmd_xuat_excel" Text="Xuất excel" OnClick="m_cmd_xuat_excel_Click" runat="server" CssClass="btn btn-sm btn-primary" />
-                        <p id="downloadify">
-				            You must have Flash 10 installed to download this file.
-			            </p>
+                        <div style="margin:0px auto;width: 200px;">
+                            <div style="width: 100px; margin: 0px auto;float: left;">
+						        <asp:Button ID="m_cmd_xem_bao_cao" Text="Xem báo cáo" OnClick="m_cmd_xem_bao_cao_Click" runat="server" CssClass="btn btn-sm btn-primary" />
+						    </div>
+                            <div id="downloadify" style="width: 100px; margin: 0px auto;float: left;">
+				                You must have Flash 10 installed to download this file.
+			                </div>
+                        </div>
+                        <asp:Button ID="m_cmd_xuat_excel" Text="Xuất excel" OnClick="m_cmd_xuat_excel_Click" runat="server" CssClass="btn btn-sm btn-primary" Visible="false" />
 					</td>
 				</tr>
 				<tr>
