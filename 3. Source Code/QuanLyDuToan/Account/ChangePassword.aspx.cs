@@ -19,7 +19,7 @@ namespace QuanLyDuToan.Account
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
-
+            m_lbl_mess.Text = "";
 		}
 
 		#region Members
@@ -84,6 +84,7 @@ namespace QuanLyDuToan.Account
 				form_2_us_nguoi_su_dung();
 				m_us_ht_nguoi_su_dung.change_pass_word();
 				m_lbl_mess.Text = "Thay đổi mật khẩu thành công!";
+                
 			}
 			catch (Exception v_e)
 			{
