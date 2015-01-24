@@ -39,9 +39,13 @@
         }
     </style>
     <script src="../Scripts/jquery.doubleScroll.js"></script>
+    <script src="../Downloadify/js/swfobject.js"></script>
+    <script src="../Downloadify/js/downloadify.min.js"></script>
+    <script src="../Scripts/ExportExcel.js"></script>
     <script>
         function pageLoad(sender, args) {
             if (args.get_isPartialLoad()) {
+                getData("temp1", "m_grv");
                 $('#double-scroll').doubleScroll();
                 $("#<%=m_txt_tu_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
                 $("#<%=m_txt_den_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
@@ -49,6 +53,7 @@
             }
         }
         $(document).ready(function () {
+            getData("temp1", "m_grv", "Bao_cao_tong_hop_tinh_hinh_giai_ngan");
             $('#double-scroll').doubleScroll();
             $("#<%=m_txt_tu_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
             $("#<%=m_txt_den_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
@@ -62,6 +67,9 @@
 
     <asp:updatepanel id="UpdatePanel1" runat="server">
 		<ContentTemplate>
+            <p id="downloadify">
+				You must have Flash 10 installed to download this file.
+			</p>
             <table id="main_table" style="width: 1300px;" class="cssTable table" border="0">
                 <tr>
 					<td colspan="4" style="text-align: center">
@@ -116,7 +124,7 @@
 				<tr>
 					<td colspan="4" align="center">
                         <div style="width:1200px;margin:20px auto;" id="double-scroll">
-						<asp:GridView ID="m_grv" runat="server" AutoGenerateColumns="False"
+						<asp:GridView ID="m_grv" runat="server" AutoGenerateColumns="False" ClientIDMode="Static"
 							CssClass="cssGrid" Width="2600px" CellPadding="0" ForeColor="Black"
 							AllowSorting="True" PageSize="60"
 							EmptyDataText="Không có dữ liệu phù hợp" OnRowCreated="m_grv_RowCreated" EnableModelValidation="True">
