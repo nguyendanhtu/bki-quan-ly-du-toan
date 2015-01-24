@@ -108,52 +108,52 @@ namespace QuanLyDuToan.DanhMuc
 			}
 			return true;
 		}
-		private void load_data_to_cbo_loai_don_vi()
-		{
-			DS_CM_DM_TU_DIEN v_ds_cm_dm_tu_dien = new DS_CM_DM_TU_DIEN();
-			US_CM_DM_TU_DIEN v_us_cm_dm_tu_dien = new US_CM_DM_TU_DIEN();
-			v_us_cm_dm_tu_dien.fill_tu_dien_cung_loai_ds(
-				MA_LOAI_TU_DIEN.LOAI_DON_VI
-				, v_ds_cm_dm_tu_dien);
-			m_cbo_loai_don_vi.DataSource = v_ds_cm_dm_tu_dien.CM_DM_TU_DIEN;
-			m_cbo_loai_don_vi.DataValueField = CM_DM_TU_DIEN.ID;
-			m_cbo_loai_don_vi.DataTextField = CM_DM_TU_DIEN.TEN;
-			m_cbo_loai_don_vi.DataBind();
-			m_cbo_loai_don_vi.Enabled = false;
-		}
-		private void load_cbo_don_vi_cap_tren()
-		{
-			try
-			{
-				m_us_don_vi.FillDataset(m_ds_don_vi);
-				m_cbo_don_vi_cap_tren.DataSource = m_ds_don_vi.DM_DON_VI;
-				m_cbo_don_vi_cap_tren.DataTextField = DM_DON_VI.TEN_DON_VI;
-				m_cbo_don_vi_cap_tren.DataValueField = DM_DON_VI.ID;
-				m_cbo_don_vi_cap_tren.DataBind();
-				m_cbo_don_vi_cap_tren.Items.Add("Không có cấp trên");
-			}
-			catch (Exception v_e)
-			{
-				throw v_e;
-			}
-		}
-		private void load_cbo_loai_don_vi()
-		{
-			try
-			{
-				US_CM_DM_TU_DIEN m_us = new US_CM_DM_TU_DIEN();
-				DS_CM_DM_TU_DIEN m_ds = new DS_CM_DM_TU_DIEN();
-				m_us.FillDataset(m_ds, "WHERE ID_LOAI_TU_DIEN = 4");
-				m_cbo_loai_hinh_don_vi.DataSource = m_ds.CM_DM_TU_DIEN;
-				m_cbo_loai_hinh_don_vi.DataTextField = CM_DM_TU_DIEN.TEN_NGAN;
-				m_cbo_loai_hinh_don_vi.DataValueField = CM_DM_TU_DIEN.ID;
-				m_cbo_loai_hinh_don_vi.DataBind();
-			}
-			catch (Exception v_e)
-			{
-				throw v_e;
-			}
-		}
+		//private void load_data_to_cbo_loai_don_vi()
+		//{
+		//	DS_CM_DM_TU_DIEN v_ds_cm_dm_tu_dien = new DS_CM_DM_TU_DIEN();
+		//	US_CM_DM_TU_DIEN v_us_cm_dm_tu_dien = new US_CM_DM_TU_DIEN();
+		//	v_us_cm_dm_tu_dien.fill_tu_dien_cung_loai_ds(
+		//		MA_LOAI_TU_DIEN.LOAI_DON_VI
+		//		, v_ds_cm_dm_tu_dien);
+		//	m_cbo_loai_don_vi.DataSource = v_ds_cm_dm_tu_dien.CM_DM_TU_DIEN;
+		//	m_cbo_loai_don_vi.DataValueField = CM_DM_TU_DIEN.ID;
+		//	m_cbo_loai_don_vi.DataTextField = CM_DM_TU_DIEN.TEN;
+		//	m_cbo_loai_don_vi.DataBind();
+		//	m_cbo_loai_don_vi.Enabled = false;
+		//}
+		//private void load_cbo_don_vi_cap_tren()
+		//{
+		//	try
+		//	{
+		//		m_us_don_vi.FillDataset(m_ds_don_vi);
+		//		m_cbo_don_vi_cap_tren.DataSource = m_ds_don_vi.DM_DON_VI;
+		//		m_cbo_don_vi_cap_tren.DataTextField = DM_DON_VI.TEN_DON_VI;
+		//		m_cbo_don_vi_cap_tren.DataValueField = DM_DON_VI.ID;
+		//		m_cbo_don_vi_cap_tren.DataBind();
+		//		m_cbo_don_vi_cap_tren.Items.Add("Không có cấp trên");
+		//	}
+		//	catch (Exception v_e)
+		//	{
+		//		throw v_e;
+		//	}
+		//}
+		//private void load_cbo_loai_don_vi()
+		//{
+		//	try
+		//	{
+		//		US_CM_DM_TU_DIEN m_us = new US_CM_DM_TU_DIEN();
+		//		DS_CM_DM_TU_DIEN m_ds = new DS_CM_DM_TU_DIEN();
+		//		m_us.FillDataset(m_ds, "WHERE ID_LOAI_TU_DIEN = 4");
+		//		m_cbo_loai_hinh_don_vi.DataSource = m_ds.CM_DM_TU_DIEN;
+		//		m_cbo_loai_hinh_don_vi.DataTextField = CM_DM_TU_DIEN.TEN_NGAN;
+		//		m_cbo_loai_hinh_don_vi.DataValueField = CM_DM_TU_DIEN.ID;
+		//		m_cbo_loai_hinh_don_vi.DataBind();
+		//	}
+		//	catch (Exception v_e)
+		//	{
+		//		throw v_e;
+		//	}
+		//}
 		private void load_data_2_grid()
 		{
 			try
@@ -188,6 +188,7 @@ namespace QuanLyDuToan.DanhMuc
 				string v_str_thong_tin = " (Có " + m_ds_don_vi.DM_DON_VI.Rows.Count + " bản ghi)";
 				m_lbl_thong_tin_don_vi.Text += v_str_thong_tin;
 				m_grv_dm_don_vi.DataBind();
+				m_txt_tim_kiem.Focus();
 
 			}
 			catch (Exception v_e)
@@ -218,6 +219,7 @@ namespace QuanLyDuToan.DanhMuc
 				US_DM_DON_VI us_dm_don_vi = new US_DM_DON_VI(dc_id_don_vi);
 				m_hdf_id_don_vi.Value = CIPConvert.ToStr(dc_id_don_vi);
 				us_object_2_form(us_dm_don_vi);
+				m_txt_ma_don_vi.Focus();
 			}
 			catch (Exception v_e)
 			{
@@ -228,21 +230,21 @@ namespace QuanLyDuToan.DanhMuc
 		{
 			if (i_us_don_vi.dcID_DON_VI_CAP_TREN != 0)
 			{
-				m_cbo_don_vi_cap_tren.SelectedValue = CIPConvert.ToStr(i_us_don_vi.dcID_DON_VI_CAP_TREN);
+				//m_cbo_don_vi_cap_tren.SelectedValue = CIPConvert.ToStr(i_us_don_vi.dcID_DON_VI_CAP_TREN);
 			}
 			else
 			{
-				m_cbo_don_vi_cap_tren.DataSource = null;
-				m_cbo_don_vi_cap_tren.Items.Clear();
-				m_cbo_don_vi_cap_tren.Items.Insert(0, new ListItem("Không có cấp trên", "Không có cấp trên"));
+				//m_cbo_don_vi_cap_tren.DataSource = null;
+				//m_cbo_don_vi_cap_tren.Items.Clear();
+				//m_cbo_don_vi_cap_tren.Items.Insert(0, new ListItem("Không có cấp trên", "Không có cấp trên"));
 			}
-			m_cbo_don_vi_cap_tren.DataBind();
+			//m_cbo_don_vi_cap_tren.DataBind();
 			m_txt_ma_don_vi.Text = i_us_don_vi.strMA_DON_VI.Trim();
 			m_txt_ten_don_vi.Text = i_us_don_vi.strTEN_DON_VI.Trim();
-			m_cbo_loai_don_vi.SelectedValue = CIPConvert.ToStr(i_us_don_vi.dcID_LOAI_DON_VI);
-			m_cbo_loai_don_vi.DataBind();
-			m_cbo_loai_hinh_don_vi.SelectedValue = CIPConvert.ToStr(i_us_don_vi.strLOAI_HINH_DON_VI);
-			m_cbo_loai_hinh_don_vi.DataBind();
+			//m_cbo_loai_don_vi.SelectedValue = CIPConvert.ToStr(i_us_don_vi.dcID_LOAI_DON_VI);
+			//m_cbo_loai_don_vi.DataBind();
+			//m_cbo_loai_hinh_don_vi.SelectedValue = CIPConvert.ToStr(i_us_don_vi.strLOAI_HINH_DON_VI);
+			//m_cbo_loai_hinh_don_vi.DataBind();
 		}
 		private void thong_bao(string ip_str_thong_bao)
 		{
@@ -251,15 +253,15 @@ namespace QuanLyDuToan.DanhMuc
 		private void form_2_us_object()
 		{
 
-			if (m_cbo_don_vi_cap_tren.SelectedValue.Equals("Không có cấp trên"))
-			//m_us_don_vi.dcID_DON_VI_CAP_TREN =null;
-			{
+			//if (m_cbo_don_vi_cap_tren.SelectedValue.Equals("Không có cấp trên"))
+			////m_us_don_vi.dcID_DON_VI_CAP_TREN =null;
+			//{
 
-			}
-			else
-			{
-				m_us_don_vi.dcID_DON_VI_CAP_TREN = CIPConvert.ToDecimal(m_cbo_don_vi_cap_tren.SelectedValue);
-			}
+			//}
+			//else
+			//{
+			//	m_us_don_vi.dcID_DON_VI_CAP_TREN = CIPConvert.ToDecimal(m_cbo_don_vi_cap_tren.SelectedValue);
+			//}
 			switch (check_form_mode(m_hdf_form_mode))
 			{
 				case LOAI_FORM.THEM:
@@ -288,8 +290,8 @@ namespace QuanLyDuToan.DanhMuc
 
 			m_us_don_vi.strMA_DON_VI = m_txt_ma_don_vi.Text.Trim();
 			m_us_don_vi.strTEN_DON_VI = m_txt_ten_don_vi.Text.Trim();
-			m_us_don_vi.dcID_LOAI_DON_VI = CIPConvert.ToDecimal(m_cbo_loai_don_vi.SelectedValue);
-			m_us_don_vi.strLOAI_HINH_DON_VI = m_cbo_loai_hinh_don_vi.SelectedValue;
+			m_us_don_vi.dcID_LOAI_DON_VI = ID_LOAI_DON_VI.DV_SU_DUNG;
+			m_us_don_vi.strLOAI_HINH_DON_VI = ID_LOAI_HINH_DON_VI.DON_VI_SU_NGHIEP_TCTC.ToString();
 		}
 		private void reset_thong_bao()
 		{
@@ -303,11 +305,12 @@ namespace QuanLyDuToan.DanhMuc
 			this.m_hdf_id_don_vi.Value = "";
 			m_hdf_form_mode.Value = LOAI_FORM.THEM;
 			//m_cbo_don_vi_cap_tren.Items.Clear();
-			m_cbo_don_vi_cap_tren.DataSource = null;
-			m_cbo_don_vi_cap_tren.DataBind();
-			m_cbo_loai_hinh_don_vi.DataSource = null;
-			//m_cbo_loai_hinh_don_vi.Items.Clear();
-			m_cbo_loai_hinh_don_vi.DataBind();
+			//m_cbo_don_vi_cap_tren.DataSource = null;
+			//m_cbo_don_vi_cap_tren.DataBind();
+			//m_cbo_loai_hinh_don_vi.DataSource = null;
+			////m_cbo_loai_hinh_don_vi.Items.Clear();
+			//m_cbo_loai_hinh_don_vi.DataBind();
+			m_grv_dm_don_vi.SelectedIndex = -1;
 		}
 		private void update_don_vi()
 		{
@@ -359,46 +362,46 @@ namespace QuanLyDuToan.DanhMuc
 			if (Request.QueryString["LOAI_DON_VI"].Equals("")) return;
 			v_str_loai_don_vi = Request.QueryString["LOAI_DON_VI"];
 			load_title(v_str_loai_don_vi);
-			load_data_to_cbo_loai_don_vi();
-			switch (v_str_loai_don_vi)
-			{
-				case LOAI_DON_VI.BO_TINH:
-					m_cbo_don_vi_cap_tren.DataSource = null;
-					m_cbo_don_vi_cap_tren.Items.Insert(0, new ListItem("Không có cấp trên", "Không có cấp trên"));
-					m_cbo_don_vi_cap_tren.DataBind();
-					m_cbo_loai_don_vi.SelectedValue = CIPConvert.ToStr(ID_LOAI_DON_VI.BO_TINH);
-					m_lbl_don_vi_cap_tren.Visible = false;
-					m_cbo_don_vi_cap_tren.Visible = false;
-					break;
-				case LOAI_DON_VI.DV_CHU_QUAN:
-					WinFormControls.load_data_to_cbo_bo_tinh(
-						WinFormControls.eTAT_CA.NO
-						, m_cbo_don_vi_cap_tren
-						);
-					m_cbo_loai_don_vi.SelectedValue = CIPConvert.ToStr(ID_LOAI_DON_VI.DV_CHU_QUAN);
-					m_lbl_don_vi_cap_tren.Visible = true;
-					m_cbo_don_vi_cap_tren.Visible = true;
-					break;
-				case LOAI_DON_VI.DV_SU_DUNG:
-					WinFormControls.load_data_to_cbo_don_vi_chu_quan(
-						CONST_QLDB.ID_TAT_CA.ToString()
-						, WinFormControls.eTAT_CA.NO
-						, m_cbo_don_vi_cap_tren
-						);
-					m_cbo_loai_don_vi.SelectedValue = CIPConvert.ToStr(ID_LOAI_DON_VI.DV_SU_DUNG);
-					m_lbl_don_vi_cap_tren.Visible = true;
-					m_cbo_don_vi_cap_tren.Visible = true;
-					break;
+			//load_data_to_cbo_loai_don_vi();
+			//switch (v_str_loai_don_vi)
+			//{
+			//	case LOAI_DON_VI.BO_TINH:
+			//		//m_cbo_don_vi_cap_tren.DataSource = null;
+			//		//m_cbo_don_vi_cap_tren.Items.Insert(0, new ListItem("Không có cấp trên", "Không có cấp trên"));
+			//		//m_cbo_don_vi_cap_tren.DataBind();
+			//		//m_cbo_loai_don_vi.SelectedValue = CIPConvert.ToStr(ID_LOAI_DON_VI.BO_TINH);
+			//		//m_lbl_don_vi_cap_tren.Visible = false;
+			//		//m_cbo_don_vi_cap_tren.Visible = false;
+			//		break;
+			//	case LOAI_DON_VI.DV_CHU_QUAN:
+			//		WinFormControls.load_data_to_cbo_bo_tinh(
+			//			WinFormControls.eTAT_CA.NO
+			//			, m_cbo_don_vi_cap_tren
+			//			);
+			//		m_cbo_loai_don_vi.SelectedValue = CIPConvert.ToStr(ID_LOAI_DON_VI.DV_CHU_QUAN);
+			//		m_lbl_don_vi_cap_tren.Visible = true;
+			//		m_cbo_don_vi_cap_tren.Visible = true;
+			//		break;
+			//	case LOAI_DON_VI.DV_SU_DUNG:
+			//		WinFormControls.load_data_to_cbo_don_vi_chu_quan(
+			//			CONST_QLDB.ID_TAT_CA.ToString()
+			//			, WinFormControls.eTAT_CA.NO
+			//			, m_cbo_don_vi_cap_tren
+			//			);
+			//		m_cbo_loai_don_vi.SelectedValue = CIPConvert.ToStr(ID_LOAI_DON_VI.DV_SU_DUNG);
+			//		m_lbl_don_vi_cap_tren.Visible = true;
+			//		m_cbo_don_vi_cap_tren.Visible = true;
+			//		break;
 
-			}
+			//}
 			m_cmd_cap_nhat.Visible = false;
 			m_cmd_tao_moi.Visible = true;
 
 
-			WinFormControls.load_data_to_cbo_loai_hinh_don_vi(
-				WinFormControls.eLOAI_TU_DIEN.LOAI_HINH_DON_VI
-				, WinFormControls.eTAT_CA.NO
-				, m_cbo_loai_hinh_don_vi);
+			//WinFormControls.load_data_to_cbo_loai_hinh_don_vi(
+			//	WinFormControls.eLOAI_TU_DIEN.LOAI_HINH_DON_VI
+			//	, WinFormControls.eTAT_CA.NO
+			//	, m_cbo_loai_hinh_don_vi);
 			load_data_2_grid();
 		}
 		private void set_form(string ip_loai_form)
@@ -423,6 +426,9 @@ namespace QuanLyDuToan.DanhMuc
 		{
 			try
 			{
+				this.Form.DefaultButton = m_cmd_tim_kiem.UniqueID;
+				m_lbl_mess.Text = "";
+				m_lbl_thong_bao.Text = "";
 				if (!IsPostBack)
 				{
 					set_inital_form_mode();
@@ -512,6 +518,7 @@ namespace QuanLyDuToan.DanhMuc
 
 				xoa_trang();
 				load_update_don_vi(e.RowIndex);
+				m_grv_dm_don_vi.SelectedIndex = e.RowIndex;
 			}
 			catch (Exception v_e)
 			{

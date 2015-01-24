@@ -76,15 +76,6 @@ namespace QuanLyDuToan.DanhMuc {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator m_rfv_ma_don_vi;
         
         /// <summary>
-        /// m_cbo_loai_don_vi control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList m_cbo_loai_don_vi;
-        
-        /// <summary>
         /// m_txt_ten_don_vi control.
         /// </summary>
         /// <remarks>
@@ -101,33 +92,6 @@ namespace QuanLyDuToan.DanhMuc {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator m_rfv_ten_don_vi;
-        
-        /// <summary>
-        /// m_lbl_don_vi_cap_tren control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label m_lbl_don_vi_cap_tren;
-        
-        /// <summary>
-        /// m_cbo_don_vi_cap_tren control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList m_cbo_don_vi_cap_tren;
-        
-        /// <summary>
-        /// m_cbo_loai_hinh_don_vi control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList m_cbo_loai_hinh_don_vi;
         
         /// <summary>
         /// m_cmd_tao_moi control.
