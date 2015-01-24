@@ -908,6 +908,9 @@ namespace QuanLyDuToan.DuToan
 		{
 			try
 			{
+				m_lbl_mess_chon_qd.Text = "";
+				m_lbl_mess_detail.Text = "";
+				m_lbl_mess_grid.Text = "";
 				if (!IsPostBack)
 				{
 					set_inital_form_mode();
@@ -1034,7 +1037,13 @@ namespace QuanLyDuToan.DuToan
 					//format button by form mode - update
 					m_cmd_update.Visible = true;
 					m_cmd_insert.Visible = false;
-
+					if (m_ddl_don_vi.SelectedValue != Person.get_id_don_vi().ToString())
+					{
+						m_grv.Columns[0].Visible = false;
+						m_cmd_insert.Visible = false;
+						m_cmd_update.Visible = false;
+						m_cmd_cancel.Visible = false;
+					}
 
 					//set select row in gridview
 					GridViewRow gvr = (GridViewRow)(((LinkButton)e.CommandSource).NamingContainer);
