@@ -42,17 +42,29 @@
 	<script>
 		function pageLoad(sender, args) {
 			if (args.get_isPartialLoad()) {
-				getData("temp1", "m_grv");
+				var m = new Map();
+                m.set("<nam>", "2015");
+                m.set("<thang>", "9");
+                m.set("<tu_ngay>", m_txt_tu_ngay.value);
+                m.set("<den_ngay>", m_txt_den_ngay.value);
+                getData("temp1", "m_grv", "Bao_cao_tong_hop_tinh_hinh_giai_ngan", m);
+
 				$('#double-scroll').doubleScroll();
 				$("#<%=m_txt_tu_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
                 $("#<%=m_txt_den_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
 
             }
-		}
-		$(document).ready(function () {
-			getData("temp1", "m_grv", "Bao_cao_tong_hop_tinh_hinh_giai_ngan");
-			$('#double-scroll').doubleScroll();
-			$("#<%=m_txt_tu_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
+        }
+        $(document).ready(function () {
+            var m = new Map();
+            m.set("<nam>", "2015");
+            m.set("<thang>", "9");
+            m.set("<tu_ngay>", m_txt_tu_ngay.value);
+            m.set("<den_ngay>", m_txt_den_ngay.value);
+            getData("temp1", "m_grv", "Bao_cao_tong_hop_tinh_hinh_giai_ngan", m);
+
+            $('#double-scroll').doubleScroll();
+            $("#<%=m_txt_tu_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
             $("#<%=m_txt_den_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
         }
        )
@@ -64,10 +76,6 @@
 
 	<asp:UpdatePanel ID="UpdatePanel1" runat="server">
 		<ContentTemplate>
-			<p id="downloadify">
-				You must have Flash 10 installed to download this file.
-		
-			</p>
 			<table id="main_table" style="width: 1300px;" class="cssTable table" border="0">
 				<tr>
 					<td colspan="4" style="text-align: center">
@@ -79,15 +87,13 @@
 						<span style="font-weight: bold">BÁO CÁO TÌNH HÌNH GIẢI NGÂN CÁC NGUỒN VỐN NĂM  <%=DateTime.Now.Year.ToString()%></span>
 					</td>
 				</tr>
-				<tr>
-
-
+                <tr>
 					<td colspan="4">
-						<div style="margin: 0 auto; width: 350px !important">
-							<div class="height30" style="margin-top: 10px;">
+                        <div style="margin:0 auto; width:350px !important">
+                            <div class="height30" style="margin-top: 10px;">
 								<div class="lb" style="margin-right: 23px">Từ ngày</div>
 								<div id="datetimepicker1" class="input-group date" style="width: 200px;">
-									<asp:TextBox ID="m_txt_tu_ngay" placeholder="dd/MM/yyyy" runat="server" CssClass="cssTextBox date-start" Height="30px" Width="164px"></asp:TextBox>
+									<asp:TextBox ClientIDMode="Static" ID="m_txt_tu_ngay" placeholder="dd/MM/yyyy" runat="server" CssClass="cssTextBox date-start" Height="30px" Width="164px"></asp:TextBox>
 									<span class="input-group-addon">
 										<span class="glyphicon-calendar glyphicon"></span>
 									</span>
@@ -96,7 +102,7 @@
 							<div class="height30" style="margin-top: 10px;">
 								<div class="lb" style="margin-right: 23px">Đến ngày</div>
 								<div id="datetimepicker2" class="input-group date" style="width: 200px;">
-									<asp:TextBox ID="m_txt_den_ngay" placeholder="dd/MM/yyyy" runat="server" CssClass="cssTextBox  date-start" Height="30px" Width="164px"></asp:TextBox>
+									<asp:TextBox ClientIDMode="Static" ID="m_txt_den_ngay" placeholder="dd/MM/yyyy" runat="server" CssClass="cssTextBox  date-start" Height="30px" Width="164px"></asp:TextBox>
 									<span class="input-group-addon">
 										<span class="glyphicon-calendar glyphicon"></span>
 									</span>
@@ -105,7 +111,7 @@
 						</div>
 					</td>
 
-				</tr>
+</tr>
 				<tr>
 					<td colspan="4">
 						<asp:Label ID="m_lbl_mess" runat="server" CssClass="cssManField"></asp:Label>
@@ -117,6 +123,9 @@
 					<td colspan="4" style="text-align: center">
 						<asp:Button ID="m_cmd_xem_bao_cao" Text="Xem báo cáo" OnClick="m_cmd_xem_bao_cao_Click" runat="server" CssClass="btn btn-sm btn-primary" />
 						<asp:Button ID="m_cmd_xuat_excel" Text="Xuất excel" OnClick="m_cmd_xuat_excel_Click" runat="server" CssClass="btn btn-sm btn-primary" />
+                        <p id="downloadify">
+				            You must have Flash 10 installed to download this file.
+			            </p>
 					</td>
 				</tr>
 				<tr>

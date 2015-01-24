@@ -1,7 +1,10 @@
-﻿function getData(template, id_table, str_file_name) {
+﻿function getData(template, id_table, str_file_name, m) {
     jQuery.get('../Template/' + template + '.txt', function (data) {
-        var v_content = data.replace('<replace-table>', $('#' + id_table).html());
-        LoadButton(str_file_name, v_content);
+        data = data.replace("<replace-table>", $('#' + 'm_grv').html());
+        m.forEach(function (item, key, mapObj) {
+            data = data.replace(key.toString(), item.toString());
+        });
+        LoadButton(str_file_name, data);
     });
 }
 
