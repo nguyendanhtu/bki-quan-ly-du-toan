@@ -25,6 +25,7 @@ namespace QuanLyDuToan.BaoCao
 					{
 						m_lbl_nguon.Text = " - NGUỒN NGÂN SÁCH ";
 					}
+					else m_lbl_nguon.Text = " - QUỸ BẢO TRÌ ";
 				}
 				else m_lbl_nguon.Text = " - QUỸ BẢO TRÌ ";
 				WinFormControls.load_data_to_ddl_loai_nhiem_vu(m_ddl_loai_nv);

@@ -3,7 +3,7 @@
 <%@ Import Namespace="IP.Core.IPCommon" %>
 <%@ Import Namespace="WebDS.CDBNames" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
-    <style type="text/css">
+	<style type="text/css">
 		.cssGrid tr td {
 			padding: 0px;
 		}
@@ -81,28 +81,28 @@
 			if (args.get_isPartialLoad()) {
 				$('#double-scroll').doubleScroll();
 				$("#<%=m_ddl_loai_nv.ClientID%>").select2();
-		        $("#<%=m_ddl_cong_trinh.ClientID%>").select2();
-		    	$("#<%=m_ddl_du_an.ClientID%>").select2();
-		    	$("#<%=m_ddl_don_vi.ClientID%>").select2();
-		    	$("#<%=m_txt_tu_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
-		    	$("#<%=m_txt_den_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
-		    }
+				$("#<%=m_ddl_cong_trinh.ClientID%>").select2();
+				$("#<%=m_ddl_du_an.ClientID%>").select2();
+				$("#<%=m_ddl_don_vi.ClientID%>").select2();
+				$("#<%=m_txt_tu_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
+				$("#<%=m_txt_den_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
+			}
 		}
 		$(document).ready(function () {
 			$('#double-scroll').doubleScroll();
 			$("#<%=m_ddl_loai_nv.ClientID%>").select2();
-	        $("#<%=m_ddl_cong_trinh.ClientID%>").select2();
-	    	$("#<%=m_ddl_du_an.ClientID%>").select2();
-	    	$("#<%=m_ddl_don_vi.ClientID%>").select2();
-	    	$("#<%=m_txt_tu_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
-	    	$("#<%=m_txt_den_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
+			$("#<%=m_ddl_cong_trinh.ClientID%>").select2();
+			$("#<%=m_ddl_du_an.ClientID%>").select2();
+			$("#<%=m_ddl_don_vi.ClientID%>").select2();
+			$("#<%=m_txt_tu_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
+			$("#<%=m_txt_den_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
 
-	    }
+		}
        )
 	</script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    <asp:ScriptManager ID="ScriptManager1" runat="server">
+	<asp:ScriptManager ID="ScriptManager1" runat="server">
 	</asp:ScriptManager>
 
 	<asp:UpdatePanel ID="UpdatePanel1" runat="server">
@@ -152,7 +152,7 @@
 							</div>
 							<div class="boxControl" style="width: 301px; margin-left: 26px;">
 								<div class="height30">
-									<div class="lb" style="margin-right: 0px;width: 90px; margin-top:6px;">Từ ngày</div>
+									<div class="lb" style="margin-right: 0px; width: 90px; margin-top: 6px;">Từ ngày</div>
 									<div id="datetimepicker1" class="input-group date datepicker" style="width: 200px;">
 										<asp:TextBox ID="m_txt_tu_ngay" placeholder="dd/MM/yyyy" runat="server" CssClass="cssTextBox form-control  date-start" Height="30px" Width="164px"></asp:TextBox>
 										<span class="input-group-addon"><span class="glyphicon-calendar glyphicon"></span>
@@ -160,7 +160,7 @@
 									</div>
 								</div>
 								<div class="height30" style="margin-top: 6px;">
-									<div class="lb" style="margin-right: 0px;width: 90px;margin-top:6px;">Đến ngày</div>
+									<div class="lb" style="margin-right: 0px; width: 90px; margin-top: 6px;">Đến ngày</div>
 									<div id="datetimepicker2" class="input-group date datepicker" style="width: 200px;">
 										<asp:TextBox ID="m_txt_den_ngay" placeholder="dd/MM/yyyy" runat="server" CssClass="cssTextBox form-control date-end" Height="30px" Width="164px"></asp:TextBox>
 										<span class="input-group-addon"><span class="glyphicon-calendar glyphicon"></span>
@@ -182,7 +182,7 @@
 				<tr>
 
 					<td colspan="4" style="text-align: center">
-						<asp:Button ID="m_cmd_xem_bao_cao" Text="Xem báo cáo" OnClick="m_cmd_xem_bao_cao_Click" runat="server" CssClass="btn btn-sm btn-primary"  />
+						<asp:Button ID="m_cmd_xem_bao_cao" Text="Xem báo cáo" OnClick="m_cmd_xem_bao_cao_Click" runat="server" CssClass="btn btn-sm btn-primary" />
 						<asp:Button ID="m_cmd_xuat_excel" Text="Xuất excel" OnClick="m_cmd_xuat_excel_Click" runat="server" CssClass="btn btn-sm btn-primary" />
 					</td>
 				</tr>
@@ -225,7 +225,7 @@
 									</asp:TemplateField>
 									<asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="(2)" HeaderStyle-Height="10px">
 										<ItemTemplate>
-											<a class='a<%# Eval(GRID_GIAI_NGAN.ID)%>' href="F150_giao_von_du_toan_vp_tong_cuc.aspx<%# format_link_to_chi_tiet(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.REPORT_LEVEL)
+											<a class='a<%# Eval(GRID_GIAI_NGAN.ID)%>' href="F157_giao_ke_hoach_theo_quyet_dinh.aspx<%# format_link_to_chi_tiet(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.REPORT_LEVEL)
                                                    ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID_DON_VI)
                                                     ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID_LOAI_NHIEM_VU)
                                                     ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID_CONG_TRINH_KHOAN)
@@ -303,7 +303,7 @@
 									</asp:TemplateField>
 									<asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="(8)" HeaderStyle-Height="10px">
 										<ItemTemplate>
-											
+
 											<a class='a<%# Eval(GRID_GIAI_NGAN.ID)%>' href="F357_giai_ngan_theo_uy_nhiem_chi.aspx<%# format_link_to_chi_tiet_trong_thang(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.REPORT_LEVEL)
                                                     ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID_DON_VI)
                                                     ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID_LOAI_NHIEM_VU)
@@ -323,14 +323,20 @@
                                                     ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID_CONG_TRINH_KHOAN)
                                                     ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID_DU_AN_MUC_TIEU_MUC) 
 													,"N") %>"
-												title="Xem chi tiết" ><%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_QBT_TONG, "{0:#,##0}")%></a>
+												title="Xem chi tiết"><%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_QBT_TONG, "{0:#,##0}")%></a>
 										</ItemTemplate>
 										<HeaderStyle Height="10px" HorizontalAlign="Center" />
 										<ItemStyle HorizontalAlign="Right" Width="120px" />
 									</asp:TemplateField>
 									<asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="(10)" HeaderStyle-Height="10px">
 										<ItemTemplate>
-											<font class='a<%# Eval(GRID_GIAI_NGAN.ID)%>'><%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_NS_TRONG_THANG, "{0:#,##0}")%></font>
+											<a class='a<%# Eval(GRID_GIAI_NGAN.ID)%>' href="F357_giai_ngan_theo_uy_nhiem_chi.aspx<%# format_link_to_chi_tiet_trong_thang(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.REPORT_LEVEL)
+                                                  ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID_DON_VI)
+                                                    ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID_LOAI_NHIEM_VU)
+                                                    ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID_CONG_TRINH_KHOAN)
+                                                    ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID_DU_AN_MUC_TIEU_MUC) 
+													,"Y") %>"
+												title="Xem chi tiết"><%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_NS_TRONG_THANG, "{0:#,##0}")%></a>
 										</ItemTemplate>
 										<HeaderStyle Height="10px" HorizontalAlign="Center" />
 										<ItemStyle HorizontalAlign="Right" Width="120px" />
@@ -385,22 +391,22 @@
 										<HeaderStyle Height="10px" HorizontalAlign="Center" />
 										<ItemStyle HorizontalAlign="Right" Width="120px" />
 									</asp:TemplateField>
-                                    <asp:TemplateField  ItemStyle-HorizontalAlign="Right" HeaderText="" HeaderStyle-Height="10px" >									
-									 <ItemTemplate>
-										 <font class='a<%# Eval(GRID_GIAI_NGAN.ID)%>'><%# CIPConvert.ToStr( format_so_tien(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.GIA_TRI_THUC_HIEN)) , "#,###") %></font>	
-									 </ItemTemplate>
-								     <HeaderStyle Height="10px" HorizontalAlign="Center"/>
-                                     <ItemStyle HorizontalAlign="Right" Width="120px"/>
-								</asp:TemplateField>	
-                                <asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="" HeaderStyle-Height="10px" >									
-									 <ItemTemplate>
-										 <font class='a<%# Eval(GRID_GIAI_NGAN.ID)%>'><%# CIPConvert.ToStr( format_so_tien(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.SO_CHUA_GN)) , "#,###") %></font>
-									 </ItemTemplate>
-								     <HeaderStyle Height="10px" HorizontalAlign="Center"/>
-                                     <ItemStyle HorizontalAlign="Right" Width="120px" />
-								</asp:TemplateField>
+									<asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="" HeaderStyle-Height="10px">
+										<ItemTemplate>
+											<font class='a<%# Eval(GRID_GIAI_NGAN.ID)%>'><%# CIPConvert.ToStr( format_so_tien(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.GIA_TRI_THUC_HIEN)) , "#,###") %></font>
+										</ItemTemplate>
+										<HeaderStyle Height="10px" HorizontalAlign="Center" />
+										<ItemStyle HorizontalAlign="Right" Width="120px" />
+									</asp:TemplateField>
+									<asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="" HeaderStyle-Height="10px">
+										<ItemTemplate>
+											<font class='a<%# Eval(GRID_GIAI_NGAN.ID)%>'><%# CIPConvert.ToStr( format_so_tien(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.SO_CHUA_GN)) , "#,###") %></font>
+										</ItemTemplate>
+										<HeaderStyle Height="10px" HorizontalAlign="Center" />
+										<ItemStyle HorizontalAlign="Right" Width="120px" />
+									</asp:TemplateField>
 								</Columns>
-                                
+
 							</asp:GridView>
 						</div>
 					</td>
