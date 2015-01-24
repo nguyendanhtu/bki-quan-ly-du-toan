@@ -41,9 +41,10 @@ namespace QuanLyDuToan.BaoCao
 			, object ip_id_don_vi
 			, object ip_id_loai_nhiem_vu
 			, object ip_id_cong_trinh
-			, object ip_id_du_an)
+			, object ip_id_du_an
+			, string ip_str_nguon_ns)
 		{
-			string v_dat_tu_ngay =CIPConvert.ToStr( WinFormControls.get_dau_nam_form_date(CIPConvert.ToDatetime(m_txt_tu_ngay.Text,"dd/MM/yyyy")),"dd/MM/yyyy");
+			string v_dat_tu_ngay = CIPConvert.ToStr(WinFormControls.get_dau_nam_form_date(CIPConvert.ToDatetime(m_txt_tu_ngay.Text, "dd/MM/yyyy")), "dd/MM/yyyy");
 			string v_dat_den_ngay = m_txt_den_ngay.Text;
 			string v_str_link = "";
 			if (ip_level != DBNull.Value)
@@ -94,6 +95,7 @@ namespace QuanLyDuToan.BaoCao
 									 + "&ip_dc_id_quyet_dinh=" + "-1";
 						break;
 				}
+				v_str_link += "&ip_nguon_ns=" + ip_str_nguon_ns;
 			}
 			return v_str_link;
 		}
@@ -102,7 +104,8 @@ namespace QuanLyDuToan.BaoCao
 			, object ip_id_don_vi
 			, object ip_id_loai_nhiem_vu
 			, object ip_id_cong_trinh
-			, object ip_id_du_an)
+			, object ip_id_du_an
+			, string ip_str_nguon_ns)
 		{
 			if (ip_id_don_vi == DBNull.Value) ip_id_don_vi = -1;
 			if (ip_id_loai_nhiem_vu == DBNull.Value) ip_id_loai_nhiem_vu = -1;
@@ -152,6 +155,7 @@ namespace QuanLyDuToan.BaoCao
 						break;
 				}
 			}
+			v_str_link += "&ip_nguon_ns=" + ip_str_nguon_ns;
 			return v_str_link;
 		}
 
