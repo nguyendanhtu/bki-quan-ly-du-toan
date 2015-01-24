@@ -2,32 +2,31 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
     <style type="text/css">
         .boxControl {
-	        float:left;
-            width:50%; 
-            height:90px;
-        }
+			float: left;
+			width: 50%;
+			height: 90px;
+		}
 
-	    .height30 {
-	        height:30px;
-        }
+		.height30 {
+			height: 30px;
+		}
 
-	    .lb {
-	        width:100px; 
-            float:left;
-            text-align:right;
-            line-height:20px;
-        }
+		.lb {
+			width: 100px;
+			float: left;
+			text-align: right;
+			line-height: 20px;
+		}
 
 	    .control {
 	        width:200px; 
             float:left;
         }
 
-	    .control select, input {
+	    .control select{
 	        width:220px !important;
-            margin-left:10px;    
         }
-
+		
         .filter{
 	        width:552px !important;
             margin-left:10px;    
@@ -105,6 +104,28 @@
             background: #ddd !important;
             border-color: #000;
         }
+		.control {
+			width: 240px;
+			float: left;
+		}
+
+		.control1 {
+			width: 240px;
+			float: left;
+		}
+
+		.control select {
+			width: 220px !important;
+		}
+
+		.control1 select {
+			width: 203px !important;
+		}
+
+		.filter {
+			width: 567px !important;
+			margin-left: 10px;
+		}
 		
 		.merge3{
 			width:300px;
@@ -127,13 +148,15 @@
          function pageLoad(sender, args) {
              if (args.get_isPartialLoad()) {
                  $("#<%=m_txt_tu_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
-                 $("#<%=m_txt_den_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
+             	$("#<%=m_txt_den_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
+             	$("#<%=m_ddl_don_vi.ClientID%>").select2();
 
              }
          }
          $(document).ready(function () {
              $("#<%=m_txt_tu_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
-             $("#<%=m_txt_den_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
+         	$("#<%=m_txt_den_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
+         	$("#<%=m_ddl_don_vi.ClientID%>").select2();
          }
        )
     </script>
@@ -150,14 +173,17 @@
 		    <span style="font-weight: bold">Độc lập - Tự do - Hạnh Phúc</span>
 		    <br />
 		    <br />
-		    <span style="font-weight: bold">TỔNG HỢP ĐÃ GIAO DỰ TOÁN CHO <asp:Label runat="server" ID="m_lbl_ten_don_vi"></asp:Label></span>
+		    <span style="font-weight: bold">TỔNG HỢP ĐÃ GIAO DỰ TOÁN CHO </span>
+			<br />
+                            <asp:DropDownList ID="m_ddl_don_vi" runat="server" AutoPostBack="true"   Width="180px" OnSelectedIndexChanged="m_ddl_don_vi_SelectedIndexChanged"  CssClass="select2"></asp:DropDownList>
+						
         </div>
         <div style="color:black; text-align:center; margin-top:20px;">
-            <div class="divBoxControl" style="height: 119px;">
-                <div class="height30"style="height: 34px; width: 403px;margin-bottom: 4px;">
-                    <div class="lb">Tìm kiếm:</div>
+            <div class="divBoxControl" style="height: 80px;">
+                <div class="height30"style="height: 34px; width: 403px;margin-bottom: 4px;display:none">
+                    <div class="lb">Tìm kiếm</div>
 				    <div class="control input-group"style="margin-left: 23px;">
-                        <asp:TextBox ID="m_txt_tu_khoa_tim_kiem" cssclass="form-control" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="m_txt_tu_khoa_tim_kiem" cssclass="form-control"  Width="164px" runat="server"></asp:TextBox>
                         <span class="input-group-addon">
                                <span class="glyphicon-search glyphicon"></span>
                            </span>
