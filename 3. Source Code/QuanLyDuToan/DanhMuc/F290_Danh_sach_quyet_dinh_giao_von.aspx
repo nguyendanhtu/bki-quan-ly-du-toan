@@ -97,7 +97,7 @@
 				</asp:GridView>
 			</div>
 			<div style="text-align: center">
-				<asp:Button CssClass="btn btn-success" runat="server" Text="Xuất excel"  ID="m_cmd_xuat_excel"></asp:Button>
+				<asp:Button CssClass="btn btn-primary btn-sm" runat="server" Text="Xuất excel"  ID="m_cmd_xuat_excel" OnClick="m_cmd_xuat_excel_Click"></asp:Button>
 			</div>
 		</ContentTemplate>
 		<Triggers>
