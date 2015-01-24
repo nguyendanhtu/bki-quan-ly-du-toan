@@ -1,6 +1,11 @@
-﻿function getData(template, id_table, str_file_name, m) {
+﻿function replaceAll(find, replace, str) {
+    return str.replace(new RegExp(find, 'g'), replace);
+}
+
+function getData(template, id_table, str_file_name, m) {
     jQuery.get('../Template/' + template + '.txt', function (data) {
-        data = data.replace("<replace-table>", $('#' + 'm_grv').html());
+        data = data.replace("<replace-table>", $('#' + id_table).html());
+        data = replaceAll('<th', '<th style="color:white; background-color:blue;" ', data);
         m.forEach(function (item, key, mapObj) {
             data = data.replace(key.toString(), item.toString());
         });

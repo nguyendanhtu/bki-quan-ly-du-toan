@@ -6,12 +6,12 @@
 		<td colspan="21"  align="center"><b>Độc lập - Tự do - Hạnh phúc</b></td>
 	</tr>
 	<tr>
-		<td colspan="21"  align="center"><b>BÁO CÁO TÌNH HÌNH GIẢI NGÂN CÁC NGUỒN VỐN NĂM <nam></b></td>
+		<td colspan="21"  align="center"><b>BÁO CÁO TÌNH HÌNH GIẢI NGÂN CÁC NGUỒN VỐN NĂM <year></b></td>
 	</tr>
 	<tr>
-		<td colspan="21"  align="center"><b>Tháng <thang> ( Từ ngày <tu_ngay> Đến ngày <den_ngay> )</b></td>
+		<td colspan="21"  align="center"><b>Tháng <month> ( Từ ngày <tu_ngay> Đến ngày <den_ngay> )</b></td>
 	</tr>
 </table>
-<table>
+<table border="1px" cellspacing="0px">
 <replace-table>
 </table>
