@@ -5,33 +5,21 @@
         {
             height: 24px;
         }
+    	.form-control {
+			display:inline-block;
+    	}
     </style>
-    <script>
-        function pageLoad(sender, args) {
-            if (args.get_isPartialLoad()) {
-                $("#<%=m_cbo_loai_don_vi.ClientID%>").select2();
-                $("#<%=m_cbo_don_vi_cap_tren.ClientID%>").select2();
-                $("#<%=m_cbo_loai_hinh_don_vi.ClientID%>").select2();
-            }
-        }
-        $(document).ready(function () {
-            $("#<%=m_cbo_loai_don_vi.ClientID%>").select2();
-            $("#<%=m_cbo_don_vi_cap_tren.ClientID%>").select2();
-            $("#<%=m_cbo_loai_hinh_don_vi.ClientID%>").select2();
-        }
-       )
-    </script>
+    
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="Server">
     <asp:ScriptManager ID="ScriptManager1" runat="server">
     </asp:ScriptManager>
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
-            <table id="main_table"cellspacing="0" cellpadding="2" style="width: 100%" class="cssTable table" border="0">
+            <table id="main_table"cellspacing="0" cellpadding="2" style="width: 900px; margin:auto" class="cssTable table" border="0">
                 <tr>
                     <td class="cssPageTitleBG" colspan="6">
                         <asp:Label ID="m_lbl_title" runat="server" CssClass="cssManField" ForeColor="White" />
-                        &nbsp;<span class="expand-collapse-text initial-expand"></span><span class="expand-collapse-text"></span>
                     </td>
                 </tr>
                 <tr>
@@ -53,14 +41,14 @@
                         <asp:RequiredFieldValidator runat="Server" ID="m_rfv_ma_don_vi" Text="(*)" ControlToValidate="m_txt_ma_don_vi"
                             ErrorMessage="Bạn phải nhập Mã Đơn Vị!" ValidationGroup="m_vlg_dm_don_vi"></asp:RequiredFieldValidator>
                     </td>
-                    <td align="right" style="width: 15%">
+                    <%--<td align="right" style="width: 15%">
                         <span class="cssManField">Loại đơn vị:</span>
                     </td>
                     <td style="width: 34%">
                         <asp:DropDownList ID="m_cbo_loai_don_vi" class="cssDorpdownlist" runat="server" Width="91%" />
                     </td>
                     <td style="width: 1%">
-                    </td>
+                    </td>--%>
                 </tr>
                 <tr>
                     <td align="right">
@@ -74,7 +62,7 @@
                         <asp:RequiredFieldValidator ID="m_rfv_ten_don_vi" runat="Server" ControlToValidate="m_txt_ten_don_vi"
                             ValidationGroup="m_vlg_dm_don_vi" ErrorMessage="Bạn phải nhập Tên Đơn Vị!" Text="(*)"></asp:RequiredFieldValidator>
                     </td>
-                    <td align="right">
+                    <%--<td align="right">
                         <asp:Label ID="m_lbl_don_vi_cap_tren" class="cssManField" runat="Server" Text="Đơn vị cấp trên"></asp:Label>
                     </td>
                     <td>
@@ -82,9 +70,9 @@
                             AutoPostBack="true" />
                     </td>
                     <td style="width: 1%">
-                    </td>
+                    </td>--%>
                 </tr>
-                <tr>
+                <%--<tr>
                     <td align="right">
                         <span class="cssManField">Loại hình đơn vị:</span>
                     </td>
@@ -92,23 +80,22 @@
                         <asp:DropDownList ID="m_cbo_loai_hinh_don_vi" runat="server" Width="91%" CssClass="cssDorpdownlist"
                             AutoPostBack="false" />
                     </td>
-                </tr>
+                </tr>--%>
                 <tr>
                     <td align="center" colspan="4">
-                        <asp:Button ID="m_cmd_tao_moi" AccessKey="c" CssClass="btn" runat="server"
+                        <asp:Button ID="m_cmd_tao_moi" AccessKey="c" CssClass="btn btn-sm btn-success" runat="server"
                              Text="Tạo mới(c)" OnClick="m_cmd_tao_moi_Click"  />&nbsp;
-                        <asp:Button ID="m_cmd_cap_nhat" AccessKey="u" CssClass="btn" runat="server"
+                        <asp:Button ID="m_cmd_cap_nhat" AccessKey="u" CssClass="btn btn-sm btn-success" runat="server"
                              Text="Cập nhật(u)" OnClick="m_cmd_cap_nhat_Click"  />&nbsp;
-                        <asp:Button ID="m_cmd_xoa_trang" AccessKey="r" CssClass="btn" runat="server"
+                        <asp:Button ID="m_cmd_xoa_trang" AccessKey="r" CssClass="btn btn-sm" runat="server"
                              Text="Xóa trắng(r)" OnClick="m_cmd_xoa_trang_Click"  />
                     </td>
                 </tr>
             </table>
-            <table cellspacing="0" cellpadding="2" style="width: 100%;" class="table" border="0">
+            <table cellspacing="0" cellpadding="2"  style="width: 900px; margin:auto"  class="table" border="0">
                 <tr>
                     <td class="cssPageTitleBG" colspan="6">
                         <asp:Label ID="m_lbl_thong_tin_don_vi" runat="server" CssClass="cssManField" ForeColor="White" />
-                        &nbsp;<span class="expand-collapse-text initial-expand"></span><span class="expand-collapse-text"></span>
                     </td>
                 </tr>
                 <tr>
@@ -124,7 +111,7 @@
                         <div class="inline">
                         <asp:TextBox ID="m_txt_tim_kiem" runat="server" Width="200px" CssClass="cssTextBox form-control"></asp:TextBox>
                         &nbsp;
-                        <asp:Button ID="m_cmd_tim_kiem" runat="server" Text="Tìm kiếm" CssClass="btn"
+                        <asp:Button ID="m_cmd_tim_kiem" runat="server" Text="Tìm kiếm" CssClass="btn btn-sm btn-primary"
                              CausesValidation="false" OnClick="m_cmd_tim_kiem_Click" />
                             </div>
                     </td>
@@ -181,7 +168,7 @@
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:BoundField>
                                 <asp:BoundField DataField="TEN_DON_VI" HeaderText="Tên đơn vị"></asp:BoundField>
-                                <asp:TemplateField HeaderText="Loại hình đơn vị">
+                               <%-- <asp:TemplateField HeaderText="Loại hình đơn vị">
                                     <ItemTemplate>
                                         <%#get_ten_loai_hinh_don_vi(Eval("LOAI_HINH_DON_VI").ToString())%>
                                     </ItemTemplate>
@@ -190,7 +177,7 @@
                                     <ItemTemplate>
                                         <%#get_ten_don_vi_cap_tren(Eval("ID_DON_VI_CAP_TREN"))%>
                                     </ItemTemplate>
-                                </asp:TemplateField>
+                                </asp:TemplateField>--%>
                                 <asp:CommandField DeleteText="Xóa" ShowDeleteButton="True" ItemStyle-HorizontalAlign="Center"
                                     Visible="False">
                                     <ItemStyle HorizontalAlign="Center"></ItemStyle>
