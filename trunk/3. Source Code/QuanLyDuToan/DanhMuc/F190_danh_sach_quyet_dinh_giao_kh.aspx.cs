@@ -96,7 +96,7 @@ namespace QuanLyDuToan.DanhMuc
 		{
 			US_DM_DON_VI v_us = new US_DM_DON_VI(CIPConvert.ToDecimal(m_ddl_don_vi.SelectedValue));
 			WinformReport.export_gridview_2_excel(
-			m_grv_bao_cao_giao_von, "[" + v_us.strTEN_DON_VI + "]BaoCaoGiaoVonTheoQuyetDinh.xls");
+			m_grv_bao_cao_giao_von, "[" + v_us.strTEN_DON_VI + "]BaoCaoGiaoKeHoachTheoQuyetDinh.xls");
 		}
 
         private void us_2_form(){

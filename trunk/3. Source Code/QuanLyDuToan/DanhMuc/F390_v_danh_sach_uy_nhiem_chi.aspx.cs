@@ -110,7 +110,12 @@ namespace QuanLyDuToan.DanhMuc
                 CSystemLog_301.ExceptionHandle(this, v_e);
             }
         }
-
+		private void export_excel()
+		{
+			US_DM_DON_VI v_us = new US_DM_DON_VI(CIPConvert.ToDecimal(m_ddl_don_vi.SelectedValue));
+			WinformReport.export_gridview_2_excel(
+			m_grv_bao_cao_giao_von, "[" + v_us.strTEN_DON_VI + "]BaoCaoGiaiNganTheoUyNhiemChi.xls");
+		}
 		/* Để xuất excel
 		 * 1. Dùng 
 		 * WinformReport.export_gridview_2_excel(
@@ -127,6 +132,18 @@ namespace QuanLyDuToan.DanhMuc
 		public override void VerifyRenderingInServerForm(Control control)
 		{
 			//base.VerifyRenderingInServerForm(control);
+		}
+
+		protected void m_cmd_xuat_excel_Click(object sender, EventArgs e)
+		{
+			try
+			{
+				export_excel();
+			}
+			catch (Exception v_e)
+			{
+				CSystemLog_301.ExceptionHandle(this, v_e);
+			}
 		}
     }
 } 

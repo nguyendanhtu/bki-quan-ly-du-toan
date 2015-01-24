@@ -65,7 +65,12 @@ namespace QuanLyDuToan.DanhMuc
                 m_ddl_don_vi.SelectedValue = Request.QueryString["ip_dc_id_don_vi"].ToString();
             }
         }
-
+		private void export_excel()
+		{
+			US_DM_DON_VI v_us = new US_DM_DON_VI(CIPConvert.ToDecimal(m_ddl_don_vi.SelectedValue));
+			WinformReport.export_gridview_2_excel(
+			m_grv, "[" + v_us.strTEN_DON_VI + "]BaoCaoGiaoVonTheoQuyetDinh.xls");
+		}
         protected void m_cmd_tim_kiem_Click(object sender, EventArgs e)
         {
             try
@@ -107,6 +112,18 @@ namespace QuanLyDuToan.DanhMuc
 		public override void VerifyRenderingInServerForm(Control control)
 		{
 			//base.VerifyRenderingInServerForm(control);
+		}
+
+		protected void m_cmd_xuat_excel_Click(object sender, EventArgs e)
+		{
+			try
+			{
+				export_excel();
+			}
+			catch (Exception v_e)
+			{
+				CSystemLog_301.ExceptionHandle(this, v_e);
+			}
 		}
     }
 }
