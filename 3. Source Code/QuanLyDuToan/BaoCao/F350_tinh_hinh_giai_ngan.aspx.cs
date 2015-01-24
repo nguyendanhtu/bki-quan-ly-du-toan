@@ -281,13 +281,14 @@ namespace QuanLyDuToan.BaoCao
 
 		private void load_data_to_ddl_don_vi()
 		{
-			US_DM_DON_VI v_us = new US_DM_DON_VI();
-			DS_DM_DON_VI v_ds = new DS_DM_DON_VI();
-			v_us.FillDataset(v_ds);
-			m_ddl_don_vi.DataSource = v_ds.DM_DON_VI;
-			m_ddl_don_vi.DataTextField = DM_DON_VI.TEN_DON_VI;
-			m_ddl_don_vi.DataValueField = DM_DON_VI.ID;
-			m_ddl_don_vi.DataBind();
+			decimal id_dc_don_vi = Person.get_id_don_vi();
+			if (Request.QueryString["ip_dc_id_don_vi"] != null)
+			{
+				id_dc_don_vi = CIPConvert.ToDecimal(Request.QueryString["ip_dc_id_don_vi"]);
+			}
+			WinFormControls.load_data_to_ddl_don_vi_get_list_don_vi_duoc_xem_du_lieu(
+				id_dc_don_vi
+				, m_ddl_don_vi);
 		}
 		protected void m_cmd_xem_bao_cao_Click(object sender, EventArgs e)
 		{
