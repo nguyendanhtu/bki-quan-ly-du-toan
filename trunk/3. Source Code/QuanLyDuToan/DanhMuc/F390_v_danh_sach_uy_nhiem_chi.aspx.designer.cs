@@ -76,13 +76,13 @@ namespace QuanLyDuToan.DanhMuc {
         protected global::System.Web.UI.WebControls.Button Button1;
         
         /// <summary>
-        /// Button2 control.
+        /// m_cmd_xuat_excel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button2;
+        protected global::System.Web.UI.WebControls.Button m_cmd_xuat_excel;
         
         /// <summary>
         /// m_lbl_mess control.
@@ -110,15 +110,6 @@ namespace QuanLyDuToan.DanhMuc {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView m_grv_bao_cao_giao_von;
-        
-        /// <summary>
-        /// m_cmd_xuat_excel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button m_cmd_xuat_excel;
         
         /// <summary>
         /// UpdateProgress1 control.

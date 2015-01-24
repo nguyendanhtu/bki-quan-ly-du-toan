@@ -6,6 +6,7 @@
 	<script>
 		function pageLoad(sender, args) {
 			if (args.get_isPartialLoad()) {
+				$("#<%=m_ddl_don_vi.ClientID%>").select2();
 				$(".datepicker").datepicker({ format: 'dd/mm/yyyy' });
 				var v_lst = $('.link206');
 				for (var i = 0; i < v_lst.length; i++) {
@@ -19,7 +20,8 @@
             });
 				}
 			}
-			$(document).ready(function () {
+		$(document).ready(function () {
+			$("#<%=m_ddl_don_vi.ClientID%>").select2();
 				$(".datepicker").datepicker({ format: 'dd/mm/yyyy' });
 				var v_lst = $('.link206');
 				for (var i = 0; i < v_lst.length; i++) {
