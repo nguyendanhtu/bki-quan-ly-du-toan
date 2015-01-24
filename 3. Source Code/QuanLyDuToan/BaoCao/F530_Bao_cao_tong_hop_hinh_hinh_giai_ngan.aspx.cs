@@ -23,7 +23,7 @@ namespace QuanLyDuToan.BaoCao
 		public string get_query_string(string ip_str_id_don_vi)
 		{
 			string v_str_query_string = "";
-			v_str_query_string = "F350_bao_cao_giai_ngan_don_vi.aspx?ip_dc_id_don_vi=" + ip_str_id_don_vi + "&ip_dat_tu_ngay=" + m_txt_tu_ngay.Text + "&ip_dat_den_ngay=" + m_txt_den_ngay.Text;
+			v_str_query_string = "F350_tinh_hinh_giai_ngan.aspx?ip_dc_id_don_vi=" + ip_str_id_don_vi + "&ip_dat_tu_ngay=" + m_txt_tu_ngay.Text + "&ip_dat_den_ngay=" + m_txt_den_ngay.Text;
 			return v_str_query_string;
 		}
 		#endregion
