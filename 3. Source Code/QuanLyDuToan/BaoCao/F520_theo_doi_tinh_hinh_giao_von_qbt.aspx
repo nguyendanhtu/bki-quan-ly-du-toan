@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="F520_theo_doi_giao_von_QBT.aspx.cs" Inherits="QuanLyDuToan.BaoCao.F520_theo_doi_giao_von_QBT" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="F520_theo_doi_tinh_hinh_giao_von_qbt.aspx.cs" Inherits="QuanLyDuToan.BaoCao.F520_theo_doi_tinh_hinh_giao_von_qbt" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
     <style>
         th, td {
