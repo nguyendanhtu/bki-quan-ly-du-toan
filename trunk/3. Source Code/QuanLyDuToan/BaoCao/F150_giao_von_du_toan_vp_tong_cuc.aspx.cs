@@ -20,8 +20,9 @@ namespace QuanLyDuToan.BaoCao
         {
             if (!IsPostBack)
             {
-                US_DM_DON_VI v_us = new US_DM_DON_VI(Person.get_id_don_vi());
-                m_lbl_ten_don_vi.Text = v_us.strTEN_DON_VI.ToUpper();
+				load_data_to_ddl_don_vi();
+                US_DM_DON_VI v_us = new US_DM_DON_VI(CIPConvert.ToDecimal(m_ddl_don_vi.SelectedValue));
+				//m_lbl_ten_don_vi.Text = v_us.strTEN_DON_VI.ToUpper();
                 set_default_input();
                 if (Request.QueryString["ip_dat_tu_ngay"] != null)
                 {
@@ -48,7 +49,7 @@ namespace QuanLyDuToan.BaoCao
 				"pr_F150_giao_du_toan_vp_tong_cuc",
                 CIPConvert.ToDatetime(m_txt_tu_ngay.Text,c_configuration.DEFAULT_DATETIME_FORMAT),
                 CIPConvert.ToDatetime(m_txt_den_ngay.Text,c_configuration.DEFAULT_DATETIME_FORMAT),
-                Person.get_id_don_vi(),
+               CIPConvert.ToDecimal(m_ddl_don_vi.SelectedValue),
                 m_txt_tu_khoa_tim_kiem.Text,
                 "Y");
             addNewColumnToGridView(v_ds);
@@ -60,7 +61,17 @@ namespace QuanLyDuToan.BaoCao
             m_grv_bao_cao_giao_von.DataSource = v_dt;
             m_grv_bao_cao_giao_von.DataBind();
         }
-
+		private void load_data_to_ddl_don_vi()
+		{
+			decimal id_dc_don_vi = Person.get_id_don_vi();
+			if (Request.QueryString["ip_dc_id_don_vi"] != null)
+			{
+				id_dc_don_vi = CIPConvert.ToDecimal(Request.QueryString["ip_dc_id_don_vi"]);
+			}
+			WinFormControls.load_data_to_ddl_don_vi_get_list_don_vi_duoc_xem_du_lieu(
+				id_dc_don_vi
+				, m_ddl_don_vi);
+		}
         private void xoaCotDong()
         {
             var v_count_column = m_grv_bao_cao_giao_von.Columns.Count;
@@ -245,5 +256,17 @@ namespace QuanLyDuToan.BaoCao
         {
             //base.VerifyRenderingInServerForm(control);
         }
+
+		protected void m_ddl_don_vi_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			try
+			{
+				load_data_to_grid();
+			}
+			catch (Exception v_e)
+			{
+				CSystemLog_301.ExceptionHandle(this, v_e);
+			}
+		}
     }
 }
