@@ -86,15 +86,26 @@ namespace QuanLyDuToan.BaoCao
 
 		private void load_data_to_grid()
 		{
-			if (CIPConvert.ToDecimal(m_ddl_quyet_dinh.SelectedValue) == -1)
+			BoundField field = (BoundField)this.m_grv.Columns[2];
+			string v_str_nguon_ns = "N";
+			if (Request.QueryString["ip_nguon_ns"] != null)
 			{
-				BoundField field = (BoundField)this.m_grv.Columns[1];
-				field.DataField = "tong_tien";
+				if (Request.QueryString["ip_nguon_ns"].ToString().Equals("Y"))
+				{
+					field.HeaderText = "Kinh phí Ngân sách";
+					v_str_nguon_ns = "Y";
+				}
+				else
+				{
+					field.HeaderText = "Kinh phí Quỹ bảo trì";
+					v_str_nguon_ns = "N";
+				}
+
 			}
 			else
 			{
-				BoundField field = (BoundField)this.m_grv.Columns[1];
-				field.DataField = "tong_tien_theo_qd";
+				field.HeaderText = "Kinh phí Quỹ bảo trì";
+				v_str_nguon_ns = "N";
 			}
 			DataSet v_ds = new DataSet();
 			DataTable v_dt = new DataTable();
@@ -110,7 +121,7 @@ namespace QuanLyDuToan.BaoCao
 				CIPConvert.ToDecimal(m_ddl_cong_trinh.SelectedValue.Trim() == "" ? "-1" : m_ddl_cong_trinh.SelectedValue.Trim()),
 				CIPConvert.ToDecimal(m_ddl_du_an.SelectedValue.Trim() == "" ? "-1" : m_ddl_du_an.SelectedValue.Trim()),
 				m_txt_tim_kiem.Text.Trim(),
-				"N",
+				v_str_nguon_ns,
 				CIPConvert.ToDecimal(m_ddl_quyet_dinh.SelectedValue),
 				"pr_F157_giao_ke_hoach_theo_quyet_dinh");
 			m_grv.DataSource = v_ds.Tables[0];
