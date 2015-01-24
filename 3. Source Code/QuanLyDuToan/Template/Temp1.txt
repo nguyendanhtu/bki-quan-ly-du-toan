@@ -1,3 +1,17 @@
-﻿<table>
+﻿<table width="100%">
+	<tr>
+		<td colspan="21"  align="center"><b>CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</b></td>
+	</tr>
+	<tr>
+		<td colspan="21"  align="center"><b>Độc lập - Tự do - Hạnh phúc</b></td>
+	</tr>
+	<tr>
+		<td colspan="21"  align="center"><b>BÁO CÁO TÌNH HÌNH GIẢI NGÂN CÁC NGUỒN VỐN NĂM <nam></b></td>
+	</tr>
+	<tr>
+		<td colspan="21"  align="center"><b>Tháng <thang> ( Từ ngày <tu_ngay> Đến ngày <den_ngay> )</b></td>
+	</tr>
+</table>
+<table>
 <replace-table>
 </table>
