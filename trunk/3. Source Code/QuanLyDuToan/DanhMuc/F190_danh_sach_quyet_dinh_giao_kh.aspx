@@ -66,7 +66,7 @@
 	<asp:UpdatePanel ID="UpdatePanel1" runat="server">
 
 		<ContentTemplate>
-			<div style="width: 900px; margin: auto; border: 1px solid">
+			<div style="width: 1100px; margin: auto; border: 1px solid">
 
 
 				<div style="text-align: center;">
@@ -112,7 +112,7 @@
 							<br />
 
 						</div>
-						<div style="width: 900px; margin: 20px auto;">
+						<div style="width: 900px; margin: auto;">
 							<asp:GridView runat="server" ID="m_grv_bao_cao_giao_von" Style="width: 100%;" AutoGenerateColumns="False" EnableModelValidation="True">
 								<Columns>
 									<asp:TemplateField HeaderText="Số quyết định" ItemStyle-Width="150px">
@@ -145,7 +145,8 @@
 							</asp:GridView>
 						</div>
 						<div style="text-align: center">
-							<asp:Button runat="server" Text="Xuất excel" ID="m_cmd_xuat_excel" CssClass="btn btn-success" OnClick="m_cmd_xuat_excel_Click"></asp:Button>
+							<br />
+							<asp:Button runat="server" Text="Xuất excel" ID="m_cmd_xuat_excel" CssClass="btn btn-primary btn-sm" OnClick="m_cmd_xuat_excel_Click"></asp:Button>
 						</div>
 						<div>
 							<asp:TextBox ID="m_txt_so_quyet_dinh" runat="server" Visible="False"></asp:TextBox>

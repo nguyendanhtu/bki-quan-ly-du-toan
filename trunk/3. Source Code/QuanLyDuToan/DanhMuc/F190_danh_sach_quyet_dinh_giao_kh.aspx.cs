@@ -94,7 +94,9 @@ namespace QuanLyDuToan.DanhMuc
 
 		private void export_excel()
 		{
-			
+			US_DM_DON_VI v_us = new US_DM_DON_VI(CIPConvert.ToDecimal(m_ddl_don_vi.SelectedValue));
+			WinformReport.export_gridview_2_excel(
+			m_grv_bao_cao_giao_von, "[" + v_us.strTEN_DON_VI + "]BaoCaoGiaoVonTheoQuyetDinh.xls");
 		}
 
         private void us_2_form(){
@@ -211,7 +213,10 @@ namespace QuanLyDuToan.DanhMuc
                 throw;
             }
         }
-
+		public override void VerifyRenderingInServerForm(Control control)
+		{
+			//base.VerifyRenderingInServerForm(control);
+		}
         private bool check_us()
         {
             if (m_us.strSO_QUYET_DINH.Trim() == "")
