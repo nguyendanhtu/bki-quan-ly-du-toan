@@ -1,0 +1,22 @@
+﻿<table align="center" width="1000px">
+	<tr>
+		<td colspan="10" align="center">ỦY BAN NHÂN DÂN <donvi></td>
+		<td colspan="11" align="center"><b>CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</b></td>
+	</tr>
+	<tr>
+		<td colspan="10" align="center"><b>SỞ GIAO THÔNG VẬN TẢI</b></td>
+		<td colspan="11" align="center"><u>Độc Lập - Tự do - Hạnh phúc</u></td>
+	</tr>
+	<tr>
+		<td colspan="21" align="center"><b>BÁO CÁO TÌNH HÌNH GIẢI NGÂN CÁC NGUỒN VỐN NĂM <nam></b></td>
+	</tr>
+	<tr>
+		<td colspan="21" align="center"><i>Từ ngày <tungay> năm <nam> đến ngày <denngay> năm <nam></i></td>
+	</tr>
+	<tr>
+		<td colspan="21" align="center">Kính gửi: Vụ Tài chính- Tổng cục đường bộ Việt Nam</td>
+	</tr>
+</table>
+<table border="1px" cellspacing="0">
+<replace-table>
+</table>
