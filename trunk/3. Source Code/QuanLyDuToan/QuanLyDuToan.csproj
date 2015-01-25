@@ -92,7 +92,11 @@
     <Content Include="Downloadify\test.html" />
     <Content Include="Scripts\ExportExcel.js" />
     <Content Include="Scripts\plugins\datepicker\locales\bootstrap-datepicker.vi.js" />
+    <Content Include="Template\TPL_F157.txt" />
+    <Content Include="Template\TPL_F257.txt" />
     <Content Include="Template\TPL_F350.txt" />
+    <Content Include="Template\TPL_F357.txt" />
+    <Content Include="Template\TPL_F520.txt" />
     <Content Include="Template\TPL_F530.txt" />
     <Content Include="UserControl\MessageBoxUserControl.ascx" />
     <Content Include="DanhMuc\test.aspx" />

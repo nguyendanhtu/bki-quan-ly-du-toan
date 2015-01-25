@@ -1,0 +1,15 @@
+﻿<table width="1000px">
+	<tr>
+		<td align="center" colspan="6"><b>CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</b></td>
+	</tr>
+	<tr>
+		<td align="center" colspan="6">Độc lập - Tự do - Hạnh phúc</td>
+	</tr>
+	<tr>
+		<td align="center" colspan="6"><b>BÁO CÁO THEO DÕI TÌNH HÌNH GIAO VỐN QBT - QUỸ BẢO TRÌ</b> </td>
+	</tr>
+	
+</table>
+<table border="1px" cellspacing="0px">
+<replace-table>
+</table>
