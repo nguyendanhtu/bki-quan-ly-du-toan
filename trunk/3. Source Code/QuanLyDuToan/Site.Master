@@ -90,10 +90,9 @@
                         <ul>
                             <li><a href='https://docs.google.com/a/bkindex.com/spreadsheet/ccc?key=0Au4XXPI0St3hdFRhR085TWVnT1ltbnhGYUg0d2JTTUE#gid=0'>01. Comment, yêu cầu phát sinh</a></li>
                             <li><a href='http://www.drvn.gov.vn'>02. Website Tổng cục đường bộ</a></li>
-                            <li><a href='http://www.mediafire.com/download/hnqwg15dq333zpx/Ho_so_giay_to.rar'
-                                target="_blank">03. Hồ sơ, giấy tờ</a></li>
-                            <li><a href='http://sdrv.ms/1gCMTMN' target="_blank">04. Hướng dẫn sử dụng</a></li>
-                            <li><a href='<%=ResolveClientUrl("~/ExportExcel/BKI_QLTS_setup.rar")%>' target="_blank">05. Phần mềm tạo báo cáo excel</a></li>
+                            
+                            <li><a href='https://docs.google.com/document/d/1c_7s5VeWS9encH_FJAUI--YhdT95AHFUland1bSqj6c/edit?usp=sharing' target="_blank">04. Hướng dẫn sử dụng</a></li>
+                            
                         </ul>
                     </li>
                 </ul>
