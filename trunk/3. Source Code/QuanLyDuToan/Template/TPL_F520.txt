@@ -1,14 +1,16 @@
 ﻿<table width="1000px">
 	<tr>
-		<td align="center" colspan="6"><b>CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</b></td>
+		<td align="center" colspan="6" style="font-size:20px"><b>CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</b></td>
 	</tr>
 	<tr>
-		<td align="center" colspan="6">Độc lập - Tự do - Hạnh phúc</td>
+		<td align="center" colspan="6" style="font-size:20px">Độc lập - Tự do - Hạnh phúc</td>
 	</tr>
 	<tr>
-		<td align="center" colspan="6"><b>BÁO CÁO THEO DÕI TÌNH HÌNH GIAO VỐN QBT - QUỸ BẢO TRÌ</b> </td>
+		<td align="center" colspan="6" style="font-size:20px"><b>BÁO CÁO THEO DÕI TÌNH HÌNH GIAO VỐN QBT - QUỸ BẢO TRÌ</b> </td>
 	</tr>
-	
+	<tr>
+		<td align="center" colspan="6" style="font-size:20px">Từ ngày <tu_ngay> đến ngày <den_ngay></td>
+	</tr>
 </table>
 <table border="1px" cellspacing="0px">
 <replace-table>

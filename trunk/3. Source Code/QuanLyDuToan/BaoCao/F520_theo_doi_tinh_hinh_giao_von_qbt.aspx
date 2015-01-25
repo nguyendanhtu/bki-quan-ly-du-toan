@@ -43,13 +43,23 @@
      <script>
          function pageLoad(sender, args) {
              if (args.get_isPartialLoad()) {
-                 $('#double-scroll').doubleScroll();
+                var m = new Map();
+                m.set("<tu_ngay>", m_txt_tu_ngay.value);
+                m.set("<den_ngay>", m_txt_den_ngay.value);
+                getData("TPL_F520", "m_grv_bao_cao_giao_von", "Bao_cao_theo_doi_tinh_hinh_giao_von_quy_bao_tri", m);
+
+                $('#double-scroll').doubleScroll();
                 $("#<%=m_txt_tu_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
                 $("#<%=m_txt_den_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
 
             }
         }
-        $(document).ready(function () {
+         $(document).ready(function () {
+            var m = new Map();
+            m.set("<tu_ngay>", m_txt_tu_ngay.value);
+            m.set("<den_ngay>", m_txt_den_ngay.value);
+            getData("TPL_F520", "m_grv_bao_cao_giao_von", "Bao_cao_theo_doi_tinh_hinh_giao_von_quy_bao_tri", m);
+
             $('#double-scroll').doubleScroll();
             $("#<%=m_txt_tu_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
             $("#<%=m_txt_den_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
@@ -76,7 +86,7 @@
            <div class="height30">
                 <div class="lb" style="margin-right:30px">Từ ngày</div>
                      <div id="datetimepicker1" class="input-group date datepicker" style="width: 200px;">
-                          <asp:TextBox ID="m_txt_tu_ngay" placeholder="dd/MM/yyyy" runat="server" CssClass="cssTextBox form-control  date-start" Height="30px" Width="164px"></asp:TextBox>
+                          <asp:TextBox ClientIDMode="Static" ID="m_txt_tu_ngay" placeholder="dd/MM/yyyy" runat="server" CssClass="cssTextBox form-control  date-start" Height="30px" Width="164px"></asp:TextBox>
                            <span class="input-group-addon"><span class="glyphicon-calendar glyphicon"></span>
                            </span>
                       </div>
@@ -84,15 +94,20 @@
                 <div class="height30">
 				<div class="lb" style="margin-right:30px">Đến ngày</div>
                     <div id="datetimepicker2" class="input-group date datepicker" style="width: 200px;">
-                    <asp:TextBox ID="m_txt_den_ngay" placeholder="dd/MM/yyyy" runat="server" CssClass="cssTextBox form-control date-end" Height="30px" Width="164px"></asp:TextBox>
+                    <asp:TextBox ClientIDMode="Static" ID="m_txt_den_ngay" placeholder="dd/MM/yyyy" runat="server" CssClass="cssTextBox form-control date-end" Height="30px" Width="164px"></asp:TextBox>
                     <span class="input-group-addon"><span class="glyphicon-calendar glyphicon"></span>
                     </span>
                     </div>
             </div>      
         </div>
         <div style="width:350px; text-align:center; margin:auto;height: 45px;">
-            <asp:Button ID="m_cmd_xem_bao_cao" Text="Xem báo cáo" runat="server" cssclass="btn" OnClick="m_cmd_xem_bao_cao_Click" />
-            <asp:Button ID="m_cmd_xuat_excel" Text="Xuất excel" runat="server" cssclass="btn" Enabled="true" OnClick="m_cmd_xuat_excel_Click" />
+            <div style="width: 120px; margin: 0px auto;float: left;">
+                <asp:Button Height="30px" ID="m_cmd_xem_bao_cao" Text="Xem báo cáo" runat="server" cssclass="btn" OnClick="m_cmd_xem_bao_cao_Click" />
+            </div>            
+            <div id="downloadify" style="width: 100px; margin: 0px auto;float: left;">
+				You must have Flash 10 installed to download this file.
+			</div>
+            <asp:Button Visible="false" ID="m_cmd_xuat_excel" Text="Xuất excel" runat="server" cssclass="btn" Enabled="true" OnClick="m_cmd_xuat_excel_Click" />
         </div>
         <div style="width:1200px; overflow-y:hidden; margin:0px auto;">
                 <div id="double-scroll" >
