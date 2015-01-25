@@ -36,15 +36,15 @@
 		}
 	</style>
 	<script src="../Scripts/jquery.doubleScroll.js"></script>
-	<script src="../Downloadify/js/swfobject.js"></script>
-	<script src="../Downloadify/js/downloadify.min.js"></script>
-	<script src="../Scripts/ExportExcel.js"></script>
 	<script>
 		function pageLoad(sender, args) {
 			if (args.get_isPartialLoad()) {
-				var m = new Map();
-                m.set("<year>", "2015");
-                m.set("<month>", "9");
+			    var m = new Map();
+			    var today = new Date();
+			    var mm = today.getMonth() + 1; //January is 0!
+			    var yyyy = today.getFullYear();
+			    m.set("<year>", yyyy);
+			    m.set("<month>", mm);
                 m.set("<tu_ngay>", m_txt_tu_ngay.value);
                 m.set("<den_ngay>", m_txt_den_ngay.value);
                 getData("TPL_F530", "m_grv", "Bao_cao_tong_hop_tinh_hinh_giai_ngan", m);
@@ -57,8 +57,11 @@
         }
         $(document).ready(function () {
             var m = new Map();
-            m.set("<nam>", "2015");
-            m.set("<thang>", "9");
+            var today = new Date();
+            var mm = today.getMonth() + 1; //January is 0!
+            var yyyy = today.getFullYear();
+            m.set("<year>", yyyy);
+            m.set("<month>", mm);
             m.set("<tu_ngay>", m_txt_tu_ngay.value);
             m.set("<den_ngay>", m_txt_den_ngay.value);
             getData("TPL_F530", "m_grv", "Bao_cao_tong_hop_tinh_hinh_giai_ngan", m);

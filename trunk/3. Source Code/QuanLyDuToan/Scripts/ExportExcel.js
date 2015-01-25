@@ -21,9 +21,9 @@ function LoadButton(str_file_name, content) {
         data: function () {
             return content;//document.getElementById('txt_area').value;
         },
-        onComplete: function () { alert('Your File Has Been Saved!'); },
-        onCancel: function () { alert('You have cancelled the saving of this file.'); },
-        onError: function () { alert('You must put something in the File Contents or there will be nothing to save!'); },
+        onComplete: function () { alert('Báo cáo đã được lưu trên máy tính của bạn!'); },
+        onCancel: function () { alert('Bạn vừa hủy thao tác lưu lại báo cáo'); },
+        onError: function () { alert('Nội dung trong báo cáo không được bỏ trống!'); },
         swf: '../Downloadify/media/downloadify.swf',
         downloadImage: '../Downloadify/images/download.png',
         width: 100,
