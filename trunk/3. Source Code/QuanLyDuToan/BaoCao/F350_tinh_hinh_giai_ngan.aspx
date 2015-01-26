@@ -42,8 +42,8 @@
 		}
 
 			.control select, input {
-				width: 220px;
-				/*margin-left: 10px;*/
+				width: 91px;
+				/*margin-left: 5px;*/
 			}
 
 		.filter {
@@ -79,7 +79,17 @@
 	<script>
 		function pageLoad(sender, args) {
 			if (args.get_isPartialLoad()) {
-				$('#double-scroll').doubleScroll();
+			    var m = new Map();
+			    var today = new Date();
+			    var mm = today.getMonth() + 1; //January is 0!
+			    var yyyy = today.getFullYear();
+			    m.set("<nam>", yyyy);
+			    m.set("<donvi>", m_ddl_don_vi.selectedOptions[0].innerHTML);
+			    m.set("<tu_ngay>", m_txt_tu_ngay.value);
+			    m.set("<den_ngay>", m_txt_den_ngay.value);
+			    getData("TPL_F350", "m_grv", "Bao_cao_tong_hop_tinh_hinh_giai_ngan", m);
+
+			    $('#double-scroll').doubleScroll();
 				$("#<%=m_ddl_loai_nv.ClientID%>").select2();
 				$("#<%=m_ddl_cong_trinh.ClientID%>").select2();
 				$("#<%=m_ddl_du_an.ClientID%>").select2();
@@ -88,7 +98,17 @@
 				$("#<%=m_txt_den_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
 			}
 		}
-		$(document).ready(function () {
+	    $(document).ready(function () {
+	        var m = new Map();
+	        var today = new Date();
+	        var mm = today.getMonth() + 1; //January is 0!
+	        var yyyy = today.getFullYear();
+	        m.set("<nam>", yyyy);
+	        m.set("<donvi>", m_ddl_don_vi.selectedOptions[0].innerHTML);
+	        m.set("<tu_ngay>", m_txt_tu_ngay.value);
+	        m.set("<den_ngay>", m_txt_den_ngay.value);
+	        getData("TPL_F350", "m_grv", "Bao_cao_tong_hop_tinh_hinh_giai_ngan", m);
+
 			$('#double-scroll').doubleScroll();
 			$("#<%=m_ddl_loai_nv.ClientID%>").select2();
 			$("#<%=m_ddl_cong_trinh.ClientID%>").select2();
@@ -118,7 +138,7 @@
 						<span style="font-weight: bold">BÁO CÁO TÌNH HÌNH GIẢI NGÂN CÁC NGUỒN VỐN NĂM  <%=DateTime.Now.Year.ToString() %></span>
 						<br />
 						<span style="font-weight: bold">ĐƠN VỊ:
-                            <asp:DropDownList runat="server" ID="m_ddl_don_vi" AutoPostBack="True" OnSelectedIndexChanged="m_ddl_don_vi_SelectedIndexChanged"></asp:DropDownList>
+                            <asp:DropDownList runat="server" ClientIDMode="Static" ID="m_ddl_don_vi" AutoPostBack="True" OnSelectedIndexChanged="m_ddl_don_vi_SelectedIndexChanged"></asp:DropDownList>
 						</span>
 						<br />
 						<br />
@@ -154,7 +174,7 @@
 								<div class="height30">
 									<div class="lb" style="margin-right: 0px; width: 90px; margin-top: 6px;">Từ ngày</div>
 									<div id="datetimepicker1" class="input-group date datepicker" style="width: 200px;">
-										<asp:TextBox ID="m_txt_tu_ngay" placeholder="dd/MM/yyyy" runat="server" CssClass="cssTextBox form-control  date-start" Height="30px" Width="164px"></asp:TextBox>
+										<asp:TextBox ClientIDMode="Static" ID="m_txt_tu_ngay" placeholder="dd/MM/yyyy" runat="server" CssClass="cssTextBox form-control  date-start" Height="30px" Width="164px"></asp:TextBox>
 										<span class="input-group-addon"><span class="glyphicon-calendar glyphicon"></span>
 										</span>
 									</div>
@@ -162,7 +182,7 @@
 								<div class="height30" style="margin-top: 6px;">
 									<div class="lb" style="margin-right: 0px; width: 90px; margin-top: 6px;">Đến ngày</div>
 									<div id="datetimepicker2" class="input-group date datepicker" style="width: 200px;">
-										<asp:TextBox ID="m_txt_den_ngay" placeholder="dd/MM/yyyy" runat="server" CssClass="cssTextBox form-control date-end" Height="30px" Width="164px"></asp:TextBox>
+										<asp:TextBox ClientIDMode="Static" ID="m_txt_den_ngay" placeholder="dd/MM/yyyy" runat="server" CssClass="cssTextBox form-control date-end" Height="30px" Width="164px"></asp:TextBox>
 										<span class="input-group-addon"><span class="glyphicon-calendar glyphicon"></span>
 										</span>
 									</div>
@@ -182,14 +202,21 @@
 				<tr>
 
 					<td colspan="4" style="text-align: center">
-						<asp:Button ID="m_cmd_xem_bao_cao" Text="Xem báo cáo" OnClick="m_cmd_xem_bao_cao_Click" runat="server" CssClass="btn btn-sm btn-primary" />
-						<asp:Button ID="m_cmd_xuat_excel" Text="Xuất excel" OnClick="m_cmd_xuat_excel_Click" runat="server" CssClass="btn btn-sm btn-primary" />
+					    <div style="margin:0px auto;width: 200px;">	    
+                            <div style="width: 100px; margin: 0px auto;float: left;">
+						            <asp:Button ID="m_cmd_xem_bao_cao" Text="Xem báo cáo" OnClick="m_cmd_xem_bao_cao_Click" runat="server" CssClass="btn btn-sm btn-primary" />
+						    </div>
+						    <div id="downloadify" style="width: 100px; margin: 0px auto;float: left;">
+	                            You must have Flash 10 installed to download this file.
+                            </div>
+                        </div>
+                        <asp:Button ID="m_cmd_xuat_excel" Visible="false" Text="Xuất excel" OnClick="m_cmd_xuat_excel_Click" runat="server" CssClass="btn btn-sm btn-primary" />
 					</td>
 				</tr>
 				<tr>
 					<td colspan="4" align="center">
 						<div style="width: 1200px; margin: 0px auto;" id="double-scroll">
-							<asp:GridView ID="m_grv" runat="server" AutoGenerateColumns="False"
+							<asp:GridView ClientIDMode="Static" ID="m_grv" runat="server" AutoGenerateColumns="False"
 								CssClass="cssGrid" Width="2500px" CellPadding="0" ForeColor="Black"
 								AllowSorting="True" PageSize="60"
 								EmptyDataText="Không có dữ liệu phù hợp" OnRowCreated="m_grv_RowCreated" EnableModelValidation="True">

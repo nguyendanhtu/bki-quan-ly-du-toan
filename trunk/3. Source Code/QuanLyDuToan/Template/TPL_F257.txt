@@ -1,4 +1,4 @@
-﻿<table width="1000px">
+﻿<table width="100%">
 	<tr>
 		<td align="center" colspan="2"><b>CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</b></td>
 	</tr>
@@ -6,7 +6,7 @@
 		<td align="center" colspan="2">Độc lập - Tự do - Hạnh phúc</td>
 	</tr>
 	<tr>
-		<td align="center" colspan="2"><b>BÁO CÁO TÌNH HÌNH GIAO VỐN QUỸ BẢO TRÌ <nam></b> </td>
+		<td align="center" colspan="2"><b>BÁO CÁO TÌNH HÌNH GIAO VỐN QUỸ BẢO TRÌ <year></b> </td>
 	</tr>
 	
 </table>
