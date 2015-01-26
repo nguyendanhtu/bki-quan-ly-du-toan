@@ -93,9 +93,12 @@
     <Content Include="Scripts\ExportExcel.js" />
     <Content Include="Scripts\plugins\datepicker\locales\bootstrap-datepicker.vi.js" />
     <Content Include="Template\TPL_F157.txt" />
+    <Content Include="Template\TPL_F190.txt" />
     <Content Include="Template\TPL_F257.txt" />
+    <Content Include="Template\TPL_F290.txt" />
     <Content Include="Template\TPL_F350.txt" />
     <Content Include="Template\TPL_F357.txt" />
+    <Content Include="Template\TPL_F390.txt" />
     <Content Include="Template\TPL_F520.txt" />
     <Content Include="Template\TPL_F530.txt" />
     <Content Include="UserControl\MessageBoxUserControl.ascx" />
