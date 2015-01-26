@@ -59,7 +59,17 @@
 	</style>
 	<script>
 		function pageLoad(sender, args) {
-			if (args.get_isPartialLoad()) {
+		    if (args.get_isPartialLoad()) {
+		        var m = new Map();
+		        var today = new Date();
+		        var mm = today.getMonth() + 1; //January is 0!
+		        var yyyy = today.getFullYear();
+		        m.set("<year>", yyyy);
+		        m.set("<month>", mm);
+		        m.set("<tu_ngay>", m_txt_tu_ngay.value);
+		        m.set("<den_ngay>", m_txt_den_ngay.value);
+		        getData("TPL_F157", "m_grv", "bao_cao_tinh_hinh_giao_ke_hoach_quy_bao_tri", m);
+
 				$("#<%=m_ddl_loai_nv.ClientID%>").select2();
 				$("#<%=m_ddl_don_vi.ClientID%>").select2();
 				$("#<%=m_ddl_cong_trinh.ClientID%>").select2();
@@ -89,7 +99,17 @@
 
 			}
 		}
-		$(document).ready(function () {
+	    $(document).ready(function () {
+	        var m = new Map();
+	        var today = new Date();
+	        var mm = today.getMonth() + 1; //January is 0!
+	        var yyyy = today.getFullYear();
+	        m.set("<year>", yyyy);
+	        m.set("<month>", mm);
+	        m.set("<tu_ngay>", m_txt_tu_ngay.value);
+	        m.set("<den_ngay>", m_txt_den_ngay.value);
+	        getData("TPL_F157", "m_grv", "bao_cao_tinh_hinh_giao_ke_hoach_quy_bao_tri", m);
+
 			$("#<%=m_ddl_loai_nv.ClientID%>").select2();
 			$("#<%=m_ddl_don_vi.ClientID%>").select2();
 			$("#<%=m_ddl_cong_trinh.ClientID%>").select2();
@@ -167,7 +187,7 @@
 									<div class="height30">
 										<div class="lb" style="margin-right: 30px">Từ ngày</div>
 										<div id="datetimepicker1" class="input-group date datepicker" style="width: 200px;">
-											<asp:TextBox ID="m_txt_tu_ngay" placeholder="dd/MM/yyyy" runat="server" CssClass="cssTextBox form-control  date-start" Height="30px" Width="164px" OnTextChanged="m_txt_tu_ngay_TextChanged" AutoPostBack="true"></asp:TextBox>
+											<asp:TextBox ClientIDMode="Static" ID="m_txt_tu_ngay" placeholder="dd/MM/yyyy" runat="server" CssClass="cssTextBox form-control  date-start" Height="30px" Width="164px" OnTextChanged="m_txt_tu_ngay_TextChanged" AutoPostBack="true"></asp:TextBox>
 											<span class="input-group-addon"><span class="glyphicon-calendar glyphicon"></span>
 											</span>
 										</div>
@@ -175,7 +195,7 @@
 									<div class="height30" style="margin-bottom: 5px;">
 										<div class="lb" style="margin-right: 30px">Đến ngày</div>
 										<div id="datetimepicker2" class="input-group date datepicker" style="width: 200px;">
-											<asp:TextBox ID="m_txt_den_ngay" placeholder="dd/MM/yyyy" runat="server" CssClass="cssTextBox form-control date-end" Height="30px" Width="164px" OnTextChanged="m_txt_den_ngay_TextChanged" AutoPostBack="true"></asp:TextBox>
+											<asp:TextBox ID="m_txt_den_ngay" ClientIDMode="Static" placeholder="dd/MM/yyyy" runat="server" CssClass="cssTextBox form-control date-end" Height="30px" Width="164px" OnTextChanged="m_txt_den_ngay_TextChanged" AutoPostBack="true"></asp:TextBox>
 											<span class="input-group-addon"><span class="glyphicon-calendar glyphicon"></span>
 											</span>
 										</div>
@@ -196,8 +216,16 @@
 					<tr>
 
 						<td colspan="4" style="text-align: center">
-							<asp:Button CssClass="btn btn-sm btn-primary" ID="m_cmd_xem_bao_cao" Text="Xem báo cáo" runat="server" OnClick="m_cmd_xem_bao_cao_Click" />
-							<asp:Button CssClass="btn btn-sm btn-primary" ID="m_cmd_xuat_excel" Text="Xuất excel" runat="server" OnClick="m_cmd_xuat_excel_Click" />
+							<div style="margin:0px auto;width: 200px;">
+                                <div style="width: 100px; margin: 0px auto;float: left;">
+						            <asp:Button ID="m_cmd_xem_bao_cao" Text="Xem báo cáo" OnClick="m_cmd_xem_bao_cao_Click" runat="server" CssClass="btn btn-sm btn-primary" />
+						        </div>
+                                <div id="downloadify" style="width: 100px; margin: 0px auto;float: left;">
+				                    You must have Flash 10 installed to download this file.
+			                    </div>
+                            </div>
+							
+                            <asp:Button CssClass="btn btn-sm btn-primary" Visible="false" ID="m_cmd_xuat_excel" Text="Xuất excel" runat="server" OnClick="m_cmd_xuat_excel_Click" />
 						</td>
 					</tr>
 					<tr>
@@ -207,7 +235,7 @@
 					</tr>
 					<tr>
 						<td colspan="4" style="margin: auto" align="center">
-							<asp:GridView ID="m_grv" runat="server" AutoGenerateColumns="False" DataKeyNames="ID"
+							<asp:GridView ClientIDMode="Static" ID="m_grv" runat="server" AutoGenerateColumns="False" DataKeyNames="ID"
 								CssClass="cssGrid table" CellPadding="0" ForeColor="Black"
 								AllowSorting="True" PageSize="60"
 								EmptyDataText="Không có dữ liệu phù hợp"
