@@ -1,0 +1,15 @@
+﻿<table width="100%">
+	<tr>
+		<td align="center" colspan="7"><b>CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</b></td>
+	</tr>
+	<tr>
+		<td align="center" colspan="7">Độc lập - Tự do - Hạnh phúc</td>
+	</tr>
+	<tr>
+		<td align="center" colspan="7"><b>DANH SÁCH QUYẾT ĐINH GIAO KẾ HOẠCH</b></td>
+	</tr>
+	
+</table>
+<table border="1px" cellspacing="0px">
+<replace-table>
+</table>
