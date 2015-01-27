@@ -137,8 +137,8 @@
                             <ItemStyle HorizontalAlign="Left" />
                         </asp:BoundField>
                         <asp:BoundField HeaderText="Ngày tháng" HtmlEncode="False" DataField="NGAY_THANG"
-                            DataFormatString="{0:d}">
-                            <ItemStyle HorizontalAlign="Right" Width="150px" />
+                            DataFormatString="{0:d}"  ItemStyle-HorizontalAlign="Center">
+                            <ItemStyle HorizontalAlign="Center" Width="150px" />
                         </asp:BoundField>
                         <asp:BoundField DataField="TEN_DON_VI" HeaderText="Đơn vị" Visible="False">
                             <ItemStyle Width="200px" />

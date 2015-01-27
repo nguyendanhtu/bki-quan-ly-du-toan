@@ -108,13 +108,13 @@
 												<ItemStyle HorizontalAlign="Center"></ItemStyle>
 											</asp:TemplateField>
 											<asp:BoundField DataField="NOI_DUNG" HeaderText="Nhiệm vụ chi" />
-											<asp:TemplateField HeaderText="Kế hoạch chi" ItemStyle-HorizontalAlign="Right" ItemStyle-Width="100px">
+											<%--<asp:TemplateField HeaderText="Kế hoạch chi" ItemStyle-HorizontalAlign="Right" ItemStyle-Width="100px">
 												<ItemTemplate>
 													<asp:Label ID="m_lbl_so_tien_ke_hoach_grid" runat="server" Style="text-align: right"
 														Text='<%#format_so_tien(Eval(GRID_GIAO_VON.KE_HOACH_CHI).ToString()) %>'></asp:Label>
 												</ItemTemplate>
-											</asp:TemplateField>
-											<asp:TemplateField HeaderText="Giá trị thực hiện đã nghiệm thu A-B" ItemStyle-HorizontalAlign="Right" ItemStyle-Width="100px">
+											</asp:TemplateField>--%>
+											<asp:TemplateField HeaderText="Giá trị thực hiện đã nghiệm thu A-B" ItemStyle-HorizontalAlign="Right" ItemStyle-Width="100px"  ItemStyle-BackColor="LightBlue">
 												<ItemTemplate>
 													<asp:TextBox ID="m_txt_so_tien_ngan_sach_grid" runat="server" Style="text-align: right" CssClass="csscurrency format_so_tien"
 														Text='<%#format_so_tien(Eval(GRID_GIAO_VON.QUY).ToString()) %>' Visible='<%# !visible_label_so_tien(Eval("ID").ToString()) %>'></asp:TextBox>
@@ -122,7 +122,7 @@
 														Visible='<%# visible_label_so_tien(Eval("ID").ToString()) %>' Text='<%#format_so_tien(Eval(GRID_GIAO_VON.QUY).ToString()) %>'></asp:Label>
 												</ItemTemplate>
 											</asp:TemplateField>
-											<asp:TemplateField HeaderText="Số chưa giải ngân cho nhà thầu theo ng/thu A-B" ItemStyle-HorizontalAlign="Right" ItemStyle-Width="100px">
+											<asp:TemplateField HeaderText="Số chưa giải ngân cho nhà thầu theo ng/thu A-B" ItemStyle-HorizontalAlign="Right" ItemStyle-Width="100px"  ItemStyle-BackColor="LightBlue">
 												<ItemTemplate>
 													<asp:TextBox ID="m_txt_so_tien_quy_bao_tri_grid" runat="server" Style="text-align: right" CssClass="csscurrency format_so_tien"
 														Visible='<%# !visible_label_so_tien(Eval("ID").ToString()) %>'

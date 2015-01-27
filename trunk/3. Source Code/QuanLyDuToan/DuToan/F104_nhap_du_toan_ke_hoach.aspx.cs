@@ -735,7 +735,7 @@ namespace QuanLyDuToan.DuToan
 
 			//m_txt_ctx_so_tien_nam_truoc_chuyen_sang.Text = "0";
 			m_txt_so_tien_nam_truoc_chuyen_sang.Text = "0";
-
+			m_txt_so_km.Text = "0";
 			//m_txt_ctx_so_tien_qbt.Text = "0";
 			m_txt_so_tien.Text = "0";
 			//m_ddl_tuyen_quoc_lo.SelectedValue = "-1";

@@ -638,7 +638,7 @@ namespace QuanLyDuToan.App_Code
 			if (!ip_b_is_chi_du_an)//Chi theo CLKM
 				if (!ip_b_is_nguon_ns)//Nguồn Quỹ BT
 				{
-					op_ddl.SelectedValue = ID_LOAI_NHIEM_VU.VAN_PHONG_CUC.ToString();
+					//op_ddl.SelectedValue = ID_LOAI_NHIEM_VU.VAN_PHONG_CUC.ToString();
 				}
 				else
 				{

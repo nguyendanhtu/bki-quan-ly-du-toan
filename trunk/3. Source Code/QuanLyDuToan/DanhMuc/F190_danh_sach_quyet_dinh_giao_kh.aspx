@@ -156,8 +156,8 @@
 										</ItemTemplate>
 									</asp:TemplateField>
 
-									<asp:BoundField HeaderText="Ngày tháng" HtmlEncode="False" DataField="NGAY_THANG" DataFormatString="{0:dd/MM/yyyy}">
-										<ItemStyle HorizontalAlign="Right" Width="150px" />
+									<asp:BoundField HeaderText="Ngày tháng" HtmlEncode="False" DataField="NGAY_THANG" DataFormatString="{0:dd/MM/yyyy}" ItemStyle-HorizontalAlign="Center">
+										<ItemStyle HorizontalAlign="Center" Width="150px" />
 									</asp:BoundField>
 									<asp:BoundField HeaderText="Nội dung" HtmlEncode="False" DataField="NOI_DUNG">
 										<ItemStyle HorizontalAlign="Left" />

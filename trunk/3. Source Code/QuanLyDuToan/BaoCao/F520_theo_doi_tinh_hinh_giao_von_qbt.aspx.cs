@@ -124,30 +124,30 @@ namespace QuanLyDuToan.BaoCao
                 {
                     case "Column1":
                         bfield.HeaderText = "Tổng KH giao";
-                        bfield.ItemStyle.CssClass = "keHoachClass";
+                        //bfield.ItemStyle.CssClass = "keHoachClass"; //TuDM sua, bo mau sac o luoi
                         break;
                     case "SoDu":
                         bfield.HeaderText = "Số dư năm trước chuyển sang";
-                        bfield.ItemStyle.CssClass = "soDuClass";
+                        //bfield.ItemStyle.CssClass = "soDuClass";
                         break;
                     case "ChinhThuc":
                         bfield.HeaderText = "KH giao chính thức " + CIPConvert.ToDatetime(m_txt_tu_ngay.Text,c_configuration.DEFAULT_DATETIME_FORMAT).Year.ToString();
-                        bfield.ItemStyle.CssClass = "keHoachClass";
+                        //bfield.ItemStyle.CssClass = "keHoachClass";
                         break;
                     case "TongVon":
                         bfield.HeaderText = "Tổng KP cấp";
-                        bfield.ItemStyle.CssClass = "giaoVonClass";
+                        //bfield.ItemStyle.CssClass = "giaoVonClass";
                         break;
                     default:
                         var qd = new US_DM_QUYET_DINH(CIPConvert.ToDecimal(ip_dt.Columns[i].ColumnName.Substring(2)));
                         bfield.HeaderText = qd.strSO_QUYET_DINH;
                         if (qd.dcID_LOAI_QUYET_DINH == 648)
                         {
-                            bfield.ItemStyle.CssClass = "giaoVonClass";
+                            //bfield.ItemStyle.CssClass = "giaoVonClass";
                         }
                         else
                         {
-                            bfield.ItemStyle.CssClass = "keHoachClass";
+                           // bfield.ItemStyle.CssClass = "keHoachClass";
                         }
                         break;
                 }
