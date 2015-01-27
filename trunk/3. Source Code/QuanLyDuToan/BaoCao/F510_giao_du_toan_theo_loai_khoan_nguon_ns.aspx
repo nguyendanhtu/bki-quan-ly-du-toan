@@ -167,12 +167,14 @@
 	<asp:UpdatePanel ID="UpdatePanel1" runat="server">
 	<ContentTemplate>
         <div style="text-align:center;">
-            <span style="font-weight: bold">CỘNG HOÀ XÃ HỘI CHỦ NGHĨA VIỆT NAM</span>
+            <%--<span style="font-weight: bold">CỘNG HOÀ XÃ HỘI CHỦ NGHĨA VIỆT NAM</span>
 		    <br />
 		    <span style="font-weight: bold">Độc lập - Tự do - Hạnh Phúc</span>
 		    <br />
-		    <br />
+		    <br />--%>
 		    <span style="font-weight: bold">TỔNG HỢP ĐÃ GIAO DỰ TOÁN NĂM <asp:Label runat="server" Text="Label" ID="m_lbl_nam">2014</asp:Label> - ĐÀO TẠO (490-498; 490-497; 490-501)</span>
+            <br />
+		    <br />
         </div>
         <div style="color:black; text-align:center; margin-top:20px;">
             <div class="divBoxControl" style="height: 119px;">
@@ -205,8 +207,8 @@
                 </div>
             </div>
             <div>
-                <asp:Button ID="m_cmd_xem_bao_cao" Text="Xem báo cáo" runat="server" cssclass="btn" OnClick="m_cmd_xem_bao_cao_Click" />
-                <asp:Button ID="m_cmd_xuat_excel" Text="Xuất excel" OnClick="m_cmd_xuat_excel_Click" runat="server" cssclass="btn" Enabled="true" />
+                <asp:Button ID="m_cmd_xem_bao_cao" Text="Xem báo cáo" runat="server" cssclass="btn btn-sm btn-primary" OnClick="m_cmd_xem_bao_cao_Click" />
+                <asp:Button ID="m_cmd_xuat_excel" Text="Xuất excel" OnClick="m_cmd_xuat_excel_Click" runat="server" cssclass="btn btn-sm btn-primary" Enabled="true" />
             </div>
             <div style="margin-top: 15px;">
                 <asp:Label runat="server" Text="Label" ID="m_lbl_mess"></asp:Label>
