@@ -9,6 +9,7 @@ using WebUS;
 using WebDS;
 using WebDS.CDBNames;
 using QuanLyDuToan.App_Code;
+using System.Globalization;
 
 namespace QuanLyDuToan.ChucNang
 {
@@ -135,7 +136,12 @@ namespace QuanLyDuToan.ChucNang
 			{
 				op_str = "0";
 			}
-			else op_str = CIPConvert.ToStr(v_dc_nop_thue + v_dc_tt_cho_dv_huong, "#.###.##");
+			else 
+			{
+				CultureInfo elGR = CultureInfo.CreateSpecificCulture("el-GR");
+				op_str = String.Format(elGR, "{0:0,0}", v_dc_tt_cho_dv_huong);
+				//op_str = CIPConvert.ToStr(v_dc_nop_thue + v_dc_tt_cho_dv_huong, "{0:0,0}");
+			}
 			return op_str;
 		}
 		public string format_so_tien(string ip_str_so_tien)
@@ -149,7 +155,9 @@ namespace QuanLyDuToan.ChucNang
 			else
 			{
 				v_dc_so_tien = CIPConvert.ToDecimal(ip_str_so_tien);
-				op_str = CIPConvert.ToStr(v_dc_so_tien, "#.###.##");
+				CultureInfo elGR = CultureInfo.CreateSpecificCulture("el-GR");
+				op_str = String.Format(elGR, "{0:0,0}", v_dc_so_tien);
+				//op_str = CIPConvert.ToStr(v_dc_so_tien, "{0:0,0}");
 			}
 
 			return op_str;
