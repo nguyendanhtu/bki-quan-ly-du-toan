@@ -179,8 +179,8 @@
 												<tr>
 													<td style="text-align: right">Công trình /Quốc lộ (*)</td>
 													<td style="text-align: left">
-														<asp:TextBox ID="m_txt_quoc_lo" runat="server" CssClass="cssTextBox form-control" Visible="false" Width="150px"></asp:TextBox>
-														<asp:DropDownList ID="m_ddl_cong_trinh" runat="server" CssClass="select2" Width="155px" OnSelectedIndexChanged="m_ddl_cong_trinh_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
+														<asp:TextBox ID="m_txt_quoc_lo" runat="server" CssClass="cssTextBox form-control" Visible="false" Width="190px"></asp:TextBox>
+														<asp:DropDownList ID="m_ddl_cong_trinh" runat="server" CssClass="select2" Width="190px" OnSelectedIndexChanged="m_ddl_cong_trinh_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
 													</td>
 													<td>
 														<asp:Button ID="m_cmd_them_quoc_lo" CssClass="btn btn-sm btn-primary" Text="Nhập mới" OnClick="m_cmd_them_quoc_lo_Click" runat="server" />
@@ -190,8 +190,8 @@
 												<tr>
 													<td style="text-align: right">Tên dự án (*)</td>
 													<td style="text-align: left">
-														<asp:TextBox ID="m_txt_du_an" runat="server" CssClass="cssTextBox form-control" Visible="false" Width="150px"></asp:TextBox>
-														<asp:DropDownList ID="m_ddl_du_an" runat="server" CssClass="select2" Width="155px" AutoPostBack="true"></asp:DropDownList>
+														<asp:TextBox ID="m_txt_du_an" runat="server" CssClass="cssTextBox form-control" Visible="false" Width="190px" TextMode="MultiLine" Rows="2"></asp:TextBox>
+														<asp:DropDownList ID="m_ddl_du_an" runat="server" CssClass="select2" Width="190px" AutoPostBack="true"></asp:DropDownList>
 													</td>
 													<td>
 														<asp:Button ID="m_cmd_chon_du_an" CssClass="btn btn-sm btn-primary" Text="Chọn" Visible="false" OnClick="m_cmd_chon_du_an_Click" runat="server" />
@@ -254,7 +254,7 @@
 														<span>Nội dung dự toán (*)</span>
 													</td>
 													<td>
-														<asp:TextBox ID="m_txt_noi_dung_du_toan" placehorder="Nội dung dự toán" CssClass="form-control" Width="176px" runat="server">
+														<asp:TextBox ID="m_txt_noi_dung_du_toan" placehorder="Nội dung dự toán" CssClass="form-control" Width="176px" runat="server" TextMode="MultiLine" Rows="2">
 														</asp:TextBox>
 													</td>
 												</tr>
@@ -278,23 +278,26 @@
                                                     <span>Số km</span>
                                                 </td>
                                                 <td colspan="2" style="text-align:left">
-                                                    <asp:TextBox ID="m_txt_so_km" runat="server" CssClass="csscurrency" Style="text-align: right" Text="0" Width="170px" AutoPostBack="false"></asp:TextBox>(km)
+													<span>
+                                                    <asp:TextBox ID="m_txt_so_km" runat="server" CssClass="form-control csscurrency format_so_tien" Style="text-align: right" Text="0" Width="190px" AutoPostBack="false"></asp:TextBox>(km)</span>
                                                 </td>
 											</tr>
                                             <tr>
 												<td style="text-align: right">
-													<span>Kinh phí năm trước chuyển sang</span>
+													<span>KP năm trước chuyển sang</span>
 												</td>
 												<td colspan="2" style="text-align: left">
-													<asp:TextBox ID="m_txt_so_tien_nam_truoc_chuyen_sang" runat="server" CssClass="csscurrency format_so_tien" Style="text-align: right" Text="0" Width="170px" AutoPostBack="false"></asp:TextBox>(đ)
+													<span>
+													<asp:TextBox ID="m_txt_so_tien_nam_truoc_chuyen_sang" runat="server" CssClass="form-control csscurrency format_so_tien" Style="text-align: right" Text="0" Width="190px" AutoPostBack="false"></asp:TextBox>(đ)</span>
 												</td>
 											</tr>
 											<tr>
 												<td style="text-align: right">
-													<asp:Label ID="m_lbl_so_tien" runat="server" Text="Kinh phí Quỹ bảo trì (*)"></asp:Label>
+													<asp:Label ID="m_lbl_so_tien" runat="server" Text="KP Quỹ bảo trì (*)"></asp:Label>
 												</td>
 												<td colspan="2">
-													<asp:TextBox ID="m_txt_so_tien" runat="server" CssClass="csscurrency format_so_tien" Text="0" Style="text-align: right" Width="170px"></asp:TextBox>(đ)
+													<span>
+													<asp:TextBox ID="m_txt_so_tien" runat="server" CssClass="form-control csscurrency format_so_tien" Text="0" Style="text-align: right" Width="190px"></asp:TextBox>(đ)</span>
 												</td>
 											</tr>
 											<tr>

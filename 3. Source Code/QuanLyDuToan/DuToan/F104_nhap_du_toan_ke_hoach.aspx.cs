@@ -695,7 +695,15 @@ namespace QuanLyDuToan.DuToan
 			WinFormControls.load_data_to_ddl_don_vi_get_list_don_vi_duoc_xem_du_lieu(Person.get_id_don_vi(), m_ddl_don_vi);
 			xoa_trang();
 			load_data_to_cbo_quyet_dinh();
-
+			if (m_ddl_quyet_dinh.Visible==false)
+			{
+				if (m_ddl_quyet_dinh.Items.Count>=2)
+				{
+					m_ddl_quyet_dinh.SelectedIndex = 1;
+				}
+				m_cmd_chon_qd_da_nhap_Click(null, null);
+				m_ddl_quyet_dinh_SelectedIndexChanged(null, null);
+			}
 			load_data_to_ddl_chuong();
 			load_data_to_ddl_loai();
 			load_data_to_ddl_khoan();
@@ -934,7 +942,7 @@ namespace QuanLyDuToan.DuToan
 					//kiem tra xem dang nhap Nguon nao
 					if (Request.QueryString["ip_nguon_ns"] == "Y")
 					{
-						m_lbl_so_tien.Text = "Kinh phí Ngân sách (*)";
+						m_lbl_so_tien.Text = "KP Ngân sách (*)";
 						m_lbl_title.Text = "Nhập giao kế hoạch - Nguồn Ngân sách";
 						m_rdb_theo_chuong_loai_khoan_muc.Checked = true;
 						m_rdb_theo_quoc_lo.Checked = false;
@@ -942,7 +950,7 @@ namespace QuanLyDuToan.DuToan
 					}
 					else
 					{
-						m_lbl_so_tien.Text = "Kinh phí Quỹ bảo trì (*)";
+						m_lbl_so_tien.Text = "KP Quỹ bảo trì (*)";
 						m_lbl_title.Text = "Nhập giao kế hoạch - Nguồn Quỹ bảo trì";
 						m_rdb_theo_chuong_loai_khoan_muc.Checked = false;
 						m_rdb_theo_quoc_lo.Checked = true;
