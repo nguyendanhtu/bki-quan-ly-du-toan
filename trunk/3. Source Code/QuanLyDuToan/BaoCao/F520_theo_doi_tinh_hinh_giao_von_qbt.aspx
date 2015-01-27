@@ -75,12 +75,14 @@
 	<ContentTemplate>
         <div>
             <div style="text-align:center;">
-            <span style="font-weight: bold">CỘNG HOÀ XÃ HỘI CHỦ NGHĨA VIỆT NAM</span>
+    <%--        <span style="font-weight: bold">CỘNG HOÀ XÃ HỘI CHỦ NGHĨA VIỆT NAM</span>
 		    <br />
 		    <span style="font-weight: bold">Độc lập - Tự do - Hạnh Phúc</span>
 		    <br />
-		    <br />
+		    <br />--%>
 		    <span style="font-weight: bold">BÁO CÁO THEO DÕI TÌNH HÌNH GIAO VỐN QBT</span>
+            <br />
+		    <br />
         </div>
         <div style="color:black;width:350px; text-align:center; margin:auto;height: 74px;">
            <div class="height30">
@@ -100,7 +102,7 @@
                     </div>
             </div>      
         </div>
-        <div style="width:350px; text-align:center; margin:auto;height: 45px;">
+        <div style="width:220px; text-align:center; margin:auto;height: 45px;">
             <div style="width: 120px; margin: 0px auto;float: left;">
                 <asp:Button Height="30px" ID="m_cmd_xem_bao_cao" Text="Xem báo cáo" runat="server" cssclass="btn" OnClick="m_cmd_xem_bao_cao_Click" />
             </div>            
