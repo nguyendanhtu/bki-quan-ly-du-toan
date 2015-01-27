@@ -619,7 +619,7 @@ namespace QuanLyDuToan.DuToan
                 TableHeaderCell HeaderCell = new TableHeaderCell();
                 HeaderCell.Text = "Xóa";
                 HeaderCell.HorizontalAlign = HorizontalAlign.Center;
-                HeaderCell.RowSpan = 1; // For merging first, second row cells to one
+                HeaderCell.RowSpan = 2;
                 HeaderCell.CssClass = "HeaderStyle";
                 HeaderRow.Cells.Add(HeaderCell);
 
@@ -627,7 +627,6 @@ namespace QuanLyDuToan.DuToan
                 HeaderCell = new TableHeaderCell();
                 HeaderCell.Text = "Nhiệm vụ chi";
                 HeaderCell.HorizontalAlign = HorizontalAlign.Center;
-                HeaderCell.RowSpan = 1;
                 HeaderCell.CssClass = "HeaderStyle";
                 HeaderRow.Cells.Add(HeaderCell);
 
@@ -635,7 +634,6 @@ namespace QuanLyDuToan.DuToan
                 HeaderCell = new TableHeaderCell();
                 HeaderCell.Text = "Kế hoạch chi";
                 HeaderCell.HorizontalAlign = HorizontalAlign.Center;
-                HeaderCell.ColumnSpan = 1;
                 HeaderCell.CssClass = "HeaderStyle";
                 HeaderRow.Cells.Add(HeaderCell);
 
@@ -643,7 +641,6 @@ namespace QuanLyDuToan.DuToan
                 HeaderCell = new TableHeaderCell();
                 HeaderCell.Text = "Còn thiếu so với kế hoạch";
                 HeaderCell.HorizontalAlign = HorizontalAlign.Center;
-                HeaderCell.ColumnSpan = 1; // For merging three columns (tso, txuyen, ktxuyen,ctmtqg)
                 HeaderCell.CssClass = "HeaderStyle";
                 HeaderRow.Cells.Add(HeaderCell);
 
@@ -651,30 +648,25 @@ namespace QuanLyDuToan.DuToan
                 HeaderCell = new TableHeaderCell();
                 HeaderCell.Text = "Kinh phí đã nhận kì này";
                 HeaderCell.HorizontalAlign = HorizontalAlign.Center;
-                HeaderCell.ColumnSpan = 1; // For merging three columns (tso, chitx, chiktx)
                 HeaderCell.CssClass = "HeaderStyle";
                 HeaderRow.Cells.Add(HeaderCell);
 
                 //Adding 
-                HeaderCell = new TableHeaderCell();
-                HeaderCell.Text = "Số kinh phí chưa giải ngân";
-                HeaderCell.HorizontalAlign = HorizontalAlign.Center;
-                HeaderCell.RowSpan = 1; // For merging three columns (tso, chitx)
-                HeaderCell.CssClass = "HeaderStyle";
-                HeaderRow.Cells.Add(HeaderCell);
+                //HeaderCell = new TableHeaderCell();
+                //HeaderCell.Text = "Số kinh phí chưa giải ngân";
+                //HeaderCell.HorizontalAlign = HorizontalAlign.Center;
+                //HeaderCell.RowSpan = 2; // For merging three columns (tso, chitx)
+                //HeaderCell.CssClass = "HeaderStyle";
+                //HeaderRow.Cells.Add(HeaderCell);
 
                 //Adding 
                 HeaderCell = new TableHeaderCell();
                 HeaderCell.Text = "Tổng kinh phí đã nhận";
                 HeaderCell.HorizontalAlign = HorizontalAlign.Center;
-                HeaderCell.ColumnSpan = 2; // For merging three columns (tso, chitx)
-                HeaderCell.RowSpan = 2;
                 HeaderCell.CssClass = "HeaderStyle";
                 HeaderRow.Cells.Add(HeaderCell);
 
-                // Creating a Row thứ 2
-                GridViewRow HeaderRow2 = new GridViewRow(1, 0, DataControlRowType.Header, DataControlRowState.Insert);
-                //Adding  cell
+                ProductGrid.Controls[0].Controls.AddAt(0, HeaderRow);
             }
         }
 

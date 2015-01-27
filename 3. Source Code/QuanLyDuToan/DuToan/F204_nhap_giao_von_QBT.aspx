@@ -3,7 +3,11 @@
 <%@ Import Namespace="IP.Core.IPCommon" %>
 <%@ Import Namespace="WebDS.CDBNames" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="Server">
-	<style type="text/css">
+    <style type="text/css">
+        .hiddenCell {
+            display:none;
+        }
+
 		.cssFontBold {
 			font-weight: bold;
 		}
@@ -44,7 +48,7 @@
     
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="Server">
-	<asp:ScriptManager ID="ScriptManager1" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server">
 	</asp:ScriptManager>
 	<asp:UpdatePanel ID="UpdatePanel1" runat="server">
 		<ContentTemplate>
@@ -151,33 +155,34 @@
 											</tr>
 											<tr>
 												<td colspan="3">
-													<asp:GridView ID="m_grv" runat="server" AllowPaging="false" AutoGenerateColumns="False"
+													<asp:GridView ID="m_grv" runat="server" AutoGenerateColumns="False"
 														CssClass="cssGrid" Width="100%" CellPadding="0" ForeColor="#333333"
-														AllowSorting="True" PageSize="30" ShowHeader="true"
+														AllowSorting="True" PageSize="30"
 														DataKeyNames="ID"
 														EmptyDataText="Không có dữ liệu phù hợp"
 														OnRowCommand="m_grv_RowCommand"
 														OnPageIndexChanging="m_grv_PageIndexChanging"
 														OnRowDataBound="m_grv_RowDataBound"
 														HeaderStyle-Height="70px"
-                                                        OnRowCreated="m_grv_RowCreated"
-                                                        EnableModelValidation="True">
+                                                        OnRowCreated="m_grv_RowCreated">
 														<Columns>
-															<asp:TemplateField HeaderText="Xóa" HeaderStyle-Width="2%" Visible="true">
+															<asp:TemplateField HeaderStyle-Width="2%" Visible="true">
 																<ItemTemplate>
 																	<asp:LinkButton ID="m_lbl_delete" runat="server" CausesValidation="false" CommandArgument='<%#Eval("ID")%>'
 																		CommandName="Xoa" ToolTip="Xóa" OnClientClick="return confirm ('Nếu xoá bản ghi này sẽ ảnh hưởng đến dữ liệu báo cáo, Bạn có thực sự muốn xóa bản ghi này?')">
                      <img alt="Xóa" src="../Images/Button/deletered.png" />
 																	</asp:LinkButton>
 																</ItemTemplate>
+																<HeaderStyle Width="2%" CssClass="hiddenCell" />
 																<ItemStyle HorizontalAlign="Center"></ItemStyle>
 															</asp:TemplateField>
-															<asp:BoundField DataField="NOI_DUNG" HeaderText="Nhiệm vụ chi" />
-															<asp:TemplateField HeaderText="Kế hoạch chi" ItemStyle-HorizontalAlign="Right" ItemStyle-Width="100px">
+															<asp:BoundField DataField="NOI_DUNG" HeaderText="(1)" />
+															<asp:TemplateField HeaderText="(2)" ItemStyle-HorizontalAlign="Right" ItemStyle-Width="100px">
 																<ItemTemplate>
 																	<asp:Label ID="m_lbl_so_tien_ke_hoach_grid" runat="server" Style="text-align: right"
 																		Text='<%#format_so_tien(Eval(GRID_GIAO_VON.KE_HOACH_CHI).ToString()) %>'></asp:Label>
 																</ItemTemplate>
+															    <ItemStyle HorizontalAlign="Right" Width="100px" />
 															</asp:TemplateField>
 															<%--  <asp:TemplateField HeaderText="Kinh phí Ngân sách" ItemStyle-HorizontalAlign="Right" ItemStyle-Width="100px">
                                                                 <ItemTemplate>
@@ -187,13 +192,14 @@
                                                                         Visible='<%# visible_label_so_tien(Eval("ID").ToString()) %>' Text='<%#format_so_tien(Eval(GRID_GIAO_VON.NS).ToString()) %>'></asp:Label>
                                                                 </ItemTemplate>
                                                             </asp:TemplateField>--%>
-                                                              <asp:TemplateField HeaderText="Còn thiếu so với kế hoạch" ItemStyle-HorizontalAlign="Right" ItemStyle-Width="100px">
+                                                              <asp:TemplateField HeaderText="(3)" ItemStyle-HorizontalAlign="Right" ItemStyle-Width="100px">
 																<ItemTemplate>
 																	<asp:Label ID="m_lbl_so_tien_con_lai" runat="server" Style="text-align: right"
 																		Text='<%#format_so_tien((CIPConvert.ToDecimal(Eval(GRID_GIAO_VON.KE_HOACH_CHI))-CIPConvert.ToDecimal(Eval(GRID_GIAO_VON.TONG))).ToString()) %>'></asp:Label>
 																</ItemTemplate>
+															      <ItemStyle HorizontalAlign="Right" Width="100px" />
 															</asp:TemplateField>
-															<asp:TemplateField HeaderText="Kinh phí đã nhận kì này" ItemStyle-BackColor="LightBlue" ItemStyle-HorizontalAlign="Right" ItemStyle-Width="100px">
+															<asp:TemplateField HeaderText="(4)" ItemStyle-BackColor="LightBlue" ItemStyle-HorizontalAlign="Right" ItemStyle-Width="100px">
 																<ItemTemplate>
 																	<asp:TextBox ID="m_txt_so_tien_quy_bao_tri_grid" runat="server" Style="text-align: right" CssClass="csscurrency format_so_tien"
 																		Visible='<%# !visible_label_so_tien(Eval("ID").ToString()) %>'
@@ -202,13 +208,15 @@
 																		Visible='<%# visible_label_so_tien(Eval("ID").ToString()) %>'
 																		Text='<%#format_so_tien(Eval(GRID_GIAO_VON.QUY).ToString()) %>'></asp:Label>
 																</ItemTemplate>
+															    <ItemStyle BackColor="LightBlue" HorizontalAlign="Right" Width="100px" />
 															</asp:TemplateField>
                                                
-															<asp:TemplateField HeaderText="Tổng kinh phí đã nhận" ItemStyle-HorizontalAlign="Right" ItemStyle-Width="100px">
+															<asp:TemplateField HeaderText="(5)" ItemStyle-HorizontalAlign="Right" ItemStyle-Width="100px">
 																<ItemTemplate>
 																	<asp:Label ID="m_lbl_so_tien_tong_grid" runat="server" Style="text-align: right"
 																		Text='<%#format_so_tien(Eval(GRID_GIAO_VON.TONG).ToString()) %>'></asp:Label>
 																</ItemTemplate>
+															    <ItemStyle HorizontalAlign="Right" Width="100px" />
 															</asp:TemplateField>
 															<%-- <asp:TemplateField HeaderText="Xóa" HeaderStyle-Width="2%">
                                                                 <ItemTemplate>
@@ -221,6 +229,7 @@
                                                             </asp:TemplateField>--%>
 														</Columns>
                                                            <AlternatingRowStyle BackColor="White" />
+                                                        <HeaderStyle Height="70px" />
                                                     </asp:GridView>
 													
 												</td>
