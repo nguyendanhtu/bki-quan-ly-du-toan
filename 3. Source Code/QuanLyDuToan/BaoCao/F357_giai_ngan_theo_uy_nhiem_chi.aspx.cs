@@ -175,7 +175,7 @@ namespace QuanLyDuToan.BaoCao
 				, CIPConvert.ToDatetime(m_txt_den_ngay.Text, "dd/MM/yyyy")
 				, v_str_nguon_ns
 				, CIPConvert.ToDecimal(m_ddl_don_vi.SelectedValue)
-				, "---Tất cả---");
+                , "-----Tổng-----");
 			//US_DM_GIAI_NGAN v_us = new US_DM_GIAI_NGAN();
 			//DS_DM_GIAI_NGAN v_ds = new DS_DM_GIAI_NGAN();
 			//v_us.FillDataset(v_ds,
