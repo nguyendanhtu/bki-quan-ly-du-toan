@@ -246,7 +246,7 @@
 										<HeaderStyle HorizontalAlign="Center" />
 									</asp:BoundField>
 									<asp:BoundField DataField="tong_tien_ntcs" DataFormatString="{0:N0}" HeaderText="Kinh phí năm trước chuyển sang">
-										<HeaderStyle HorizontalAlign="Center" Width="30%" />
+										<HeaderStyle HorizontalAlign="Center" Width="20%" />
 										<ItemStyle HorizontalAlign="Right" />
 									</asp:BoundField>
 									<asp:BoundField DataField="tong_tien" DataFormatString="{0:N0}"  ItemStyle-HorizontalAlign="Right"></asp:BoundField>
