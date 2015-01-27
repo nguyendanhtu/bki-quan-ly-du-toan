@@ -159,7 +159,9 @@
 														OnRowCommand="m_grv_RowCommand"
 														OnPageIndexChanging="m_grv_PageIndexChanging"
 														OnRowDataBound="m_grv_RowDataBound"
-														HeaderStyle-Height="70px">
+														HeaderStyle-Height="70px"
+                                                        OnRowCreated="m_grv_RowCreated"
+                                                        EnableModelValidation="True">
 														<Columns>
 															<asp:TemplateField HeaderText="Xóa" HeaderStyle-Width="2%" Visible="true">
 																<ItemTemplate>
