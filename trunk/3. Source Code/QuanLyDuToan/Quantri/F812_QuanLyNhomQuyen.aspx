@@ -46,6 +46,18 @@
             </td>
         </tr>
         <tr>
+            <td align="right" style="width: 15%;">
+                <asp:Label ID="Label2" CssClass="cssManField" runat="server" Text="Đơn vị" />
+            </td>
+            <td style="width: 30%;">
+                <asp:DropDownList ID="m_ddl_don_vi" CssClass="cssTextBox form-control" runat="server" Width="495px"></asp:DropDownList>
+                &nbsp;
+            </td>
+            <td style="width: 5%;">
+                &nbsp;
+            </td>
+        </tr>
+        <tr>
             <td align="right">
                 <asp:Label ID="lbl_mo_ta" CssClass="cssManField" runat="server" Text="Mô tả" />
             </td>

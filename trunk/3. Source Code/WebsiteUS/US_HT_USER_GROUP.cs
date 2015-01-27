@@ -144,6 +144,8 @@ namespace WebUS
 			CStoredProc v_cstore = new CStoredProc("pr_HT_USER_GROUP_Insert");
 			v_cstore.addNVarcharInputParam("@USER_GROUP_NAME", this.strUSER_GROUP_NAME);
 			v_cstore.addNVarcharInputParam("@DESCRIPTION", this.strDESCRIPTION);
+            v_cstore.addDecimalInputParam("@ID_DON_VI", this.dcID_DON_VI);
+            v_cstore.addDecimalOutputParam("@ID", this.dcID);
 			v_cstore.ExecuteCommand(this);
 		}
 		#endregion

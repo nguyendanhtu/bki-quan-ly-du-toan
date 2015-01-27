@@ -58,6 +58,24 @@ namespace QuanLyDuToan.Quantri {
         protected global::System.Web.UI.WebControls.TextBox m_txt_ten_nhom_quyen;
         
         /// <summary>
+        /// Label2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label2;
+        
+        /// <summary>
+        /// m_ddl_don_vi  control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList m_ddl_don_vi ;
+        
+        /// <summary>
         /// lbl_mo_ta control.
         /// </summary>
         /// <remarks>
