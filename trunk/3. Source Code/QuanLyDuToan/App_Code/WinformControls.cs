@@ -127,6 +127,21 @@ namespace QuanLyDuToan.App_Code
 
 		}
 
+		public static void load_data_to_cbo_don_vi(DropDownList op_ddl_don_vi)
+		{
+			/*
+			 * Ham load all don vi trong bang dm_don_vi
+			 * Order by ten don vi
+			 */
+			DS_DM_DON_VI v_ds = new DS_DM_DON_VI();
+			US_DM_DON_VI v_us = new US_DM_DON_VI();
+			v_us.FillDataset(v_ds, "order by " + DM_DON_VI.TEN_DON_VI);
+			op_ddl_don_vi.DataTextField = DM_DON_VI.TEN_DON_VI;
+			op_ddl_don_vi.DataValueField = DM_DON_VI.ID;
+			op_ddl_don_vi.DataSource = v_ds.DM_DON_VI;
+			op_ddl_don_vi.DataBind();
+		}
+
 		public static void load_data_to_cbo_cong_trinh_theo_loai_nhiem_vu(
 			decimal ip_id_loai_nhiem_vu, DropDownList op_ddl_cong_trinh, decimal ip_dc_id_don_vi)
 		{
