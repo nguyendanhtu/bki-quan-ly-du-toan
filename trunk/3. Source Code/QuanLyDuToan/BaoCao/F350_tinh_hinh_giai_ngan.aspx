@@ -130,13 +130,14 @@
 			<table id="main_table" style="width: 1300px;" class="cssTable table" border="0">
 				<tr>
 					<td colspan="4" style="text-align: center">
-						<span style="font-weight: bold">CỘNG HOÀ XÃ HỘI CHỦ NGHĨA VIỆT NAM</span>
+				<%--		<span style="font-weight: bold">CỘNG HOÀ XÃ HỘI CHỦ NGHĨA VIỆT NAM</span>
 						<br />
 						<span style="font-weight: bold">Độc lập - Tự do - Hạnh Phúc</span>
 						<br />
-						<br />
+						<br />--%>
 						<span style="font-weight: bold">BÁO CÁO TÌNH HÌNH GIẢI NGÂN CÁC NGUỒN VỐN NĂM  <%=DateTime.Now.Year.ToString() %></span>
 						<br />
+                        <br />
 						<span style="font-weight: bold">ĐƠN VỊ:
                             <asp:DropDownList runat="server" ClientIDMode="Static" ID="m_ddl_don_vi" AutoPostBack="True" OnSelectedIndexChanged="m_ddl_don_vi_SelectedIndexChanged"></asp:DropDownList>
 						</span>
