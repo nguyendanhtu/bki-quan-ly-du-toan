@@ -12,6 +12,7 @@ using WebUS;
 using WebDS;
 using WebDS.CDBNames;
 using System.Data;
+using QuanLyDuToan.App_Code;
 namespace QuanLyDuToan.Quantri
 {
 	public partial class F812_QuanLyNhomQuyen : System.Web.UI.Page
@@ -94,6 +95,7 @@ namespace QuanLyDuToan.Quantri
 		{
 			m_us_ht_user_group.strUSER_GROUP_NAME = m_txt_ten_nhom_quyen.Text.Trim();
 			m_us_ht_user_group.strDESCRIPTION = m_txt_mo_ta.Text.Trim();
+            m_us_ht_user_group.dcID_DON_VI = CIPConvert.ToDecimal(m_ddl_don_vi.SelectedValue.ToString());
 		}
 		private void us_obj_2_form()
 		{
@@ -155,6 +157,7 @@ namespace QuanLyDuToan.Quantri
 				if (!IsPostBack)
 				{
 					set_control_by_form_mode();
+                    WinFormControls.load_data_to_cbo_don_vi(m_ddl_don_vi);
 					reset_control();
 					load_data_2_grid();
 				}
