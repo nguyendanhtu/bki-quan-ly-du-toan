@@ -82,11 +82,11 @@
 			<table id="main_table" style="width: 1300px;" class="cssTable table" border="0">
 				<tr>
 					<td colspan="4" style="text-align: center">
-						<span style="font-weight: bold">CỘNG HOÀ XÃ HỘI CHỦ NGHĨA VIỆT NAM</span>
+<%--						<span style="font-weight: bold">CỘNG HOÀ XÃ HỘI CHỦ NGHĨA VIỆT NAM</span>
 						<br />
 						<span style="font-weight: bold">Độc lập - Tự do - Hạnh Phúc</span>
 						<br />
-						<br />
+						<br />--%>
 						<span style="font-weight: bold">BÁO CÁO TÌNH HÌNH GIẢI NGÂN CÁC NGUỒN VỐN NĂM  <%=DateTime.Now.Year.ToString()%></span>
 					</td>
 				</tr>
