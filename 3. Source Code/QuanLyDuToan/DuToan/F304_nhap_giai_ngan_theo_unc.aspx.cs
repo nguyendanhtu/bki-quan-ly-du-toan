@@ -406,7 +406,7 @@ namespace QuanLyDuToan.DuToan
 				else
 				{
 					m_cmd_save_info_unc.Visible = true;
-					m_cmd_print.NavigateUrl = "~/ChucNang/F600_print_unc_qbt.aspx?ip_dc_id_dm_unc=" + m_hdf_id_dm_uy_nhiem_chi.Value;
+					m_cmd_print.NavigateUrl = "~/ChucNang/F600_print_unc_qbt.aspx?ip_dc_id_dm_unc=" + m_hdf_id_dm_uy_nhiem_chi.Value + "&ip_dc_id_don_vi=" + m_ddl_don_vi.SelectedValue;
 					m_cmd_print.Visible = true;
 				}
 				US_DM_GIAI_NGAN v_us = new US_DM_GIAI_NGAN(CIPConvert.ToDecimal(m_hdf_id_dm_uy_nhiem_chi.Value));

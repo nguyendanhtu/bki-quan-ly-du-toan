@@ -5,7 +5,7 @@
 function getData(template, id_table, str_file_name, m) {
     jQuery.get('../Template/' + template + '.txt', function (data) {
         data = data.replace("<replace-table>", $('#' + id_table).html());
-        data = replaceAll('<th', '<th style="color:white; background-color:blue;" ', data);
+        //data = replaceAll('<th', '<th style="color:white; background-color:blue;" ', data);
         m.forEach(function (item, key, mapObj) {
             data = data.replace(key.toString(), item.toString());
         });

@@ -244,37 +244,37 @@
 																<asp:TextBox ID="m_txt_grid_ghi_chu" runat="server"  CssClass="form-control" TextMode="MultiLine" Width="96%" Height="100%" Style="text-align: left"></asp:TextBox>
 															</FooterTemplate>
 														</asp:TemplateField>
-														<asp:TemplateField HeaderText="Số tiền nộp thuế" HeaderStyle-Width="100px" ItemStyle-HorizontalAlign="Right">
+														<asp:TemplateField HeaderText="Số tiền nộp thuế" HeaderStyle-Width="120px" ItemStyle-HorizontalAlign="Right">
 															<ItemTemplate>
-																<asp:Label ID="m_lbl_grid_so_tien_nop_thue" Width = "100px" Text='<%#format_so_tien(Eval(GRID_GIAI_NGAN.SO_TIEN_NT).ToString()) %>'
+																<asp:Label ID="m_lbl_grid_so_tien_nop_thue" Width = "120px" Text='<%#format_so_tien(Eval(GRID_GIAI_NGAN.SO_TIEN_NT).ToString()) %>'
 																	runat="server"></asp:Label>
 															</ItemTemplate>
 															<EditItemTemplate>
-																<asp:TextBox ID="m_txt_grid_edit_so_tien_nop_thue"  Width = "100px" runat="server" Style="text-align: right" CssClass="csscurrency form-control format_so_tien"
+																<asp:TextBox ID="m_txt_grid_edit_so_tien_nop_thue"  Width = "120px" runat="server" Style="text-align: right" CssClass="csscurrency form-control format_so_tien"
 																	Text='<%#Eval(GRID_GIAI_NGAN.SO_TIEN_NT) %>'></asp:TextBox>
 															</EditItemTemplate>
 															<FooterTemplate>
-																<asp:TextBox ID="m_txt_grid_so_tien_nop_thue" Width = "100px" runat="server" CssClass="csscurrency  format_so_tien" Style="text-align: right"></asp:TextBox>
+																<asp:TextBox ID="m_txt_grid_so_tien_nop_thue" Width = "120px" runat="server" CssClass="csscurrency  format_so_tien  form-control" Style="text-align: right"></asp:TextBox>
 															</FooterTemplate>
 														</asp:TemplateField>
-														<asp:TemplateField HeaderText="Số tiền thanh toán cho đơn vị hưởng" HeaderStyle-Width="100px" ItemStyle-HorizontalAlign="Right">
+														<asp:TemplateField HeaderText="Số tiền thanh toán cho đơn vị hưởng" HeaderStyle-Width="120px" ItemStyle-HorizontalAlign="Right">
 															<ItemTemplate>
 																<asp:Label ID="m_lbl_grid_so_tien_tt_cho_dv_huong" Width = "100px" Text='<%#format_so_tien(Eval(GRID_GIAI_NGAN.SO_TIEN_TTCDVH).ToString()) %>' runat="server"></asp:Label>
 															</ItemTemplate>
 															<EditItemTemplate>
-																<asp:TextBox ID="m_txt_grid_edit_so_tien_tt_cho_dv_huong" Width = "100px" runat="server" CssClass="csscurrency form-control  format_so_tien" Style="text-align: right"
+																<asp:TextBox ID="m_txt_grid_edit_so_tien_tt_cho_dv_huong" Width = "120px" runat="server" CssClass="csscurrency form-control  format_so_tien" Style="text-align: right"
 																	Text='<%#Eval(GRID_GIAI_NGAN.SO_TIEN_TTCDVH) %>'></asp:TextBox>
 															</EditItemTemplate>
 															<FooterTemplate>
-																<asp:TextBox ID="m_txt_grid_so_tien_thanh_toan_cho_don_vi_huong" Width = "100px" CssClass="csscurrency  format_so_tien" runat="server" Style="text-align: right"></asp:TextBox>
+																<asp:TextBox ID="m_txt_grid_so_tien_thanh_toan_cho_don_vi_huong" Width = "120px" CssClass="csscurrency  format_so_tien form-control" runat="server" Style="text-align: right"></asp:TextBox>
 															</FooterTemplate>
 														</asp:TemplateField>
-														<asp:TemplateField HeaderText="Tổng" HeaderStyle-Width="100px" ItemStyle-HorizontalAlign="Right">
+														<asp:TemplateField HeaderText="Tổng" HeaderStyle-Width="120px" ItemStyle-HorizontalAlign="Right">
 															<ItemTemplate>
 																<asp:Label ID="m_lbl_grid_tong_tien" Text='<%#format_so_tien(Eval(GRID_GIAI_NGAN.TONG).ToString()) %>' runat="server"></asp:Label>
 															</ItemTemplate>
 														</asp:TemplateField>
-														<asp:TemplateField HeaderText="Thao tác" HeaderStyle-Width="150px" FooterStyle-HorizontalAlign="Center">
+														<asp:TemplateField HeaderText="Thao tác" HeaderStyle-Width="200px" FooterStyle-HorizontalAlign="Center">
 															<EditItemTemplate>
 																<table class="table bordertop0" style="width: 100%">
 																	<tr>
