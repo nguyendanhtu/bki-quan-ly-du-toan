@@ -405,7 +405,7 @@ namespace QuanLyDuToan.App_Code
 
 			if (ip_e_tat_ca == eTAT_CA.YES)
 			{
-				ip_obj_cbo_quyet_dinh.Items.Insert(0, new ListItem(CONST_QLDB.TAT_CA, CONST_QLDB.ID_TAT_CA.ToString()));
+				ip_obj_cbo_quyet_dinh.Items.Insert(0, new ListItem(CONST_TONG.TONG, CONST_QLDB.ID_TAT_CA.ToString()));
 			}
 		}
 

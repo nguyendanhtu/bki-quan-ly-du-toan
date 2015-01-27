@@ -98,7 +98,10 @@ namespace WebUS
         public const string DE_NGHI_XU_LY = "DE_NGHI_XU_LY";
         public const string THONG_KE = "THONG_KE";
     }
-
+    public class CONST_TONG
+    {
+        public const string TONG = "---------Tổng---------";
+    }
   
     public class CONST_QLDB
     {
