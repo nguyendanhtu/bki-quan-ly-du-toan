@@ -163,7 +163,7 @@
 														OnRowCommand="m_grv_RowCommand"
 														OnPageIndexChanging="m_grv_PageIndexChanging"
 														OnRowDataBound="m_grv_RowDataBound"
-														HeaderStyle-Height="70px"
+														
                                                         OnRowCreated="m_grv_RowCreated">
 														<Columns>
 															<asp:TemplateField HeaderStyle-Width="2%" Visible="true">
@@ -192,7 +192,7 @@
                                                                         Visible='<%# visible_label_so_tien(Eval("ID").ToString()) %>' Text='<%#format_so_tien(Eval(GRID_GIAO_VON.NS).ToString()) %>'></asp:Label>
                                                                 </ItemTemplate>
                                                             </asp:TemplateField>--%>
-                                                              <asp:TemplateField HeaderText="(3)" ItemStyle-HorizontalAlign="Right" ItemStyle-Width="100px">
+                                                              <asp:TemplateField HeaderText="(3)=(2)-(5)" ItemStyle-HorizontalAlign="Right" ItemStyle-Width="100px">
 																<ItemTemplate>
 																	<asp:Label ID="m_lbl_so_tien_con_lai" runat="server" Style="text-align: right"
 																		Text='<%#format_so_tien((CIPConvert.ToDecimal(Eval(GRID_GIAO_VON.KE_HOACH_CHI))-CIPConvert.ToDecimal(Eval(GRID_GIAO_VON.TONG))).ToString()) %>'></asp:Label>
@@ -229,7 +229,7 @@
                                                             </asp:TemplateField>--%>
 														</Columns>
                                                            <AlternatingRowStyle BackColor="White" />
-                                                        <HeaderStyle Height="70px" />
+                                                        
                                                     </asp:GridView>
 													
 												</td>
