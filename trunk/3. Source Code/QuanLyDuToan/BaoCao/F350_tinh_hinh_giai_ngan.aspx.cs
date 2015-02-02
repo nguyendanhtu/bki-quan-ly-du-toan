@@ -333,6 +333,14 @@ namespace QuanLyDuToan.BaoCao
 				HeaderCell.CssClass = "HeaderStyle";
 				HeaderRow.Cells.Add(HeaderCell);
 
+                //Adding  Số Km
+                HeaderCell = new TableHeaderCell();
+                HeaderCell.Text = "Số km";
+                HeaderCell.HorizontalAlign = HorizontalAlign.Center;
+                HeaderCell.RowSpan = 3; // For merging first, second row cells to one
+                HeaderCell.CssClass = "HeaderStyle";
+                HeaderRow.Cells.Add(HeaderCell);
+
 				//Adding  Kế hoạch(dự toán) được chi cả năm
 				HeaderCell = new TableHeaderCell();
 				HeaderCell.Text = "Kế hoạch(dự toán) được chi cả năm";
