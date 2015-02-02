@@ -237,6 +237,13 @@
 										<HeaderStyle Height="10px" Width="150px" HorizontalAlign="Center" />
 										<ItemStyle HorizontalAlign="Left" />
 									</asp:TemplateField>
+                                      <asp:TemplateField ItemStyle-HorizontalAlign="Left" HeaderText="(0)" HeaderStyle-Height="10px">
+										<ItemTemplate>
+										<%#Eval(RPT_BC_TINH_HINH_GIAI_NGAN.TONG_SO_KM, "{0:#,##0}")%>
+										</ItemTemplate>
+										<HeaderStyle Height="10px" HorizontalAlign="Center" />
+										<ItemStyle HorizontalAlign="Right" />
+									</asp:TemplateField>
 									<asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="(1)" HeaderStyle-Height="10px">
 										<ItemTemplate>
 											<a class='a<%# Eval(GRID_GIAI_NGAN.ID)%>' href="F157_giao_ke_hoach_theo_quyet_dinh.aspx<%# format_link_to_chi_tiet(
