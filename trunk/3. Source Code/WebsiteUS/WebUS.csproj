@@ -72,7 +72,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CCommonFunction.cs" />
     <Compile Include="CConstantValues.cs" />
     <Compile Include="CHelperCore.cs" />
     <Compile Include="FormInfo.cs" />
