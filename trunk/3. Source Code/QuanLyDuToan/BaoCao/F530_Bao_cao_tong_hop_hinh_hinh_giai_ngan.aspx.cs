@@ -19,14 +19,25 @@ namespace QuanLyDuToan.BaoCao
 {
 	public partial class F530_Bao_cao_tong_hop_hinh_hinh_giai_ngan : System.Web.UI.Page
 	{
-		#region Public Methods
+		#region Public Functions
 		public string get_query_string(string ip_str_id_don_vi)
 		{
 			string v_str_query_string = "";
-			v_str_query_string = "F350_tinh_hinh_giai_ngan.aspx?ip_dc_id_don_vi=" + ip_str_id_don_vi + "&ip_dat_tu_ngay=" + m_txt_tu_ngay.Text + "&ip_dat_den_ngay=" + m_txt_den_ngay.Text;
+			v_str_query_string = FormInfo.FormName.F530+"?ip_dc_id_don_vi=" + ip_str_id_don_vi + "&ip_dat_tu_ngay=" + m_txt_tu_ngay.Text + "&ip_dat_den_ngay=" + m_txt_den_ngay.Text;
 			return v_str_query_string;
 		}
+		public decimal format_so_tien(object ip_str_so_tien)
+		{
+			decimal op_dc_so_tien = 0;
+			if (ip_str_so_tien == DBNull.Value)
+			{
+				op_dc_so_tien = 0;
+			}
+			else op_dc_so_tien = CIPConvert.ToDecimal(ip_str_so_tien);
+			return op_dc_so_tien;
+		}
 		#endregion
+
 		#region Data Member
 		decimal m_dc_id_loai_don_vi = 0;
         DateTime m_dat_tu_ngay;
@@ -35,22 +46,9 @@ namespace QuanLyDuToan.BaoCao
 
         #region Private Method
 
-        public decimal format_so_tien(object ip_str_so_tien)
-        {
-            decimal op_dc_so_tien = 0;
-            if (ip_str_so_tien == DBNull.Value)
-            {
-                op_dc_so_tien = 0;
-            }
-            else op_dc_so_tien = CIPConvert.ToDecimal(ip_str_so_tien);
-            return op_dc_so_tien;
-        }
-       
-
         private void load_data_to_grid()
         {
             US_RPT_BC_TINH_HINH_GIAI_NGAN v_us = new US_RPT_BC_TINH_HINH_GIAI_NGAN();
-			//DS_RPT_BC_TINH_HINH_GIAI_NGAN v_ds = new DS_RPT_BC_TINH_HINH_GIAI_NGAN();
 			DataSet v_ds = new DataSet();
 			DataTable v_dt = new DataTable();
 			v_ds.Tables.Add(v_dt);
@@ -59,7 +57,7 @@ namespace QuanLyDuToan.BaoCao
                 , CIPConvert.ToDatetime(m_txt_tu_ngay.Text, "dd/MM/yyyy")
                 , CIPConvert.ToDatetime(m_txt_den_ngay.Text, "dd/MM/yyyy")
                 , WinFormControls.get_dau_nam_form_date(CIPConvert.ToDatetime(m_txt_tu_ngay.Text, "dd/MM/yyyy"))
-                , 1//Person.get_user_id()
+				, Person.get_user_id()
                 );
             m_grv.DataSource = v_dt;
             m_grv.DataBind();
@@ -109,7 +107,6 @@ namespace QuanLyDuToan.BaoCao
                     m_dat_tu_ngay = CIPConvert.ToDatetime(Request.QueryString["tu_ngay"]);
                 if (Request.QueryString["den_ngay"] != null)
                     m_dat_den_ngay = CIPConvert.ToDatetime(Request.QueryString["den_ngay"]);
-                //load_data_to_cbo_loai_don_vi();
                 load_data_to_grid();
             }
         }
