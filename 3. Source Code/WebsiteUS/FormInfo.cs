@@ -11,6 +11,7 @@ namespace WebUS
 			public const string ID_DON_VI = "ip_dc_id_don_vi";
 			public const string TU_NGAY = "ip_dat_tu_ngay";
 			public const string DEN_NGAY = "ip_dat_den_ngay";
+			public const string ID_LOAI_NHIEM_VU = "ip_dc_id_loai_nhiem_vu";
 		}
 
 		public class FormName

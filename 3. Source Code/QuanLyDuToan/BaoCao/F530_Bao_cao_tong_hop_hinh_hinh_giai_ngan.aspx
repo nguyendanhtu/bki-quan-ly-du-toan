@@ -2,7 +2,7 @@
 
 <%@ Import Namespace="IP.Core.IPCommon" %>
 <%@ Import Namespace="WebDS.CDBNames" %>
-<%@ Import Namespace="QuanLyDuToan.App_Code" %>
+<%@ Import Namespace="WebUS" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 	<style type="text/css">
