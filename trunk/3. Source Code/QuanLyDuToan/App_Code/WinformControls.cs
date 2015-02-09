@@ -22,7 +22,7 @@ namespace QuanLyDuToan.App_Code
 			//
 
 		}
-
+		
 		#region Data Structures
 		public enum LOAI_QUYET_DINH
 		{
@@ -722,7 +722,7 @@ namespace QuanLyDuToan.App_Code
 			decimal ip_dc_id_loai_nhiem_vu
 			, DateTime ip_dat_tu_ngay
 			, DateTime ip_dat_den_ngay
-			,decimal ip_dc_id_don_vi)
+			, decimal ip_dc_id_don_vi)
 		{
 			US_DM_DON_VI v_us = new WebUS.US_DM_DON_VI();
 			CStoredProc v_sp = new CStoredProc("pr_get_chuong_loai_khoan_muc_tieu_muc_giao_von");
