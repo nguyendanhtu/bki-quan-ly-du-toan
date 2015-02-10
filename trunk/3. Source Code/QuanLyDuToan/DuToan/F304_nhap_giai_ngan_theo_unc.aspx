@@ -1,63 +1,60 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="F304_nhap_giai_ngan_theo_unc.aspx.cs" Inherits="QuanLyDuToan.DuToan.F304_nhap_giai_ngan_theo_unc" %>
 
 <%@ Import Namespace="IP.Core.IPCommon" %>
+<%@ Import Namespace="WebUS" %>
 <%@ Import Namespace="WebDS.CDBNames" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="Server">
-    <style type="text/css">
+	<style type="text/css">
 		.radioButtonList {
 			list-style: none;
-			margin:0px 0px 0px 12px;
+			margin: 0px 0px 0px 12px;
 			padding: 0;
-            
 		}
 
 			.radioButtonList.horizontal li {
-				display:list-item;
+				display: list-item;
 			}
 
 			.radioButtonList label {
 				display: inline-block;
 			}
-            
-            .cssTextBox 
-            {
-                display:inline;
-            }
 
-            .radio-inline tr td
-            {
-                width:169px;
-                padding-left:8px;
-            }
+		.cssTextBox {
+			display: inline;
+		}
 
+		.radio-inline tr td {
+			width: 169px;
+			padding-left: 8px;
+		}
 	</style>
-     <script>
-         function pageLoad(sender, args) {
-             if (args.get_isPartialLoad()) {
+	<script>
+		function pageLoad(sender, args) {
+			if (args.get_isPartialLoad()) {
                 <%-- $("#<%=m_ddl_loai_nv.ClientID%>").select2();
                 $("#<%=m_ddl_cong_trinh.ClientID%>").select2();--%>
-                
-                 $(".select2").select2();
-                 $("#<%=m_txt_ngay_thang.ClientID%>").datepicker({ format: 'dd/mm/yyyy', language: 'vi' });
 
-            }
-        }
-        $(document).ready(function () {
+				$(".select2").select2();
+				$("#<%=m_txt_ngay_thang.ClientID%>").datepicker({ format: 'dd/mm/yyyy', language: 'vi' });
+
+			 }
+		 }
+		 $(document).ready(function () {
             <%--  $("#<%=m_ddl_loai_nv.ClientID%>").select2();
             $("#<%=m_ddl_cong_trinh.ClientID%>").select2();
             $("#<%=m_ddl_du_an.ClientID%>").select2();--%>
-            $(".select2").select2();
-            $("#<%=m_txt_ngay_thang.ClientID%>").datepicker({ format: 'dd/mm/yyyy', language: 'vi' });
-        }
+		 	$(".select2").select2();
+		 	$("#<%=m_txt_ngay_thang.ClientID%>").datepicker({ format: 'dd/mm/yyyy', language: 'vi' });
+		 }
        )
-    </script>
+	</script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="Server">
-    <asp:ScriptManager ID="ScriptManager1" runat="server">
+	<asp:ScriptManager ID="ScriptManager1" runat="server">
 	</asp:ScriptManager>
 	<asp:UpdatePanel ID="UpdatePanel1" runat="server">
 		<ContentTemplate>
-			<table style="margin: auto" >
+			<table style="margin: auto">
 				<tr>
 					<td style="font-weight: bold; font-size: 24px; text-align: center">UỶ NHIỆM CHI</td>
 				</tr>
@@ -66,25 +63,25 @@
 				</tr>
 				<tr>
 					<td style="text-align: center">
-                                <div id="datetimepicker1" class="input-group date datepicker" style="white-space:nowrap;margin: 0 auto;">
-                                    <label for="m_txt_ngay_thang" style="float:left;width: 95px;margin-top: 4px;">Lập ngày (*): </label>
-				                    <asp:TextBox ID="m_txt_ngay_thang" placeholder="dd/MM/yyyy" runat="server" CssClass="cssTextBox form-control" Height="30px" Width="164px">
-				                    </asp:TextBox>
-							        <span class="input-group-addon"><span class="glyphicon-calendar glyphicon"></span>
-							        </span>
-						        </div>
+						<div id="datetimepicker1" class="input-group date datepicker" style="white-space: nowrap; margin: 0 auto;">
+							<label for="m_txt_ngay_thang" style="float: left; width: 95px; margin-top: 4px;">Lập ngày (*): </label>
+							<asp:TextBox ID="m_txt_ngay_thang" placeholder="dd/MM/yyyy" runat="server" CssClass="cssTextBox form-control" Height="30px" Width="164px">
+							</asp:TextBox>
+							<span class="input-group-addon"><span class="glyphicon-calendar glyphicon"></span>
+							</span>
+						</div>
 					</td>
 				</tr>
 				<tr>
 					<td style="width: 900px;">
-						<table id="main_table" style="width: 100%;border-collapse: separate;" class="cssTable table" border="0">
+						<table id="main_table" style="width: 100%; border-collapse: separate;" class="cssTable table" border="0">
 							<tr>
 								<td>
 
-									<table  style="width: 100%;" class="table bordertop0" border="0">
-										
+									<table style="width: 100%;" class="table bordertop0" border="0">
+
 										<tr>
-											<td colspan="2" >
+											<td colspan="2">
 												<asp:Label ID="m_lbl_mess_master" runat="server" CssClass="cssManField"></asp:Label></td>
 										</tr>
 
@@ -140,32 +137,30 @@
 												<asp:RadioButtonList ID="m_rbl_ma_tkkt" runat="server" RepeatDirection="Horizontal" Enabled="false" CssClass="radioButtonList radio-inline">
 												</asp:RadioButtonList>
 											</td>
-											
+
 										</tr>
-                                        <tr>
-                                            <td style="text-align: right">
-                                                <span>&nbsp;&nbsp; Mã CTMT, DA và HTCT (*):</span>
-                                            </td>
-                                            <td>
-                                                <asp:TextBox ID="m_txt_ma_ctmt_da_htct" Width="150px" runat="server" CssClass="cssTextBox form-control"></asp:TextBox>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td style="text-align: right">
-                                                <span>&nbsp;&nbsp; Mã ĐVQHNS:</span>
+										<tr>
+											<td style="text-align: right">
+												<span>&nbsp;&nbsp; Mã CTMT, DA và HTCT (*):</span>
 											</td>
 											<td>
-                                                <asp:Label ID="m_lbl_ma_dvqhns" runat="server" ForeColor="Black"></asp:Label>
+												<asp:TextBox ID="m_txt_ma_ctmt_da_htct" Width="150px" runat="server" CssClass="cssTextBox form-control"></asp:TextBox>
 											</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-
-                                            </td>
-                                             <td  style="margin:auto;">
-                                                <asp:Button ID="m_cmd_luu_unc"  runat="server" CssClass="btn btn-sm btn-success" OnClick="m_cmd_luu_unc_Click" Text="Lưu Uỷ nhiệm chi" />
-                                            </td>
-                                        </tr>
+										</tr>
+										<tr>
+											<td style="text-align: right">
+												<span>&nbsp;&nbsp; Mã ĐVQHNS:</span>
+											</td>
+											<td>
+												<asp:Label ID="m_lbl_ma_dvqhns" runat="server" ForeColor="Black"></asp:Label>
+											</td>
+										</tr>
+										<tr>
+											<td></td>
+											<td style="margin: auto;">
+												<asp:Button ID="m_cmd_luu_unc" runat="server" CssClass="btn btn-sm btn-success" OnClick="m_cmd_luu_unc_Click" Text="Lưu Uỷ nhiệm chi" />
+											</td>
+										</tr>
 										<tr>
 											<td></td>
 											<td>
@@ -210,8 +205,8 @@
 																<br />
 																<asp:DropDownList ID="m_ddl_grid_edit_loai_nhiem_vu" CssClass="select2" OnSelectedIndexChanged="m_ddl_grid_edit_loai_nhiem_vu_SelectedIndexChanged" AutoPostBack="true" runat="server" Width="200px"></asp:DropDownList>
 																<br />
-																<asp:DropDownList ID="m_ddl_grid_edit_du_an_quoc_lo"  CssClass="select2"  runat="server" AutoPostBack="true" Width="200px" OnSelectedIndexChanged="m_ddl_grid_edit_du_an_quoc_lo_SelectedIndexChanged"></asp:DropDownList>
-																<asp:DropDownList ID="m_ddl_grid_edit_du_an" runat="server"  CssClass="select2"  Width="200px" AutoPostBack="true"></asp:DropDownList>
+																<asp:DropDownList ID="m_ddl_grid_edit_du_an_quoc_lo" CssClass="select2" runat="server" AutoPostBack="true" Width="200px" OnSelectedIndexChanged="m_ddl_grid_edit_du_an_quoc_lo_SelectedIndexChanged"></asp:DropDownList>
+																<asp:DropDownList ID="m_ddl_grid_edit_du_an" runat="server" CssClass="select2" Width="200px" AutoPostBack="true"></asp:DropDownList>
 																<asp:DropDownList ID="m_ddl_grid_edit_muc_tieu_muc" CssClass="select2" runat="server" Width="200px"></asp:DropDownList>
 															</EditItemTemplate>
 															<FooterTemplate>
@@ -241,37 +236,37 @@
 																	Text='<%#Eval(GRID_GIAI_NGAN.GHI_CHU) %>'></asp:TextBox>
 															</EditItemTemplate>
 															<FooterTemplate>
-																<asp:TextBox ID="m_txt_grid_ghi_chu" runat="server"  CssClass="form-control" TextMode="MultiLine" Width="96%" Height="100%" Style="text-align: left"></asp:TextBox>
+																<asp:TextBox ID="m_txt_grid_ghi_chu" runat="server" CssClass="form-control" TextMode="MultiLine" Width="96%" Height="100%" Style="text-align: left"></asp:TextBox>
 															</FooterTemplate>
 														</asp:TemplateField>
 														<asp:TemplateField HeaderText="Số tiền nộp thuế" HeaderStyle-Width="120px" ItemStyle-HorizontalAlign="Right">
 															<ItemTemplate>
-																<asp:Label ID="m_lbl_grid_so_tien_nop_thue" Width = "120px" Text='<%#format_so_tien(Eval(GRID_GIAI_NGAN.SO_TIEN_NT).ToString()) %>'
+																<asp:Label ID="m_lbl_grid_so_tien_nop_thue" Width="120px" Text='<%# CCommonFunction.getMoney_string_format(Eval(GRID_GIAI_NGAN.SO_TIEN_NT).ToString()) %>'
 																	runat="server"></asp:Label>
 															</ItemTemplate>
 															<EditItemTemplate>
-																<asp:TextBox ID="m_txt_grid_edit_so_tien_nop_thue"  Width = "120px" runat="server" Style="text-align: right" CssClass="csscurrency form-control format_so_tien"
+																<asp:TextBox ID="m_txt_grid_edit_so_tien_nop_thue" Width="120px" runat="server" Style="text-align: right" CssClass="csscurrency form-control format_so_tien"
 																	Text='<%#Eval(GRID_GIAI_NGAN.SO_TIEN_NT) %>'></asp:TextBox>
 															</EditItemTemplate>
 															<FooterTemplate>
-																<asp:TextBox ID="m_txt_grid_so_tien_nop_thue" Width = "120px" runat="server" CssClass="csscurrency  format_so_tien  form-control" Style="text-align: right"></asp:TextBox>
+																<asp:TextBox ID="m_txt_grid_so_tien_nop_thue" Width="120px" runat="server" CssClass="csscurrency  format_so_tien  form-control" Style="text-align: right"></asp:TextBox>
 															</FooterTemplate>
 														</asp:TemplateField>
 														<asp:TemplateField HeaderText="Số tiền thanh toán cho đơn vị hưởng" HeaderStyle-Width="120px" ItemStyle-HorizontalAlign="Right">
 															<ItemTemplate>
-																<asp:Label ID="m_lbl_grid_so_tien_tt_cho_dv_huong" Width = "100px" Text='<%#format_so_tien(Eval(GRID_GIAI_NGAN.SO_TIEN_TTCDVH).ToString()) %>' runat="server"></asp:Label>
+																<asp:Label ID="m_lbl_grid_so_tien_tt_cho_dv_huong" Width="100px" Text='<%#CCommonFunction.getMoney_string_format(Eval(GRID_GIAI_NGAN.SO_TIEN_TTCDVH).ToString()) %>' runat="server"></asp:Label>
 															</ItemTemplate>
 															<EditItemTemplate>
-																<asp:TextBox ID="m_txt_grid_edit_so_tien_tt_cho_dv_huong" Width = "120px" runat="server" CssClass="csscurrency form-control  format_so_tien" Style="text-align: right"
+																<asp:TextBox ID="m_txt_grid_edit_so_tien_tt_cho_dv_huong" Width="120px" runat="server" CssClass="csscurrency form-control  format_so_tien" Style="text-align: right"
 																	Text='<%#Eval(GRID_GIAI_NGAN.SO_TIEN_TTCDVH) %>'></asp:TextBox>
 															</EditItemTemplate>
 															<FooterTemplate>
-																<asp:TextBox ID="m_txt_grid_so_tien_thanh_toan_cho_don_vi_huong" Width = "120px" CssClass="csscurrency  format_so_tien form-control" runat="server" Style="text-align: right"></asp:TextBox>
+																<asp:TextBox ID="m_txt_grid_so_tien_thanh_toan_cho_don_vi_huong" Width="120px" CssClass="csscurrency  format_so_tien form-control" runat="server" Style="text-align: right"></asp:TextBox>
 															</FooterTemplate>
 														</asp:TemplateField>
 														<asp:TemplateField HeaderText="Tổng" HeaderStyle-Width="120px" ItemStyle-HorizontalAlign="Right">
 															<ItemTemplate>
-																<asp:Label ID="m_lbl_grid_tong_tien" Text='<%#format_so_tien(Eval(GRID_GIAI_NGAN.TONG).ToString()) %>' runat="server"></asp:Label>
+																<asp:Label ID="m_lbl_grid_tong_tien" Text='<%#CCommonFunction.getMoney_string_format(Eval(GRID_GIAI_NGAN.TONG).ToString()) %>' runat="server"></asp:Label>
 															</ItemTemplate>
 														</asp:TemplateField>
 														<asp:TemplateField HeaderText="Thao tác" HeaderStyle-Width="200px" FooterStyle-HorizontalAlign="Center">
@@ -279,10 +274,10 @@
 																<table class="table bordertop0" style="width: 100%">
 																	<tr>
 																		<td style="width: 50%; text-align: center">
-																			<asp:Button ID="lbtnUpdate" cssclass="btn btn-success btn-sm" runat="server"  CommandName="Update" ForeColor="White"
+																			<asp:Button ID="lbtnUpdate" CssClass="btn btn-success btn-sm" runat="server" CommandName="Update" ForeColor="White"
 																				Text="Cập nhật" /></td>
 																		<td style="width: 50%; text-align: center">
-																			<asp:Button ID="lbtnCancel" cssclass="btn btn-sm" runat="server" CommandName="Cancel"
+																			<asp:Button ID="lbtnCancel" CssClass="btn btn-sm" runat="server" CommandName="Cancel"
 																				Text="Huỷ thao tác" /></td>
 																	</tr>
 																</table>
@@ -294,16 +289,13 @@
 																	<tr>
 																		<td style="width: 50%; text-align: center">
 																			<asp:LinkButton ID="lbtnEdit" runat="server" CommandName="Edit" CssClass="btn btn-sm"
-																				Text="Sửa" Visible='<%#thao_tac_visible(Eval(GRID_GIAI_NGAN.ID).ToString()) %>' ForeColor="White">   <img alt="Sửa" src="../Images/Button/edit.png" /></asp:LinkButton></td>
+																				Text="Sửa" Visible='<%#isVisible_thao_tac(Eval(GRID_GIAI_NGAN.ID).ToString()) %>' ForeColor="White">   <img alt="Sửa" src="../Images/Button/edit.png" /></asp:LinkButton></td>
 																		<td style="width: 50%; text-align: center">
-																			<asp:LinkButton ID="lbtnDelete" runat="server" CommandName="Delete" CssClass="btn btn-sm btn-" 
-																				OnClientClick="return confirm('Bạn có chắc chắn muốn xoá mục chi này không?')" 
+																			<asp:LinkButton ID="lbtnDelete" runat="server" CommandName="Delete" CssClass="btn btn-sm btn-"
+																				OnClientClick="return confirm('Bạn có chắc chắn muốn xoá mục chi này không?')"
+																				Text="Xoá" CausesValidation="false" Visible='<%#isVisible_thao_tac(Eval(GRID_GIAI_NGAN.ID).ToString()) %>'
+																				ForeColor="White"><img alt="Xóa" src="../Images/Button/deletered.png" /> </asp:LinkButton>
 
-																				Text="Xoá" CausesValidation="false" Visible='<%#thao_tac_visible(Eval(GRID_GIAI_NGAN.ID).ToString()) %>'
-																				ForeColor="White"
-																				
-																				><img alt="Xóa" src="../Images/Button/deletered.png" /> </asp:LinkButton>
-																				
 																		</td>
 																	</tr>
 
@@ -312,7 +304,7 @@
 
 															</ItemTemplate>
 															<FooterTemplate>
-																<asp:LinkButton ID="lbtnAdd" runat="server" cssclass="btn btn-sm btn-success" CommandName="Add" ForeColor="White"
+																<asp:LinkButton ID="lbtnAdd" runat="server" CssClass="btn btn-sm btn-success" CommandName="Add" ForeColor="White"
 																	Text="Thêm mới" />
 															</FooterTemplate>
 														</asp:TemplateField>
@@ -470,23 +462,23 @@
 
 											</td>
 											<td style="width: 70%; vertical-align: top">
-												<table class="table bordertop0"  style="width: 100%;margin-bottom:0px;">
+												<table class="table bordertop0" style="width: 100%; margin-bottom: 0px;">
 													<tr>
 														<td colspan="2" style="text-align: center; font-weight: bold">KBNN A</td>
 													</tr>
 													<tr>
 														<td style="border-right: 1px solid gray; width: 50%">
-															<p style="text-align: center;font-size:13px; font-weight: bold" width: 293px; class="para">BỘ PHẬN KIỂM SOÁT CHI NGÀY:..............</p>
+															<p style="text-align: center; font-size: 13px; font-weight: bold; width: 293px;" class="para">BỘ PHẬN KIỂM SOÁT CHI NGÀY:..............</p>
 															<br />
 															<p style="font-size: 13px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Kiểm soát&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;Phụ trách</p>
 														</td>
 														<td>
-															<p style="text-align: center;font-size:13px; font-weight: bold;" class="para">BỘ PHẬN KẾ TOÁN GHI SỔ NGÀY:................</p>
+															<p style="text-align: center; font-size: 13px; font-weight: bold;" class="para">BỘ PHẬN KẾ TOÁN GHI SỔ NGÀY:................</p>
 															<br />
-															<p style="font-size: 13px;width: 305px;">&nbsp;&nbsp;&nbsp;&nbsp; Kế toán&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Kế toán trưởng&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Giám đốc&nbsp; </p>
+															<p style="font-size: 13px; width: 305px;">&nbsp;&nbsp;&nbsp;&nbsp; Kế toán&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Kế toán trưởng&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Giám đốc&nbsp; </p>
 														</td>
 													</tr>
-													
+
 												</table>
 											</td>
 										</tr>
@@ -508,13 +500,13 @@
 												<p class="para" style="font-weight: bold; text-align: center">Kế toán&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Kế toán trưởng&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;Giám đốc</p>
 											</td>
 										</tr>
-										
+
 									</table>
 								</td>
 							</tr>
 							<tr>
 								<td colspan="6" style="text-align: center">
-									<asp:Button ID="m_cmd_save_info_unc" Text="Lưu thông tin" runat="server" CssClass="btn btn-sm btn-success" 
+									<asp:Button ID="m_cmd_save_info_unc" Text="Lưu thông tin" runat="server" CssClass="btn btn-sm btn-success"
 										OnClick="m_cmd_save_info_unc_Click" />
 									<asp:HyperLink ID="m_cmd_print" runat="server" CssClass="btn btn-sm btn-primary" ForeColor="White"
 										Target="_blank" Text="Xem bản in" Visible="false"></asp:HyperLink></td>
