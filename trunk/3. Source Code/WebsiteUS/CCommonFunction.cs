@@ -19,7 +19,17 @@ namespace WebUS
 			return op_dc_so_tien;
 		}
 
-		
+		public string getMoney_string_format(string ip_str_so_tien)
+		{
+			/*Return string Money with format #,###,##*/
+			string op_str_so_tien = "";
+			if (ip_str_so_tien.Trim().Equals("") | ip_str_so_tien.Trim().Equals("-1"))
+			{
+				op_str_so_tien = "";
+			}
+			else op_str_so_tien = CIPConvert.ToStr(CIPConvert.ToDecimal(ip_str_so_tien), "#,###,##");
+			return op_str_so_tien;
+		}
 
 		public static DateTime getDate_dau_nam_from_date(DateTime ip_dat)
 		{
