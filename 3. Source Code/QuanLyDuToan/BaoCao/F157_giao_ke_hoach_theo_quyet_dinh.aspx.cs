@@ -104,14 +104,13 @@ namespace QuanLyDuToan.BaoCao
 		{
 			BoundField field = (BoundField)this.m_grv.Columns[2];
 
-			string v_ip_str_nguon_ngan_sach;
 			string v_str_nguon_ngan_sach;
-			v_ip_str_nguon_ngan_sach = WebformFunctions.getValue_from_query_string<String>(
+			v_str_nguon_ngan_sach = WebformFunctions.getValue_from_query_string<String>(
 														this
 														, FormInfo.QueryString.NGUON_NGAN_SACH
 														, STR_NGUON.QUY_BAO_TRI
 														);
-			if (v_ip_str_nguon_ngan_sach == STR_NGUON.NGAN_SACH)
+			if (v_str_nguon_ngan_sach == STR_NGUON.NGAN_SACH)
 			{
 				field.HeaderText = "Kinh phí Ngân sách";
 			}
@@ -135,7 +134,7 @@ namespace QuanLyDuToan.BaoCao
 				CIPConvert.ToDecimal(m_ddl_cong_trinh.SelectedValue.Trim() == "" ? "-1" : m_ddl_cong_trinh.SelectedValue.Trim()),
 				CIPConvert.ToDecimal(m_ddl_du_an.SelectedValue.Trim() == "" ? "-1" : m_ddl_du_an.SelectedValue.Trim()),
 				m_txt_tim_kiem.Text.Trim(),
-				v_ip_str_nguon_ngan_sach,
+				v_str_nguon_ngan_sach,
 				CIPConvert.ToDecimal(m_ddl_quyet_dinh.SelectedValue),
 				ProcInFo.pr_F157);
 			m_grv.DataSource = v_ds.Tables[0];
