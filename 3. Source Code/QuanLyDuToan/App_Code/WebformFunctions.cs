@@ -24,27 +24,26 @@ namespace QuanLyDuToan.App_Code
 	{
 		public WebformFunctions() { }
 
-		public static object getValue_from_query_string(
+		public static T getValue_from_query_string<T>(
 			System.Web.UI.Page ip_form
 			, string ip_str_query_string
-			, object ip_obj_default_value
-			, DataType ip_dt_return)
+			, object ip_obj_default_value)
 		{
 			if (ip_form.Request.QueryString[ip_str_query_string] != null)
 			{
-				switch (ip_dt_return)
+				switch (typeof(T).ToString())
 				{
-					case DataType.DateType:
-						return CIPConvert.ToDatetime(ip_form.Request.QueryString[ip_str_query_string], "dd/MM/yyyy");
-					case DataType.NumberType:
-						return CIPConvert.ToDecimal(ip_form.Request.QueryString[ip_str_query_string]);
-					case DataType.StringType:
-						return CIPConvert.ToStr(ip_form.Request.QueryString[ip_str_query_string]);
+					case "DateTime":
+						return (T)((object) CIPConvert.ToDatetime(ip_form.Request.QueryString[ip_str_query_string], "dd/MM/yyyy"));
+					case "Decimal":
+						return (T)((object) CIPConvert.ToDecimal(ip_form.Request.QueryString[ip_str_query_string]));
+					case "String":
+						return (T)((object)CIPConvert.ToStr(ip_form.Request.QueryString[ip_str_query_string]));
 					default:
 						break;
 				}
 			}
-			return ip_obj_default_value;
+			return (T) ip_obj_default_value;
 		}
 		public static TableHeaderCell getHeaderCell(
 			string ip_str_text
