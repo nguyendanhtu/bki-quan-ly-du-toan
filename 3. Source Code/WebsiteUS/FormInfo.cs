@@ -14,13 +14,20 @@ namespace WebUS
 			public const string ID_LOAI_NHIEM_VU = "ip_dc_id_loai_nhiem_vu";
             public const string ID_CONG_TRINH = " ip_dc_id_cong_trinh";
             public const string ID_DU_AN = "ip_dc_id_du_an";
-            public const string NGUON_NGAN_SACH = "ip_nguon_ngan_sach";
+            public const string NGUON_NGAN_SACH = "ip_nguon_ns";
+			public const string ID_GIAI_NGAN = "ip_dc_id_dm_giai_ngan";
 		}
 
 		public class FormName
 		{
 			public const string F350 = "F350_tinh_hinh_giai_ngan.aspx";
 		}
+
+		public class FormRedirect
+		{
+			public const string F600 = "~/ChucNang/F600_print_unc_qbt.aspx";
+		}
+
 
 		public class ExportExcelReportName
 		{
