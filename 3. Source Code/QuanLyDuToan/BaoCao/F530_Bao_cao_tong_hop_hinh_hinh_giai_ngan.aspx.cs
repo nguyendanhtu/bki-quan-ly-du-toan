@@ -20,10 +20,10 @@ namespace QuanLyDuToan.BaoCao
 	public partial class F530_Bao_cao_tong_hop_hinh_hinh_giai_ngan : System.Web.UI.Page
 	{
 		#region Public Functions
-		public string get_query_string(string ip_str_id_don_vi)
+		public string gen_query_string(string ip_str_id_don_vi)
 		{
 			return
-				FormInfo.FormName.F530
+				FormInfo.FormName.F350
 				+ "?" + FormInfo.QueryString.ID_DON_VI + "= "
 				+ ip_str_id_don_vi
 				+ "&" + FormInfo.QueryString.TU_NGAY + "="

@@ -150,7 +150,7 @@
 									</asp:TemplateField>
 									<asp:TemplateField ItemStyle-HorizontalAlign="Left" HeaderText="(b)" HeaderStyle-Height="10px">
 										<ItemTemplate>
-											<a style="color: #027;" class='a<%# Eval(GRID_GIAI_NGAN.ID)%>' href='<%# get_query_string(Eval(GRID_GIAI_NGAN.ID_DON_VI).ToString())%>' title="Xem chi tiết"><%# Eval(GRID_GIAI_NGAN.NOI_DUNG)%></a>
+											<a style="color: #027;" class='a<%# Eval(GRID_GIAI_NGAN.ID)%>' href='<%# gen_query_string(Eval(GRID_GIAI_NGAN.ID_DON_VI).ToString())%>' title="Xem chi tiết"><%# Eval(GRID_GIAI_NGAN.NOI_DUNG)%></a>
 										</ItemTemplate>
 										<HeaderStyle Height="10px" HorizontalAlign="Center" />
 										<ItemStyle HorizontalAlign="Left" />

@@ -19,7 +19,7 @@ namespace WebUS
 
 		public class FormName
 		{
-			public const string F530 = "F350_tinh_hinh_giai_ngan.aspx";
+			public const string F350 = "F350_tinh_hinh_giai_ngan.aspx";
 		}
 
 		public class ExportExcelReportName
