@@ -110,8 +110,8 @@
 											</td>
 											<td colspan="2">
 												<asp:TextBox ID="m_txt_so_unc" runat="server" placeholder="59Qtu" CssClass="cssTextBox form-control" Width="200px"></asp:TextBox>
-												<asp:DropDownList ID="m_ddl_unc" CssClass="select2" Visible="false" runat="server" Width="200px"
-													OnSelectedIndexChanged="m_ddl_unc_SelectedIndexChanged" AutoPostBack="true">
+												<asp:DropDownList ID="m_ddl_dm_giai_ngan" CssClass="select2" Visible="false" runat="server" Width="200px"
+													OnSelectedIndexChanged="m_ddl_dm_giai_ngan_SelectedIndexChanged" AutoPostBack="true">
 												</asp:DropDownList>
 												<asp:Button ID="m_cmd_chon_unc" runat="server" Text="Chọn UNC" CssClass="btn btn-sm btn-primary"
 													OnClick="m_cmd_chon_unc_Click" />
@@ -164,7 +164,7 @@
 										<tr>
 											<td></td>
 											<td>
-												<asp:HiddenField ID="m_hdf_id_dm_uy_nhiem_chi" runat="server" />
+												<asp:HiddenField ID="m_hdf_id_dm_giai_ngan" runat="server" />
 												<asp:HiddenField ID="m_hdf_form_mode" runat="server" />
 											</td>
 										</tr>

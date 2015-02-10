@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace QuanLyDuToan.App_Code
 {
+	#region Object
 	public class CellInfoHeader
 	{
 		public int RowSpan;
@@ -20,9 +21,34 @@ namespace QuanLyDuToan.App_Code
 			this.ColumnSpan = ColumnSpan;
 		}
 	}
+	public enum FORM_MODE { THEM, SUA, XOA }
+	#endregion
+
 	public class WebformFunctions
 	{
 		public WebformFunctions() { }
+
+		public static FORM_MODE get_form_mode(HiddenField ip_hdf_form_mode)
+		{
+			if (ip_hdf_form_mode.Value.Equals(FORM_MODE.THEM.ToString()))
+			{
+				return FORM_MODE.THEM;
+			}
+			if (ip_hdf_form_mode.Value.Equals(FORM_MODE.SUA.ToString()))
+			{
+				return FORM_MODE.SUA;
+			}
+			if (ip_hdf_form_mode.Value.Equals(FORM_MODE.XOA.ToString()))
+			{
+				return FORM_MODE.XOA;
+			}
+			return FORM_MODE.THEM;
+		}
+
+		public static void set_form_mode(FORM_MODE ip_form_mode, HiddenField op_hdf_form_mode)
+		{
+			op_hdf_form_mode.Value = ip_form_mode.ToString();
+		}
 
 		public static T getValue_from_query_string<T>(
 			System.Web.UI.Page ip_form
@@ -34,16 +60,16 @@ namespace QuanLyDuToan.App_Code
 				switch (typeof(T).ToString())
 				{
 					case "DateTime":
-						return (T)((object) CIPConvert.ToDatetime(ip_form.Request.QueryString[ip_str_query_string], "dd/MM/yyyy"));
+						return (T)((object)CIPConvert.ToDatetime(ip_form.Request.QueryString[ip_str_query_string], "dd/MM/yyyy"));
 					case "Decimal":
-						return (T)((object) CIPConvert.ToDecimal(ip_form.Request.QueryString[ip_str_query_string]));
+						return (T)((object)CIPConvert.ToDecimal(ip_form.Request.QueryString[ip_str_query_string]));
 					case "String":
 						return (T)((object)CIPConvert.ToStr(ip_form.Request.QueryString[ip_str_query_string]));
 					default:
 						break;
 				}
 			}
-			return (T) ip_obj_default_value;
+			return (T)ip_obj_default_value;
 		}
 		public static TableHeaderCell getHeaderCell(
 			string ip_str_text
