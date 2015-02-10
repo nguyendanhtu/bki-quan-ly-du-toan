@@ -12,6 +12,9 @@ namespace WebUS
 			public const string TU_NGAY = "ip_dat_tu_ngay";
 			public const string DEN_NGAY = "ip_dat_den_ngay";
 			public const string ID_LOAI_NHIEM_VU = "ip_dc_id_loai_nhiem_vu";
+            public const string ID_CONG_TRINH = " ip_dc_id_cong_trinh";
+            public const string ID_DU_AN = "ip_dc_id_du_an";
+            public const string NGUON_NGAN_SACH = "ip_nguon_ngan_sach";
 		}
 
 		public class FormName
