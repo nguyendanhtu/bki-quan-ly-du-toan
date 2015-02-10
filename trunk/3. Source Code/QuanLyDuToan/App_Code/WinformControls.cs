@@ -362,7 +362,7 @@ namespace QuanLyDuToan.App_Code
 
 			if (ip_e_tat_ca == eTAT_CA.YES)
 			{
-				ip_obj_cbo_dv_su_dung.Items.Insert(0, new ListItem(CONST_QLDB.TAT_CA, CONST_QLDB.ID_TAT_CA.ToString()));
+				ip_obj_cbo_dv_su_dung.Items.Insert(0, new ListItem(CONST_GIAO_DICH.STR_VALUE_TAT_CA, CONST_GIAO_DICH.ID_TAT_CA.ToString()));
 			}
 		}
 
@@ -425,7 +425,7 @@ namespace QuanLyDuToan.App_Code
 
 			if (ip_e_tat_ca == eTAT_CA.YES)
 			{
-				ip_obj_cbo_quyet_dinh.Items.Insert(0, new ListItem(CONST_TONG.TONG, CONST_QLDB.ID_TAT_CA.ToString()));
+				ip_obj_cbo_quyet_dinh.Items.Insert(0, new ListItem(CONST_TONG.TONG, CONST_GIAO_DICH.ID_TAT_CA.ToString()));
 			}
 		}
 
@@ -463,7 +463,7 @@ namespace QuanLyDuToan.App_Code
 
 			if (ip_e_tat_ca == eTAT_CA.YES)
 			{
-				ip_obj_cbo_cong_trinh_du_an_goi_thau.Items.Insert(0, new ListItem(CONST_QLDB.TAT_CA, CONST_QLDB.ID_TAT_CA.ToString()));
+				ip_obj_cbo_cong_trinh_du_an_goi_thau.Items.Insert(0, new ListItem(CONST_GIAO_DICH.STR_VALUE_TAT_CA, CONST_GIAO_DICH.ID_TAT_CA.ToString()));
 			}
 		}
 
@@ -790,7 +790,7 @@ namespace QuanLyDuToan.App_Code
 			ip_obj_cbo_trang_thai.DataBind();
 			if (ip_e_tat_ca == eTAT_CA.YES)
 			{
-				ip_obj_cbo_trang_thai.Items.Insert(0, new ListItem(CONST_QLDB.TAT_CA, CONST_QLDB.ID_TAT_CA.ToString()));
+				ip_obj_cbo_trang_thai.Items.Insert(0, new ListItem(CONST_GIAO_DICH.STR_VALUE_TAT_CA, CONST_GIAO_DICH.ID_TAT_CA.ToString()));
 			}
 
 		}
@@ -815,7 +815,7 @@ namespace QuanLyDuToan.App_Code
 			ip_obj_cbo_trang_thai.DataBind();
 			if (ip_e_tat_ca == eTAT_CA.YES)
 			{
-				ip_obj_cbo_trang_thai.Items.Insert(0, new ListItem(CONST_QLDB.TAT_CA, CONST_QLDB.ID_TAT_CA.ToString()));
+				ip_obj_cbo_trang_thai.Items.Insert(0, new ListItem(CONST_GIAO_DICH.STR_VALUE_TAT_CA, CONST_GIAO_DICH.ID_TAT_CA.ToString()));
 			}
 
 		}
@@ -843,7 +843,7 @@ namespace QuanLyDuToan.App_Code
 				, ID_LOAI_DON_VI.DV_CHU_QUAN
 
 				, v_dc_id_bo_tinh
-				, CONST_QLDB.ID_TAT_CA
+				, CONST_GIAO_DICH.ID_TAT_CA
 				, v_str_user_name);
 
 			ip_obj_cbo_dv_chu_quan.DataSource = v_ds_dm_don_vi.DM_DON_VI;
@@ -852,7 +852,7 @@ namespace QuanLyDuToan.App_Code
 			ip_obj_cbo_dv_chu_quan.DataBind();
 			if (ip_e_tat_ca == eTAT_CA.YES)
 			{
-				ip_obj_cbo_dv_chu_quan.Items.Insert(0, new ListItem(CONST_QLDB.TAT_CA, CONST_QLDB.ID_TAT_CA.ToString()));
+				ip_obj_cbo_dv_chu_quan.Items.Insert(0, new ListItem(CONST_GIAO_DICH.STR_VALUE_TAT_CA, CONST_GIAO_DICH.ID_TAT_CA.ToString()));
 			}
 
 		}
@@ -871,8 +871,8 @@ namespace QuanLyDuToan.App_Code
 				v_ds_dm_don_vi
 				, ID_LOAI_DON_VI.BO_TINH
 
-				, CONST_QLDB.ID_TAT_CA
-				, CONST_QLDB.ID_TAT_CA
+				, CONST_GIAO_DICH.ID_TAT_CA
+				, CONST_GIAO_DICH.ID_TAT_CA
 				, v_str_user_name);
 
 			ip_obj_cbo_bo_tinh.DataSource = v_ds_dm_don_vi.DM_DON_VI;
@@ -881,7 +881,7 @@ namespace QuanLyDuToan.App_Code
 			ip_obj_cbo_bo_tinh.DataBind();
 			if (ip_e_tat_ca == eTAT_CA.YES)
 			{
-				ip_obj_cbo_bo_tinh.Items.Insert(0, new ListItem(CONST_QLDB.TAT_CA, CONST_QLDB.ID_TAT_CA.ToString()));
+				ip_obj_cbo_bo_tinh.Items.Insert(0, new ListItem(CONST_GIAO_DICH.STR_VALUE_TAT_CA, CONST_GIAO_DICH.ID_TAT_CA.ToString()));
 			}
 
 		}
@@ -929,7 +929,7 @@ namespace QuanLyDuToan.App_Code
 
 			if (ip_e_tat_ca == eTAT_CA.YES)
 			{
-				ip_obj_cbo_dv_su_dung.Items.Insert(0, new ListItem(CONST_QLDB.TAT_CA, CONST_QLDB.ID_TAT_CA.ToString()));
+				ip_obj_cbo_dv_su_dung.Items.Insert(0, new ListItem(CONST_GIAO_DICH.STR_VALUE_TAT_CA, CONST_GIAO_DICH.ID_TAT_CA.ToString()));
 			}
 		}
 

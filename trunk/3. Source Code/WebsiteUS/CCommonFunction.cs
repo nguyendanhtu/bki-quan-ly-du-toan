@@ -19,6 +19,7 @@ namespace WebUS
 	}
 	public class CCommonFunction
 	{
+		
 		public static string genQueryString(string ip_str_form, CParaQueryString[] ip_arr_para)
 		{
 			/*Mục đích: Trả về chuỗi query string

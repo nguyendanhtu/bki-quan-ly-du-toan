@@ -8,10 +8,9 @@
 //------------------------------------------------------------------------------
 
 namespace QuanLyDuToan.DuToan {
-
-
-	public partial class F304_nhap_giai_ngan_theo_unc
-	{
+    
+    
+    public partial class F304_nhap_giai_ngan_theo_unc {
         
         /// <summary>
         /// ScriptManager1 control.
@@ -77,13 +76,13 @@ namespace QuanLyDuToan.DuToan {
         protected global::System.Web.UI.WebControls.TextBox m_txt_so_unc;
         
         /// <summary>
-        /// m_ddl_unc control.
+        /// m_ddl_dm_giai_ngan control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList m_ddl_unc;
+        protected global::System.Web.UI.WebControls.DropDownList m_ddl_dm_giai_ngan;
         
         /// <summary>
         /// m_cmd_chon_unc control.
@@ -149,13 +148,13 @@ namespace QuanLyDuToan.DuToan {
         protected global::System.Web.UI.WebControls.Button m_cmd_luu_unc;
         
         /// <summary>
-        /// m_hdf_id_dm_uy_nhiem_chi control.
+        /// m_hdf_id_dm_giai_ngan control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField m_hdf_id_dm_uy_nhiem_chi;
+        protected global::System.Web.UI.WebControls.HiddenField m_hdf_id_dm_giai_ngan;
         
         /// <summary>
         /// m_hdf_form_mode control.
