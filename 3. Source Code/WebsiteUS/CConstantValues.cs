@@ -12,6 +12,11 @@ namespace WebUS
 		public const decimal LOAI_NHIEM_VU_NS = 105;
         
 	}
+    public class STR_NGUON_NGAN_SACH
+    {
+        public const string CO_NGUON_NGAN_SACH = "Y";
+        public const string KHONG_CO_NGUON_NGAN_SACH = "N";
+    }
 	public class ID_LOAI_NHIEM_VU
 	{
 		public const decimal BAO_DUONG_THUONG_XUYEN = 660;
