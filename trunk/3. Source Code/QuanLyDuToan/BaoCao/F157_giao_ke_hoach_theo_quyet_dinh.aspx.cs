@@ -33,7 +33,7 @@ namespace QuanLyDuToan.BaoCao
 		private void set_inital_form_load()
 		{
 			//1. gán liệu từ database vào combobox
-			WinFormControls.load_data_to_ddl_loai_nhiem_vu(m_ddl_loai_nv);
+			WebformControls.load_data_to_ddl_loai_nhiem_vu(m_ddl_loai_nv);
 			decimal v_dc_id_loai_nhiem_vu;
 			decimal v_dc_id_cong_trinh;
 			decimal v_dc_id_du_an;
@@ -83,14 +83,14 @@ namespace QuanLyDuToan.BaoCao
 			//m_ddl_loai_nv.SelectedValue = CIPConvert.ToStr(v_dc_id_loai_nhiem_vu);
 
 			//loại công trình
-			App_Code.WinFormControls.load_data_to_cbo_cong_trinh_theo_loai_nhiem_vu(
+			App_Code.WebformControls.load_data_to_cbo_cong_trinh_theo_loai_nhiem_vu(
 				CIPConvert.ToDecimal(m_ddl_loai_nv.SelectedValue)
 				, m_ddl_cong_trinh
 				, CIPConvert.ToDecimal(m_ddl_don_vi.SelectedValue));
 			m_ddl_cong_trinh.SelectedValue = CIPConvert.ToStr(v_dc_id_cong_trinh);
 
 			//loại dự án
-			App_Code.WinFormControls.load_data_to_cbo_du_an_theo_cong_trinh_va_loai_nhiem_vu(
+			App_Code.WebformControls.load_data_to_cbo_du_an_theo_cong_trinh_va_loai_nhiem_vu(
 				CIPConvert.ToDecimal(m_ddl_cong_trinh.SelectedValue)
 				, CIPConvert.ToDecimal(m_ddl_loai_nv.SelectedValue)
 				, m_ddl_du_an
@@ -142,11 +142,11 @@ namespace QuanLyDuToan.BaoCao
 		}
 		private void load_data_2_ddl_quyet_dinh()
 		{
-			WinFormControls.load_data_to_cbo_quyet_dinh(118, -1, -1, -1,
+			WebformControls.load_data_to_cbo_quyet_dinh(118, -1, -1, -1,
 				CIPConvert.ToDatetime(m_txt_tu_ngay.Text, c_configuration.DEFAULT_DATETIME_FORMAT),
 				CIPConvert.ToDatetime(m_txt_den_ngay.Text, c_configuration.DEFAULT_DATETIME_FORMAT),
 				m_txt_tim_kiem.Text.Trim(),
-				WinFormControls.eTAT_CA.YES,
+				WebformControls.eTAT_CA.YES,
 				ProcInFo.pr_A190,
 				m_ddl_quyet_dinh);
 		}
@@ -154,7 +154,7 @@ namespace QuanLyDuToan.BaoCao
 		{
 			//decimal v_dc_id_don_vi = Person.get_id_don_vi();
 			//v_dc_id_don_vi = CIPConvert.ToDecimal(web);
-			WinFormControls.load_data_to_ddl_don_vi_get_list_don_vi_duoc_xem_du_lieu(
+			WebformControls.load_data_to_ddl_don_vi_get_list_don_vi_duoc_xem_du_lieu(
 				WebformFunctions.getValue_from_query_string<Decimal>(
 									this
 								   , FormInfo.QueryString.ID_DON_VI
@@ -184,7 +184,7 @@ namespace QuanLyDuToan.BaoCao
 		{
 			try
 			{
-				App_Code.WinFormControls.load_data_to_cbo_cong_trinh_theo_loai_nhiem_vu(
+				App_Code.WebformControls.load_data_to_cbo_cong_trinh_theo_loai_nhiem_vu(
 					CIPConvert.ToDecimal(m_ddl_loai_nv.SelectedValue)
 					, m_ddl_cong_trinh
 					, CIPConvert.ToDecimal(m_ddl_don_vi.SelectedValue));
@@ -201,7 +201,7 @@ namespace QuanLyDuToan.BaoCao
 		{
 			try
 			{
-				App_Code.WinFormControls.load_data_to_cbo_du_an_theo_cong_trinh_va_loai_nhiem_vu(
+				App_Code.WebformControls.load_data_to_cbo_du_an_theo_cong_trinh_va_loai_nhiem_vu(
 					CIPConvert.ToDecimal(m_ddl_cong_trinh.SelectedValue)
 					, CIPConvert.ToDecimal(m_ddl_loai_nv.SelectedValue)
 					, m_ddl_du_an
@@ -235,7 +235,7 @@ namespace QuanLyDuToan.BaoCao
 			try
 			{
 				US_DM_DON_VI v_us = new US_DM_DON_VI(CIPConvert.ToDecimal(m_ddl_don_vi.SelectedValue));
-				WinformReport.export_gridview_2_excel(
+				WebformReport.export_gridview_2_excel(
 				m_grv, "[" + v_us.strTEN_DON_VI + "]BaoCaoTinhHinhGiaoKeHoach.xls");
 			}
 			catch (Exception v_e)

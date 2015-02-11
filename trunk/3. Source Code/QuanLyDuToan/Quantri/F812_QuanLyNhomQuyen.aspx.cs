@@ -157,7 +157,7 @@ namespace QuanLyDuToan.Quantri
 				if (!IsPostBack)
 				{
 					set_control_by_form_mode();
-                    WinFormControls.load_data_to_cbo_don_vi(m_ddl_don_vi);
+                    WebformControls.load_data_to_cbo_don_vi(m_ddl_don_vi);
 					reset_control();
 					load_data_2_grid();
 				}

@@ -103,7 +103,6 @@
     <Content Include="Template\TPL_F530.txt" />
     <Content Include="UserControl\MessageBoxUserControl.ascx" />
     <Content Include="DanhMuc\test.aspx" />
-    <Content Include="DuToan\f205_nhap_giao_ke_hoach_qbt.aspx" />
     <Content Include="DuToan\F404_nhap_khoi_luong.aspx" />
     <Content Include="DuToan\F700_thong_tin_don_vi.aspx" />
     <Content Include="Images\1.jpg" />
@@ -631,8 +630,8 @@
     <Compile Include="App_Code\MessageBox.cs" />
     <Compile Include="App_Code\MessageBoxCore.cs" />
     <Compile Include="App_Code\WebformFunctions.cs" />
-    <Compile Include="App_Code\WinformReport.cs" />
-    <Compile Include="App_Code\WinformControls.cs" />
+    <Compile Include="App_Code\WebformReport.cs" />
+    <Compile Include="App_Code\WebformControls.cs" />
     <Compile Include="App_Code\Person.cs" />
     <Compile Include="BaoCao\F150_giao_von_du_toan_vp_tong_cuc.aspx.cs">
       <DependentUpon>F150_giao_von_du_toan_vp_tong_cuc.aspx</DependentUpon>
@@ -878,13 +877,6 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="DuToan\f205_nhap_giao_ke_hoach_qbt.aspx.cs">
-      <DependentUpon>f205_nhap_giao_ke_hoach_qbt.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="DuToan\f205_nhap_giao_ke_hoach_qbt.aspx.designer.cs">
-      <DependentUpon>f205_nhap_giao_ke_hoach_qbt.aspx</DependentUpon>
     </Compile>
     <Compile Include="DuToan\F404_nhap_khoi_luong.aspx.cs">
       <DependentUpon>F404_nhap_khoi_luong.aspx</DependentUpon>

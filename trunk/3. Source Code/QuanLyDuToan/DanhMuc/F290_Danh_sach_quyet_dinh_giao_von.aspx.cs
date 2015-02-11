@@ -20,7 +20,7 @@ namespace QuanLyDuToan.DanhMuc
             {
                 set_default_input();
                 //load dropdownlist danh sach don vi ma don vi X duoc xem du lieu
-                WinFormControls.load_data_to_ddl_don_vi_get_list_don_vi_duoc_xem_du_lieu(Person.get_id_don_vi(), m_ddl_don_vi);
+                WebformControls.load_data_to_ddl_don_vi_get_list_don_vi_duoc_xem_du_lieu(Person.get_id_don_vi(), m_ddl_don_vi);
                 load_data_to_grid();    
             }            
         }
@@ -68,7 +68,7 @@ namespace QuanLyDuToan.DanhMuc
 		private void export_excel()
 		{
 			US_DM_DON_VI v_us = new US_DM_DON_VI(CIPConvert.ToDecimal(m_ddl_don_vi.SelectedValue));
-			WinformReport.export_gridview_2_excel(
+			WebformReport.export_gridview_2_excel(
             m_grv, "[" + v_us.strTEN_DON_VI + "]BaoCaoGiaoVonTheoQuyetDinh.xls");
 		}
         protected void m_cmd_tim_kiem_Click(object sender, EventArgs e)

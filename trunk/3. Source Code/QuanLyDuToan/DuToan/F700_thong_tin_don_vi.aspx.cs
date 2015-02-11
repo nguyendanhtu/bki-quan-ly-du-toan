@@ -48,7 +48,7 @@ namespace QuanLyDuToan.DuToan
 		private void get_thong_tin_don_vi(decimal ip_dc_id_don_vi)
 		{
 			US_DM_THONG_TIN_DON_VI v_us = new US_DM_THONG_TIN_DON_VI();
-            if (v_us.isHavingThongTinDonVi(Person.get_id_don_vi())) {
+            if (v_us.isHaving_thong_tin_don_vi(Person.get_id_don_vi())) {
                 v_us.InitByID_DON_VI(Person.get_id_don_vi());
                 m_txt_dia_chi.Text = v_us.strDIA_CHI;
                 m_txt_kho_bac.Text = v_us.strKHO_BAC;
