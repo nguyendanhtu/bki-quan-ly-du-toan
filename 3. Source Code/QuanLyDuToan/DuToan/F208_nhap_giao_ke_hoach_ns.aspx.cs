@@ -491,9 +491,9 @@ namespace QuanLyDuToan.DuToan
 		#region Quyet dinh
 		private void load_data_to_cbo_quyet_dinh()
 		{
-			WinFormControls.load_data_to_cbo_quyet_dinh_by_loai_quyet_dinh(WinFormControls.LOAI_QUYET_DINH.GIAO_KE_HOACH, m_ddl_quyet_dinh);
+			WebformControls.load_data_to_cbo_quyet_dinh_by_loai_quyet_dinh(WebformControls.LOAI_QUYET_DINH.GIAO_KE_HOACH, m_ddl_quyet_dinh);
 		}
-		private void load_data_cong_trinh_du_an_giao_kh_to_ddl(DropDownList op_ddl, WinFormControls.LOAI_DU_AN ip_loai_du_an)
+		private void load_data_cong_trinh_du_an_giao_kh_to_ddl(DropDownList op_ddl, WebformControls.LOAI_DU_AN ip_loai_du_an)
 		{
 			if (m_hdf_id_quyet_dinh.Value.Trim().Equals("") | m_hdf_id_quyet_dinh.Value.Trim().Equals("-1"))
 			{
@@ -506,7 +506,7 @@ namespace QuanLyDuToan.DuToan
 				v_dat_dau_nam = v_dat_dau_nam.AddDays(-v_dat_dau_nam.Day + 1);
 				v_dat_dau_nam = v_dat_dau_nam.AddMonths(-v_dat_dau_nam.Month + 1);
 				DateTime v_dat_cuoi_nam = v_dat_dau_nam.AddYears(1);
-				WinFormControls.load_data_to_cbo_du_an_cong_trinh_from_giao_kh(ip_loai_du_an
+				WebformControls.load_data_to_cbo_du_an_cong_trinh_from_giao_kh(ip_loai_du_an
 					, op_ddl);
 			}
 		}

@@ -50,7 +50,7 @@ namespace QuanLyDuToan.BaoCao
 			v_us.bc_tinh_hinh_giai_ngan_tong_cuc(v_ds
 				, CIPConvert.ToDatetime(m_txt_tu_ngay.Text, "dd/MM/yyyy")
 				, CIPConvert.ToDatetime(m_txt_den_ngay.Text, "dd/MM/yyyy")
-				, WinFormControls.get_dau_nam_form_date(CIPConvert.ToDatetime(m_txt_tu_ngay.Text, "dd/MM/yyyy"))
+				, WebformControls.get_dau_nam_form_date(CIPConvert.ToDatetime(m_txt_tu_ngay.Text, "dd/MM/yyyy"))
 				, Person.get_user_id()
 				);
 			m_grv.DataSource = v_dt;
@@ -75,7 +75,7 @@ namespace QuanLyDuToan.BaoCao
 		}
 		private void export_excel()
 		{
-			WinformReport.export_gridview_2_excel(
+			WebformReport.export_gridview_2_excel(
 			 m_grv
 			 , FormInfo.ExportExcelReportName.F530
 			 );

@@ -92,7 +92,7 @@ namespace QuanLyDuToan.DuToan
 		private void set_inital_form_mode()
 		{
 			//load dropdownlist danh sach don vi ma don vi X duoc xem du lieu
-			WinFormControls.load_data_to_ddl_don_vi_get_list_don_vi_duoc_xem_du_lieu(
+			WebformControls.load_data_to_ddl_don_vi_get_list_don_vi_duoc_xem_du_lieu(
 				Person.get_id_don_vi()
 				, m_ddl_don_vi);
 			xoa_trang();
@@ -131,8 +131,8 @@ namespace QuanLyDuToan.DuToan
 					{
 						//update du lieu vao csdl
 						US_GD_KHOI_LUONG v_us = new US_GD_KHOI_LUONG(CIPConvert.ToDecimal(v_lb_id_gd.CommandArgument.ToString()));
-						v_us.dcSO_TIEN_DA_NGHIEM_THU = WinFormControls.get_so_tien(v_txt_gia_tri_thuc_hien_da_nghiem_thu.Text);
-						v_us.dcSO_TIEN_CHUA_GIAI_NGAN = WinFormControls.get_so_tien(v_txt_so_chua_giai_ngan_cho_nha_thau.Text);
+						v_us.dcSO_TIEN_DA_NGHIEM_THU = WebformControls.get_so_tien(v_txt_gia_tri_thuc_hien_da_nghiem_thu.Text);
+						v_us.dcSO_TIEN_CHUA_GIAI_NGAN = WebformControls.get_so_tien(v_txt_so_chua_giai_ngan_cho_nha_thau.Text);
 						v_us.Update();
 					}
 					catch (Exception)
@@ -180,7 +180,7 @@ namespace QuanLyDuToan.DuToan
 		private void load_data_to_cbo()
 		{
 			//WinFormControls.load_data_to_cbo_quyet_dinh_by_loai_quyet_dinh(WinFormControls.LOAI_QUYET_DINH.GIAO_VON, m_ddl_quyet_dinh);
-			WinFormControls.load_data_to_ddl_loai_nhiem_vu(m_ddl_loai_nhiem_vu);
+			WebformControls.load_data_to_ddl_loai_nhiem_vu(m_ddl_loai_nhiem_vu);
 
 		}
 

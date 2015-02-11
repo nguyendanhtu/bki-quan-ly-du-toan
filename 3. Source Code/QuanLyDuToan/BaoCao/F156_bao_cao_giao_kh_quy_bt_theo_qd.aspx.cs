@@ -165,7 +165,7 @@ namespace QuanLyDuToan.BaoCao
 					//m_dat_den_ngay = CIPConvert.ToDatetime(Request.QueryString["den_ngay"]);
 					//m_str_is_nguon_ngan_sach = Request.QueryString["is_nguon_ngan_sach"];
 					//m_str_ten_du_an = Request.QueryString["ten_du_an"];
-					App_Code.WinFormControls.load_data_to_ddl_loai_nhiem_vu(m_ddl_loai_nv);
+					App_Code.WebformControls.load_data_to_ddl_loai_nhiem_vu(m_ddl_loai_nv);
 
 					//set value form query string
 					decimal v_dc_id_don_vi = Person.get_id_don_vi();
@@ -255,7 +255,7 @@ namespace QuanLyDuToan.BaoCao
 		protected void m_cmd_xuat_excel_Click(object sender, EventArgs e)
 		{
 			US_DM_DON_VI v_us = new US_DM_DON_VI(Person.get_id_don_vi());
-			WinformReport.export_gridview_2_excel(
+			WebformReport.export_gridview_2_excel(
 			m_grv
 			, "[" + ConvertToUnsign3(v_us.strTEN_DON_VI) + "]BaoCaoTinhHinhGiaoKeHoach.xls"
 			);
@@ -333,7 +333,7 @@ namespace QuanLyDuToan.BaoCao
 						bool v_b_is_number = decimal.TryParse(e.Row.Cells[i].Text, out v_i_so_tien);
 						if (v_b_is_number)
 						{
-							v_lbl.Text = CIPConvert.ToStr(WinFormControls.get_so_tien(e.Row.Cells[i].Text), "#,###,##");
+							v_lbl.Text = CIPConvert.ToStr(WebformControls.get_so_tien(e.Row.Cells[i].Text), "#,###,##");
 						}
 
 						e.Row.Cells[i].Controls.Add(v_lbl);
@@ -357,7 +357,7 @@ namespace QuanLyDuToan.BaoCao
 			{
 				v_dc_id_don_vi = CIPConvert.ToDecimal(Request.QueryString["ip_dc_id_don_vi"]);
 			}
-			App_Code.WinFormControls.load_data_to_cbo_cong_trinh_theo_loai_nhiem_vu(CIPConvert.ToDecimal(m_ddl_loai_nv.SelectedValue), m_ddl_cong_trinh, v_dc_id_don_vi);
+			App_Code.WebformControls.load_data_to_cbo_cong_trinh_theo_loai_nhiem_vu(CIPConvert.ToDecimal(m_ddl_loai_nv.SelectedValue), m_ddl_cong_trinh, v_dc_id_don_vi);
 		}
 
 		protected void m_ddl_cong_trinh_SelectedIndexChanged(object sender, EventArgs e)
@@ -367,7 +367,7 @@ namespace QuanLyDuToan.BaoCao
 			{
 				v_dc_id_don_vi = CIPConvert.ToDecimal(Request.QueryString["ip_dc_id_don_vi"]);
 			}
-			App_Code.WinFormControls.load_data_to_cbo_du_an_theo_cong_trinh_va_loai_nhiem_vu(CIPConvert.ToDecimal(m_ddl_cong_trinh.SelectedValue), CIPConvert.ToDecimal(m_ddl_loai_nv.SelectedValue), m_ddl_du_an, v_dc_id_don_vi);
+			App_Code.WebformControls.load_data_to_cbo_du_an_theo_cong_trinh_va_loai_nhiem_vu(CIPConvert.ToDecimal(m_ddl_cong_trinh.SelectedValue), CIPConvert.ToDecimal(m_ddl_loai_nv.SelectedValue), m_ddl_du_an, v_dc_id_don_vi);
 		}
 
 

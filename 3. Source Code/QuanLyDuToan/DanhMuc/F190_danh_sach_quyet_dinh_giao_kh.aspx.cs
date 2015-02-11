@@ -95,7 +95,7 @@ namespace QuanLyDuToan.DanhMuc
 		private void export_excel()
 		{
 			US_DM_DON_VI v_us = new US_DM_DON_VI(CIPConvert.ToDecimal(m_ddl_don_vi.SelectedValue));
-			WinformReport.export_gridview_2_excel(
+			WebformReport.export_gridview_2_excel(
 			m_grv_bao_cao_giao_von, "[" + v_us.strTEN_DON_VI + "]BaoCaoGiaoKeHoachTheoQuyetDinh.xls");
 		}
 
@@ -139,7 +139,7 @@ namespace QuanLyDuToan.DanhMuc
                     }
                     else
                     {
-                        m_txt_tu_ngay.Text = CIPConvert.ToStr(WinFormControls.get_dau_nam_form_date(DateTime.Now), "dd/MM/yyyy");
+                        m_txt_tu_ngay.Text = CIPConvert.ToStr(WebformControls.get_dau_nam_form_date(DateTime.Now), "dd/MM/yyyy");
                     }
                     if (Request.QueryString["ip_dat_den_ngay"] != null)
                     {
@@ -153,7 +153,7 @@ namespace QuanLyDuToan.DanhMuc
                     {
                         m_ddl_don_vi.SelectedValue = Request.QueryString["ip_dc_id_don_vi"].ToString();
                     }
-                    WinFormControls.load_data_to_ddl_don_vi_get_list_don_vi_duoc_xem_du_lieu(Person.get_id_don_vi(), m_ddl_don_vi);
+                    WebformControls.load_data_to_ddl_don_vi_get_list_don_vi_duoc_xem_du_lieu(Person.get_id_don_vi(), m_ddl_don_vi);
                     load_data_2_ddl_loai_quyet_dinh_giao();
 					load_data_to_grid();
 				}

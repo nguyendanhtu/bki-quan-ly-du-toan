@@ -13,9 +13,9 @@ using WebUS;
 
 namespace QuanLyDuToan.App_Code
 {
-	public class WinFormControls
+	public class WebformControls
 	{
-		public WinFormControls()
+		public WebformControls()
 		{
 			//
 			// TODO: Add constructor logic here
@@ -78,29 +78,7 @@ namespace QuanLyDuToan.App_Code
 			op_ddl.DataBind();
 		}
 
-		//public static void load_data_to_ddl_ten_du_an(
-		//	DateTime ip_dat_tu_ngay
-		//	, DateTime ip_dat_den_ngay
-		//	, decimal ip_dc_id_don_Vi
-		//	, decimal ip_dc_id_du_an_cong_trinh
-		//	, decimal ip_dc_id_loai_nhiem_vu
-		//	, DropDownList op_ddl) {
-		//	US_DM_CONG_TRINH_DU_AN_GOI_THAU v_us = new US_DM_CONG_TRINH_DU_AN_GOI_THAU();
-		//	DataSet op_ds = new DataSet();
-		//	DataTable op_dt = new DataTable();
-		//	op_ds.Tables.Add(op_dt);
-		//	CStoredProc v_sp = new IP.Core.IPUserService.CStoredProc("pr_gd_giao_von_get_ten_du_an");
-		//	v_sp.addDatetimeInputParam("@ip_dat_tu_ngay", ip_dat_tu_ngay);
-		//	v_sp.addDatetimeInputParam("@ip_dat_den_ngay", ip_dat_den_ngay);
-		//	v_sp.addDecimalInputParam("@ip_dc_id_don_vi", ip_dc_id_don_Vi);
-		//	v_sp.addDecimalInputParam("@ip_dc_id_loai_nhiem_vu", ip_dc_id_loai_nhiem_vu);
-		//	v_sp.addDecimalInputParam("@ip_dc_id_du_an_cong_trinh", ip_dc_id_du_an_cong_trinh);
-		//	v_sp.fillDataSetByCommand(v_us, op_ds);
-		//	//op_ddl.DataTextField = GD_CHI_TIET_GIAO_VON.te;
-		//	//op_ddl.DataValueField = GD_CHI_TIET_GIAO_VON.TEN_DU_AN;
-		//	op_ddl.DataSource = op_ds.Tables[0];
-		//	op_ddl.DataBind();
-		//}
+		
 		public static void load_data_to_cbo_du_an_cong_trinh_from_giao_kh(LOAI_DU_AN ip_loai_du_an
 		, DropDownList op_ddl_quyet_dinh)
 		{
@@ -486,27 +464,6 @@ namespace QuanLyDuToan.App_Code
 			op_ddl.DataBind();
 		}
 
-		//public static void load_data_to_ddl_quoc_lo_cong_trinh(
-		//	DateTime ip_dat_tu_ngay
-		//	, DateTime ip_dat_den_ngay
-		//	, decimal ip_dc_id_don_Vi
-		//	, decimal ip_dc_id_loai_nhiem_vu
-		//	, DropDownList op_ddl)
-		//{
-		//	US_DM_CONG_TRINH_DU_AN_GOI_THAU v_us = new US_DM_CONG_TRINH_DU_AN_GOI_THAU();
-		//	DS_DM_CONG_TRINH_DU_AN_GOI_THAU v_ds = new DS_DM_CONG_TRINH_DU_AN_GOI_THAU();
-		//	CStoredProc v_sp = new IP.Core.IPUserService.CStoredProc("pr_DM_CONG_TRINH_DU_AN_GOI_THAU_get_ds_giao_von");
-		//	v_sp.addDatetimeInputParam("@ip_dat_tu_ngay", ip_dat_tu_ngay);
-		//	v_sp.addDatetimeInputParam("@ip_dat_den_ngay", ip_dat_den_ngay);
-		//	v_sp.addDecimalInputParam("@ip_dc_id_don_vi", ip_dc_id_don_Vi);
-		//	v_sp.addDecimalInputParam("@ip_dc_id_loai_nhiem_vu", ip_dc_id_loai_nhiem_vu);
-		//	v_sp.fillDataSetByCommand(v_us, v_ds);
-		//	op_ddl.DataTextField = DM_CONG_TRINH_DU_AN_GOI_THAU.TEN;
-		//	op_ddl.DataValueField = DM_CONG_TRINH_DU_AN_GOI_THAU.ID;
-		//	op_ddl.DataSource = v_ds.DM_CONG_TRINH_DU_AN_GOI_THAU;
-		//	op_ddl.DataBind();
-		//}
-
 		public static void load_data_to_ddl_ten_du_an(
 			DateTime ip_dat_tu_ngay
 			, DateTime ip_dat_den_ngay
@@ -637,7 +594,6 @@ namespace QuanLyDuToan.App_Code
 				}
 
 			}
-
 			//2. Convert dữ liệu
 			string v_str_data_default = "---Chọn loại nhiệm vụ---";
 
@@ -666,81 +622,94 @@ namespace QuanLyDuToan.App_Code
 					op_ddl.Enabled = false;
 				}
 		}
-		public static void load_data_to_ddl_loai_nhiem_vu_ns(DropDownList op_ddl)
+		
+		public static DataSet get_dataset_muc_tieu_muc_from_data_giao_kh(
+								DateTime ip_dat_tu_ngay
+								, DateTime ip_dat_den_ngay)
 		{
-			US_CM_DM_TU_DIEN v_us = new US_CM_DM_TU_DIEN();
-			DS_CM_DM_TU_DIEN v_ds = new DS_CM_DM_TU_DIEN();
-			v_us.FillDataset(v_ds, "where " + CM_DM_TU_DIEN.ID_LOAI_TU_DIEN + "=" + ID_LOAI_TU_DIEN.LOAI_NHIEM_VU_NS +
-				"order by " + CM_DM_TU_DIEN.GHI_CHU);
-			string v_str_data_default = "---Chọn loại nhiệm vụ---";
+			/*
+			 * Mục tiêu:	
+			 *		Tạo dataset để binding dữ liệu vào dropdownlist
+			 *		Với dữ liệu CLKM lấy trong dữ liệu bảng Giao vốn
+			 * Đặc thù:		
+			 *		Vì để binding vào dropdownlist cần 2 giá trị: Text và Value
+			 *		Mà: Lại có 3 value: ID Chương, ID Khoản, ID Mục hoặc ID Tiểu Mục cần lấy
+			 *		3 value này không quan hệ cha con với nhau 
+			 *		=> Phải tạo 1 value mới từ 3 value: ID_MIX = ID_CHUONG|ID_KHOAN|ID_MUC hoặc ID_TIEU_MUC
+			 * Tóm tắt:
+			 *		1. Khởi tạo US
+			 *		2. Tạo DataSet để lưu dữ liệu 
+			 *		3. Đổ dữ liệu vào dataset vừa tạo
+			 */
 
-			for (int i = 0; i < v_ds.CM_DM_TU_DIEN.Count; i++)
-			{
-				v_ds.Tables[0].Rows[i][CM_DM_TU_DIEN.TEN] = v_ds.Tables[0].Rows[i][CM_DM_TU_DIEN.GHI_CHU].ToString() + " - " +
-					v_ds.Tables[0].Rows[i][CM_DM_TU_DIEN.TEN];
-				v_ds.AcceptChanges();
-			}
-			op_ddl.DataTextField = CM_DM_TU_DIEN.TEN;
-			op_ddl.DataValueField = CM_DM_TU_DIEN.ID;
-			op_ddl.DataSource = v_ds.CM_DM_TU_DIEN;
-			op_ddl.DataBind();
-			op_ddl.Items.Insert(0, new ListItem(v_str_data_default, "-1"));
-		}
-
-		public static decimal getTongTienKH(
-			DateTime ip_dat_ngay_thang
-			, string ip_str_is_nguon_ns_yn
-			, decimal ip_dc_id_loai_du_an)
-		{
-			decimal op_dc_so_tien = 0;
-			DateTime v_dat_dau_nam = ip_dat_ngay_thang;
-			v_dat_dau_nam = v_dat_dau_nam.AddDays(-v_dat_dau_nam.Day + 1);
-			v_dat_dau_nam = v_dat_dau_nam.AddMonths(-v_dat_dau_nam.Month + 1);
-			DateTime v_dat_cuoi_nam = v_dat_dau_nam.AddYears(1);
-			US_GD_CHI_TIET_GIAO_KH v_us = new WebUS.US_GD_CHI_TIET_GIAO_KH();
-			//op_dc_so_tien = v_us.getTongTienKH(Person.get_id_don_vi(), v_dat_dau_nam, v_dat_cuoi_nam, ip_str_is_nguon_ns_yn, ip_dc_id_loai_du_an);
-			return op_dc_so_tien;
-		}
-
-
-
-		public static DataSet get_dataset_muc_tieu_muc_giao_kh(
-			DateTime ip_dat_tu_ngay
-			, DateTime ip_dat_den_ngay)
-		{
+			//1. Khởi tạo US
 			decimal v_dc_id_don_vi = Person.get_id_don_vi();
 			US_DM_DON_VI v_us = new WebUS.US_DM_DON_VI();
 			CStoredProc v_sp = new CStoredProc("pr_get_chuong_loai_khoan_muc_tieu_muc_giao_kh");
 			v_sp.addDatetimeInputParam("@ip_dat_den_ngay", ip_dat_den_ngay);
 			v_sp.addDatetimeInputParam("@ip_dat_tu_ngay", ip_dat_tu_ngay);
 			v_sp.addDecimalInputParam("@ip_dc_id_don_vi", v_dc_id_don_vi);
+
+			//2. Tạo DataSet để lưu dữ liệu 
 			DataSet op_ds = new DataSet();
 			DataTable v_dt = new DataTable();
+
+			//Thêm cột ID_MIX để lưu giá trị mix id_chuong, id_khoan, id_muc hoặc id_tieu_muc
 			v_dt.Columns.Add("ID_MIX");
+
+			//Thêm cột DISPLAY hiển thị text của ID_MIX, vd: Loại 220 - 223, Tiểu mục 6000:....
 			v_dt.Columns.Add("DISPLAY");
+
 			op_ds.Tables.Add(v_dt);
 			op_ds.AcceptChanges();
+
+			//3. Đổ dữ liệu vào dataset vừa tạo
 			v_sp.fillDataSetByCommand(v_us, op_ds);
 			return op_ds;
 		}
-		public static DataSet get_dataset_muc_tieu_muc_giao_von(
-			decimal ip_dc_id_loai_nhiem_vu
-			, DateTime ip_dat_tu_ngay
-			, DateTime ip_dat_den_ngay
-			, decimal ip_dc_id_don_vi)
+		public static DataSet get_dataset_muc_tieu_muc_from_data_giao_von(
+								decimal ip_dc_id_loai_nhiem_vu
+								, DateTime ip_dat_tu_ngay
+								, DateTime ip_dat_den_ngay
+								, decimal ip_dc_id_don_vi)
 		{
+			/*
+			 * Mục tiêu:	
+			 *		Tạo dataset để binding dữ liệu vào dropdownlist
+			 *		Với dữ liệu CLKM lấy trong dữ liệu bảng Giao vốn
+			 * Đặc thù:		
+			 *		Vì để binding vào dropdownlist cần 2 giá trị: Text và Value
+			 *		Mà: Lại có 3 value: ID Chương, ID Khoản, ID Mục hoặc ID Tiểu Mục cần lấy
+			 *		3 value này không quan hệ cha con với nhau 
+			 *		=> Phải tạo 1 value mới từ 3 value: ID_MIX = ID_CHUONG|ID_KHOAN|ID_MUC hoặc ID_TIEU_MUC
+			 * Tóm tắt:
+			 *		1. Khởi tạo US
+			 *		2. Tạo DataSet để lưu dữ liệu 
+			 *		3. Đổ dữ liệu vào dataset vừa tạo
+			 */
+
+			//1. Khởi tạo US
 			US_DM_DON_VI v_us = new WebUS.US_DM_DON_VI();
 			CStoredProc v_sp = new CStoredProc("pr_get_chuong_loai_khoan_muc_tieu_muc_giao_von");
 			v_sp.addDatetimeInputParam("@ip_dat_den_ngay", ip_dat_den_ngay);
 			v_sp.addDatetimeInputParam("@ip_dat_tu_ngay", ip_dat_tu_ngay);
 			v_sp.addDecimalInputParam("@ip_dc_id_don_vi", ip_dc_id_don_vi);
 			v_sp.addDecimalInputParam("@ip_dc_id_loai_nhiem_vu", ip_dc_id_loai_nhiem_vu);
+
+			//2. Tạo DataSet để lưu dữ liệu 
 			DataSet op_ds = new DataSet();
 			DataTable v_dt = new DataTable();
+
+			//Thêm cột ID_MIX để lưu giá trị mix id_chuong, id_khoan, id_muc hoặc id_tieu_muc
 			v_dt.Columns.Add("ID_MIX");
+
+			//Thêm cột DISPLAY hiển thị text của ID_MIX, vd: Loại 220 - 223, Tiểu mục 6000:....
 			v_dt.Columns.Add("DISPLAY");
+
 			op_ds.Tables.Add(v_dt);
 			op_ds.AcceptChanges();
+
+			//3. Đổ dữ liệu vào dataset vừa tạo
 			v_sp.fillDataSetByCommand(v_us, op_ds);
 			return op_ds;
 		}

@@ -68,7 +68,7 @@ namespace QuanLyDuToan.BaoCao
 			{
 				id_dc_don_vi = CIPConvert.ToDecimal(Request.QueryString["ip_dc_id_don_vi"]);
 			}
-			WinFormControls.load_data_to_ddl_don_vi_get_list_don_vi_duoc_xem_du_lieu(
+			WebformControls.load_data_to_ddl_don_vi_get_list_don_vi_duoc_xem_du_lieu(
 				id_dc_don_vi
 				, m_ddl_don_vi);
 		}
@@ -247,7 +247,7 @@ namespace QuanLyDuToan.BaoCao
 
         protected void m_cmd_xuat_excel_Click(object sender, EventArgs e)
         {
-            WinformReport.export_gridview_2_excel(
+            WebformReport.export_gridview_2_excel(
             m_grv_bao_cao_giao_von
             , "BaoCaoTinhHinhGiaoKeHoachGiaoVonVPTongCuc.xls"
             );

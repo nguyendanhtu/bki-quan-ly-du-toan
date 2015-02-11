@@ -268,7 +268,7 @@ namespace QuanLyDuToan.BaoCao
             load_data_to_grid();
         }
         protected void m_cmd_xuat_excel_Click(object sender, EventArgs e) {
-            WinformReport.export_gridview_2_excel(
+            WebformReport.export_gridview_2_excel(
             m_grv_bao_cao_giao_von
             , "BaoCaoTheoDoiGiaoVon.xls"
             );

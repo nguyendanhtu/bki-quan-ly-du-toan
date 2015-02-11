@@ -292,7 +292,7 @@ namespace QuanLyDuToan.DuToan
 			v_dat_dau_nam = v_dat_dau_nam.AddDays(-v_dat_dau_nam.Day + 1);
 			v_dat_dau_nam = v_dat_dau_nam.AddMonths(-v_dat_dau_nam.Month + 1);
 			DateTime v_dat_cuoi_nam = v_dat_dau_nam.AddYears(1);
-			DataSet v_ds_muc_tieu_muc = WinFormControls.get_dataset_muc_tieu_muc_giao_von(
+			DataSet v_ds_muc_tieu_muc = WebformControls.get_dataset_muc_tieu_muc_from_data_giao_von(
 				990
 				,v_dat_dau_nam
 				, v_dat_cuoi_nam

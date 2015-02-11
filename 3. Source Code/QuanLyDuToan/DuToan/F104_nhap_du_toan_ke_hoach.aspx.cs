@@ -73,9 +73,9 @@ namespace QuanLyDuToan.DuToan
 
 		private void load_data_to_cbo_quyet_dinh()
 		{
-			WinFormControls.load_data_to_cbo_quyet_dinh_by_loai_quyet_dinh(WinFormControls.LOAI_QUYET_DINH.GIAO_KE_HOACH, m_ddl_quyet_dinh);
+			WebformControls.load_data_to_cbo_quyet_dinh_by_loai_quyet_dinh(WebformControls.LOAI_QUYET_DINH.GIAO_KE_HOACH, m_ddl_quyet_dinh);
 		}
-		private void load_data_cong_trinh_du_an_giao_kh_to_ddl(DropDownList op_ddl, WinFormControls.LOAI_DU_AN ip_loai_du_an)
+		private void load_data_cong_trinh_du_an_giao_kh_to_ddl(DropDownList op_ddl, WebformControls.LOAI_DU_AN ip_loai_du_an)
 		{
 			if (m_hdf_id_quyet_dinh.Value.Trim().Equals("") | m_hdf_id_quyet_dinh.Value.Trim().Equals("-1"))
 			{
@@ -88,7 +88,7 @@ namespace QuanLyDuToan.DuToan
 				v_dat_dau_nam = v_dat_dau_nam.AddDays(-v_dat_dau_nam.Day + 1);
 				v_dat_dau_nam = v_dat_dau_nam.AddMonths(-v_dat_dau_nam.Month + 1);
 				DateTime v_dat_cuoi_nam = v_dat_dau_nam.AddYears(1);
-				WinFormControls.load_data_to_cbo_du_an_cong_trinh_from_giao_kh(ip_loai_du_an
+				WebformControls.load_data_to_cbo_du_an_cong_trinh_from_giao_kh(ip_loai_du_an
 					, op_ddl);
 			}
 		}
@@ -105,15 +105,15 @@ namespace QuanLyDuToan.DuToan
 					v_b_is_nguon_ns = true;
 				}
 			}
-			WinFormControls.load_data_to_ddl_loai_nhiem_vu(m_ddl_loai_nhiem_vu, v_b_is_nguon_ns, v_b_is_chi_du_an);
+			WebformControls.load_data_to_ddl_loai_nhiem_vu(m_ddl_loai_nhiem_vu, v_b_is_nguon_ns, v_b_is_chi_du_an);
 		}
 		private void load_data_to_cbo_quoc_lo()
 		{
-			WinFormControls.load_data_to_cbo_du_an_cong_trinh_from_giao_von1(ID_LOAI_CONG_TRINH_DU_AN_GOI_THAU.CONG_TRINH, m_ddl_cong_trinh);
+			WebformControls.load_data_to_cbo_du_an_cong_trinh_from_giao_von1(ID_LOAI_CONG_TRINH_DU_AN_GOI_THAU.CONG_TRINH, m_ddl_cong_trinh);
 		}
 		private void load_data_to_du_an()
 		{
-			WinFormControls.load_data_to_cbo_du_an_cong_trinh_from_giao_von2(ID_LOAI_CONG_TRINH_DU_AN_GOI_THAU.DU_AN, CIPConvert.ToDecimal(m_ddl_cong_trinh.SelectedValue), m_ddl_du_an);
+			WebformControls.load_data_to_cbo_du_an_cong_trinh_from_giao_von2(ID_LOAI_CONG_TRINH_DU_AN_GOI_THAU.DU_AN, CIPConvert.ToDecimal(m_ddl_cong_trinh.SelectedValue), m_ddl_du_an);
 		}
 		private void load_data_to_grid()
 		{
@@ -692,7 +692,7 @@ namespace QuanLyDuToan.DuToan
 		private void set_inital_form_mode()
 		{
 			//load dropdownlist danh sach don vi ma don vi X duoc xem du lieu
-			WinFormControls.load_data_to_ddl_don_vi_get_list_don_vi_duoc_xem_du_lieu(Person.get_id_don_vi(), m_ddl_don_vi);
+			WebformControls.load_data_to_ddl_don_vi_get_list_don_vi_duoc_xem_du_lieu(Person.get_id_don_vi(), m_ddl_don_vi);
 			xoa_trang();
 			load_data_to_cbo_quyet_dinh();
 			if (m_ddl_quyet_dinh.Visible==false)
@@ -933,7 +933,7 @@ namespace QuanLyDuToan.DuToan
 					if (Request.QueryString["ip_dc_id_don_vi"] != null)
 					{
 						decimal v_dc_id_don_vi = CIPConvert.ToDecimal(Request.QueryString["ip_dc_id_don_vi"]);
-						WinFormControls.load_data_to_ddl_don_vi_get_list_don_vi_duoc_xem_du_lieu(Person.get_id_don_vi(), m_ddl_don_vi);
+						WebformControls.load_data_to_ddl_don_vi_get_list_don_vi_duoc_xem_du_lieu(Person.get_id_don_vi(), m_ddl_don_vi);
 						m_ddl_don_vi.SelectedValue = v_dc_id_don_vi.ToString();
 						m_ddl_quyet_dinh_SelectedIndexChanged(null, null);
 					}
