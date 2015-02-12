@@ -22,6 +22,9 @@ namespace WebUS
 		public class FormName
 		{
 			public const string F350 = "F350_tinh_hinh_giai_ngan.aspx";
+            public const string F157 = "F157_giao_ke_hoach_theo_quyet_dinh.aspx";
+            public const string F257 = "F257_giao_von_theo_quyet_dinh.aspx";
+            public const string F357 = "F357_giai_ngan_theo_uy_nhiem_chi.aspx";
 		}
 
 		public class FormRedirect
