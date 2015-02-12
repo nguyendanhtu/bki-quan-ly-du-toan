@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace QuanLyDuToan.App_Code
@@ -22,6 +23,11 @@ namespace QuanLyDuToan.App_Code
 		}
 	}
 	public enum FORM_MODE { THEM, SUA, XOA }
+	public enum eGridItem
+	{
+		EditItem
+		, FooterItem
+	}
 	#endregion
 
 	public class WebformFunctions
@@ -57,13 +63,13 @@ namespace QuanLyDuToan.App_Code
 		{
 			if (ip_form.Request.QueryString[ip_str_query_string] != null)
 			{
-				switch (typeof(T).ToString())
+				switch (typeof(T).Name.ToUpper())
 				{
-					case "DateTime":
+					case "DATETIME":
 						return (T)((object)CIPConvert.ToDatetime(ip_form.Request.QueryString[ip_str_query_string], "dd/MM/yyyy"));
-					case "Decimal":
+					case "DECIMAL":
 						return (T)((object)CIPConvert.ToDecimal(ip_form.Request.QueryString[ip_str_query_string]));
-					case "String":
+					case "STRING":
 						return (T)((object)CIPConvert.ToStr(ip_form.Request.QueryString[ip_str_query_string]));
 					default:
 						break;
@@ -71,6 +77,30 @@ namespace QuanLyDuToan.App_Code
 			}
 			return (T)ip_obj_default_value;
 		}
+
+		public static T getControl_in_template<T>(
+			GridView ip_grv
+			, string ip_str_control_name
+			, int ip_i_row_index
+			, eGridItem ip_eGrid_item
+			)
+		{
+			System.Web.UI.Control v_control = new Control();
+			switch (ip_eGrid_item)
+			{
+				case eGridItem.EditItem:
+					v_control = ip_grv.Rows[ip_i_row_index].FindControl(ip_str_control_name);
+					break;
+				case eGridItem.FooterItem:
+					v_control = ip_grv.FooterRow.FindControl(ip_str_control_name);
+					break;
+				default:
+					break;
+			}
+
+			return (T)(object)v_control;
+		}
+
 		public static TableHeaderCell getHeaderCell(
 			string ip_str_text
 			, HorizontalAlign ip_horizontal_align

@@ -20,8 +20,13 @@ namespace QuanLyDuToan.ChucNang
 			try
 			{
 				xoa_trang_info();
-				if (Request.QueryString["ip_dc_id_dm_unc"] == null) return;
-				load_content_print(CIPConvert.ToDecimal(Request.QueryString["ip_dc_id_dm_unc"]));
+				decimal v_dc_id_dm_giai_ngan=WebformFunctions.getValue_from_query_string<decimal>(
+										this
+										,FormInfo.QueryString.ID_GIAI_NGAN
+										,CONST_GIAO_DICH.ID_TAT_CA
+										);
+				if (v_dc_id_dm_giai_ngan==CONST_GIAO_DICH.ID_TAT_CA) return;
+				load_content_print(v_dc_id_dm_giai_ngan);
 			}
 			catch (Exception v_e)
 			{
