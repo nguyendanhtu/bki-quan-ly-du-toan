@@ -185,6 +185,7 @@
 										<tr>
 											<td>
 												<asp:GridView ID="m_grv_unc" runat="server" ShowFooter="true" AutoGenerateColumns="false"
+													HeaderStyle-BackColor="LightGray"
 													DataKeyNames="ID"
 													OnRowDataBound="m_grv_unc_RowDataBound"
 													OnRowCancelingEdit="m_grv_unc_RowCancelingEdit"

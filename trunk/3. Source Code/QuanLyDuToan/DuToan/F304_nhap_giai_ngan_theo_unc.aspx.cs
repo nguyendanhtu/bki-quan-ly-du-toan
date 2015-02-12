@@ -28,7 +28,14 @@ namespace QuanLyDuToan.DuToan
 		#endregion
 
 		#region Data Structure
-
+		const string C_STR_LUU_THANH_CONG_UNC = "Lưu Uỷ nhiệm chi thành công!";
+		const string C_STR_LUU_THANH_CONG = "Đã cập nhật thông tin thành công!";
+		const string C_STR_XOA_THANH_CONG = "Đã xoá thành công!";
+		public enum eCHI_TX_YN
+		{
+			YES, NO
+		}
+		
 		#endregion
 
 		#region Members
@@ -45,76 +52,58 @@ namespace QuanLyDuToan.DuToan
 			return v_b_result;
 		}
 
-		private void form_to_us_object()
+		private void form_to_us_object(US_DM_GIAI_NGAN op_us)
 		{
-			switch (WebformFunctions.get_form_mode(m_hdf_form_mode))
+			op_us.strNT_TEN_DON_VI = m_txt_nt_ten_don_vi.Text;
+			op_us.strNT_MA_SO_THUE = m_txt_nt_ma_so_thue.Text;
+			op_us.strNT_MA_NDKT = m_txt_nt_ma_ndkt.Text;
+			op_us.strNT_MA_CHUONG = m_txt_nt_ma_chuong.Text;
+			op_us.strNT_CQ_QL_THU = m_txt_nt_co_quan_quan_ly_thu.Text;
+			op_us.strNT_MA_CQ_THU = m_txt_nt_ma_cq_thu.Text;
+			op_us.strNT_KBNN_HACH_TOAN_KHOAN_THU = m_txt_nt_kbnn_hach_toan_thu.Text;
+			op_us.strNT_SO_TIEN_NOP_THUE = m_txt_nt_so_tien_nop_thue.Text;
+
+			op_us.strTTDVH_DON_VI_NHAN_TIEN = m_txt_ttdvh_don_vi_nhan_tien.Text;
+			op_us.strTTDVH_MA_DVQHNS = m_txt_ttdvh_ma_dvqhns.Text;
+			op_us.strTTDVH_DIA_CHI = m_txt_ttdvh_dia_chi.Text;
+			op_us.strTTDVH_TAI_KHOAN = m_txt_ttdvh_tai_khoan.Text;
+			op_us.strTTDVH_MA_CTMT_DA_VA_HTCT = m_txt_ttdvh_ma_ctmt_da_htct.Text;
+			op_us.strTTDVH_KHO_BAC = m_txt_ttdvh_tai_kbnn.Text;
+			op_us.strTTDVH_SO_TIEN = m_txt_ttdvh_so_tien_thanh_toan.Text;
+			if (m_rbl_ma_tkkt.SelectedIndex == 0)
 			{
-				case FORM_MODE.SUA:
-					m_us = new US_GD_CHI_TIET_GIAI_NGAN(CIPConvert.ToDecimal(this.m_hdf_id_dm_giai_ngan.Value));
-					break;
-				case FORM_MODE.THEM:
-					m_us = new US_GD_CHI_TIET_GIAI_NGAN();
-					break;
+				op_us.strIS_NGUON_NS_YN = STR_NGUON.NGAN_SACH;
 			}
-
-			//m_us. = "N";//Nguon mac dinh la Quy bao tri
-			//m_us.strNOI_DUNG_CHI = m_txt_ghi_chu.Text.Trim();
-			//m_us.dcID_DU_AN_CONG_TRINH = CIPConvert.ToDecimal(m_hdf_id_du_an_cong_trinh.Value);
-			//m_us.dcSO_TIEN_NOP_THUE = CIPConvert.ToDecimal(m_txt_so_tien_nop_thue.Text.Trim());
-			//m_us.dcSO_TIEN_TT_CHO_DV_HUONG = CIPConvert.ToDecimal(m_txt_so_tien_thanh_toan_cho_dv_huong.Text.Trim());
-			//m_us.dcID_UNC = CIPConvert.ToDecimal(m_hdf_id_dm_giai_ngan.Value);
-			//m_us.dcID_DON_VI = Person.get_id_don_vi();
-			////set null nguon ns
-			//m_us.SetID_MUCNull();
-			//m_us.SetID_KHOANNull();
-			//m_us.SetID_CHUONGNull();
-			//m_us.SetID_TIEU_MUCNull();
+			else op_us.strIS_NGUON_NS_YN = STR_NGUON.QUY_BAO_TRI;
 		}
-		private void us_object_to_form()
+		private void us_object_to_form(US_DM_GIAI_NGAN ip_us)
 		{
-			//m_us = new US_GD_CHI_TIET_GIAI_NGAN(CIPConvert.ToDecimal(m_hdf_id_gd_uy_nhiem_chi.Value));
-			//US_DM_CONG_TRINH_DU_AN_GOI_THAU v_us_du_an_cong_trinh = new US_DM_CONG_TRINH_DU_AN_GOI_THAU(m_us.dcID_DU_AN_CONG_TRINH);
-			//m_hdf_id_du_an_cong_trinh.Value = m_us.dcID_DU_AN_CONG_TRINH.ToString();
-			//if (v_us_du_an_cong_trinh.dcID_LOAI_DU_AN_CONG_TRINH == ID_LOAI_DU_AN.QUOC_LO)
-			//{
-			//	m_rdb_chi_thuong_xuyen.Checked = true;
-			//	m_rdb_chi_khong_thuong_xuyen.Checked = false;
-			//}
-			//else
-			//{
-			//	m_rdb_chi_thuong_xuyen.Checked = false;
-			//	m_rdb_chi_khong_thuong_xuyen.Checked = true;
-			//}
-			////load_data_du_an_cong_trinh_by_loai();
-			////set khoan chi
-			//if (v_us_du_an_cong_trinh.dcID_LOAI_DU_AN_CONG_TRINH == ID_LOAI_DU_AN.QUOC_LO)
-			//{
-			//	m_ddl_quoc_lo.SelectedValue = m_us.dcID_DU_AN_CONG_TRINH.ToString();
-			//	m_ddl_du_an.Visible = false;
-			//	m_ddl_quoc_lo.Visible = true;
-			//}
-			//else
-			//{
-			//	m_ddl_du_an.SelectedValue = m_us.dcID_DU_AN_CONG_TRINH.ToString();
-			//	m_ddl_du_an.Visible = true;
-			//	m_ddl_quoc_lo.Visible = false;
+			m_txt_ngay_thang.Text = CIPConvert.ToStr(ip_us.datNGAY_THANG, "dd/MM/yyyy");
+			if (ip_us.strIS_NGUON_NS_YN.Trim().ToUpper() == "N")
+			{
+				m_rbl_ma_tkkt.SelectedIndex = 0;
+			}
+			else m_rbl_ma_tkkt.SelectedIndex = 1;
 
-			//}
-			//m_txt_so_tien_nop_thue.Text = m_us.dcSO_TIEN_NOP_THUE.ToString();
-			//m_txt_so_tien_thanh_toan_cho_dv_huong.Text = m_us.dcSO_TIEN_TT_CHO_DV_HUONG.ToString();
-			//m_txt_ghi_chu.Text = m_us.strNOI_DUNG_CHI;
-			////set quyet dinh
-			//US_DM_GIAI_NGAN v_US_DM_GIAI_NGAN = new US_DM_GIAI_NGAN(m_us.dcID_UNC);
-			//US_DM_THONG_TIN_DON_VI v_us_thong_tin_don_vi = new US_DM_THONG_TIN_DON_VI(Person.get_id_don_vi(), Person.get_id_don_vi());
-			//m_lbl_dia_chi.Text = v_us_thong_tin_don_vi.strDIA_CHI;
-			//m_txt_so_unc.Text = v_US_DM_GIAI_NGAN.strSO_UNC;
-			//m_txt_ngay_thang.Text = CIPConvert.ToStr(v_US_DM_GIAI_NGAN.datNGAY_THANG, "dd/MM/yyyy");
-			//m_lbl_tai_kho_bac_nha_nuoc.Text = v_us_thong_tin_don_vi.strKHO_BAC;
-			////m_rbl_ma_tkkt.Items.FindByText(v_US_DM_GIAI_NGAN.strMA_TKKT).Selected = true;
-			//m_lbl_ma_dvqhns.Text = v_US_DM_GIAI_NGAN.strMA_DVQHNS;
-			//m_txt_ma_ctmt_da_htct.Text = v_US_DM_GIAI_NGAN.strMA_CTMT_DA_HTCT;
-			//m_hdf_id_dm_giai_ngan.Value = v_US_DM_GIAI_NGAN.dcID.ToString();
-			////disable_edit_dm_uy_nhiem_chi();
+			m_lbl_ma_dvqhns.Text = ip_us.strMA_DVQHNS;
+			m_txt_ma_ctmt_da_htct.Text = ip_us.strMA_CTMT_DA_HTCT;
+			//info dm unc
+			m_txt_nt_ten_don_vi.Text = ip_us.strNT_TEN_DON_VI;
+			m_txt_nt_ma_so_thue.Text = ip_us.strNT_MA_SO_THUE;
+			m_txt_nt_ma_ndkt.Text = ip_us.strNT_MA_NDKT;
+			m_txt_nt_ma_chuong.Text = ip_us.strNT_MA_CHUONG;
+			m_txt_nt_co_quan_quan_ly_thu.Text = ip_us.strNT_CQ_QL_THU;
+			m_txt_nt_ma_cq_thu.Text = ip_us.strNT_MA_CQ_THU;
+			m_txt_nt_kbnn_hach_toan_thu.Text = ip_us.strNT_KBNN_HACH_TOAN_KHOAN_THU;
+			m_txt_nt_so_tien_nop_thue.Text = ip_us.strNT_SO_TIEN_NOP_THUE;
+
+			m_txt_ttdvh_don_vi_nhan_tien.Text = ip_us.strTTDVH_DON_VI_NHAN_TIEN;
+			m_txt_ttdvh_ma_dvqhns.Text = ip_us.strTTDVH_MA_DVQHNS;
+			m_txt_ttdvh_dia_chi.Text = ip_us.strTTDVH_DIA_CHI;
+			m_txt_ttdvh_tai_khoan.Text = ip_us.strTTDVH_TAI_KHOAN;
+			m_txt_ttdvh_ma_ctmt_da_htct.Text = ip_us.strTTDVH_MA_CTMT_DA_VA_HTCT;
+			m_txt_ttdvh_tai_kbnn.Text = ip_us.strTTDVH_KHO_BAC;
+			m_txt_ttdvh_so_tien_thanh_toan.Text = ip_us.strTTDVH_SO_TIEN;
 
 		}
 
@@ -181,7 +170,7 @@ namespace QuanLyDuToan.DuToan
 			m_ddl_dm_giai_ngan.SelectedValue = WebformFunctions.getValue_from_query_string<string>(
 														this
 														, FormInfo.QueryString.ID_GIAI_NGAN
-														, CONST_GIAO_DICH.ID_TAT_CA);
+														, CONST_GIAO_DICH.STR_VALUE_TAT_CA);
 			//3. Load data vào các control khác khi thay đổi giá trị dropdownlist giải ngân
 			m_ddl_dm_giai_ngan_SelectedIndexChanged(null, null);
 
@@ -251,8 +240,10 @@ namespace QuanLyDuToan.DuToan
 
 		private void set_enable_control_giai_ngan(bool ip_b_is_enable)
 		{
-			//Khi Chọn UNC thì không cho sửa thông tin -> enable=false
-			//Khi nhập mới UNC thì phải cho sửa thông tin -> enable=true
+			/*
+			 * Khi Chọn UNC thì không cho sửa thông tin -> enable=false
+			 * Khi nhập mới UNC thì phải cho sửa thông tin -> enable=true
+			 */
 			m_txt_so_unc.Enabled = ip_b_is_enable;
 			m_txt_ngay_thang.Enabled = ip_b_is_enable;
 			m_txt_ma_ctmt_da_htct.Enabled = ip_b_is_enable;
@@ -276,7 +267,7 @@ namespace QuanLyDuToan.DuToan
 			v_dat_dau_nam = v_dat_dau_nam.AddDays(-v_dat_dau_nam.Day + 1);
 			v_dat_dau_nam = v_dat_dau_nam.AddMonths(-v_dat_dau_nam.Month + 1);
 			DateTime v_dat_cuoi_nam = v_dat_dau_nam.AddYears(1);
-			DataSet v_ds_muc_tieu_muc = 
+			DataSet v_ds_muc_tieu_muc =
 				WebformControls.get_dataset_muc_tieu_muc_from_data_giao_von(ip_dc_id_loai_nhiem_vu
 									, v_dat_dau_nam
 									, v_dat_cuoi_nam
@@ -305,8 +296,8 @@ namespace QuanLyDuToan.DuToan
 		private void reset_control()
 		{
 			m_rbl_ma_tkkt.Enabled = false;
-			m_lbl_mess_detail.Text = "";
 			m_lbl_mess_grid.Text = "";
+			m_lbl_mess_detail.Text = "";
 		}
 
 		private void format_control_print_and_save_info()
@@ -358,14 +349,73 @@ namespace QuanLyDuToan.DuToan
 				m_ddl_don_vi.SelectedValue = Request.QueryString["ip_dc_id_don_vi"].ToString();
 			}
 			else m_ddl_don_vi.SelectedValue = Person.get_id_don_vi().ToString();
-			data_to_grid_unc();
+			load_data_to_grid_chi_tiet_uy_nhiem_chi();
 			//load_thong_tin_don_vi();
 
+		}
+
+		private void form_to_us_dm_giai_ngan(US_DM_GIAI_NGAN op_us)
+		{
+			op_us.dcID_DON_VI = CIPConvert.ToDecimal(m_ddl_don_vi.SelectedValue);
+			op_us.strMA_CTMT_DA_HTCT = m_txt_ma_ctmt_da_htct.Text.Trim();
+			op_us.strMA_DVQHNS = m_lbl_ma_dvqhns.Text.Trim();
+			op_us.strIS_NGUON_NS_YN = WebformFunctions.getValue_from_query_string<string>(
+														this
+														, FormInfo.QueryString.NGUON_NGAN_SACH
+														, STR_NGUON.QUY_BAO_TRI
+														);
+			op_us.strSO_UNC = m_txt_so_unc.Text.Trim();
+			op_us.datNGAY_THANG = CIPConvert.ToDatetime(m_txt_ngay_thang.Text.Trim(), "dd/MM/yyyy");
+		}
+		private void us_dm_giai_ngan_to_form(US_DM_GIAI_NGAN ip_us)
+		{
+
+		}
+		private bool check_validate_input_dm_giai_ngan_is_ok()
+		{
+			if (m_txt_so_unc.Text.Trim().Equals(""))
+			{
+				m_lbl_mess_master.Text = "Bạn phải nhập Số Uỷ nhiệm chi!";
+				m_txt_so_unc.Focus();
+				return false;
+			}
+			if (!CValidateTextBox.IsValid(m_txt_ngay_thang, DataType.DateType, allowNull.NO))
+			{
+				m_lbl_mess_master.Text = "Bạn phải nhập Ngày tháng!";
+				m_txt_ngay_thang.Focus();
+				return false;
+			}
+			if (!CValidateTextBox.IsValid(m_txt_ma_ctmt_da_htct, DataType.StringType, allowNull.NO))
+			{
+				m_lbl_mess_master.Text = "Bạn phải nhập Mã CTMT, DA và HTCT!";
+				m_txt_ma_ctmt_da_htct.Focus();
+				return false;
+			}
+
+			return true;
+		}
+
+		private void insert_unc()
+		{
+			US_DM_GIAI_NGAN v_us_dm_giai_ngan = new US_DM_GIAI_NGAN();
+			m_hdf_id_dm_giai_ngan.Value = "";
+			//check validate luu quyet dinh
+			if (!check_validate_input_dm_giai_ngan_is_ok()) return;
+
+			// insert dm giai ngan
+			form_to_us_dm_giai_ngan(v_us_dm_giai_ngan);
+			v_us_dm_giai_ngan.Insert();
+			m_hdf_id_dm_giai_ngan.Value = v_us_dm_giai_ngan.dcID.ToString();
+			m_lbl_mess_master.Text = C_STR_LUU_THANH_CONG_UNC;
+			//reload data by form mode
+			set_enable_control_giai_ngan(false);
+			load_data_to_grid_chi_tiet_uy_nhiem_chi();
+			format_control_print_and_save_info();
 		}
 		#endregion
 
 		#region Events
-		
+
 		protected void Page_Load(object sender, EventArgs e)
 		{
 			try
@@ -383,177 +433,81 @@ namespace QuanLyDuToan.DuToan
 			}
 
 		}
-
 		protected void m_cmd_chon_unc_Click(object sender, EventArgs e)
-		{
-			m_txt_so_unc.Visible = false;
-			m_ddl_dm_giai_ngan.Visible = true;
-			load_data_to_ddl_giai_ngan();
-		}
-
-
-		protected void m_ddl_dm_giai_ngan_SelectedIndexChanged(object sender, EventArgs e)
-		{
-			m_txt_so_unc.Visible = true;
-			if (m_ddl_dm_giai_ngan.SelectedValue == "-1" | m_ddl_dm_giai_ngan.SelectedValue == "")
-			{
-				m_hdf_id_dm_giai_ngan.Value = "-1";
-			}
-			else
-			{
-				m_hdf_id_dm_giai_ngan.Value = m_ddl_dm_giai_ngan.SelectedValue;
-				if (m_hdf_id_dm_giai_ngan.Value.Trim().Equals("") | m_hdf_id_dm_giai_ngan.Value.Trim().Equals("-1"))
-					m_cmd_save_info_unc.Visible = false;
-				else
-				{
-					m_cmd_save_info_unc.Visible = true;
-					m_cmd_print.NavigateUrl = "~/ChucNang/F600_print_unc_qbt.aspx?ip_dc_id_dm_unc=" + m_hdf_id_dm_giai_ngan.Value + "&ip_dc_id_don_vi=" + m_ddl_don_vi.SelectedValue;
-					m_cmd_print.Visible = true;
-				}
-				US_DM_GIAI_NGAN v_us = new US_DM_GIAI_NGAN(CIPConvert.ToDecimal(m_hdf_id_dm_giai_ngan.Value));
-				US_DM_THONG_TIN_DON_VI v_us_thong_tin_don_vi = new US_DM_THONG_TIN_DON_VI();
-				v_us_thong_tin_don_vi.InitByID_DON_VI(CIPConvert.ToDecimal(m_ddl_don_vi.SelectedValue));
-				m_lbl_dia_chi.Text = v_us_thong_tin_don_vi.strDIA_CHI;
-				m_txt_so_unc.Text = v_us.strSO_UNC;
-				m_txt_ngay_thang.Text = CIPConvert.ToStr(v_us.datNGAY_THANG, "dd/MM/yyyy");
-				m_lbl_tai_kho_bac_nha_nuoc.Text = v_us_thong_tin_don_vi.strKHO_BAC;
-				if (v_us.strIS_NGUON_NS_YN.Trim().ToUpper() == "N")
-				{
-					m_rbl_ma_tkkt.SelectedIndex = 0;
-				}
-				else m_rbl_ma_tkkt.SelectedIndex = 1;
-				//if (m_rbl_ma_tkkt.Items.FindByText(v_us.strMA_TKKT) != null)
-				//	m_rbl_ma_tkkt.Items.FindByText(v_us.strMA_TKKT).Selected = true;
-				m_lbl_ma_dvqhns.Text = v_us.strMA_DVQHNS;
-				m_txt_ma_ctmt_da_htct.Text = v_us.strMA_CTMT_DA_HTCT;
-				//info dm unc
-				m_txt_nt_ten_don_vi.Text = v_us.strNT_TEN_DON_VI;
-				m_txt_nt_ma_so_thue.Text = v_us.strNT_MA_SO_THUE;
-				m_txt_nt_ma_ndkt.Text = v_us.strNT_MA_NDKT;
-				m_txt_nt_ma_chuong.Text = v_us.strNT_MA_CHUONG;
-				m_txt_nt_co_quan_quan_ly_thu.Text = v_us.strNT_CQ_QL_THU;
-				m_txt_nt_ma_cq_thu.Text = v_us.strNT_MA_CQ_THU;
-				m_txt_nt_kbnn_hach_toan_thu.Text = v_us.strNT_KBNN_HACH_TOAN_KHOAN_THU;
-				m_txt_nt_so_tien_nop_thue.Text = v_us.strNT_SO_TIEN_NOP_THUE;
-
-				m_txt_ttdvh_don_vi_nhan_tien.Text = v_us.strTTDVH_DON_VI_NHAN_TIEN;
-				m_txt_ttdvh_ma_dvqhns.Text = v_us.strTTDVH_MA_DVQHNS;
-				m_txt_ttdvh_dia_chi.Text = v_us.strTTDVH_DIA_CHI;
-				m_txt_ttdvh_tai_khoan.Text = v_us.strTTDVH_TAI_KHOAN;
-				m_txt_ttdvh_ma_ctmt_da_htct.Text = v_us.strTTDVH_MA_CTMT_DA_VA_HTCT;
-				m_txt_ttdvh_tai_kbnn.Text = v_us.strTTDVH_KHO_BAC;
-				m_txt_ttdvh_so_tien_thanh_toan.Text = v_us.strTTDVH_SO_TIEN;
-
-
-				m_cmd_luu_unc.Visible = false;
-				m_cmd_nhap_moi_unc.Visible = true;
-
-				set_enable_control_giai_ngan(false);
-				m_ddl_dm_giai_ngan.Visible = false;
-				data_to_grid_unc();
-			}
-		}
-		protected void m_cmd_nhap_moi_unc_Click(object sender, EventArgs e)
-		{
-			set_enable_control_giai_ngan(true);
-			xoa_trang_control_lap_uy_nhiem_chi();
-			data_to_grid_unc();
-			if (m_hdf_id_dm_giai_ngan.Value.Trim().Equals("") | m_hdf_id_dm_giai_ngan.Value.Trim().Equals("-1"))
-			{
-				m_cmd_save_info_unc.Visible = false;
-				m_cmd_print.Visible = false;
-			}
-			else
-			{
-				m_cmd_save_info_unc.Visible = true;
-				m_cmd_print.Visible = true;
-			}
-		}
-		protected void m_cmd_luu_unc_Click(object sender, EventArgs e)
 		{
 			try
 			{
-				US_DM_GIAI_NGAN v_us = new US_DM_GIAI_NGAN();
-				m_hdf_id_dm_giai_ngan.Value = "";
-				//check validate luu quyet dinh
-
-				if (m_txt_so_unc.Text.Trim().Equals(""))
-				{
-					m_lbl_mess_master.Text = "Bạn phải nhập Số Uỷ nhiệm chi!";
-					m_txt_so_unc.Focus();
-					return;
-				}
-				if (m_txt_ngay_thang.Text.Trim().Equals(""))
-				{
-					m_lbl_mess_master.Text = "Bạn phải nhập Ngày tháng!";
-					m_txt_ngay_thang.Focus();
-					return;
-				}
-				if (!CValidateTextBox.IsValid(m_txt_ma_ctmt_da_htct, DataType.StringType, allowNull.NO))
-				{
-					m_lbl_mess_master.Text = "Bạn phải nhập Mã CTMT, DA và HTCT!";
-					m_txt_ma_ctmt_da_htct.Focus();
-					return;
-				}
-				DateTime v_dat_ngay_thang = DateTime.Now;
-				try
-				{
-					v_dat_ngay_thang = CIPConvert.ToDatetime(m_txt_ngay_thang.Text.Trim(), "dd/MM/yyyy");
-				}
-				catch (Exception)
-				{
-					m_lbl_mess_master.Text = "Bạn phải nhập Ngày tháng!";
-					m_txt_ngay_thang.Focus();
-					return;
-				}
-
-
-				// insert gd quyet dinh
-				v_us.dcID_DON_VI = CIPConvert.ToDecimal(m_ddl_don_vi.SelectedValue);
-				//v_us.strDIA_CHI = m_lbl_dia_chi.Text.Trim();
-				//v_us.strKHO_BAC_NHA_NUOC = m_lbl_tai_kho_bac_nha_nuoc.Text.Trim();
-				v_us.strMA_CTMT_DA_HTCT = m_txt_ma_ctmt_da_htct.Text.Trim();
-				v_us.strMA_DVQHNS = m_lbl_ma_dvqhns.Text.Trim();
-				//if (m_rbl_ma_tkkt.SelectedIndex == 0)
-				//{
-				//	v_us.strIS_NGUON_NS_YN = "N";
-				//}
-				//else v_us.strIS_NGUON_NS_YN = "Y";
-				if (Request.QueryString["ip_nguon_ns"] != null)
-				{
-					if (Request.QueryString["ip_nguon_ns"].ToString().Equals("N"))
-					{
-						v_us.strIS_NGUON_NS_YN = "N";
-					}
-					else v_us.strIS_NGUON_NS_YN = "Y";
-				}
-				else v_us.strIS_NGUON_NS_YN = "Y";
-				//v_us.strMA_TKKT = m_rbl_ma_tkkt.SelectedItem.Text;
-				v_us.strSO_UNC = m_txt_so_unc.Text.Trim();
-				v_us.datNGAY_THANG = CIPConvert.ToDatetime(m_txt_ngay_thang.Text.Trim(), "dd/MM/yyyy");
-				v_us.Insert();
-				//do not edit
-				set_enable_control_giai_ngan(false);
-				m_lbl_mess_master.Text = "Lưu Uỷ nhiệm chi thành công!";
-				//set id to hiddenfield
-				m_hdf_id_dm_giai_ngan.Value = v_us.dcID.ToString();
-				data_to_grid_unc();
-				//get_so_tien_kh_giao();
-				if (m_hdf_id_dm_giai_ngan.Value.Trim().Equals("") | m_hdf_id_dm_giai_ngan.Value.Trim().Equals("-1"))
-					m_cmd_save_info_unc.Visible = false;
-				else
-				{
-					m_cmd_save_info_unc.Visible = true;
-					m_cmd_print.NavigateUrl = "~/ChucNang/F600_print_unc_qbt.aspx?ip_dc_id_dm_unc=" + m_hdf_id_dm_giai_ngan.Value;
-					m_cmd_print.Visible = true;
-				}
+				load_data_to_ddl_giai_ngan();
+				m_ddl_dm_giai_ngan.Visible = true;
+				m_txt_so_unc.Visible = false;
 			}
 			catch (Exception v_e)
 			{
 				CSystemLog_301.ExceptionHandle(this, v_e);
 			}
 		}
+		protected void m_ddl_dm_giai_ngan_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			try
+			{
+				m_txt_so_unc.Visible = true;
+				if (m_ddl_dm_giai_ngan.SelectedValue == CONST_GIAO_DICH.STR_VALUE_TAT_CA | m_ddl_dm_giai_ngan.SelectedValue == "")
+				{
+					m_hdf_id_dm_giai_ngan.Value = CONST_GIAO_DICH.STR_VALUE_TAT_CA;
+				}
+				else
+				{
+					m_hdf_id_dm_giai_ngan.Value = m_ddl_dm_giai_ngan.SelectedValue;
+					format_control_print_and_save_info();
+					US_DM_GIAI_NGAN v_us_dm_giai_ngan = new US_DM_GIAI_NGAN(CIPConvert.ToDecimal(m_hdf_id_dm_giai_ngan.Value));
+					US_DM_THONG_TIN_DON_VI v_us_thong_tin_don_vi = new US_DM_THONG_TIN_DON_VI();
+					m_txt_so_unc.Text = v_us_dm_giai_ngan.strSO_UNC;
+					v_us_thong_tin_don_vi.InitByID_DON_VI(CIPConvert.ToDecimal(m_ddl_don_vi.SelectedValue));
+					m_lbl_dia_chi.Text = v_us_thong_tin_don_vi.strDIA_CHI;
+					m_lbl_tai_kho_bac_nha_nuoc.Text = v_us_thong_tin_don_vi.strKHO_BAC;
 
+					us_object_to_form(v_us_dm_giai_ngan);
+
+					m_cmd_luu_unc.Visible = false;
+					m_cmd_nhap_moi_unc.Visible = true;
+
+					set_enable_control_giai_ngan(false);
+					m_ddl_dm_giai_ngan.Visible = false;
+					load_data_to_grid_chi_tiet_uy_nhiem_chi();
+				}
+			}
+			catch (Exception v_e)
+			{
+				CSystemLog_301.ExceptionHandle(this, v_e);
+			}
+
+		}
+		protected void m_cmd_nhap_moi_unc_Click(object sender, EventArgs e)
+		{
+			try
+			{
+				set_enable_control_giai_ngan(true);
+				xoa_trang_control_lap_uy_nhiem_chi();
+				load_data_to_grid_chi_tiet_uy_nhiem_chi();
+				format_control_print_and_save_info();
+			}
+			catch (Exception v_e)
+			{
+				CSystemLog_301.ExceptionHandle(this, v_e);
+			}
+
+		}
+		protected void m_cmd_luu_unc_Click(object sender, EventArgs e)
+		{
+			try
+			{
+				insert_unc();
+			}
+			catch (Exception v_e)
+			{
+				CSystemLog_301.ExceptionHandle(this, v_e);
+			}
+		}
 		protected void m_cmd_save_info_unc_Click(object sender, EventArgs e)
 		{
 			try
@@ -563,34 +517,14 @@ namespace QuanLyDuToan.DuToan
 					return;
 				}
 				US_DM_GIAI_NGAN v_us_dm_unc = new US_DM_GIAI_NGAN(CIPConvert.ToDecimal(m_hdf_id_dm_giai_ngan.Value));
-				v_us_dm_unc.strNT_TEN_DON_VI = m_txt_nt_ten_don_vi.Text;
-				v_us_dm_unc.strNT_MA_SO_THUE = m_txt_nt_ma_so_thue.Text;
-				v_us_dm_unc.strNT_MA_NDKT = m_txt_nt_ma_ndkt.Text;
-				v_us_dm_unc.strNT_MA_CHUONG = m_txt_nt_ma_chuong.Text;
-				v_us_dm_unc.strNT_CQ_QL_THU = m_txt_nt_co_quan_quan_ly_thu.Text;
-				v_us_dm_unc.strNT_MA_CQ_THU = m_txt_nt_ma_cq_thu.Text;
-				v_us_dm_unc.strNT_KBNN_HACH_TOAN_KHOAN_THU = m_txt_nt_kbnn_hach_toan_thu.Text;
-				v_us_dm_unc.strNT_SO_TIEN_NOP_THUE = m_txt_nt_so_tien_nop_thue.Text;
-
-				v_us_dm_unc.strTTDVH_DON_VI_NHAN_TIEN = m_txt_ttdvh_don_vi_nhan_tien.Text;
-				v_us_dm_unc.strTTDVH_MA_DVQHNS = m_txt_ttdvh_ma_dvqhns.Text;
-				v_us_dm_unc.strTTDVH_DIA_CHI = m_txt_ttdvh_dia_chi.Text;
-				v_us_dm_unc.strTTDVH_TAI_KHOAN = m_txt_ttdvh_tai_khoan.Text;
-				v_us_dm_unc.strTTDVH_MA_CTMT_DA_VA_HTCT = m_txt_ttdvh_ma_ctmt_da_htct.Text;
-				v_us_dm_unc.strTTDVH_KHO_BAC = m_txt_ttdvh_tai_kbnn.Text;
-				v_us_dm_unc.strTTDVH_SO_TIEN = m_txt_ttdvh_so_tien_thanh_toan.Text;
-				if (m_rbl_ma_tkkt.SelectedIndex == 0)
-				{
-					v_us_dm_unc.strIS_NGUON_NS_YN = "N";
-				}
-				else v_us_dm_unc.strIS_NGUON_NS_YN = "Y";
-				//v_us_dm_unc.strMA_TKKT = m_rbl_ma_tkkt.SelectedItem.Text;
+				if (!check_validate_input_dm_giai_ngan_is_ok()) return;
+				form_to_us_dm_giai_ngan(v_us_dm_unc);
 				v_us_dm_unc.Update();
-				m_lbl_mess_info_unc.Text = "Đã cập nhật thông tin thành công!";
+				m_lbl_mess_info_unc.Text = C_STR_LUU_THANH_CONG;
 			}
 			catch (Exception v_e)
 			{
-				m_lbl_mess_info_unc.Text = v_e.ToString();
+				CSystemLog_301.ExceptionHandle(this, v_e);
 			}
 		}
 
@@ -601,11 +535,8 @@ namespace QuanLyDuToan.DuToan
 				RadioButton v_rdb = (RadioButton)sender;
 				GridViewRow v_gr = (GridViewRow)v_rdb.Parent.Parent;
 				GridView v_grv = (GridView)v_gr.NamingContainer;
-				//DropDownList v_ddl = (DropDownList)v_gr.FindControl("m_ddl_grid_du_an_quoc_lo");
 				DropDownList v_ddl = (DropDownList)v_grv.FooterRow.FindControl("m_ddl_grid_du_an_quoc_lo");
-				data_to_ddl_du_an_cong_trinh_grid(v_ddl, "TX");
-
-
+				data_to_ddl_du_an_cong_trinh_grid(v_ddl, eCHI_TX_YN.YES);
 			}
 			catch (Exception v_e)
 			{
@@ -619,19 +550,12 @@ namespace QuanLyDuToan.DuToan
 			RadioButton v_rdb = (RadioButton)sender;
 			GridViewRow v_gr = (GridViewRow)v_rdb.Parent.Parent;
 			GridView v_grv = (GridView)v_gr.NamingContainer;
-			//DropDownList v_ddl = (DropDownList)v_gr.FindControl("m_ddl_grid_du_an_quoc_lo");
 			DropDownList v_ddl = (DropDownList)v_grv.FooterRow.FindControl("m_ddl_grid_du_an_quoc_lo");
-			data_to_ddl_du_an_cong_trinh_grid(v_ddl, "KTX");
+			data_to_ddl_du_an_cong_trinh_grid(v_ddl, eCHI_TX_YN.NO);
 		}
 
-		private void data_to_grid_unc()
+		private void load_data_to_grid_chi_tiet_uy_nhiem_chi()
 		{
-			//Xem form có phải đang ở chế độ giải ngân cho Nguồn Ngân sách không
-			string v_str_is_nguon_ns = "N";
-			if (Request.QueryString["ip_nguon_ns"] != null)
-			{
-				if (Request.QueryString["ip_nguon_ns"].ToString().Equals("Y")) v_str_is_nguon_ns = "Y";
-			}
 			US_GRID_GIAI_NGAN v_us = new US_GRID_GIAI_NGAN();
 			DS_GRID_GIAI_NGAN v_ds = new DS_GRID_GIAI_NGAN();
 			v_ds.EnforceConstraints = false;
@@ -641,14 +565,18 @@ namespace QuanLyDuToan.DuToan
 				, CIPConvert.ToDecimal(m_ddl_don_vi.SelectedValue)
 				, CIPConvert.ToDecimal(m_hdf_id_dm_giai_ngan.Value)
 				, CIPConvert.ToDecimal(m_ddl_don_vi.SelectedValue)
-				, v_str_is_nguon_ns);
+				, WebformFunctions.getValue_from_query_string<string>(
+										this
+										, FormInfo.QueryString.NGUON_NGAN_SACH
+										, STR_NGUON.QUY_BAO_TRI)
+				);
 			m_grv_unc.DataSource = v_ds.Tables[0];
 			m_grv_unc.DataBind();
 
-			//kiem tra neu khong phai don vi minh thi khong cho sua du lieu
+			//Nếu đang xem UNC của đơn vị khác thì không được sửa dữ liệu
 			if (m_ddl_don_vi.SelectedValue != Person.get_id_don_vi().ToString())
 			{
-				m_grv_unc.Columns[5].Visible = false;//cot Thao tac
+				m_grv_unc.Columns[5].Visible = false;//Cột thao tác
 			}
 			else
 			{
@@ -656,17 +584,26 @@ namespace QuanLyDuToan.DuToan
 			}
 		}
 
-		private void data_to_ddl_du_an_cong_trinh_grid(DropDownList op_ddl, string ip_str)
+		private void data_to_ddl_du_an_cong_trinh_grid(DropDownList op_ddl, eCHI_TX_YN ip_e_chi_tx_yn)
 		{
-			if (ip_str.Trim().ToUpper() == "TX")
+			try
 			{
-				grid_data_cong_trinh_du_an_giao_von_to_ddl(op_ddl, WebformControls.LOAI_DU_AN.QUOC_LO);
+				switch (ip_e_chi_tx_yn)
+				{
+					case eCHI_TX_YN.YES:
+						grid_data_cong_trinh_du_an_giao_von_to_ddl(op_ddl, WebformControls.LOAI_DU_AN.QUOC_LO);
+						break;
+					case eCHI_TX_YN.NO:
+						grid_data_cong_trinh_du_an_giao_von_to_ddl(op_ddl, WebformControls.LOAI_DU_AN.KHAC);
+						break;
+					default:
+						break;
+				}
 			}
-			else
+			catch (Exception v_e)
 			{
-				grid_data_cong_trinh_du_an_giao_von_to_ddl(op_ddl, WebformControls.LOAI_DU_AN.KHAC);
+				CSystemLog_301.ExceptionHandle(this, v_e);
 			}
-
 		}
 
 		private void grid_data_cong_trinh_du_an_giao_von_to_ddl(DropDownList op_ddl, WebformControls.LOAI_DU_AN ip_loai_du_an)
@@ -677,37 +614,37 @@ namespace QuanLyDuToan.DuToan
 			}
 			else
 			{
-				DateTime v_dat = CIPConvert.ToDatetime(m_txt_ngay_thang.Text, "dd/MM/yyyy");
-				DateTime v_dat_dau_nam = v_dat;
-				v_dat_dau_nam = v_dat_dau_nam.AddDays(-v_dat_dau_nam.Day + 1);
-				v_dat_dau_nam = v_dat_dau_nam.AddMonths(-v_dat_dau_nam.Month + 1);
-				DateTime v_dat_cuoi_nam = v_dat_dau_nam.AddYears(1);
-				WebformControls.load_data_to_cbo_du_an_cong_trinh_from_giao_von(ip_loai_du_an
-				, op_ddl);
+				WebformControls.load_data_to_cbo_du_an_cong_trinh_from_giao_von(
+									ip_loai_du_an
+									, op_ddl
+									);
 			}
-
 		}
 
 		protected void m_grv_unc_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
 		{
-			m_lbl_mess_detail.Text = "";
-			m_grv_unc.EditIndex = -1;
-			data_to_grid_unc();
+			try
+			{
+				m_grv_unc.EditIndex = -1;
+				load_data_to_grid_chi_tiet_uy_nhiem_chi();
+			}
+			catch (Exception v_e)
+			{
+				CSystemLog_301.ExceptionHandle(this, v_e);
+			}
 		}
 
 		protected void m_grv_unc_RowEditing(object sender, GridViewEditEventArgs e)
 		{
-			m_grv_unc.EditIndex = e.NewEditIndex;
-			//RadioButton m_rdb_grid_edit_theo_quoc_lo_cong_trinh = (RadioButton)m_grv_unc.Rows[e.NewEditIndex].FindControl("m_rdb_grid_edit_theo_quoc_lo_cong_trinh");
-			//RadioButton m_rdb_grid_edit_theo_chuong_loai_khoan_muc = (RadioButton)m_grv_unc.Rows[e.NewEditIndex].FindControl("m_rdb_grid_edit_theo_chuong_loai_khoan_muc");
-			//DropDownList m_ddl_grid_edit_du_an_quoc_lo = (DropDownList)m_grv_unc.Rows[e.NewEditIndex].FindControl("m_ddl_grid_edit_du_an_quoc_lo");
-			//DropDownList m_ddl_grid_edit_loai_nhiem_vu = (DropDownList)m_grv_unc.Rows[e.NewEditIndex].FindControl("m_ddl_grid_edit_loai_nhiem_vu");
-			//DropDownList m_ddl_grid_edit_du_an = (DropDownList)m_grv_unc.Rows[e.NewEditIndex].FindControl("m_ddl_grid_edit_du_an");
-			//DropDownList m_ddl_grid_edit_muc_tieu_muc = (DropDownList)m_grv_unc.Rows[e.NewEditIndex].FindControl("m_ddl_grid_edit_muc_tieu_muc");
-			//decimal v_dc_id_unc = CIPConvert.ToDecimal(m_grv_unc.DataKeys[e.NewEditIndex].Value);
-			//US_GD_CHI_TIET_GIAI_NGAN v_us_gd_gn = new US_GD_CHI_TIET_GIAI_NGAN(v_dc_id_unc);
-			//US_DM_GIAI_NGAN v_us_dm_gn = new US_DM_GIAI_NGAN();
-			data_to_grid_unc();
+			try
+			{
+				m_grv_unc.EditIndex = e.NewEditIndex;
+				load_data_to_grid_chi_tiet_uy_nhiem_chi();
+			}
+			catch (Exception v_e)
+			{
+				CSystemLog_301.ExceptionHandle(this, v_e);
+			}
 		}
 
 		protected void m_grv_unc_RowDeleting(object sender, GridViewDeleteEventArgs e)
@@ -717,8 +654,8 @@ namespace QuanLyDuToan.DuToan
 				decimal v_dc_id_gd = CIPConvert.ToDecimal(m_grv_unc.DataKeys[e.RowIndex].Value);
 				US_GD_CHI_TIET_GIAI_NGAN v_us = new US_GD_CHI_TIET_GIAI_NGAN();
 				v_us.DeleteByID(v_dc_id_gd);
-				m_lbl_mess_detail.Text = "Đã xoá thành công!";
-				data_to_grid_unc();
+				m_lbl_mess_detail.Text = C_STR_XOA_THANH_CONG;
+				load_data_to_grid_chi_tiet_uy_nhiem_chi();
 			}
 			catch (Exception v_e)
 			{
@@ -726,19 +663,68 @@ namespace QuanLyDuToan.DuToan
 			}
 		}
 
+		
+
+
 		protected void m_grv_unc_RowUpdating(object sender, GridViewUpdateEventArgs e)
 		{
 			try
 			{
-				RadioButton m_rdb_grid_edit_theo_quoc_lo_cong_trinh = (RadioButton)m_grv_unc.Rows[e.RowIndex].FindControl("m_rdb_grid_edit_theo_quoc_lo_cong_trinh");
-				RadioButton m_rdb_grid_edit_theo_chuong_loai_khoan_muc = (RadioButton)m_grv_unc.Rows[e.RowIndex].FindControl("m_rdb_grid_edit_theo_chuong_loai_khoan_muc");
-				DropDownList m_ddl_grid_edit_du_an_quoc_lo = (DropDownList)m_grv_unc.Rows[e.RowIndex].FindControl("m_ddl_grid_edit_du_an_quoc_lo");
-				DropDownList m_ddl_grid_edit_loai_nhiem_vu = (DropDownList)m_grv_unc.Rows[e.RowIndex].FindControl("m_ddl_grid_edit_loai_nhiem_vu");
-				DropDownList m_ddl_grid_edit_du_an = (DropDownList)m_grv_unc.Rows[e.RowIndex].FindControl("m_ddl_grid_edit_du_an");
-				DropDownList m_ddl_grid_edit_muc_tieu_muc = (DropDownList)m_grv_unc.Rows[e.RowIndex].FindControl("m_ddl_grid_edit_muc_tieu_muc");
-				TextBox v_txt_grid_edit_so_tien_nop_thue = (TextBox)m_grv_unc.Rows[e.RowIndex].FindControl("m_txt_grid_edit_so_tien_nop_thue");
-				TextBox v_txt_grid_edit_so_tien_tt_cho_dv_huong = (TextBox)m_grv_unc.Rows[e.RowIndex].FindControl("m_txt_grid_edit_so_tien_tt_cho_dv_huong");
-				TextBox v_txt_grid_edit_ghi_chu = (TextBox)m_grv_unc.Rows[e.RowIndex].FindControl("m_txt_grid_edit_ghi_chu");
+				RadioButton m_rdb_grid_edit_theo_quoc_lo_cong_trinh = WebformFunctions.getControl_in_template<RadioButton>(
+																							m_grv_unc
+																							, "m_rdb_grid_edit_theo_quoc_lo_cong_trinh"
+																							, e.RowIndex
+																							, eGridItem.EditItem
+																							);
+					
+				RadioButton m_rdb_grid_edit_theo_chuong_loai_khoan_muc = WebformFunctions.getControl_in_template<RadioButton>(
+																							m_grv_unc
+																							, "m_rdb_grid_edit_theo_chuong_loai_khoan_muc"
+																							, e.RowIndex
+																							, eGridItem.EditItem
+																							);
+				DropDownList m_ddl_grid_edit_du_an_quoc_lo = WebformFunctions.getControl_in_template<DropDownList>(
+																							m_grv_unc
+																							, "m_ddl_grid_edit_du_an_quoc_lo"
+																							, e.RowIndex
+																							, eGridItem.EditItem
+																							);
+				DropDownList m_ddl_grid_edit_loai_nhiem_vu = WebformFunctions.getControl_in_template<DropDownList>(
+																							m_grv_unc
+																							, "m_ddl_grid_edit_loai_nhiem_vu"
+																							, e.RowIndex
+																							, eGridItem.EditItem
+																							);
+				DropDownList m_ddl_grid_edit_du_an = WebformFunctions.getControl_in_template<DropDownList>(
+																							m_grv_unc
+																							, "m_ddl_grid_edit_du_an"
+																							, e.RowIndex
+																							, eGridItem.EditItem
+																							);
+				DropDownList m_ddl_grid_edit_muc_tieu_muc = WebformFunctions.getControl_in_template<DropDownList>(
+																							m_grv_unc
+																							, "m_ddl_grid_edit_muc_tieu_muc"
+																							, e.RowIndex
+																							, eGridItem.EditItem
+																							);
+				TextBox v_txt_grid_edit_so_tien_nop_thue = WebformFunctions.getControl_in_template<TextBox>(
+																							m_grv_unc
+																							, "m_txt_grid_edit_so_tien_nop_thue"
+																							, e.RowIndex
+																							, eGridItem.EditItem
+																							);
+				TextBox v_txt_grid_edit_so_tien_tt_cho_dv_huong = WebformFunctions.getControl_in_template<TextBox>(
+																							m_grv_unc
+																							, "m_txt_grid_edit_so_tien_tt_cho_dv_huong"
+																							, e.RowIndex
+																							, eGridItem.EditItem
+																							);
+				TextBox v_txt_grid_edit_ghi_chu = WebformFunctions.getControl_in_template<TextBox>(
+																							m_grv_unc
+																							, "m_txt_grid_edit_ghi_chu"
+																							, e.RowIndex
+																							, eGridItem.EditItem
+																							);
 
 				v_txt_grid_edit_so_tien_nop_thue.Text = v_txt_grid_edit_so_tien_nop_thue.Text.Trim().Replace(",", "").Replace(".", "");
 				v_txt_grid_edit_so_tien_tt_cho_dv_huong.Text = v_txt_grid_edit_so_tien_tt_cho_dv_huong.Text.Trim().Replace(",", "").Replace(".", "");
@@ -837,7 +823,7 @@ namespace QuanLyDuToan.DuToan
 				v_us_gd.strNOI_DUNG_CHI = v_txt_grid_edit_ghi_chu.Text.Trim();
 				v_us_gd.Update();
 				m_grv_unc.EditIndex = -1;
-				data_to_grid_unc();
+				load_data_to_grid_chi_tiet_uy_nhiem_chi();
 				m_lbl_mess_detail.Text = "Bạn đã cập nhật thành công!";
 			}
 			catch (Exception v_e)
@@ -882,7 +868,6 @@ namespace QuanLyDuToan.DuToan
 					//dropdownlist Loai khoan muc -tieu muc
 					DropDownList m_ddl_grid_muc_tieu_muc = (DropDownList)e.Row.FindControl("m_ddl_grid_muc_tieu_muc");
 					m_ddl_grid_muc_tieu_muc.Visible = false;
-					//m_ddl_grid_muc_tieu_muc.Width = 300;
 
 					load_data_to_ddl_muc_tieu_muc(m_ddl_grid_muc_tieu_muc
 						, CIPConvert.ToDecimal(m_ddl_grid_edit_loai_nhiem_vu.SelectedValue));
@@ -1088,7 +1073,7 @@ namespace QuanLyDuToan.DuToan
 					v_us_gd.dcSO_TIEN_TT_CHO_DV_HUONG = CIPConvert.ToDecimal(v_txt_grid_edit_so_tien_tt_cho_dv_huong.Text);
 					v_us_gd.strGHI_CHU = "";
 					v_us_gd.Insert();
-					data_to_grid_unc();
+					load_data_to_grid_chi_tiet_uy_nhiem_chi();
 					m_lbl_mess_detail.Text = "Bạn đã thêm mới thành công!";
 				}
 			}
@@ -1425,7 +1410,7 @@ namespace QuanLyDuToan.DuToan
 			try
 			{
 				load_data_to_ddl_giai_ngan();
-				data_to_grid_unc();
+				load_data_to_grid_chi_tiet_uy_nhiem_chi();
 			}
 			catch (Exception v_e)
 			{

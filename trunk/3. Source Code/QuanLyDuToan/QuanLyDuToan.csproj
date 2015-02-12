@@ -794,6 +794,7 @@
     <Compile Include="ChucNang\F600_print_unc_qbt.aspx.designer.cs">
       <DependentUpon>F600_print_unc_qbt.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DuToan\CHI_TX_YN.cs" />
     <Compile Include="UserControl\MessageBoxUserControl.ascx.cs">
       <DependentUpon>MessageBoxUserControl.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
