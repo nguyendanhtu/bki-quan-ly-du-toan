@@ -17,6 +17,7 @@ namespace WebUS
             public const string ID_DU_AN = "ip_dc_id_du_an";
             public const string NGUON_NGAN_SACH = "ip_nguon_ns";
 			public const string ID_GIAI_NGAN = "ip_dc_id_dm_giai_ngan";
+            public static string ID_QUYET_DINH = "ip_dc_id_quyet_dinh";
 		}
 
 		public class FormName
@@ -36,6 +37,7 @@ namespace WebUS
 		public class ExportExcelReportName
 		{
 			public const string F530 = "BaoCaoTinhHinhGiaiNganCacDonVi.xls";
+            public const string F157 = "BaoCaoTinhHinhGiaoKeHoach.xls";
 		}
 	}
 }

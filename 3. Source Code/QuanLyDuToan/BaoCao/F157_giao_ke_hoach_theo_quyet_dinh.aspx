@@ -246,12 +246,12 @@
 										<HeaderStyle HorizontalAlign="Center" />
 									</asp:BoundField>
 									<asp:BoundField DataField="tong_tien_ntcs" DataFormatString="{0:N0}" HeaderText="Kinh phí năm trước chuyển sang">
-										<HeaderStyle HorizontalAlign="Center" Width="20%" />
+										<HeaderStyle HorizontalAlign="Center" Width="200px" />
 										<ItemStyle HorizontalAlign="Right" />
 									</asp:BoundField>
-									<asp:BoundField DataField="tong_tien" DataFormatString="{0:N0}"  ItemStyle-HorizontalAlign="Right"></asp:BoundField>
+									<asp:BoundField DataField="tong_tien" DataFormatString="{0:N0}" ItemStyle-Width="200px" ItemStyle-HorizontalAlign="Right"></asp:BoundField>
 									<asp:TemplateField>
-										<HeaderStyle HorizontalAlign="Center" CssClass="header_quyet_dinh" Width="30%" />
+										<HeaderStyle HorizontalAlign="Center" CssClass="header_quyet_dinh" Width="200px" />
 										<ItemStyle HorizontalAlign="Right" />
 										<ItemTemplate>
 											<%#CIPConvert.ToStr( 
