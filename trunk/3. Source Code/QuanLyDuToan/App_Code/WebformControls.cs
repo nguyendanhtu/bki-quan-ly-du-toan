@@ -506,6 +506,7 @@ namespace QuanLyDuToan.App_Code
 			v_dat_dau_nam = v_dat_dau_nam.AddMonths(-v_dat_dau_nam.Month + 1);
 			return v_dat_dau_nam;
 		}
+
 		public static DateTime get_cuoi_nam_form_date(DateTime ip_dat)
 		{
 			DateTime v_dat_dau_nam = ip_dat.AddDays(-ip_dat.Day + 1);
@@ -527,14 +528,13 @@ namespace QuanLyDuToan.App_Code
 			else op_dc_so_tien = CIPConvert.ToDecimal(ip_str_so_tien.Replace(",", "").Replace(".", ""));
 			return op_dc_so_tien;
 		}
+
 		public static void get_cout_grid_row(Label ip_lbl_name, string ip_str_default_text, int ip_int_count_row)
 		{
 			ip_lbl_name.Text = ip_str_default_text + " (Có " + ip_int_count_row + " bản ghi)";
 		}
 
-
-
-		public static void load_data_to_ddl_loai_nhiem_vu(DropDownList op_ddl)
+        public static void load_data_to_ddl_loai_nhiem_vu(DropDownList op_ddl)
 		{
 			US_CM_DM_TU_DIEN v_us = new US_CM_DM_TU_DIEN();
 			DS_CM_DM_TU_DIEN v_ds = new DS_CM_DM_TU_DIEN();
@@ -554,6 +554,7 @@ namespace QuanLyDuToan.App_Code
 			op_ddl.DataBind();
 			op_ddl.Items.Insert(0, new ListItem(v_str_data_default, "-1"));
 		}
+
 		public static void load_data_to_ddl_loai_nhiem_vu(DropDownList op_ddl, bool ip_b_is_nguon_ns, bool ip_b_is_chi_du_an)
 		{
 			/*
@@ -667,6 +668,7 @@ namespace QuanLyDuToan.App_Code
 			v_sp.fillDataSetByCommand(v_us, op_ds);
 			return op_ds;
 		}
+
 		public static DataSet get_dataset_muc_tieu_muc_from_data_giao_von(
 								decimal ip_dc_id_loai_nhiem_vu
 								, DateTime ip_dat_tu_ngay
