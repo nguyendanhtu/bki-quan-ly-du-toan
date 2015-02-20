@@ -117,16 +117,24 @@
     <Compile Include="US_V_RPT_GD_GIAO_VON.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\IPCommon\IPCommon.vbproj">
-      <Project>{2A74F1D1-C0EE-41FE-A708-A83B285ACCF2}</Project>
+    <ProjectReference Include="..\IPBusinessService\IPBusinessService.csproj">
+      <Project>{73ca732c-2cfb-4a14-b0b9-f43763b1c2f3}</Project>
+      <Name>IPBusinessService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IPCommon\IPCommon.csproj">
+      <Project>{2a74f1d1-c0ee-41fe-a708-a83b285accf2}</Project>
       <Name>IPCommon</Name>
     </ProjectReference>
-    <ProjectReference Include="..\IPData\IPData.vbproj">
-      <Project>{9ACEDD70-FDA2-44D8-A004-3A7EAF86A954}</Project>
+    <ProjectReference Include="..\IPData\IPData.csproj">
+      <Project>{9acedd70-fda2-44d8-a004-3a7eaf86a954}</Project>
       <Name>IPData</Name>
     </ProjectReference>
-    <ProjectReference Include="..\IPUserService\IPUserService.vbproj">
-      <Project>{B490EA92-2990-4CBB-B58B-12901AFCCCB5}</Project>
+    <ProjectReference Include="..\IPException\IPException.csproj">
+      <Project>{b73156c2-7034-4dea-a308-5e1782ff8db4}</Project>
+      <Name>IPException</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IPUserService\IPUserService.csproj">
+      <Project>{b490ea92-2990-4cbb-b58b-12901afcccb5}</Project>
       <Name>IPUserService</Name>
     </ProjectReference>
     <ProjectReference Include="..\WebsiteDS\WebDS.csproj">

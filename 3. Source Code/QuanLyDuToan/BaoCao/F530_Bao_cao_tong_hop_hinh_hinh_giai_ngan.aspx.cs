@@ -10,9 +10,11 @@ using WebDS.CDBNames;
 using IP.Core.IPCommon;
 using IP.Core.IPUserService;
 using IP.Core.IPData;
-using IP.Core.IPExcelReport;
 using QuanLyDuToan.App_Code;
 using System.Data;
+using Framework.Extensions;
+//using System.Collections;
+//using System.Linq;
 
 
 namespace QuanLyDuToan.BaoCao
@@ -56,6 +58,7 @@ namespace QuanLyDuToan.BaoCao
 			m_grv.DataSource = v_dt;
 			m_grv.DataBind();
 
+			//List<DBClassModel.HT_NGUOI_SU_DUNG> v_lst_nsd = v_ds.Tables[0].ToList<DBClassModel.HT_NGUOI_SU_DUNG>().OrderBy(x => x.TEN_TRUY_CAP).ThenBy(x => x.TEN_TRUY_CAP).ToList();
 		}
 		private bool check_validate_input_data_is_ok()
 		{
