@@ -4,7 +4,10 @@ using System.Text;
 
 namespace WebUS
 {
-
+	public enum eMessageType
+	{
+		Warning, Error, Success, Info
+	}
 
 	public class ID_LOAI_TU_DIEN
 	{

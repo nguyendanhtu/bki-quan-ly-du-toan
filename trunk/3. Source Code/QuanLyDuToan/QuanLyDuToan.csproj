@@ -101,6 +101,8 @@
     <Content Include="Template\TPL_F390.txt" />
     <Content Include="Template\TPL_F520.txt" />
     <Content Include="Template\TPL_F530.txt" />
+    <Content Include="Test\Test.aspx" />
+    <Content Include="UC_Message.ascx" />
     <Content Include="UserControl\MessageBoxUserControl.ascx" />
     <Content Include="DanhMuc\test.aspx" />
     <Content Include="DuToan\F404_nhap_khoi_luong.aspx" />
@@ -795,6 +797,20 @@
       <DependentUpon>F600_print_unc_qbt.aspx</DependentUpon>
     </Compile>
     <Compile Include="DuToan\CHI_TX_YN.cs" />
+    <Compile Include="Test\Test.aspx.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Test\Test.aspx.designer.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UC_Message.ascx.cs">
+      <DependentUpon>UC_Message.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UC_Message.ascx.designer.cs">
+      <DependentUpon>UC_Message.ascx</DependentUpon>
+    </Compile>
     <Compile Include="UserControl\MessageBoxUserControl.ascx.cs">
       <DependentUpon>MessageBoxUserControl.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1004,7 +1020,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="ExportExcel\" />
     <Folder Include="Reports\Output\" />
-    <Folder Include="Test\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Site.Master" />
@@ -1064,7 +1079,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>false</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>1856</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
