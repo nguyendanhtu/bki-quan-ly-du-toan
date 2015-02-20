@@ -109,3 +109,9 @@ E:\Thực tập\quanlidutoan\3. Source Code\QuanLyDuToan\bin\WebUS.pdb
 E:\Thực tập\quanlidutoan\3. Source Code\QuanLyDuToan\obj\Debug\QuanLyDuToan.csprojResolveAssemblyReference.cache
 E:\Thực tập\quanlidutoan\3. Source Code\QuanLyDuToan\obj\Debug\QuanLyDuToan.dll
 E:\Thực tập\quanlidutoan\3. Source Code\QuanLyDuToan\obj\Debug\QuanLyDuToan.pdb
+D:\0. Working\1. Project\0. QLDT\3. Source Code\QuanLyDuToan\bin\Framework.Extensions.dll
+D:\0. Working\1. Project\0. QLDT\3. Source Code\QuanLyDuToan\bin\log4net.dll
+D:\0. Working\1. Project\0. QLDT\3. Source Code\QuanLyDuToan\bin\Newtonsoft.Json.dll
+D:\0. Working\1. Project\0. QLDT\3. Source Code\QuanLyDuToan\bin\Framework.Extensions.pdb
+D:\0. Working\1. Project\0. QLDT\3. Source Code\QuanLyDuToan\bin\DBClassModel.dll
+D:\0. Working\1. Project\0. QLDT\3. Source Code\QuanLyDuToan\bin\DBClassModel.pdb
