@@ -8,7 +8,7 @@
 	</div>
 </div>
 <script type="text/javascript">
-	$(".aspnet_web_form_core").fadeTo(2000, 500).slideToggle(500, function () {
+	$(".aspnet_web_form_core").fadeTo(3000, 500).slideToggle(1000, function () {
 		$("aspnet_web_form_core").alert('close');
 	});
 </script>
