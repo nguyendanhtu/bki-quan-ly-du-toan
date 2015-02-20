@@ -18,7 +18,7 @@ namespace IP.Core.IPUserService
 {
 	public class US_Object
 	{
-		protected DataSet pm_objDS;
+		protected DataSet pm_objDS; 
 		protected DataRow pm_objDR;
 		protected string pm_strTableName;
 		protected BS_Object pm_objBS = new BS_Object();
