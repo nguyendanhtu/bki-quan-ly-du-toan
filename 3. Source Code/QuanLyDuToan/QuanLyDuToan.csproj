@@ -155,10 +155,6 @@
     <Content Include="DuToan\F304_nhap_giai_ngan_theo_unc.aspx" />
     <Content Include="DuToan\F208_nhap_giao_ke_hoach_ns.aspx" />
     <Content Include="DuToan\F204_nhap_giao_von_QBT.aspx" />
-    <Content Include="DuToan\F407_bao_cao_tinh_hinh_giai_ngan.aspx" />
-    <Content Include="DuToan\F409_giao_von_ns.aspx" />
-    <Content Include="DuToan\F410_nhap_uy_nhiem_chi_ns.aspx" />
-    <Content Include="DuToan\F411_nhap_uy_nhiem_chi_ns.aspx" />
     <Content Include="Images\BGLanguage\close.gif" />
     <Content Include="Images\BGLanguage\Logout.gif" />
     <Content Include="Images\BGLanguage\Top1.gif" />
@@ -801,7 +797,6 @@
     <Compile Include="ChucNang\F600_print_unc_qbt.aspx.designer.cs">
       <DependentUpon>F600_print_unc_qbt.aspx</DependentUpon>
     </Compile>
-    <Compile Include="DuToan\CHI_TX_YN.cs" />
     <Compile Include="Test\Test.aspx.cs">
       <DependentUpon>Test.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -934,34 +929,6 @@
     </Compile>
     <Compile Include="DuToan\F204_nhap_giao_von_QBT.aspx.designer.cs">
       <DependentUpon>F204_nhap_giao_von_QBT.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="DuToan\F407_bao_cao_tinh_hinh_giai_ngan.aspx.cs">
-      <DependentUpon>F407_bao_cao_tinh_hinh_giai_ngan.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="DuToan\F407_bao_cao_tinh_hinh_giai_ngan.aspx.designer.cs">
-      <DependentUpon>F407_bao_cao_tinh_hinh_giai_ngan.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="DuToan\F409_giao_von_ns.aspx.cs">
-      <DependentUpon>F409_giao_von_ns.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="DuToan\F409_giao_von_ns.aspx.designer.cs">
-      <DependentUpon>F409_giao_von_ns.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="DuToan\F410_nhap_uy_nhiem_chi_ns.aspx.cs">
-      <DependentUpon>F410_nhap_uy_nhiem_chi_ns.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="DuToan\F410_nhap_uy_nhiem_chi_ns.aspx.designer.cs">
-      <DependentUpon>F410_nhap_uy_nhiem_chi_ns.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="DuToan\F411_nhap_uy_nhiem_chi_ns.aspx.cs">
-      <DependentUpon>F411_nhap_uy_nhiem_chi_ns.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="DuToan\F411_nhap_uy_nhiem_chi_ns.aspx.designer.cs">
-      <DependentUpon>F411_nhap_uy_nhiem_chi_ns.aspx</DependentUpon>
     </Compile>
     <Compile Include="DuToan\F700_thong_tin_don_vi.aspx.cs">
       <DependentUpon>F700_thong_tin_don_vi.aspx</DependentUpon>

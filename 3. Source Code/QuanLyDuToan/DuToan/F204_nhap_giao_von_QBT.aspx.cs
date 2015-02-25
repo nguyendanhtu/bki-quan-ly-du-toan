@@ -617,11 +617,11 @@ namespace QuanLyDuToan.DuToan
 
                 //Adding  Xoa
                 TableHeaderCell HeaderCell = new TableHeaderCell();
-                HeaderCell.Text = "Xóa";
-                HeaderCell.HorizontalAlign = HorizontalAlign.Center;
-                HeaderCell.RowSpan = 2;
-                HeaderCell.CssClass = "HeaderStyle";
-                HeaderRow.Cells.Add(HeaderCell);
+				//HeaderCell.Text = "Xóa";
+				//HeaderCell.HorizontalAlign = HorizontalAlign.Center;
+				//HeaderCell.RowSpan = 1;
+				//HeaderCell.CssClass = "HeaderStyle";
+				//HeaderRow.Cells.Add(HeaderCell);
 
                 //Adding  Nội dung
                 HeaderCell = new TableHeaderCell();

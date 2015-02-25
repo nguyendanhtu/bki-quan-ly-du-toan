@@ -490,6 +490,20 @@ namespace QuanLyDuToan.DuToan
 					m_ddl_dm_giai_ngan.Visible = false;
 					load_data_to_grid_chi_tiet_uy_nhiem_chi();
 				}
+
+				//Nếu không phải đơn vị của mình thì không được Nhập UNC,Thêm UNC
+				//if (m_ddl_don_vi.SelectedValue==Person.get_id_don_vi().ToString())
+				//{
+				//	m_cmd_luu_unc.Visible = true;
+				//	m_cmd_nhap_moi_unc.Visible = true;
+				//	m_cmd_save_info_unc.Visible = true;
+				//}
+				//else
+				//{
+				//	m_cmd_luu_unc.Visible = false;
+				//	m_cmd_nhap_moi_unc.Visible = false;
+				//	m_cmd_save_info_unc.Visible = false;
+				//}
 			}
 			catch (Exception v_e)
 			{
@@ -1453,8 +1467,23 @@ namespace QuanLyDuToan.DuToan
 		{
 			try
 			{
-				load_data_to_ddl_giai_ngan();
+				m_cmd_chon_unc_Click(null, null);
 				load_data_to_grid_chi_tiet_uy_nhiem_chi();
+
+				//Nếu không phải đơn vị của mình thì không được Nhập UNC,Thêm UNC
+				if (m_ddl_don_vi.SelectedValue.Equals(Person.get_id_don_vi().ToString()))
+				{
+					m_cmd_luu_unc.Visible = true;
+					m_cmd_nhap_moi_unc.Visible = true;
+					m_cmd_save_info_unc.Visible = true;
+				}
+				else
+				{
+					m_cmd_luu_unc.Visible = false;
+					m_cmd_nhap_moi_unc.Visible = false;
+					m_cmd_save_info_unc.Visible = false;
+				}
+				
 			}
 			catch (Exception v_e)
 			{
