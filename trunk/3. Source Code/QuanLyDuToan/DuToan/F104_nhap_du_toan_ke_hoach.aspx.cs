@@ -940,10 +940,11 @@ namespace QuanLyDuToan.DuToan
 					else m_ddl_don_vi.SelectedValue = Person.get_id_don_vi().ToString();
 
 					//kiem tra xem dang nhap Nguon nao
-					if (Request.QueryString["ip_nguon_ns"] == "Y")
+					if (Request.QueryString["ip_nguon_ns"].Equals("Y"))
 					{
 						m_lbl_so_tien.Text = "KP Ngân sách (*)";
 						m_lbl_title.Text = "Nhập giao kế hoạch - Nguồn Ngân sách";
+						m_rdb_theo_quoc_lo.Visible = false;
 						m_rdb_theo_chuong_loai_khoan_muc.Checked = true;
 						m_rdb_theo_quoc_lo.Checked = false;
 						m_rdb_theo_chuong_loai_khoan_muc_CheckedChanged(null, null);
@@ -1165,6 +1166,8 @@ namespace QuanLyDuToan.DuToan
 		protected void m_ddl_quyet_dinh_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			if (m_ddl_quyet_dinh.SelectedValue == null) return;
+			if (m_ddl_quyet_dinh.SelectedValue.Equals(CONST_GIAO_DICH.STR_VALUE_TAT_CA)) return;
+
 			m_ddl_quyet_dinh.Visible = false;
 			m_hdf_id_quyet_dinh.Value = m_ddl_quyet_dinh.SelectedValue;
 			load_data_when_quyet_dinh_is_selected();
