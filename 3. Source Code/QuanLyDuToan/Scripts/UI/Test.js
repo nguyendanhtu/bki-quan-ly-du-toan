@@ -38,7 +38,22 @@ function NguoiSuDungViewModel() {
 		error: function (err) {
 			alert(err.status + " - " + err.statusText);
 		}
-	})
+	});
+
+	self.SaveHTNguoiSuDung = function () {
+		$.ajax({
+			type: "POST",
+			url: '/Test/Test.aspx/SaveStudent',
+			data: ko.toJSON({ data: self.HT_NGUOI_SU_DUNGs }),
+			contentType: "application/json; charset=utf-8",
+			success: function (result) {
+				alert(result.d);
+			},
+			error: function (err) {
+				alert(err.status + " - " + err.statusText);
+			}
+		});
+	};
 };
 
 
