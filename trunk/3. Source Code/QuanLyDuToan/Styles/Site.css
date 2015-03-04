@@ -236,7 +236,7 @@ body
     padding: 0;
     width: 230px;
     position: absolute;
-    top: 32px;
+    top: 29px;
     left: 0;
     background: url(../Images/overlay.png) repeat-x 0 0;
     border: none;
@@ -254,14 +254,14 @@ body
 
 #wapper li ul ul
 {
-    left: 185px;
+    left: 235px;
     margin: -40px 0px 0px -5px;
 }
 #wapper ul ul li
 {
     float: none;
     margin: 0;
-    padding: 3px;
+    padding: 4px;
 }
 #wapper ul ul a, #wapper ul ul a:link
 {

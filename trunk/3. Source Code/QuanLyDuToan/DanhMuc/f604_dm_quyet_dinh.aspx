@@ -94,8 +94,8 @@
 				<tr>
 					<td></td>
 					<td>
-						<asp:Button ID="m_cmd_insert" Text="Thêm quyết định" runat="server" CssClass="btn btn-primary btn-sm" OnClick="m_cmd_insert_Click" />
-						<asp:Button ID="m_cmd_update" Text="Cập nhật" runat="server" CssClass="btn btn-primary btn-sm" OnClick="m_cmd_update_Click" />
+						<asp:Button ID="m_cmd_insert" Text="Thêm quyết định" runat="server" CssClass="btn btn-success btn-sm" OnClick="m_cmd_insert_Click" />
+						<asp:Button ID="m_cmd_update" Text="Cập nhật" runat="server" CssClass="btn btn-success btn-sm" OnClick="m_cmd_update_Click" />
 						<asp:Button ID="m_cmd_cancel" Text="Xoá trắng" runat="server" CssClass="btn btn-sm btn-default" OnClick="m_cmd_cancel_Click" />
 						<asp:HiddenField ID="m_hdf_form_mode" runat="server" />
 						<asp:HiddenField ID="m_hdf_id_quyet_dinh" runat="server" />
