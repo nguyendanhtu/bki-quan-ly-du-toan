@@ -158,7 +158,7 @@
                         </p>
 						<div style="width:70%; margin:0px auto;" class="height30">
                             <div class="lb">Tìm kiếm:</div>
-                            <div class="control"><asp:TextBox ID="m_txt_tim_kiem" runat="server" CssClass="filter"></asp:TextBox></div>
+                            <div class="control"><asp:TextBox ID="m_txt_tim_kiem" runat="server" CssClass="filter  form-control"></asp:TextBox></div>
                         </div>
                         <div style="width:70%; margin:0px auto">
                             <div class="boxControl">

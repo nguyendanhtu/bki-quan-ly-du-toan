@@ -179,6 +179,7 @@ body
     display: block;
     padding: 5px 12px;
     margin: 0; /*border-radius: 5px;   -webkit-border-radius: 5px;   -moz-border-radius: 5px;*/
+	white-space:nowrap;
 }
 #wapper a:hover
 {
@@ -233,7 +234,7 @@ body
     display: none;
     margin: 0;
     padding: 0;
-    width: 180px;
+    width: 230px;
     position: absolute;
     top: 32px;
     left: 0;

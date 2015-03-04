@@ -8,10 +8,9 @@
 //------------------------------------------------------------------------------
 
 namespace QuanLyDuToan.BaoCao {
-
-
-	public partial class F520_theo_doi_tinh_hinh_giao_von_qbt
-	{
+    
+    
+    public partial class F520_theo_doi_tinh_hinh_giao_von_qbt {
         
         /// <summary>
         /// ScriptManager1 control.

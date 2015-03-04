@@ -5,6 +5,10 @@
 <%@ Import Namespace="WebDS.CDBNames" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="Server">
 	<style type="text/css">
+	 label {
+			display: table-cell;
+			width: 200px;
+		}
 		.radioButtonList {
 			list-style: none;
 			margin: 0px 0px 0px 12px;
@@ -100,7 +104,7 @@
 												<span>Địa chỉ</span>
 											</td>
 											<td colspan="2">
-												<asp:Label ID="m_lbl_dia_chi" runat="server" ForeColor="Black"></asp:Label>
+												<asp:TextBox ID="m_lbl_dia_chi" Width="200px" runat="server" CssClass="cssTextBox form-control"></asp:TextBox>
 											</td>
 
 										</tr>
@@ -152,7 +156,7 @@
 												<span>&nbsp;&nbsp; Mã ĐVQHNS:</span>
 											</td>
 											<td>
-												<asp:Label ID="m_lbl_ma_dvqhns" runat="server" ForeColor="Black"></asp:Label>
+												<asp:TextBox ID="m_lbl_ma_dvqhns" ForeColor="Black" Width="150px" runat="server" CssClass="cssTextBox form-control"></asp:TextBox>
 											</td>
 										</tr>
 										<tr>
@@ -200,9 +204,9 @@
 																<asp:Label ID="m_lbl_grid_quoc_lo_du_an" Text='<%#Eval(GRID_GIAI_NGAN.NOI_DUNG) %>' runat="server"></asp:Label>
 															</ItemTemplate>
 															<EditItemTemplate>
-																<asp:RadioButton ID="m_rdb_grid_edit_theo_quoc_lo_cong_trinh" CssClass="radio-inline" GroupName="edit_loai_chi" Checked="true" runat="server" Text="Theo Quốc lộ/Công trình" AutoPostBack="true" OnCheckedChanged="m_rdb_grid_edit_theo_quoc_lo_cong_trinh_CheckedChanged" />
+																<asp:RadioButton ID="m_rdb_grid_edit_theo_quoc_lo_cong_trinh" CssClass="radio-inline" GroupName="edit_loai_chi" Checked="true" runat="server" Text="Chi theo dự án" AutoPostBack="true" OnCheckedChanged="m_rdb_grid_edit_theo_quoc_lo_cong_trinh_CheckedChanged" />
 																<br />
-																<asp:RadioButton ID="m_rdb_grid_edit_theo_chuong_loai_khoan_muc" CssClass="radio-inline" GroupName="edit_loai_chi" runat="server" Text="Chi theo Loại khoản mục" AutoPostBack="true" OnCheckedChanged="m_rdb_grid_edit_theo_chuong_loai_khoan_muc_CheckedChanged" />
+																<asp:RadioButton ID="m_rdb_grid_edit_theo_chuong_loai_khoan_muc" CssClass="radio-inline" GroupName="edit_loai_chi" runat="server" Text="Chi theo mục lục Ngân sách" AutoPostBack="true" OnCheckedChanged="m_rdb_grid_edit_theo_chuong_loai_khoan_muc_CheckedChanged" />
 																<br />
 																<asp:DropDownList ID="m_ddl_grid_edit_loai_nhiem_vu" CssClass="select2" OnSelectedIndexChanged="m_ddl_grid_edit_loai_nhiem_vu_SelectedIndexChanged" AutoPostBack="true" runat="server" Width="200px"></asp:DropDownList>
 																<br />
@@ -211,9 +215,9 @@
 																<asp:DropDownList ID="m_ddl_grid_edit_muc_tieu_muc" CssClass="select2" runat="server" Width="200px"></asp:DropDownList>
 															</EditItemTemplate>
 															<FooterTemplate>
-																<asp:RadioButton ID="m_rdb_grid_theo_quoc_lo_cong_trinh" CssClass="radio-inline" GroupName="loai_chi" Checked="true" runat="server" Text="Theo Quốc lộ/Công trình" AutoPostBack="true" OnCheckedChanged="m_rdb_grid_theo_quoc_lo_cong_trinh_CheckedChanged" />
+																<asp:RadioButton ID="m_rdb_grid_theo_quoc_lo_cong_trinh" CssClass="radio-inline" GroupName="loai_chi" Checked="true" runat="server" Text="Chi theo dự án" AutoPostBack="true" OnCheckedChanged="m_rdb_grid_theo_quoc_lo_cong_trinh_CheckedChanged" />
 																<br />
-																<asp:RadioButton ID="m_rdb_grid_theo_chuong_loai_khoan_muc" CssClass="radio-inline" GroupName="loai_chi" runat="server" Text="Chi theo Loại khoản mục" AutoPostBack="true" OnCheckedChanged="m_rdb_grid_theo_chuong_loai_khoan_muc_CheckedChanged" />
+																<asp:RadioButton ID="m_rdb_grid_theo_chuong_loai_khoan_muc" CssClass="radio-inline" GroupName="loai_chi" runat="server" Text="Chi theo mục lục Ngân sách" AutoPostBack="true" OnCheckedChanged="m_rdb_grid_theo_chuong_loai_khoan_muc_CheckedChanged" />
 																<br />
 																<asp:DropDownList ID="m_ddl_grid_loai_nhiem_vu" CssClass="select2" runat="server" Width="200px"
 																	AutoPostBack="true" OnSelectedIndexChanged="m_ddl_grid_loai_nhiem_vu_SelectedIndexChanged">

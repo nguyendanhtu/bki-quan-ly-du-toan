@@ -222,7 +222,7 @@
                             <asp:GridView ClientIDMode="Static" ID="m_grv" runat="server" AutoGenerateColumns="False"
                                 CssClass="cssGrid" Width="2500px" CellPadding="0" ForeColor="Black"
                                 AllowSorting="True" PageSize="60"
-                                EmptyDataText="Không có dữ liệu phù hợp" OnRowCreated="m_grv_RowCreated" EnableModelValidation="True">
+                                EmptyDataText="Không có dữ liệu phù hợp" OnRowCreated="m_grv_RowCreated" EnableModelValidation="True" HeaderStyle-CssClass="HeaderStyle">
 
                                 <Columns>
                                     <asp:TemplateField ItemStyle-HorizontalAlign="Center" HeaderText="(a)" HeaderStyle-Width="2%" HeaderStyle-Height="10px">

@@ -37,6 +37,20 @@
             text-align:right;
             line-height:20px;
         }
+		 .cssGrid tr td {
+            padding: 0px;
+        }
+
+        .HeaderStyle {
+            background: #ddd;
+            border-color: #000;
+        }
+
+        th {
+            text-align: center !important;
+            background: #ddd;
+            border-color: #000;
+        }
        
     </style>
      <script src="../Scripts/jquery.doubleScroll.js"></script>
@@ -104,23 +118,23 @@
         </div>
         <div style="width:220px; text-align:center; margin:auto;height: 45px;">
             <div style="width: 120px; margin: 0px auto;float: left;">
-                <asp:Button Height="30px" ID="m_cmd_xem_bao_cao" Text="Xem báo cáo" runat="server" cssclass="btn" OnClick="m_cmd_xem_bao_cao_Click" />
+                <asp:Button Height="30px" ID="m_cmd_xem_bao_cao" Text="Xem báo cáo" runat="server" cssclass="btn btn-sm btn-primary" OnClick="m_cmd_xem_bao_cao_Click" />
             </div>            
             <div id="downloadify" style="width: 100px; margin: 0px auto;float: left;">
 				You must have Flash 10 installed to download this file.
 			</div>
-            <asp:Button Visible="false" ID="m_cmd_xuat_excel" Text="Xuất excel" runat="server" cssclass="btn" Enabled="true" OnClick="m_cmd_xuat_excel_Click" />
+            <asp:Button Visible="false" ID="m_cmd_xuat_excel" Text="Xuất excel" runat="server" cssclass="btn btn-sm btn-primary" Enabled="true" OnClick="m_cmd_xuat_excel_Click" />
         </div>
         <div style="width:1200px; overflow-y:hidden; margin:0px auto;">
                 <div id="double-scroll" >
-                <asp:gridview runat="server" id="m_grv_bao_cao_giao_von" AutoGenerateColumns="False" EnableModelValidation="True" ClientIDMode="Static">
+                <asp:GridView runat="server" id="m_grv_bao_cao_giao_von" CssClass="cssGrid"  HeaderStyle-CssClass="HeaderStyle" AutoGenerateColumns="False" EnableModelValidation="True" ClientIDMode="Static">
                     <Columns>
                         <asp:BoundField DataField="TEN_DON_VI" HeaderText="Đơn vị" HtmlEncode="False" >
                         <HeaderStyle Width="200px" CssClass="pinned thpinned"/>
                         <ItemStyle Width="200px" CssClass="pinned"/>
                         </asp:BoundField>
                     </Columns>
-                </asp:gridview>
+                </asp:GridView>
                 </div>
             </div>
         </ContentTemplate>

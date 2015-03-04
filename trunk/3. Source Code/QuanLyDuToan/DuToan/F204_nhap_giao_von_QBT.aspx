@@ -72,16 +72,7 @@
 										<asp:Label ID="m_lbl_mess_qd" runat="server" CssClass="cssManField"></asp:Label>
 									</td>
 								</tr>
-								<tr>
-									<td style="text-align: right"><span>Loại quyết định</span></td>
-									<td>
-										<asp:Label ID="m_lbl_loai_quyet_dinh" runat="server" CssClass="cssManField" Font-Bold="true" ForeColor="Blue"></asp:Label>
-										<%--<asp:RadioButton ID="m_rdb_kh_dau_nam" CssClass="radio-inline" Style="margin-left: 10px;" runat="server" Text="KH đầu năm" GroupName="loai" Checked="true" AutoPostBack="true" />
-										<asp:RadioButton ID="m_rdb_bo_sung" CssClass="radio-inline" runat="server" Text="Bổ sung" GroupName="loai" AutoPostBack="true" />
-										<asp:RadioButton ID="m_rdb_dieu_chinh" CssClass="radio-inline" runat="server" Text="Điều chỉnh" GroupName="loai" AutoPostBack="true" />--%>
-										<asp:HiddenField ID="HiddenField1" runat="server" />
-									</td>
-								</tr>
+								
 								<tr>
 									<td style="width: 15%; padding-top: 14px; text-align: right">
 										<span>Số QĐ (*)</span>
@@ -101,14 +92,23 @@
 											<span class="input-group-addon"><span class="glyphicon-calendar glyphicon"></span>
 											</span>
 										</div>--%>
-										<asp:Label ID="m_lbl_ngay_thang" runat="server" CssClass="cssManField" Font-Bold="true" ForeColor="Blue"></asp:Label>
+										<asp:TextBox ID="m_lbl_ngay_thang" runat="server" class="form-control" Width="200px"></asp:TextBox>
 									</td>
 								</tr>
 								<tr>
-									<td style="text-align: right"><span>Nội dung (*)</span></td>
-									<td colspan="3">
-										<asp:TextBox ID="m_txt_noi_dung" runat="server" CssClass="cssTextBox form-control datepicker" Width="528px"></asp:TextBox>
+									<td style="text-align: right"><span>Loại quyết định</span></td>
+									<td>
+										<asp:TextBox ID="m_lbl_loai_quyet_dinh" runat="server" CssClass="form-control" Width="200px"></asp:TextBox>
+										<%--<asp:RadioButton ID="m_rdb_kh_dau_nam" CssClass="radio-inline" Style="margin-left: 10px;" runat="server" Text="KH đầu năm" GroupName="loai" Checked="true" AutoPostBack="true" />
+										<asp:RadioButton ID="m_rdb_bo_sung" CssClass="radio-inline" runat="server" Text="Bổ sung" GroupName="loai" AutoPostBack="true" />
+										<asp:RadioButton ID="m_rdb_dieu_chinh" CssClass="radio-inline" runat="server" Text="Điều chỉnh" GroupName="loai" AutoPostBack="true" />--%>
+										<asp:HiddenField ID="HiddenField1" runat="server" />
 									</td>
+									<td style="text-align: right"><span>Nội dung (*)</span></td>
+									<td>
+										<asp:TextBox ID="m_txt_noi_dung" runat="server" CssClass="form-control" Width="200px"></asp:TextBox>
+									</td>
+								
 								</tr>
 
 								<tr>
@@ -129,7 +129,7 @@
 						<asp:Panel ID="m_pnl" runat="server" GroupingText="Nội dung chi tiết">
 							<table class="table bordertop0" style="width: 100%;">
 								<tr>
-									<td style="width: 15%;text-align:right">Loại nhiệm vụ</td>
+									<td style="width: 145px;text-align:right">Lọc theo loại nhiệm vụ</td>
 									<td>
 										<asp:DropDownList CssClass="select2" ID="m_ddl_loai_nhiem_vu" runat="server" Width="200px" AutoPostBack="true" OnSelectedIndexChanged="m_ddl_loai_nhiem_vu_SelectedIndexChanged">
 										</asp:DropDownList>
@@ -166,7 +166,7 @@
 														
                                                         OnRowCreated="m_grv_RowCreated">
 														<Columns>
-															<asp:TemplateField HeaderStyle-Width="2%" Visible="true">
+															<asp:TemplateField HeaderStyle-Width="2%" Visible="true" HeaderText="(0)">
 																<ItemTemplate>
 																	<asp:LinkButton ID="m_lbl_delete" runat="server" CausesValidation="false" CommandArgument='<%#Eval("ID")%>'
 																		CommandName="Xoa" ToolTip="Xóa" OnClientClick="return confirm ('Nếu xoá bản ghi này sẽ ảnh hưởng đến dữ liệu báo cáo, Bạn có thực sự muốn xóa bản ghi này?')">
@@ -176,7 +176,10 @@
 																<HeaderStyle Width="2%" CssClass="hiddenCell" />
 																<ItemStyle HorizontalAlign="Center"></ItemStyle>
 															</asp:TemplateField>
-															<asp:BoundField DataField="NOI_DUNG" HeaderText="(1)" />
+															<asp:TemplateField HeaderText="(1)">
+																<ItemTemplate><%#Eval("NOI_DUNG") %></ItemTemplate>
+															</asp:TemplateField>
+															<%--<asp:BoundField DataField="NOI_DUNG" HeaderText="(1)" />--%>
 															<asp:TemplateField HeaderText="(2)" ItemStyle-HorizontalAlign="Right" ItemStyle-Width="100px">
 																<ItemTemplate>
 																	<asp:Label ID="m_lbl_so_tien_ke_hoach_grid" runat="server" Style="text-align: right"
@@ -218,15 +221,6 @@
 																</ItemTemplate>
 															    <ItemStyle HorizontalAlign="Right" Width="100px" />
 															</asp:TemplateField>
-															<%-- <asp:TemplateField HeaderText="Xóa" HeaderStyle-Width="2%">
-                                                                <ItemTemplate>
-                                                                    <asp:LinkButton ID="m_link_delete" runat="server" CausesValidation="false" CommandArgument='<%#Eval("ID")%>'
-                                                                        CommandName="Xoa" ToolTip="Xóa" OnClientClick="return confirm ('Bạn có thực sự muốn xóa bản ghi này?')">
-                     <img alt="Xóa" src="../Images/Button/deletered.png" />
-                                                                    </asp:LinkButton>
-                                                                </ItemTemplate>
-                                                                <ItemStyle HorizontalAlign="Center"></ItemStyle>
-                                                            </asp:TemplateField>--%>
 														</Columns>
                                                            <AlternatingRowStyle BackColor="White" />
                                                         
