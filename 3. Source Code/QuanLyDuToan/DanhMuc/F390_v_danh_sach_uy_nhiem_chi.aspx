@@ -67,10 +67,6 @@
 
 
 				<div style="text-align: center;margin-bottom:-33px">
-					<span style="font-weight: bold">CỘNG HOÀ XÃ HỘI CHỦ NGHĨA VIỆT NAM</span>
-					<br />
-					<span style="font-weight: bold">Độc lập - Tự do - Hạnh Phúc</span>
-					<br />
 					<br />
 					<span style="font-weight: bold">DANH SÁCH QUYẾT ĐỊNH ỦY NHIỆM CHI</span>
 					<br />
@@ -88,10 +84,9 @@
 							<td  style="text-align:right">Từ ngày </td>
 							<td style="text-align:left">
 								<asp:TextBox ClientIDMode="Static" runat="server" CssClass="form-control" ID="m_txt_tu_ngay" Style="width: 164px; text-align: right"></asp:TextBox></td>
-							<td style="width:32px"></td>
-							<td>Đến ngày </td>
+							<td style="width:100px;text-align:right">Đến ngày </td>
 							<td style="text-align:left">
-								<asp:TextBox ClientIDMode="Static" runat="server" ID="m_txt_den_ngay" CssClass="form-control" Style="width: 164px; text-align: right"></asp:TextBox></td>
+								<asp:TextBox ClientIDMode="Static" runat="server" ID="m_txt_den_ngay" CssClass="form-control" Style="width: 175px; text-align: right"></asp:TextBox></td>
 						</tr>
 						<tr>
 							<td style="height:10px"></td>
@@ -99,7 +94,7 @@
                         <tr>
                             <td colspan="4" style="text-align: center">
                                 <div style="margin:0px auto;width: 400px;">
-                                    <div style="width: 100px; margin: 0px auto;float: left;margin-left:195px">
+                                    <div style="width: 100px; margin: 0px auto;float: left;margin-left:136px">
                                         <asp:Button Width="91px" runat="server" CssClass="btn btn-primary btn-sm" Text="Tìm kiếm" ID="Button1" OnClick="m_cmd_tim_kiem_Click" />
                                     </div>
                                     <div id="downloadify" style="width: 100px; margin: 0px auto;float: left;">
@@ -111,17 +106,10 @@
                         </tr>
 						
 					</table>
-
-
 					<div>
-
-
 						<div style="text-align: center">
 							<asp:Label ID="m_lbl_mess" runat="server" CssClass="cssManField"></asp:Label>
-							<br />
 							<asp:Label ID="m_lbl_info" runat="server" CssClass="cssManField"></asp:Label>
-							<br />
-
 						</div>
 				<div style="width: 800px; margin: 20px auto;">
 					<asp:GridView ClientIDMode="Static" runat="server" ID="m_grv_bao_cao_giao_von" Style="width: 100%;" AutoGenerateColumns="False" EnableModelValidation="True">

@@ -4,13 +4,16 @@
 <%@ Import Namespace="WebDS.CDBNames" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="Server">
 	<style type="text/css">
-        
-     </style>
+		label {
+			display: table-cell;
+			width: 200px;
+		}
+	</style>
 	<script type="text/javascript">
 		function tinhTongChiTx() {
 			var so_tien_ntcs = parseInt(document.getElementById("<%=m_txt_so_tien_nam_truoc_chuyen_sang.ClientID%>").value.split(',').join('').split('.').join(''));
 			var so_tien_qbt = parseInt(document.getElementById('<%=m_txt_so_tien.ClientID%>').value.split(',').join('').split('.').join(''));
-			m_lbl_tong_chi_ktx.innerHTML = getFormatedNumberString(so_tien_qbt + so_tien_ntcs);
+			$(m_lbl_tong_chi_ktx).val(getFormatedNumberString(so_tien_qbt + so_tien_ntcs));
 		}
 		$(document).ready(function () {
 
@@ -20,19 +23,19 @@
 			$("#<%=m_txt_so_tien_nam_truoc_chuyen_sang.ClientID%>").bind({
 				blur: function () { tinhTongChiTx(); }
 			});
-		    
-		    $("#<%=m_ddl_don_vi.ClientID%>").select2();
-		    $("#<%=m_ddl_quyet_dinh.ClientID%>").select2();
-		    $("#<%=m_ddl_loai_nhiem_vu.ClientID%>").select2();
-		    $("#<%=m_ddl_cong_trinh.ClientID%>").select2();
-		    $("#<%=m_ddl_chuong.ClientID%>").select2();
-		    $("#<%=m_ddl_loai.ClientID%>").select2();
-		    $("#<%=m_ddl_khoan.ClientID%>").select2();
-		    $("#<%=m_ddl_muc.ClientID%>").select2();
-		    $("#<%=m_ddl_tieu_muc.ClientID%>").select2();
-		    $("#<%=m_ddl_du_an.ClientID%>").select2();
-		   
-		    
+
+			$("#<%=m_ddl_don_vi.ClientID%>").select2();
+			$("#<%=m_ddl_quyet_dinh.ClientID%>").select2();
+			$("#<%=m_ddl_loai_nhiem_vu.ClientID%>").select2();
+			$("#<%=m_ddl_cong_trinh.ClientID%>").select2();
+			$("#<%=m_ddl_chuong.ClientID%>").select2();
+			$("#<%=m_ddl_loai.ClientID%>").select2();
+			$("#<%=m_ddl_khoan.ClientID%>").select2();
+			$("#<%=m_ddl_muc.ClientID%>").select2();
+			$("#<%=m_ddl_tieu_muc.ClientID%>").select2();
+			$("#<%=m_ddl_du_an.ClientID%>").select2();
+
+
 		});
 		function pageLoad(sender, args) {
 			if (args.get_isPartialLoad()) {
@@ -41,18 +44,18 @@
 					blur: function () { tinhTongChiTx(); }
 				});
 				$("#<%=m_txt_so_tien_nam_truoc_chuyen_sang.ClientID%>").bind({
-					blur: function () {tinhTongChiTx(); }
+					blur: function () { tinhTongChiTx(); }
 				});
-			    $("#<%=m_ddl_don_vi.ClientID%>").select2();
-			    $("#<%=m_ddl_quyet_dinh.ClientID%>").select2();
-			    $("#<%=m_ddl_loai_nhiem_vu.ClientID%>").select2();
-			    $("#<%=m_ddl_cong_trinh.ClientID%>").select2();
-			    $("#<%=m_ddl_chuong.ClientID%>").select2();
-			    $("#<%=m_ddl_loai.ClientID%>").select2();
-			    $("#<%=m_ddl_khoan.ClientID%>").select2();
-			    $("#<%=m_ddl_muc.ClientID%>").select2();
-			    $("#<%=m_ddl_tieu_muc.ClientID%>").select2();
-			    $("#<%=m_ddl_du_an.ClientID%>").select2();
+				$("#<%=m_ddl_don_vi.ClientID%>").select2();
+				$("#<%=m_ddl_quyet_dinh.ClientID%>").select2();
+				$("#<%=m_ddl_loai_nhiem_vu.ClientID%>").select2();
+				$("#<%=m_ddl_cong_trinh.ClientID%>").select2();
+				$("#<%=m_ddl_chuong.ClientID%>").select2();
+				$("#<%=m_ddl_loai.ClientID%>").select2();
+				$("#<%=m_ddl_khoan.ClientID%>").select2();
+				$("#<%=m_ddl_muc.ClientID%>").select2();
+				$("#<%=m_ddl_tieu_muc.ClientID%>").select2();
+				$("#<%=m_ddl_du_an.ClientID%>").select2();
 				//$("#<=m_txt_ngay_thang.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
 			}
 		}
@@ -94,9 +97,25 @@
 											</tr>
 
 											<tr>
+												<td style="width: 35%; text-align: right">
+													<span>Số QĐ (*)</span>
+												</td>
+												<td style="width: 40%">
+													<asp:TextBox ID="m_txt_so_qd" runat="server" CssClass="form-control" Width="200px"></asp:TextBox>
+													<asp:DropDownList ID="m_ddl_quyet_dinh" CssClass="select2" runat="server" Width="200px" Visible="false" OnSelectedIndexChanged="m_ddl_quyet_dinh_SelectedIndexChanged" AutoPostBack="true"
+														Style="font-size: smaller">
+													</asp:DropDownList>
+
+												</td>
+												<td style="width: 25%; text-align: right">
+													<asp:Button ID="m_cmd_chon_qd_da_nhap" CssClass="btn btn-sm btn-primary" Text="Chọn QĐ" OnClick="m_cmd_chon_qd_da_nhap_Click" runat="server" /></td>
+												<%--<td style="width: 20%"></td>--%>
+											</tr>
+
+											<tr>
 												<td style="text-align: right"><span>Loại quyết định</span></td>
 												<td colspan="3">
-													<asp:Label ID="m_lbl_loai_quyet_dinh" runat="server" CssClass="cssManField" Font-Bold="true" ForeColor="Blue"></asp:Label>
+													<asp:TextBox ID="m_lbl_loai_quyet_dinh" runat="server" CssClass="form-control" Width="200px"></asp:TextBox>
 													<%--<asp:RadioButton ID="m_rdb_kh_dau_nam" Style="margin-left: 10px;" CssClass="radio-inline" runat="server" Text="KH đầu năm" GroupName="loai" Checked="true" AutoPostBack="true" />
 													<asp:RadioButton ID="m_rdb_bo_sung" CssClass="radio-inline" runat="server" Text="Bổ sung" GroupName="loai" AutoPostBack="true" />
 													<asp:RadioButton ID="m_rdb_dieu_chinh" CssClass="radio-inline" runat="server" Text="Điều chỉnh" GroupName="loai" AutoPostBack="true" />--%>
@@ -104,20 +123,6 @@
 												</td>
 											</tr>
 											<tr>
-												<td style="width: 35%; text-align: right">
-													<span>Số QĐ (*)</span>
-												</td>
-												<td style="width: 40%">
-													<asp:TextBox ID="m_txt_so_qd" runat="server" CssClass="form-control" Width="200px"></asp:TextBox>
-													<asp:DropDownList ID="m_ddl_quyet_dinh" CssClass="select2" runat="server" Width="200px" Visible="false" OnSelectedIndexChanged="m_ddl_quyet_dinh_SelectedIndexChanged" AutoPostBack="true"
-														style="font-size:smaller"></asp:DropDownList>
-
-												</td>
-												<td style="width: 25%; text-align: right">
-													<asp:Button ID="m_cmd_chon_qd_da_nhap" CssClass="btn btn-sm btn-primary" Text="Chọn QĐ" OnClick="m_cmd_chon_qd_da_nhap_Click" runat="server" /></td>
-												<%--<td style="width: 20%"></td>--%>
-											</tr>
-                                            <tr>
 												<td colspan="3">
 													<asp:Label ID="m_lbl_mess_chon_qd" CssClass="cssManField" runat="server"></asp:Label>
 												</td>
@@ -125,7 +130,7 @@
 											<tr>
 												<td style="text-align: right"><span>Ngày tháng</span></td>
 												<td>
-													<asp:Label ID="m_lbl_ngay_thang" runat="server" CssClass="cssManField" Font-Bold="true" ForeColor="Blue"></asp:Label>
+													<asp:TextBox ID="m_lbl_ngay_thang" runat="server" CssClass="form-control" Width="200px"></asp:TextBox>
 													<%--<div id="datetimepicker1" class="input-group date datepicker" style="width: 210px;">
 														<asp:TextBox ID="m_txt_ngay_thang" placeholder="dd/MM/yyyy" runat="server" CssClass="cssTextBox form-control  date-start" Height="30px" Width="164px"></asp:TextBox>
 														<span class="input-group-addon"><span class="glyphicon-calendar glyphicon"></span>
@@ -163,9 +168,8 @@
 											<tr>
 												<td style="text-align: right">Chi theo (*)</td>
 												<td colspan="2">
-													<asp:RadioButton ID="m_rdb_theo_quoc_lo" CssClass="radio-inline" Checked="true" runat="server" Text="Theo Quốc lộ/dự án" GroupName="chi_theo" AutoPostBack="true" OnCheckedChanged="m_rdb_theo_quoc_lo_CheckedChanged" />
-													<br />
-													<asp:RadioButton ID="m_rdb_theo_chuong_loai_khoan_muc" CssClass="radio-inline" AutoPostBack="true" OnCheckedChanged="m_rdb_theo_chuong_loai_khoan_muc_CheckedChanged" runat="server" Text="Theo Loại khoản mục" GroupName="chi_theo" />
+													<asp:RadioButton ID="m_rdb_theo_quoc_lo" CssClass="radio-inline" Checked="true" runat="server" Text="Theo dự án" GroupName="chi_theo" AutoPostBack="true" OnCheckedChanged="m_rdb_theo_quoc_lo_CheckedChanged" Width="200px" />
+													<asp:RadioButton ID="m_rdb_theo_chuong_loai_khoan_muc" CssClass="radio-inline" AutoPostBack="true" style="margin:0px" OnCheckedChanged="m_rdb_theo_chuong_loai_khoan_muc_CheckedChanged" runat="server" Text="Theo mục lục Ngân sách" GroupName="chi_theo" />
 												</td>
 											</tr>
 											<tr>
@@ -184,7 +188,7 @@
 													</td>
 													<td>
 														<asp:Button ID="m_cmd_them_quoc_lo" CssClass="btn btn-sm btn-primary" Text="Nhập mới" OnClick="m_cmd_them_quoc_lo_Click" runat="server" />
-														<asp:Button ID="m_cmd_chon_quoc_lo" CssClass="btn btn-sm btn-primary"  Text="Chọn" Visible="false" OnClick="m_cmd_chon_quoc_lo_Click" runat="server" />
+														<asp:Button ID="m_cmd_chon_quoc_lo" CssClass="btn btn-sm btn-primary" Text="Chọn" Visible="false" OnClick="m_cmd_chon_quoc_lo_Click" runat="server" />
 													</td>
 												</tr>
 												<tr>
@@ -244,11 +248,11 @@
 														</asp:DropDownList>
 													</td>
 												</tr>
-                                                    <tr>
-												<td colspan="3">
-													<asp:Label ID="m_lbl_mess_noi_dung_du_toan" CssClass="cssManField" runat="server"></asp:Label>
-												</td>
-											</tr>
+												<tr>
+													<td colspan="3">
+														<asp:Label ID="m_lbl_mess_noi_dung_du_toan" CssClass="cssManField" runat="server"></asp:Label>
+													</td>
+												</tr>
 												<tr>
 													<td style="text-align: right">
 														<span>Nội dung dự toán (*)</span>
@@ -258,37 +262,41 @@
 														</asp:TextBox>
 													</td>
 												</tr>
-												<tr>
-													<td style="text-align: right">
-														<span>Loại</span>
-													</td>
-													<td>
-														<asp:RadioButton ID="m_rdb_chi_thuong_xuyen" CssClass="radio-inline" runat="server" Text="Chi thường xuyên/tự chủ" GroupName="loai_chi" Checked="true" /><br />
-														<asp:RadioButton ID="m_rdb_chi_khong_thuong_xuyen" CssClass="radio-inline" runat="server" Text="Chi không thường xuyên/tự chủ" GroupName="loai_chi" />
-													</td>
-												</tr>
+												<asp:Panel ID="m_pnl_loai_chi" runat="server">
+													<tr>
+														<td style="text-align: right">
+															<span>Loại</span>
+														</td>
+														<td>
+															<asp:RadioButton ID="m_rdb_chi_thuong_xuyen" CssClass="radio-inline" runat="server" Text="Chi thường xuyên" GroupName="loai_chi" Checked="true" /><br />
+															<asp:RadioButton ID="m_rdb_chi_khong_thuong_xuyen" CssClass="radio-inline" runat="server" Text="Chi không thường xuyên" GroupName="loai_chi" />
+														</td>
+													</tr>
+												</asp:Panel>
 											</asp:Panel>
-                                            <tr>
+											<tr>
 												<td colspan="3">
 													<asp:Label ID="m_lbl_mess_so_tien" CssClass="cssManField" runat="server"></asp:Label>
 												</td>
 											</tr>
+											<asp:Panel ID="m_pnl_so_km" runat="server">
+												<tr>
+													<td style="text-align: right">
+														<span>Số km</span>
+													</td>
+													<td colspan="2" style="text-align: left">
+														<span>
+															<asp:TextBox ID="m_txt_so_km" runat="server" CssClass="form-control csscurrency format_so_tien" Style="text-align: right" Text="0" Width="190px" AutoPostBack="false"></asp:TextBox>(km)</span>
+													</td>
+												</tr>
+											</asp:Panel>
 											<tr>
-                                                <td style="text-align:right">
-                                                    <span>Số km</span>
-                                                </td>
-                                                <td colspan="2" style="text-align:left">
-													<span>
-                                                    <asp:TextBox ID="m_txt_so_km" runat="server" CssClass="form-control csscurrency format_so_tien" Style="text-align: right" Text="0" Width="190px" AutoPostBack="false"></asp:TextBox>(km)</span>
-                                                </td>
-											</tr>
-                                            <tr>
 												<td style="text-align: right">
 													<span>KP năm trước chuyển sang</span>
 												</td>
 												<td colspan="2" style="text-align: left">
 													<span>
-													<asp:TextBox ID="m_txt_so_tien_nam_truoc_chuyen_sang" runat="server" CssClass="form-control csscurrency format_so_tien" Style="text-align: right" Text="0" Width="190px" AutoPostBack="false"></asp:TextBox>(đ)</span>
+														<asp:TextBox ID="m_txt_so_tien_nam_truoc_chuyen_sang" runat="server" CssClass="form-control csscurrency format_so_tien" Style="text-align: right" Text="0" Width="190px" AutoPostBack="false"></asp:TextBox>(đ)</span>
 												</td>
 											</tr>
 											<tr>
@@ -297,7 +305,7 @@
 												</td>
 												<td colspan="2">
 													<span>
-													<asp:TextBox ID="m_txt_so_tien" runat="server" CssClass="form-control csscurrency format_so_tien" Text="0" Style="text-align: right" Width="190px"></asp:TextBox>(đ)</span>
+														<asp:TextBox ID="m_txt_so_tien" runat="server" CssClass="form-control csscurrency format_so_tien" Text="0" Style="text-align: right" Width="190px"></asp:TextBox>(đ)</span>
 												</td>
 											</tr>
 											<tr>
@@ -305,7 +313,7 @@
 													<span>Tổng</span>
 												</td>
 												<td colspan="2" style="width: 70%">
-													<label style="text-align: right" id="m_lbl_tong_chi_ktx">0</label>
+													<input style="text-align: right; width: 190px" id="m_lbl_tong_chi_ktx" class="form-control">0</input>
 												</td>
 											</tr>
 											<tr>
@@ -316,7 +324,7 @@
 													<asp:TextBox ID="m_txt_ghi_chu" TextMode="MultiLine" runat="server" Rows="4" CssClass="cssTextBox form-control" Width="100%"></asp:TextBox>
 												</td>
 											</tr>
-                                           
+
 											<tr>
 
 												<td colspan="3" style="text-align: center">
@@ -340,16 +348,16 @@
 					<td colspan="2" style="vertical-align: top; width: 680px">
 						<table style="width: 100%">
 							<tr>
-								<td>Quyết định số:
+								<td style="text-align: center">Quyết định số:
 									<asp:Label ID="m_lbl_grid_so_quyet_dinh" runat="server" Font-Bold="true"></asp:Label>
 									ngày
 									<asp:Label ID="m_lbl_grid_ngay" runat="server" Font-Bold="true"></asp:Label>
 									về việc
 									<asp:Label ID="m_lbl_grid_ve_viec" runat="server" Font-Bold="true"></asp:Label>
 									<br />
-									Tổng kinh phí:
-									<asp:Label ID="m_lbl_grid_tong_tien" runat="server" Font-Bold="true" CssClass="cssManField"></asp:Label>
-									đ
+									<%--Tổng kinh phí:--%>
+									<asp:Label ID="m_lbl_grid_tong_tien" Visible="false" runat="server" Font-Bold="true" CssClass="cssManField"></asp:Label>
+									<%--đ--%>
 
 								</td>
 							</tr>
@@ -387,10 +395,10 @@
 											</asp:TemplateField>
 											<asp:BoundField DataField="NOI_DUNG" HeaderText="Nhiệm vụ chi" ItemStyle-Width="150px" />
 
-                                            <asp:TemplateField HeaderText="Số km" ItemStyle-HorizontalAlign="Right" ItemStyle-Width="100px">
+											<asp:TemplateField HeaderText="Số km" ItemStyle-HorizontalAlign="Right" ItemStyle-Width="100px">
 												<ItemTemplate>
 													<asp:Label ID="m_lbl_so_km_grid" runat="server" Text='<%#format_so_tien(Eval(GRID_GIAO_KH.So_KM).ToString()) %>'>
-														</asp:Label>
+													</asp:Label>
 												</ItemTemplate>
 											</asp:TemplateField>
 
@@ -420,7 +428,7 @@
 											</asp:TemplateField>
 
 										</Columns>
-                                       
+
 									</asp:GridView>
 								</td>
 							</tr>

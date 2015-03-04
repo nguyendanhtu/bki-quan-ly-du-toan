@@ -122,7 +122,7 @@
 														Visible='<%# visible_label_so_tien(Eval("ID").ToString()) %>' Text='<%#format_so_tien(Eval(GRID_GIAO_VON.QUY).ToString()) %>'></asp:Label>
 												</ItemTemplate>
 											</asp:TemplateField>
-											<asp:TemplateField HeaderText="Số chưa giải ngân cho nhà thầu theo ng/thu A-B" ItemStyle-HorizontalAlign="Right" ItemStyle-Width="100px"  ItemStyle-BackColor="LightBlue">
+											<asp:TemplateField HeaderText="Số chưa giải ngân cho nhà thầu theo nghiệm thu A-B" ItemStyle-HorizontalAlign="Right" ItemStyle-Width="100px"  ItemStyle-BackColor="LightBlue">
 												<ItemTemplate>
 													<asp:TextBox ID="m_txt_so_tien_quy_bao_tri_grid" runat="server" Style="text-align: right" CssClass="csscurrency format_so_tien"
 														Visible='<%# !visible_label_so_tien(Eval("ID").ToString()) %>'

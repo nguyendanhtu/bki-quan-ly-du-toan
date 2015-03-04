@@ -8,10 +8,9 @@
 //------------------------------------------------------------------------------
 
 namespace QuanLyDuToan.DuToan {
-
-
-	public partial class F204_nhap_giao_von_QBT
-	{
+    
+    
+    public partial class F204_nhap_giao_von_QBT {
         
         /// <summary>
         /// ScriptManager1 control.
@@ -68,24 +67,6 @@ namespace QuanLyDuToan.DuToan {
         protected global::System.Web.UI.WebControls.Label m_lbl_mess_qd;
         
         /// <summary>
-        /// m_lbl_loai_quyet_dinh control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label m_lbl_loai_quyet_dinh;
-        
-        /// <summary>
-        /// HiddenField1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField HiddenField1;
-        
-        /// <summary>
         /// m_txt_so_qd control.
         /// </summary>
         /// <remarks>
@@ -119,7 +100,25 @@ namespace QuanLyDuToan.DuToan {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label m_lbl_ngay_thang;
+        protected global::System.Web.UI.WebControls.TextBox m_lbl_ngay_thang;
+        
+        /// <summary>
+        /// m_lbl_loai_quyet_dinh control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox m_lbl_loai_quyet_dinh;
+        
+        /// <summary>
+        /// HiddenField1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField HiddenField1;
         
         /// <summary>
         /// m_txt_noi_dung control.

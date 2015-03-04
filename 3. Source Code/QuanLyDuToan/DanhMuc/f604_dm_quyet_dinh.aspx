@@ -2,7 +2,13 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="Server">
     <style>
-      
+ 	label {
+    		display: table-cell;
+    	}
+	 .HeaderStyle {
+            background: #ddd;
+            border-color: #000;
+        }
     </style>
 	<script>
 		function pageLoad(sender, args) {
@@ -22,11 +28,10 @@
 	</asp:ScriptManager>
 	<asp:UpdatePanel ID="UpdatePanel1" runat="server">
 		<ContentTemplate>
-			<table id="main_table" cellspacing="0" cellpadding="2" style="width: 99%;" class="cssTable table" border="0">
+			<table id="main_table" cellspacing="0" cellpadding="2" style="width: 950px ;margin:auto" class="cssTable table" border="0">
 				<tr>
 					<td class="cssPageTitleBG" colspan="4">
 						<asp:Label ID="m_lbl_title" runat="server" Text="Cập nhật thông tin quyết định" CssClass="cssPageTitle"></asp:Label>
-						<span class="expand-collapse-text"></span>
 					</td>
 				</tr>
 				<tr>
@@ -43,16 +48,16 @@
 				</tr>
 				<tr>
 					<td style="text-align: right; width: 30%">
-						<span class="cssManField">Loại quyết định</span>
+						<span>Loại quyết định</span>
 					</td>
 					<td id="td_radio" style="width: 70%">
-						<asp:RadioButton ID="m_rdb_giao_ke_hoach" runat="server" CssClass=" radio-inline"  ForeColor="Blue" Text="Giao kế hoạch" GroupName="loai" Checked="true" AutoPostBack="true" OnCheckedChanged="m_rdb_giao_ke_hoach_CheckedChanged" />
-						<asp:RadioButton ID="m_rdb_giao_von" runat="server" CssClass=" radio-inline"  ForeColor="Blue" Text="Giao vốn" GroupName="loai" AutoPostBack="true" OnCheckedChanged="m_rdb_giao_von_CheckedChanged" />
+						<asp:RadioButton ID="m_rdb_giao_ke_hoach" runat="server" CssClass=" radio-inline"   Text="Giao kế hoạch" GroupName="loai" Checked="true" AutoPostBack="true" OnCheckedChanged="m_rdb_giao_ke_hoach_CheckedChanged" />
+						<asp:RadioButton ID="m_rdb_giao_von" runat="server" CssClass=" radio-inline"   Text="Giao vốn" GroupName="loai" AutoPostBack="true" OnCheckedChanged="m_rdb_giao_von_CheckedChanged" />
 					</td>
 				</tr>
 				<tr>
 					<td style="text-align: right">
-						<asp:Label ID="m_lbl_loai_quyet_dinh_giao" runat="server" Text="Loại" CssClass="cssManField"></asp:Label></td>
+						<asp:Label ID="m_lbl_loai_quyet_dinh_giao" runat="server" Text="Loại"></asp:Label></td>
 					<td>
 						<asp:RadioButton ID="m_rdb_loai_quyet_dinh_giao_dau_nam" cssclass="radio-inline" runat="server" Text="Đầu năm" GroupName="loai_quyet_dinh_giao" Checked="true" />
 						<asp:RadioButton ID="m_rdb_loai_quyet_dinh_giao_bo_sung" runat="server" cssclass="radio-inline" Text="Bổ sung" GroupName="loai_quyet_dinh_giao" />
@@ -61,7 +66,7 @@
 				</tr>
 				<tr>
 					<td style="text-align: right">
-						<span class="cssManField">Số quyết định</span>
+						<span>Số quyết định</span>
 					</td>
 					<td>
 						<asp:TextBox ID="m_txt_so_quyet_dinh" runat="server" Width="50%" CssClass="cssTextBox form-control" placeholder="Nhập số quyết định"></asp:TextBox></td>
@@ -69,14 +74,14 @@
 				<tr>
 
 					<td align="right">
-						<span class="cssManField">Nội dung</span>
+						<span>Nội dung</span>
 					</td>
 					<td>
-						<asp:TextBox ID="m_txt_noi_dung" runat="server" Width="80%" CssClass="cssTextBox form-control" placehoder="Nhập nội dung quyết định"></asp:TextBox></td>
+						<asp:TextBox ID="m_txt_noi_dung" runat="server" Width="50%" CssClass="cssTextBox form-control" placehoder="Nhập nội dung quyết định"></asp:TextBox></td>
 				</tr>
 				<tr>
 					<td align="right">
-						<span class="cssManField">Ngày tháng</span>
+						<span>Ngày tháng</span>
 					</td>
 					<td>
 						<div id="datetimepicker1" class="input-group date datepicker" style="width: 210px;">
@@ -89,20 +94,20 @@
 				<tr>
 					<td></td>
 					<td>
-						<asp:Button ID="m_cmd_insert" Text="Thêm quyết định" runat="server" CssClass="btn btn-sm" OnClick="m_cmd_insert_Click" />
-						<asp:Button ID="m_cmd_update" Text="Cập nhật" runat="server" CssClass="btn btn-sm" OnClick="m_cmd_update_Click" />
-						<asp:Button ID="m_cmd_cancel" Text="Xoá trắng" runat="server" CssClass="btn btn-sm" OnClick="m_cmd_cancel_Click" />
+						<asp:Button ID="m_cmd_insert" Text="Thêm quyết định" runat="server" CssClass="btn btn-primary btn-sm" OnClick="m_cmd_insert_Click" />
+						<asp:Button ID="m_cmd_update" Text="Cập nhật" runat="server" CssClass="btn btn-primary btn-sm" OnClick="m_cmd_update_Click" />
+						<asp:Button ID="m_cmd_cancel" Text="Xoá trắng" runat="server" CssClass="btn btn-sm btn-default" OnClick="m_cmd_cancel_Click" />
 						<asp:HiddenField ID="m_hdf_form_mode" runat="server" />
 						<asp:HiddenField ID="m_hdf_id_quyet_dinh" runat="server" />
 					</td>
 				</tr>
 			</table>
 			
-			<table cellspacing="0" cellpadding="2" style="width: 99%;" class="cssTable" border="0">
+			<table cellspacing="0" cellpadding="2" style="width: 950px ;margin:auto" class="cssTable" border="0">
 				<tr>
 					<td class="cssPageTitleBG" colspan="4">
 						<asp:Label ID="m_lbl_grid_title" runat="server" Text="Danh sách quyết định" CssClass="cssPageTitle"></asp:Label>
-						<span class="expand-collapse-text"></span>
+						
 					</td>
 				</tr>
 				
@@ -112,14 +117,14 @@
 							CssClass="cssGrid" Width="100%" CellPadding="0" ForeColor="#333333"
 							AllowSorting="True" PageSize="30" ShowHeader="true"
 							EmptyDataText="Không có dữ liệu phù hợp"
-							OnRowCommand="m_grv_RowCommand">
-							<AlternatingRowStyle BackColor="White" />
+							OnRowCommand="m_grv_RowCommand" HeaderStyle-CssClass="HeaderStyle">
+							<%--<AlternatingRowStyle BackColor="White" />
 							<EditRowStyle BackColor="#7C6F57" />
 							<FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
 							<HeaderStyle BackColor="#810c15" Font-Bold="True" ForeColor="White" />
 							<PagerSettings Position="TopAndBottom" />
 							<PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
-							<RowStyle BackColor="#E3EAEB" />
+							<RowStyle BackColor="#E3EAEB" />--%>
 							<SelectedRowStyle CssClass="cssSelectedRow" BackColor="#C5BBAF" Font-Bold="True"
 								ForeColor="#333333"></SelectedRowStyle>
 							<Columns>

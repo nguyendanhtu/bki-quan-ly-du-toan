@@ -64,7 +64,7 @@ namespace QuanLyDuToan.DuToan {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label m_lbl_dia_chi;
+        protected global::System.Web.UI.WebControls.TextBox m_lbl_dia_chi;
         
         /// <summary>
         /// m_txt_so_unc control.
@@ -136,7 +136,7 @@ namespace QuanLyDuToan.DuToan {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label m_lbl_ma_dvqhns;
+        protected global::System.Web.UI.WebControls.TextBox m_lbl_ma_dvqhns;
         
         /// <summary>
         /// m_cmd_luu_unc control.

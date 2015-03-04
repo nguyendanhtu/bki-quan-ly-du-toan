@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" >
     <head>
-		<title>Đăng nhập DRVN-QLDT</title>
+		<title>Đăng nhập DRVN-QLV</title>
         <link href="../Styles/Login.css" rel="stylesheet" type="text/css" />
 	    <style type="text/css">
             .style1
@@ -44,7 +44,7 @@
 		                        <td align="center" 
                                     style="background-image:url('../Images/Dialog/top-mid.png'); height:35px !important;width:340;" 
                                     valign="middle" >
-			                        <asp:label id="lblPageTitle" Runat="server" CssClass="cssTitleLogin" Text="ĐĂNG NHẬP QUẢN LÝ DỰ TOÁN" />
+			                        <asp:label id="lblPageTitle" Runat="server" CssClass="cssTitleLogin" Text="ĐĂNG NHẬP QUẢN LÝ VỐN" />
 		                        </td>
 		                        <td valign="top" style="width:7px;height:35px;background-image:url(../Images/Dialog/top-right.png);background-position:right;"></td>
 	                        </tr>

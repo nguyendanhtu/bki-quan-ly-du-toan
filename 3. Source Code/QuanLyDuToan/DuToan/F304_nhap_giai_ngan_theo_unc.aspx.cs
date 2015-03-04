@@ -10,6 +10,7 @@ using WebUS;
 using IP.Core.IPCommon;
 using System.Data;
 using QuanLyDuToan.App_Code;
+using Framework.Extensions;
 namespace QuanLyDuToan.DuToan
 {
 	public partial class F304_nhap_giai_ngan_theo_unc : System.Web.UI.Page
@@ -313,6 +314,7 @@ namespace QuanLyDuToan.DuToan
 			m_rbl_ma_tkkt.Enabled = false;
 			m_lbl_mess_grid.Text = "";
 			m_lbl_mess_detail.Text = "";
+			m_lbl_mess_master.Text = "";
 		}
 
 		private void format_control_print_and_save_info()
@@ -394,6 +396,26 @@ namespace QuanLyDuToan.DuToan
 				m_txt_so_unc.Focus();
 				return false;
 			}
+
+			//Check trung so unc
+			DS_DM_GIAI_NGAN v_ds_dm_giai_ngan = new DS_DM_GIAI_NGAN();
+			US_DM_GIAI_NGAN v_us_dm_giai_ngan = new US_DM_GIAI_NGAN();
+			v_us_dm_giai_ngan.get_dm_uy_nhiem_chi_by_don_vi_va_ngay_thang(
+										v_ds_dm_giai_ngan
+										, CIPConvert.ToDecimal(m_ddl_don_vi.SelectedValue)
+										, CCommonFunction.getDate_dau_nam_from_date(DateTime.Now)
+										, CCommonFunction.getDate_cuoi_nam_form_date(DateTime.Now)
+										, WebformFunctions.getValue_from_query_string<string>(this,FormInfo.QueryString.NGUON_NGAN_SACH,STR_NGUON.NGAN_SACH));
+
+			List<DBClassModel.DM_GIAI_NGAN> v_lst_giai_ngan = v_ds_dm_giai_ngan.DM_GIAI_NGAN.ToList<DBClassModel.DM_GIAI_NGAN>();
+			if (v_lst_giai_ngan.Where(x=>x.SO_UNC==m_txt_so_unc.Text.Trim()).ToList().Count>0)
+			{
+				m_lbl_mess_master.Text = "Bạn phải nhập Số Uỷ nhiệm chi, đã tồn tại Số uỷ nhiêm chi này!";
+				m_txt_so_unc.Focus();
+				return false;
+			}
+
+
 			if (!CValidateTextBox.IsValid(m_txt_ngay_thang, DataType.DateType, allowNull.NO))
 			{
 				m_lbl_mess_master.Text = "Bạn phải nhập Ngày tháng!";
@@ -407,6 +429,7 @@ namespace QuanLyDuToan.DuToan
 				return false;
 			}
 
+			
 			return true;
 		}
 
@@ -437,6 +460,7 @@ namespace QuanLyDuToan.DuToan
 			{
 				//Mỗi khi postback lên server - tương ứng với một hành động bên máy khách thì sẽ rết lại thông báo
 				reset_control();
+
 				if (!IsPostBack)
 				{
 					set_initial_form_load();
@@ -1468,6 +1492,7 @@ namespace QuanLyDuToan.DuToan
 			try
 			{
 				m_cmd_chon_unc_Click(null, null);
+				load_thong_tin_don_vi_lap_uy_nhiem_chi();
 				load_data_to_grid_chi_tiet_uy_nhiem_chi();
 
 				//Nếu không phải đơn vị của mình thì không được Nhập UNC,Thêm UNC

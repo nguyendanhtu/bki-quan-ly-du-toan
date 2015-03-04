@@ -448,7 +448,6 @@ namespace QuanLyDuToan.DuToan
 				m_lbl_mess_qd.Text = "";
 				if (!IsPostBack)
 				{
-
 					set_inital_form_mode();
 				}
 			}
@@ -609,64 +608,92 @@ namespace QuanLyDuToan.DuToan
 		}
 
         protected void m_grv_RowCreated(object sender, GridViewRowEventArgs e) {
+			const string v_c_str_header_css_class = "HeaderStyle";
             if (e.Row.RowType == DataControlRowType.Header) // If header created
 			{
-                GridView ProductGrid = (GridView)sender;
-                // Creating a Row
-                GridViewRow HeaderRow = new GridViewRow(0, 0, DataControlRowType.Header, DataControlRowState.Insert);
+				GridView v_grv = (GridView)sender;
+				//Tao dong 1
+				if (m_ddl_don_vi.SelectedValue == Person.get_id_don_vi().ToString())
+				WebformFunctions.addHeaderRow_to_grid_view(v_grv
+					,0
+					, v_c_str_header_css_class
+					, new CellInfoHeader[] { 
+						new CellInfoHeader("Xoá",2,1)
+						,new CellInfoHeader("Nhiệm vụ chi",1,1)
+						,new CellInfoHeader("Kế hoạch chi",1,1)
+						,new CellInfoHeader("Còn thiếu so với kế hoạch",1,1)
+						,new CellInfoHeader("Kinh phí đã nhận kỳ này",1,1)
+						,new CellInfoHeader("Tổng kinh phí đã nhận",1,1)
+						
+				});
+				else WebformFunctions.addHeaderRow_to_grid_view(v_grv
+					, 0
+					, v_c_str_header_css_class
+					, new CellInfoHeader[] { 
+						new CellInfoHeader("Nhiệm vụ chi",1,1)
+						,new CellInfoHeader("Kế hoạch chi",1,1)
+						,new CellInfoHeader("Còn thiếu so với kế hoạch",1,1)
+						,new CellInfoHeader("Kinh phí đã nhận kỳ này",1,1)
+						,new CellInfoHeader("Tổng kinh phí đã nhận",1,1)
+						
+				});
+				//GridView ProductGrid = (GridView)sender;
+				// Creating a Row
+				//GridViewRow HeaderRow = new GridViewRow(0,0, DataControlRowType.Header, DataControlRowState.Insert);
 
-                //Adding  Xoa
-                TableHeaderCell HeaderCell = new TableHeaderCell();
+				//Adding  Xoa
+				//TableHeaderCell HeaderCell ;
+				//HeaderCell = new TableHeaderCell();
 				//HeaderCell.Text = "Xóa";
 				//HeaderCell.HorizontalAlign = HorizontalAlign.Center;
 				//HeaderCell.RowSpan = 1;
 				//HeaderCell.CssClass = "HeaderStyle";
 				//HeaderRow.Cells.Add(HeaderCell);
 
-                //Adding  Nội dung
-                HeaderCell = new TableHeaderCell();
-                HeaderCell.Text = "Nhiệm vụ chi";
-                HeaderCell.HorizontalAlign = HorizontalAlign.Center;
-                HeaderCell.CssClass = "HeaderStyle";
-                HeaderRow.Cells.Add(HeaderCell);
+				//Adding  Nội dung
+				//HeaderCell = new TableHeaderCell();
+				//HeaderCell.Text = "Nhiệm vụ chi";
+				//HeaderCell.HorizontalAlign = HorizontalAlign.Center;
+				//HeaderCell.CssClass = "HeaderStyle";
+				//HeaderRow.Cells.Add(HeaderCell);
 
-                //Adding  Kế hoạch(dự toán) được chi cả năm
-                HeaderCell = new TableHeaderCell();
-                HeaderCell.Text = "Kế hoạch chi";
-                HeaderCell.HorizontalAlign = HorizontalAlign.Center;
-                HeaderCell.CssClass = "HeaderStyle";
-                HeaderRow.Cells.Add(HeaderCell);
+				//Adding  Kế hoạch(dự toán) được chi cả năm
+				//HeaderCell = new TableHeaderCell();
+				//HeaderCell.Text = "Kế hoạch chi";
+				//HeaderCell.HorizontalAlign = HorizontalAlign.Center;
+				//HeaderCell.CssClass = "HeaderStyle";
+				//HeaderRow.Cells.Add(HeaderCell);
 
-                //Adding Kinh phí đã nhân
-                HeaderCell = new TableHeaderCell();
-                HeaderCell.Text = "Còn thiếu so với kế hoạch";
-                HeaderCell.HorizontalAlign = HorizontalAlign.Center;
-                HeaderCell.CssClass = "HeaderStyle";
-                HeaderRow.Cells.Add(HeaderCell);
+				//Adding Kinh phí đã nhân
+				//HeaderCell = new TableHeaderCell();
+				//HeaderCell.Text = "Còn thiếu so với kế hoạch";
+				//HeaderCell.HorizontalAlign = HorizontalAlign.Center;
+				//HeaderCell.CssClass = "HeaderStyle";
+				//HeaderRow.Cells.Add(HeaderCell);
 
-                //Adding Kinh phí đã chi
-                HeaderCell = new TableHeaderCell();
-                HeaderCell.Text = "Kinh phí đã nhận kì này";
-                HeaderCell.HorizontalAlign = HorizontalAlign.Center;
-                HeaderCell.CssClass = "HeaderStyle";
-                HeaderRow.Cells.Add(HeaderCell);
+				//Adding Kinh phí đã chi
+				//HeaderCell = new TableHeaderCell();
+				//HeaderCell.Text = "Kinh phí đã nhận kì này";
+				//HeaderCell.HorizontalAlign = HorizontalAlign.Center;
+				//HeaderCell.CssClass = "HeaderStyle";
+				//HeaderRow.Cells.Add(HeaderCell);
 
-                //Adding 
-                //HeaderCell = new TableHeaderCell();
-                //HeaderCell.Text = "Số kinh phí chưa giải ngân";
-                //HeaderCell.HorizontalAlign = HorizontalAlign.Center;
-                //HeaderCell.RowSpan = 2; // For merging three columns (tso, chitx)
-                //HeaderCell.CssClass = "HeaderStyle";
-                //HeaderRow.Cells.Add(HeaderCell);
+				//Adding 
+				//HeaderCell = new TableHeaderCell();
+				//HeaderCell.Text = "Số kinh phí chưa giải ngân";
+				//HeaderCell.HorizontalAlign = HorizontalAlign.Center;
+				//HeaderCell.RowSpan = 2; // For merging three columns (tso, chitx)
+				//HeaderCell.CssClass = "HeaderStyle";
+				//HeaderRow.Cells.Add(HeaderCell);
 
-                //Adding 
-                HeaderCell = new TableHeaderCell();
-                HeaderCell.Text = "Tổng kinh phí đã nhận";
-                HeaderCell.HorizontalAlign = HorizontalAlign.Center;
-                HeaderCell.CssClass = "HeaderStyle";
-                HeaderRow.Cells.Add(HeaderCell);
+				//Adding 
+				//HeaderCell = new TableHeaderCell();
+				//HeaderCell.Text = "Tổng kinh phí đã nhận";
+				//HeaderCell.HorizontalAlign = HorizontalAlign.Center;
+				//HeaderCell.CssClass = "HeaderStyle";
+				//HeaderRow.Cells.Add(HeaderCell);
 
-                ProductGrid.Controls[0].Controls.AddAt(0, HeaderRow);
+				//ProductGrid.Controls[0].Controls.AddAt(0, HeaderRow);
             }
         }
 

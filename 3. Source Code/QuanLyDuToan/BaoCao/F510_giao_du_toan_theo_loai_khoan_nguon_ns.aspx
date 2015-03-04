@@ -23,7 +23,7 @@
             float:left;
         }
 
-	    .control select, input {
+	    .control select{
 	        width:220px !important;
             margin-left:10px;    
         }
@@ -174,14 +174,13 @@
 		    <br />--%>
 		    <span style="font-weight: bold">TỔNG HỢP ĐÃ GIAO DỰ TOÁN NĂM <asp:Label runat="server" Text="Label" ID="m_lbl_nam">2014</asp:Label> - ĐÀO TẠO (490-498; 490-497; 490-501)</span>
             <br />
-		    <br />
         </div>
         <div style="color:black; text-align:center; margin-top:20px;">
             <div class="divBoxControl" style="height: 119px;">
                 <div class="height30"style="height: 34px; width: 403px;margin-bottom: 4px;">
                     <div class="lb">Tìm kiếm:</div>
 				    <div class="control input-group"style="margin-left: 23px;">
-                        <asp:TextBox ID="m_txt_tu_khoa_tim_kiem" cssclass="form-control" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="m_txt_tu_khoa_tim_kiem" Width="220px" cssclass="form-control" runat="server"></asp:TextBox>
                         <span class="input-group-addon">
                                <span class="glyphicon-search glyphicon"></span>
                            </span>
@@ -190,7 +189,7 @@
                 <div class="height30">
                      <div class="lb" style="margin-right:23px">Từ ngày</div>
                        <div id="datetimepicker1" class="input-group date" style="width: 200px;">
-                          <asp:TextBox ID="m_txt_tu_ngay" placeholder="dd/MM/yyyy" runat="server" CssClass="cssTextBox date-start" Height="30px" Width="164px"></asp:TextBox>
+                          <asp:TextBox ID="m_txt_tu_ngay" placeholder="dd/MM/yyyy" runat="server" CssClass="cssTextBox date-start" Height="30px" Width="220px"></asp:TextBox>
                            <span class="input-group-addon">
                                <span class="glyphicon-calendar glyphicon"></span>
                            </span>
@@ -199,16 +198,16 @@
                 <div class="height30">
 				    <div class="lb" style="margin-right:23px">Đến ngày</div>
                           <div id="datetimepicker2" class="input-group date" style="width: 200px;">
-                          <asp:TextBox ID="m_txt_den_ngay" placeholder="dd/MM/yyyy" runat="server" CssClass="cssTextBox  date-start" Height="30px" Width="164px"></asp:TextBox>
+                          <asp:TextBox ID="m_txt_den_ngay" placeholder="dd/MM/yyyy" runat="server" CssClass="cssTextBox  date-start" Height="30px" Width="220px"></asp:TextBox>
                            <span class="input-group-addon">
                                <span class="glyphicon-calendar glyphicon"></span>
                            </span>
                       </div>
                 </div>
             </div>
-            <div>
-                <asp:Button ID="m_cmd_xem_bao_cao" Text="Xem báo cáo" runat="server" cssclass="btn btn-sm btn-primary" OnClick="m_cmd_xem_bao_cao_Click" />
-                <asp:Button ID="m_cmd_xuat_excel" Text="Xuất excel" OnClick="m_cmd_xuat_excel_Click" runat="server" cssclass="btn btn-sm btn-primary" Enabled="true" />
+            <div style="margin-left:100px">
+                <asp:Button ID="m_cmd_xem_bao_cao" Width="100px" Text="Xem báo cáo" runat="server" cssclass="btn btn-default btn-sm btn-primary" OnClick="m_cmd_xem_bao_cao_Click" />
+                <asp:Button ID="m_cmd_xuat_excel" Text="Xuất excel" OnClick="m_cmd_xuat_excel_Click" runat="server" cssclass="btn btn-sm btn-success" Enabled="true" />
             </div>
             <div style="margin-top: 15px;">
                 <asp:Label runat="server" Text="Label" ID="m_lbl_mess"></asp:Label>

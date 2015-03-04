@@ -118,7 +118,7 @@ namespace QuanLyDuToan.BaoCao
             DataTable v_dt = ip_ds.Tables[0];
             if (v_dt.Columns.Count == 6) {
                 m_grv_bao_cao_giao_von.Visible = false;
-                m_lbl_mess.Text = "Không tìm thấy quyết định nào!!!";
+				m_lbl_mess.Text = "Không tìm thấy dữ liệu phù hợp!!!";
                 m_lbl_mess.Visible = true;
             }
             for (int i = 6; i < v_dt.Columns.Count; i++) {

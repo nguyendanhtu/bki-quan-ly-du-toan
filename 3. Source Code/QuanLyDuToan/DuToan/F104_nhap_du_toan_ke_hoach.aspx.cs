@@ -53,6 +53,7 @@ namespace QuanLyDuToan.DuToan
 			}
 			return op_str;
 		}
+		
 		#endregion
 
 		#region Data Structure
@@ -1136,7 +1137,7 @@ namespace QuanLyDuToan.DuToan
 			load_data_to_cbo_quyet_dinh();
 			m_ddl_quyet_dinh.Visible = true;
 			m_txt_so_qd.Visible = false;
-			m_txt_noi_dung.Visible = false;
+			//m_txt_noi_dung.Visible = false;
 			//m_txt_ngay_thang.Visible = false;
 			//m_cmd_luu_qd.Visible = false;
 
@@ -1370,6 +1371,17 @@ namespace QuanLyDuToan.DuToan
 			{
 				load_data_to_ddl_loai_nhiem_vu();
 				load_panel_loai_chi();
+				//Neu la "Quy bao tri" khi chon "Theo muc luc ngan sach" thi an "So km","Loai chi"
+				if (WebformFunctions.getValue_from_query_string<string>(this, "ip_nguon_ns", "N").Equals("N"))
+				{
+					m_pnl_loai_chi.Visible = false;
+					m_pnl_so_km.Visible = false;
+				}
+				else
+				{
+					m_pnl_loai_chi.Visible = true;
+					m_pnl_so_km.Visible = false;
+				}
 				//m_cmd_cancel_Click(null, null);
 				//load_data_to_grid();
 			}
@@ -1388,6 +1400,8 @@ namespace QuanLyDuToan.DuToan
 			{
 				load_data_to_ddl_loai_nhiem_vu();
 				load_panel_loai_chi();
+				m_pnl_so_km.Visible = true;
+				
 				//m_cmd_cancel_Click(null, null);
 				//load_data_to_grid();
 			}
