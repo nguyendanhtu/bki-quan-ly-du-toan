@@ -31,9 +31,11 @@
 			<td>Mã ĐVQHNS: </td>
 			<td><asp:TextBox ID="m_txt_ma_dvqhns" cssclass="form-control"  runat="server" Width="150px"></asp:TextBox></td>
 		</tr>
+		
 		<tr>
-			<td colspan="2" style="text-align:center">
-				<asp:Button ID="m_cmd_save" cssclass="btn"  runat="server" Text="Lưu dữ liệu" OnClick="m_cmd_save_Click" />
+			<td></td>
+			<td colspan="1" style="text-align:left">
+				<asp:Button ID="m_cmd_save" cssclass="btn btn-sm btn-success"  runat="server" Text="Lưu dữ liệu" OnClick="m_cmd_save_Click" />
 			</td>
 		</tr>
 	</table>
