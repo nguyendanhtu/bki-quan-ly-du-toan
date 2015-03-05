@@ -185,7 +185,7 @@
 								</div>
 								<div class="boxControl">
 									<div class="height30">
-										<div class="lb" style="margin-right: 30px">Từ ngày</div>
+										<div class="lb" style="margin: 9px 0px 0px 24px">Từ ngày</div>
 										<div id="datetimepicker1" class="input-group date datepicker" style="width: 200px;">
 											<asp:TextBox ClientIDMode="Static" ID="m_txt_tu_ngay" placeholder="dd/MM/yyyy" runat="server" CssClass="cssTextBox form-control  date-start" Height="30px" Width="164px" OnTextChanged="m_txt_tu_ngay_TextChanged" AutoPostBack="true"></asp:TextBox>
 											<span class="input-group-addon"><span class="glyphicon-calendar glyphicon"></span>
@@ -193,7 +193,7 @@
 										</div>
 									</div>
 									<div class="height30" style="margin-bottom: 5px;">
-										<div class="lb" style="margin-right: 30px">Đến ngày</div>
+										<div class="lb" style="margin: 9px 0px 0px 24px">Đến ngày</div>
 										<div id="datetimepicker2" class="input-group date datepicker" style="width: 200px;">
 											<asp:TextBox ID="m_txt_den_ngay" ClientIDMode="Static" placeholder="dd/MM/yyyy" runat="server" CssClass="cssTextBox form-control date-end" Height="30px" Width="164px" OnTextChanged="m_txt_den_ngay_TextChanged" AutoPostBack="true"></asp:TextBox>
 											<span class="input-group-addon"><span class="glyphicon-calendar glyphicon"></span>
@@ -201,7 +201,7 @@
 										</div>
 									</div>
 									<div class="height30">
-										<div class="lb" style="margin-right: 34px">Quyết định</div>
+										<div class="lb" style="margin: 3px 4px 0px 24px">Chọn quyết định</div>
 										<div class="control1" style="width: 203px !important;">
 											<asp:DropDownList ID="m_ddl_quyet_dinh" runat="server" CssClass="select2" OnSelectedIndexChanged="m_ddl_quyet_dinh_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
 										</div>
@@ -236,10 +236,10 @@
 					<tr>
 						<td colspan="4" style="margin: auto" align="center">
 							<asp:GridView ClientIDMode="Static" ID="m_grv" runat="server" AutoGenerateColumns="False" DataKeyNames="ID"
-								CssClass="cssGrid table" CellPadding="0" ForeColor="Black"
+								CssClass="cssGrid" CellPadding="0" ForeColor="Black"
 								AllowSorting="True" PageSize="60"
 								EmptyDataText="Không có dữ liệu phù hợp"
-								HeaderStyle-Height="65px" RowStyle-Height="28px" EnableModelValidation="True">
+								HeaderStyle-Height="65px" RowStyle-Height="28px" Width="100%" EnableModelValidation="True">
 
 								<Columns>
 									<asp:BoundField HeaderText="Nội dung" HeaderStyle-HorizontalAlign="Center" HeaderStyle-VerticalAlign="Middle" DataField="noi_dung" HtmlEncode="false">

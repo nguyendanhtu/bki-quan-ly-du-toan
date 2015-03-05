@@ -108,7 +108,7 @@ namespace WebUS
 	}
 	public class CONST_TONG
 	{
-		public const string TONG = "---------Tổng---------";
+		public const string TONG = "Tổng hợp các quyết định";
 	}
 
 	public class CONST_GIAO_DICH
