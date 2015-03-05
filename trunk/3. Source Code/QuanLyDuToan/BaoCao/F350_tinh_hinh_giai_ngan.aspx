@@ -148,7 +148,7 @@
                         <div class="divBoxControl height30">
                             <div class="lb">Tìm kiếm:</div>
                             <div class="control">
-                                <asp:TextBox ID="m_txt_tim_kiem" runat="server" CssClass="filter"></asp:TextBox>
+                                <asp:TextBox ID="m_txt_tim_kiem" runat="server" CssClass="filter form-control"></asp:TextBox>
                             </div>
                         </div>
                         <div style="width: 680px; margin: 0px auto">
@@ -213,7 +213,7 @@
                                 You must have Flash 10 installed to download this file.
                             </div>
                         </div>
-                        <asp:Button ID="m_cmd_xuat_excel" Visible="false" Text="Xuất excel" OnClick="m_cmd_xuat_excel_Click" runat="server" CssClass="btn btn-sm btn-primary" />
+                        <asp:Button ID="m_cmd_xuat_excel" Visible="false" Text="Xuất file excel" OnClick="m_cmd_xuat_excel_Click" runat="server" CssClass="btn btn-sm btn-primary" />
                     </td>
                 </tr>
                 <tr>
@@ -222,12 +222,14 @@
                             <asp:GridView ClientIDMode="Static" ID="m_grv" runat="server" AutoGenerateColumns="False"
                                 CssClass="cssGrid" Width="2500px" CellPadding="0" ForeColor="Black"
                                 AllowSorting="True" PageSize="60"
-                                EmptyDataText="Không có dữ liệu phù hợp" OnRowCreated="m_grv_RowCreated" EnableModelValidation="True" HeaderStyle-CssClass="HeaderStyle">
+                                EmptyDataText="Không có dữ liệu phù hợp" OnRowCreated="m_grv_RowCreated" EnableModelValidation="True" HeaderStyle-CssClass="HeaderStyle"
+						
+								>
 
                                 <Columns>
                                     <asp:TemplateField ItemStyle-HorizontalAlign="Center" HeaderText="(a)" HeaderStyle-Width="2%" HeaderStyle-Height="10px">
                                         <ItemTemplate>
-                                            <font class='a<%# Eval(GRID_GIAI_NGAN.ID)%>'><%# Container.DataItemIndex + 1 %></font>
+                                            <font class='a<%# Eval(GRID_GIAI_NGAN.ID)%>'><%# getSTT(Eval(GRID_GIAI_NGAN.NOI_DUNG).ToString()) %></font>
                                         </ItemTemplate>
                                         <HeaderStyle Height="10px" Width="2%" HorizontalAlign="Center" />
                                         <ItemStyle HorizontalAlign="Center" />

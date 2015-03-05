@@ -106,7 +106,7 @@
                                     <div id="downloadify" style="width: 100px; margin: 0px auto;float: left;">
 				                        You must have Flash 10 installed to download this file.
 			                        </div>
-                                    <asp:Button runat="server" Visible="false" Text="Xuất excel" CssClass="btn btn-sm btn-primary" ID="m_cmd_xuat_excel" OnClick="m_cmd_xuat_excel_Click"></asp:Button>
+                                    <asp:Button runat="server" Visible="false" Text="Xuất file excel" CssClass="btn btn-sm btn-primary" ID="m_cmd_xuat_excel" OnClick="m_cmd_xuat_excel_Click"></asp:Button>
                                 </div>
                             </td>
                         </tr>
@@ -210,7 +210,7 @@
                 </asp:GridView>
             </div>
             <div style="text-align: center">
-                <asp:Button CssClass="btn btn-primary btn-sm" runat="server" Text="Xuất excel" ID="m_cmd_xuat_excel"
+                <asp:Button CssClass="btn btn-primary btn-sm" runat="server" Text="Xuất file excel" ID="m_cmd_xuat_excel"
                     OnClick="m_cmd_xuat_excel_Click"></asp:Button>
             </div>
         </ContentTemplate>--%>

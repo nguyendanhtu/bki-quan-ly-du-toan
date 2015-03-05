@@ -13,7 +13,7 @@ using System.Web.UI;
 public class WebformReport
 {
 	/*
-* Chú ý khi xuất excel:
+* Chú ý khi Xuất file excel:
 * thêm EnableEventValidation ="false" vào <%@ Page ở trang .aspx
 * Hàm load dữ liệu lên lưới để là: load_data_to_grid();
 */

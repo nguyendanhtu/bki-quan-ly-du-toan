@@ -196,12 +196,17 @@ namespace QuanLyDuToan.DanhMuc
 				CSystemLog_301.ExceptionHandle(this, v_e);
 			}
 		}
+		private bool delete_all_data_of_don_vi(decimal ip_dc_id_don_vi)
+		{
+			return m_us_don_vi.deleteAllDataOfDonVi(ip_dc_id_don_vi);
+		}
 		private void delete_dm_don_vi(int i_int_row_index)
 		{
 			try
 			{
-				decimal dc_id_don_vi = CIPConvert.ToDecimal(m_grv_dm_don_vi.DataKeys[i_int_row_index].Value);
-				m_us_don_vi.DeleteByID(dc_id_don_vi);
+				decimal v_dc_id_don_vi = CIPConvert.ToDecimal(m_grv_dm_don_vi.DataKeys[i_int_row_index].Value);
+				delete_all_data_of_don_vi(v_dc_id_don_vi);
+				//m_us_don_vi.DeleteByID(v_dc_id_don_vi);
 				load_data_2_grid();
 				m_lbl_mess.Text = "Xóa bản ghi thành công.";
 			}
@@ -478,6 +483,7 @@ namespace QuanLyDuToan.DanhMuc
 				CSystemLog_301.ExceptionHandle(this, v_e);
 			}
 		}
+
 		protected void m_grv_dm_don_vi_RowDeleting(object sender, GridViewDeleteEventArgs e)
 		{
 			try
@@ -495,18 +501,6 @@ namespace QuanLyDuToan.DanhMuc
 			
 			m_grv_dm_don_vi.PageIndex = e.NewPageIndex;
 			load_data_2_grid();
-		}
-		protected void m_cbo_don_vi_cap_tren_SelectedIndexChanged(object sender, EventArgs e)
-		{
-			try
-			{
-				load_data_2_grid();
-			}
-			catch (Exception v_e)
-			{
-
-				throw v_e;
-			}
 		}
 		protected void m_grv_dm_don_vi_RowUpdating(object sender, GridViewUpdateEventArgs e)
 		{
@@ -526,6 +520,20 @@ namespace QuanLyDuToan.DanhMuc
 			}
 
 		}
+
+		protected void m_cbo_don_vi_cap_tren_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			try
+			{
+				load_data_2_grid();
+			}
+			catch (Exception v_e)
+			{
+
+				throw v_e;
+			}
+		}
+		
 		protected void m_cmd_tim_kiem_Click(object sender, EventArgs e)
 		{
 			try

@@ -207,7 +207,7 @@
             </div>
             <div style="margin-left:100px">
                 <asp:Button ID="m_cmd_xem_bao_cao" Width="100px" Text="Xem báo cáo" runat="server" cssclass="btn btn-default btn-sm btn-primary" OnClick="m_cmd_xem_bao_cao_Click" />
-                <asp:Button ID="m_cmd_xuat_excel" Text="Xuất excel" OnClick="m_cmd_xuat_excel_Click" runat="server" cssclass="btn btn-sm btn-success" Enabled="true" />
+                <asp:Button ID="m_cmd_xuat_excel" Text="Xuất file excel" OnClick="m_cmd_xuat_excel_Click" runat="server" cssclass="btn btn-sm btn-success" Enabled="true" />
             </div>
             <div style="margin-top: 15px;">
                 <asp:Label runat="server" Text="Label" ID="m_lbl_mess"></asp:Label>

@@ -14,73 +14,87 @@ using System.Data;
 
 namespace QuanLyDuToan.BaoCao
 {
-	public partial class F350_tinh_hinh_giai_ngan : System.Web.UI.Page {
+	public partial class F350_tinh_hinh_giai_ngan : System.Web.UI.Page
+	{
 
-        #region Refactory by Huytd ngày 12/02/2015 7:30pm
-        /*
+		#region Refactory by Huytd ngày 12/02/2015 7:30pm
+		/*
          * còn chưa refactory format_link_to_chi_tiet() & format_link_to_chi_tiet_trong_thang
          */
-        #endregion
+		#endregion
 
-        #region Public Function
-        public override void VerifyRenderingInServerForm(Control control) {
-            //base.VerifyRenderingInServerForm(control);
-        }
-        public decimal format_so_tien(object ip_str_so_tien) {
-            decimal op_dc_so_tien = 0;
-            if (ip_str_so_tien == DBNull.Value) {
-                op_dc_so_tien = 0;
-            }
-            else op_dc_so_tien = CIPConvert.ToDecimal(ip_str_so_tien);
-            return op_dc_so_tien;
-        }
-        #endregion
+		#region Public Function
+		public string getSTT(string ip_str_noi_dung)
+		{
+			if (ip_str_noi_dung.Equals("Tổng cộng")) return "";
+			m_i_stt++;
+			return m_i_stt.ToString();
+		}
+		public override void VerifyRenderingInServerForm(Control control)
+		{
+			//base.VerifyRenderingInServerForm(control);
+		}
+		public decimal format_so_tien(object ip_str_so_tien)
+		{
+			decimal op_dc_so_tien = 0;
+			if (ip_str_so_tien == DBNull.Value)
+			{
+				op_dc_so_tien = 0;
+			}
+			else op_dc_so_tien = CIPConvert.ToDecimal(ip_str_so_tien);
+			return op_dc_so_tien;
+		}
+		#endregion
 
-        #region Data Member
-        decimal m_dc_id_don_vi;
+		#region Data Member
+		private int m_i_stt = 0;
+		decimal m_dc_id_don_vi;
 		DateTime m_dat_tu_ngay;
 		DateTime m_dat_den_ngay;
 		#endregion
 
 		#region Private Method
-        private void set_value_from_query_string() {
-            //load don vi
-            m_dc_id_don_vi = WebformFunctions.getValue_from_query_string<Decimal>(
-                this
-                , FormInfo.QueryString.ID_DON_VI
-                , Person.get_id_don_vi());
-            //load ngay thang theo query string
-            m_txt_tu_ngay.Text = WebformFunctions.getValue_from_query_string<String>(
-                this
-                , FormInfo.QueryString.TU_NGAY
-                , CIPConvert.ToStr(CCommonFunction.getDate_dau_nam_from_date(DateTime.Now), "dd/MM/yyyy"));
-            m_txt_den_ngay.Text = WebformFunctions.getValue_from_query_string<String>(
-                this
-                , FormInfo.QueryString.DEN_NGAY
-                , CIPConvert.ToStr(DateTime.Now, "dd/MM/yyyy"));
+		private void set_value_from_query_string()
+		{
+			//load don vi
+			m_dc_id_don_vi = WebformFunctions.getValue_from_query_string<Decimal>(
+				this
+				, FormInfo.QueryString.ID_DON_VI
+				, Person.get_id_don_vi());
+			//load ngay thang theo query string
+			m_txt_tu_ngay.Text = WebformFunctions.getValue_from_query_string<String>(
+				this
+				, FormInfo.QueryString.TU_NGAY
+				, CIPConvert.ToStr(CCommonFunction.getDate_dau_nam_from_date(DateTime.Now), "dd/MM/yyyy"));
+			m_txt_den_ngay.Text = WebformFunctions.getValue_from_query_string<String>(
+				this
+				, FormInfo.QueryString.DEN_NGAY
+				, CIPConvert.ToStr(DateTime.Now, "dd/MM/yyyy"));
 
-        }
-        private void set_inital_form_load() {
-            //load dll don vi
-            load_data_to_ddl_don_vi();
-            // get query string
-            set_value_from_query_string();
-            //load cac ddl
-            App_Code.WebformControls.load_data_to_ddl_loai_nhiem_vu(m_ddl_loai_nv);
-            App_Code.WebformControls.load_data_to_cbo_cong_trinh_theo_loai_nhiem_vu(CIPConvert.ToDecimal(m_ddl_loai_nv.SelectedValue), m_ddl_cong_trinh, m_dc_id_don_vi);
-            App_Code.WebformControls.load_data_to_cbo_du_an_theo_cong_trinh_va_loai_nhiem_vu(CIPConvert.ToDecimal(m_ddl_cong_trinh.SelectedValue), CIPConvert.ToDecimal(m_ddl_loai_nv.SelectedValue), m_ddl_du_an, m_dc_id_don_vi);
-            //load data grid
-            load_data_to_grid();
-        }
-        private void load_data_to_ddl_don_vi() {
-            WebformControls.load_data_to_ddl_don_vi_get_list_don_vi_duoc_xem_du_lieu(
-                                WebformFunctions.getValue_from_query_string<decimal>(
-                                                    this
-                                                    ,FormInfo.QueryString.ID_DON_VI
-                                                    ,Person.get_id_don_vi()
-                                                    )
-                                ,m_ddl_don_vi);
-        }
+		}
+		private void set_inital_form_load()
+		{
+			//load dll don vi
+			load_data_to_ddl_don_vi();
+			// get query string
+			set_value_from_query_string();
+			//load cac ddl
+			App_Code.WebformControls.load_data_to_ddl_loai_nhiem_vu(m_ddl_loai_nv);
+			App_Code.WebformControls.load_data_to_cbo_cong_trinh_theo_loai_nhiem_vu(CIPConvert.ToDecimal(m_ddl_loai_nv.SelectedValue), m_ddl_cong_trinh, m_dc_id_don_vi);
+			App_Code.WebformControls.load_data_to_cbo_du_an_theo_cong_trinh_va_loai_nhiem_vu(CIPConvert.ToDecimal(m_ddl_cong_trinh.SelectedValue), CIPConvert.ToDecimal(m_ddl_loai_nv.SelectedValue), m_ddl_du_an, m_dc_id_don_vi);
+			//load data grid
+			load_data_to_grid();
+		}
+		private void load_data_to_ddl_don_vi()
+		{
+			WebformControls.load_data_to_ddl_don_vi_get_list_don_vi_duoc_xem_du_lieu(
+								WebformFunctions.getValue_from_query_string<decimal>(
+													this
+													, FormInfo.QueryString.ID_DON_VI
+													, Person.get_id_don_vi()
+													)
+								, m_ddl_don_vi);
+		}
 		public string format_link_to_chi_tiet(
 			object ip_level
 			, object ip_id_don_vi
@@ -100,7 +114,7 @@ namespace QuanLyDuToan.BaoCao
 				if (ip_id_du_an == DBNull.Value) ip_id_du_an = -1;
 				switch (CIPConvert.ToStr(ip_level))
 				{
-                        //lv 1: get link theo loai nhiem vu
+					//lv 1: get link theo loai nhiem vu
 					case "1":
 						v_str_link += "?ip_dc_id_don_vi=" + CIPConvert.ToStr(ip_id_don_vi)
 									 + "&ip_dc_id_loai_nhiem_vu=" + CIPConvert.ToStr(ip_id_loai_nhiem_vu)
@@ -111,7 +125,7 @@ namespace QuanLyDuToan.BaoCao
 									 + "&ip_dat_den_ngay=" + v_dat_den_ngay
 									  + "&ip_dc_id_quyet_dinh =" + "-1";
 						break;
-                        //lv2: get link theo cong trinh
+					//lv2: get link theo cong trinh
 					case "2":
 						v_str_link += "?ip_dc_id_don_vi=" + CIPConvert.ToStr(ip_id_don_vi)
 									 + "&ip_dc_id_loai_nhiem_vu=" + CIPConvert.ToStr(ip_id_loai_nhiem_vu)
@@ -121,7 +135,7 @@ namespace QuanLyDuToan.BaoCao
 									 + "&ip_dat_den_ngay=" + v_dat_den_ngay
 									 + "&ip_dc_id_quyet_dinh=" + "-1";
 						break;
-                        //lv3: get link theo du an
+					//lv3: get link theo du an
 					case "3":
 						v_str_link += "?ip_dc_id_don_vi=" + CIPConvert.ToStr(ip_id_don_vi)
 									 + "&ip_dc_id_loai_nhiem_vu=" + CIPConvert.ToStr(ip_id_loai_nhiem_vu)
@@ -133,7 +147,7 @@ namespace QuanLyDuToan.BaoCao
 									 + "&ip_dc_id_quyet_dinh=" + "-1";
 						break;
 					default:
-                        //get link theo du an
+						//get link theo du an
 						v_str_link += "?ip_dc_id_don_vi=" + CIPConvert.ToStr(ip_id_don_vi)
 									 + "&ip_dc_id_loai_nhiem_vu=" + CIPConvert.ToStr(ip_id_loai_nhiem_vu)
 									 + "&ip_dc_id_cong_trinh=" + CIPConvert.ToStr(ip_id_cong_trinh)
@@ -165,7 +179,7 @@ namespace QuanLyDuToan.BaoCao
 			{
 				switch (CIPConvert.ToStr(ip_level))
 				{
-                        //lv3: get link theo loai nhiem vu
+					//lv3: get link theo loai nhiem vu
 					case "3":
 						v_str_link += "?ip_dc_id_don_vi=" + CIPConvert.ToStr(ip_id_don_vi)
 									 + "&ip_dc_id_loai_nhiem_vu=" + CIPConvert.ToStr(ip_id_loai_nhiem_vu)
@@ -176,7 +190,7 @@ namespace QuanLyDuToan.BaoCao
 									 + "&ip_dc_id_quyet_dinh=" + "-1";
 
 						break;
-                        //lv2: get link theo cong trinh 
+					//lv2: get link theo cong trinh 
 					case "2":
 						v_str_link += "?ip_dc_id_don_vi=" + CIPConvert.ToStr(ip_id_don_vi)
 									 + "&ip_dc_id_loai_nhiem_vu=" + CIPConvert.ToStr(ip_id_loai_nhiem_vu)
@@ -186,7 +200,7 @@ namespace QuanLyDuToan.BaoCao
 									 + "&ip_dat_den_ngay=" + m_txt_den_ngay.Text
 									 + "&ip_dc_id_quyet_dinh=" + "-1";
 						break;
-                        //lv1: get link theo lv du an
+					//lv1: get link theo lv du an
 					case "1":
 						v_str_link += "?ip_dc_id_don_vi=" + CIPConvert.ToStr(ip_id_don_vi)
 									 + "&ip_dc_id_loai_nhiem_vu=" + CIPConvert.ToStr(ip_id_loai_nhiem_vu)
@@ -196,7 +210,7 @@ namespace QuanLyDuToan.BaoCao
 									 + "&ip_dat_den_ngay=" + m_txt_den_ngay.Text
 									 + "&ip_dc_id_quyet_dinh=" + "-1";
 						break;
-                        //get link theo du an
+					//get link theo du an
 					default:
 						v_str_link += "?ip_dc_id_don_vi=" + CIPConvert.ToStr(ip_id_don_vi)
 									 + "&ip_dc_id_loai_nhiem_vu=" + CIPConvert.ToStr(ip_id_loai_nhiem_vu)
@@ -214,10 +228,10 @@ namespace QuanLyDuToan.BaoCao
 
 		private void load_data_to_grid()
 		{
-            // kiem tra du lieu
+			// kiem tra du lieu
 			if (!check_validate_data_is_ok()) return;
 
-            // load data to grid
+			// load data to grid
 			US_RPT_BC_TINH_HINH_GIAI_NGAN v_us = new US_RPT_BC_TINH_HINH_GIAI_NGAN();
 			DS_RPT_BC_TINH_HINH_GIAI_NGAN v_ds = new DS_RPT_BC_TINH_HINH_GIAI_NGAN();
 			v_ds.EnforceConstraints = false;
@@ -226,24 +240,24 @@ namespace QuanLyDuToan.BaoCao
 				, CIPConvert.ToDatetime(m_txt_den_ngay.Text, "dd/MM/yyyy")
 				, WebformControls.get_dau_nam_form_date(CIPConvert.ToDatetime(m_txt_tu_ngay.Text, "dd/MM/yyyy"))
 				, CIPConvert.ToDecimal(m_ddl_don_vi.SelectedValue)
-                , get_random_id_session()    // tránh xóa dữ liệu của 2 người cùng đăng nhập một user
+				, get_random_id_session()    // tránh xóa dữ liệu của 2 người cùng đăng nhập một user
 				, CIPConvert.ToDecimal(m_ddl_du_an.SelectedValue)
 				, CIPConvert.ToDecimal(m_ddl_cong_trinh.SelectedValue)
 				, CIPConvert.ToDecimal(m_ddl_loai_nv.SelectedValue)
-				,  m_txt_tim_kiem.Text.Trim()
+				, m_txt_tim_kiem.Text.Trim()
 				, STR_NGUON.QUY_BAO_TRI);
 			m_grv.DataSource = v_ds.RPT_BC_TINH_HINH_GIAI_NGAN;
 			m_grv.DataBind();
 
 		}
-        public decimal get_random_id_session()
+		public decimal get_random_id_session()
 		{
 			Random no_random = new Random();
 			return no_random.Next(1, 1000); //random a number in 1 - 1000
 		}
 		public string ConvertToUnsign3(string str)
 		{
-            // Convert từ "tiếng việt" sang "tieng viet" không dấu
+			// Convert từ "tiếng việt" sang "tieng viet" không dấu
 			System.Text.RegularExpressions.Regex regex = new System.Text.RegularExpressions.Regex("\\p{IsCombiningDiacriticalMarks}+");
 			string temp = str.Normalize(System.Text.NormalizationForm.FormD);
 			return regex.Replace(temp, String.Empty)
@@ -274,10 +288,10 @@ namespace QuanLyDuToan.BaoCao
 		{
 			try
 			{
-                m_lbl_mess.Text = ""; // reset thông báo
+				m_lbl_mess.Text = ""; // reset thông báo
 				if (!IsPostBack)
 				{
-                    set_inital_form_load();
+					set_inital_form_load();
 				}
 
 			}
@@ -287,82 +301,100 @@ namespace QuanLyDuToan.BaoCao
 			}
 		}
 
-        protected void m_cmd_xem_bao_cao_Click(object sender, EventArgs e) {
-            try {
-                if (check_validate_data_is_ok()) {
-                    load_data_to_grid();
-                }
-            }
-            catch (Exception v_e) {
-                CSystemLog_301.ExceptionHandle(this, v_e);
-            }
-
-        }
-        protected void m_cmd_xuat_excel_Click(object sender, EventArgs e) {
-            try {
-                US_DM_DON_VI v_us = new US_DM_DON_VI(CIPConvert.ToDecimal(m_ddl_don_vi.SelectedValue));
-                WebformReport.export_gridview_2_excel(
-                m_grv
-                , "[" + ConvertToUnsign3(v_us.strTEN_DON_VI) + "]" + FormInfo.ExportExcelReportName.F350
-                );
-            }
-            catch (Exception v_e) {
-
-                CSystemLog_301.ExceptionHandle(this, v_e);
-            }
-        }
-
-        protected void m_ddl_loai_nv_SelectedIndexChanged(object sender, EventArgs e) {
-            try {
-                if (m_ddl_don_vi.SelectedValue.Equals("")) {
-                    CSystemLog_301.ExceptionHandle(this, new Exception("Không có Đơn vị để thực hiện truy vấn"));
-                }
-                App_Code.WebformControls.load_data_to_cbo_cong_trinh_theo_loai_nhiem_vu(
-                                            CIPConvert.ToDecimal(m_ddl_loai_nv.SelectedValue)
-                                            , m_ddl_cong_trinh
-                                            , CIPConvert.ToDecimal(m_ddl_don_vi.SelectedValue)
-                                            );
-            }
-
-            catch (Exception v_e) {
-
-                CSystemLog_301.ExceptionHandle(this, v_e);
-            }
-
-        }
-        protected void m_ddl_cong_trinh_SelectedIndexChanged(object sender, EventArgs e) {
-            try {
-                if (m_ddl_don_vi.SelectedValue.Equals("")) {
-                    CSystemLog_301.ExceptionHandle(this, new Exception("Không có Đơn vị để thực hiện truy vấn"));
-                }
-                App_Code.WebformControls.load_data_to_cbo_du_an_theo_cong_trinh_va_loai_nhiem_vu(
-                                                CIPConvert.ToDecimal(m_ddl_cong_trinh.SelectedValue)
-                                                , CIPConvert.ToDecimal(m_ddl_loai_nv.SelectedValue)
-                                                , m_ddl_du_an
-                                                ,  CIPConvert.ToDecimal(m_ddl_don_vi.SelectedValue)
-                                                );
-            }
-            catch (Exception v_e) {
-
-                CSystemLog_301.ExceptionHandle(this, v_e);
-            }
-
-        }
-        protected void m_ddl_don_vi_SelectedIndexChanged(object sender, EventArgs e) {
-            try {
-
-                m_ddl_loai_nv_SelectedIndexChanged(null, null);
-            }
-            catch (Exception v_e) {
-
-                CSystemLog_301.ExceptionHandle(this, v_e);
-            }
-        }
-
-        protected void m_grv_RowCreated(object sender, GridViewRowEventArgs e)
+		protected void m_cmd_xem_bao_cao_Click(object sender, EventArgs e)
 		{
-            //Tao header cua grid
-            const string v_c_str_header_css_class = "HeaderStyle";
+			try
+			{
+				if (check_validate_data_is_ok())
+				{
+					load_data_to_grid();
+				}
+			}
+			catch (Exception v_e)
+			{
+				CSystemLog_301.ExceptionHandle(this, v_e);
+			}
+
+		}
+		protected void m_cmd_xuat_excel_Click(object sender, EventArgs e)
+		{
+			try
+			{
+				US_DM_DON_VI v_us = new US_DM_DON_VI(CIPConvert.ToDecimal(m_ddl_don_vi.SelectedValue));
+				WebformReport.export_gridview_2_excel(
+				m_grv
+				, "[" + ConvertToUnsign3(v_us.strTEN_DON_VI) + "]" + FormInfo.ExportExcelReportName.F350
+				);
+			}
+			catch (Exception v_e)
+			{
+
+				CSystemLog_301.ExceptionHandle(this, v_e);
+			}
+		}
+
+		protected void m_ddl_loai_nv_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			try
+			{
+				if (m_ddl_don_vi.SelectedValue.Equals(""))
+				{
+					CSystemLog_301.ExceptionHandle(this, new Exception("Không có Đơn vị để thực hiện truy vấn"));
+				}
+				App_Code.WebformControls.load_data_to_cbo_cong_trinh_theo_loai_nhiem_vu(
+											CIPConvert.ToDecimal(m_ddl_loai_nv.SelectedValue)
+											, m_ddl_cong_trinh
+											, CIPConvert.ToDecimal(m_ddl_don_vi.SelectedValue)
+											);
+			}
+
+			catch (Exception v_e)
+			{
+
+				CSystemLog_301.ExceptionHandle(this, v_e);
+			}
+
+		}
+		protected void m_ddl_cong_trinh_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			try
+			{
+				if (m_ddl_don_vi.SelectedValue.Equals(""))
+				{
+					CSystemLog_301.ExceptionHandle(this, new Exception("Không có Đơn vị để thực hiện truy vấn"));
+				}
+				App_Code.WebformControls.load_data_to_cbo_du_an_theo_cong_trinh_va_loai_nhiem_vu(
+												CIPConvert.ToDecimal(m_ddl_cong_trinh.SelectedValue)
+												, CIPConvert.ToDecimal(m_ddl_loai_nv.SelectedValue)
+												, m_ddl_du_an
+												, CIPConvert.ToDecimal(m_ddl_don_vi.SelectedValue)
+												);
+			}
+			catch (Exception v_e)
+			{
+
+				CSystemLog_301.ExceptionHandle(this, v_e);
+			}
+
+		}
+		protected void m_ddl_don_vi_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			try
+			{
+
+				m_ddl_loai_nv_SelectedIndexChanged(null, null);
+			}
+			catch (Exception v_e)
+			{
+
+				CSystemLog_301.ExceptionHandle(this, v_e);
+			}
+		}
+
+		protected void m_grv_RowCreated(object sender, GridViewRowEventArgs e)
+		{
+			//Tao header cua grid
+			const string v_c_str_header_css_class = "HeaderStyle";
 			if (e.Row.RowType == DataControlRowType.Header) // If header created
 			{
 				GridView v_grv = (GridView)sender;
@@ -419,9 +451,9 @@ namespace QuanLyDuToan.BaoCao
 						,new CellInfoHeader("Từ Ngân sách",1,1)
 					});
 			}
-           
-			}
+
 		}
+	}
 
 		#endregion
 }
