@@ -27,10 +27,14 @@
 			        }
                 });
                 $(".select2").select2();
-
+                if ($("#<%=m_ddl_don_vi.ClientID%> option").length < 2) {
+                	$("#<%=m_ddl_don_vi.ClientID%>").parent().find('.select2-selection__arrow').addClass('hidden');
+                }
             }
+        	
         }
-        $(document).ready(function () {
+    	$(document).ready(function () {
+    		
             var m = new Map();
             var today = new Date();
             var mm = today.getMonth() + 1; //January is 0!
@@ -52,7 +56,10 @@
                 for (var i = 0; i < v_lst.length; i++) {
                     v_lst[i].href = v_lst[i].href + "&ip_dc_id_don_vi=" + $("#<%=m_ddl_don_vi.ClientID%>").val();
 		        }
-		    });
+            });
+    		if ($("#<%=m_ddl_don_vi.ClientID%> option").length < 2) {
+    			$("#<%=m_ddl_don_vi.ClientID%>").parent().find('.select2-selection__arrow').addClass('hidden');
+    		}
         }
        )
     </script>
@@ -73,7 +80,7 @@
             </div>
             <div style="color: black; text-align: left; margin: 50px">
 					<table style="margin:50px auto; margin-top:20px; padding-top:">
-						<tr style="height:59px">
+						<tr style="height:34px">
 							<td>Từ khóa tìm kiếm </td>
 							<td colspan="4">
 								<asp:TextBox runat="server" ID="m_txt_tu_khoa_tim_kiem" CssClass="form-control" Width="439px"></asp:TextBox>
