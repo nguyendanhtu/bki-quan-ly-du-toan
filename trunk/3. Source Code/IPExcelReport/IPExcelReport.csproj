@@ -32,7 +32,8 @@
     <OptionExplicit>On</OptionExplicit>
     <OptionStrict>Off</OptionStrict>
     <RootNamespace>IP.Core.IPExcelReport</RootNamespace>
-    <StartupObject></StartupObject>
+    <StartupObject>
+    </StartupObject>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <MyType>Windows</MyType>
@@ -157,25 +158,28 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.VisualBasic" />
-    <Reference Include="mscorlib" />
-    <Reference Include="C1.Common" />
+    <Reference Include="C1.Common">
+      <HintPath>..\DLL\C1.Common.dll</HintPath>
+    </Reference>
     <Reference Include="C1.Win.C1FlexGrid">
-      <Name>C1.Win.C1FlexGrid</Name>
-      <HintPath>..\..\DLL\C1.Win.C1FlexGrid.dll</HintPath>
+      <HintPath>..\DLL\C1.Win.C1FlexGrid.dll</HintPath>
+    </Reference>
+    <Reference Include="C1.Win.C1FlexGrid.Classic">
+      <HintPath>..\DLL\C1.Win.C1FlexGrid.Classic.dll</HintPath>
+    </Reference>
+    <Reference Include="C1.Win.C1Input">
+      <HintPath>..\DLL\C1.Win.C1Input.dll</HintPath>
     </Reference>
     <Reference Include="Interop.Excel">
-      <Name>Interop.Excel</Name>
-      <HintPath>..\..\DLL\Interop.Excel.dll</HintPath>
-    </Reference>
-    <Reference Include="Interop.Microsoft.Office.Core">
-      <Name>Interop.Microsoft.Office.Core</Name>
-      <HintPath>..\..\DLL\Interop.Microsoft.Office.Core.dll</HintPath>
+      <HintPath>..\DLL\Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="Interop.Office">
-      <Name>Interop.Office</Name>
-      <HintPath>..\..\DLL\Interop.Office.dll</HintPath>
+      <HintPath>..\DLL\Interop.Office.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="mscorlib" />
     <Reference Include="stdole">
       <Name>stdole</Name>
       <HintPath>D:\Program Files\Microsoft.NET\Primary Interop Assemblies\stdole.dll</HintPath>
