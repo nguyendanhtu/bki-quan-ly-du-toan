@@ -364,7 +364,7 @@
 							<tr>
 								<td>
 									<asp:GridView ID="m_grv" runat="server" AllowPaging="false" AutoGenerateColumns="False"
-										CssClass="cssGrid" Width="100%" CellPadding="0" ForeColor="#333333"
+										CssClass="cssGrid" Width="100%" CellPadding="0" ForeColor="#333333" HeaderStyle-CssClass="HeaderStyle"
 										AllowSorting="True" PageSize="30" ShowHeader="true"
 										DataKeyNames="ID"
 										EmptyDataText="Không có dữ liệu phù hợp"

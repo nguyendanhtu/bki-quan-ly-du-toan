@@ -292,7 +292,7 @@ namespace QuanLyDuToan.App_Code
 					+ " id_loai_quyet_dinh= " + ID_LOAI_QUYET_DINH.GIAO_KE_HOACH;
 			else if (ip_loai_quyet_dinh == LOAI_QUYET_DINH.TAT_CA)
 				v_str_querry = "where";// id_don_vi=" + v_dc_id_don_vi;
-			v_str_querry += " order by ngay_thang desc";
+			v_str_querry += " order by ngay_thang ";
 			v_us.FillDataset(v_ds, v_str_querry);
 			for (int v = 0; v < v_ds.DM_QUYET_DINH.Count; v++)
 			{

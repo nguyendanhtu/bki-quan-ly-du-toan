@@ -68,13 +68,13 @@
 
 				<div style="text-align: center;margin-bottom:-33px">
 					<br />
-					<span style="font-weight: bold">DANH SÁCH QUYẾT ĐỊNH ỦY NHIỆM CHI</span>
+					<span style="font-weight: bold">DANH SÁCH ỦY NHIỆM CHI</span>
 					<br />
 					Đơn vị <asp:DropDownList ID="m_ddl_don_vi" CssClass="select2" runat="server" AutoPostBack="true" OnSelectedIndexChanged="m_ddl_don_vi_SelectedIndexChanged" Width="200px"></asp:DropDownList>
 				</div>
 				<div style="color: black; text-align: left; margin: 50px">
 					<table style="margin:50px auto; margin-top:20px; padding-top:">
-						<tr style="height:59px">
+						<tr style="height:34px">
 							<td>Từ khóa tìm kiếm </td>
 							<td colspan="4">
 								<asp:TextBox runat="server" ID="m_txt_tu_khoa_tim_kiem" CssClass="form-control" Width="439px"></asp:TextBox>
@@ -124,7 +124,7 @@
 							<asp:BoundField HeaderText="Ngày tháng" HtmlEncode="False" DataField="NGAY_THANG" DataFormatString="{0:dd/MM/yyyy}"  ItemStyle-HorizontalAlign="Center">
 								<ItemStyle HorizontalAlign="Center" Width="150px"  />
 							</asp:BoundField>
-							<asp:BoundField HeaderText="Nguồn ngân sách" HtmlEncode="False" DataField="NGUON_NS_YN">
+							<asp:BoundField HeaderText="Nguồn" HtmlEncode="False" DataField="NGUON_NS_YN">
 								<ItemStyle HorizontalAlign="Left" />
 							</asp:BoundField>
 							<asp:BoundField DataField="SO_TIEN_NOP_THUE" HeaderText="Số tiền nộp thuế" DataFormatString="{0:N0}">

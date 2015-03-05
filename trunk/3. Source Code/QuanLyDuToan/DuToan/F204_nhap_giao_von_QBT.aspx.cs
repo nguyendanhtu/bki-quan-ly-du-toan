@@ -372,21 +372,21 @@ namespace QuanLyDuToan.DuToan
 				//m_rdb_kh_dau_nam.Checked = true;
 				//m_rdb_dieu_chinh.Checked = false;
 				//m_rdb_bo_sung.Checked = false;
-				m_lbl_loai_quyet_dinh.Text = "Đầu năm";
+				//m_lbl_loai_quyet_dinh.Text = "Đầu năm";
 			}
 			else if (v_us.dcID_LOAI_QUYET_DINH_GIAO == ID_LOAI_GIAO_DICH.BO_SUNG)
 			{
 				//m_rdb_kh_dau_nam.Checked = false;
 				//m_rdb_dieu_chinh.Checked = false;
 				//m_rdb_bo_sung.Checked = true;
-				m_lbl_loai_quyet_dinh.Text = "Bổ sung";
+				//m_lbl_loai_quyet_dinh.Text = "Bổ sung";
 			}
 			else if (v_us.dcID_LOAI_QUYET_DINH_GIAO == ID_LOAI_GIAO_DICH.DIEU_CHINH)
 			{
 				//m_rdb_kh_dau_nam.Checked = false;
 				//m_rdb_dieu_chinh.Checked = true;
 				//m_rdb_bo_sung.Checked = false;
-				m_lbl_loai_quyet_dinh.Text = "Điều chỉnh";
+				//m_lbl_loai_quyet_dinh.Text = "Điều chỉnh";
 			}
 
 		}

@@ -81,6 +81,15 @@ namespace QuanLyDuToan.DanhMuc
                 CIPConvert.ToDecimal(m_ddl_don_vi.SelectedValue),
                 m_txt_tu_khoa_tim_kiem.Text
                 );
+			
+			//Chi ro Uy nhiem chi la thuoc nguon nao
+			for (int i = 0; i < v_ds.V_DM_GIAI_NGAN.Count; i++)
+			{
+				if (v_ds.Tables[0].Rows[i][V_DM_GIAI_NGAN.IS_NGUON_NS_YN].ToString().Equals(STR_NGUON.NGAN_SACH))
+					v_ds.Tables[0].Rows[i]["NGUON_NS_YN"] = "Nguồn Ngân sách";
+				else v_ds.Tables[0].Rows[i]["NGUON_NS_YN"] = "Nguồn Quỹ bảo trì";
+			}
+			v_ds.AcceptChanges();
             m_grv_bao_cao_giao_von.DataSource = v_ds.V_DM_GIAI_NGAN;
             m_grv_bao_cao_giao_von.DataBind();
 

@@ -74,14 +74,14 @@
 								</tr>
 								
 								<tr>
-									<td style="width: 15%; padding-top: 14px; text-align: right">
+									<td style="width: 15%; text-align: right">
 										<span>Số QĐ (*)</span>
 									</td>
 									<td style="width: 35%">
 										<asp:TextBox ID="m_txt_so_qd" runat="server" CssClass="cssTextBox form-control" Width="150px" placeholder="Vd: 371/QĐ-BGTVT" Visible="false"></asp:TextBox>
 										<asp:DropDownList ID="m_ddl_quyet_dinh" CssClass="select2" runat="server" Width="200px" Visible="true" OnSelectedIndexChanged="m_ddl_quyet_dinh_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
 										
-										<asp:Button ID="m_cmd_chon_qd_da_nhap" CssClass="btn btn-sm btn-primary" Text="Chọn QĐ" OnClick="m_cmd_chon_qd_da_nhap_Click" runat="server" />
+										<asp:Button ID="m_cmd_chon_qd_da_nhap" CssClass="btn btn-sm btn-primary" Text="Chọn QĐ" OnClick="m_cmd_chon_qd_da_nhap_Click" runat="server" Visible="false" />
 									</td>
 									<td style="width: 15%; text-align: right">
 										<span>Ngày tháng</span>
@@ -96,16 +96,17 @@
 									</td>
 								</tr>
 								<tr>
-									<td style="text-align: right"><span>Loại quyết định</span></td>
+									<%--<td style="text-align: right"><span>Loại quyết định</span></td>
 									<td>
 										<asp:TextBox ID="m_lbl_loai_quyet_dinh" runat="server" CssClass="form-control" Width="200px"></asp:TextBox>
 										<%--<asp:RadioButton ID="m_rdb_kh_dau_nam" CssClass="radio-inline" Style="margin-left: 10px;" runat="server" Text="KH đầu năm" GroupName="loai" Checked="true" AutoPostBack="true" />
 										<asp:RadioButton ID="m_rdb_bo_sung" CssClass="radio-inline" runat="server" Text="Bổ sung" GroupName="loai" AutoPostBack="true" />
-										<asp:RadioButton ID="m_rdb_dieu_chinh" CssClass="radio-inline" runat="server" Text="Điều chỉnh" GroupName="loai" AutoPostBack="true" />--%>
-										<asp:HiddenField ID="HiddenField1" runat="server" />
-									</td>
+										<asp:RadioButton ID="m_rdb_dieu_chinh" CssClass="radio-inline" runat="server" Text="Điều chỉnh" GroupName="loai" AutoPostBack="true" />
+										
+									</td>--%>
 									<td style="text-align: right"><span>Nội dung (*)</span></td>
 									<td>
+										<asp:HiddenField ID="HiddenField1" runat="server" />
 										<asp:TextBox ID="m_txt_noi_dung" runat="server" CssClass="form-control" Width="200px"></asp:TextBox>
 									</td>
 								
