@@ -125,7 +125,7 @@ namespace QuanLyDuToan.DanhMuc
 			WebformReport.export_gridview_2_excel(
 			m_grv_bao_cao_giao_von, "[" + v_us.strTEN_DON_VI + "]BaoCaoGiaiNganTheoUyNhiemChi.xls");
 		}
-		/* Để xuất excel
+		/* Để Xuất file excel
 		 * 1. Dùng 
 		 * WinformReport.export_gridview_2_excel(
 			m_grv

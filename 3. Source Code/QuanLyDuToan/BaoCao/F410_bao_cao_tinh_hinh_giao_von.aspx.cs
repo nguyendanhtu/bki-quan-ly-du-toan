@@ -183,7 +183,7 @@ namespace QuanLyDuToan.BaoCao
 			, "[" + ConvertToUnsign3(v_us.strTEN_DON_VI) + "]BaoCaoTinhHinhGiaoVon.xls"
 			);
 		}
-		/* Để xuất excel
+		/* Để Xuất file excel
 		 * 1. Dùng 
 		 * WinformReport.export_gridview_2_excel(
 			m_grv

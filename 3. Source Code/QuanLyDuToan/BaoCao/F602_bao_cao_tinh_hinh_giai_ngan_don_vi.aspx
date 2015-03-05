@@ -69,7 +69,7 @@
 
 					<td colspan="4" style="text-align: center">
 						<asp:Button ID="m_cmd_xem_bao_cao" Text="Xem báo cáo" OnClick="m_cmd_xem_bao_cao_Click" runat="server" CssClass="cssButton" Height="24px" Width="98px" />
-						<asp:Button ID="m_cmd_xuat_excel" Text="Xuất excel" runat="server" CssClass="cssButton" Height="24px" Width="98px" OnClick="m_cmd_xuat_excel_Click" />
+						<asp:Button ID="m_cmd_xuat_excel" Text="Xuất file excel" runat="server" CssClass="cssButton" Height="24px" Width="98px" OnClick="m_cmd_xuat_excel_Click" />
 					</td>
 				</tr>
 				<tr>

@@ -163,7 +163,7 @@
 
 					<td colspan="4" style="text-align: center">
 						<asp:Button cssclass="btn" ID="m_cmd_xem_bao_cao" Text="Xem báo cáo" OnClick="m_cmd_xem_bao_cao_Click" runat="server" />
-						<asp:Button cssclass="btn" ID="m_cmd_xuat_excel" Text="Xuất excel" OnClick="m_cmd_xuat_excel_Click" runat="server" />
+						<asp:Button cssclass="btn" ID="m_cmd_xuat_excel" Text="Xuất file excel" OnClick="m_cmd_xuat_excel_Click" runat="server" />
 					</td>
 				</tr>
 				<tr>

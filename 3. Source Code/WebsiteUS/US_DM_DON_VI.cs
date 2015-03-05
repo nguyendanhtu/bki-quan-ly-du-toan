@@ -370,6 +370,23 @@ namespace WebUS
 			v_sp.fillDataSetByCommand(this, op_ds);
 		}
 
+		public bool deleteAllDataOfDonVi(decimal ip_dc_id_don_vi)
+		{
+			try
+			{
+				CStoredProc v_sp = new CStoredProc("pr_DM_DON_VI_delete_all_data_of_don_vi");
+				v_sp.addDecimalInputParam("@ip_dc_id_don_vi", ip_dc_id_don_vi);
+				v_sp.ExecuteCommand(this);
+				return true;
+			}
+			catch (Exception)
+			{
+				return false;
+			}
+			return false;
+			
+		}
+
         #endregion
     }
 }

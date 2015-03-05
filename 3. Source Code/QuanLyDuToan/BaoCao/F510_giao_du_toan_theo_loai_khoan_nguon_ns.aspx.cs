@@ -189,7 +189,7 @@ namespace QuanLyDuToan.BaoCao
         }
         #endregion
         
-		/* Để xuất excel
+		/* Để Xuất file excel
 		 * 1. Dùng 
 		 * WinformReport.export_gridview_2_excel(
 			m_grv

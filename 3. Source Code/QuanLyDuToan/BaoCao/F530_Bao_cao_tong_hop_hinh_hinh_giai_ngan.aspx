@@ -129,7 +129,7 @@
 								You must have Flash 10 installed to download this file.
 							</div>
 						</div>
-						<asp:Button ID="m_cmd_xuat_excel" Text="Xuất excel" OnClick="m_cmd_xuat_excel_Click" runat="server" CssClass="btn btn-sm btn-primary" Visible="false" />
+						<asp:Button ID="m_cmd_xuat_excel" Text="Xuất file excel" OnClick="m_cmd_xuat_excel_Click" runat="server" CssClass="btn btn-sm btn-primary" Visible="false" />
 					</td>
 				</tr>
 				<tr>
@@ -143,7 +143,7 @@
 								<Columns>
 									<asp:TemplateField ItemStyle-HorizontalAlign="Center" HeaderText="(a)" HeaderStyle-Height="10px">
 										<ItemTemplate>
-											<%# Container.DataItemIndex + 1 %>
+											<%#getSTT(Eval(GRID_GIAI_NGAN.NOI_DUNG).ToString()) %>
 										</ItemTemplate>
 										<HeaderStyle Height="10px" HorizontalAlign="Center" />
 										<ItemStyle HorizontalAlign="Center" />

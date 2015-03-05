@@ -42,7 +42,7 @@
             </asp:gridview>
         </div>
         <div style="text-align:center">
-            <asp:Button cssclas="btn" runat="server" Text="Xuất excel" id="m_cmd_xuat_excel" OnClick="m_cmd_xuat_excel_Click"></asp:Button>
+            <asp:Button cssclas="btn" runat="server" Text="Xuất file excel" id="m_cmd_xuat_excel" OnClick="m_cmd_xuat_excel_Click"></asp:Button>
         </div>
     </ContentTemplate>
         </asp:UpdatePanel>

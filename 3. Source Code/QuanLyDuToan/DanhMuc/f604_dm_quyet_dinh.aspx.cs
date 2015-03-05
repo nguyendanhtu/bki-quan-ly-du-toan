@@ -310,6 +310,7 @@ namespace QuanLyDuToan.DanhMuc
 
 		protected void Page_Load(object sender, EventArgs e)
 		{
+			m_lbl_mess.Text = "";
 			if (!IsPostBack)
 			{
 				xoa_trang();

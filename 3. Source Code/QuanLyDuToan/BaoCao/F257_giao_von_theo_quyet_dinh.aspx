@@ -225,7 +225,7 @@
 									You must have Flash 10 installed to download this file.
 								</div>
 							</div>
-							<asp:Button CssClass="btn btn-sm btn-primary" Visible="false" ID="m_cmd_xuat_excel" Text="Xuất excel" runat="server" OnClick="m_cmd_xuat_excel_Click" />
+							<asp:Button CssClass="btn btn-sm btn-primary" Visible="false" ID="m_cmd_xuat_excel" Text="Xuất file excel" runat="server" OnClick="m_cmd_xuat_excel_Click" />
 						</td>
 					</tr>
 					<tr>
