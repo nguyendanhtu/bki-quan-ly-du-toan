@@ -9,6 +9,7 @@ using WebDS;
 using WebDS.CDBNames;
 using WebUS;
 using IP.Core.IPCommon;
+using QuanLyDuToan.App_Code;
 
 namespace QuanLyDuToan.BaoCao
 {
@@ -23,6 +24,7 @@ namespace QuanLyDuToan.BaoCao
 		#endregion
 
 		#region Data Member
+		List<decimal> m_lst_ds_qd;
 		#endregion
 
 		#region Data Structure
@@ -150,8 +152,8 @@ namespace QuanLyDuToan.BaoCao
 				, c_configuration.TAT_CA);
 			GhepThemCot(ip_dt, ip_ds.Tables[0], "TongVon");
 
-			List<decimal> v_lst_ds_qd = getDanhSachQDGiaoVon();
-			foreach (var item in v_lst_ds_qd)
+			m_lst_ds_qd = getDanhSachQDGiaoVon();
+			foreach (var item in m_lst_ds_qd)
 			{
 				ip_ds.Clear();
 				ip_us.FillDatasetWithProcedure(
@@ -239,22 +241,26 @@ namespace QuanLyDuToan.BaoCao
 			for (int i = 2; i < ip_dt.Columns.Count; i++)
 			{
 				BoundField bfield = new BoundField();
+				
 				switch (ip_dt.Columns[i].ColumnName)
 				{
 					case "Column1":
 						bfield.HeaderText = "Tổng KH giao";
+						bfield.HeaderStyle.CssClass = "hiddenCell";
 						//bfield.ItemStyle.CssClass = "HeaderStyle"; //TuDM sua, bo mau sac o luoi
 						break;
 					case "SoDu":
 						bfield.HeaderText = "Số dư năm trước chuyển sang";
 						//bfield.ItemStyle.CssClass = "HeaderStyle";
+						bfield.HeaderStyle.CssClass = "hiddenCell";
 						break;
 					case "ChinhThuc":
 						bfield.HeaderText = "KH giao chính thức " + CIPConvert.ToDatetime(m_txt_tu_ngay.Text, c_configuration.DEFAULT_DATETIME_FORMAT).Year.ToString();
+						bfield.HeaderStyle.CssClass = "hiddenCell";
 						//bfield.ItemStyle.CssClass = "HeaderStyle";
 						break;
 					case "TongVon":
-						bfield.HeaderText = "Tổng KP cấp";
+						bfield.HeaderText = "Tổng cộng";
 						//bfield.ItemStyle.CssClass = "HeaderStyle";
 						break;
 					default:
@@ -301,5 +307,29 @@ namespace QuanLyDuToan.BaoCao
 			);
 		}
 		#endregion
+
+		protected void m_grv_bao_cao_giao_von_RowCreated(object sender, GridViewRowEventArgs e)
+		{
+			//Tao header cua grid
+			const string v_c_str_header_css_class = "HeaderStyle";
+			if (e.Row.RowType == DataControlRowType.Header) // If header created
+			{
+				GridView v_grv = (GridView)sender;
+				//Tao dong 1
+
+				WebformFunctions.addHeaderRow_to_grid_view(v_grv
+				, 0
+				, v_c_str_header_css_class
+				, new CellInfoHeader[] { 
+						new CellInfoHeader("STT",2,1)
+						,new CellInfoHeader("Đơn vị",2,1)
+						,new CellInfoHeader("Tổng KH giao",2,1)
+						,new CellInfoHeader("KH giao chính thức "+CCommonFunction.getDate_dau_nam_from_date(CIPConvert.ToDatetime(m_txt_tu_ngay.Text,"dd/MM/yyyy")).Year,2,1)
+						,new CellInfoHeader("Số dư năm trước chuyển sang",2,1)
+						,new CellInfoHeader("Kinh phí đã cấp",1,m_lst_ds_qd.Count+1)
+						
+				});
+			}
+		}
 	}
 }

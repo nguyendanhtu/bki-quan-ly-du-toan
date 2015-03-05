@@ -43,7 +43,7 @@
 		<td >
 		    &nbsp;</td>
 		<td >
-			<asp:button id="m_cmd_cap_nhat" accessKey="u" CssClass="btn" 
+			<asp:button id="m_cmd_cap_nhat" accessKey="u" CssClass="btn btn-sm btn-success" 
                 runat="server" Text="Cập nhật(u)" 
                 onclick="m_cmd_cap_nhat_Click"   />
 		    </td>

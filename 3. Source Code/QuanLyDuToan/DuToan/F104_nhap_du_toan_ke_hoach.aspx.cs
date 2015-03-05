@@ -53,7 +53,7 @@ namespace QuanLyDuToan.DuToan
 			}
 			return op_str;
 		}
-		
+
 		#endregion
 
 		#region Data Structure
@@ -185,7 +185,7 @@ namespace QuanLyDuToan.DuToan
 				}
 
 				if (v_dc_id_quyet_dinh < 0) return;
-				
+
 				v_us.get_grid_giao_kh_qbt(v_ds
 					, v_dc_id_quyet_dinh
 					, v_str_is_nguon_ns
@@ -473,7 +473,7 @@ namespace QuanLyDuToan.DuToan
 					return false;
 				}
 
-				if (CIPConvert.ToDecimal(m_txt_so_tien.Text) <= 0||m_txt_so_tien.Text.Count()>13)
+				if (CIPConvert.ToDecimal(m_txt_so_tien.Text) <= 0 || m_txt_so_tien.Text.Count() > 13)
 				{
 					m_lbl_mess_so_tien.Text += "\n Bạn phải nhập Số tiền mục này!";
 					m_txt_so_tien.Focus();
@@ -526,7 +526,7 @@ namespace QuanLyDuToan.DuToan
 					break;
 			}
 
-            m_us.strGHI_CHU_2 = m_txt_so_km.Text.Replace(",", "").Replace(".", "").Trim();//ghi vao ghi chu 2
+			m_us.strGHI_CHU_2 = m_txt_so_km.Text.Replace(",", "").Replace(".", "").Trim();//ghi vao ghi chu 2
 
 			m_us.dcID_LOAI_NHIEM_VU = CIPConvert.ToDecimal(m_ddl_loai_nhiem_vu.SelectedValue);
 			//neu form mode la Quy BT thi so_tien_ns=0
@@ -604,7 +604,7 @@ namespace QuanLyDuToan.DuToan
 				}
 			}
 
-            m_txt_so_km.Text = m_us.strGHI_CHU_2;
+			m_txt_so_km.Text = m_us.strGHI_CHU_2;
 
 			if (Request.QueryString["ip_nguon_ns"] == "N")
 			{
@@ -696,9 +696,9 @@ namespace QuanLyDuToan.DuToan
 			WebformControls.load_data_to_ddl_don_vi_get_list_don_vi_duoc_xem_du_lieu(Person.get_id_don_vi(), m_ddl_don_vi);
 			xoa_trang();
 			load_data_to_cbo_quyet_dinh();
-			if (m_ddl_quyet_dinh.Visible==false)
+			if (m_ddl_quyet_dinh.Visible == false)
 			{
-				if (m_ddl_quyet_dinh.Items.Count>=2)
+				if (m_ddl_quyet_dinh.Items.Count >= 2)
 				{
 					m_ddl_quyet_dinh.SelectedIndex = 1;
 				}
@@ -1401,7 +1401,7 @@ namespace QuanLyDuToan.DuToan
 				load_data_to_ddl_loai_nhiem_vu();
 				load_panel_loai_chi();
 				m_pnl_so_km.Visible = true;
-				
+
 				//m_cmd_cancel_Click(null, null);
 				//load_data_to_grid();
 			}
@@ -1442,6 +1442,46 @@ namespace QuanLyDuToan.DuToan
 
 
 		#endregion
+
+		protected void m_grv_RowCreated(object sender, GridViewRowEventArgs e)
+		{
+			//Tao header cua grid
+			const string v_c_str_header_css_class = "HeaderStyle";
+			if (e.Row.RowType == DataControlRowType.Header) // If header created
+			{
+				GridView v_grv = (GridView)sender;
+				//Tao dong 1
+				if (m_ddl_don_vi.SelectedValue == Person.get_id_don_vi().ToString())
+				{
+					WebformFunctions.addHeaderRow_to_grid_view(v_grv
+					, 0
+					, v_c_str_header_css_class
+					, new CellInfoHeader[] { 
+						new CellInfoHeader("Xoá",2,1)
+						,new CellInfoHeader("Sửa",2,1)
+						,new CellInfoHeader("Nhiệm vụ chi",2,1)
+						,new CellInfoHeader("Chiều dài tuyến (km)",2,1)
+						,new CellInfoHeader("Kinh phí năm trước chuyển sang",1,1)
+						,new CellInfoHeader("Kinh phí Ngân sách",1,1)
+						,new CellInfoHeader("Kinh phí Quỹ bảo trì",1,1)
+						,new CellInfoHeader("Tổng",1,1)
+				});
+				}
+				else WebformFunctions.addHeaderRow_to_grid_view(v_grv
+					, 0
+					, v_c_str_header_css_class
+					, new CellInfoHeader[] { 
+						new CellInfoHeader("Sửa",2,1)
+						,new CellInfoHeader("Nhiệm vụ chi",2,1)
+						,new CellInfoHeader("Chiều dài tuyến (km)",2,1)
+						,new CellInfoHeader("Kinh phí năm trước chuyển sang",1,1)
+						,new CellInfoHeader("Kinh phí Ngân sách",1,1)
+						,new CellInfoHeader("Kinh phí Quỹ bảo trì",1,1)
+						,new CellInfoHeader("Tổng",1,1)
+				});
+
+			}
+		}
 
 
 	}

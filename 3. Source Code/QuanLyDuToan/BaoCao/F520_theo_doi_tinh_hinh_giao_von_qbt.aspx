@@ -2,8 +2,11 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 	<style>
+	 .hiddenCell {
+            display:none;
+        }
 		th, td {
-			width: 100px;
+			/*width: 100px;*/
 			padding-right: 5px;
 		}
 
@@ -88,7 +91,7 @@
 
 	<asp:UpdatePanel ID="UpdatePanel1" runat="server">
 		<ContentTemplate>
-			<div>
+			<div style="border:1px solid gray">
 				<div style="text-align: center;">
 					<%--        <span style="font-weight: bold">CỘNG HOÀ XÃ HỘI CHỦ NGHĨA VIỆT NAM</span>
 		    <br />
@@ -128,7 +131,9 @@
 				</div>
 				<div style="width: 1200px; overflow-y: hidden; margin: 0px auto;">
 					<div id="double-scroll">
-						<asp:GridView runat="server" ID="m_grv_bao_cao_giao_von" CssClass="cssGrid" HeaderStyle-CssClass="HeaderStyle" AutoGenerateColumns="False" EnableModelValidation="True" ClientIDMode="Static">
+						<asp:GridView runat="server" ID="m_grv_bao_cao_giao_von" CssClass="cssGrid" HeaderStyle-CssClass="HeaderStyle" AutoGenerateColumns="False" EnableModelValidation="True" ClientIDMode="Static"
+							OnRowCreated="m_grv_bao_cao_giao_von_RowCreated"
+							>
 							<Columns>
 								<asp:TemplateField ItemStyle-HorizontalAlign="Center" HeaderText="STT" HeaderStyle-Height="10px" ItemStyle-Width="10px">
 									<ItemTemplate>
@@ -136,10 +141,10 @@
 									</ItemTemplate>
 									<HeaderStyle Height="10px" HorizontalAlign="Center" />
 									<ItemStyle HorizontalAlign="Center" />
+									<HeaderStyle  CssClass="hiddenCell" />
 								</asp:TemplateField>
 								<asp:BoundField DataField="TEN_DON_VI" HeaderText="Đơn vị" HtmlEncode="False">
-									<HeaderStyle Width="200px" CssClass="pinned thpinned" />
-									<ItemStyle Width="200px" CssClass="pinned" />
+									<HeaderStyle  CssClass="hiddenCell" />
 								</asp:BoundField>
 							</Columns>
 						</asp:GridView>

@@ -191,7 +191,7 @@
 									<div class="height30">
 										<div class="lb" style="margin: 9px 0px 0px 24px">Từ ngày</div>
 										<div id="datetimepicker1" class="input-group date datepicker" style="width: 200px;">
-											<asp:TextBox ClientIDMode="Static" ID="m_txt_tu_ngay" placeholder="dd/MM/yyyy" runat="server" CssClass="cssTextBox form-control  date-start" Height="30px" Width="164px" OnTextChanged="m_txt_tu_ngay_TextChanged" AutoPostBack="true"></asp:TextBox>
+											<asp:TextBox ClientIDMode="Static" ID="m_txt_tu_ngay" placeholder="dd/MM/yyyy" runat="server" CssClass="cssTextBox  date-start" Height="30px" Width="164px" OnTextChanged="m_txt_tu_ngay_TextChanged" AutoPostBack="true"></asp:TextBox>
 											<span class="input-group-addon"><span class="glyphicon-calendar glyphicon"></span>
 											</span>
 										</div>
@@ -199,7 +199,7 @@
 									<div class="height30" style="margin-bottom: 5px;">
 										<div class="lb" style="margin: 9px 0px 0px 24px">Đến ngày</div>
 										<div id="datetimepicker2" class="input-group date datepicker" style="width: 200px;">
-											<asp:TextBox ID="m_txt_den_ngay" ClientIDMode="Static" placeholder="dd/MM/yyyy" runat="server" CssClass="cssTextBox form-control date-end" Height="30px" Width="164px" OnTextChanged="m_txt_den_ngay_TextChanged" AutoPostBack="true"></asp:TextBox>
+											<asp:TextBox ID="m_txt_den_ngay" ClientIDMode="Static" placeholder="dd/MM/yyyy" runat="server" CssClass="cssTextBox date-end" Height="30px" Width="164px" OnTextChanged="m_txt_den_ngay_TextChanged" AutoPostBack="true"></asp:TextBox>
 											<span class="input-group-addon"><span class="glyphicon-calendar glyphicon"></span>
 											</span>
 										</div>

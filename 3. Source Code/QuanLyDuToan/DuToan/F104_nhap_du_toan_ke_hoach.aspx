@@ -8,6 +8,9 @@
 			display: table-cell;
 			width: 200px;
 		}
+		.hiddenCell {
+            display:none;
+        }
 	</style>
 	<script type="text/javascript">
 		function tinhTongChiTx() {
@@ -164,7 +167,7 @@
 							</tr>
 							<tr>
 								<td>
-									<asp:Panel ID="m_pnl" runat="server" GroupingText="Chi tiết quyết định">
+									<asp:Panel ID="m_pnl" runat="server" GroupingText="Chi tiết theo Quyết định">
 										<table class="table" style="width: 100%;" border="0">
 											<tr>
 												<td colspan="3">
@@ -193,7 +196,7 @@
 														<asp:DropDownList ID="m_ddl_cong_trinh" runat="server" CssClass="select2" Width="190px" OnSelectedIndexChanged="m_ddl_cong_trinh_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
 													</td>
 													<td>
-														<asp:Button ID="m_cmd_them_quoc_lo" CssClass="btn btn-sm btn-primary" Text="Nhập mới" OnClick="m_cmd_them_quoc_lo_Click" runat="server" />
+														<asp:Button ID="m_cmd_them_quoc_lo" CssClass="btn btn-sm btn-primary" Text="Thêm" OnClick="m_cmd_them_quoc_lo_Click" runat="server" />
 														<asp:Button ID="m_cmd_chon_quoc_lo" CssClass="btn btn-sm btn-primary" Text="Chọn" Visible="false" OnClick="m_cmd_chon_quoc_lo_Click" runat="server" />
 													</td>
 												</tr>
@@ -205,7 +208,7 @@
 													</td>
 													<td>
 														<asp:Button ID="m_cmd_chon_du_an" CssClass="btn btn-sm btn-primary" Text="Chọn" Visible="false" OnClick="m_cmd_chon_du_an_Click" runat="server" />
-														<asp:Button ID="m_cmd_them_du_an" CssClass="btn btn-sm btn-primary" Text="Nhập mới" OnClick="m_cmd_them_du_an_Click" runat="server" />
+														<asp:Button ID="m_cmd_them_du_an" CssClass="btn btn-sm btn-primary" Text="Thêm" OnClick="m_cmd_them_du_an_Click" runat="server" />
 													</td>
 												</tr>
 											</asp:Panel>
@@ -288,7 +291,7 @@
 											<asp:Panel ID="m_pnl_so_km" runat="server">
 												<tr>
 													<td style="text-align: right">
-														<span>Số km</span>
+														<span>Chiều dài tuyến</span>
 													</td>
 													<td colspan="2" style="text-align: left">
 														<span>
@@ -319,7 +322,7 @@
 													<span>Tổng</span>
 												</td>
 												<td colspan="2" style="width: 70%">
-													<input style="text-align: right; width: 190px" id="m_lbl_tong_chi_ktx" class="form-control">0</input>
+													<input style="text-align: right; width: 190px" id="m_lbl_tong_chi_ktx" class="form-control"></input>
 												</td>
 											</tr>
 											<tr>
@@ -370,16 +373,18 @@
 							<tr>
 								<td>
 									<asp:GridView ID="m_grv" runat="server" AllowPaging="false" AutoGenerateColumns="False"
-										CssClass="cssGrid" Width="100%" CellPadding="0" ForeColor="#333333" HeaderStyle-CssClass="HeaderStyle"
+										CssClass="cssGrid" Width="100%" CellPadding="0" ForeColor="#333333"
 										AllowSorting="True" PageSize="30" ShowHeader="true"
 										DataKeyNames="ID"
 										EmptyDataText="Không có dữ liệu phù hợp"
 										OnRowCommand="m_grv_RowCommand"
 										OnPageIndexChanging="m_grv_PageIndexChanging"
-										OnRowDataBound="m_grv_RowDataBound">
+										OnRowDataBound="m_grv_RowDataBound"
+										OnRowCreated="m_grv_RowCreated"
+										>
 
 										<Columns>
-											<asp:TemplateField HeaderText="Xóa" HeaderStyle-Width="2%">
+											<asp:TemplateField HeaderStyle-Width="20px">
 												<ItemTemplate>
 													<asp:LinkButton ID="m_lbl_delete" runat="server" CausesValidation="false" CommandArgument='<%#Eval("ID")%>'
 														CommandName="Xoa" ToolTip="Xóa" OnClientClick="return confirm ('Bạn có thực sự muốn xóa bản ghi này?')">
@@ -388,8 +393,9 @@
 													</asp:LinkButton>
 												</ItemTemplate>
 												<ItemStyle HorizontalAlign="Center"></ItemStyle>
+												<HeaderStyle  CssClass="hiddenCell" />
 											</asp:TemplateField>
-											<asp:TemplateField HeaderText="Sửa" HeaderStyle-Width="2%">
+											<asp:TemplateField  HeaderStyle-Width="20px">
 												<ItemTemplate>
 													<asp:LinkButton ID="m_lbl_update" runat="server" CausesValidation="false" CommandArgument='<%#Eval("ID")%>'
 														CommandName="Sua" ToolTip="Sửa">
@@ -398,35 +404,42 @@
 													</asp:LinkButton>
 												</ItemTemplate>
 												<ItemStyle HorizontalAlign="Center"></ItemStyle>
+												<HeaderStyle  CssClass="hiddenCell" />
 											</asp:TemplateField>
-											<asp:BoundField DataField="NOI_DUNG" HeaderText="Nhiệm vụ chi" ItemStyle-Width="150px" />
+											<%--<asp:TemplateField HeaderText="Nhiệm vụ chi" HeaderStyle-Width="150px">
+												<ItemTemplate>
+													<%#Eval("NOI_DUNG") %>
+												</ItemTemplate>
+												<ItemStyle HorizontalAlign="Left"></ItemStyle>
+											</asp:TemplateField>--%>
+											<asp:BoundField htmlencode="false" DataField="NOI_DUNG" HeaderText="Nhiệm vụ chi" ItemStyle-Width="150px" HeaderStyle-CssClass="hiddenCell" />
 
-											<asp:TemplateField HeaderText="Số km" ItemStyle-HorizontalAlign="Right" ItemStyle-Width="100px">
+											<asp:TemplateField HeaderText="Chiều dài tuyến (km)"  HeaderStyle-CssClass="hiddenCell" ItemStyle-HorizontalAlign="Right" ItemStyle-Width="100px">
 												<ItemTemplate>
 													<asp:Label ID="m_lbl_so_km_grid" runat="server" Text='<%#format_so_tien(Eval(GRID_GIAO_KH.So_KM).ToString()) %>'>
 													</asp:Label>
 												</ItemTemplate>
 											</asp:TemplateField>
 
-											<asp:TemplateField HeaderText="Kinh phí năm trước chuyển sang" ItemStyle-HorizontalAlign="Right" ItemStyle-Width="100px">
+											<asp:TemplateField HeaderText="(1)" ItemStyle-HorizontalAlign="Right" ItemStyle-Width="100px">
 												<ItemTemplate>
 													<asp:Label ID="m_lbl_so_tien_nam_truoc_chuyen_sang_grid" runat="server"
 														Text='<%#format_so_tien(Eval(GRID_GIAO_KH.NTCT).ToString()) %>'></asp:Label>
 												</ItemTemplate>
 											</asp:TemplateField>
-											<asp:TemplateField HeaderText="Kinh phí Ngân sách" ItemStyle-HorizontalAlign="Right" ItemStyle-Width="100px">
+											<asp:TemplateField HeaderText="(2)" ItemStyle-HorizontalAlign="Right" ItemStyle-Width="100px">
 												<ItemTemplate>
 													<asp:Label ID="m_lbl_so_tien_ngan_sach_grid" runat="server"
 														Text='<%#format_so_tien(Eval(GRID_GIAO_KH.NS).ToString()) %>'></asp:Label>
 												</ItemTemplate>
 											</asp:TemplateField>
-											<asp:TemplateField HeaderText="Kinh phí Quỹ bảo trì" ItemStyle-HorizontalAlign="Right" ItemStyle-Width="100px">
+											<asp:TemplateField HeaderText="(3)" ItemStyle-HorizontalAlign="Right" ItemStyle-Width="100px">
 												<ItemTemplate>
 													<asp:Label ID="m_lbl_so_tien_quy_bao_tri_grid" runat="server"
 														Text='<%#format_so_tien(Eval(GRID_GIAO_KH.QUY).ToString()) %>'></asp:Label>
 												</ItemTemplate>
 											</asp:TemplateField>
-											<asp:TemplateField HeaderText="Tổng" ItemStyle-HorizontalAlign="Right" ItemStyle-Width="100px">
+											<asp:TemplateField HeaderText="(4)=(1)+(2)+(3)" ItemStyle-HorizontalAlign="Right" ItemStyle-Width="150px">
 												<ItemTemplate>
 													<asp:Label ID="m_lbl_tong_so_tien" runat="server"
 														Text='<%#format_so_tien(Eval(GRID_GIAO_KH.TONG).ToString()) %>'></asp:Label>
