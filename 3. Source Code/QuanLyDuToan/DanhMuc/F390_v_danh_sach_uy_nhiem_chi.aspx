@@ -27,7 +27,10 @@
                 		for (var i = 0; i < v_lst.length; i++) {
                 			v_lst[i].href = v_lst[i].href + "&ip_dc_id_don_vi=" + $("#<%=m_ddl_don_vi.ClientID%>").val();
                         }
-            });
+					});
+		    	if ($("#<%=m_ddl_don_vi.ClientID%> option").length < 2) {
+		    		$("#<%=m_ddl_don_vi.ClientID%>").parent().find('.select2-selection__arrow').addClass('hidden');
+		    	}
 				}
 			}
 	    $(document).ready(function () {
@@ -52,8 +55,12 @@
             		for (var i = 0; i < v_lst.length; i++) {
             			v_lst[i].href = v_lst[i].href + "&ip_dc_id_don_vi=" + $("#<%=m_ddl_don_vi.ClientID%>").val();
                     }
-                });
+            	});
+	    	if ($("#<%=m_ddl_don_vi.ClientID%> option").length < 2) {
+	    		$("#<%=m_ddl_don_vi.ClientID%>").parent().find('.select2-selection__arrow').addClass('hidden');
+	    	}
             }
+
            )
 	</script>
 </asp:Content>

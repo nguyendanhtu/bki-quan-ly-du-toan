@@ -36,12 +36,18 @@
 			if (args.get_isPartialLoad()) {
 				$('.select2').select2();
 				//$("#m_txt_ngay_thang.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
+				if ($("#<%=m_ddl_don_vi.ClientID%> option").length < 2) {
+					$("#<%=m_ddl_don_vi.ClientID%>").parent().find('.select2-selection__arrow').addClass('hidden');
+				}
 
 			}
 		}
 		$(document).ready(function () {
 			$('.select2').select2();
 			//$("#m_txt_ngay_thang.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
+			if ($("#<%=m_ddl_don_vi.ClientID%> option").length < 2) {
+				$("#<%=m_ddl_don_vi.ClientID%>").parent().find('.select2-selection__arrow').addClass('hidden');
+			}
         }
        )
 	</script>

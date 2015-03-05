@@ -48,6 +48,10 @@
 						v_lst[i].href = v_lst[i].href + "&ip_dc_id_don_vi=" + $("#<%=m_ddl_don_vi.ClientID%>").val();
 					}
 				});
+
+		    	if ($("#<%=m_ddl_don_vi.ClientID%> option").length < 2) {
+		    		$("#<%=m_ddl_don_vi.ClientID%>").parent().find('.select2-selection__arrow').addClass('hidden');
+		    	}
 			}
 		}
 	    $(document).ready(function () {
@@ -75,6 +79,9 @@
 					v_lst[i].href = v_lst[i].href + "&ip_dc_id_don_vi=" + $("#<%=m_ddl_don_vi.ClientID%>").val();
 				}
 			});
+	    	if ($("#<%=m_ddl_don_vi.ClientID%> option").length < 2) {
+	    		$("#<%=m_ddl_don_vi.ClientID%>").parent().find('.select2-selection__arrow').addClass('hidden');
+	    	}
 		}
        )
 	</script>
@@ -95,7 +102,7 @@
 				</div>
 				<div style="color: black; text-align: left; margin: 50px">
 					<table style="margin:50px auto; margin-top:20px; padding-top:">
-						<tr style="height:59px">
+						<tr style="height:34px">
 							<td>Từ khóa tìm kiếm </td>
 							<td colspan="4">
 								<asp:TextBox runat="server" ID="m_txt_tu_khoa_tim_kiem" CssClass="form-control" Width="439px"></asp:TextBox>
@@ -106,8 +113,8 @@
 							<td style="text-align:left">
 								<asp:TextBox ClientIDMode="Static" runat="server" CssClass="form-control" ID="m_txt_tu_ngay" Style="width: 164px; text-align: right"></asp:TextBox></td>
 							<td style="width:100px;text-align:right">Đến ngày </td>
-							<td style="text-align:left">
-								<asp:TextBox ClientIDMode="Static" runat="server" ID="m_txt_den_ngay" CssClass="form-control" Style="text-align: left" Width="175px"></asp:TextBox></td>
+							<td style="text-align:right">
+								<asp:TextBox ClientIDMode="Static" runat="server" ID="m_txt_den_ngay" CssClass="form-control" Style="text-align: right" Width="175px"></asp:TextBox></td>
 						</tr>
 						<tr>
 							<td style="height:10px"></td>
