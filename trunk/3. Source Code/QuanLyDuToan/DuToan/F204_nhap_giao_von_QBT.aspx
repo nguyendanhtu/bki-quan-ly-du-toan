@@ -173,17 +173,17 @@
 														
                                                         OnRowCreated="m_grv_RowCreated">
 														<Columns>
-															<asp:TemplateField HeaderStyle-Width="2%" Visible="true" HeaderText="(0)">
+															<asp:TemplateField HeaderStyle-Width="20px" Visible="true" HeaderText="(0)">
 																<ItemTemplate>
 																	<asp:LinkButton ID="m_lbl_delete" runat="server" CausesValidation="false" CommandArgument='<%#Eval("ID")%>'
 																		CommandName="Xoa" ToolTip="Xóa" OnClientClick="return confirm ('Nếu xoá bản ghi này sẽ ảnh hưởng đến dữ liệu báo cáo, Bạn có thực sự muốn xóa bản ghi này?')">
                      <img alt="Xóa" src="../Images/Button/deletered.png" />
 																	</asp:LinkButton>
 																</ItemTemplate>
-																<HeaderStyle Width="2%" CssClass="hiddenCell" />
+																<HeaderStyle CssClass="hiddenCell" />
 																<ItemStyle HorizontalAlign="Center"></ItemStyle>
 															</asp:TemplateField>
-															<asp:TemplateField HeaderText="(1)">
+															<asp:TemplateField HeaderText="(1)"  ItemStyle-Width="400px">
 																<ItemTemplate><%#Eval("NOI_DUNG") %></ItemTemplate>
 															</asp:TemplateField>
 															<%--<asp:BoundField DataField="NOI_DUNG" HeaderText="(1)" />--%>
@@ -202,12 +202,12 @@
                                                                         Visible='<%# visible_label_so_tien(Eval("ID").ToString()) %>' Text='<%#format_so_tien(Eval(GRID_GIAO_VON.NS).ToString()) %>'></asp:Label>
                                                                 </ItemTemplate>
                                                             </asp:TemplateField>--%>
-                                                              <asp:TemplateField HeaderText="(3)=(2)-(5)" ItemStyle-HorizontalAlign="Right" ItemStyle-Width="100px">
+                                                              <asp:TemplateField HeaderText="(3)=(2)-(5)" ItemStyle-HorizontalAlign="Right" ItemStyle-Width="120px">
 																<ItemTemplate>
 																	<asp:Label ID="m_lbl_so_tien_con_lai" runat="server" Style="text-align: right"
 																		Text='<%#format_so_tien((CIPConvert.ToDecimal(Eval(GRID_GIAO_VON.KE_HOACH_CHI))-CIPConvert.ToDecimal(Eval(GRID_GIAO_VON.TONG))).ToString()) %>'></asp:Label>
 																</ItemTemplate>
-															      <ItemStyle HorizontalAlign="Right" Width="100px" />
+															      <ItemStyle HorizontalAlign="Right" Width="120px" />
 															</asp:TemplateField>
 															<asp:TemplateField HeaderText="(4)" ItemStyle-BackColor="LightBlue" ItemStyle-HorizontalAlign="Right" ItemStyle-Width="100px">
 																<ItemTemplate>
@@ -218,7 +218,7 @@
 																		Visible='<%# visible_label_so_tien(Eval("ID").ToString()) %>'
 																		Text='<%#format_so_tien(Eval(GRID_GIAO_VON.QUY).ToString()) %>'></asp:Label>
 																</ItemTemplate>
-															    <ItemStyle BackColor="LightBlue" HorizontalAlign="Right" Width="100px" />
+															    <ItemStyle BackColor="LightBlue" HorizontalAlign="Right" Width="120px" />
 															</asp:TemplateField>
                                                
 															<asp:TemplateField HeaderText="(5)" ItemStyle-HorizontalAlign="Right" ItemStyle-Width="100px">
@@ -226,7 +226,7 @@
 																	<asp:Label ID="m_lbl_so_tien_tong_grid" runat="server" Style="text-align: right"
 																		Text='<%#format_so_tien(Eval(GRID_GIAO_VON.TONG).ToString()) %>'></asp:Label>
 																</ItemTemplate>
-															    <ItemStyle HorizontalAlign="Right" Width="100px" />
+															    <ItemStyle HorizontalAlign="Right" Width="120px" />
 															</asp:TemplateField>
 														</Columns>
                                                            <AlternatingRowStyle BackColor="White" />
