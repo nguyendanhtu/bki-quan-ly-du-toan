@@ -2,6 +2,8 @@
 
 <%@ Import Namespace="WebDS.CDBNames" %>
 <%@ Import Namespace="IP.Core.IPCommon" %>
+<%@ Register Src="~/UC_Message.ascx" TagPrefix="uc1" TagName="UC_Message" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 	<script>
 		function pageLoad(sender, args) {
@@ -113,14 +115,25 @@
                         </tr>
 						
 					</table>
+					
 					<div>
-						<div style="text-align: center">
-							<asp:Label ID="m_lbl_mess" runat="server" CssClass="cssManField"></asp:Label>
-							<asp:Label ID="m_lbl_info" runat="server" CssClass="cssManField"></asp:Label>
-						</div>
+						<div style="text-align: left">
+							<asp:Label ID="m_lbl_mess" runat="server" CssClass="cssManField"></asp:Label>						</div>
 				<div style="width: 800px; margin: 20px auto;">
-					<asp:GridView ClientIDMode="Static" runat="server" ID="m_grv_bao_cao_giao_von" Style="width: 100%;" AutoGenerateColumns="False" EnableModelValidation="True">
+					<asp:GridView ClientIDMode="Static" runat="server" ID="m_grv_bao_cao_giao_von" Style="width: 100%;" AutoGenerateColumns="False" EnableModelValidation="True"
+						OnRowCommand="m_grv_bao_cao_giao_von_RowCommand"
+						>
 						<Columns>
+							<asp:TemplateField HeaderStyle-Width="20px" HeaderText="Xoá">
+												<ItemTemplate>
+													<asp:LinkButton ID="m_lbl_delete" runat="server" CausesValidation="false" CommandArgument='<%#Eval("ID")%>'
+														CommandName="Xoa" ToolTip="Xóa" OnClientClick="return confirm ('Bạn có thực sự muốn xóa Uỷ nhiệm chi này?')">
+                     <img alt="Xóa" src="../Images/Button/deletered.png" />
+													
+													</asp:LinkButton>
+												</ItemTemplate>
+												<ItemStyle HorizontalAlign="Center"></ItemStyle>
+											</asp:TemplateField>
 							<asp:TemplateField HeaderText="Số UNC" ItemStyle-Width="150px">
 								<ItemTemplate>
 									<a class="link206" href='../DuToan/F304_nhap_giai_ngan_theo_unc.aspx?ip_dc_id_dm_giai_ngan=<%#Eval("ID") %>&ip_nguon_ns=<%#Eval("IS_NGUON_NS_YN") %>'

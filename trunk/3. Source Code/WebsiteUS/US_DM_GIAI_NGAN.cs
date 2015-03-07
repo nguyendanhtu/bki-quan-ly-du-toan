@@ -549,6 +549,22 @@ namespace WebUS
 			v_sp.addNVarcharInputParam("@ip_nguon_ns", ip_nguon_ns);
 			v_sp.fillDataSetByCommand(this, op_ds);
 		}
+
+		public bool deleteAllDataOfUNC(decimal ip_dc_id_unc)
+		{
+			CStoredProc v_sp = new CStoredProc("pr_DM_GIAI_NGAN_deleteAllDataOfUNC");
+			v_sp.addDecimalInputParam("@ip_dc_id_unc", ip_dc_id_unc);
+			try
+			{
+				v_sp.ExecuteCommand(this);
+				return true;
+			}
+			catch (Exception)
+			{
+				return false;
+			}
+			return false;
+		}
 		#endregion
 	}
 }
