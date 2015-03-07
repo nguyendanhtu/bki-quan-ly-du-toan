@@ -24,6 +24,7 @@ namespace QuanLyDuToan.DanhMuc
         {
             try
             {
+				m_lbl_mess.Text = "";
                 if (!IsPostBack)
                 {
                     if (Request.QueryString["ip_dat_tu_ngay"] != null)
@@ -148,6 +149,29 @@ namespace QuanLyDuToan.DanhMuc
 			try
 			{
 				export_excel();
+			}
+			catch (Exception v_e)
+			{
+				CSystemLog_301.ExceptionHandle(this, v_e);
+			}
+		}
+
+		protected void m_grv_bao_cao_giao_von_RowCommand(object sender, GridViewCommandEventArgs e)
+		{
+			try
+			{
+				if (e.CommandName.ToUpper()=="XOA")
+				{
+					US_DM_GIAI_NGAN v_us_dm_giai_ngan = new US_DM_GIAI_NGAN();
+					if (v_us_dm_giai_ngan.deleteAllDataOfUNC(CIPConvert.ToDecimal(e.CommandArgument)))
+					{
+						m_lbl_mess.Text = "Bạn đã xoá Uỷ nhiệm chi thành công";
+						load_data_to_grid();
+					}
+					else m_lbl_mess.Text = "Đã có lỗi trong quá trình thực hiện, bạn hãy thực hiện lại thao tác";
+
+					
+				}
 			}
 			catch (Exception v_e)
 			{
