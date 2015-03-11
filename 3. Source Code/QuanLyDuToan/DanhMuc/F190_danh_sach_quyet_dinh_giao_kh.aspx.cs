@@ -19,6 +19,13 @@ namespace QuanLyDuToan.DanhMuc
 {
 	public partial class F190_danh_sach_quyet_dinh_giao_kh : System.Web.UI.Page
 	{
+		#region Refactory_last_time_by_TuDM_2015_03_11
+		/*
+			* Bắt try catch ở sự kiện
+			* Viết hàm set_initial_form_load
+			*/
+		#endregion
+
 		#region Public Functions
 		public bool isEnableSelectDropdownlist(DropDownList ip_ddl)
 		{
