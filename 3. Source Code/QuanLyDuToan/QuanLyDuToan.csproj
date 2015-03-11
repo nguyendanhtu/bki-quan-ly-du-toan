@@ -93,7 +93,10 @@
     <Content Include="Downloadify\media\downloadify.swf" />
     <Content Include="Downloadify\src\downloadify.js" />
     <Content Include="Downloadify\test.html" />
+    <Content Include="Quantri\admin.aspx" />
     <Content Include="Scripts\ExportExcel.js" />
+    <Content Include="Scripts\jquery.dataTables.js" />
+    <Content Include="Scripts\jquery.dataTables.sorting.js" />
     <Content Include="Scripts\knockout-3.2.0.debug.js" />
     <Content Include="Scripts\knockout-3.2.0.js" />
     <Content Include="Scripts\plugins\datepicker\locales\bootstrap-datepicker.vi.js" />
@@ -797,6 +800,13 @@
     </Compile>
     <Compile Include="ChucNang\F600_print_unc_qbt.aspx.designer.cs">
       <DependentUpon>F600_print_unc_qbt.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Quantri\admin.aspx.cs">
+      <DependentUpon>admin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Quantri\admin.aspx.designer.cs">
+      <DependentUpon>admin.aspx</DependentUpon>
     </Compile>
     <Compile Include="Test\Test.aspx.cs">
       <DependentUpon>Test.aspx</DependentUpon>

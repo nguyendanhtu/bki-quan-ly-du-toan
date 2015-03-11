@@ -7,81 +7,90 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace QuanLyDuToan {
+namespace QuanLyDuToan.Quantri {
     
     
-    public partial class Site {
+    public partial class admin {
         
         /// <summary>
-        /// Head1 control.
+        /// m_lbl_mess control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlHead Head1;
+        protected global::System.Web.UI.WebControls.Label m_lbl_mess;
         
         /// <summary>
-        /// HeadContent control.
+        /// m_rdb_excute control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder HeadContent;
+        protected global::System.Web.UI.WebControls.RadioButton m_rdb_excute;
         
         /// <summary>
-        /// Form1 control.
+        /// m_rdb_tim_proc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm Form1;
+        protected global::System.Web.UI.WebControls.RadioButton m_rdb_tim_proc;
         
         /// <summary>
-        /// Image1 control.
+        /// m_rdb_tim_view control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image1;
+        protected global::System.Web.UI.WebControls.RadioButton m_rdb_tim_view;
         
         /// <summary>
-        /// m_lhk_user_name control.
+        /// m_txt_convert_encoding control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label m_lhk_user_name;
+        protected global::System.Web.UI.WebControls.TextBox m_txt_convert_encoding;
         
         /// <summary>
-        /// m_lnk_logout control.
+        /// m_cmd_convert control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink m_lnk_logout;
+        protected global::System.Web.UI.WebControls.Button m_cmd_convert;
         
         /// <summary>
-        /// rptMainMenu control.
+        /// m_txt_command control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptMainMenu;
+        protected global::System.Web.UI.WebControls.TextBox m_txt_command;
         
         /// <summary>
-        /// MainContent control.
+        /// m_cmd_excute control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder MainContent;
+        protected global::System.Web.UI.WebControls.Button m_cmd_excute;
+        
+        /// <summary>
+        /// m_grv control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView m_grv;
     }
 }

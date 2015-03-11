@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="F101_Dictionary.aspx.cs" Inherits="QuanLyDuToan.DanhMuc.F101_Dictionary" %>
  <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="Server">
-<script>
+	 <script>
     function pageLoad(sender, args) {
         if (args.get_isPartialLoad()) {
 
@@ -18,7 +18,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="Server">
    
-    <div>
+	<div>
         <asp:ScriptManager ID="ScriptManager1" runat="server">
         </asp:ScriptManager>
         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
@@ -53,8 +53,8 @@
                 <asp:Label ID="lblFullName" CssClass="cssManField" runat="server" Text="Mã từ điển" />
             </td>
             <td style="width: 30%;">
-                <asp:TextBox ID="m_txt_ma_tu_dien" CssClass="cssTextBox" runat="server" MaxLength="64"
-                    Width="96%" />
+                <asp:TextBox ID="m_txt_ma_tu_dien" CssClass="form-control" runat="server" MaxLength="64"
+                    Width="264px" />
             </td>
             <td style="width: 5%;">
                 <asp:CustomValidator ID="m_ctv_ma_tu_dien" runat="server" ControlToValidate="m_txt_ma_tu_dien"
@@ -66,8 +66,8 @@
                 <asp:Label ID="lblAnswer0" runat="server" CssClass="cssManField" Text="Tên ngắn" />
             </td>
             <td align="left">
-                <asp:TextBox ID="m_txt_ten_ngan" AccessKey="m" runat="server" CssClass="cssTextBox"
-                    Width="96%" />
+                <asp:TextBox ID="m_txt_ten_ngan" AccessKey="m" runat="server" CssClass="form-control"
+                    Width="264px" />
             </td>
             <td>
                 <asp:CustomValidator ID="m_ctv_ten_tu_ngan" runat="server" ControlToValidate="m_txt_ten_ngan"
@@ -79,7 +79,7 @@
                 <asp:Label ID="lblAnswer" runat="server" CssClass="cssManField" Text="Tên" />
             </td>
             <td align="left">
-                <asp:TextBox ID="m_txt_ten" AccessKey="m" runat="server" CssClass="cssTextBox" Width="96%" />
+                <asp:TextBox ID="m_txt_ten" AccessKey="m" runat="server" CssClass="form-control" Width="264px" />
             </td>
             <td>
                 <asp:CustomValidator ID="m_ctv_ten" runat="server" ControlToValidate="m_txt_ten"
@@ -91,28 +91,21 @@
                 <asp:Label ID="m_lbl_ghi_chu" runat="server" CssClass="cssManField" Text="Ghi Chú" />
             </td>
             <td align="left">
-                <asp:TextBox ID="m_txt_ghi_chu" AccessKey="m" runat="server" CssClass="cssTextBox"
-                    Width="96%" TextMode="MultiLine" Height="52px" />
-            </td>
-        </tr>
-        <tr>
-            <td align="right">
-                &nbsp;
-            </td>
-            <td valign="top" colspan="2">
-                <asp:HiddenField ID="m_hdf_id_dm_tu_dien" runat="server" Visible="False" />
+                <asp:TextBox ID="m_txt_ghi_chu" AccessKey="m" runat="server" CssClass="form-control"
+                    Width="264px" TextMode="MultiLine" Height="52px" />
             </td>
         </tr>
         <tr>
             <td>
             </td>
             <td colspan="2" align="left">
-                <asp:Button ID="m_cmd_tao_moi" AccessKey="c" CssClass=" btn" runat="server"
+                <asp:Button ID="m_cmd_tao_moi" AccessKey="c" CssClass=" btn btn-sm btn-success" runat="server"
                     Text="Tạo mới(c)" OnClick="m_cmd_tao_moi_Click" />&nbsp;
-                <asp:Button ID="m_cmd_cap_nhat" AccessKey="u" CssClass=" btn" runat="server"
+                <asp:Button ID="m_cmd_cap_nhat" AccessKey="u" CssClass="  btn btn-sm btn-success" runat="server"
                     Text="Cập nhật(u)" OnClick="m_cmd_cap_nhat_Click" />&nbsp;
-                <asp:Button ID="btnCancel" AccessKey="r" CssClass=" btn" runat="server" 
+                <asp:Button ID="btnCancel" AccessKey="r" CssClass="  btn btn-sm btn-default" runat="server" 
                      Text="Xóa trắng(r)" OnClick="btnCancel_Click" />
+				 <asp:HiddenField ID="m_hdf_id_dm_tu_dien" runat="server" Visible="False" />
             </td>
         </tr>
         <tr>
@@ -138,12 +131,18 @@
             </td>
         </tr>
         <tr>
-            <td align="center" colspan="3" style="height: 450px;" valign="top">
+            <td align="center" colspan="3" valign="top">
                 <asp:GridView ID="m_grv_dm_tu_dien" runat="server" AutoGenerateColumns="False" Width="100%"
                     DataKeyNames="ID" OnRowDeleting="m_grv_dm_tu_dien_RowDeleting" OnSelectedIndexChanging="m_grv_dm_tu_dien_SelectedIndexChanging"
                     CellPadding="4" ForeColor="#333333" GridLines="Both" CssClass="cssGrid">
                     <AlternatingRowStyle BackColor="White" />
                     <Columns>
+						<asp:CommandField HeaderText="Xóa" DeleteText="Xóa" ShowDeleteButton="True" HeaderStyle-Height="50px" ItemStyle-HorizontalAlign="Center" ButtonType="Image" DeleteImageUrl="../Images/Button/deletered.png">
+                            <ItemStyle HorizontalAlign="Center"></ItemStyle>  
+                        </asp:CommandField>
+                        <asp:CommandField HeaderText="Sửa" SelectText="Sửa" ShowSelectButton="True" ItemStyle-HorizontalAlign="Center" ButtonType="Image" SelectImageUrl="../Images/Button/edit.png">
+                            <ItemStyle HorizontalAlign="Center"></ItemStyle>
+                        </asp:CommandField>
                         <asp:TemplateField HeaderText="STT" ItemStyle-HorizontalAlign="Center">
                             <ItemTemplate>
                                 <%# Container.DataItemIndex + 1 %></ItemTemplate>
@@ -160,16 +159,10 @@
                         <asp:BoundField DataField="GHI_CHU" ItemStyle-HorizontalAlign="Center" HeaderText="Ghi chú">
                             <ItemStyle HorizontalAlign="Center"></ItemStyle>
                         </asp:BoundField>
-                        <asp:CommandField HeaderText="Xóa" DeleteText="Xóa" ShowDeleteButton="True" ItemStyle-HorizontalAlign="Center" ButtonType="Image" DeleteImageUrl="../Images/Button/deletered.png">
-                            <ItemStyle HorizontalAlign="Center"></ItemStyle>  
-                        </asp:CommandField>
-                        <asp:CommandField HeaderText="Sửa" SelectText="Sửa" ShowSelectButton="True" ItemStyle-HorizontalAlign="Center" ButtonType="Image" SelectImageUrl="../Images/Button/edit.png">
-                            <ItemStyle HorizontalAlign="Center"></ItemStyle>
-                        </asp:CommandField>
+                        
                     </Columns>
                     <EditRowStyle BackColor="#7C6F57" />
                     <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
-                    <HeaderStyle BackColor="#810c15" Font-Bold="True" ForeColor="White" />
                     <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
                     <RowStyle BackColor="#E3EAEB" />
                     <SelectedRowStyle CssClass="cssSelectedRow" BackColor="#C5BBAF" Font-Bold="True"

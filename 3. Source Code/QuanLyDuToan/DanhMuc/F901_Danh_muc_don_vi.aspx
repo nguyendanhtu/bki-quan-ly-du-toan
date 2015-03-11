@@ -31,14 +31,14 @@
 					</td>
 				</tr>
 				<tr>
-					<td align="right" style="width: 15%">
+					<td align="right" style="width: 25%">
 						<span class="cssManField">Mã đơn vị:</span>
 					</td>
-					<td style="width: 34%">
+					<td style="width: 35%">
 						<asp:TextBox ID="m_txt_ma_don_vi" CssClass="cssTextBox form-control" runat="server" MaxLength="25"
-							placeholder="Nhập mã đơn vị" Width="90%" />
+							placeholder="Nhập mã đơn vị" Width="300px" />
 					</td>
-					<td style="width: 1%">
+					<td style="width: 40%">
 						<asp:RequiredFieldValidator runat="Server" ID="m_rfv_ma_don_vi" Text="(*)" ControlToValidate="m_txt_ma_don_vi"
 							ErrorMessage="Bạn phải nhập Mã Đơn Vị!" ValidationGroup="m_vlg_dm_don_vi"></asp:RequiredFieldValidator>
 					</td>
@@ -57,7 +57,7 @@
 					</td>
 					<td>
 						<asp:TextBox ID="m_txt_ten_don_vi" CssClass="cssTextBox form-control" runat="server" MaxLength="50"
-							placeholder="Nhập tên đơn vị" Width="90%" />
+							placeholder="Nhập tên đơn vị" Width="300px" />
 					</td>
 					<td style="width: 1%">
 						<asp:RequiredFieldValidator ID="m_rfv_ten_don_vi" runat="Server" ControlToValidate="m_txt_ten_don_vi"
@@ -83,7 +83,8 @@
                     </td>
                 </tr>--%>
 				<tr>
-					<td align="center" colspan="4">
+					<td></td>
+					<td style="text-align:left" colspan="3">
 						<asp:Button ID="m_cmd_tao_moi" AccessKey="c" CssClass="btn btn-sm btn-success" runat="server"
 							Text="Tạo mới(c)" OnClick="m_cmd_tao_moi_Click" />&nbsp;
                         <asp:Button ID="m_cmd_cap_nhat" AccessKey="u" CssClass="btn btn-sm btn-success" runat="server"
@@ -100,31 +101,34 @@
 					</td>
 				</tr>
 				<tr>
-					<td align="left">
+					<td align="left" colspan="2">
 						<asp:Label ID="m_lbl_thong_bao" runat="server" CssClass="cssManField" />
 					</td>
-					<td>&nbsp;
-					</td>
+					
 				</tr>
 				<tr>
-					<td style="text-align: center">
+					<td style="width: 25%"></td>
+					<td style="text-align: left;">
 						<asp:TextBox ID="m_txt_tim_kiem" runat="server" Width="200px" CssClass="cssTextBox form-control"></asp:TextBox>
 						&nbsp;
                         <asp:Button ID="m_cmd_tim_kiem" runat="server" Text="Tìm kiếm" CssClass="btn btn-sm btn-primary"
 							CausesValidation="false" OnClick="m_cmd_tim_kiem_Click" />
-					</td>
-				</tr>
-				<tr>
-					<td colspan="2" align="center">
 						<asp:HiddenField ID="m_hdf_id_don_vi" runat="server" Visible="False" />
 						<asp:HiddenField ID="m_hdf_form_mode" runat="server" Visible="False" />
 					</td>
 				</tr>
 				<tr>
-					<td style="width: 100%">
-						<asp:GridView ID="m_grv_dm_don_vi" runat="server" AutoGenerateColumns="False" Width="100%"
-							DataKeyNames="ID" AllowPaging="True" PageSize="50" CellPadding="4" ForeColor="#333333"
-							CssClass="cssGrid" OnRowDeleting="m_grv_dm_don_vi_RowDeleting" OnPageIndexChanging="m_grv_dm_don_vi_PageIndexChanging" 
+					<td style="width: 100%" colspan="2">
+						<asp:GridView ID="m_grv_dm_don_vi" runat="server" 
+							AutoGenerateColumns="False"
+							 Width="100%"
+							DataKeyNames="ID" 
+							AllowPaging="True" 
+							PageSize="30" 
+							CellPadding="4" 
+							ForeColor="#333333"
+							CssClass="cssGrid"
+							OnRowDeleting="m_grv_dm_don_vi_RowDeleting" OnPageIndexChanging="m_grv_dm_don_vi_PageIndexChanging" 
 							HeaderStyle-Height="30px"
 							HeaderStyle-BackColor="#ddd"
 							HeaderStyle-ForeColor="Black"
@@ -132,7 +136,7 @@
 							<PagerSettings Position="TopAndBottom" />
 							<AlternatingRowStyle BackColor="White" />
 							<Columns>
-								<asp:TemplateField HeaderText="Xóa" ItemStyle-Width="2%" >
+								<asp:TemplateField HeaderText="Xóa" ItemStyle-Width="4%" >
 									<ItemTemplate>
 										<asp:LinkButton ID="m_lbt_delete" runat="server" CommandName="Delete" ToolTip="Xóa"
 											OnClientClick="return confirm ('Bạn có thực sự muốn xóa bản ghi này?')">
@@ -144,7 +148,7 @@
 									Visible="False">
 									<ItemStyle HorizontalAlign="Center"></ItemStyle>
 								</asp:CommandField>
-								<asp:TemplateField HeaderText="Sửa" HeaderStyle-Width="3%">
+								<asp:TemplateField HeaderText="Sửa" HeaderStyle-Width="4%">
 									<ItemTemplate>
 										<asp:LinkButton ToolTip="Sửa" ID="m_lbt_edit" CommandName="Update" runat="server">
 
@@ -154,11 +158,10 @@
 										</asp:LinkButton>
 									</ItemTemplate>
 								</asp:TemplateField>
-								<asp:TemplateField HeaderText="STT" ItemStyle-HorizontalAlign="Center">
+								<asp:TemplateField HeaderText="STT" ItemStyle-HorizontalAlign="Center" HeaderStyle-Width="4%">
 									<ItemTemplate>
 										<%# Container.DataItemIndex + 1 %>
 									</ItemTemplate>
-									<HeaderStyle Width="15px" />
 									<ItemStyle HorizontalAlign="Center"></ItemStyle>
 								</asp:TemplateField>
 								<asp:BoundField DataField="MA_DON_VI" ItemStyle-HorizontalAlign="Left" HeaderText="Mã đơn vị">
@@ -183,7 +186,7 @@
 							<EditRowStyle BackColor="#7C6F57" />
 							<FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
 							<%--<HeaderStyle BackColor="#810c15" Font-Bold="True" ForeColor="White" />--%>
-							<PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
+							<PagerStyle CssClass="GridViewPagerStyle" HorizontalAlign="Center" />
 							<RowStyle BackColor="#E3EAEB" />
 							<SelectedRowStyle CssClass="cssSelectedRow" BackColor="#C5BBAF" Font-Bold="True"
 								ForeColor="#333333"></SelectedRowStyle>

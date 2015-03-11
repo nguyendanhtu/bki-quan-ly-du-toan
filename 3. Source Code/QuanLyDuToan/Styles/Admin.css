@@ -4,6 +4,29 @@ body
     font-family: Arial, Times New Roman, Tahoma;
     font-size: 12px;
 }
+.GridViewPagerStyle
+{
+    background-color: gray;
+    color: White;
+    font-weight: bold;
+}
+.GridViewStyle a
+{
+    color: #5208c1;
+}
+.GridViewStyle tr:first-child td:last-child
+{
+    border-right: 1px solid #810913;
+}
+
+.GridViewStyle tr td:last-child
+{
+    border-right: 1px solid white;
+}
+.GridViewStyle tr:last-child td:last-child
+{
+    border-right: 1px solid tranparent;
+}
 .cssTable
 {
     border: #C9BDAB 1px solid;
