@@ -174,7 +174,6 @@ namespace QuanLyDuToan.BaoCao
         #region Event
         protected void Page_Load(object sender, EventArgs e) {
             try {
-
                 if (!IsPostBack) {
                     load_data_to_ddl_don_vi();
                     US_DM_DON_VI v_us = new US_DM_DON_VI(CIPConvert.ToDecimal(m_ddl_don_vi.SelectedValue));
