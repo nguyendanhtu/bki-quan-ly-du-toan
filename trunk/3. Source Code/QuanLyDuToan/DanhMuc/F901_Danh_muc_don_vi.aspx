@@ -84,7 +84,7 @@
                 </tr>--%>
 				<tr>
 					<td></td>
-					<td style="text-align:left" colspan="3">
+					<td style="text-align: left" colspan="3">
 						<asp:Button ID="m_cmd_tao_moi" AccessKey="c" CssClass="btn btn-sm btn-success" runat="server"
 							Text="Tạo mới(c)" OnClick="m_cmd_tao_moi_Click" />&nbsp;
                         <asp:Button ID="m_cmd_cap_nhat" AccessKey="u" CssClass="btn btn-sm btn-success" runat="server"
@@ -94,7 +94,7 @@
 					</td>
 				</tr>
 			</table>
-			<table cellspacing="0" cellpadding="2" style="width: 900px; margin: auto; border:1px solid gray" class="table" >
+			<table cellspacing="0" cellpadding="2" style="width: 900px; margin: auto; border: 1px solid gray" class="table">
 				<tr>
 					<td class="cssPageTitleBG" colspan="6">
 						<asp:Label ID="m_lbl_thong_tin_don_vi" runat="server" CssClass="cssManField" ForeColor="White" />
@@ -104,7 +104,7 @@
 					<td align="left" colspan="2">
 						<asp:Label ID="m_lbl_thong_bao" runat="server" CssClass="cssManField" />
 					</td>
-					
+
 				</tr>
 				<tr>
 					<td style="width: 25%"></td>
@@ -119,16 +119,16 @@
 				</tr>
 				<tr>
 					<td style="width: 100%" colspan="2">
-						<asp:GridView ID="m_grv_dm_don_vi" runat="server" 
+						<asp:GridView ID="m_grv_dm_don_vi" runat="server"
 							AutoGenerateColumns="False"
-							 Width="100%"
-							DataKeyNames="ID" 
-							AllowPaging="True" 
-							PageSize="30" 
-							CellPadding="4" 
+							Width="100%"
+							DataKeyNames="ID"
+							AllowPaging="True"
+							PageSize="30"
+							CellPadding="4"
 							ForeColor="#333333"
 							CssClass="cssGrid"
-							OnRowDeleting="m_grv_dm_don_vi_RowDeleting" OnPageIndexChanging="m_grv_dm_don_vi_PageIndexChanging" 
+							OnRowDeleting="m_grv_dm_don_vi_RowDeleting" OnPageIndexChanging="m_grv_dm_don_vi_PageIndexChanging"
 							HeaderStyle-Height="30px"
 							HeaderStyle-BackColor="#ddd"
 							HeaderStyle-ForeColor="Black"
@@ -136,7 +136,7 @@
 							<PagerSettings Position="TopAndBottom" />
 							<AlternatingRowStyle BackColor="White" />
 							<Columns>
-								<asp:TemplateField HeaderText="Xóa" ItemStyle-Width="4%" >
+								<asp:TemplateField HeaderText="Xóa" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="4%" HeaderStyle-Height="50px">
 									<ItemTemplate>
 										<asp:LinkButton ID="m_lbt_delete" runat="server" CommandName="Delete" ToolTip="Xóa"
 											OnClientClick="return confirm ('Bạn có thực sự muốn xóa bản ghi này?')">
@@ -148,7 +148,7 @@
 									Visible="False">
 									<ItemStyle HorizontalAlign="Center"></ItemStyle>
 								</asp:CommandField>
-								<asp:TemplateField HeaderText="Sửa" HeaderStyle-Width="4%">
+								<asp:TemplateField HeaderText="Sửa" HeaderStyle-Width="4%"  ItemStyle-HorizontalAlign="Center">
 									<ItemTemplate>
 										<asp:LinkButton ToolTip="Sửa" ID="m_lbt_edit" CommandName="Update" runat="server">
 

@@ -18,6 +18,7 @@ namespace WebUS
 			public const string NGUON_NGAN_SACH = "ip_nguon_ns";
 			public const string ID_GIAI_NGAN = "ip_dc_id_dm_giai_ngan";
 			public static string ID_QUYET_DINH = "ip_dc_id_quyet_dinh";
+			public static string LOAI_DON_VI = "LOAI_DON_VI";
 		}
 
 		public class FormName
