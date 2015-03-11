@@ -43,6 +43,7 @@ namespace WebUS
 			public const string F357 = "BaoCaoTinhHinhGiaiNgan.xls";
 			public const string F190 = "BaoCaoGiaoKeHoachTheoQuyetDinh.xls";
 			public const string F290 = "BaoCaoGiaoVonTheoQuyetDinh.xls";
+			public const string F390 = "BaoCaoGiaiNganTheoUyNhiemChi.xls";
 
 		}
 	}
