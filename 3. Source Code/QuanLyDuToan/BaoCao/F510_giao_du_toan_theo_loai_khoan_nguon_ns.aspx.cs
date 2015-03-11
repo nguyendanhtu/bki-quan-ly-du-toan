@@ -14,6 +14,12 @@ namespace QuanLyDuToan.BaoCao
 {
 	public partial class F510_giao_du_toan_theo_loai_khoan_nguon_ns : System.Web.UI.Page {
 
+        #region Refactory by Huytd ngày 12/02/2015 7:30pm
+        /*
+         * còn chưa refactory format_link_to_chi_tiet() & format_link_to_chi_tiet_trong_thang
+         */
+        #endregion
+
         #region Public Function
         public string ConvertToUnsign3(string str) {
             System.Text.RegularExpressions.Regex regex = new System.Text.RegularExpressions.Regex("\\p{IsCombiningDiacriticalMarks}+");
@@ -177,6 +183,7 @@ namespace QuanLyDuToan.BaoCao
                 load_data_to_grid();
             }
         }
+
         protected void m_cmd_xuat_excel_Click(object sender, EventArgs e) {
             US_DM_DON_VI v_us = new US_DM_DON_VI(Person.get_id_don_vi());
             WebformReport.export_gridview_2_excel(
@@ -187,26 +194,9 @@ namespace QuanLyDuToan.BaoCao
         protected void m_cmd_xem_bao_cao_Click(object sender, EventArgs e) {
             load_data_to_grid();
         }
-        #endregion
-        
-		/* Để Xuất file excel
-		 * 1. Dùng 
-		 * WinformReport.export_gridview_2_excel(
-			m_grv
-			, "TenBaoCao.xls"
-			);
-		 * 2. Thêm 
-		 * <Triggers>
-			 <asp:PostBackTrigger ControlID="m_cmd_xuat_excel" />
-        </Triggers>
-		 * Trong aspx
-		 * 3. Thêm hàm VerifyRenderingInServerForm
-		*/
-	
-        #region Merge header
+
         //vẽ header cho gridview
-        protected void m_grv_bao_cao_giao_von_RowCreated(object sender, GridViewRowEventArgs e)
-        {
+        protected void m_grv_bao_cao_giao_von_RowCreated(object sender, GridViewRowEventArgs e) {
             if (e.Row.RowType == DataControlRowType.Header) // If header created
             {
                 GridView ProductGrid = (GridView)sender;
@@ -238,8 +228,7 @@ namespace QuanLyDuToan.BaoCao
                 HeaderRow.Cells.Add(HeaderCell);
 
 
-                foreach (var item in m_lst_str_header)
-                {
+                foreach (var item in m_lst_str_header) {
                     HeaderCell = new TableCell();
                     HeaderCell.Text = item;
                     HeaderCell.HorizontalAlign = HorizontalAlign.Center;
@@ -248,20 +237,17 @@ namespace QuanLyDuToan.BaoCao
                     HeaderRow.Cells.Add(HeaderCell);
                 }
                 //Adding QĐ
-                
+
 
                 //Adding the Row at the 0th position (first row) in the Grid
                 ProductGrid.Controls[0].Controls.AddAt(0, HeaderRow);
             }
         }
-
-        protected void m_grv_bao_cao_giao_von_RowDataBound(object sender, GridViewRowEventArgs e)
-        {
-            if (e.Row.RowType == DataControlRowType.Header)
-            {
+        protected void m_grv_bao_cao_giao_von_RowDataBound(object sender, GridViewRowEventArgs e) {
+            if (e.Row.RowType == DataControlRowType.Header) {
                 e.Row.Cells[0].Visible = false; // Invisibiling Year Header Cell
             }
         }
-        #endregion  
+        #endregion
     }
 }

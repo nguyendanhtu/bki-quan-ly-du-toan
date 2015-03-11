@@ -16,6 +16,12 @@ namespace QuanLyDuToan.BaoCao
 	public partial class F520_theo_doi_tinh_hinh_giao_von_qbt : System.Web.UI.Page
 	{
 
+        #region Refactory by Huytd ngày 12/02/2015 7:30pm
+        /*
+         * còn chưa refactory format_link_to_chi_tiet() & format_link_to_chi_tiet_trong_thang
+         */
+        #endregion
+
 		#region Public Function
 		public override void VerifyRenderingInServerForm(Control control)
 		{
@@ -64,18 +70,18 @@ namespace QuanLyDuToan.BaoCao
 		}
 
 		private void load_data_to_col_tong_ke_hoach(US_GD_CHI_TIET_GIAO_VON ip_us
-													, DataSet ip_ds
-													, DataTable ip_dt
-													, String ip_str_tu_ngay
-													, String ip_str_den_ngay)
+									, DataSet ip_ds
+									, DataTable ip_dt
+									, String ip_str_tu_ngay
+									, String ip_str_den_ngay)
 		{
 			ip_us.FillDatasetWithProcedure(
-				"pr_F520_lay_tong_tien_giao_kh_qbt"
-				, ip_ds
-				, CIPConvert.ToDatetime(ip_str_tu_ngay, c_configuration.DEFAULT_DATETIME_FORMAT)
-				, CIPConvert.ToDatetime(ip_str_den_ngay, c_configuration.DEFAULT_DATETIME_FORMAT)
-				, c_configuration.TAT_CA
-				, c_configuration.TAT_CA);
+				        "pr_F520_lay_tong_tien_giao_kh_qbt"
+				        , ip_ds
+				        , CIPConvert.ToDatetime(ip_str_tu_ngay, c_configuration.DEFAULT_DATETIME_FORMAT)
+				        , CIPConvert.ToDatetime(ip_str_den_ngay, c_configuration.DEFAULT_DATETIME_FORMAT)
+				        , c_configuration.TAT_CA
+				        , c_configuration.TAT_CA);
 			for (int i = 0; i < ip_ds.Tables[0].Columns.Count; i++)
 			{
 				ip_dt.Columns.Add(ip_ds.Tables[0].Columns[i].ColumnName);
@@ -92,10 +98,10 @@ namespace QuanLyDuToan.BaoCao
 		}
 
 		private void load_data_to_col_ke_hoach_chinh_thuc_or_bo_sung(US_GD_CHI_TIET_GIAO_VON ip_us
-																	, DataSet ip_ds
-																	, DataTable ip_dt
-																	, String ip_str_tu_ngay
-																	, String ip_str_den_ngay)
+													, DataSet ip_ds
+													, DataTable ip_dt
+													, String ip_str_tu_ngay
+													, String ip_str_den_ngay)
 		{
 			ip_ds.Clear();
 			ip_us.FillDatasetWithProcedure(
@@ -122,26 +128,27 @@ namespace QuanLyDuToan.BaoCao
 		}
 
 		private void load_data_to_col_so_du_nam_truoc_chuyen_sang(US_GD_CHI_TIET_GIAO_VON ip_us
-																	, DataSet ip_ds
-																	, DataTable ip_dt
-																	, String ip_str_tu_ngay
-																	, String ip_str_den_ngay)
+													, DataSet ip_ds
+													, DataTable ip_dt
+													, String ip_str_tu_ngay
+													, String ip_str_den_ngay)
 		{
 			ip_ds.Clear();
 			ip_us.FillDatasetWithProcedure(
-				"pr_F520_lay_tong_tien_nam_truoc_chuyen_sang"
-				, ip_ds
-				, CIPConvert.ToDatetime(ip_str_tu_ngay, c_configuration.DEFAULT_DATETIME_FORMAT)
-				, CIPConvert.ToDatetime(ip_str_den_ngay, c_configuration.DEFAULT_DATETIME_FORMAT)
-				, c_configuration.TAT_CA);
-			GhepThemCot(ip_dt, ip_ds.Tables[0], "SoDu");
+				        "pr_F520_lay_tong_tien_nam_truoc_chuyen_sang"
+				        , ip_ds
+				        , CIPConvert.ToDatetime(ip_str_tu_ngay, c_configuration.DEFAULT_DATETIME_FORMAT)
+				        , CIPConvert.ToDatetime(ip_str_den_ngay, c_configuration.DEFAULT_DATETIME_FORMAT)
+				        , c_configuration.TAT_CA);
+			            GhepThemCot(ip_dt, ip_ds.Tables[0], "SoDu");
 		}
 
-		private void load_data_to_col_tong_giao_von_and_giao_von_theo_quyet_dinh(US_GD_CHI_TIET_GIAO_VON ip_us
-																				, DataSet ip_ds
-																				, DataTable ip_dt
-																				, String ip_str_tu_ngay
-																				, String ip_str_den_ngay)
+		private void load_data_to_col_tong_giao_von_and_giao_von_theo_quyet_dinh(
+                                                            US_GD_CHI_TIET_GIAO_VON ip_us
+															, DataSet ip_ds
+															, DataTable ip_dt
+															, String ip_str_tu_ngay
+															, String ip_str_den_ngay)
 		{
 			ip_ds.Clear();
 			ip_us.FillDatasetWithProcedure(
@@ -212,7 +219,10 @@ namespace QuanLyDuToan.BaoCao
 			return;
 		}
 
-		private void GhepThemCot(DataTable v_dt_bao_cao, DataTable dataTable, string ip_str_column_name)
+		private void GhepThemCot(
+                        DataTable v_dt_bao_cao
+                        , DataTable dataTable
+                        , string ip_str_column_name)
 		{
 			v_dt_bao_cao.Columns.Add(ip_str_column_name);
 			for (int i = 0; i < v_dt_bao_cao.Rows.Count; i++)
@@ -294,6 +304,7 @@ namespace QuanLyDuToan.BaoCao
 				load_data_to_grid();
 			}
 		}
+
 		protected void m_cmd_xem_bao_cao_Click(object sender, EventArgs e)
 		{
 			xoaCotDong();
@@ -306,21 +317,19 @@ namespace QuanLyDuToan.BaoCao
 			, "BaoCaoTheoDoiGiaoVon.xls"
 			);
 		}
-		#endregion
 
-		protected void m_grv_bao_cao_giao_von_RowCreated(object sender, GridViewRowEventArgs e)
-		{
-			//Tao header cua grid
-			const string v_c_str_header_css_class = "HeaderStyle";
-			if (e.Row.RowType == DataControlRowType.Header) // If header created
+        protected void m_grv_bao_cao_giao_von_RowCreated(object sender, GridViewRowEventArgs e) {
+            //Tao header cua grid
+            const string v_c_str_header_css_class = "HeaderStyle";
+            if (e.Row.RowType == DataControlRowType.Header) // If header created
 			{
-				GridView v_grv = (GridView)sender;
-				//Tao dong 1
+                GridView v_grv = (GridView)sender;
+                //Tao dong 1
 
-				WebformFunctions.addHeaderRow_to_grid_view(v_grv
-				, 0
-				, v_c_str_header_css_class
-				, new CellInfoHeader[] { 
+                WebformFunctions.addHeaderRow_to_grid_view(v_grv
+                , 0
+                , v_c_str_header_css_class
+                , new CellInfoHeader[] { 
 						new CellInfoHeader("STT",2,1)
 						,new CellInfoHeader("Đơn vị",2,1)
 						,new CellInfoHeader("Tổng KH giao",2,1)
@@ -329,7 +338,10 @@ namespace QuanLyDuToan.BaoCao
 						,new CellInfoHeader("Kinh phí đã cấp",1,m_lst_ds_qd.Count+1)
 						
 				});
-			}
-		}
+            }
+        }
+
+		#endregion
+
 	}
 }
