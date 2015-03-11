@@ -78,28 +78,28 @@
 				getData("TPL_F357", "m_grv", "Bao_cao_tinh_hinh_giai_ngan_theo_uy_nhiem_chi", m);
 
 				$("#<%=m_ddl_loai_nv.ClientID%>").select2();
-		        $("#<%=m_ddl_cong_trinh.ClientID%>").select2();
-		    	$("#<%=m_ddl_du_an.ClientID%>").select2();
-		    	$("#<%=m_ddl_don_vi.ClientID%>").select2();
-		    	$("#<%=m_ddl_quyet_dinh.ClientID%>").select2();
-		    	$("#<%=m_txt_tu_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
-		    	$("#<%=m_txt_den_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
-		    	$("#quyet_dinh").appendTo(".header_quyet_dinh");
-		    	m_anchor_so_quyet_dinh.innerHTML = $("#<%=m_ddl_quyet_dinh.ClientID%> option:selected").text();
-            	if ($("#<%=m_ddl_quyet_dinh.ClientID%>").val().toString() == "-1") {
-		    		$("#m_anchor_so_quyet_dinh").attr("href", "../DanhMuc/F390_v_danh_sach_uy_nhiem_chi.aspx?ip_dat_tu_ngay=" + $("#<%=m_txt_tu_ngay.ClientID%>").val() + "&ip_dat_den_ngay=" + $("#<%=m_txt_den_ngay.ClientID%>").val());
-                }
-                else {
-                	$("#m_anchor_so_quyet_dinh").attr("href", "../DuToan/F304_nhap_giai_ngan_theo_unc.aspx?ip_nguon_ns=N&ip_dc_id_dm_giai_ngan=" + $("#<%=m_ddl_quyet_dinh.ClientID%>").val() + "&ip_dc_id_don_vi=" + $("#<%=m_ddl_don_vi.ClientID%>").val());
-                }
+				$("#<%=m_ddl_cong_trinh.ClientID%>").select2();
+				$("#<%=m_ddl_du_an.ClientID%>").select2();
+				$("#<%=m_ddl_don_vi.ClientID%>").select2();
+				$("#<%=m_ddl_quyet_dinh.ClientID%>").select2();
+				$("#<%=m_txt_tu_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
+				$("#<%=m_txt_den_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
+				$("#quyet_dinh").appendTo(".header_quyet_dinh");
+				m_anchor_so_quyet_dinh.innerHTML = $("#<%=m_ddl_quyet_dinh.ClientID%> option:selected").text();
+		    	if ($("#<%=m_ddl_quyet_dinh.ClientID%>").val().toString() == "-1") {
+					$("#m_anchor_so_quyet_dinh").attr("href", "../DanhMuc/F390_v_danh_sach_uy_nhiem_chi.aspx?ip_dat_tu_ngay=" + $("#<%=m_txt_tu_ngay.ClientID%>").val() + "&ip_dat_den_ngay=" + $("#<%=m_txt_den_ngay.ClientID%>").val());
+            	}
+            	else {
+            		$("#m_anchor_so_quyet_dinh").attr("href", "../DuToan/F304_nhap_giai_ngan_theo_unc.aspx?ip_nguon_ns=N&ip_dc_id_dm_giai_ngan=" + $("#<%=m_ddl_quyet_dinh.ClientID%>").val() + "&ip_dc_id_don_vi=" + $("#<%=m_ddl_don_vi.ClientID%>").val());
+            	}
 				$("#<%=m_ddl_quyet_dinh.ClientID%>").on('change', function () {
-		    		m_anchor_so_quyet_dinh.innerHTML = $("#<%=m_ddl_quyet_dinh.ClientID%> option:selected").text();
+					m_anchor_so_quyet_dinh.innerHTML = $("#<%=m_ddl_quyet_dinh.ClientID%> option:selected").text();
 					if ($("#<%=m_ddl_quyet_dinh.ClientID%>").val().toString() == "-1") {
 						$("#m_anchor_so_quyet_dinh").attr("href", "../DanhMuc/F390_v_danh_sach_uy_nhiem_chi.aspx?ip_dat_tu_ngay=" + $("#<%=m_txt_tu_ngay.ClientID%>").val() + "&ip_dat_den_ngay=" + $("#<%=m_txt_den_ngay.ClientID%>").val());
-                	}
-                	else {
-                		$("#m_anchor_so_quyet_dinh").attr("href", "../DuToan/F304_nhap_giai_ngan_theo_unc.aspx?ip_nguon_ns=N&ip_dc_id_dm_giai_ngan=" + $("#<%=m_ddl_quyet_dinh.ClientID%>").val() + "&ip_dc_id_don_vi=" + $("#<%=m_ddl_don_vi.ClientID%>").val());
-                	}
+					}
+					else {
+						$("#m_anchor_so_quyet_dinh").attr("href", "../DuToan/F304_nhap_giai_ngan_theo_unc.aspx?ip_nguon_ns=N&ip_dc_id_dm_giai_ngan=" + $("#<%=m_ddl_quyet_dinh.ClientID%>").val() + "&ip_dc_id_don_vi=" + $("#<%=m_ddl_don_vi.ClientID%>").val());
+					}
 				});
 				if ($("#<%=m_ddl_don_vi.ClientID%> option").length < 2) {
 					$("#<%=m_ddl_don_vi.ClientID%>").parent().find('.select2-selection__arrow').addClass('hidden');
@@ -118,33 +118,33 @@
 			getData("TPL_F357", "m_grv", "Bao_cao_tinh_hinh_giai_ngan_theo_uy_nhiem_chi", m);
 
 			$("#<%=m_ddl_loai_nv.ClientID%>").select2();
-	        $("#<%=m_ddl_cong_trinh.ClientID%>").select2();
-	    	$("#<%=m_ddl_du_an.ClientID%>").select2();
-	    	$("#<%=m_ddl_don_vi.ClientID%>").select2();
-	    	$("#<%=m_ddl_quyet_dinh.ClientID%>").select2();
-	    	$("#<%=m_txt_tu_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
-	    	$("#<%=m_txt_den_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
-	    	$("#quyet_dinh").appendTo(".header_quyet_dinh");
-	    	m_anchor_so_quyet_dinh.innerHTML = $("#<%=m_ddl_quyet_dinh.ClientID%> option:selected").text();
-        	if ($("#<%=m_ddl_quyet_dinh.ClientID%>").val().toString() == "-1") {
-	    		$("#m_anchor_so_quyet_dinh").attr("href", "../DanhMuc/F390_v_danh_sach_uy_nhiem_chi.aspx?ip_dat_tu_ngay=" + $("#<%=m_txt_tu_ngay.ClientID%>").val() + "&ip_dat_den_ngay=" + $("#<%=m_txt_den_ngay.ClientID%>").val());
-            }
-            else {
-            	$("#m_anchor_so_quyet_dinh").attr("href", "../DuToan/F304_nhap_giai_ngan_theo_unc.aspx?ip_nguon_ns=N&ip_dc_id_dm_giai_ngan=" + $("#<%=m_ddl_quyet_dinh.ClientID%>").val() + "&ip_dc_id_don_vi=" + $("#<%=m_ddl_don_vi.ClientID%>").val());
-            }
-	    	$("#<%=m_ddl_quyet_dinh.ClientID%>").on('change', function () {
-	    		m_anchor_so_quyet_dinh.innerHTML = $("#<%=m_ddl_quyet_dinh.ClientID%> option:selected").text();
-        		if ($("#<%=m_ddl_quyet_dinh.ClientID%>").val().toString() == "-1") {
-        			$("#m_anchor_so_quyet_dinh").attr("href", "../DanhMuc/F390_v_danh_sach_uy_nhiem_chi.aspx?ip_dat_tu_ngay=" + $("#<%=m_txt_tu_ngay.ClientID%>").val() + "&ip_dat_den_ngay=" + $("#<%=m_txt_den_ngay.ClientID%>").val());
-            	}
-            	else {
-            		$("#m_anchor_so_quyet_dinh").attr("href", "../DuToan/F304_nhap_giai_ngan_theo_unc.aspx?ip_nguon_ns=N&ip_dc_id_dm_giai_ngan=" + $("#<%=m_ddl_quyet_dinh.ClientID%>").val() + "&ip_dc_id_don_vi=" + $("#<%=m_ddl_don_vi.ClientID%>").val());
-            	}
+			$("#<%=m_ddl_cong_trinh.ClientID%>").select2();
+			$("#<%=m_ddl_du_an.ClientID%>").select2();
+			$("#<%=m_ddl_don_vi.ClientID%>").select2();
+			$("#<%=m_ddl_quyet_dinh.ClientID%>").select2();
+			$("#<%=m_txt_tu_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
+			$("#<%=m_txt_den_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
+			$("#quyet_dinh").appendTo(".header_quyet_dinh");
+			m_anchor_so_quyet_dinh.innerHTML = $("#<%=m_ddl_quyet_dinh.ClientID%> option:selected").text();
+	    	if ($("#<%=m_ddl_quyet_dinh.ClientID%>").val().toString() == "-1") {
+				$("#m_anchor_so_quyet_dinh").attr("href", "../DanhMuc/F390_v_danh_sach_uy_nhiem_chi.aspx?ip_dat_tu_ngay=" + $("#<%=m_txt_tu_ngay.ClientID%>").val() + "&ip_dat_den_ngay=" + $("#<%=m_txt_den_ngay.ClientID%>").val());
+        	}
+        	else {
+        		$("#m_anchor_so_quyet_dinh").attr("href", "../DuToan/F304_nhap_giai_ngan_theo_unc.aspx?ip_nguon_ns=N&ip_dc_id_dm_giai_ngan=" + $("#<%=m_ddl_quyet_dinh.ClientID%>").val() + "&ip_dc_id_don_vi=" + $("#<%=m_ddl_don_vi.ClientID%>").val());
+        	}
+			$("#<%=m_ddl_quyet_dinh.ClientID%>").on('change', function () {
+				m_anchor_so_quyet_dinh.innerHTML = $("#<%=m_ddl_quyet_dinh.ClientID%> option:selected").text();
+	    		if ($("#<%=m_ddl_quyet_dinh.ClientID%>").val().toString() == "-1") {
+	    			$("#m_anchor_so_quyet_dinh").attr("href", "../DanhMuc/F390_v_danh_sach_uy_nhiem_chi.aspx?ip_dat_tu_ngay=" + $("#<%=m_txt_tu_ngay.ClientID%>").val() + "&ip_dat_den_ngay=" + $("#<%=m_txt_den_ngay.ClientID%>").val());
+        		}
+        		else {
+        			$("#m_anchor_so_quyet_dinh").attr("href", "../DuToan/F304_nhap_giai_ngan_theo_unc.aspx?ip_nguon_ns=N&ip_dc_id_dm_giai_ngan=" + $("#<%=m_ddl_quyet_dinh.ClientID%>").val() + "&ip_dc_id_don_vi=" + $("#<%=m_ddl_don_vi.ClientID%>").val());
+        		}
 	    	});
 			if ($("#<%=m_ddl_don_vi.ClientID%> option").length < 2) {
 				$("#<%=m_ddl_don_vi.ClientID%>").parent().find('.select2-selection__arrow').addClass('hidden');
 			}
-	    });
+		});
 	</script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
@@ -241,12 +241,21 @@
 					</tr>
 					<tr>
 						<td colspan="4" style="margin: auto" align="center">
-							<asp:GridView ClientIDMode="Static" ID="m_grv" runat="server" AutoGenerateColumns="False" DataKeyNames="ID"
-								CssClass="cssGrid table" CellPadding="0" ForeColor="Black"
-								AllowSorting="True" PageSize="60"
+							<asp:GridView
+								ClientIDMode="Static"
+								ID="m_grv"
+								runat="server"
+								AutoGenerateColumns="False"
+								DataKeyNames="ID"
+								CssClass="cssGrid table"
+								CellPadding="0"
+								ForeColor="Black"
+								AllowSorting="True"
+								PageSize="60"
 								EmptyDataText="Không có dữ liệu phù hợp"
-								HeaderStyle-Height="65px" RowStyle-Height="28px" EnableModelValidation="True">
-
+								HeaderStyle-Height="65px"
+								RowStyle-Height="28px"
+								EnableModelValidation="True">
 								<Columns>
 									<asp:BoundField HeaderText="Nội dung" DataField="noi_dung" HtmlEncode="false">
 										<HeaderStyle HorizontalAlign="Center" />

@@ -260,7 +260,9 @@ namespace QuanLyDuToan.BaoCao
 			{
 				US_DM_DON_VI v_us = new US_DM_DON_VI(CIPConvert.ToDecimal(m_ddl_don_vi.SelectedValue));
 				WebformReport.export_gridview_2_excel(
-				m_grv, "[" + v_us.strTEN_DON_VI + "]"+FormInfo.ExportExcelReportName.F157);
+									m_grv
+									, "[" + v_us.strTEN_DON_VI + "]"+FormInfo.ExportExcelReportName.F157
+									);
 			}
 			catch (Exception v_e)
 			{

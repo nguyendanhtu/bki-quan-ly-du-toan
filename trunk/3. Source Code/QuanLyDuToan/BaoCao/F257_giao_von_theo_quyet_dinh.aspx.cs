@@ -252,7 +252,7 @@ namespace QuanLyDuToan.BaoCao
 		{
 			try
 			{
-				US_DM_DON_VI v_us = new US_DM_DON_VI(Person.get_id_don_vi());
+				US_DM_DON_VI v_us = new US_DM_DON_VI(CIPConvert.ToDecimal(m_ddl_don_vi.SelectedValue));
 				WebformReport.export_gridview_2_excel(
 								m_grv
 								, "[" + v_us.strTEN_DON_VI + "]" + FormInfo.ExportExcelReportName.F257
