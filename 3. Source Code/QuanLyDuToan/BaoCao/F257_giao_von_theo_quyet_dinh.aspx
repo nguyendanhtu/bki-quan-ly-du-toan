@@ -235,12 +235,21 @@
 					</tr>
 					<tr>
 						<td colspan="4" style="margin: auto" align="center">
-							<asp:GridView ClientIDMode="Static" ID="m_grv" runat="server" AutoGenerateColumns="False" DataKeyNames="ID"
-								CssClass="cssGrid table" CellPadding="0" ForeColor="Black"
-								AllowSorting="True" PageSize="60"
+							<asp:GridView 
+								ClientIDMode="Static" 
+								ID="m_grv" 
+								runat="server"
+								AutoGenerateColumns="False" 
+								DataKeyNames="ID"
+								CssClass="cssGrid table" 
+								CellPadding="0" 
+								ForeColor="Black"
+								AllowSorting="True"
+								PageSize="60"
 								EmptyDataText="Không có dữ liệu phù hợp"
-								HeaderStyle-Height="65px" RowStyle-Height="28px" EnableModelValidation="True">
-
+								HeaderStyle-Height="65px" 
+								RowStyle-Height="28px" 
+								EnableModelValidation="True">
 								<Columns>
 									<asp:BoundField HeaderText="Nội dung" DataField="noi_dung" HtmlEncode="false">
 										<HeaderStyle HorizontalAlign="Center" />

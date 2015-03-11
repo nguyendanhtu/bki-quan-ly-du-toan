@@ -78,7 +78,7 @@ namespace QuanLyDuToan.App_Code
 			op_ddl.DataBind();
 		}
 
-		
+
 		public static void load_data_to_cbo_du_an_cong_trinh_from_giao_kh(LOAI_DU_AN ip_loai_du_an
 		, DropDownList op_ddl_quyet_dinh)
 		{
@@ -313,12 +313,9 @@ namespace QuanLyDuToan.App_Code
 		/// <param name="ip_e_tat_ca"></param>
 		/// <param name="ip_obj_cbo_dv_su_dung"></param>
 		public static void load_data_to_cbo_don_vi_su_dung(
-			  eTAT_CA ip_e_tat_ca
-			, DropDownList ip_obj_cbo_dv_su_dung)
+							  eTAT_CA ip_e_tat_ca
+							, DropDownList ip_obj_cbo_dv_su_dung)
 		{
-
-
-
 			US_DM_DON_VI v_us_dm_don_vi = new US_DM_DON_VI();
 			DS_DM_DON_VI v_ds_dm_don_vi = new DS_DM_DON_VI();
 
@@ -358,20 +355,17 @@ namespace QuanLyDuToan.App_Code
 		/// <param name="ip_e_tat_ca"></param>
 		/// <param name="ip_obj_cbo_quyet_dinh"></param>
 		public static void load_data_to_cbo_quyet_dinh(
-		   decimal ip_dc_id_don_vi
-			, decimal ip_dc_id_loai_nhiem_vu
-			, decimal ip_dc_id_cong_trinh
-			, decimal ip_dc_id_du_an
-			, DateTime ip_dat_tu_ngay
-			, DateTime ip_dat_den_ngay
-			, string ip_str_tu_khoa
-			, eTAT_CA ip_e_tat_ca
-			, string ip_str_proc
-			, DropDownList ip_obj_cbo_quyet_dinh)
+							   decimal ip_dc_id_don_vi
+								, decimal ip_dc_id_loai_nhiem_vu
+								, decimal ip_dc_id_cong_trinh
+								, decimal ip_dc_id_du_an
+								, DateTime ip_dat_tu_ngay
+								, DateTime ip_dat_den_ngay
+								, string ip_str_tu_khoa
+								, eTAT_CA ip_e_tat_ca
+								, string ip_str_proc
+								, DropDownList ip_obj_cbo_quyet_dinh)
 		{
-
-
-
 			US_DM_QUYET_DINH v_us_dm_quyet_dinh = new US_DM_QUYET_DINH();
 			DS_DM_QUYET_DINH v_ds_dm_quyet_dinh = new DS_DM_QUYET_DINH();
 			DataSet v_ds = new DataSet();
@@ -382,19 +376,18 @@ namespace QuanLyDuToan.App_Code
 
 			v_ds_dm_quyet_dinh.EnforceConstraints = false;
 			v_us_dm_quyet_dinh.get_ds_quyet_dinh(
-				v_ds
-				, ip_dc_id_don_vi
-			, ip_dc_id_loai_nhiem_vu
-			, ip_dc_id_cong_trinh
-			, ip_dc_id_du_an
-			, ip_dat_tu_ngay
-			, ip_dat_den_ngay
-			, ip_str_tu_khoa
-			, ip_str_proc);
+									v_ds
+									, ip_dc_id_don_vi
+									, ip_dc_id_loai_nhiem_vu
+									, ip_dc_id_cong_trinh
+									, ip_dc_id_du_an
+									, ip_dat_tu_ngay
+									, ip_dat_den_ngay
+									, ip_str_tu_khoa
+									, ip_str_proc
+									);
 
 			DataView v_dv_quyet_dinh = v_ds.Tables[0].DefaultView;
-			//v_dv_quyet_dinh.Sort = DM_QUYET_DINH.SO_QUYET_DINH + " ASC";
-
 
 			ip_obj_cbo_quyet_dinh.DataSource = v_dv_quyet_dinh.ToTable();
 			ip_obj_cbo_quyet_dinh.DataTextField = DM_QUYET_DINH.SO_QUYET_DINH;
@@ -409,24 +402,19 @@ namespace QuanLyDuToan.App_Code
 
 
 		public static void load_data_to_cbo_cong_trinh_du_an(
-		  decimal ip_dc_id_don_vi
-			, decimal ip_id_cong_trinh
-		   , decimal ip_dc_id_loai_nhiem_vu
-		   , eTAT_CA ip_e_tat_ca
-		   , DropDownList ip_obj_cbo_cong_trinh_du_an_goi_thau)
+								  decimal ip_dc_id_don_vi
+								, decimal ip_id_cong_trinh
+								, decimal ip_dc_id_loai_nhiem_vu
+								, eTAT_CA ip_e_tat_ca
+								, DropDownList ip_obj_cbo_cong_trinh_du_an_goi_thau)
 		{
-
-
-
 			US_DM_CONG_TRINH_DU_AN_GOI_THAU v_us_dm_cong_trinh_du_an_goi_thau = new US_DM_CONG_TRINH_DU_AN_GOI_THAU();
 			DS_DM_CONG_TRINH_DU_AN_GOI_THAU v_ds_dm_cong_trinh_du_an_goi_thau = new DS_DM_CONG_TRINH_DU_AN_GOI_THAU();
 
 			string v_str_user_name = HttpContext.Current.Session[SESSION.UserName].ToString();
 
-
 			v_us_dm_cong_trinh_du_an_goi_thau.loadDanhMucDuanTheoCongTrinhVaLoaiNhiemVu(
 				v_ds_dm_cong_trinh_du_an_goi_thau
-
 				, ip_dc_id_don_vi
 				, ip_id_cong_trinh
 			, ip_dc_id_loai_nhiem_vu);
@@ -534,7 +522,7 @@ namespace QuanLyDuToan.App_Code
 			ip_lbl_name.Text = ip_str_default_text + " (Có " + ip_int_count_row + " bản ghi)";
 		}
 
-        public static void load_data_to_ddl_loai_nhiem_vu(DropDownList op_ddl)
+		public static void load_data_to_ddl_loai_nhiem_vu(DropDownList op_ddl)
 		{
 			US_CM_DM_TU_DIEN v_us = new US_CM_DM_TU_DIEN();
 			DS_CM_DM_TU_DIEN v_ds = new DS_CM_DM_TU_DIEN();
@@ -623,7 +611,7 @@ namespace QuanLyDuToan.App_Code
 					op_ddl.Enabled = false;
 				}
 		}
-		
+
 		public static DataSet get_dataset_muc_tieu_muc_from_data_giao_kh(
 								DateTime ip_dat_tu_ngay
 								, DateTime ip_dat_den_ngay)
