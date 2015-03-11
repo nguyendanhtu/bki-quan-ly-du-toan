@@ -325,13 +325,18 @@ namespace QuanLyDuToan.DanhMuc
 		#region Events
 		protected void Page_Load(object sender, EventArgs e)
 		{
-			m_lbl_mess.Text = "";
-			if (!IsPostBack)
-			{
-				xoa_trang();
-				load_rdb_loai_quyet_dinh_giao_from_select_loai_quyet_dinh();
-				load_data_to_grid();
-			}
+            try {
+                m_lbl_mess.Text = "";
+                if (!IsPostBack) {
+                    xoa_trang();
+                    load_rdb_loai_quyet_dinh_giao_from_select_loai_quyet_dinh();
+                    load_data_to_grid();
+                }
+            }
+            catch (Exception v_e) {
+                CSystemLog_301.ExceptionHandle(this,v_e);
+            }
+			
 		}
 
         protected void m_rdb_giao_ke_hoach_CheckedChanged(object sender, EventArgs e) {
