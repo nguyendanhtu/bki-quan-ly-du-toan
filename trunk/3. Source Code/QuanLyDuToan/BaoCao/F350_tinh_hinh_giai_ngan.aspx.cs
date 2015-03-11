@@ -44,6 +44,147 @@ namespace QuanLyDuToan.BaoCao
 			else op_dc_so_tien = CIPConvert.ToDecimal(ip_str_so_tien);
 			return op_dc_so_tien;
 		}
+
+        public string format_link_to_chi_tiet(
+                                object ip_level
+                                , object ip_id_don_vi
+                                , object ip_id_loai_nhiem_vu
+                                , object ip_id_cong_trinh
+                                , object ip_id_du_an
+                                , string ip_str_nguon_ns) {
+            string v_dat_tu_ngay = CIPConvert.ToStr(WebformControls.get_dau_nam_form_date(CIPConvert.ToDatetime(m_txt_tu_ngay.Text, "dd/MM/yyyy")), "dd/MM/yyyy");
+            string v_dat_den_ngay = m_txt_den_ngay.Text;
+            string v_str_link = "";
+            if (ip_level != DBNull.Value) {
+                if (ip_id_don_vi == DBNull.Value) ip_id_don_vi = -1;
+                if (ip_id_loai_nhiem_vu == DBNull.Value) ip_id_loai_nhiem_vu = -1;
+                if (ip_id_cong_trinh == DBNull.Value) ip_id_cong_trinh = -1;
+                if (ip_id_du_an == DBNull.Value) ip_id_du_an = -1;
+                switch (CIPConvert.ToStr(ip_level)) {
+                    //lv 1: get link theo loai nhiem vu
+                    case "1":
+                        v_str_link += "?ip_dc_id_don_vi=" + CIPConvert.ToStr(ip_id_don_vi)
+                                     + "&ip_dc_id_loai_nhiem_vu=" + CIPConvert.ToStr(ip_id_loai_nhiem_vu)
+                                     + "&ip_dc_id_cong_trinh=" + "-1"
+                                     + "&ip_dc_id_du_an=" + "-1"
+                            //+ "&ip_dat_tu_ngay=" + CIPConvert.ToStr(WinFormControls.get_dau_nam_form_date(CIPConvert.ToDatetime(m_txt_tu_ngay.Text, "dd/MM/yyyy")), "dd/MM/yyyy")
+                                     + "&ip_dat_tu_ngay=" + v_dat_tu_ngay
+                                     + "&ip_dat_den_ngay=" + v_dat_den_ngay
+                                      + "&ip_dc_id_quyet_dinh =" + "-1";
+                        break;
+                    //lv2: get link theo cong trinh
+                    case "2":
+                        v_str_link += "?ip_dc_id_don_vi=" + CIPConvert.ToStr(ip_id_don_vi)
+                                     + "&ip_dc_id_loai_nhiem_vu=" + CIPConvert.ToStr(ip_id_loai_nhiem_vu)
+                                     + "&ip_dc_id_cong_trinh=" + CIPConvert.ToStr(ip_id_cong_trinh)
+                                     + "&ip_dc_id_du_an=" + "-1"
+                                     + "&ip_dat_tu_ngay=" + v_dat_tu_ngay
+                                     + "&ip_dat_den_ngay=" + v_dat_den_ngay
+                                     + "&ip_dc_id_quyet_dinh=" + "-1";
+                        break;
+                    //lv3: get link theo du an
+                    case "3":
+                        v_str_link += "?ip_dc_id_don_vi=" + CIPConvert.ToStr(ip_id_don_vi)
+                                     + "&ip_dc_id_loai_nhiem_vu=" + CIPConvert.ToStr(ip_id_loai_nhiem_vu)
+                                     + "&ip_dc_id_cong_trinh=" + CIPConvert.ToStr(ip_id_cong_trinh)
+                                     + "&ip_dc_id_du_an=" + CIPConvert.ToStr(ip_id_du_an)
+                            //+ "&ip_dat_tu_ngay=" + CIPConvert.ToStr(WinFormControls.get_dau_nam_form_date(CIPConvert.ToDatetime(m_txt_tu_ngay.Text, "dd/MM/yyyy")), "dd/MM/yyyy")
+                                      + "&ip_dat_tu_ngay=" + v_dat_tu_ngay
+                                     + "&ip_dat_den_ngay=" + v_dat_den_ngay
+                                     + "&ip_dc_id_quyet_dinh=" + "-1";
+                        break;
+                    default:
+                        //get link theo du an
+                        v_str_link += "?ip_dc_id_don_vi=" + CIPConvert.ToStr(ip_id_don_vi)
+                                     + "&ip_dc_id_loai_nhiem_vu=" + CIPConvert.ToStr(ip_id_loai_nhiem_vu)
+                                     + "&ip_dc_id_cong_trinh=" + CIPConvert.ToStr(ip_id_cong_trinh)
+                                     + "&ip_dc_id_du_an=" + CIPConvert.ToStr(ip_id_du_an)
+                            //+ "&ip_dat_tu_ngay=" + CIPConvert.ToStr(WinFormControls.get_dau_nam_form_date(CIPConvert.ToDatetime(m_txt_tu_ngay.Text, "dd/MM/yyyy")), "dd/MM/yyyy")
+                                      + "&ip_dat_tu_ngay=" + v_dat_tu_ngay
+                                     + "&ip_dat_den_ngay=" + v_dat_den_ngay
+                                     + "&ip_dc_id_quyet_dinh=" + "-1";
+                        break;
+                }
+                v_str_link += "&ip_nguon_ns=" + ip_str_nguon_ns;
+            }
+            return v_str_link;
+        }
+
+        public string format_link_to_chi_tiet_trong_thang(
+                                object ip_level
+                                , object ip_id_don_vi
+                                , object ip_id_loai_nhiem_vu
+                                , object ip_id_cong_trinh
+                                , object ip_id_du_an
+                                , string ip_str_nguon_ns) {
+                                if (ip_id_don_vi == DBNull.Value) ip_id_don_vi = -1;
+                                if (ip_id_loai_nhiem_vu == DBNull.Value) ip_id_loai_nhiem_vu = -1;
+                                if (ip_id_cong_trinh == DBNull.Value) ip_id_cong_trinh = -1;
+                                if (ip_id_du_an == DBNull.Value) ip_id_du_an = 10;
+                                string v_str_link = "";
+                                if (ip_level != DBNull.Value) {
+                                    switch (CIPConvert.ToStr(ip_level)) {
+                                        //lv3: get link theo loai nhiem vu
+                                        case "3":
+                                            v_str_link += "?ip_dc_id_don_vi=" + CIPConvert.ToStr(ip_id_don_vi)
+                                                         + "&ip_dc_id_loai_nhiem_vu=" + CIPConvert.ToStr(ip_id_loai_nhiem_vu)
+                                                         + "&ip_dc_id_cong_trinh=" + "-1"
+                                                         + "&ip_dc_id_du_an=" + "-1"
+                                                         + "&ip_dat_tu_ngay=" + m_txt_tu_ngay.Text
+                                                         + "&ip_dat_den_ngay=" + m_txt_den_ngay.Text
+                                                         + "&ip_dc_id_quyet_dinh=" + "-1";
+
+                                            break;
+                                        //lv2: get link theo cong trinh 
+                                        case "2":
+                                            v_str_link += "?ip_dc_id_don_vi=" + CIPConvert.ToStr(ip_id_don_vi)
+                                                         + "&ip_dc_id_loai_nhiem_vu=" + CIPConvert.ToStr(ip_id_loai_nhiem_vu)
+                                                         + "&ip_dc_id_cong_trinh=" + CIPConvert.ToStr(ip_id_cong_trinh)
+                                                         + "&ip_dc_id_du_an=" + "-1"
+                                                         + "&ip_dat_tu_ngay=" + m_txt_tu_ngay.Text
+                                                         + "&ip_dat_den_ngay=" + m_txt_den_ngay.Text
+                                                         + "&ip_dc_id_quyet_dinh=" + "-1";
+                                            break;
+                                        //lv1: get link theo lv du an
+                                        case "1":
+                                            v_str_link += "?ip_dc_id_don_vi=" + CIPConvert.ToStr(ip_id_don_vi)
+                                                         + "&ip_dc_id_loai_nhiem_vu=" + CIPConvert.ToStr(ip_id_loai_nhiem_vu)
+                                                         + "&ip_dc_id_cong_trinh=" + CIPConvert.ToStr(ip_id_cong_trinh)
+                                                         + "&ip_dc_id_du_an=" + CIPConvert.ToStr(ip_id_du_an)
+                                                          + "&ip_dat_tu_ngay=" + CIPConvert.ToStr(WebformControls.get_dau_nam_form_date(CIPConvert.ToDatetime(m_txt_tu_ngay.Text, "dd/MM/yyyy")), "dd/MM/yyyy")
+                                                         + "&ip_dat_den_ngay=" + m_txt_den_ngay.Text
+                                                         + "&ip_dc_id_quyet_dinh=" + "-1";
+                                            break;
+                                        //get link theo du an
+                                        default:
+                                            v_str_link += "?ip_dc_id_don_vi=" + CIPConvert.ToStr(ip_id_don_vi)
+                                                         + "&ip_dc_id_loai_nhiem_vu=" + CIPConvert.ToStr(ip_id_loai_nhiem_vu)
+                                                         + "&ip_dc_id_cong_trinh=" + CIPConvert.ToStr(ip_id_cong_trinh)
+                                                         + "&ip_dc_id_du_an=" + CIPConvert.ToStr(ip_id_du_an)
+                                                          + "&ip_dat_tu_ngay=" + CIPConvert.ToStr(WebformControls.get_dau_nam_form_date(CIPConvert.ToDatetime(m_txt_tu_ngay.Text, "dd/MM/yyyy")), "dd/MM/yyyy")
+                                                         + "&ip_dat_den_ngay=" + m_txt_den_ngay.Text
+                                                          + "&ip_dc_id_quyet_dinh=" + "-1";
+                                            break;
+                                    }
+                                }
+                                v_str_link += "&ip_nguon_ns=" + ip_str_nguon_ns;
+                                return v_str_link;
+                            }
+
+        public decimal get_random_id_session() {
+            Random no_random = new Random();
+            return no_random.Next(1, 1000); //random a number in 1 - 1000
+        }
+
+        public string ConvertToUnsign3(string str) {
+            // Convert từ "tiếng việt" sang "tieng viet" không dấu
+            System.Text.RegularExpressions.Regex regex = new System.Text.RegularExpressions.Regex("\\p{IsCombiningDiacriticalMarks}+");
+            string temp = str.Normalize(System.Text.NormalizationForm.FormD);
+            return regex.Replace(temp, String.Empty)
+                        .Replace('\u0111', 'd').Replace('\u0110', 'D');
+            //return str;
+        }
+
 		#endregion
 
 		#region Data Member
@@ -85,6 +226,7 @@ namespace QuanLyDuToan.BaoCao
 			//load data grid
 			load_data_to_grid();
 		}
+
 		private void load_data_to_ddl_don_vi()
 		{
 			WebformControls.load_data_to_ddl_don_vi_get_list_don_vi_duoc_xem_du_lieu(
@@ -95,137 +237,6 @@ namespace QuanLyDuToan.BaoCao
 													)
 								, m_ddl_don_vi);
 		}
-		public string format_link_to_chi_tiet(
-			object ip_level
-			, object ip_id_don_vi
-			, object ip_id_loai_nhiem_vu
-			, object ip_id_cong_trinh
-			, object ip_id_du_an
-			, string ip_str_nguon_ns)
-		{
-			string v_dat_tu_ngay = CIPConvert.ToStr(WebformControls.get_dau_nam_form_date(CIPConvert.ToDatetime(m_txt_tu_ngay.Text, "dd/MM/yyyy")), "dd/MM/yyyy");
-			string v_dat_den_ngay = m_txt_den_ngay.Text;
-			string v_str_link = "";
-			if (ip_level != DBNull.Value)
-			{
-				if (ip_id_don_vi == DBNull.Value) ip_id_don_vi = -1;
-				if (ip_id_loai_nhiem_vu == DBNull.Value) ip_id_loai_nhiem_vu = -1;
-				if (ip_id_cong_trinh == DBNull.Value) ip_id_cong_trinh = -1;
-				if (ip_id_du_an == DBNull.Value) ip_id_du_an = -1;
-				switch (CIPConvert.ToStr(ip_level))
-				{
-					//lv 1: get link theo loai nhiem vu
-					case "1":
-						v_str_link += "?ip_dc_id_don_vi=" + CIPConvert.ToStr(ip_id_don_vi)
-									 + "&ip_dc_id_loai_nhiem_vu=" + CIPConvert.ToStr(ip_id_loai_nhiem_vu)
-									 + "&ip_dc_id_cong_trinh=" + "-1"
-									 + "&ip_dc_id_du_an=" + "-1"
-							//+ "&ip_dat_tu_ngay=" + CIPConvert.ToStr(WinFormControls.get_dau_nam_form_date(CIPConvert.ToDatetime(m_txt_tu_ngay.Text, "dd/MM/yyyy")), "dd/MM/yyyy")
-									 + "&ip_dat_tu_ngay=" + v_dat_tu_ngay
-									 + "&ip_dat_den_ngay=" + v_dat_den_ngay
-									  + "&ip_dc_id_quyet_dinh =" + "-1";
-						break;
-					//lv2: get link theo cong trinh
-					case "2":
-						v_str_link += "?ip_dc_id_don_vi=" + CIPConvert.ToStr(ip_id_don_vi)
-									 + "&ip_dc_id_loai_nhiem_vu=" + CIPConvert.ToStr(ip_id_loai_nhiem_vu)
-									 + "&ip_dc_id_cong_trinh=" + CIPConvert.ToStr(ip_id_cong_trinh)
-									 + "&ip_dc_id_du_an=" + "-1"
-									 + "&ip_dat_tu_ngay=" + v_dat_tu_ngay
-									 + "&ip_dat_den_ngay=" + v_dat_den_ngay
-									 + "&ip_dc_id_quyet_dinh=" + "-1";
-						break;
-					//lv3: get link theo du an
-					case "3":
-						v_str_link += "?ip_dc_id_don_vi=" + CIPConvert.ToStr(ip_id_don_vi)
-									 + "&ip_dc_id_loai_nhiem_vu=" + CIPConvert.ToStr(ip_id_loai_nhiem_vu)
-									 + "&ip_dc_id_cong_trinh=" + CIPConvert.ToStr(ip_id_cong_trinh)
-									 + "&ip_dc_id_du_an=" + CIPConvert.ToStr(ip_id_du_an)
-							//+ "&ip_dat_tu_ngay=" + CIPConvert.ToStr(WinFormControls.get_dau_nam_form_date(CIPConvert.ToDatetime(m_txt_tu_ngay.Text, "dd/MM/yyyy")), "dd/MM/yyyy")
-									  + "&ip_dat_tu_ngay=" + v_dat_tu_ngay
-									 + "&ip_dat_den_ngay=" + v_dat_den_ngay
-									 + "&ip_dc_id_quyet_dinh=" + "-1";
-						break;
-					default:
-						//get link theo du an
-						v_str_link += "?ip_dc_id_don_vi=" + CIPConvert.ToStr(ip_id_don_vi)
-									 + "&ip_dc_id_loai_nhiem_vu=" + CIPConvert.ToStr(ip_id_loai_nhiem_vu)
-									 + "&ip_dc_id_cong_trinh=" + CIPConvert.ToStr(ip_id_cong_trinh)
-									 + "&ip_dc_id_du_an=" + CIPConvert.ToStr(ip_id_du_an)
-							//+ "&ip_dat_tu_ngay=" + CIPConvert.ToStr(WinFormControls.get_dau_nam_form_date(CIPConvert.ToDatetime(m_txt_tu_ngay.Text, "dd/MM/yyyy")), "dd/MM/yyyy")
-									  + "&ip_dat_tu_ngay=" + v_dat_tu_ngay
-									 + "&ip_dat_den_ngay=" + v_dat_den_ngay
-									 + "&ip_dc_id_quyet_dinh=" + "-1";
-						break;
-				}
-				v_str_link += "&ip_nguon_ns=" + ip_str_nguon_ns;
-			}
-			return v_str_link;
-		}
-		public string format_link_to_chi_tiet_trong_thang(
-			object ip_level
-			, object ip_id_don_vi
-			, object ip_id_loai_nhiem_vu
-			, object ip_id_cong_trinh
-			, object ip_id_du_an
-			, string ip_str_nguon_ns)
-		{
-			if (ip_id_don_vi == DBNull.Value) ip_id_don_vi = -1;
-			if (ip_id_loai_nhiem_vu == DBNull.Value) ip_id_loai_nhiem_vu = -1;
-			if (ip_id_cong_trinh == DBNull.Value) ip_id_cong_trinh = -1;
-			if (ip_id_du_an == DBNull.Value) ip_id_du_an = 10;
-			string v_str_link = "";
-			if (ip_level != DBNull.Value)
-			{
-				switch (CIPConvert.ToStr(ip_level))
-				{
-					//lv3: get link theo loai nhiem vu
-					case "3":
-						v_str_link += "?ip_dc_id_don_vi=" + CIPConvert.ToStr(ip_id_don_vi)
-									 + "&ip_dc_id_loai_nhiem_vu=" + CIPConvert.ToStr(ip_id_loai_nhiem_vu)
-									 + "&ip_dc_id_cong_trinh=" + "-1"
-									 + "&ip_dc_id_du_an=" + "-1"
-									 + "&ip_dat_tu_ngay=" + m_txt_tu_ngay.Text
-									 + "&ip_dat_den_ngay=" + m_txt_den_ngay.Text
-									 + "&ip_dc_id_quyet_dinh=" + "-1";
-
-						break;
-					//lv2: get link theo cong trinh 
-					case "2":
-						v_str_link += "?ip_dc_id_don_vi=" + CIPConvert.ToStr(ip_id_don_vi)
-									 + "&ip_dc_id_loai_nhiem_vu=" + CIPConvert.ToStr(ip_id_loai_nhiem_vu)
-									 + "&ip_dc_id_cong_trinh=" + CIPConvert.ToStr(ip_id_cong_trinh)
-									 + "&ip_dc_id_du_an=" + "-1"
-									 + "&ip_dat_tu_ngay=" + m_txt_tu_ngay.Text
-									 + "&ip_dat_den_ngay=" + m_txt_den_ngay.Text
-									 + "&ip_dc_id_quyet_dinh=" + "-1";
-						break;
-					//lv1: get link theo lv du an
-					case "1":
-						v_str_link += "?ip_dc_id_don_vi=" + CIPConvert.ToStr(ip_id_don_vi)
-									 + "&ip_dc_id_loai_nhiem_vu=" + CIPConvert.ToStr(ip_id_loai_nhiem_vu)
-									 + "&ip_dc_id_cong_trinh=" + CIPConvert.ToStr(ip_id_cong_trinh)
-									 + "&ip_dc_id_du_an=" + CIPConvert.ToStr(ip_id_du_an)
-									  + "&ip_dat_tu_ngay=" + CIPConvert.ToStr(WebformControls.get_dau_nam_form_date(CIPConvert.ToDatetime(m_txt_tu_ngay.Text, "dd/MM/yyyy")), "dd/MM/yyyy")
-									 + "&ip_dat_den_ngay=" + m_txt_den_ngay.Text
-									 + "&ip_dc_id_quyet_dinh=" + "-1";
-						break;
-					//get link theo du an
-					default:
-						v_str_link += "?ip_dc_id_don_vi=" + CIPConvert.ToStr(ip_id_don_vi)
-									 + "&ip_dc_id_loai_nhiem_vu=" + CIPConvert.ToStr(ip_id_loai_nhiem_vu)
-									 + "&ip_dc_id_cong_trinh=" + CIPConvert.ToStr(ip_id_cong_trinh)
-									 + "&ip_dc_id_du_an=" + CIPConvert.ToStr(ip_id_du_an)
-									  + "&ip_dat_tu_ngay=" + CIPConvert.ToStr(WebformControls.get_dau_nam_form_date(CIPConvert.ToDatetime(m_txt_tu_ngay.Text, "dd/MM/yyyy")), "dd/MM/yyyy")
-									 + "&ip_dat_den_ngay=" + m_txt_den_ngay.Text
-									  + "&ip_dc_id_quyet_dinh=" + "-1";
-						break;
-				}
-			}
-			v_str_link += "&ip_nguon_ns=" + ip_str_nguon_ns;
-			return v_str_link;
-		}
-
 		private void load_data_to_grid()
 		{
 			// kiem tra du lieu
@@ -250,20 +261,7 @@ namespace QuanLyDuToan.BaoCao
 			m_grv.DataBind();
 
 		}
-		public decimal get_random_id_session()
-		{
-			Random no_random = new Random();
-			return no_random.Next(1, 1000); //random a number in 1 - 1000
-		}
-		public string ConvertToUnsign3(string str)
-		{
-			// Convert từ "tiếng việt" sang "tieng viet" không dấu
-			System.Text.RegularExpressions.Regex regex = new System.Text.RegularExpressions.Regex("\\p{IsCombiningDiacriticalMarks}+");
-			string temp = str.Normalize(System.Text.NormalizationForm.FormD);
-			return regex.Replace(temp, String.Empty)
-						.Replace('\u0111', 'd').Replace('\u0110', 'D');
-			//return str;
-		}
+
 		private bool check_validate_data_is_ok()
 		{
 			if (!CValidateTextBox.IsValid(m_txt_tu_ngay, DataType.DateType, allowNull.NO))
