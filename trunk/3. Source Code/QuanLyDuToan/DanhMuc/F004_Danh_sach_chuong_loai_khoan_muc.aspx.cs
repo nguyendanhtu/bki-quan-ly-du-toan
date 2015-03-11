@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using WebDS;
 using WebDS.CDBNames;
 using WebUS;
+using IP.Core.IPCommon;
 
 namespace QuanLyDuToan.DanhMuc
 {
@@ -39,32 +40,53 @@ namespace QuanLyDuToan.DanhMuc
 
         #region Event
         protected void Page_Load(object sender, EventArgs e) {
-            if (!IsPostBack) {
-                load_data_2_grid();
+            try {
+                if (!IsPostBack) {
+                    load_data_2_grid();
+                }
+            }
+            catch (Exception v_e) {
+                
+                 CSystemLog_301.ExceptionHandle(this, v_e);
             }
         }
 
         protected void m_cmd_tim_kiem_Click(object sender, EventArgs e) {
-            load_data_2_grid();
+            try {
+
+                load_data_2_grid();
+                
+            }
+            catch (Exception v_e) {
+
+                CSystemLog_301.ExceptionHandle(this, v_e);
+            }
         }
 
         protected void m_grv_bao_cao_giao_von_DataBound(object sender, EventArgs e) {
-            for (int rowIndex = m_grv_bao_cao_giao_von.Rows.Count - 2; rowIndex >= 0; rowIndex--) {
-                GridViewRow row = m_grv_bao_cao_giao_von.Rows[rowIndex];
-                GridViewRow previousRow = m_grv_bao_cao_giao_von.Rows[rowIndex + 1];
-                for (int i = 0; i < 3; i++) {
-                    if (row.Cells[i].Text == previousRow.Cells[i].Text) {
-                        if (previousRow.Cells[i].RowSpan < 2) {
-                            row.Cells[i].RowSpan = 2;
+            try {
+                for (int rowIndex = m_grv_bao_cao_giao_von.Rows.Count - 2; rowIndex >= 0; rowIndex--) {
+                    GridViewRow row = m_grv_bao_cao_giao_von.Rows[rowIndex];
+                    GridViewRow previousRow = m_grv_bao_cao_giao_von.Rows[rowIndex + 1];
+                    for (int i = 0; i < 3; i++) {
+                        if (row.Cells[i].Text == previousRow.Cells[i].Text) {
+                            if (previousRow.Cells[i].RowSpan < 2) {
+                                row.Cells[i].RowSpan = 2;
+                            }
+                            else {
+                                row.Cells[i].RowSpan = previousRow.Cells[i].RowSpan + 1;
+                            }
+                            previousRow.Cells[i].Visible = false;
                         }
-                        else {
-                            row.Cells[i].RowSpan = previousRow.Cells[i].RowSpan + 1;
-                        }
-                        previousRow.Cells[i].Visible = false;
                     }
+                    //row.Cells[0].CssClass = "HeaderStyle"; // This is to just give header color, font style
                 }
-                //row.Cells[0].CssClass = "HeaderStyle"; // This is to just give header color, font style
             }
+            catch (Exception v_e) {
+                
+               CSystemLog_301.ExceptionHandle(this, v_e);
+            }
+            
         }
         #endregion 
     }
