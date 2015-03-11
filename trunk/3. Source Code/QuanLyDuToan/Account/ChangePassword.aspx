@@ -51,7 +51,7 @@
                 Text="Nhập lại mật khẩu mới (*)" />
 		</td>
 		<td align="left">
-		    <asp:textbox id="m_txt_mat_khau_retype" accessKey="m" runat="server"  Width="200px" 
+		    <asp:textbox id="m_txt_mat_khau_retype" class="form-control" accessKey="m" runat="server"  Width="200px" 
                 TextMode="Password" />
 		</td>
 		<td >
@@ -66,11 +66,11 @@
 	<tr>
 	    <td></td>
 		<td colspan="2" align="left">
-			<asp:button id="m_cmd_doi_mat_khau" accessKey="c" CssClass="btn btn-primary" 
-                runat="server"  Text="Lưu" onclick="m_cmd_doi_mat_khau_Click" 
+			<asp:button id="m_cmd_doi_mat_khau" accessKey="c" CssClass="btn btn-sm btn-success" 
+                runat="server"  Text="Lưu" onclick="m_cmd_doi_mat_khau_Click" style="width:80px"
                 CausesValidation="False" />&nbsp;&nbsp;&nbsp;
-			<asp:button id="m_cmd_thoat" accessKey="u" CssClass="btn  btn-primary" 
-                runat="server"  Text="Thoát" onclick="m_cmd_thoat_Click" 
+			<asp:button id="m_cmd_thoat" accessKey="u" CssClass="btn  btn-sm btn-default" 
+                runat="server"  Text="Thoát" onclick="m_cmd_thoat_Click"  style="width:80px"
                 CausesValidation="False"  />
 			</td>
 	</tr>

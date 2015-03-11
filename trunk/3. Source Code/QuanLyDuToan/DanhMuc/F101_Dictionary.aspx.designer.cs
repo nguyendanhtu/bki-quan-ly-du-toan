@@ -184,15 +184,6 @@ namespace QuanLyDuToan.DanhMuc {
         protected global::System.Web.UI.WebControls.TextBox m_txt_ghi_chu;
         
         /// <summary>
-        /// m_hdf_id_dm_tu_dien control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField m_hdf_id_dm_tu_dien;
-        
-        /// <summary>
         /// m_cmd_tao_moi control.
         /// </summary>
         /// <remarks>
@@ -218,6 +209,15 @@ namespace QuanLyDuToan.DanhMuc {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCancel;
+        
+        /// <summary>
+        /// m_hdf_id_dm_tu_dien control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField m_hdf_id_dm_tu_dien;
         
         /// <summary>
         /// Label11 control.

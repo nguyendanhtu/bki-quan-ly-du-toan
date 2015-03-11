@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="F815_PhanQuyenSuDungDuLieuUserGroup.aspx.cs" Inherits="QuanLyDuToan.Quantri.F815_PhanQuyenSuDungDuLieuUserGroup" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="Server">
-<script>
+	<script>
     function pageLoad(sender, args) {
         if (args.get_isPartialLoad()) {
 
@@ -78,7 +78,7 @@
 			&nbsp;</td>
 		<td width="300px" >
 			<asp:ListBox ID="m_lst_don_vi" runat="server" Width="300px" Height="300px" 
-                SelectionMode="Multiple"></asp:ListBox>
+                SelectionMode="Multiple"  CssClass="form-control" ></asp:ListBox>
 		</td>
 		<td width="10px" align="center">
 			<asp:ImageButton ID="m_cmd_right" runat="server" 
@@ -96,7 +96,7 @@
 		    </td>
 		<td width="300px" >
 			<asp:ListBox ID="m_lst_don_vi_user_group" runat="server" Width="300px" 
-                Height="300px" SelectionMode="Multiple"></asp:ListBox>
+                Height="300px" SelectionMode="Multiple"  CssClass="form-control" ></asp:ListBox>
 		    </td>
 		<td >
 			&nbsp;</td>

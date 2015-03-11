@@ -73,11 +73,13 @@ namespace QuanLyDuToan.DanhMuc
 			if (!CValidateTextBox.IsValid(m_txt_ma_don_vi, DataType.StringType, allowNull.NO))
 			{
 				thong_bao("Bạn chưa Nhập đúng Mã Đơn Vị!");
+				m_txt_ma_don_vi.Focus();
 				return false;
 			}
 			if (!CValidateTextBox.IsValid(m_txt_ten_don_vi, DataType.StringType, allowNull.NO))
 			{
 				thong_bao("Bạn chưa Nhập đúng Tên Đơn Vị!");
+				m_txt_ten_don_vi.Focus();
 				return false;
 			}
 			if ((check_form_mode(m_hdf_form_mode).Equals(LOAI_FORM.SUA))
@@ -90,7 +92,8 @@ namespace QuanLyDuToan.DanhMuc
 			{
 				if (m_us_don_vi.check_is_having_ma_don_vi(m_txt_ma_don_vi.Text))
 				{
-					thong_bao("Mã tài sản này đã tồn tại! " + check_form_mode(m_hdf_form_mode));
+					thong_bao("Mã đơn vị này đã tồn tại! " + check_form_mode(m_hdf_form_mode));
+					m_txt_ma_don_vi.Focus();
 					return false;
 				}
 			}
@@ -101,7 +104,8 @@ namespace QuanLyDuToan.DanhMuc
 				{
 					if (m_us_don_vi.check_is_having_ma_don_vi(m_txt_ma_don_vi.Text))
 					{
-						thong_bao("Mã tài sản này đã tồn tại! " + check_form_mode(m_hdf_form_mode));
+						thong_bao("Mã đơn vị này đã tồn tại! " + check_form_mode(m_hdf_form_mode));
+						m_txt_ma_don_vi.Focus();
 						return false;
 					}
 				}

@@ -102,6 +102,7 @@ namespace QuanLyDuToan.DanhMuc
 			m_txt_ten_ngan.Text = "";
 			m_txt_ghi_chu.Text = "";
 			this.m_hdf_id_dm_tu_dien.Value = "";
+			m_grv_dm_tu_dien.SelectedIndex = -1;
 
 		}
 		private bool check_validate_is_ok()
@@ -182,6 +183,7 @@ namespace QuanLyDuToan.DanhMuc
 				set_form_mode();
 				m_grv_dm_tu_dien.EditIndex = -1;
 				load_data_2_grid();
+				m_grv_dm_tu_dien.SelectedIndex = -1;
 			}
 		}
 		private void us_object_2_form(US_CM_DM_TU_DIEN i_us_dm_tu_dien)
@@ -304,8 +306,8 @@ namespace QuanLyDuToan.DanhMuc
 			try
 			{
 				m_lbl_mess.Text = "";
-				Thread.Sleep(2000);
 				update_dm_tu_dien();
+				
 			}
 			catch (Exception v_e)
 			{

@@ -202,24 +202,6 @@ namespace QuanLyDuToan.Quantri {
         protected global::System.Web.UI.WebControls.CheckBox m_chk_lock_yn;
         
         /// <summary>
-        /// m_hdf_id_user_group control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField m_hdf_id_user_group;
-        
-        /// <summary>
-        /// m_hdf_pw control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField m_hdf_pw;
-        
-        /// <summary>
         /// m_cmd_tao_moi control.
         /// </summary>
         /// <remarks>
@@ -245,6 +227,24 @@ namespace QuanLyDuToan.Quantri {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCancel;
+        
+        /// <summary>
+        /// m_hdf_id_user_group control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField m_hdf_id_user_group;
+        
+        /// <summary>
+        /// m_hdf_pw control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField m_hdf_pw;
         
         /// <summary>
         /// Label11 control.
