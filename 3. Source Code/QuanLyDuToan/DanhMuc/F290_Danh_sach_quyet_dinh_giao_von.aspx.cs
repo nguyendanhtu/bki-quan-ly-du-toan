@@ -62,9 +62,9 @@ namespace QuanLyDuToan.DanhMuc
 													,FormInfo.QueryString.TU_NGAY
 													,CIPConvert.ToStr(CCommonFunction.getDate_dau_nam_from_date(DateTime.Now),"dd/MM/yyyy")
 												);
-			m_txt_tu_ngay.Text = WebformFunctions.getValue_from_query_string<string>(
+			m_txt_den_ngay.Text = WebformFunctions.getValue_from_query_string<string>(
 													this
-													, FormInfo.QueryString.TU_NGAY
+													, FormInfo.QueryString.DEN_NGAY
 													, CIPConvert.ToStr(DateTime.Now.Date, "dd/MM/yyyy")
 													);
 
