@@ -112,51 +112,6 @@ namespace QuanLyDuToan.DanhMuc {
         protected global::System.Web.UI.WebControls.GridView m_grv_bao_cao_giao_von;
         
         /// <summary>
-        /// m_txt_so_quyet_dinh control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox m_txt_so_quyet_dinh;
-        
-        /// <summary>
-        /// m_txt_ngay_thang control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox m_txt_ngay_thang;
-        
-        /// <summary>
-        /// m_txt_noi_dung control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox m_txt_noi_dung;
-        
-        /// <summary>
-        /// m_ddl_loai_quyet_dinh_giao control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList m_ddl_loai_quyet_dinh_giao;
-        
-        /// <summary>
-        /// m_cmd_insert control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button m_cmd_insert;
-        
-        /// <summary>
         /// UpdateProgress1 control.
         /// </summary>
         /// <remarks>
