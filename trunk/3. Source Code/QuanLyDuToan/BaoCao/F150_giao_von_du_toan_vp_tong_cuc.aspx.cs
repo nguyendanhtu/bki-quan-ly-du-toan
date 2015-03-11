@@ -34,6 +34,7 @@ namespace QuanLyDuToan.BaoCao
         #region Private Method
 
         private void load_data_to_grid() {
+            // xóa cột động
             xoaCotDong();
             DataSet v_ds = new DataSet();
             DataTable v_dt = new DataTable();
@@ -65,14 +66,20 @@ namespace QuanLyDuToan.BaoCao
                                                                     , Person.get_id_don_vi());
             //load cbo don vi
             WebformControls.load_data_to_ddl_don_vi_get_list_don_vi_duoc_xem_du_lieu(
-                v_dc_id_don_vi
-                , m_ddl_don_vi);
+                                                            v_dc_id_don_vi
+                                                            , m_ddl_don_vi);
         }
        
         private void set_default_input() {
             m_txt_tu_khoa_tim_kiem.Text = "";
-            m_txt_tu_ngay.Text = (new DateTime(DateTime.Now.Year, 1, 1)).ToString(c_configuration.DEFAULT_DATETIME_FORMAT);
-            m_txt_den_ngay.Text = (DateTime.Now.Date).ToString(c_configuration.DEFAULT_DATETIME_FORMAT);
+            m_txt_tu_ngay.Text = WebformFunctions.getValue_from_query_string<String>(
+                                                            this
+                                                            , FormInfo.QueryString.TU_NGAY
+                                                            , CIPConvert.ToStr(CCommonFunction.getDate_dau_nam_from_date(DateTime.Now), "dd/MM/yyyy"));
+            m_txt_den_ngay.Text = WebformFunctions.getValue_from_query_string<String>(
+                                                            this
+                                                            , FormInfo.QueryString.DEN_NGAY
+                                                            , CIPConvert.ToStr(DateTime.Now, "dd/MM/yyyy"));
         }
 
         private void addNewColumnToGridView(DataSet ip_ds) {
@@ -166,29 +173,45 @@ namespace QuanLyDuToan.BaoCao
 
         #region Event
         protected void Page_Load(object sender, EventArgs e) {
-            if (!IsPostBack) {
-                load_data_to_ddl_don_vi();
-                US_DM_DON_VI v_us = new US_DM_DON_VI(CIPConvert.ToDecimal(m_ddl_don_vi.SelectedValue));
-                //m_lbl_ten_don_vi.Text = v_us.strTEN_DON_VI.ToUpper();
-                set_default_input();
-                if (Request.QueryString["ip_dat_tu_ngay"] != null) {
-                    m_txt_tu_ngay.Text = Request.QueryString["ip_dat_tu_ngay"].ToString();
+            try {
+
+                if (!IsPostBack) {
+                    load_data_to_ddl_don_vi();
+                    US_DM_DON_VI v_us = new US_DM_DON_VI(CIPConvert.ToDecimal(m_ddl_don_vi.SelectedValue));
+                    set_default_input();
+                    load_data_to_grid();
                 }
-                if (Request.QueryString["ip_dat_den_ngay"] != null) {
-                    m_txt_den_ngay.Text = Request.QueryString["ip_dat_den_ngay"].ToString();
-                }
-                load_data_to_grid();
             }
+            catch (Exception v_e) {
+
+                CSystemLog_301.ExceptionHandle(this, v_e);
+            }
+           
         }
 
         protected void m_cmd_xem_bao_cao_Click(object sender, EventArgs e) {
-            load_data_to_grid();
+            try {
+
+                load_data_to_grid();
+            }
+            catch (Exception v_e) {
+
+                CSystemLog_301.ExceptionHandle(this, v_e);
+            }
+            
         }
         protected void m_cmd_xuat_excel_Click(object sender, EventArgs e) {
-            WebformReport.export_gridview_2_excel(
-            m_grv_bao_cao_giao_von
-            , "BaoCaoTinhHinhGiaoKeHoachGiaoVonVPTongCuc.xls"
-            );
+            try {
+
+                WebformReport.export_gridview_2_excel(
+                                    m_grv_bao_cao_giao_von
+                                    , "BaoCaoTinhHinhGiaoKeHoachGiaoVonVPTongCuc.xls"
+                );
+            }
+            catch (Exception v_e) {
+
+                CSystemLog_301.ExceptionHandle(this, v_e);
+            }
         }
 
         //vẽ header cho gridview
