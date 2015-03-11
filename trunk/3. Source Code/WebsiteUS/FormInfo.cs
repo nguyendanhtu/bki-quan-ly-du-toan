@@ -38,7 +38,8 @@ namespace WebUS
 		{
 			public const string F530 = "BaoCaoTinhHinhGiaiNganCacDonVi.xls";
             public const string F350 = "BaoCaoTinhHinhGiaiNgan.xls";
-            public const string F157 = "BaoCaoTinhHinhGiaoKeHoach.xls";		
+            public const string F157 = "BaoCaoTinhHinhGiaoKeHoach.xls";
+			public const string F257 = "BaoCaoTinhHinhGiaoVon.xls";	
         }
 	}
 }

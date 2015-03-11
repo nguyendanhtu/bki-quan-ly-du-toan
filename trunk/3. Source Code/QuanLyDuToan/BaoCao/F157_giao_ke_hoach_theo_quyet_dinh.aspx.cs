@@ -129,17 +129,17 @@ namespace QuanLyDuToan.BaoCao
 			v_ds.AcceptChanges();
 			v_ds.EnforceConstraints = false;
 			new US_V_GD_GIAI_NGAN_QBT().FillData2Dataset(
-				v_ds,
-				CIPConvert.ToDatetime(m_txt_tu_ngay.Text, c_configuration.DEFAULT_DATETIME_FORMAT),
-				CIPConvert.ToDatetime(m_txt_den_ngay.Text, c_configuration.DEFAULT_DATETIME_FORMAT),
-				CIPConvert.ToDecimal(m_ddl_don_vi.SelectedValue),
-				CIPConvert.ToDecimal(m_ddl_loai_nv.SelectedValue.Trim() == "" ? CONST_GIAO_DICH.STR_VALUE_TAT_CA : m_ddl_loai_nv.SelectedValue.Trim()),
-                CIPConvert.ToDecimal(m_ddl_cong_trinh.SelectedValue.Trim() == "" ? CONST_GIAO_DICH.STR_VALUE_TAT_CA : m_ddl_cong_trinh.SelectedValue.Trim()),
-                CIPConvert.ToDecimal(m_ddl_du_an.SelectedValue.Trim() == "" ? CONST_GIAO_DICH.STR_VALUE_TAT_CA : m_ddl_du_an.SelectedValue.Trim()),
-				m_txt_tim_kiem.Text.Trim(),
-				v_str_nguon_ngan_sach,
-				CIPConvert.ToDecimal(m_ddl_quyet_dinh.SelectedValue),
-				ProcInFo.pr_F157);
+											v_ds,
+											CIPConvert.ToDatetime(m_txt_tu_ngay.Text, c_configuration.DEFAULT_DATETIME_FORMAT),
+											CIPConvert.ToDatetime(m_txt_den_ngay.Text, c_configuration.DEFAULT_DATETIME_FORMAT),
+											CIPConvert.ToDecimal(m_ddl_don_vi.SelectedValue),
+											CIPConvert.ToDecimal(m_ddl_loai_nv.SelectedValue.Trim() == "" ? CONST_GIAO_DICH.STR_VALUE_TAT_CA : m_ddl_loai_nv.SelectedValue.Trim()),
+											CIPConvert.ToDecimal(m_ddl_cong_trinh.SelectedValue.Trim() == "" ? CONST_GIAO_DICH.STR_VALUE_TAT_CA : m_ddl_cong_trinh.SelectedValue.Trim()),
+											CIPConvert.ToDecimal(m_ddl_du_an.SelectedValue.Trim() == "" ? CONST_GIAO_DICH.STR_VALUE_TAT_CA : m_ddl_du_an.SelectedValue.Trim()),
+											m_txt_tim_kiem.Text.Trim(),
+											v_str_nguon_ngan_sach,
+											CIPConvert.ToDecimal(m_ddl_quyet_dinh.SelectedValue),
+											ProcInFo.pr_F157);
 			m_grv.DataSource = v_ds.Tables[0];
 			m_grv.DataBind();
 		}
