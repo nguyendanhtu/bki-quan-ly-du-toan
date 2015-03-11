@@ -17,7 +17,11 @@ namespace QuanLyDuToan.DanhMuc
 {
 	public partial class f604_dm_quyet_dinh : System.Web.UI.Page
 	{
-
+        #region Refactory by Huytd ngày 12/02/2015 7:30pm
+        /*
+         * còn chưa refactory format_link_to_chi_tiet() & format_link_to_chi_tiet_trong_thang
+         */
+        #endregion
 
 		#region Public Methods
 		public string get_delete_client_script(string ip_str_so_don_vi)
@@ -41,6 +45,7 @@ namespace QuanLyDuToan.DanhMuc
 		#endregion
 
 		#region Private Methods
+
 		private string get_form_mode(HiddenField ip_hdf_form_mode)
 		{
 			if (ip_hdf_form_mode.Value.Equals("0"))
@@ -72,6 +77,13 @@ namespace QuanLyDuToan.DanhMuc
 				m_hdf_form_mode.Value = "2";
 			}
 		}
+        private int getCountQuyetDinhCoSo(string ip_str_so_quyet_dinh) {
+            DS_DM_QUYET_DINH v_ds = new DS_DM_QUYET_DINH();
+            US_DM_QUYET_DINH v_us = new US_DM_QUYET_DINH();
+            v_us.FillDataset(v_ds, "where " + DM_QUYET_DINH.SO_QUYET_DINH + " = N'" + ip_str_so_quyet_dinh + "'");
+            return v_ds.DM_QUYET_DINH.Count;
+        }
+
 		private void load_rdb_loai_quyet_dinh_giao_from_select_loai_quyet_dinh()
 		{
 			if (m_rdb_giao_ke_hoach.Checked == true)
@@ -89,6 +101,22 @@ namespace QuanLyDuToan.DanhMuc
 				m_rdb_loai_quyet_dinh_giao_dieu_chinh.Visible = false;
 			}
 		}
+        private void load_data_to_grid() {
+            US_V_DM_QUYET_DINH_SO_DON_VI_NHAP_DU_LIEU v_us = new US_V_DM_QUYET_DINH_SO_DON_VI_NHAP_DU_LIEU();
+            DS_V_DM_QUYET_DINH_SO_DON_VI_NHAP_DU_LIEU v_ds = new DS_V_DM_QUYET_DINH_SO_DON_VI_NHAP_DU_LIEU();
+            string v_str_sub_query = "";
+            if (m_rdb_giao_ke_hoach.Checked == true) {
+                v_str_sub_query = "where " + DM_QUYET_DINH.ID_LOAI_QUYET_DINH + " = " + ID_LOAI_QUYET_DINH.GIAO_KE_HOACH;
+            }
+            else if (m_rdb_giao_von.Checked == true) {
+                v_str_sub_query = "where " + DM_QUYET_DINH.ID_LOAI_QUYET_DINH + " = " + ID_LOAI_QUYET_DINH.GIAO_VON;
+
+            }
+            v_us.FillDataset(v_ds, v_str_sub_query + " order by ngay_thang desc");
+            m_grv.DataSource = v_ds.v_dm_quyet_dinh_so_don_vi_nhap_du_lieu;
+            m_grv.DataBind();
+        }
+
 		private void form_to_us_object()
 		{
 			if (m_rdb_giao_ke_hoach.Checked == true)
@@ -161,13 +189,7 @@ namespace QuanLyDuToan.DanhMuc
 			load_rdb_loai_quyet_dinh_giao_from_select_loai_quyet_dinh();
 			m_txt_so_quyet_dinh.Focus();
 		}
-		private int getCountQuyetDinhCoSo(string ip_str_so_quyet_dinh)
-		{
-			DS_DM_QUYET_DINH v_ds = new DS_DM_QUYET_DINH();
-			US_DM_QUYET_DINH v_us = new US_DM_QUYET_DINH();
-			v_us.FillDataset(v_ds, "where " + DM_QUYET_DINH.SO_QUYET_DINH + " = N'" + ip_str_so_quyet_dinh + "'");
-			return v_ds.DM_QUYET_DINH.Count;
-		}
+
 		private bool check_validate_data_is_ok()
 		{
 
@@ -286,28 +308,21 @@ namespace QuanLyDuToan.DanhMuc
 			}
 
 		}
-		private void load_data_to_grid()
-		{
-			US_V_DM_QUYET_DINH_SO_DON_VI_NHAP_DU_LIEU v_us = new US_V_DM_QUYET_DINH_SO_DON_VI_NHAP_DU_LIEU();
-			DS_V_DM_QUYET_DINH_SO_DON_VI_NHAP_DU_LIEU v_ds = new DS_V_DM_QUYET_DINH_SO_DON_VI_NHAP_DU_LIEU();
-			string v_str_sub_query = "";
-			if (m_rdb_giao_ke_hoach.Checked == true)
-			{
-				v_str_sub_query = "where " + DM_QUYET_DINH.ID_LOAI_QUYET_DINH + " = " + ID_LOAI_QUYET_DINH.GIAO_KE_HOACH;
-			}
-			else if (m_rdb_giao_von.Checked == true)
-			{
-				v_str_sub_query = "where " + DM_QUYET_DINH.ID_LOAI_QUYET_DINH + " = " + ID_LOAI_QUYET_DINH.GIAO_VON;
 
-			}
-			v_us.FillDataset(v_ds, v_str_sub_query + " order by ngay_thang desc");
-			m_grv.DataSource = v_ds.v_dm_quyet_dinh_so_don_vi_nhap_du_lieu;
-			m_grv.DataBind();
-		}
+        private void xoa_trang() {
+            m_txt_ngay_thang.Text = CIPConvert.ToStr(DateTime.Now, "dd/MM/yyyy");
+            m_txt_so_quyet_dinh.Text = "";
+            m_txt_noi_dung.Text = "";
+            set_form_mode(LOAI_FORM.THEM);
+            m_cmd_cancel.Visible = true;
+            m_cmd_insert.Visible = true;
+            m_cmd_update.Visible = false;
+            m_hdf_id_quyet_dinh.Value = "-1";
+            m_grv.SelectedIndex = -1;
+        }
 		#endregion
 
 		#region Events
-
 		protected void Page_Load(object sender, EventArgs e)
 		{
 			m_lbl_mess.Text = "";
@@ -319,117 +334,79 @@ namespace QuanLyDuToan.DanhMuc
 			}
 		}
 
-		#endregion
+        protected void m_rdb_giao_ke_hoach_CheckedChanged(object sender, EventArgs e) {
+            try {
+                load_rdb_loai_quyet_dinh_giao_from_select_loai_quyet_dinh();
+                load_data_to_grid();
+            }
+            catch (Exception v_e) {
+                CSystemLog_301.ExceptionHandle(this, v_e);
+            }
+        }
+        protected void m_rdb_giao_von_CheckedChanged(object sender, EventArgs e) {
+            try {
+                load_rdb_loai_quyet_dinh_giao_from_select_loai_quyet_dinh();
+                load_data_to_grid();
+            }
+            catch (Exception v_e) {
+                CSystemLog_301.ExceptionHandle(this, v_e);
+            }
+        }
+        protected void m_grv_RowCommand(object sender, GridViewCommandEventArgs e) {
+            try {
+                if (e.CommandName == "Sua") {
+                    m_hdf_id_quyet_dinh.Value = e.CommandArgument.ToString();
+                    set_form_mode(LOAI_FORM.SUA);
+                    us_object_to_form();
+                    //set select row in gridview
+                    GridViewRow gvr = (GridViewRow)(((LinkButton)e.CommandSource).NamingContainer);
+                    m_grv.SelectedIndex = gvr.RowIndex;
+                    m_cmd_update.Visible = true;
+                    m_cmd_cancel.Visible = true;
+                    m_cmd_insert.Visible = false;
+                }
+                else if (e.CommandName == "Xoa") {
+                    m_hdf_id_quyet_dinh.Value = e.CommandArgument.ToString();
+                    set_form_mode(LOAI_FORM.XOA);
+                    if (check_validate_data_is_ok()) {
+                        delete_dm_quyet_dinh_by_id(CIPConvert.ToDecimal(m_hdf_id_quyet_dinh.Value));
+                    }
+                }
+            }
+            catch (Exception v_e) {
+                CSystemLog_301.ExceptionHandle(this, v_e);
+            }
+        }
 
-		protected void m_rdb_giao_ke_hoach_CheckedChanged(object sender, EventArgs e)
-		{
-			try
-			{
-				load_rdb_loai_quyet_dinh_giao_from_select_loai_quyet_dinh();
-				load_data_to_grid();
-			}
-			catch (Exception v_e)
-			{
-				CSystemLog_301.ExceptionHandle(this, v_e);
-			}
-		}
 
-		protected void m_rdb_giao_von_CheckedChanged(object sender, EventArgs e)
-		{
-			try
-			{
-				load_rdb_loai_quyet_dinh_giao_from_select_loai_quyet_dinh();
-				load_data_to_grid();
-			}
-			catch (Exception v_e)
-			{
-				CSystemLog_301.ExceptionHandle(this, v_e);
-			}
-		}
-
-		protected void m_grv_RowCommand(object sender, GridViewCommandEventArgs e)
-		{
-			try
-			{
-				if (e.CommandName == "Sua")
-				{
-					m_hdf_id_quyet_dinh.Value = e.CommandArgument.ToString();
-					set_form_mode(LOAI_FORM.SUA);
-					us_object_to_form();
-					//set select row in gridview
-					GridViewRow gvr = (GridViewRow)(((LinkButton)e.CommandSource).NamingContainer);
-					m_grv.SelectedIndex = gvr.RowIndex;
-					m_cmd_update.Visible = true;
-					m_cmd_cancel.Visible = true;
-					m_cmd_insert.Visible = false;
-				}
-				else if (e.CommandName == "Xoa")
-				{
-					m_hdf_id_quyet_dinh.Value = e.CommandArgument.ToString();
-					set_form_mode(LOAI_FORM.XOA);
-					if (check_validate_data_is_ok())
-					{
-						delete_dm_quyet_dinh_by_id(CIPConvert.ToDecimal(m_hdf_id_quyet_dinh.Value));
-					}
-				}
-			}
-			catch (Exception v_e)
-			{
-				CSystemLog_301.ExceptionHandle(this, v_e);
-			}
-		}
-
-		protected void m_cmd_insert_Click(object sender, EventArgs e)
-		{
-			try
-			{
-				m_lbl_mess.Text = "";
-				set_form_mode(LOAI_FORM.THEM);
-				save_data();
-			}
-			catch (Exception v_e)
-			{
-				CSystemLog_301.ExceptionHandle(this, v_e);
-			}
-		}
-
-		protected void m_cmd_update_Click(object sender, EventArgs e)
-		{
-			try
-			{
-				m_lbl_mess.Text = "";
-				set_form_mode(LOAI_FORM.SUA);
-				save_data();
-			}
-			catch (Exception v_e)
-			{
-				CSystemLog_301.ExceptionHandle(this, v_e);
-			}
-		}
-
-		protected void m_cmd_cancel_Click(object sender, EventArgs e)
-		{
-			try
-			{
-				xoa_trang();
-			}
-			catch (Exception v_e)
-			{
-				CSystemLog_301.ExceptionHandle(this, v_e);
-			}
-		}
-
-		private void xoa_trang()
-		{
-			m_txt_ngay_thang.Text = CIPConvert.ToStr(DateTime.Now, "dd/MM/yyyy");
-			m_txt_so_quyet_dinh.Text = "";
-			m_txt_noi_dung.Text = "";
-			set_form_mode(LOAI_FORM.THEM);
-			m_cmd_cancel.Visible = true;
-			m_cmd_insert.Visible = true;
-			m_cmd_update.Visible = false;
-			m_hdf_id_quyet_dinh.Value = "-1";
-			m_grv.SelectedIndex = -1;
-		}
+        protected void m_cmd_insert_Click(object sender, EventArgs e) {
+            try {
+                m_lbl_mess.Text = "";
+                set_form_mode(LOAI_FORM.THEM);
+                save_data();
+            }
+            catch (Exception v_e) {
+                CSystemLog_301.ExceptionHandle(this, v_e);
+            }
+        }
+        protected void m_cmd_update_Click(object sender, EventArgs e) {
+            try {
+                m_lbl_mess.Text = "";
+                set_form_mode(LOAI_FORM.SUA);
+                save_data();
+            }
+            catch (Exception v_e) {
+                CSystemLog_301.ExceptionHandle(this, v_e);
+            }
+        }
+        protected void m_cmd_cancel_Click(object sender, EventArgs e) {
+            try {
+                xoa_trang();
+            }
+            catch (Exception v_e) {
+                CSystemLog_301.ExceptionHandle(this, v_e);
+            }
+        }
+		#endregion	
 	}
 }
