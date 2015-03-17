@@ -24,18 +24,89 @@ namespace QuanLyDuToan.Quantri
 		#endregion
 
 		#region Private Methods
+		public string get_mapping_ten_chuc_nang(decimal i_dc_id_chuc_nang)
+		{
+			string v_str_chuc_nang = "";
+			US_HT_CHUC_NANG v_us = new US_HT_CHUC_NANG(i_dc_id_chuc_nang);
+			v_str_chuc_nang = v_us.strTEN_CHUC_NANG;
+			return v_str_chuc_nang;
+		}
 
+		private void load_data_to_ddl_user_group()
+		{
+
+			US_HT_USER_GROUP v_us_user_group = new US_HT_USER_GROUP();
+			DS_HT_USER_GROUP v_ds_user_group = new DS_HT_USER_GROUP();
+			v_us_user_group.FillDataset(v_ds_user_group, "order by " + HT_USER_GROUP.USER_GROUP_NAME);
+			m_cbo_user_group.DataSource = v_ds_user_group.HT_USER_GROUP;
+			m_cbo_user_group.DataTextField = HT_USER_GROUP.USER_GROUP_NAME;
+			m_cbo_user_group.DataValueField = CM_DM_LOAI_TD.ID;
+			m_cbo_user_group.DataBind();
+
+		}
+		private void load_data_to_ddl_chuc_nang_phan_mem()
+		{
+
+			US_HT_CHUC_NANG v_us_chuc_nang = new US_HT_CHUC_NANG();
+			DS_HT_CHUC_NANG v_ds_chuc_nang = new DS_HT_CHUC_NANG();
+			v_ds_chuc_nang.EnforceConstraints = false;
+			v_us_chuc_nang.FillDatasetFillFullTreeChucNang(
+								"Y"
+								, CIPConvert.ToDecimal(m_cbo_user_group.SelectedValue)
+								, "N"
+								, v_ds_chuc_nang
+								);
+			m_lst_chuc_nang.DataSource = v_ds_chuc_nang.HT_CHUC_NANG;
+			m_lst_chuc_nang.DataTextField = HT_CHUC_NANG.TEN_CHUC_NANG;
+			m_lst_chuc_nang.DataValueField = HT_CHUC_NANG.ID;
+			m_lst_chuc_nang.DataBind();
+
+		}
+		private void load_data_to_ddl_chuc_nang_phan_mem_user()
+		{
+
+			US_HT_CHUC_NANG v_us_chuc_nang = new US_HT_CHUC_NANG();
+			DS_HT_CHUC_NANG v_ds_chuc_nang = new DS_HT_CHUC_NANG();
+			v_ds_chuc_nang.EnforceConstraints = false;
+			v_us_chuc_nang.FillDatasetFillFullTreeChucNang(
+								"Y"
+								, CIPConvert.ToDecimal(m_cbo_user_group.SelectedValue)
+								, "Y"
+								, v_ds_chuc_nang
+								);
+
+			m_lst_chuc_nang_user.DataSource = v_ds_chuc_nang.HT_CHUC_NANG;
+			m_lst_chuc_nang_user.DataTextField = HT_CHUC_NANG.TEN_CHUC_NANG;
+			m_lst_chuc_nang_user.DataValueField = HT_CHUC_NANG.ID;
+			m_lst_chuc_nang_user.DataBind();
+
+		}
+
+		private void update_quyen_chuc_nang()
+		{
+			string v_str_id_chuc_nangs = "";
+			foreach (ListItem item in this.m_lst_chuc_nang_user.Items) v_str_id_chuc_nangs += item.Value + ",";
+			US_HT_QUYEN_GROUP v_us_quyen_group = new US_HT_QUYEN_GROUP();
+			v_us_quyen_group.update_quyen_group(
+								CIPConvert.ToDecimal(m_cbo_user_group.SelectedValue)
+								, v_str_id_chuc_nangs
+								);
+			m_lbl_mess.Text = "Cập nhật quyền sử dụng chức năng cho nhóm thành công";
+		}
+
+		#endregion
+
+		#region Events
 		protected void Page_Load(object sender, EventArgs e)
 		{
 			try
 			{
-
+				m_lbl_mess.Text = "";
 				if (!this.IsPostBack)
 				{
-
-					load_cbo_user_group();
-					load_cbo_chuc_nang_phan_mem();
-					load_cbo_chuc_nang_phan_mem_user();
+					load_data_to_ddl_user_group();
+					load_data_to_ddl_chuc_nang_phan_mem();
+					load_data_to_ddl_chuc_nang_phan_mem_user();
 				}
 
 			}
@@ -45,96 +116,6 @@ namespace QuanLyDuToan.Quantri
 			}
 
 		}
-		public string get_mapping_ten_chuc_nang(decimal i_dc_id_chuc_nang)
-		{
-			try
-			{
-				string v_str_chuc_nang = "";
-				US_HT_CHUC_NANG v_us = new US_HT_CHUC_NANG(i_dc_id_chuc_nang);
-				v_str_chuc_nang = v_us.strTEN_CHUC_NANG;
-				return v_str_chuc_nang;
-			}
-			catch (Exception v_e)
-			{
-				throw v_e;
-			}
-
-		}
-
-		private void load_cbo_user_group()
-		{
-
-			US_HT_USER_GROUP v_us_user_group = new US_HT_USER_GROUP();
-			DS_HT_USER_GROUP v_ds_user_group = new DS_HT_USER_GROUP();
-			v_us_user_group.FillDataset(v_ds_user_group);
-			m_cbo_user_group.DataSource = v_ds_user_group.HT_USER_GROUP;
-			m_cbo_user_group.DataTextField = HT_USER_GROUP.USER_GROUP_NAME;
-			m_cbo_user_group.DataValueField = CM_DM_LOAI_TD.ID;
-			m_cbo_user_group.DataBind();
-
-		}
-		private void load_cbo_chuc_nang_phan_mem()
-		{
-
-			US_HT_CHUC_NANG v_us_chuc_nang = new US_HT_CHUC_NANG();
-			DS_HT_CHUC_NANG v_ds_chuc_nang = new DS_HT_CHUC_NANG();
-			//v_us_chuc_nang.FillDataset(v_ds_chuc_nang, " WHERE ID NOT IN (SELECT ID_QUYEN FROM HT_QUYEN_GROUP WHERE ID_USER_GROUP =" + CIPConvert.ToDecimal(m_cbo_user_group.SelectedValue)+")");
-			v_ds_chuc_nang.EnforceConstraints = false;
-			v_us_chuc_nang.FillDatasetFillFullTreeChucNang(
-				"Y"
-				, CIPConvert.ToDecimal(m_cbo_user_group.SelectedValue)
-				, "N"
-				, v_ds_chuc_nang);
-			m_lst_chuc_nang.DataSource = v_ds_chuc_nang.HT_CHUC_NANG;
-			m_lst_chuc_nang.DataTextField = HT_CHUC_NANG.TEN_CHUC_NANG;
-			m_lst_chuc_nang.DataValueField = HT_CHUC_NANG.ID;
-			m_lst_chuc_nang.DataBind();
-
-		}
-		private void load_cbo_chuc_nang_phan_mem_user()
-		{
-
-			US_HT_CHUC_NANG v_us_chuc_nang = new US_HT_CHUC_NANG();
-			DS_HT_CHUC_NANG v_ds_chuc_nang = new DS_HT_CHUC_NANG();
-			//v_us_chuc_nang.FillDataset(v_ds_chuc_nang, " WHERE ID IN (SELECT ID_QUYEN FROM HT_QUYEN_GROUP WHERE ID_USER_GROUP =" + CIPConvert.ToDecimal(m_cbo_user_group.SelectedValue) + ")");
-			v_ds_chuc_nang.EnforceConstraints = false;
-			v_us_chuc_nang.FillDatasetFillFullTreeChucNang(
-				"Y"
-				, CIPConvert.ToDecimal(m_cbo_user_group.SelectedValue)
-				, "Y"
-				, v_ds_chuc_nang);
-
-			m_lst_chuc_nang_user.DataSource = v_ds_chuc_nang.HT_CHUC_NANG;
-			m_lst_chuc_nang_user.DataTextField = HT_CHUC_NANG.TEN_CHUC_NANG;
-			m_lst_chuc_nang_user.DataValueField = HT_CHUC_NANG.ID;
-			m_lst_chuc_nang_user.DataBind();
-
-		}
-		private void update_quyen_chuc_nang()
-		{
-
-			m_lbl_mess.Text = "";
-			string v_str_id_chuc_nangs = "";
-			foreach (ListItem ltTemp in this.m_lst_chuc_nang_user.Items)
-			{
-
-				v_str_id_chuc_nangs += ltTemp.Value + ",";
-			}
-			US_HT_QUYEN_GROUP v_us_quyen_group = new US_HT_QUYEN_GROUP();
-			v_us_quyen_group.update_quyen_group(CIPConvert.ToDecimal(m_cbo_user_group.SelectedValue), v_str_id_chuc_nangs);
-			m_lbl_mess.Text = "Cập nhật quyền sử dụng chức năng cho nhóm thành công";
-
-		}
-
-		#endregion
-
-		//
-		//
-		// events
-		//
-		//
-
-
 		protected void m_cmd_right_Click(object sender, ImageClickEventArgs e)
 		{
 			try
@@ -159,13 +140,11 @@ namespace QuanLyDuToan.Quantri
 		{
 			try
 			{
-				foreach (ListItem ltTemp in this.m_lst_chuc_nang.Items)
+				foreach (ListItem item in this.m_lst_chuc_nang.Items)
 				{
-					this.m_lst_chuc_nang_user.Items.Add(ltTemp);
+					this.m_lst_chuc_nang_user.Items.Add(item);
 				}
 				this.m_lst_chuc_nang.Items.Clear();
-
-
 			}
 			catch (Exception v_e)
 			{
@@ -184,7 +163,6 @@ namespace QuanLyDuToan.Quantri
 					m_lst_chuc_nang.Items.Add(selectedItem);
 					m_lst_chuc_nang_user.Items.Remove(selectedItem);
 				}
-
 			}
 			catch (Exception v_e)
 			{
@@ -196,9 +174,9 @@ namespace QuanLyDuToan.Quantri
 		{
 			try
 			{
-				foreach (ListItem ltTemp in this.m_lst_chuc_nang_user.Items)
+				foreach (ListItem item in this.m_lst_chuc_nang_user.Items)
 				{
-					this.m_lst_chuc_nang.Items.Add(ltTemp);
+					this.m_lst_chuc_nang.Items.Add(item);
 				}
 				this.m_lst_chuc_nang_user.Items.Clear();
 
@@ -213,9 +191,7 @@ namespace QuanLyDuToan.Quantri
 		{
 			try
 			{
-				m_lbl_mess.Text = "";
 				update_quyen_chuc_nang();
-
 			}
 			catch (Exception v_e)
 			{
@@ -226,15 +202,15 @@ namespace QuanLyDuToan.Quantri
 		{
 			try
 			{
-				load_cbo_chuc_nang_phan_mem();
-				load_cbo_chuc_nang_phan_mem_user();
-				m_lbl_mess.Text = "";
-
+				load_data_to_ddl_chuc_nang_phan_mem();
+				load_data_to_ddl_chuc_nang_phan_mem_user();
 			}
 			catch (Exception v_e)
 			{
 				CSystemLog_301.ExceptionHandle(this, v_e);
 			}
 		}
+		#endregion
+
 	}
 }

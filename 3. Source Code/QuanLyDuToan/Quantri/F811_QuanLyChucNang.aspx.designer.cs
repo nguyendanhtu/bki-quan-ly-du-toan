@@ -112,13 +112,13 @@ namespace QuanLyDuToan.Quantri {
         protected global::System.Web.UI.WebControls.Label lbl_ma_don_vi_tinh0;
         
         /// <summary>
-        /// m_cbo_vi_tri control.
+        /// m_txt_vi_tri control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList m_cbo_vi_tri;
+        protected global::System.Web.UI.WebControls.TextBox m_txt_vi_tri;
         
         /// <summary>
         /// lbl_ma_tan_xuat1 control.
@@ -175,13 +175,13 @@ namespace QuanLyDuToan.Quantri {
         protected global::System.Web.UI.WebControls.Button m_cmd_cap_nhat;
         
         /// <summary>
-        /// btnCancel control.
+        /// m_cmd_cancel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCancel;
+        protected global::System.Web.UI.WebControls.Button m_cmd_cancel;
         
         /// <summary>
         /// hdf_id control.

@@ -44,14 +44,12 @@ namespace QuanLyDuToan.Quantri
 				case DataEntryFormMode.InsertDataState:
 					m_cmd_cap_nhat.Visible = false;
 					m_cmd_tao_moi.Visible = true;
-					m_cbo_vi_tri.Enabled = true;
 					break;
 				case DataEntryFormMode.SelectDataState:
 					break;
 				case DataEntryFormMode.UpdateDataState:
 					m_cmd_cap_nhat.Visible = true;
 					m_cmd_tao_moi.Visible = false;
-					m_cbo_vi_tri.Enabled = false;
 					break;
 				case DataEntryFormMode.ViewDataState:
 					break;
@@ -93,7 +91,7 @@ namespace QuanLyDuToan.Quantri
 			US_HT_CHUC_NANG v_us_ht_chuc_nang = new US_HT_CHUC_NANG();
 			DS_HT_CHUC_NANG v_ds_ht_chuc_nang = new DS_HT_CHUC_NANG();
 
-			v_us_ht_chuc_nang.FillDataset(v_ds_ht_chuc_nang, " WHERE CHUC_NANG_PARENT_ID = 0 ORDER BY ID");
+			v_us_ht_chuc_nang.FillDataset(v_ds_ht_chuc_nang, " WHERE CHUC_NANG_PARENT_ID is null ORDER BY ID");
 
 			m_cbo_chuc_nang_cap_1.Items.Add(new ListItem("Tất cả", "0"));
 			for (int v_i = 0; v_i < v_ds_ht_chuc_nang.HT_CHUC_NANG.Rows.Count; v_i++)
@@ -102,28 +100,14 @@ namespace QuanLyDuToan.Quantri
 			}
 
 		}
-		private void load_data_2_us_by_id(int ip_i_row_index)
+		private void edit_grid_row(int ip_i_row_index)
 		{
 			decimal v_dc_chuc_nang_id = CIPConvert.ToDecimal(m_grv_dm_chuc_nang_he_thong.DataKeys[ip_i_row_index].Value);
 			hdf_id.Value = CIPConvert.ToStr(v_dc_chuc_nang_id);
 			m_us_ht_chuc_nang = new US_HT_CHUC_NANG(v_dc_chuc_nang_id);
-			m_txt_ten_chuc_nang.Text = m_us_ht_chuc_nang.strTEN_CHUC_NANG;
-			m_txt_url_form.Text = m_us_ht_chuc_nang.strURL_FORM;
-			m_cbo_chuc_nang_cha.SelectedValue = CIPConvert.ToStr(m_us_ht_chuc_nang.dcCHUC_NANG_PARENT_ID);
-			if (m_us_ht_chuc_nang.strTRANG_THAI_YN.Equals("Y")) m_rdl_su_dung_yn.Items[0].Selected = true;
-			else m_rdl_su_dung_yn.Items[1].Selected = true;
-			if (m_us_ht_chuc_nang.strHIEN_THI_YN.Equals("Y")) m_rdl_hien_thi_yn.Items[0].Selected = true;
-			else m_rdl_hien_thi_yn.Items[1].Selected = true;
-			m_cbo_vi_tri.SelectedValue = CIPConvert.ToStr(m_us_ht_chuc_nang.dcVI_TRI);
-			m_cbo_vi_tri.Enabled = true;
+			us_object_to_form(m_us_ht_chuc_nang);
 		}
-		private void load_data_2_cbo_vi_tri()
-		{
-			for (int v_i = 0; v_i < 15; v_i++)
-			{
-				m_cbo_vi_tri.Items.Add(new ListItem((v_i + 1).ToString(), (v_i + 1).ToString()));
-			}
-		}
+		
 		private void delete_dm_chuc_nang(int ip_i_row_index)
 		{
 			decimal v_dc_chuc_nang_id = CIPConvert.ToDecimal(m_grv_dm_chuc_nang_he_thong.DataKeys[ip_i_row_index].Value);
@@ -139,7 +123,19 @@ namespace QuanLyDuToan.Quantri
 			m_rdl_hien_thi_yn.Items[0].Selected = true;
 			m_rdl_su_dung_yn.Items[0].Selected = true;
 		}
-		private void form_2_us_obj()
+		private void us_object_to_form(US_HT_CHUC_NANG ip_us)
+		{
+			m_txt_ten_chuc_nang.Text = ip_us.strTEN_CHUC_NANG;
+			m_txt_url_form.Text = ip_us.strURL_FORM;
+			m_cbo_chuc_nang_cha.SelectedValue = CIPConvert.ToStr(ip_us.dcCHUC_NANG_PARENT_ID);
+			if (ip_us.strTRANG_THAI_YN.Equals("Y")) m_rdl_su_dung_yn.Items[0].Selected = true;
+			else m_rdl_su_dung_yn.Items[1].Selected = true;
+			if (ip_us.strHIEN_THI_YN.Equals("Y")) m_rdl_hien_thi_yn.Items[0].Selected = true;
+			else m_rdl_hien_thi_yn.Items[1].Selected = true;
+			m_txt_vi_tri.Text = CIPConvert.ToStr(ip_us.dcVI_TRI);
+			m_txt_vi_tri.Focus();
+		}
+		private void form_to_us_object()
 		{
 			m_us_ht_chuc_nang.strTEN_CHUC_NANG = m_txt_ten_chuc_nang.Text.Trim();
 			m_us_ht_chuc_nang.strURL_FORM = m_txt_url_form.Text.Trim();
@@ -153,7 +149,7 @@ namespace QuanLyDuToan.Quantri
 			else m_us_ht_chuc_nang.strTRANG_THAI_YN = "N";
 			if (m_rdl_hien_thi_yn.Items[0].Selected) m_us_ht_chuc_nang.strHIEN_THI_YN = "Y";
 			else m_us_ht_chuc_nang.strHIEN_THI_YN = "N";
-			m_us_ht_chuc_nang.dcVI_TRI = CIPConvert.ToDecimal(m_cbo_vi_tri.SelectedValue);
+			m_us_ht_chuc_nang.dcVI_TRI = CIPConvert.ToDecimal(m_txt_vi_tri.Text.Trim());
 		}
 		// Hàm này dựa vào parent id để lấy được vị trí lớn nhất mà chức năng con đang có
 		private decimal get_max_vi_tri(decimal ip_dc_parent_chuc_nang_id)
@@ -166,18 +162,16 @@ namespace QuanLyDuToan.Quantri
 		}
 		#endregion
 
-
-
 		#region Events
 
 		protected void Page_Load(object sender, EventArgs e)
 		{
+			m_lbl_mess.Text = "";
 			this.Form.DefaultButton = m_cmd_tim_kiem.UniqueID;
 			if (!IsPostBack)
 			{
 				load_data_2_cbo_parent();
 				load_data_2_cbo_chuc_nang_search();
-				load_data_2_cbo_vi_tri();
 				load_data_2_grid(CIPConvert.ToDecimal(m_cbo_chuc_nang_cap_1.SelectedValue));
 				m_e_form_mode = DataEntryFormMode.InsertDataState;
 
@@ -191,7 +185,7 @@ namespace QuanLyDuToan.Quantri
 				m_lbl_mess.Text = "";
 				m_e_form_mode = DataEntryFormMode.InsertDataState;
 				// thu thập dữ liệu
-				form_2_us_obj();
+				form_to_us_object();
 				// Insert
 				m_us_ht_chuc_nang.Insert();
 				// hiển thị lại lên lưới
@@ -210,9 +204,8 @@ namespace QuanLyDuToan.Quantri
 			try
 			{
 				m_e_form_mode = DataEntryFormMode.UpdateDataState;
-				m_lbl_mess.Text = "";
 				// thu thập dữ liệu
-				form_2_us_obj();
+				form_to_us_object();
 				m_us_ht_chuc_nang.dcID = CIPConvert.ToDecimal(hdf_id.Value);
 				// Update
 				m_us_ht_chuc_nang.Update();
@@ -230,23 +223,20 @@ namespace QuanLyDuToan.Quantri
 				CSystemLog_301.ExceptionHandle(this, v_e);
 			}
 		}
-		protected void m_cbo_chuc_nang_cap_1_SelectedIndexChanged(object sender, EventArgs e)
+		protected void m_cmd_tim_kiem_Click(object sender, EventArgs e)
 		{
 			try
 			{
-				load_data_2_grid(CIPConvert.ToDecimal(m_cbo_chuc_nang_cap_1.SelectedValue));
-				if (m_cbo_chuc_nang_cap_1.SelectedValue.Equals("0"))
-					m_cbo_chuc_nang_cha.SelectedIndex = 0;
-				else m_cbo_chuc_nang_cha.SelectedValue = m_cbo_chuc_nang_cap_1.SelectedValue;
-				decimal v_dc_max_vi_tri = get_max_vi_tri(CIPConvert.ToDecimal(m_cbo_chuc_nang_cha.SelectedValue));
-				m_cbo_vi_tri.SelectedValue = CIPConvert.ToStr(v_dc_max_vi_tri + 1);
+				m_txt_tim_kiem.Focus();
+				load_data_to_grid_by_tu_khoa();
+
 			}
 			catch (Exception v_e)
 			{
-				CSystemLog_301.ExceptionHandle(this, v_e);
+				CSystemLog_301.ExceptionHandle(v_e);
 			}
 		}
-		protected void btnCancel_Click(object sender, EventArgs e)
+		protected void m_cmd_cancel_Click(object sender, EventArgs e)
 		{
 			try
 			{
@@ -259,15 +249,68 @@ namespace QuanLyDuToan.Quantri
 				CSystemLog_301.ExceptionHandle(this, v_e);
 			}
 		}
+
+		protected void m_cbo_chuc_nang_cap_1_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			try
+			{
+				m_grv_dm_chuc_nang_he_thong.SelectedIndex = -1;
+				load_data_2_grid(CIPConvert.ToDecimal(m_cbo_chuc_nang_cap_1.SelectedValue));
+				if (m_cbo_chuc_nang_cap_1.SelectedValue.Equals("0"))
+					m_cbo_chuc_nang_cha.SelectedIndex = 0;
+				else m_cbo_chuc_nang_cha.SelectedValue = m_cbo_chuc_nang_cap_1.SelectedValue;
+				decimal v_dc_max_vi_tri = get_max_vi_tri(CIPConvert.ToDecimal(m_cbo_chuc_nang_cha.SelectedValue));
+				m_txt_vi_tri.Text= CIPConvert.ToStr(v_dc_max_vi_tri + 1);
+			}
+			catch (Exception v_e)
+			{
+				CSystemLog_301.ExceptionHandle(this, v_e);
+			}
+		}
+		protected void m_cbo_vi_tri_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			try
+			{
+				decimal v_dc_max_vi_tri = get_max_vi_tri(CIPConvert.ToDecimal(m_cbo_chuc_nang_cha.SelectedValue));
+				m_txt_vi_tri.Text = CIPConvert.ToStr(v_dc_max_vi_tri + 1);
+			}
+			catch (Exception v_e)
+			{
+				CSystemLog_301.ExceptionHandle(this, v_e);
+			}
+		}
+		protected void m_cbo_chuc_nang_cha_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			try
+			{
+				decimal v_dc_max_vi_tri = get_max_vi_tri(CIPConvert.ToDecimal(m_cbo_chuc_nang_cha.SelectedValue));
+				m_txt_vi_tri.Text = CIPConvert.ToStr(v_dc_max_vi_tri + 1);
+				// Kiểm tra xem cbo menu cap 1 có chuc nang id đó ko?
+				ListItemCollection v_list_items_collection = m_cbo_chuc_nang_cap_1.Items;
+				for (int v_i = 0; v_i < v_list_items_collection.Count; v_i++)
+				{
+					if (v_list_items_collection[v_i].Value.Equals(m_cbo_chuc_nang_cha.SelectedValue))
+					{
+						m_cbo_chuc_nang_cap_1.SelectedValue = m_cbo_chuc_nang_cha.SelectedValue;
+						break;
+					}
+				}
+				if (!m_cbo_chuc_nang_cha.SelectedValue.Equals(m_cbo_chuc_nang_cap_1.SelectedValue))
+					m_cbo_chuc_nang_cap_1.SelectedIndex = 0;
+			}
+			catch (Exception v_e)
+			{
+				CSystemLog_301.ExceptionHandle(this, v_e);
+			}
+		}
+
 		protected void m_grv_dm_chuc_nang_he_thong_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
 		{
 			try
 			{
 				m_e_form_mode = DataEntryFormMode.UpdateDataState;
 				set_control_by_form_mode();
-				m_lbl_mess.Text = "";
-				load_data_2_us_by_id(e.NewSelectedIndex);
-				m_cbo_vi_tri.Enabled = true;
+				edit_grid_row(e.NewSelectedIndex);
 			}
 			catch (Exception v_e)
 			{
@@ -278,7 +321,6 @@ namespace QuanLyDuToan.Quantri
 		{
 			try
 			{
-				m_lbl_mess.Text = "";
 				delete_dm_chuc_nang(e.RowIndex);
 				load_data_2_grid(CIPConvert.ToDecimal(m_cbo_chuc_nang_cap_1.SelectedValue));
 				m_lbl_mess.Text = "Xóa bản ghi thành công!";
@@ -301,55 +343,7 @@ namespace QuanLyDuToan.Quantri
 				CSystemLog_301.ExceptionHandle(this, v_e);
 			}
 		}
-		protected void m_cbo_vi_tri_SelectedIndexChanged(object sender, EventArgs e)
-		{
-			try
-			{
-				decimal v_dc_max_vi_tri = get_max_vi_tri(CIPConvert.ToDecimal(m_cbo_chuc_nang_cha.SelectedValue));
-				m_cbo_vi_tri.SelectedValue = CIPConvert.ToStr(v_dc_max_vi_tri + 1);
-			}
-			catch (Exception v_e)
-			{
-				CSystemLog_301.ExceptionHandle(this, v_e);
-			}
-		}
-		protected void m_cbo_chuc_nang_cha_SelectedIndexChanged(object sender, EventArgs e)
-		{
-			try
-			{
-				decimal v_dc_max_vi_tri = get_max_vi_tri(CIPConvert.ToDecimal(m_cbo_chuc_nang_cha.SelectedValue));
-				//m_cbo_vi_tri.SelectedValue = CIPConvert.ToStr(v_dc_max_vi_tri + 1);
-				// Kiểm tra xem cbo menu cap 1 có chuc nang id đó ko?
-				ListItemCollection v_list_items_collection = m_cbo_chuc_nang_cap_1.Items;
-				for (int v_i = 0; v_i < v_list_items_collection.Count; v_i++)
-				{
-					if (v_list_items_collection[v_i].Value.Equals(m_cbo_chuc_nang_cha.SelectedValue))
-					{
-						m_cbo_chuc_nang_cap_1.SelectedValue = m_cbo_chuc_nang_cha.SelectedValue;
-						break;
-					}
-				}
-				if (!m_cbo_chuc_nang_cha.SelectedValue.Equals(m_cbo_chuc_nang_cap_1.SelectedValue))
-					m_cbo_chuc_nang_cap_1.SelectedIndex = 0;
-			}
-			catch (Exception v_e)
-			{
-				CSystemLog_301.ExceptionHandle(this, v_e);
-			}
-		}
-		protected void m_cmd_tim_kiem_Click(object sender, EventArgs e)
-		{
-			try
-			{
-				//m_txt_tim_kiem.Focus();
-				load_data_to_grid_by_tu_khoa();
 
-			}
-			catch (Exception v_e)
-			{
-				CSystemLog_301.ExceptionHandle(v_e);
-			}
-		}
 		#endregion
 	}
 }

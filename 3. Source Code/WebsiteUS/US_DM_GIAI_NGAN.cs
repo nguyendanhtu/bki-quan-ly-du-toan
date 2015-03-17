@@ -507,6 +507,292 @@ namespace WebUS
 			pm_objDR["TTDVH_SO_TIEN"] = System.Convert.DBNull;
 		}
 
+		public string strTHUC_CHI_YN
+		{
+			get
+			{
+				return CNull.RowNVLString(pm_objDR, "THUC_CHI_YN", IPConstants.c_DefaultString);
+			}
+			set
+			{
+				pm_objDR["THUC_CHI_YN"] = value;
+			}
+		}
+
+		public bool IsTHUC_CHI_YNNull()
+		{
+			return pm_objDR.IsNull("THUC_CHI_YN");
+		}
+
+		public void SetTHUC_CHI_YNNull()
+		{
+			pm_objDR["THUC_CHI_YN"] = System.Convert.DBNull;
+		}
+
+		public string strTAM_UNG_YN
+		{
+			get
+			{
+				return CNull.RowNVLString(pm_objDR, "TAM_UNG_YN", IPConstants.c_DefaultString);
+			}
+			set
+			{
+				pm_objDR["TAM_UNG_YN"] = value;
+			}
+		}
+
+		public bool IsTAM_UNG_YNNull()
+		{
+			return pm_objDR.IsNull("TAM_UNG_YN");
+		}
+
+		public void SetTAM_UNG_YNNull()
+		{
+			pm_objDR["TAM_UNG_YN"] = System.Convert.DBNull;
+		}
+
+		public string strUNG_TRUOC_DU_DK_THANH_TOAN_YN
+		{
+			get
+			{
+				return CNull.RowNVLString(pm_objDR, "UNG_TRUOC_DU_DK_THANH_TOAN_YN", IPConstants.c_DefaultString);
+			}
+			set
+			{
+				pm_objDR["UNG_TRUOC_DU_DK_THANH_TOAN_YN"] = value;
+			}
+		}
+
+		public bool IsUNG_TRUOC_DU_DK_THANH_TOAN_YNNull()
+		{
+			return pm_objDR.IsNull("UNG_TRUOC_DU_DK_THANH_TOAN_YN");
+		}
+
+		public void SetUNG_TRUOC_DU_DK_THANH_TOAN_YNNull()
+		{
+			pm_objDR["UNG_TRUOC_DU_DK_THANH_TOAN_YN"] = System.Convert.DBNull;
+		}
+
+		public string strUNG_TRUOC_CHUA_DU_DK_THANH_TOAN_YN
+		{
+			get
+			{
+				return CNull.RowNVLString(pm_objDR, "UNG_TRUOC_CHUA_DU_DK_THANH_TOAN_YN", IPConstants.c_DefaultString);
+			}
+			set
+			{
+				pm_objDR["UNG_TRUOC_CHUA_DU_DK_THANH_TOAN_YN"] = value;
+			}
+		}
+
+		public bool IsUNG_TRUOC_CHUA_DU_DK_THANH_TOAN_YNNull()
+		{
+			return pm_objDR.IsNull("UNG_TRUOC_CHUA_DU_DK_THANH_TOAN_YN");
+		}
+
+		public void SetUNG_TRUOC_CHUA_DU_DK_THANH_TOAN_YNNull()
+		{
+			pm_objDR["UNG_TRUOC_CHUA_DU_DK_THANH_TOAN_YN"] = System.Convert.DBNull;
+		}
+
+		public string strCHUYEN_KHOAN_YN
+		{
+			get
+			{
+				return CNull.RowNVLString(pm_objDR, "CHUYEN_KHOAN_YN", IPConstants.c_DefaultString);
+			}
+			set
+			{
+				pm_objDR["CHUYEN_KHOAN_YN"] = value;
+			}
+		}
+
+		public bool IsCHUYEN_KHOAN_YNNull()
+		{
+			return pm_objDR.IsNull("CHUYEN_KHOAN_YN");
+		}
+
+		public void SetCHUYEN_KHOAN_YNNull()
+		{
+			pm_objDR["CHUYEN_KHOAN_YN"] = System.Convert.DBNull;
+		}
+
+		public string strTIEN_MAT_YN
+		{
+			get
+			{
+				return CNull.RowNVLString(pm_objDR, "TIEN_MAT_YN", IPConstants.c_DefaultString);
+			}
+			set
+			{
+				pm_objDR["TIEN_MAT_YN"] = value;
+			}
+		}
+
+		public bool IsTIEN_MAT_YNNull()
+		{
+			return pm_objDR.IsNull("TIEN_MAT_YN");
+		}
+
+		public void SetTIEN_MAT_YNNull()
+		{
+			pm_objDR["TIEN_MAT_YN"] = System.Convert.DBNull;
+		}
+
+		public string strMA_CAP_NS
+		{
+			get
+			{
+				return CNull.RowNVLString(pm_objDR, "MA_CAP_NS", IPConstants.c_DefaultString);
+			}
+			set
+			{
+				pm_objDR["MA_CAP_NS"] = value;
+			}
+		}
+
+		public bool IsMA_CAP_NSNull()
+		{
+			return pm_objDR.IsNull("MA_CAP_NS");
+		}
+
+		public void SetMA_CAP_NSNull()
+		{
+			pm_objDR["MA_CAP_NS"] = System.Convert.DBNull;
+		}
+
+		public string strSO_CKC_HDK
+		{
+			get
+			{
+				return CNull.RowNVLString(pm_objDR, "SO_CKC_HDK", IPConstants.c_DefaultString);
+			}
+			set
+			{
+				pm_objDR["SO_CKC_HDK"] = value;
+			}
+		}
+
+		public bool IsSO_CKC_HDKNull()
+		{
+			return pm_objDR.IsNull("SO_CKC_HDK");
+		}
+
+		public void SetSO_CKC_HDKNull()
+		{
+			pm_objDR["SO_CKC_HDK"] = System.Convert.DBNull;
+		}
+
+		public string strSO_CKC_HDTH
+		{
+			get
+			{
+				return CNull.RowNVLString(pm_objDR, "SO_CKC_HDTH", IPConstants.c_DefaultString);
+			}
+			set
+			{
+				pm_objDR["SO_CKC_HDTH"] = value;
+			}
+		}
+
+		public bool IsSO_CKC_HDTHNull()
+		{
+			return pm_objDR.IsNull("SO_CKC_HDTH");
+		}
+
+		public void SetSO_CKC_HDTHNull()
+		{
+			pm_objDR["SO_CKC_HDTH"] = System.Convert.DBNull;
+		}
+
+		public string strTEN_CTMT_DA
+		{
+			get
+			{
+				return CNull.RowNVLString(pm_objDR, "TEN_CTMT_DA", IPConstants.c_DefaultString);
+			}
+			set
+			{
+				pm_objDR["TEN_CTMT_DA"] = value;
+			}
+		}
+
+		public bool IsTEN_CTMT_DANull()
+		{
+			return pm_objDR.IsNull("TEN_CTMT_DA");
+		}
+
+		public void SetTEN_CTMT_DANull()
+		{
+			pm_objDR["TEN_CTMT_DA"] = System.Convert.DBNull;
+		}
+
+		public string strNGUOI_NHAN_TIEN_CMND_SO
+		{
+			get
+			{
+				return CNull.RowNVLString(pm_objDR, "NGUOI_NHAN_TIEN_CMND_SO", IPConstants.c_DefaultString);
+			}
+			set
+			{
+				pm_objDR["NGUOI_NHAN_TIEN_CMND_SO"] = value;
+			}
+		}
+
+		public bool IsNGUOI_NHAN_TIEN_CMND_SONull()
+		{
+			return pm_objDR.IsNull("NGUOI_NHAN_TIEN_CMND_SO");
+		}
+
+		public void SetNGUOI_NHAN_TIEN_CMND_SONull()
+		{
+			pm_objDR["NGUOI_NHAN_TIEN_CMND_SO"] = System.Convert.DBNull;
+		}
+
+		public string strNGUOI_NHAN_TIEN_CAP_NGAY
+		{
+			get
+			{
+				return CNull.RowNVLString(pm_objDR, "NGUOI_NHAN_TIEN_CAP_NGAY", IPConstants.c_DefaultString);
+			}
+			set
+			{
+				pm_objDR["NGUOI_NHAN_TIEN_CAP_NGAY"] = value;
+			}
+		}
+
+		public bool IsNGUOI_NHAN_TIEN_CAP_NGAYNull()
+		{
+			return pm_objDR.IsNull("NGUOI_NHAN_TIEN_CAP_NGAY");
+		}
+
+		public void SetNGUOI_NHAN_TIEN_CAP_NGAYNull()
+		{
+			pm_objDR["NGUOI_NHAN_TIEN_CAP_NGAY"] = System.Convert.DBNull;
+		}
+
+		public string strNGUOI_NHAN_TIEN_NOI_CAP
+		{
+			get
+			{
+				return CNull.RowNVLString(pm_objDR, "NGUOI_NHAN_TIEN_NOI_CAP", IPConstants.c_DefaultString);
+			}
+			set
+			{
+				pm_objDR["NGUOI_NHAN_TIEN_NOI_CAP"] = value;
+			}
+		}
+
+		public bool IsNGUOI_NHAN_TIEN_NOI_CAPNull()
+		{
+			return pm_objDR.IsNull("NGUOI_NHAN_TIEN_NOI_CAP");
+		}
+
+		public void SetNGUOI_NHAN_TIEN_NOI_CAPNull()
+		{
+			pm_objDR["NGUOI_NHAN_TIEN_NOI_CAP"] = System.Convert.DBNull;
+		}
+
 		#endregion
 		#region "Init Functions"
 		public US_DM_GIAI_NGAN()
@@ -542,7 +828,7 @@ namespace WebUS
 			, DateTime ip_dat_den_ngay
 			, string ip_nguon_ns)
 		{
-			CStoredProc v_sp=new CStoredProc("pr_get_dm_uy_nhiem_chi_by_don_vi_va_ngay_thang");
+			CStoredProc v_sp = new CStoredProc("pr_get_dm_uy_nhiem_chi_by_don_vi_va_ngay_thang");
 			v_sp.addDecimalInputParam("@ip_dc_id_don_vi", ip_dc_id_don_vi);
 			v_sp.addDatetimeInputParam("@ip_dat_tu_ngay", ip_dat_tu_ngay);
 			v_sp.addDatetimeInputParam("@ip_dat_den_ngay", ip_dat_den_ngay);

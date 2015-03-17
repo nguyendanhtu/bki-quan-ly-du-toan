@@ -77,7 +77,7 @@
 
 				<div style="text-align: center; margin-bottom: -33px">
 					<br />
-					<span style="font-weight: bold">DANH SÁCH ỦY NHIỆM CHI</span>
+					<span style="font-weight: bold">DANH SÁCH ỦY NHIỆM CHI/GIẤY RÚT DỰ TOAN NGÂN SÁCH</span>
 					<br />
 					Đơn vị
 					<asp:DropDownList ID="m_ddl_don_vi" CssClass="select2" runat="server" AutoPostBack="true" OnSelectedIndexChanged="m_ddl_don_vi_SelectedIndexChanged" Width="200px"></asp:DropDownList>
@@ -141,9 +141,9 @@
 										</ItemTemplate>
 										<ItemStyle HorizontalAlign="Center"></ItemStyle>
 									</asp:TemplateField>
-									<asp:TemplateField HeaderText="Số UNC" ItemStyle-Width="150px">
+									<asp:TemplateField HeaderText="Chứng từ số" ItemStyle-Width="150px">
 										<ItemTemplate>
-											<a class="link206" href='../DuToan/F304_nhap_giai_ngan_theo_unc.aspx?ip_dc_id_dm_giai_ngan=<%#Eval("ID") %>&ip_nguon_ns=<%#Eval("IS_NGUON_NS_YN") %>'
+											<a class="link206" href='<%# getLinkToUNC(Eval("ID").ToString(),Eval("IS_NGUON_NS_YN").ToString())%>'
 												title="Xem chi tiết"><%#  Eval("SO_UNC") %></a>
 										</ItemTemplate>
 									</asp:TemplateField>

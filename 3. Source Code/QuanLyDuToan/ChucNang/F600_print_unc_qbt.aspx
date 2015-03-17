@@ -11,6 +11,9 @@
 	<script type="text/javascript" src='<%=ResolveClientUrl("~/Scripts/jquery-ui.min.js")%>'></script>
 	<title></title>
 	<style type="text/css">
+	 .hiddenCell {
+            display:none;
+        }
 		p {
 			height: 17px;
 			margin: 0px;
@@ -163,7 +166,7 @@
 											<td style="width: 580px; vertical-align: top">
 												<table style="width: 100%">
 													<tr>
-														<td colspan="3">
+														<td>
 															<p style="font-weight: bold">Trong đó:</p>
 														</td>
 													</tr>
@@ -171,12 +174,12 @@
 														<td></td>
 													</tr>
 													<tr>
-														<td colspan="3">
+														<td>
 															<p style="font-weight: bold">NỘP THUẾ:</p>
 														</td>
 													</tr>
 													<tr>
-														<td colspan="3">
+														<td>
 															<p>
 																Tên đơn vị (Người nộp thuế):
 						<asp:Label ID="m_lbl_nt_ten_don_vi" runat="server" Text="......"></asp:Label>
@@ -184,7 +187,7 @@
 														</td>
 													</tr>
 													<tr>
-														<td colspan="3">
+														<td>
 															<p>
 																Mã số thuế:
 						<asp:Label ID="m_lbl_nt_ma_so_thue" runat="server" Text="......"></asp:Label>&nbsp;
@@ -196,7 +199,7 @@
 														</td>
 													</tr>
 													<tr>
-														<td colspan="3">
+														<td>
 															<p>
 																Cơ quan quản lý thu:<asp:Label ID="m_lbl_nt_co_quan_quan_ly_thu" runat="server" Text="........"></asp:Label>
 																&nbsp;Mã CQ thu:<asp:Label ID="m_lbl_nt_ma_cq_thu" runat="server" Text="......"></asp:Label>
@@ -205,7 +208,7 @@
 														</td>
 													</tr>
 													<tr>
-														<td colspan="3">
+														<td>
 															<p>
 																Số tiền nộp thuế (ghi bằng chữ):
 						<asp:Label ID="m_lbl_nt_so_tien_nop_thue" runat="server" Text="......"></asp:Label>
@@ -217,12 +220,12 @@
 													</tr>
 
 													<tr>
-														<td colspan="3">
+														<td>
 															<p style="font-weight: bold">THANH TOÁN CHO ĐƠN VỊ HƯỞNG:</p>
 														</td>
 													</tr>
 													<tr>
-														<td colspan="3">
+														<td>
 															<p>
 																Đơn vị nhận tiền:
 						<asp:Label ID="m_lbl_ttdvh_don_vi_nhan_tien" runat="server" Text="......"></asp:Label>

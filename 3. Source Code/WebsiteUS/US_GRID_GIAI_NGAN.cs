@@ -154,11 +154,11 @@ namespace WebUS
 			pm_objDR["ID_DON_VI"] = System.Convert.DBNull;
 		}
 
-		public string strSTT
+		public decimal dcSTT
 		{
 			get
 			{
-				return CNull.RowNVLString(pm_objDR, "STT", IPConstants.c_DefaultString);
+				return CNull.RowNVLDecimal(pm_objDR, "STT", IPConstants.c_DefaultDecimal);
 			}
 			set
 			{
@@ -176,11 +176,11 @@ namespace WebUS
 			pm_objDR["STT"] = System.Convert.DBNull;
 		}
 
-		public string strREPORT_LEVEL
+		public decimal dcREPORT_LEVEL
 		{
 			get
 			{
-				return CNull.RowNVLString(pm_objDR, "REPORT_LEVEL", IPConstants.c_DefaultString);
+				return CNull.RowNVLDecimal(pm_objDR, "REPORT_LEVEL", IPConstants.c_DefaultDecimal);
 			}
 			set
 			{
@@ -286,6 +286,72 @@ namespace WebUS
 			pm_objDR["ID_CHA"] = System.Convert.DBNull;
 		}
 
+		public string strMA_CHUONG
+		{
+			get
+			{
+				return CNull.RowNVLString(pm_objDR, "MA_CHUONG", IPConstants.c_DefaultString);
+			}
+			set
+			{
+				pm_objDR["MA_CHUONG"] = value;
+			}
+		}
+
+		public bool IsMA_CHUONGNull()
+		{
+			return pm_objDR.IsNull("MA_CHUONG");
+		}
+
+		public void SetMA_CHUONGNull()
+		{
+			pm_objDR["MA_CHUONG"] = System.Convert.DBNull;
+		}
+
+		public string strMA_LOAI
+		{
+			get
+			{
+				return CNull.RowNVLString(pm_objDR, "MA_LOAI", IPConstants.c_DefaultString);
+			}
+			set
+			{
+				pm_objDR["MA_LOAI"] = value;
+			}
+		}
+
+		public bool IsMA_LOAINull()
+		{
+			return pm_objDR.IsNull("MA_LOAI");
+		}
+
+		public void SetMA_LOAINull()
+		{
+			pm_objDR["MA_LOAI"] = System.Convert.DBNull;
+		}
+
+		public string strMA_KHOAN
+		{
+			get
+			{
+				return CNull.RowNVLString(pm_objDR, "MA_KHOAN", IPConstants.c_DefaultString);
+			}
+			set
+			{
+				pm_objDR["MA_KHOAN"] = value;
+			}
+		}
+
+		public bool IsMA_KHOANNull()
+		{
+			return pm_objDR.IsNull("MA_KHOAN");
+		}
+
+		public void SetMA_KHOANNull()
+		{
+			pm_objDR["MA_KHOAN"] = System.Convert.DBNull;
+		}
+
 		#endregion
 		#region "Init Functions"
 		public US_GRID_GIAI_NGAN()
@@ -330,6 +396,19 @@ namespace WebUS
 			, string ip_str_is_nguon_ns)
 		{
 			CStoredProc v_sp = new CStoredProc("pr_F304_nhap_giai_ngan_theo_unc");
+			v_sp.addDecimalInputParam("@ip_dc_id_don_vi", ip_dc_id_don_vi);
+			v_sp.addDecimalInputParam("@ip_dc_id_dm_uy_nhiem_chi", ip_dc_id_dm_uy_nhiem_chi);
+			v_sp.addDecimalInputParam("@ip_dc_id_user", ip_dc_id_user);
+			v_sp.addNVarcharInputParam("@ip_str_is_nguon_ns", ip_str_is_nguon_ns);
+			v_sp.fillDataSetByCommand(this, op_ds);
+		}
+		public void get_grid_giay_rut_du_toan(DS_GRID_GIAI_NGAN op_ds
+			 , decimal ip_dc_id_don_vi
+			 , decimal ip_dc_id_dm_uy_nhiem_chi
+			, decimal ip_dc_id_user
+			, string ip_str_is_nguon_ns)
+		{
+			CStoredProc v_sp = new CStoredProc("pr_F305_giay_rut_du_toan_ngan_sach");
 			v_sp.addDecimalInputParam("@ip_dc_id_don_vi", ip_dc_id_don_vi);
 			v_sp.addDecimalInputParam("@ip_dc_id_dm_uy_nhiem_chi", ip_dc_id_dm_uy_nhiem_chi);
 			v_sp.addDecimalInputParam("@ip_dc_id_user", ip_dc_id_user);

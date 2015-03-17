@@ -48,7 +48,11 @@ namespace WebDS.CDBNames
 		public const string GHI_CHU = "GHI_CHU";
 		public const string ID_REPORTED_USER = "ID_REPORTED_USER";
 		public const string ID_CHA = "ID_CHA";
+		public const string MA_CHUONG = "MA_CHUONG";
+		public const string MA_LOAI = "MA_LOAI";
+		public const string MA_KHOAN = "MA_KHOAN";
 	}
+
 
 
 
@@ -147,12 +151,23 @@ namespace WebDS.CDBNames
 		public const string TTDVH_MA_CTMT_DA_VA_HTCT = "TTDVH_MA_CTMT_DA_VA_HTCT";
 		public const string TTDVH_KHO_BAC = "TTDVH_KHO_BAC";
 		public const string TTDVH_SO_TIEN = "TTDVH_SO_TIEN";
+		public const string THUC_CHI_YN = "THUC_CHI_YN";
+		public const string TAM_UNG_YN = "TAM_UNG_YN";
+		public const string UNG_TRUOC_DU_DK_THANH_TOAN_YN = "UNG_TRUOC_DU_DK_THANH_TOAN_YN";
+		public const string UNG_TRUOC_CHUA_DU_DK_THANH_TOAN_YN = "UNG_TRUOC_CHUA_DU_DK_THANH_TOAN_YN";
+		public const string CHUYEN_KHOAN_YN = "CHUYEN_KHOAN_YN";
+		public const string TIEN_MAT_YN = "TIEN_MAT_YN";
+		public const string MA_CAP_NS = "MA_CAP_NS";
+		public const string SO_CKC_HDK = "SO_CKC_HDK";
+		public const string SO_CKC_HDTH = "SO_CKC_HDTH";
+		public const string TEN_CTMT_DA = "TEN_CTMT_DA";
 		public const string SO_TIEN_NOP_THUE = "SO_TIEN_NOP_THUE";
 		public const string NOI_DUNG_CHI = "NOI_DUNG_CHI";
 		public const string GHI_CHU = "GHI_CHU";
 		public const string SO_TIEN_TT_CHO_DV_HUONG = "SO_TIEN_TT_CHO_DV_HUONG";
 		public const string DISPLAY = "DISPLAY";
 	}
+
 
 
 	public class GET_MUC_TIEU_MUC
@@ -181,6 +196,7 @@ namespace WebDS.CDBNames
 		public const string GHI_CHU_2 = "GHI_CHU_2";
 		public const string GHI_CHU_3 = "GHI_CHU_3";
 		public const string GHI_CHU_4 = "GHI_CHU_4";
+		public const string MA_NGUON_NSNN = "MA_NGUON_NSNN";
 		public const string NGAY_THANG = "NGAY_THANG";
 		public const string SO_UNC = "SO_UNC";
 		public const string IS_NGUON_NS_YN = "IS_NGUON_NS_YN";
@@ -204,6 +220,7 @@ namespace WebDS.CDBNames
 		public const string TEN_CONG_TRINH = "TEN_CONG_TRINH";
 		public const string TEN_DU_AN = "TEN_DU_AN";
 	}
+
 
 
 
@@ -329,7 +346,18 @@ namespace WebDS.CDBNames
 		public const string TTDVH_MA_CTMT_DA_VA_HTCT = "TTDVH_MA_CTMT_DA_VA_HTCT";
 		public const string TTDVH_KHO_BAC = "TTDVH_KHO_BAC";
 		public const string TTDVH_SO_TIEN = "TTDVH_SO_TIEN";
+		public const string THUC_CHI_YN = "THUC_CHI_YN";
+		public const string TAM_UNG_YN = "TAM_UNG_YN";
+		public const string UNG_TRUOC_DU_DK_THANH_TOAN_YN = "UNG_TRUOC_DU_DK_THANH_TOAN_YN";
+		public const string UNG_TRUOC_CHUA_DU_DK_THANH_TOAN_YN = "UNG_TRUOC_CHUA_DU_DK_THANH_TOAN_YN";
+		public const string CHUYEN_KHOAN_YN = "CHUYEN_KHOAN_YN";
+		public const string TIEN_MAT_YN = "TIEN_MAT_YN";
+		public const string MA_CAP_NS = "MA_CAP_NS";
+		public const string SO_CKC_HDK = "SO_CKC_HDK";
+		public const string SO_CKC_HDTH = "SO_CKC_HDTH";
+		public const string TEN_CTMT_DA = "TEN_CTMT_DA";
 	}
+
 
 
 	public class GD_CHI_TIET_GIAI_NGAN
@@ -352,7 +380,9 @@ namespace WebDS.CDBNames
 		public const string GHI_CHU_2 = "GHI_CHU_2";
 		public const string GHI_CHU_3 = "GHI_CHU_3";
 		public const string GHI_CHU_4 = "GHI_CHU_4";
+		public const string MA_NGUON_NSNN = "MA_NGUON_NSNN";
 	}
+
 
 	public class GD_CHI_TIET_GIAO_KH
 	{

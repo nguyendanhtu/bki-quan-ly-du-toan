@@ -4,17 +4,12 @@
 	<script>
 		function pageLoad(sender, args) {
 			if (args.get_isPartialLoad()) {
-
 				$(".cssDorpdownlist").select2();
-
-
 			}
 		}
 		$(document).ready(function () {
 			$(".cssDorpdownlist").select2();
-
-		}
-		   )
+		});
 	</script>
 
 </asp:Content>
@@ -75,9 +70,8 @@
 					Text="Vị trí" />
 			</td>
 			<td align="left">
-				<asp:DropDownList ID="m_cbo_vi_tri" runat="server" Width="20%" CssClass="cssDorpdownlist form-control"
-					OnSelectedIndexChanged="m_cbo_vi_tri_SelectedIndexChanged" AutoPostBack="true">
-				</asp:DropDownList>
+				<asp:TextBox ID="m_txt_vi_tri" runat="server" Width="20%" CssClass="form-control">
+				</asp:TextBox>
 			</td>
 			<td>&nbsp;</td>
 		</tr>
@@ -118,8 +112,8 @@
 			<asp:Button ID="m_cmd_cap_nhat" AccessKey="u"
 				runat="server" CssClass="btn btn-sm btn-success" Text="Cập nhật(u)"
 				OnClick="m_cmd_cap_nhat_Click" />&nbsp;
-			<asp:Button ID="btnCancel" AccessKey="r" CssClass="btn btn-sm btn-default" runat="server"
-				Text="Xóa trắng(r)" OnClick="btnCancel_Click" />
+			<asp:Button ID="m_cmd_cancel" AccessKey="r" CssClass="btn btn-sm btn-default" runat="server"
+				Text="Xóa trắng(r)" OnClick="m_cmd_cancel_Click" />
 				<asp:HiddenField ID="hdf_id" runat="server" Value="" />
 			</td>
 		</tr>
@@ -158,7 +152,7 @@
 
 		</tr>
 		<tr>
-			<td align="center" colspan="3" style="height: 450px;" valign="top">&nbsp;
+			<td align="center" colspan="3" valign="top">&nbsp;
            
         <asp:GridView ID="m_grv_dm_chuc_nang_he_thong" AllowPaging="True"
 			PageSize="20"
