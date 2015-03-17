@@ -22,7 +22,23 @@ namespace QuanLyDuToan.DanhMuc
 	{
 
 		#region Public Functions
-
+		public string getLinkToUNC(string ip_dc_id_giai_ngan, string ip_nguon_ns)
+		{
+			string op_str_link = "";
+			if (ip_nguon_ns == "N")
+			{
+				op_str_link = "../DuToan/" + FormInfo.FormName.F304
+					+ "?" + FormInfo.QueryString.ID_DM_GIAI_NGAN + "=" + ip_dc_id_giai_ngan
+					+ "&" + FormInfo.QueryString.NGUON_NGAN_SACH + "=" + ip_nguon_ns;
+			}
+			else
+			{
+				op_str_link = "../DuToan/" + FormInfo.FormName.F305
+					+ "?" + FormInfo.QueryString.ID_DM_GIAI_NGAN + "=" + ip_dc_id_giai_ngan
+					+ "&" + FormInfo.QueryString.NGUON_NGAN_SACH + "=" + ip_nguon_ns;
+			}
+			return op_str_link;
+		}
 		#endregion
 
 		#region Data Structures
@@ -97,8 +113,8 @@ namespace QuanLyDuToan.DanhMuc
 			for (int i = 0; i < v_ds.V_DM_GIAI_NGAN.Count; i++)
 			{
 				if (v_ds.Tables[0].Rows[i][V_DM_GIAI_NGAN.IS_NGUON_NS_YN].ToString().Equals(STR_NGUON.NGAN_SACH))
-					v_ds.Tables[0].Rows[i]["NGUON_NS_YN"] = "Nguồn Ngân sách";
-				else v_ds.Tables[0].Rows[i]["NGUON_NS_YN"] = "Nguồn Quỹ bảo trì";
+					v_ds.Tables[0].Rows[i]["NGUON_NS_YN"] = "Giấy rút dự toán Ngân sách";
+				else v_ds.Tables[0].Rows[i]["NGUON_NS_YN"] = "Uỷ nhiệm chi Quỹ Bảo trì";
 			}
 			v_ds.AcceptChanges();
 
@@ -111,7 +127,7 @@ namespace QuanLyDuToan.DanhMuc
 			US_DM_DON_VI v_us = new US_DM_DON_VI(CIPConvert.ToDecimal(m_ddl_don_vi.SelectedValue));
 			WebformReport.export_gridview_2_excel(
 								m_grv_bao_cao_giao_von
-								, "[" + v_us.strTEN_DON_VI + "]"+FormInfo.ExportExcelReportName.F390
+								, "[" + v_us.strTEN_DON_VI + "]" + FormInfo.ExportExcelReportName.F390
 								);
 		}
 

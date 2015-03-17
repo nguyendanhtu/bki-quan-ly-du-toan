@@ -19,6 +19,7 @@ namespace WebUS
 			public const string ID_GIAI_NGAN = "ip_dc_id_dm_giai_ngan";
 			public static string ID_QUYET_DINH = "ip_dc_id_quyet_dinh";
 			public static string LOAI_DON_VI = "LOAI_DON_VI";
+			public const string ID_DM_GIAI_NGAN = "ip_dc_id_dm_giai_ngan";
 		}
 
 		public class FormName
@@ -27,11 +28,16 @@ namespace WebUS
 			public const string F157 = "F157_giao_ke_hoach_theo_quyet_dinh.aspx";
 			public const string F257 = "F257_giao_von_theo_quyet_dinh.aspx";
 			public const string F357 = "F357_giai_ngan_theo_uy_nhiem_chi.aspx";
+			public const string F304 = "F304_nhap_giai_ngan_theo_unc.aspx";
+			public const string F305 = "F305_giay_rut_du_toan_ngan_sach.aspx";
 		}
 
 		public class FormRedirect
 		{
 			public const string F600 = "~/ChucNang/F600_print_unc_qbt.aspx";
+			public const string F601 = "~/ChucNang/F601_print_giay_rut_du_toan_ngan_sach.aspx";
+			public const string F304 = "../DuToan/F304_nhap_giai_ngan_theo_unc.aspx";
+			public const string F305 = "../DuToan/F305_giay_rut_du_toan_ngan_sach.aspx";
 		}
 
 

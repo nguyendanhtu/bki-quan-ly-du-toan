@@ -70,10 +70,12 @@
     <Content Include="bootstrap-3.2.0-dist\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="bootstrap-3.2.0-dist\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="bootstrap-3.2.0-dist\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="ChucNang\F601_print_giay_rut_du_toan_ngan_sach.aspx" />
     <Content Include="Downloadify\README.textile" />
     <Content Include="Downloadify\src\com\dynamicflash\util\Base64.as" />
     <Content Include="Downloadify\src\com\dynamicflash\util\tests\Base64Test.as" />
     <Content Include="Downloadify\src\Downloadify.as" />
+    <Content Include="DuToan\F305_giay_rut_du_toan_ngan_sach.aspx" />
     <Content Include="packages.config" />
     <None Include="Properties\PublishProfiles\QuanLyDuToan.pubxml" />
     <Content Include="BaoCao\F150_giao_von_du_toan_vp_tong_cuc.aspx" />
@@ -794,12 +796,26 @@
     <Compile Include="BaoCao\F601_bao_cao_tinh_hinh_giai_ngan_tong_cuc.aspx.designer.cs">
       <DependentUpon>F601_bao_cao_tinh_hinh_giai_ngan_tong_cuc.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ChucNang\F601_print_giay_rut_du_toan_ngan_sach.aspx.cs">
+      <DependentUpon>F601_print_giay_rut_du_toan_ngan_sach.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ChucNang\F601_print_giay_rut_du_toan_ngan_sach.aspx.designer.cs">
+      <DependentUpon>F601_print_giay_rut_du_toan_ngan_sach.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ChucNang\F600_print_unc_qbt.aspx.cs">
       <DependentUpon>F600_print_unc_qbt.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ChucNang\F600_print_unc_qbt.aspx.designer.cs">
       <DependentUpon>F600_print_unc_qbt.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DuToan\F305_giay_rut_du_toan_ngan_sach.aspx.cs">
+      <DependentUpon>F305_giay_rut_du_toan_ngan_sach.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DuToan\F305_giay_rut_du_toan_ngan_sach.aspx.designer.cs">
+      <DependentUpon>F305_giay_rut_du_toan_ngan_sach.aspx</DependentUpon>
     </Compile>
     <Compile Include="Quantri\admin.aspx.cs">
       <DependentUpon>admin.aspx</DependentUpon>
@@ -1071,7 +1087,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>3828</DevelopmentServerPort>
+          <DevelopmentServerPort>8822</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:14773/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>

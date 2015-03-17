@@ -12,7 +12,7 @@
               <DbSource ConnectionRef="BKI_QLDTConnectionString (Settings)" DbObjectName="BKI_QLDT.dbo.V_DM_GIAI_NGAN" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT ID, ID_DON_VI, NGAY_THANG, SO_UNC, IS_NGUON_NS_YN, MA_DVQHNS, MA_CTMT_DA_HTCT, NT_TEN_DON_VI, NT_MA_SO_THUE, NT_MA_NDKT, NT_MA_CHUONG, NT_CQ_QL_THU, NT_MA_CQ_THU, NT_KBNN_HACH_TOAN_KHOAN_THU, NT_SO_TIEN_NOP_THUE, TTDVH_DON_VI_NHAN_TIEN, TTDVH_MA_DVQHNS, TTDVH_DIA_CHI, TTDVH_TAI_KHOAN, TTDVH_MA_CTMT_DA_VA_HTCT, TTDVH_KHO_BAC, TTDVH_SO_TIEN, SO_TIEN_NOP_THUE, NOI_DUNG_CHI, GHI_CHU, SO_TIEN_TT_CHO_DV_HUONG, DISPLAY FROM dbo.V_DM_GIAI_NGAN</CommandText>
+                    <CommandText>SELECT ID, ID_DON_VI, NGAY_THANG, SO_UNC, IS_NGUON_NS_YN, MA_DVQHNS, MA_CTMT_DA_HTCT, NT_TEN_DON_VI, NT_MA_SO_THUE, NT_MA_NDKT, NT_MA_CHUONG, NT_CQ_QL_THU, NT_MA_CQ_THU, NT_KBNN_HACH_TOAN_KHOAN_THU, NT_SO_TIEN_NOP_THUE, TTDVH_DON_VI_NHAN_TIEN, TTDVH_MA_DVQHNS, TTDVH_DIA_CHI, TTDVH_TAI_KHOAN, TTDVH_MA_CTMT_DA_VA_HTCT, TTDVH_KHO_BAC, TTDVH_SO_TIEN, THUC_CHI_YN, TAM_UNG_YN, UNG_TRUOC_DU_DK_THANH_TOAN_YN, UNG_TRUOC_CHUA_DU_DK_THANH_TOAN_YN, CHUYEN_KHOAN_YN, TIEN_MAT_YN, MA_CAP_NS, SO_CKC_HDK, SO_CKC_HDTH, TEN_CTMT_DA, NGUOI_NHAN_TIEN_CMND_SO, NGUOI_NHAN_TIEN_CAP_NGAY, NGUOI_NHAN_TIEN_NOI_CAP, SO_TIEN_NOP_THUE, NOI_DUNG_CHI, GHI_CHU, SO_TIEN_TT_CHO_DV_HUONG, DISPLAY, MA_CHUONG, MA_LOAI, MA_KHOAN, TEN_DU_AN, TONG FROM dbo.V_DM_GIAI_NGAN</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -41,11 +41,29 @@
               <Mapping SourceColumn="TTDVH_MA_CTMT_DA_VA_HTCT" DataSetColumn="TTDVH_MA_CTMT_DA_VA_HTCT" />
               <Mapping SourceColumn="TTDVH_KHO_BAC" DataSetColumn="TTDVH_KHO_BAC" />
               <Mapping SourceColumn="TTDVH_SO_TIEN" DataSetColumn="TTDVH_SO_TIEN" />
+              <Mapping SourceColumn="THUC_CHI_YN" DataSetColumn="THUC_CHI_YN" />
+              <Mapping SourceColumn="TAM_UNG_YN" DataSetColumn="TAM_UNG_YN" />
+              <Mapping SourceColumn="UNG_TRUOC_DU_DK_THANH_TOAN_YN" DataSetColumn="UNG_TRUOC_DU_DK_THANH_TOAN_YN" />
+              <Mapping SourceColumn="UNG_TRUOC_CHUA_DU_DK_THANH_TOAN_YN" DataSetColumn="UNG_TRUOC_CHUA_DU_DK_THANH_TOAN_YN" />
+              <Mapping SourceColumn="CHUYEN_KHOAN_YN" DataSetColumn="CHUYEN_KHOAN_YN" />
+              <Mapping SourceColumn="TIEN_MAT_YN" DataSetColumn="TIEN_MAT_YN" />
+              <Mapping SourceColumn="MA_CAP_NS" DataSetColumn="MA_CAP_NS" />
+              <Mapping SourceColumn="SO_CKC_HDK" DataSetColumn="SO_CKC_HDK" />
+              <Mapping SourceColumn="SO_CKC_HDTH" DataSetColumn="SO_CKC_HDTH" />
+              <Mapping SourceColumn="TEN_CTMT_DA" DataSetColumn="TEN_CTMT_DA" />
+              <Mapping SourceColumn="NGUOI_NHAN_TIEN_CMND_SO" DataSetColumn="NGUOI_NHAN_TIEN_CMND_SO" />
+              <Mapping SourceColumn="NGUOI_NHAN_TIEN_CAP_NGAY" DataSetColumn="NGUOI_NHAN_TIEN_CAP_NGAY" />
+              <Mapping SourceColumn="NGUOI_NHAN_TIEN_NOI_CAP" DataSetColumn="NGUOI_NHAN_TIEN_NOI_CAP" />
               <Mapping SourceColumn="SO_TIEN_NOP_THUE" DataSetColumn="SO_TIEN_NOP_THUE" />
               <Mapping SourceColumn="NOI_DUNG_CHI" DataSetColumn="NOI_DUNG_CHI" />
               <Mapping SourceColumn="GHI_CHU" DataSetColumn="GHI_CHU" />
               <Mapping SourceColumn="SO_TIEN_TT_CHO_DV_HUONG" DataSetColumn="SO_TIEN_TT_CHO_DV_HUONG" />
               <Mapping SourceColumn="DISPLAY" DataSetColumn="DISPLAY" />
+              <Mapping SourceColumn="MA_CHUONG" DataSetColumn="MA_CHUONG" />
+              <Mapping SourceColumn="MA_LOAI" DataSetColumn="MA_LOAI" />
+              <Mapping SourceColumn="MA_KHOAN" DataSetColumn="MA_KHOAN" />
+              <Mapping SourceColumn="TEN_DU_AN" DataSetColumn="TEN_DU_AN" />
+              <Mapping SourceColumn="TONG" DataSetColumn="TONG" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -60,7 +78,7 @@
         <xs:element name="V_DM_GIAI_NGAN" msprop:Generator_TableClassName="V_DM_GIAI_NGANDataTable" msprop:Generator_TableVarName="tableV_DM_GIAI_NGAN" msprop:Generator_TablePropName="V_DM_GIAI_NGAN" msprop:Generator_RowDeletingName="V_DM_GIAI_NGANRowDeleting" msprop:Generator_RowChangingName="V_DM_GIAI_NGANRowChanging" msprop:Generator_RowEvHandlerName="V_DM_GIAI_NGANRowChangeEventHandler" msprop:Generator_RowDeletedName="V_DM_GIAI_NGANRowDeleted" msprop:Generator_UserTableName="V_DM_GIAI_NGAN" msprop:Generator_RowChangedName="V_DM_GIAI_NGANRowChanged" msprop:Generator_RowEvArgName="V_DM_GIAI_NGANRowChangeEvent" msprop:Generator_RowClassName="V_DM_GIAI_NGANRow">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:decimal" />
+              <xs:element name="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:decimal" />
               <xs:element name="ID_DON_VI" msprop:Generator_ColumnVarNameInTable="columnID_DON_VI" msprop:Generator_ColumnPropNameInRow="ID_DON_VI" msprop:Generator_ColumnPropNameInTable="ID_DON_VIColumn" msprop:Generator_UserColumnName="ID_DON_VI" type="xs:decimal" />
               <xs:element name="NGAY_THANG" msprop:Generator_ColumnVarNameInTable="columnNGAY_THANG" msprop:Generator_ColumnPropNameInRow="NGAY_THANG" msprop:Generator_ColumnPropNameInTable="NGAY_THANGColumn" msprop:Generator_UserColumnName="NGAY_THANG" type="xs:dateTime" />
               <xs:element name="SO_UNC" msprop:Generator_ColumnVarNameInTable="columnSO_UNC" msprop:Generator_ColumnPropNameInRow="SO_UNC" msprop:Generator_ColumnPropNameInTable="SO_UNCColumn" msprop:Generator_UserColumnName="SO_UNC">
@@ -77,14 +95,14 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="MA_DVQHNS" msprop:Generator_ColumnVarNameInTable="columnMA_DVQHNS" msprop:Generator_ColumnPropNameInRow="MA_DVQHNS" msprop:Generator_ColumnPropNameInTable="MA_DVQHNSColumn" msprop:Generator_UserColumnName="MA_DVQHNS">
+              <xs:element name="MA_DVQHNS" msprop:Generator_ColumnVarNameInTable="columnMA_DVQHNS" msprop:Generator_ColumnPropNameInRow="MA_DVQHNS" msprop:Generator_ColumnPropNameInTable="MA_DVQHNSColumn" msprop:Generator_UserColumnName="MA_DVQHNS" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="35" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="MA_CTMT_DA_HTCT" msprop:Generator_ColumnVarNameInTable="columnMA_CTMT_DA_HTCT" msprop:Generator_ColumnPropNameInRow="MA_CTMT_DA_HTCT" msprop:Generator_ColumnPropNameInTable="MA_CTMT_DA_HTCTColumn" msprop:Generator_UserColumnName="MA_CTMT_DA_HTCT">
+              <xs:element name="MA_CTMT_DA_HTCT" msprop:Generator_ColumnVarNameInTable="columnMA_CTMT_DA_HTCT" msprop:Generator_ColumnPropNameInRow="MA_CTMT_DA_HTCT" msprop:Generator_ColumnPropNameInTable="MA_CTMT_DA_HTCTColumn" msprop:Generator_UserColumnName="MA_CTMT_DA_HTCT" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="35" />
@@ -196,6 +214,97 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="THUC_CHI_YN" msprop:Generator_ColumnVarNameInTable="columnTHUC_CHI_YN" msprop:Generator_ColumnPropNameInRow="THUC_CHI_YN" msprop:Generator_ColumnPropNameInTable="THUC_CHI_YNColumn" msprop:Generator_UserColumnName="THUC_CHI_YN" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TAM_UNG_YN" msprop:Generator_ColumnVarNameInTable="columnTAM_UNG_YN" msprop:Generator_ColumnPropNameInRow="TAM_UNG_YN" msprop:Generator_ColumnPropNameInTable="TAM_UNG_YNColumn" msprop:Generator_UserColumnName="TAM_UNG_YN" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="UNG_TRUOC_DU_DK_THANH_TOAN_YN" msprop:Generator_ColumnVarNameInTable="columnUNG_TRUOC_DU_DK_THANH_TOAN_YN" msprop:Generator_ColumnPropNameInRow="UNG_TRUOC_DU_DK_THANH_TOAN_YN" msprop:Generator_ColumnPropNameInTable="UNG_TRUOC_DU_DK_THANH_TOAN_YNColumn" msprop:Generator_UserColumnName="UNG_TRUOC_DU_DK_THANH_TOAN_YN" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="UNG_TRUOC_CHUA_DU_DK_THANH_TOAN_YN" msprop:Generator_ColumnVarNameInTable="columnUNG_TRUOC_CHUA_DU_DK_THANH_TOAN_YN" msprop:Generator_ColumnPropNameInRow="UNG_TRUOC_CHUA_DU_DK_THANH_TOAN_YN" msprop:Generator_ColumnPropNameInTable="UNG_TRUOC_CHUA_DU_DK_THANH_TOAN_YNColumn" msprop:Generator_UserColumnName="UNG_TRUOC_CHUA_DU_DK_THANH_TOAN_YN" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CHUYEN_KHOAN_YN" msprop:Generator_ColumnVarNameInTable="columnCHUYEN_KHOAN_YN" msprop:Generator_ColumnPropNameInRow="CHUYEN_KHOAN_YN" msprop:Generator_ColumnPropNameInTable="CHUYEN_KHOAN_YNColumn" msprop:Generator_UserColumnName="CHUYEN_KHOAN_YN" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TIEN_MAT_YN" msprop:Generator_ColumnVarNameInTable="columnTIEN_MAT_YN" msprop:Generator_ColumnPropNameInRow="TIEN_MAT_YN" msprop:Generator_ColumnPropNameInTable="TIEN_MAT_YNColumn" msprop:Generator_UserColumnName="TIEN_MAT_YN" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MA_CAP_NS" msprop:Generator_ColumnVarNameInTable="columnMA_CAP_NS" msprop:Generator_ColumnPropNameInRow="MA_CAP_NS" msprop:Generator_ColumnPropNameInTable="MA_CAP_NSColumn" msprop:Generator_UserColumnName="MA_CAP_NS" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="35" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SO_CKC_HDK" msprop:Generator_ColumnVarNameInTable="columnSO_CKC_HDK" msprop:Generator_ColumnPropNameInRow="SO_CKC_HDK" msprop:Generator_ColumnPropNameInTable="SO_CKC_HDKColumn" msprop:Generator_UserColumnName="SO_CKC_HDK" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="35" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SO_CKC_HDTH" msprop:Generator_ColumnVarNameInTable="columnSO_CKC_HDTH" msprop:Generator_ColumnPropNameInRow="SO_CKC_HDTH" msprop:Generator_ColumnPropNameInTable="SO_CKC_HDTHColumn" msprop:Generator_UserColumnName="SO_CKC_HDTH" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="35" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TEN_CTMT_DA" msprop:Generator_ColumnVarNameInTable="columnTEN_CTMT_DA" msprop:Generator_ColumnPropNameInRow="TEN_CTMT_DA" msprop:Generator_ColumnPropNameInTable="TEN_CTMT_DAColumn" msprop:Generator_UserColumnName="TEN_CTMT_DA" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NGUOI_NHAN_TIEN_CMND_SO" msprop:Generator_ColumnVarNameInTable="columnNGUOI_NHAN_TIEN_CMND_SO" msprop:Generator_ColumnPropNameInRow="NGUOI_NHAN_TIEN_CMND_SO" msprop:Generator_ColumnPropNameInTable="NGUOI_NHAN_TIEN_CMND_SOColumn" msprop:Generator_UserColumnName="NGUOI_NHAN_TIEN_CMND_SO" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="35" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NGUOI_NHAN_TIEN_CAP_NGAY" msprop:Generator_ColumnVarNameInTable="columnNGUOI_NHAN_TIEN_CAP_NGAY" msprop:Generator_ColumnPropNameInRow="NGUOI_NHAN_TIEN_CAP_NGAY" msprop:Generator_ColumnPropNameInTable="NGUOI_NHAN_TIEN_CAP_NGAYColumn" msprop:Generator_UserColumnName="NGUOI_NHAN_TIEN_CAP_NGAY" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="35" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NGUOI_NHAN_TIEN_NOI_CAP" msprop:Generator_ColumnVarNameInTable="columnNGUOI_NHAN_TIEN_NOI_CAP" msprop:Generator_ColumnPropNameInRow="NGUOI_NHAN_TIEN_NOI_CAP" msprop:Generator_ColumnPropNameInTable="NGUOI_NHAN_TIEN_NOI_CAPColumn" msprop:Generator_UserColumnName="NGUOI_NHAN_TIEN_NOI_CAP" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
               <xs:element name="SO_TIEN_NOP_THUE" msprop:Generator_ColumnVarNameInTable="columnSO_TIEN_NOP_THUE" msprop:Generator_ColumnPropNameInRow="SO_TIEN_NOP_THUE" msprop:Generator_ColumnPropNameInTable="SO_TIEN_NOP_THUEColumn" msprop:Generator_UserColumnName="SO_TIEN_NOP_THUE" type="xs:decimal" />
               <xs:element name="NOI_DUNG_CHI" msprop:Generator_ColumnVarNameInTable="columnNOI_DUNG_CHI" msprop:Generator_ColumnPropNameInRow="NOI_DUNG_CHI" msprop:Generator_ColumnPropNameInTable="NOI_DUNG_CHIColumn" msprop:Generator_UserColumnName="NOI_DUNG_CHI" minOccurs="0">
                 <xs:simpleType>
@@ -212,13 +321,42 @@
                 </xs:simpleType>
               </xs:element>
               <xs:element name="SO_TIEN_TT_CHO_DV_HUONG" msprop:Generator_ColumnVarNameInTable="columnSO_TIEN_TT_CHO_DV_HUONG" msprop:Generator_ColumnPropNameInRow="SO_TIEN_TT_CHO_DV_HUONG" msprop:Generator_ColumnPropNameInTable="SO_TIEN_TT_CHO_DV_HUONGColumn" msprop:Generator_UserColumnName="SO_TIEN_TT_CHO_DV_HUONG" type="xs:decimal" minOccurs="0" />
-              <xs:element name="DISPLAY" msprop:Generator_ColumnVarNameInTable="columnDISPLAY" msprop:Generator_ColumnPropNameInRow="DISPLAY" msprop:Generator_ColumnPropNameInTable="DISPLAYColumn" msprop:Generator_UserColumnName="DISPLAY" minOccurs="0">
+              <xs:element name="DISPLAY" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDISPLAY" msprop:Generator_ColumnPropNameInRow="DISPLAY" msprop:Generator_ColumnPropNameInTable="DISPLAYColumn" msprop:Generator_UserColumnName="DISPLAY" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:maxLength value="250" />
+                    <xs:maxLength value="549" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="MA_CHUONG" msprop:Generator_ColumnVarNameInTable="columnMA_CHUONG" msprop:Generator_ColumnPropNameInRow="MA_CHUONG" msprop:Generator_ColumnPropNameInTable="MA_CHUONGColumn" msprop:Generator_UserColumnName="MA_CHUONG">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MA_LOAI" msprop:Generator_ColumnVarNameInTable="columnMA_LOAI" msprop:Generator_ColumnPropNameInRow="MA_LOAI" msprop:Generator_ColumnPropNameInTable="MA_LOAIColumn" msprop:Generator_UserColumnName="MA_LOAI">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MA_KHOAN" msprop:Generator_ColumnVarNameInTable="columnMA_KHOAN" msprop:Generator_ColumnPropNameInRow="MA_KHOAN" msprop:Generator_ColumnPropNameInTable="MA_KHOANColumn" msprop:Generator_UserColumnName="MA_KHOAN">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TEN_DU_AN" msprop:Generator_ColumnVarNameInTable="columnTEN_DU_AN" msprop:Generator_ColumnPropNameInRow="TEN_DU_AN" msprop:Generator_ColumnPropNameInTable="TEN_DU_ANColumn" msprop:Generator_UserColumnName="TEN_DU_AN">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="298" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TONG" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTONG" msprop:Generator_ColumnPropNameInRow="TONG" msprop:Generator_ColumnPropNameInTable="TONGColumn" msprop:Generator_UserColumnName="TONG" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
