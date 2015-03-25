@@ -40,6 +40,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
@@ -96,12 +103,15 @@
     <Content Include="Downloadify\src\downloadify.js" />
     <Content Include="Downloadify\test.html" />
     <Content Include="Quantri\admin.aspx" />
+    <Content Include="QuyetToan\PL01_tong_hop_kinh_phi.aspx" />
+    <Content Include="Scripts\BigInt.js" />
     <Content Include="Scripts\ExportExcel.js" />
     <Content Include="Scripts\jquery.dataTables.js" />
     <Content Include="Scripts\jquery.dataTables.sorting.js" />
     <Content Include="Scripts\knockout-3.2.0.debug.js" />
     <Content Include="Scripts\knockout-3.2.0.js" />
     <Content Include="Scripts\plugins\datepicker\locales\bootstrap-datepicker.vi.js" />
+    <Content Include="Scripts\UI\PL01.js" />
     <Content Include="Scripts\UI\Test.js" />
     <Content Include="Template\TPL_F157.txt" />
     <Content Include="Template\TPL_F190.txt" />
@@ -824,6 +834,13 @@
     <Compile Include="Quantri\admin.aspx.designer.cs">
       <DependentUpon>admin.aspx</DependentUpon>
     </Compile>
+    <Compile Include="QuyetToan\PL01_tong_hop_kinh_phi.aspx.cs">
+      <DependentUpon>PL01_tong_hop_kinh_phi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="QuyetToan\PL01_tong_hop_kinh_phi.aspx.designer.cs">
+      <DependentUpon>PL01_tong_hop_kinh_phi.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Test\Test.aspx.cs">
       <DependentUpon>Test.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1061,6 +1078,10 @@
     <ProjectReference Include="..\IPUserService\IPUserService.csproj">
       <Project>{b490ea92-2990-4cbb-b58b-12901afcccb5}</Project>
       <Name>IPUserService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SQLDataAccess\SQLDataAccess.csproj">
+      <Project>{0604a086-d772-4fe7-bf81-24c9c2059ccd}</Project>
+      <Name>SQLDataAccess</Name>
     </ProjectReference>
     <ProjectReference Include="..\WebsiteDS\WebDS.csproj">
       <Project>{f5d819ba-1743-4c56-b6f3-682281528c06}</Project>
