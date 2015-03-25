@@ -36,13 +36,13 @@
 					<strong class="ma_so_parent <%= item.MA_SO_PARENT %>"><%= item.CHI_TIEU %></strong>
 				</td>
 				<td class="col-sm-1">
-					<input type="text" class="form-control format_so_tien so_bao_cao <%= item.MA_SO %>" value="<%= item.SO_BAO_CAO %>" />
+					<input type="text" class="form-control format_so_tien so_bao_cao <%= formatClass(item.MA_SO) %>" value="<%= item.SO_BAO_CAO %>" />
 				</td>
 				<td class="col-sm-1">
-					<input type="text" class="form-control  format_so_tien so_xet_duyet <%= item.MA_SO %>" value="<%= item.SO_XET_DUYET %>" />
+					<input type="text" class="form-control  format_so_tien so_xet_duyet <%=formatClass(item.MA_SO) %>" value="<%= item.SO_XET_DUYET %>" />
 				</td>
 				<td class="col-sm-1 text-center">
-					<span class=" ma_so <%= item.MA_SO %> cong_thuc" ><%= item.CONG_THUC %></span>
+					<span class=" ma_so <%= item.MA_SO %> cong_thuc" ><%=formatCongThuc( item.CONG_THUC) %></span>
 				</td>
 				<td class="col-sm-1" style="display:none">
 					<input type="button" class="btn btn-sm btn-success" value="Cap nhat" />

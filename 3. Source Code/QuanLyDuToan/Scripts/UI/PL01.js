@@ -34,21 +34,53 @@ function setTong(ma_so_parent, classTinhTong) {
 		}
 	}));
 }
-function computedValueByFormula(lstFormula) {
+function computedValueByFormula(lstFormula, classCongThuc) {
+	var tong = 0;
 	for (var i = 0; i < lstFormula.length; i++) {
 		var strClass = lstFormula[i].split('-').join('').split('+').join('');
 		//Kiểm tra xem các thành phần là phải cộng hay trừ, 
 		//nếu có dấu - ở trước thì ta sẽ trừ (isAdd=false) và ngược lại
-		var isAdd = true;
-		if (lstFormula[i].indexOf('-')!=-1) {
-			isAdd = false;
+		var heSo = 1;
+		if (lstFormula[i].indexOf('-') != -1) {
+			heSo = -1;
 		}
+		if (strClass!='') {
+			tong = tong + parseFloat(
+									$('.' + classCongThuc + '.' + strClass).val()
+									) * heSo;
+			console.log(i + ':' + strClass+':'+parseFloat(
+									$('.' + classCongThuc + '.' + strClass).val()
+									) * heSo);
+		}
+	}
+	return tong;
+}
+
+function EventByFormula(ma_so_parent, classCongThuc) {
+	var strClassFormula = '' + '.cong_thuc.' + ma_so_parent + '';
+	var lstFormula = $(strClassFormula).text().split('|');
+	for (var i = 0; i < lstFormula.length; i++) {
+		
+		var strClass = lstFormula[i].split('-').join('').split('+').join('');
+		//Tao su kien
+		
+		if (strClass != '') {
+			$('.' + classCongThuc+'.'+strClass).bind("keypress keyup keydown change", (function (e) {
+				$('.' + classCongThuc + '.' + ma_so_parent)
+					.val(computedValueByFormula(lstFormula, classCongThuc));
+
+			}));
+		}
+		
+
 	}
 }
 function autoTinhTong(maxMaSo) {
 	for (var i = 0; i <= maxMaSo; i++) {
 		setTong(i, 'so_bao_cao');
 		setTong(i, 'so_xet_duyet');
+		EventByFormula(i, 'so_bao_cao');
+		EventByFormula(i, 'so_xet_duyet');
 	}
 }
 $(document).ready(function () {
