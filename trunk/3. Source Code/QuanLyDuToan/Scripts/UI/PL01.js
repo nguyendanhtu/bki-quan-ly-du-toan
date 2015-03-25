@@ -34,6 +34,17 @@ function setTong(ma_so_parent, classTinhTong) {
 		}
 	}));
 }
+function computedValueByFormula(lstFormula) {
+	for (var i = 0; i < lstFormula.length; i++) {
+		var strClass = lstFormula[i].split('-').join('').split('+').join('');
+		//Kiểm tra xem các thành phần là phải cộng hay trừ, 
+		//nếu có dấu - ở trước thì ta sẽ trừ (isAdd=false) và ngược lại
+		var isAdd = true;
+		if (lstFormula[i].indexOf('-')!=-1) {
+			isAdd = false;
+		}
+	}
+}
 function autoTinhTong(maxMaSo) {
 	for (var i = 0; i <= maxMaSo; i++) {
 		setTong(i, 'so_bao_cao');

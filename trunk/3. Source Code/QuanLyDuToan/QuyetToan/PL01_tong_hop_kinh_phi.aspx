@@ -8,8 +8,12 @@
 		text-align:right;
 		}
 	</style>
+	<script type="text/javascript">
+		var m_lst_loai = <%= Newtonsoft.Json.JsonConvert.SerializeObject(lst_loai)%>;
+	</script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+	
 	<table class="col-sm-12 table table-hover">
 		<thead>
 			<tr class="text-center">
@@ -17,6 +21,7 @@
 				<th class="col-sm-3">Noi dung chi</th>
 				<th class="col-sm-1">So bao cao</th>
 				<th class="col-sm-1">So xet duyet</th>
+				<th class="col-sm-1">Cong thuc</th>
 				<th class="col-sm-1" style="display:none">Thao tac</th>
 			</tr>
 		</thead>
@@ -35,6 +40,9 @@
 				</td>
 				<td class="col-sm-1">
 					<input type="text" class="form-control  format_so_tien so_xet_duyet <%= item.MA_SO %>" value="<%= item.SO_XET_DUYET %>" />
+				</td>
+				<td class="col-sm-1 text-center">
+					<span class=" ma_so <%= item.MA_SO %> cong_thuc" ><%= item.CONG_THUC %></span>
 				</td>
 				<td class="col-sm-1" style="display:none">
 					<input type="button" class="btn btn-sm btn-success" value="Cap nhat" />
