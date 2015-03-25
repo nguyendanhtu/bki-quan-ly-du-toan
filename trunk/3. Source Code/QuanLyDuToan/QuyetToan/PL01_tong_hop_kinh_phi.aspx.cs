@@ -12,6 +12,16 @@ namespace QuanLyDuToan.QuyetToan
 	public partial class PL01_tong_hop_kinh_phi : System.Web.UI.Page
 	{
 		#region Public Function
+		public string formatClass(string className)
+		{
+			if (string.IsNullOrEmpty(className)) return "";
+			return className.ToString().Replace('.', '_');
+		}
+		public string formatCongThuc(string className)
+		{
+			if (string.IsNullOrEmpty(className)) return "";
+			return className.ToString().Replace('|', '\0');
+		}
 		
 		#endregion
 
