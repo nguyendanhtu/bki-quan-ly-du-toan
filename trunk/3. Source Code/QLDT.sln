@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IPCommon", "IPCommon\IPComm
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IPExcelReport", "IPExcelReport\IPExcelReport.csproj", "{957C06D0-FF42-4C7A-B5E8-7E15C1522B59}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLDataAccess", "SQLDataAccess\SQLDataAccess.csproj", "{0604A086-D772-4FE7-BF81-24C9C2059CCD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		BondDebug|.NET = BondDebug|.NET
@@ -485,6 +487,42 @@ Global
 		{957C06D0-FF42-4C7A-B5E8-7E15C1522B59}.SIPDebug|Mixed Platforms.ActiveCfg = SIPDebug|Any CPU
 		{957C06D0-FF42-4C7A-B5E8-7E15C1522B59}.SIPDebug|Mixed Platforms.Build.0 = SIPDebug|Any CPU
 		{957C06D0-FF42-4C7A-B5E8-7E15C1522B59}.SIPDebug|x86.ActiveCfg = SIPDebug|Any CPU
+		{0604A086-D772-4FE7-BF81-24C9C2059CCD}.BondDebug|.NET.ActiveCfg = Debug|Any CPU
+		{0604A086-D772-4FE7-BF81-24C9C2059CCD}.BondDebug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0604A086-D772-4FE7-BF81-24C9C2059CCD}.BondDebug|Any CPU.Build.0 = Debug|Any CPU
+		{0604A086-D772-4FE7-BF81-24C9C2059CCD}.BondDebug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{0604A086-D772-4FE7-BF81-24C9C2059CCD}.BondDebug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{0604A086-D772-4FE7-BF81-24C9C2059CCD}.BondDebug|x86.ActiveCfg = Debug|Any CPU
+		{0604A086-D772-4FE7-BF81-24C9C2059CCD}.Debug|.NET.ActiveCfg = Debug|Any CPU
+		{0604A086-D772-4FE7-BF81-24C9C2059CCD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0604A086-D772-4FE7-BF81-24C9C2059CCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0604A086-D772-4FE7-BF81-24C9C2059CCD}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{0604A086-D772-4FE7-BF81-24C9C2059CCD}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{0604A086-D772-4FE7-BF81-24C9C2059CCD}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{0604A086-D772-4FE7-BF81-24C9C2059CCD}.iFASDebug|.NET.ActiveCfg = Debug|Any CPU
+		{0604A086-D772-4FE7-BF81-24C9C2059CCD}.iFASDebug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0604A086-D772-4FE7-BF81-24C9C2059CCD}.iFASDebug|Any CPU.Build.0 = Debug|Any CPU
+		{0604A086-D772-4FE7-BF81-24C9C2059CCD}.iFASDebug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{0604A086-D772-4FE7-BF81-24C9C2059CCD}.iFASDebug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{0604A086-D772-4FE7-BF81-24C9C2059CCD}.iFASDebug|x86.ActiveCfg = Debug|Any CPU
+		{0604A086-D772-4FE7-BF81-24C9C2059CCD}.PersonalBuild|.NET.ActiveCfg = Release|Any CPU
+		{0604A086-D772-4FE7-BF81-24C9C2059CCD}.PersonalBuild|Any CPU.ActiveCfg = Release|Any CPU
+		{0604A086-D772-4FE7-BF81-24C9C2059CCD}.PersonalBuild|Any CPU.Build.0 = Release|Any CPU
+		{0604A086-D772-4FE7-BF81-24C9C2059CCD}.PersonalBuild|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{0604A086-D772-4FE7-BF81-24C9C2059CCD}.PersonalBuild|Mixed Platforms.Build.0 = Release|Any CPU
+		{0604A086-D772-4FE7-BF81-24C9C2059CCD}.PersonalBuild|x86.ActiveCfg = Release|Any CPU
+		{0604A086-D772-4FE7-BF81-24C9C2059CCD}.Release|.NET.ActiveCfg = Release|Any CPU
+		{0604A086-D772-4FE7-BF81-24C9C2059CCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0604A086-D772-4FE7-BF81-24C9C2059CCD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0604A086-D772-4FE7-BF81-24C9C2059CCD}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{0604A086-D772-4FE7-BF81-24C9C2059CCD}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{0604A086-D772-4FE7-BF81-24C9C2059CCD}.Release|x86.ActiveCfg = Release|Any CPU
+		{0604A086-D772-4FE7-BF81-24C9C2059CCD}.SIPDebug|.NET.ActiveCfg = Debug|Any CPU
+		{0604A086-D772-4FE7-BF81-24C9C2059CCD}.SIPDebug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0604A086-D772-4FE7-BF81-24C9C2059CCD}.SIPDebug|Any CPU.Build.0 = Debug|Any CPU
+		{0604A086-D772-4FE7-BF81-24C9C2059CCD}.SIPDebug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{0604A086-D772-4FE7-BF81-24C9C2059CCD}.SIPDebug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{0604A086-D772-4FE7-BF81-24C9C2059CCD}.SIPDebug|x86.ActiveCfg = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

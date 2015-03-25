@@ -1,0 +1,398 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0604A086-D772-4FE7-BF81-24C9C2059CCD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SQLDataAccess</RootNamespace>
+    <AssemblyName>SQLDataAccess</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CM_COMPANY_INFO.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CM_DM_LOAI_TD.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CM_DM_TU_DIEN.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="desc_table_Result.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DM_CHUONG_LOAI_KHOAN_MUC.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DM_CONG_TRINH_DU_AN_GOI_THAU.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DM_DON_VI.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DM_GIAI_NGAN.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DM_QUYET_DINH.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DM_THONG_TIN_DON_VI.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DOC_COLUMN_COMMENT.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DOC_TABLE_COMMENT.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GD_CHI_TIET_GIAI_NGAN.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GD_CHI_TIET_GIAO_KH.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GD_CHI_TIET_GIAO_VON.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GD_KHOI_LUONG.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GD_PL01_TONG_HOP_TINH_HINH_KINH_PHI_VA_QUYET_TOAN_CHI.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GD_PL02_KINH_PHI_DA_SU_DUNG_DE_NGHI_QUYET_TOAN.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GD_PL03_THUC_HIEN_XU_LY_KIEN_NGHI_CUA_KIEM_TOAN_THANH_TRA_TAI_CHINH.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GD_PL05_DANH_MUC_CONG_TRINH_HOAN_THANH_GIAM_TRU_THANH_TOAN.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HT_BACKUP_HISTORY.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HT_BUSINESS_PROCESS_LOCK.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HT_CHUC_NANG.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HT_LICH_SU_QLDT.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HT_LOG_LOGIN.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HT_NGUOI_SU_DUNG.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HT_QUAN_HE_SU_DUNG_DU_LIEU.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HT_QUYEN_GROUP.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HT_QUYEN_USER.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HT_THAM_SO_HE_THONG.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HT_USER_GROUP.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="pr_A190_danh_sach_quyet_dinh_giao_kh_Result.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_A290_danh_sach_quyet_dinh_giao_von_Result.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_A350_Bao_cao_tinh_hinh_giai_ngan_cua_don_vi_Result.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_CM_DM_TU_DIEN_Load_Tu_Dien_By_Loai_Tu_Dien_Result.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_DM_CONG_TRINH_DU_AN_GOI_THAU_get_ds_giao_von_Result.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_DM_CONG_TRINH_DU_AN_GOI_THAU_SelectCongTrinhDaGiaoKH_Result.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_DM_CONG_TRINH_DU_AN_GOI_THAU_SelectDuAnTheoCongTrinhDaGiaoKH_Result.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_DM_DON_VI_check_ma_don_vi_Result.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_dm_don_vi_get_list_don_vi_duoc_xem_du_lieu_Result.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_DM_DON_VI_grid_Result.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_DM_DON_VI_Load_to_grid_danh_muc_by_key_word_Result.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_DM_DON_VI_Load_to_grid_danh_muc_Result.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_DM_DON_VI_loai_hinh_don_vi_Select_by_user_name_Result.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_DM_DON_VI_Select_by_user_name_Result.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_DM_QUYET_DINH_get_ds_by_loai_qd_Result.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_F104_nhap_du_toan_ke_hoach_Result.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_F190_danh_sach_quyet_dinh_giao_kh_Result.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_F204_nhap_giao_von_QBT_Result.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_F290_danh_sach_quyet_dinh_giao_von_Result.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_F304_nhap_giai_ngan_theo_unc_Result.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_F305_giay_rut_du_toan_ngan_sach_Result.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_F350_tinh_hinh_giai_ngan_Result.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_F390_v_danh_sach_uy_nhiem_chi_Result.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_F390_xem_danh_sach_uy_nhiem_chi_Result.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_F404_nhap_khoi_luong_Result.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_F520_lay_tong_tien_giao_kh_qbt_Result.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_F520_lay_tong_tien_giao_von_qbt_Result.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_F520_lay_tong_tien_nam_truoc_chuyen_sang_Result.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_F530_Bao_cao_tong_hop_hinh_hinh_giai_ngan_Result.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_get_chuong_loai_khoan_muc_tieu_muc_giao_von_Result.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_get_dm_uy_nhiem_chi_by_don_vi_va_ngay_thang_Result.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_get_ds_du_an_from_giao_von_Result.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_HT_CHUC_NANG_GetQuyenChucNang_Result.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_HT_CHUC_NANG_search_by_tu_khoa_Result.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_HT_CHUC_NANG_Select_by_Root_ParentId_Result.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_HT_CHUC_NANG_Select_Chuc_Nang_Max_Vi_Tri_Result.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_HT_CHUC_NANG_select_full_tree_chuc_nang_Result.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_HT_NGUOI_SU_DUNG_fill_data_by_training_Result.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_HT_QUAN_HE_SU_DUNG_DU_LIEU_UpdateQuyen4Group_Result.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_HT_QUYEN_GROUP_fill_data_by_group_id_Result.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_HT_QUYEN_GROUP_UpdateQuyen4Group_Result.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_HT_QUYEN_USER_fill_data_by_user_id_Result.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_RETURN_KINH_PHI_THEO_DON_VI_QUYET_DINH_Result.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_RPT_BAO_CAO_GIAO_VON_Result.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_RPT_TINH_HINH_GIAI_NGAN_VON_Result.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_V_DM_CHUONG_LOAI_KHOAN_MUC_TIEU_MUC_filter_Result.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_V_DM_QUYET_DINH_filter_by_id_loai_quyet_dinh_Result.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="QuanLyDuToan.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuanLyDuToan.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="QuanLyDuToan.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="QuanLyDuToan.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuanLyDuToan.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="RPT_BAO_CAO_GIAO_VON.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RPT_BAO_CAO_GIAO_VON_THEO_QD.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagrams_Result.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_cm_dm_tu_dien.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_DM_CHUONG_LOAI_KHOAN_MUC.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_DM_CHUONG_LOAI_KHOAN_MUC_TIEU_MUC.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_DM_DON_VI.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_DM_GIAI_NGAN.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_DM_QUYET_DINH.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_DM_QUYET_DINH_KH.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_dm_quyet_dinh_so_don_vi_nhap_du_lieu.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_GD_CHI_TIET_GIAO_VON.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_GD_GIAI_NGAN_QBT.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_GD_GIAO_KH_QBT.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_GD_GIAO_VON_QBT.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_GD_KHOI_LUONG_QBT.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_HT_NGUOI_SU_DUNG.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_USER_GROUP_QUYEN.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="packages.config" />
+    <EntityDeploy Include="QuanLyDuToan.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>QuanLyDuToan.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="QuanLyDuToan.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>QuanLyDuToan.edmx</DependentUpon>
+      <LastGenOutput>QuanLyDuToan.Context.cs</LastGenOutput>
+    </None>
+    <None Include="QuanLyDuToan.edmx.diagram">
+      <DependentUpon>QuanLyDuToan.edmx</DependentUpon>
+    </None>
+    <None Include="QuanLyDuToan.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>QuanLyDuToan.edmx</DependentUpon>
+      <LastGenOutput>QuanLyDuToan.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

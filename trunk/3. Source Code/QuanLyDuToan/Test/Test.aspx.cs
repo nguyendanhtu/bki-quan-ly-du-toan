@@ -7,38 +7,28 @@ using System.Web.UI.WebControls;
 using IP.Core.IPCommon;
 using IP.Core.IPException;
 using WebUS;
-//using QLDT.SQLDataAccess;
+using SQLDataAccess;
 using System.Web.Services;
-//using Framework.Extensions;
+using Framework.Extensions;
+
 
 namespace QuanLyDuToan.Test
 {
 	public partial class Test : System.Web.UI.Page
 	{
-		public class NguoiSuDungItem
-		{
-			public decimal ID { get; set; }
-			public string TEN_TRUY_CAP { get; set; }
-			public string TEN { get; set; }
-			public string MAT_KHAU{get;set;}
-		}
+
 		#region Public Web Methos
 
 		[WebMethod]
-		public static NguoiSuDungItem[] getList_HT_NGUOI_SU_DUNG()
+		public static List<GD_CHI_TIET_GIAO_KH> load_data_du_toan()
 		{
-			//BKI_QLDTEntities dbEntities = new BKI_QLDTEntities();
-			//var data = (from item in dbEntities.HT_NGUOI_SU_DUNG
-			//			orderby item.ID
-			//			select item).Take(5).Select(x => new NguoiSuDungItem { ID = x.ID, TEN = x.TEN, TEN_TRUY_CAP = x.TEN_TRUY_CAP, MAT_KHAU=x.MAT_KHAU });
-			//return data.ToArray();
-			return null;
+			 return new BKI_QLDTEntities().GD_CHI_TIET_GIAO_KH.ToList();
 		}
 
 		#endregion
 
 		#region Members
-		//private static BKI_QLDTEntities db = new BKI_QLDTEntities();
+
 		#endregion
 
 		#region Data Structures
@@ -59,7 +49,7 @@ namespace QuanLyDuToan.Test
 			m_uc_message.setMessage("Thông báo", "Đang test control", ret);
 		}
 
-		
+
 		#endregion
 
 		#region Events
@@ -78,7 +68,7 @@ namespace QuanLyDuToan.Test
 			}
 		}
 
-		
+
 
 		protected void m_cmd_mess_click_Click(object sender, EventArgs e)
 		{
@@ -92,6 +82,6 @@ namespace QuanLyDuToan.Test
 			}
 		}
 		#endregion
-		
+
 	}
 }
