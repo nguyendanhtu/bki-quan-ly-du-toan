@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="BKI_QLDTModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+    <Schema Namespace="BKI_QLDTModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="BKI_QLDTModelStoreContainer">
           <EntitySet Name="CM_COMPANY_INFO" EntityType="BKI_QLDTModel.Store.CM_COMPANY_INFO" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="CM_DM_LOAI_TD" EntityType="BKI_QLDTModel.Store.CM_DM_LOAI_TD" store:Type="Tables" Schema="dbo" />
@@ -858,6 +858,8 @@
           <Property Name="LOAI" Type="nvarchar" MaxLength="250" />
           <Property Name="ID_DON_VI" Type="numeric" />
           <Property Name="NAM" Type="numeric" Precision="4" />
+          <Property Name="SO_BAO_CAO" Type="numeric" Precision="21" />
+          <Property Name="SO_XET_DUYET" Type="numeric" Precision="21" />
         </EntityType>
         <EntityType Name="GD_PL03_THUC_HIEN_XU_LY_KIEN_NGHI_CUA_KIEM_TOAN_THANH_TRA_TAI_CHINH">
           <Key>
@@ -4482,106 +4484,7 @@
           <Parameter Name="ip_sequence_increment" Type="int" Mode="In" />
           <Parameter Name="Val" Type="numeric" Mode="InOut" />
         </Function>
-        <!--Errors Found During Generation:
-      warning 6013: The table/view 'BKI_QLDT.dbo.GRID_GIAI_NGAN' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-      
-      <EntityType Name="GRID_GIAI_NGAN">
-        <Property Name="ID" Type="numeric" />
-        <Property Name="NOI_DUNG" Type="nvarchar" MaxLength="250" />
-        <Property Name="SO_TIEN_NT" Type="numeric" Precision="21" />
-        <Property Name="SO_TIEN_TTCDVH" Type="numeric" Precision="21" />
-        <Property Name="TONG" Type="numeric" Precision="21" />
-        <Property Name="ID_DON_VI" Type="numeric" />
-        <Property Name="STT" Type="numeric" />
-        <Property Name="REPORT_LEVEL" Type="numeric" />
-        <Property Name="KE_HOACH_CHI" Type="numeric" Precision="21" />
-        <Property Name="GHI_CHU" Type="nvarchar" MaxLength="250" />
-        <Property Name="ID_REPORTED_USER" Type="numeric" />
-        <Property Name="ID_CHA" Type="numeric" />
-        <Property Name="MA_CHUONG" Type="nvarchar" MaxLength="35" />
-        <Property Name="MA_LOAI" Type="nvarchar" MaxLength="35" />
-        <Property Name="MA_KHOAN" Type="nvarchar" MaxLength="35" />
-      </EntityType>
-      Errors Found During Generation:
-      warning 6013: The table/view 'BKI_QLDT.dbo.GRID_GIAO_KH' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-      
-      <EntityType Name="GRID_GIAO_KH">
-        <Property Name="ID" Type="numeric" />
-        <Property Name="NOI_DUNG" Type="nvarchar" MaxLength="250" />
-        <Property Name="NTCT" Type="numeric" Precision="21" />
-        <Property Name="QUY" Type="numeric" Precision="21" />
-        <Property Name="NS" Type="numeric" Precision="21" />
-        <Property Name="TONG" Type="numeric" Precision="21" />
-        <Property Name="ID_DON_VI" Type="numeric" />
-        <Property Name="STT" Type="nvarchar" MaxLength="35" />
-        <Property Name="REPORT_LEVEL" Type="nvarchar" MaxLength="35" />
-        <Property Name="ID_REPORTED_USER" Type="numeric" />
-        <Property Name="ID_CHA" Type="numeric" />
-        <Property Name="So_KM" Type="numeric" Precision="21" />
-      </EntityType>
-      Errors Found During Generation:
-      warning 6013: The table/view 'BKI_QLDT.dbo.GRID_GIAO_VON' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-      
-      <EntityType Name="GRID_GIAO_VON">
-        <Property Name="ID" Type="numeric" />
-        <Property Name="NOI_DUNG" Type="nvarchar" MaxLength="250" />
-        <Property Name="NTCT" Type="numeric" Precision="21" />
-        <Property Name="QUY" Type="numeric" Precision="21" />
-        <Property Name="NS" Type="numeric" Precision="21" />
-        <Property Name="TONG" Type="numeric" Precision="21" />
-        <Property Name="ID_DON_VI" Type="numeric" />
-        <Property Name="STT" Type="nvarchar" MaxLength="35" />
-        <Property Name="REPORT_LEVEL" Type="nvarchar" MaxLength="35" />
-        <Property Name="KE_HOACH_CHI" Type="numeric" Precision="21" />
-        <Property Name="ID_REPORTED_USER" Type="numeric" />
-        <Property Name="ID_CHA" Type="numeric" />
-      </EntityType>
-      Errors Found During Generation:
-      warning 6013: The table/view 'BKI_QLDT.dbo.RPT_BC_TINH_HINH_GIAI_NGAN' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-      
-      <EntityType Name="RPT_BC_TINH_HINH_GIAI_NGAN">
-        <Property Name="ID" Type="numeric" />
-        <Property Name="STT" Type="nvarchar" MaxLength="15" />
-        <Property Name="NOI_DUNG" Type="nvarchar" MaxLength="250" />
-        <Property Name="KH_QBT" Type="numeric" Precision="21" />
-        <Property Name="KH_NS" Type="numeric" Precision="21" />
-        <Property Name="KH_NAM_TRUOC_CHUYEN_SANG" Type="numeric" Precision="21" />
-        <Property Name="KH_TONG" Type="numeric" Precision="21" />
-        <Property Name="DN_QBT_TRONG_THANG" Type="numeric" Precision="21" />
-        <Property Name="DN_QBT_LUY_KE" Type="numeric" Precision="21" />
-        <Property Name="DN_QBT_TONG" Type="numeric" Precision="21" />
-        <Property Name="DN_NS_TRONG_THANG" Type="numeric" Precision="21" />
-        <Property Name="DN_NS_LUY_KE" Type="numeric" Precision="21" />
-        <Property Name="DN_NS_TONG" Type="numeric" Precision="21" />
-        <Property Name="DTT_QBT_TRONG_THANG" Type="numeric" Precision="21" />
-        <Property Name="DTT_QBT_LUY_KE" Type="numeric" Precision="21" />
-        <Property Name="DTT_QBT_TONG" Type="numeric" Precision="21" />
-        <Property Name="DTT_NS_TRONG_THANG" Type="numeric" Precision="21" />
-        <Property Name="DTT_NS_LUY_KE" Type="numeric" Precision="21" />
-        <Property Name="DTT_NS_TONG" Type="numeric" Precision="21" />
-        <Property Name="CN_QBT" Type="numeric" Precision="21" />
-        <Property Name="CN_NS" Type="numeric" Precision="21" />
-        <Property Name="ID_DON_VI" Type="numeric" />
-        <Property Name="REPORT_LEVEL" Type="nvarchar" MaxLength="15" />
-        <Property Name="ID_CHA" Type="numeric" />
-        <Property Name="ID_REPORTED_USER" Type="numeric" />
-        <Property Name="GIA_TRI_THUC_HIEN" Type="numeric" Precision="21" />
-        <Property Name="SO_CHUA_GN" Type="numeric" Precision="21" />
-        <Property Name="TONG_SO_KM" Type="numeric" Precision="21" />
-        <Property Name="ID_CONG_TRINH_KHOAN" Type="numeric" />
-        <Property Name="ID_LOAI_NHIEM_VU" Type="numeric" />
-        <Property Name="ID_DU_AN_MUC_TIEU_MUC" Type="numeric" />
-        <Property Name="CONG_TRINH_KHOAN_YN" Type="nvarchar" MaxLength="1" />
-      </EntityType>
-      Errors Found During Generation:
-      warning 6013: The table/view 'BKI_QLDT.dbo.UT_SEQUENCES' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-      
-      <EntityType Name="UT_SEQUENCES">
-        <Property Name="SEQ_NAME" Type="varchar" MaxLength="30" />
-        <Property Name="SEQ_VALUE" Type="numeric" />
-      </EntityType>-->
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="BKI_QLDTModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
@@ -4860,7 +4763,7 @@
             <End Role="HT_QUYEN_GROUP" EntitySet="HT_QUYEN_GROUP" />
           </AssociationSet>
           <FunctionImport Name="desc_table" ReturnType="Collection(BKI_QLDTModel.desc_table_Result)">
-            <Parameter Name="ip_table_name" Mode="In" Type="String" />
+          <Parameter Name="ip_table_name" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="DOC_COMMENT_column">
             <Parameter Name="table_name" Mode="In" Type="String" />
@@ -4872,11 +4775,11 @@
             <Parameter Name="comment" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="doc_reconcile_columns">
-            <Parameter Name="table_name" Mode="In" Type="String" />
+          <Parameter Name="table_name" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="doc_reconcile_tables" />
           <FunctionImport Name="gen_colname_for_table">
-            <Parameter Name="ip_table_name" Mode="In" Type="String" />
+          <Parameter Name="ip_table_name" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="gen_cols">
             <Parameter Name="ip_table_name" Mode="In" Type="String" />
@@ -4884,23 +4787,23 @@
             <Parameter Name="ip_suffix" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="gen_cols_name">
-            <Parameter Name="ip_table_name" Mode="In" Type="String" />
+          <Parameter Name="ip_table_name" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="gen_columns_name">
-            <Parameter Name="ip_table_name" Mode="In" Type="String" />
+          <Parameter Name="ip_table_name" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="gen_make_db_name" />
           <FunctionImport Name="gen_null_constraint">
-            <Parameter Name="ip_table_name" Mode="In" Type="String" />
+          <Parameter Name="ip_table_name" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="genClass">
-            <Parameter Name="ip_str_table_name" Mode="In" Type="String" />
+          <Parameter Name="ip_str_table_name" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="genClasses">
-            <Parameter Name="ip_str_tu_khoa" Mode="In" Type="String" />
+          <Parameter Name="ip_str_tu_khoa" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="HT_QUYEN_USER_Delele_All_Quyen_Of_user">
-            <Parameter Name="ip_dc_user_id" Mode="In" Type="Decimal" />
+          <Parameter Name="ip_dc_user_id" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="pr_A156_giao_ke_hoach_theo_quyet_dinh">
             <Parameter Name="ip_dat_tu_ngay" Mode="In" Type="DateTime" />
@@ -4987,13 +4890,13 @@
             <Parameter Name="ip_dat_den_ngay" Mode="In" Type="DateTime" />
           </FunctionImport>
           <FunctionImport Name="pr_check_and_make_bp_lock_123">
-            <Parameter Name="ip_lock_name" Mode="In" Type="String" />
+          <Parameter Name="ip_lock_name" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="pr_clean_all_data_don_vi">
-            <Parameter Name="ip_dc_id_don_vi" Mode="In" Type="Decimal" />
+          <Parameter Name="ip_dc_id_don_vi" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="pr_CM_DM_TU_DIEN_Delete">
-            <Parameter Name="ID" Mode="In" Type="Decimal" />
+          <Parameter Name="ID" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="pr_cm_dm_tu_dien_get_loai_nhiem_vu_unc">
             <Parameter Name="ip_dat_tu_ngay" Mode="In" Type="DateTime" />
@@ -5009,7 +4912,7 @@
             <Parameter Name="ID" Mode="InOut" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="pr_CM_DM_TU_DIEN_Load_DV_Quan_Ly">
-            <Parameter Name="USERNAME" Mode="In" Type="String" />
+          <Parameter Name="USERNAME" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="pr_CM_DM_TU_DIEN_Load_Loai_HD">
             <Parameter Name="USERNAME" Mode="In" Type="String" />
@@ -5028,10 +4931,10 @@
             <Parameter Name="GHI_CHU" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="pr_CreateColCode">
-            <Parameter Name="Table_Name" Mode="In" Type="String" />
+          <Parameter Name="Table_Name" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="pr_DM_CONG_TRINH_DU_AN_GOI_THAU_DeleteAllWID_CHALogic">
-            <Parameter Name="ID_CHA" Mode="In" Type="Decimal" />
+          <Parameter Name="ID_CHA" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="pr_DM_CONG_TRINH_DU_AN_GOI_THAU_get_ds_giao_von" ReturnType="Collection(BKI_QLDTModel.pr_DM_CONG_TRINH_DU_AN_GOI_THAU_get_ds_giao_von_Result)">
             <Parameter Name="ip_dat_tu_ngay" Mode="In" Type="DateTime" />
@@ -5071,19 +4974,19 @@
             <Parameter Name="ID_DON_VI" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="pr_DM_DON_VI_check_ma_don_vi" ReturnType="Collection(BKI_QLDTModel.pr_DM_DON_VI_check_ma_don_vi_Result)">
-            <Parameter Name="ip_str_ma_don_vi" Mode="In" Type="String" />
+          <Parameter Name="ip_str_ma_don_vi" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="pr_DM_DON_VI_Delete">
-            <Parameter Name="ID" Mode="In" Type="Decimal" />
+          <Parameter Name="ID" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="pr_DM_DON_VI_delete_all_data_of_don_vi">
-            <Parameter Name="ip_dc_id_don_vi" Mode="In" Type="Decimal" />
+          <Parameter Name="ip_dc_id_don_vi" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="pr_dm_don_vi_get_list_don_vi_duoc_xem_du_lieu" ReturnType="Collection(BKI_QLDTModel.pr_dm_don_vi_get_list_don_vi_duoc_xem_du_lieu_Result)">
-            <Parameter Name="ip_dc_id_don_vi" Mode="In" Type="Decimal" />
+          <Parameter Name="ip_dc_id_don_vi" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="pr_DM_DON_VI_grid" ReturnType="Collection(BKI_QLDTModel.pr_DM_DON_VI_grid_Result)">
-            <Parameter Name="ID_LOAI_DON_VI" Mode="In" Type="Decimal" />
+          <Parameter Name="ID_LOAI_DON_VI" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="pr_DM_DON_VI_Insert">
             <Parameter Name="MA_DON_VI" Mode="In" Type="String" />
@@ -5118,7 +5021,7 @@
             <Parameter Name="ip_dc_id_dv_cap_tren2" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="pr_DM_DON_VI_THANH_TOAN_Load_Phan_Quyen">
-            <Parameter Name="USERNAME" Mode="In" Type="String" />
+          <Parameter Name="USERNAME" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="pr_DM_DON_VI_Update">
             <Parameter Name="ID" Mode="In" Type="Decimal" />
@@ -5131,7 +5034,7 @@
             <Parameter Name="LEVEL_MODE" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="pr_DM_DU_AN_CONG_TRINH_Delete">
-            <Parameter Name="ID" Mode="In" Type="Decimal" />
+          <Parameter Name="ID" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="pr_dm_du_an_cong_trinh_get_ds_giao_von">
             <Parameter Name="ip_dat_tu_ngay" Mode="In" Type="DateTime" />
@@ -5164,10 +5067,10 @@
             <Parameter Name="ip_str_tu_khoa" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="pr_DM_GIAI_NGAN_Delete">
-            <Parameter Name="ID" Mode="In" Type="Decimal" />
+          <Parameter Name="ID" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="pr_DM_GIAI_NGAN_deleteAllDataOfUNC">
-            <Parameter Name="ip_dc_id_unc" Mode="In" Type="Decimal" />
+          <Parameter Name="ip_dc_id_unc" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="pr_DM_GIAI_NGAN_Insert">
             <Parameter Name="ID_DON_VI" Mode="In" Type="Decimal" />
@@ -5244,7 +5147,7 @@
             <Parameter Name="NGUOI_NHAN_TIEN_NOI_CAP" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="pr_DM_QUYET_DINH_Delete">
-            <Parameter Name="ID" Mode="In" Type="Decimal" />
+          <Parameter Name="ID" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="pr_DM_QUYET_DINH_get_ds_by_loai_qd" ReturnType="Collection(BKI_QLDTModel.pr_DM_QUYET_DINH_get_ds_by_loai_qd_Result)">
             <Parameter Name="ip_dat_tu_ngay" Mode="In" Type="DateTime" />
@@ -5271,7 +5174,7 @@
             <Parameter Name="ID_LOAI_QUYET_DINH_GIAO" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="pr_DM_THONG_TIN_DON_VI_Delete">
-            <Parameter Name="ID" Mode="In" Type="Decimal" />
+          <Parameter Name="ID" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="pr_DM_THONG_TIN_DON_VI_Insert">
             <Parameter Name="ID_DON_VI" Mode="In" Type="Decimal" />
@@ -5292,7 +5195,7 @@
             <Parameter Name="MA_TKKT2" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="pr_DM_UY_NHIEM_CHI_Delete">
-            <Parameter Name="ID" Mode="In" Type="Decimal" />
+          <Parameter Name="ID" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="pr_DM_UY_NHIEM_CHI_Insert">
             <Parameter Name="ID_DON_VI" Mode="In" Type="Decimal" />
@@ -5573,7 +5476,7 @@
             <Parameter Name="ip_dc_id_user" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="pr_GD_CHI_TIET_GIAI_NGAN_Delete">
-            <Parameter Name="ID" Mode="In" Type="Decimal" />
+          <Parameter Name="ID" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="pr_GD_CHI_TIET_GIAI_NGAN_Insert">
             <Parameter Name="ID_DON_VI" Mode="In" Type="Decimal" />
@@ -5618,7 +5521,7 @@
             <Parameter Name="MA_NGUON_NSNN" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="pr_GD_CHI_TIET_GIAO_KH_Delete">
-            <Parameter Name="ID" Mode="In" Type="Decimal" />
+          <Parameter Name="ID" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="pr_GD_CHI_TIET_GIAO_KH_Insert">
             <Parameter Name="ID_QUYET_DINH" Mode="In" Type="Decimal" />
@@ -5663,7 +5566,7 @@
             <Parameter Name="GHI_CHU_4" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="pr_GD_CHI_TIET_GIAO_VON_Delete">
-            <Parameter Name="ID" Mode="In" Type="Decimal" />
+          <Parameter Name="ID" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="pr_GD_CHI_TIET_GIAO_VON_Insert">
             <Parameter Name="ID_DON_VI" Mode="In" Type="Decimal" />
@@ -5704,7 +5607,7 @@
             <Parameter Name="GHI_CHU_4" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="pr_GD_GIAO_KH_Delete">
-            <Parameter Name="ID" Mode="In" Type="Decimal" />
+          <Parameter Name="ID" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="pr_GD_GIAO_KH_Insert">
             <Parameter Name="ID_QUYET_DINH" Mode="In" Type="Decimal" />
@@ -5746,7 +5649,7 @@
             <Parameter Name="TEN_DU_AN" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="pr_GD_GIAO_VON_Delete">
-            <Parameter Name="ID" Mode="In" Type="Decimal" />
+          <Parameter Name="ID" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="pr_gd_giao_von_get_ten_du_an">
             <Parameter Name="ip_dat_tu_ngay" Mode="In" Type="DateTime" />
@@ -5792,13 +5695,13 @@
             <Parameter Name="LOAI_NHIEM_VU" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="pr_GD_KHOAN_MUC_CHI_Delete">
-            <Parameter Name="ID" Mode="In" Type="Decimal" />
+          <Parameter Name="ID" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="pr_GD_KHOI_LUONG_Delete">
-            <Parameter Name="ID" Mode="In" Type="Decimal" />
+          <Parameter Name="ID" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="pr_GD_KHOI_LUONG_DeleteAllWID_DON_VILogic">
-            <Parameter Name="ID_DON_VI" Mode="In" Type="Decimal" />
+          <Parameter Name="ID_DON_VI" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="pr_GD_KHOI_LUONG_Insert">
             <Parameter Name="NGAY_THANG" Mode="In" Type="DateTime" />
@@ -5835,7 +5738,7 @@
             <Parameter Name="GHI_CHU_4" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="pr_GD_UY_NHIEM_CHI_Delete">
-            <Parameter Name="ID" Mode="In" Type="Decimal" />
+          <Parameter Name="ID" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="pr_GD_UY_NHIEM_CHI_Insert">
             <Parameter Name="ID_DON_VI" Mode="In" Type="Decimal" />
@@ -5908,7 +5811,7 @@
             <Parameter Name="ip_dc_id_don_vi" Mode="InOut" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="pr_GRID_GIAI_NGAN_Delete">
-            <Parameter Name="ID" Mode="In" Type="Decimal" />
+          <Parameter Name="ID" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="pr_GRID_GIAI_NGAN_Insert">
             <Parameter Name="ID" Mode="In" Type="Decimal" />
@@ -5939,7 +5842,7 @@
             <Parameter Name="ID_CHA" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="pr_GRID_GIAO_KH_Delete">
-            <Parameter Name="ID" Mode="In" Type="Decimal" />
+          <Parameter Name="ID" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="pr_GRID_GIAO_KH_Insert">
             <Parameter Name="ID" Mode="In" Type="Decimal" />
@@ -5968,7 +5871,7 @@
             <Parameter Name="ID_CHA" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="pr_GRID_GIAO_VON_Delete">
-            <Parameter Name="ID" Mode="In" Type="Decimal" />
+          <Parameter Name="ID" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="pr_GRID_GIAO_VON_Insert">
             <Parameter Name="ID" Mode="In" Type="Decimal" />
@@ -6004,10 +5907,10 @@
             <Parameter Name="op_ket_qua" Mode="InOut" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="pr_HT_CHUC_NANG_Delete">
-            <Parameter Name="ID" Mode="In" Type="Decimal" />
+          <Parameter Name="ID" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="pr_HT_CHUC_NANG_GetQuyenChucNang" ReturnType="Collection(BKI_QLDTModel.pr_HT_CHUC_NANG_GetQuyenChucNang_Result)">
-            <Parameter Name="USER_NAME" Mode="In" Type="String" />
+          <Parameter Name="USER_NAME" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="pr_HT_CHUC_NANG_Insert">
             <Parameter Name="TEN_CHUC_NANG" Mode="In" Type="String" />
@@ -6019,13 +5922,13 @@
             <Parameter Name="ID" Mode="InOut" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="pr_HT_CHUC_NANG_search_by_tu_khoa" ReturnType="Collection(BKI_QLDTModel.pr_HT_CHUC_NANG_search_by_tu_khoa_Result)">
-            <Parameter Name="ip_str_tu_khoa" Mode="In" Type="String" />
+          <Parameter Name="ip_str_tu_khoa" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="pr_HT_CHUC_NANG_Select_by_Root_ParentId" ReturnType="Collection(BKI_QLDTModel.pr_HT_CHUC_NANG_Select_by_Root_ParentId_Result)">
-            <Parameter Name="CHUC_NANG_PARENT_ID" Mode="In" Type="Decimal" />
+          <Parameter Name="CHUC_NANG_PARENT_ID" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="pr_HT_CHUC_NANG_Select_Chuc_Nang_Max_Vi_Tri" ReturnType="Collection(BKI_QLDTModel.pr_HT_CHUC_NANG_Select_Chuc_Nang_Max_Vi_Tri_Result)">
-            <Parameter Name="CHUC_NANG_PARENT_ID" Mode="In" Type="Decimal" />
+          <Parameter Name="CHUC_NANG_PARENT_ID" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="pr_HT_CHUC_NANG_select_full_tree_chuc_nang" ReturnType="Collection(BKI_QLDTModel.pr_HT_CHUC_NANG_select_full_tree_chuc_nang_Result)">
             <Parameter Name="ip_str_hien_thi_yn" Mode="In" Type="String" />
@@ -6068,7 +5971,7 @@
             <Parameter Name="v_str_mat_khau_moi" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="pr_HT_NGUOI_SU_DUNG_Delete">
-            <Parameter Name="ID" Mode="In" Type="Decimal" />
+          <Parameter Name="ID" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="pr_HT_NGUOI_SU_DUNG_fill_data_by_training" ReturnType="Collection(BKI_QLDTModel.pr_HT_NGUOI_SU_DUNG_fill_data_by_training_Result)">
             <Parameter Name="i_dc_id_training" Mode="In" Type="Decimal" />
@@ -6099,13 +6002,13 @@
             <Parameter Name="ID_TRAINING_PROJECT" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="pr_HT_QUAN_HE_SU_DUNG_DU_LIEU_Delete">
-            <Parameter Name="ID" Mode="In" Type="Decimal" />
+          <Parameter Name="ID" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="pr_HT_QUAN_HE_SU_DUNG_DU_LIEU_DeleteAllWID_DON_VILogic">
-            <Parameter Name="ID_DON_VI" Mode="In" Type="Decimal" />
+          <Parameter Name="ID_DON_VI" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="pr_HT_QUAN_HE_SU_DUNG_DU_LIEU_DeleteAllWID_USER_GROUPLogic">
-            <Parameter Name="ID_USER_GROUP" Mode="In" Type="Decimal" />
+          <Parameter Name="ID_USER_GROUP" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="pr_HT_QUAN_HE_SU_DUNG_DU_LIEU_Insert">
             <Parameter Name="ID_DON_VI" Mode="In" Type="Decimal" />
@@ -6130,13 +6033,13 @@
             <Parameter Name="ID_USER_GROUP" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="pr_HT_QUYEN_GROUP_Delele_All_Quyen_Of_group">
-            <Parameter Name="i_dc_id_group" Mode="In" Type="Decimal" />
+          <Parameter Name="i_dc_id_group" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="pr_HT_QUYEN_GROUP_Delete">
-            <Parameter Name="ID" Mode="In" Type="Decimal" />
+          <Parameter Name="ID" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="pr_HT_QUYEN_GROUP_fill_data_by_group_id" ReturnType="Collection(BKI_QLDTModel.pr_HT_QUYEN_GROUP_fill_data_by_group_id_Result)">
-            <Parameter Name="i_dc_id_group" Mode="In" Type="Decimal" />
+          <Parameter Name="i_dc_id_group" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="pr_HT_QUYEN_GROUP_Insert">
             <Parameter Name="ID_USER_GROUP" Mode="In" Type="Decimal" />
@@ -6153,13 +6056,13 @@
             <Parameter Name="ID_USER_GROUP" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="pr_HT_QUYEN_USER_Delele_All_Quyen_Of_user">
-            <Parameter Name="ip_dc_user_id" Mode="In" Type="Decimal" />
+          <Parameter Name="ip_dc_user_id" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="pr_HT_QUYEN_USER_Delete">
-            <Parameter Name="ID" Mode="In" Type="Decimal" />
+          <Parameter Name="ID" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="pr_HT_QUYEN_USER_fill_data_by_user_id" ReturnType="Collection(BKI_QLDTModel.pr_HT_QUYEN_USER_fill_data_by_user_id_Result)">
-            <Parameter Name="i_dc_id_user" Mode="In" Type="Decimal" />
+          <Parameter Name="i_dc_id_user" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="pr_HT_QUYEN_USER_Insert">
             <Parameter Name="ID" Mode="InOut" Type="Decimal" />
@@ -6182,7 +6085,7 @@
             <Parameter Name="CO_THE_NULL_YN" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="pr_HT_USER_GROUP_Delete">
-            <Parameter Name="ID" Mode="In" Type="Decimal" />
+          <Parameter Name="ID" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="pr_HT_USER_GROUP_Insert">
             <Parameter Name="USER_GROUP_NAME" Mode="In" Type="String" />
@@ -6212,11 +6115,11 @@
             <Parameter Name="op_str_is_having_quyen" Mode="InOut" Type="String" />
           </FunctionImport>
           <FunctionImport Name="pr_Lock_Business_Process_124" ReturnType="Collection(Int32)">
-            <Parameter Name="ip_lock_name" Mode="In" Type="String" />
+          <Parameter Name="ip_lock_name" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="pr_lock_entire_nam_table_122" />
           <FunctionImport Name="pr_Release_Business_Process_Lock_125">
-            <Parameter Name="ip_lock_name" Mode="In" Type="String" />
+          <Parameter Name="ip_lock_name" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="pr_RETURN_KINH_PHI_THEO_DON_VI_QUYET_DINH" ReturnType="Collection(BKI_QLDTModel.pr_RETURN_KINH_PHI_THEO_DON_VI_QUYET_DINH_Result)">
             <Parameter Name="ID_QUYET_DINH" Mode="In" Type="Decimal" />
@@ -6244,7 +6147,7 @@
             <Parameter Name="ip_dat_den_ngay" Mode="In" Type="DateTime" />
           </FunctionImport>
           <FunctionImport Name="pr_V_DM_CHUONG_LOAI_KHOAN_MUC_TIEU_MUC_filter" ReturnType="Collection(BKI_QLDTModel.pr_V_DM_CHUONG_LOAI_KHOAN_MUC_TIEU_MUC_filter_Result)">
-            <Parameter Name="STR_FILTER" Mode="In" Type="String" />
+          <Parameter Name="STR_FILTER" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="pr_V_DM_QUYET_DINH_filter_by_id_loai_quyet_dinh" ReturnType="Collection(BKI_QLDTModel.pr_V_DM_QUYET_DINH_filter_by_id_loai_quyet_dinh_Result)">
             <Parameter Name="ID_LOAI_QUYET_DINH" Mode="In" Type="Decimal" />
@@ -6291,7 +6194,7 @@
           <FunctionImport Name="update_sdt" />
           <FunctionImport Name="update_truong_lop" />
           <FunctionImport Name="update_v_contact">
-            <Parameter Name="id_contact" Mode="In" Type="Decimal" />
+          <Parameter Name="id_contact" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="ut_next_sequence">
             <Parameter Name="Name" Mode="In" Type="String" />
@@ -6653,6 +6556,8 @@
           <Property Name="ID_DON_VI" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="NAM" Type="Decimal" Precision="4" Scale="0" />
           <NavigationProperty Name="DM_DON_VI" Relationship="BKI_QLDTModel.FK_GD_PL02_KINH_PHI_DA_SU_DUNG_DE_NGHI_QUYET_TOAN_DM_DON_VI" FromRole="GD_PL02_KINH_PHI_DA_SU_DUNG_DE_NGHI_QUYET_TOAN" ToRole="DM_DON_VI" />
+          <Property Type="Decimal" Name="SO_BAO_CAO" Precision="21" Scale="0" />
+          <Property Type="Decimal" Name="SO_XET_DUYET" Precision="21" Scale="0" />
         </EntityType>
         <EntityType Name="GD_PL03_THUC_HIEN_XU_LY_KIEN_NGHI_CUA_KIEM_TOAN_THANH_TRA_TAI_CHINH">
           <Key>
@@ -8843,6 +8748,8 @@
           <EntitySetMapping Name="GD_PL02_KINH_PHI_DA_SU_DUNG_DE_NGHI_QUYET_TOAN">
             <EntityTypeMapping TypeName="BKI_QLDTModel.GD_PL02_KINH_PHI_DA_SU_DUNG_DE_NGHI_QUYET_TOAN">
               <MappingFragment StoreEntitySet="GD_PL02_KINH_PHI_DA_SU_DUNG_DE_NGHI_QUYET_TOAN">
+                <ScalarProperty Name="SO_XET_DUYET" ColumnName="SO_XET_DUYET" />
+                <ScalarProperty Name="SO_BAO_CAO" ColumnName="SO_BAO_CAO" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="MA_LOAI" ColumnName="MA_LOAI" />
                 <ScalarProperty Name="MA_KHOAN" ColumnName="MA_KHOAN" />

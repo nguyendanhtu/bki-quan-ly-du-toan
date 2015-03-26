@@ -13,8 +13,8 @@
 	</script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-	
-	<table class="col-sm-12 table table-hover">
+	<input type="button" class="btn btn-sm btn-success" value="Cap nhat" onclick="luu_du_lieu()" />
+	<table class=" table table-hover" id="tbl" style="width:900px;margin: auto">
 		<thead>
 			<tr class="text-center">
 				<th class="col-sm-1" style="height: 50px;">Ma so</th>
@@ -22,7 +22,7 @@
 				<th class="col-sm-1">So bao cao</th>
 				<th class="col-sm-1">So xet duyet</th>
 				<th class="col-sm-1">Cong thuc</th>
-				<th class="col-sm-1" style="display:none">Thao tac</th>
+				<th class="col-sm-1">Thao tac</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -36,7 +36,7 @@
 					<strong class="ma_so_parent <%= item.MA_SO_PARENT %>"><%= item.CHI_TIEU %></strong>
 				</td>
 				<td class="col-sm-1">
-					<input type="text" class="form-control format_so_tien so_bao_cao <%= formatClass(item.MA_SO) %>" value="<%= item.SO_BAO_CAO %>" />
+					<input type="text" id_giao_dich="<%=item.ID %>" class="form-control format_so_tien so_bao_cao <%= formatClass(item.MA_SO) %>" value="<%= item.SO_BAO_CAO %>" />
 				</td>
 				<td class="col-sm-1">
 					<input type="text" class="form-control  format_so_tien so_xet_duyet <%=formatClass(item.MA_SO) %>" value="<%= item.SO_XET_DUYET %>" />
@@ -44,11 +44,12 @@
 				<td class="col-sm-1 text-center">
 					<span class=" ma_so <%= item.MA_SO %> cong_thuc" ><%=formatCongThuc( item.CONG_THUC) %></span>
 				</td>
-				<td class="col-sm-1" style="display:none">
-					<input type="button" class="btn btn-sm btn-success" value="Cap nhat" />
+				<td class="col-sm-1">
+					<input type="button" class="btn btn-sm btn-success cap_nhat" value="Đã cập nhật" onclick="cap_nhat(this)" />
 				</td>
 			</tr>
 			<%} %>
 		</tbody>
 	</table>
+	
 </asp:Content>

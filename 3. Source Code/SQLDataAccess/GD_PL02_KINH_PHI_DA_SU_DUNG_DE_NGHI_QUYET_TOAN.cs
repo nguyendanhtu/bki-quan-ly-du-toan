@@ -24,6 +24,8 @@ namespace SQLDataAccess
         public string LOAI { get; set; }
         public Nullable<decimal> ID_DON_VI { get; set; }
         public Nullable<decimal> NAM { get; set; }
+        public Nullable<decimal> SO_BAO_CAO { get; set; }
+        public Nullable<decimal> SO_XET_DUYET { get; set; }
     
         public virtual DM_DON_VI DM_DON_VI { get; set; }
     }

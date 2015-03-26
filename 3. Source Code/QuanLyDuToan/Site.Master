@@ -7,107 +7,107 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head id="Head1" runat="server">
-    <title>Quản lý vốn</title>
-    <link href="~/Styles/jquery-ui.css" rel="stylesheet" type="text/css" />
-    <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
-    <link href="~/Styles/Admin.css" rel="stylesheet" type="text/css" />
-    <!--Bootstrap-->
-    <link href="~/bootstrap-3.2.0-dist/css/bootstrap.css" rel="stylesheet" type="text/css" />
-    <link href="~/bootstrap-3.2.0-dist/css/bootstrap-theme.css" rel="stylesheet" type="text/css" />
-   
-    <!--datetimepicker-->
-   
-    <link href="~/Styles/plugins/datepicker/datepicker.css" rel="stylesheet" type="text/css" />
+	<title>Quản lý vốn</title>
+	<link href="~/Styles/jquery-ui.css" rel="stylesheet" type="text/css" />
+	<link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
+	<link href="~/Styles/Admin.css" rel="stylesheet" type="text/css" />
+	<!--Bootstrap-->
+	<link href="~/bootstrap-3.2.0-dist/css/bootstrap.css" rel="stylesheet" type="text/css" />
+	<link href="~/bootstrap-3.2.0-dist/css/bootstrap-theme.css" rel="stylesheet" type="text/css" />
 
-    <link href="~/Scripts/plugins/select2-select2-ng/dist/css/select2.min.css" rel="stylesheet" type="text/css" />
-   
+	<!--datetimepicker-->
 
-    <script type="text/javascript" src='<%=ResolveClientUrl("~/Scripts/jquery-1.4.1.js")%>'></script>
-    <script type="text/javascript" src='<%=ResolveClientUrl("~/Scripts/jquery-1.4.1.min.js")%>'></script>
-    <script type="text/javascript" src='<%=ResolveClientUrl("~/Scripts/jquery-1.4.1-vsdoc.js")%>'></script>
-    <script type="text/javascript" src='<%=ResolveClientUrl("~/Scripts/script.js")%>'></script>
-    <script type="text/javascript" src='<%=ResolveClientUrl("~/Scripts/jquery.min.js")%>'></script>
-    <script type="text/javascript" src='<%=ResolveClientUrl("~/Scripts/jquery-ui.min.js")%>'></script>
-    <script type="text/javascript" src='<%=ResolveClientUrl("~/bootstrap-3.2.0-dist/js/bootstrap.js") %>'></script>
-    <script type="text/javascript" src='<%=ResolveClientUrl("~/Scripts/plugins/datepicker/bootstrap-datepicker.js")%>'></script>
-    <script type="text/javascript" src='<%=ResolveClientUrl("~/Scripts/plugins/select2-select2-ng/dist/js/select2.js")%>'></script>
-    <script type="text/javascript" src='<%=ResolveClientUrl("~/Downloadify/js/swfobject.js")%>'></script>
-    <script type="text/javascript" src='<%=ResolveClientUrl("~/Downloadify/js/downloadify.min.js")%>'></script>
-    <script type="text/javascript" src='<%=ResolveClientUrl("~/Scripts/ExportExcel.js")%>'></script>
-	 <!-- Knockoutjs-->
-	<script  type="text/javascript" src='<%=ResolveClientUrl("~/Scripts/knockout-3.2.0.js")%>'></script>
-     <asp:ContentPlaceHolder ID="HeadContent" runat="server">
-    </asp:ContentPlaceHolder>
+	<link href="~/Styles/plugins/datepicker/datepicker.css" rel="stylesheet" type="text/css" />
+
+	<link href="~/Scripts/plugins/select2-select2-ng/dist/css/select2.min.css" rel="stylesheet" type="text/css" />
+
+
+	<script type="text/javascript" src='<%=ResolveClientUrl("~/Scripts/jquery-1.4.1.js")%>'></script>
+	<script type="text/javascript" src='<%=ResolveClientUrl("~/Scripts/jquery-1.4.1.min.js")%>'></script>
+	<script type="text/javascript" src='<%=ResolveClientUrl("~/Scripts/jquery-1.4.1-vsdoc.js")%>'></script>
+	<script type="text/javascript" src='<%=ResolveClientUrl("~/Scripts/script.js")%>'></script>
+	<script type="text/javascript" src='<%=ResolveClientUrl("~/Scripts/jquery.min.js")%>'></script>
+	<script type="text/javascript" src='<%=ResolveClientUrl("~/Scripts/jquery-ui.min.js")%>'></script>
+	<script type="text/javascript" src='<%=ResolveClientUrl("~/bootstrap-3.2.0-dist/js/bootstrap.js") %>'></script>
+	<script type="text/javascript" src='<%=ResolveClientUrl("~/Scripts/plugins/datepicker/bootstrap-datepicker.js")%>'></script>
+	<script type="text/javascript" src='<%=ResolveClientUrl("~/Scripts/plugins/select2-select2-ng/dist/js/select2.js")%>'></script>
+	<script type="text/javascript" src='<%=ResolveClientUrl("~/Downloadify/js/swfobject.js")%>'></script>
+	<script type="text/javascript" src='<%=ResolveClientUrl("~/Downloadify/js/downloadify.min.js")%>'></script>
+	<script type="text/javascript" src='<%=ResolveClientUrl("~/Scripts/ExportExcel.js")%>'></script>
+	<!-- Knockoutjs-->
+	<script type="text/javascript" src='<%=ResolveClientUrl("~/Scripts/knockout-3.2.0.js")%>'></script>
+	<asp:ContentPlaceHolder ID="HeadContent" runat="server">
+	</asp:ContentPlaceHolder>
 </head>
 <body>
-    <form id="Form1" runat="server">
-        <div class="page">
-            <div>
-                <div class="header">
-                    <asp:Image ID="Image1" runat="server" Height='88px' Width='330px' ImageUrl="~/Images/MenuTop/tcdb.jpg" />
-                    <div class="loginDisplay">
-                        <asp:Label ID="m_lhk_user_name" runat="server" CssClass="accountInfo">m_lhk_user_name</asp:Label>
-                        &nbsp;&nbsp;&nbsp;
+	<form id="Form1" runat="server">
+		<div class="page">
+			<div>
+				<div class="header">
+					<asp:Image ID="Image1" runat="server" Height='88px' Width='330px' ImageUrl="~/Images/MenuTop/tcdb.jpg" />
+					<div class="loginDisplay">
+						<asp:Label ID="m_lhk_user_name" runat="server" CssClass="accountInfo">m_lhk_user_name</asp:Label>
+						&nbsp;&nbsp;&nbsp;
                     <asp:HyperLink ID="m_lnk_logout" runat="server" CssClass="accountInfo" NavigateUrl="/Account/Logout.aspx">Đăng xuất</asp:HyperLink>
-                    </div>
-                </div>
-            </div>
-            <div id='wapper'>
-                <ul id='nav'>
-                    <asp:Repeater ID="rptMainMenu" runat="server" OnItemDataBound="rptCategory_ItemDataBound">
-                        <ItemTemplate>
-                            <li>
-                                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# Eval("URL_FORM") %>'><%# Eval("TEN_CHUC_NANG")%></asp:HyperLink>
-                                <ul>
-                                    <asp:Repeater ID="rpt_child_Menu" runat="server" OnItemDataBound="rptCategory_ItemDataBound_cap_ba">
-                                        <ItemTemplate>
-                                            <li>
-                                                <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl='<%# Eval("URL_FORM") %>'><%# Eval("TEN_CHUC_NANG")%></asp:HyperLink>
-                                                <ul>
-                                                    <asp:Repeater ID="rpt_child_Menu_cap_ba" runat="server" OnItemDataBound="rptCategory_ItemDataBound_cap_bon">
-                                                        <ItemTemplate>
-                                                            <li>
-                                                                <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl='<%# Eval("URL_FORM") %>'><%# Eval("TEN_CHUC_NANG")%></asp:HyperLink>
-                                                                <ul>
-                                                                    <asp:Repeater ID="rpt_child_Menu_cap_bon" runat="server">
-                                                                        <ItemTemplate>
-                                                                            <li>
-                                                                                <asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl='<%# Eval("URL_FORM") %>'><%# Eval("TEN_CHUC_NANG")%></asp:HyperLink>
-                                                                            </li>
-                                                                        </ItemTemplate>
-                                                                    </asp:Repeater>
-                                                                </ul>
-                                                            </li>
-                                                        </ItemTemplate>
-                                                    </asp:Repeater>
-                                                </ul>
-                                            </li>
-                                        </ItemTemplate>
-                                    </asp:Repeater>
-                                </ul>
-                            </li>
-                        </ItemTemplate>
-                    </asp:Repeater>
-                    <li><a href='#'>Trợ giúp</a>
-                        <ul>
-                            <li><a href='https://docs.google.com/a/bkindex.com/spreadsheet/ccc?key=0Au4XXPI0St3hdFRhR085TWVnT1ltbnhGYUg0d2JTTUE#gid=0'>01. Comment, yêu cầu phát sinh</a></li>
-                            <li><a href='http://www.drvn.gov.vn'>02. Website Tổng cục đường bộ</a></li>
-                            
-                            <li><a href='https://docs.google.com/document/d/1c_7s5VeWS9encH_FJAUI--YhdT95AHFUland1bSqj6c/edit?usp=sharing' target="_blank">04. Hướng dẫn sử dụng</a></li>
-                            
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-            <div class="main">
-                <asp:ContentPlaceHolder ID="MainContent" runat="server" />
-            </div>
-            <div class="clear">
-            </div>
-        </div>
-        <div class="footer">
-        </div>
-    </form>
+					</div>
+				</div>
+			</div>
+			<div id='wapper'>
+				<ul id='nav'>
+					<asp:Repeater ID="rptMainMenu" runat="server" OnItemDataBound="rptCategory_ItemDataBound">
+						<ItemTemplate>
+							<li>
+								<asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# Eval("URL_FORM") %>'><%# Eval("TEN_CHUC_NANG")%></asp:HyperLink>
+								<ul>
+									<asp:Repeater ID="rpt_child_Menu" runat="server" OnItemDataBound="rptCategory_ItemDataBound_cap_ba">
+										<ItemTemplate>
+											<li>
+												<asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl='<%# Eval("URL_FORM") %>'><%# Eval("TEN_CHUC_NANG")%></asp:HyperLink>
+												<ul>
+													<asp:Repeater ID="rpt_child_Menu_cap_ba" runat="server" OnItemDataBound="rptCategory_ItemDataBound_cap_bon">
+														<ItemTemplate>
+															<li>
+																<asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl='<%# Eval("URL_FORM") %>'><%# Eval("TEN_CHUC_NANG")%></asp:HyperLink>
+																<ul>
+																	<asp:Repeater ID="rpt_child_Menu_cap_bon" runat="server">
+																		<ItemTemplate>
+																			<li>
+																				<asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl='<%# Eval("URL_FORM") %>'><%# Eval("TEN_CHUC_NANG")%></asp:HyperLink>
+																			</li>
+																		</ItemTemplate>
+																	</asp:Repeater>
+																</ul>
+															</li>
+														</ItemTemplate>
+													</asp:Repeater>
+												</ul>
+											</li>
+										</ItemTemplate>
+									</asp:Repeater>
+								</ul>
+							</li>
+						</ItemTemplate>
+					</asp:Repeater>
+					<li><a href='#'>Trợ giúp</a>
+						<ul>
+							<li><a href='https://docs.google.com/a/bkindex.com/spreadsheet/ccc?key=0Au4XXPI0St3hdFRhR085TWVnT1ltbnhGYUg0d2JTTUE#gid=0'>01. Comment, yêu cầu phát sinh</a></li>
+							<li><a href='http://www.drvn.gov.vn'>02. Website Tổng cục đường bộ</a></li>
+
+							<li><a href='https://docs.google.com/document/d/1c_7s5VeWS9encH_FJAUI--YhdT95AHFUland1bSqj6c/edit?usp=sharing' target="_blank">04. Hướng dẫn sử dụng</a></li>
+
+						</ul>
+					</li>
+				</ul>
+			</div>
+			<div class="main">
+				<asp:ContentPlaceHolder ID="MainContent" runat="server" />
+			</div>
+			<div class="clear">
+			</div>
+		</div>
+		<div class="footer">
+		</div>
+	</form>
 </body>
 </html>
 

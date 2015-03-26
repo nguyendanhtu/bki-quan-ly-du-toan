@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using SQLDataAccess;
 using WebUS;
+using System.Web.Services;
 
 namespace QuanLyDuToan.QuyetToan
 {
@@ -47,9 +48,9 @@ namespace QuanLyDuToan.QuyetToan
 		{
 			if (!IsPostBack)
 			{
-				BKI_QLDTEntities db=new BKI_QLDTEntities();
+				BKI_QLDTEntities db = new BKI_QLDTEntities();
 				lst_pl01 = db.GD_PL01_TONG_HOP_TINH_HINH_KINH_PHI_VA_QUYET_TOAN_CHI
-					.Where(x => x.NAM == 2014).ToList();
+					.Where(x => x.NAM == 2014&&x.ID_DON_VI==145).ToList();
 				lst_loai = db.DM_CHUONG_LOAI_KHOAN_MUC
 					.Where(x => x.ID_LOAI == ID_CHUONG_LOAI_KHOAN_MUC.LOAI)
 					.Select(x => new ItemCLKM { MaSo = x.MA_SO, Ten = x.TEN })
