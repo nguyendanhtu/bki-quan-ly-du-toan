@@ -84,6 +84,7 @@
     <Content Include="Downloadify\src\Downloadify.as" />
     <Content Include="DuToan\F305_giay_rut_du_toan_ngan_sach.aspx" />
     <Content Include="packages.config" />
+    <Content Include="WebMethod\PL01.asmx" />
     <None Include="Properties\PublishProfiles\QuanLyDuToan.pubxml" />
     <Content Include="BaoCao\F150_giao_von_du_toan_vp_tong_cuc.aspx" />
     <Content Include="BaoCao\F356_bao_cao_giai_ngan_quy_bt_theo_dm.aspx" />
@@ -104,6 +105,7 @@
     <Content Include="Downloadify\test.html" />
     <Content Include="Quantri\admin.aspx" />
     <Content Include="QuyetToan\PL01_tong_hop_kinh_phi.aspx" />
+    <Content Include="QuyetToan\PL02_kinh_phi_su_dung_quyet_toan.aspx" />
     <Content Include="Scripts\BigInt.js" />
     <Content Include="Scripts\ExportExcel.js" />
     <Content Include="Scripts\jquery.dataTables.js" />
@@ -645,6 +647,11 @@
     <Compile Include="Account\Logout.aspx.designer.cs">
       <DependentUpon>Logout.aspx</DependentUpon>
     </Compile>
+    <Compile Include="WebMethod\PL01.asmx.cs">
+      <DependentUpon>PL01.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Content Include="App_Code\CCommonFunction.cs" />
     <Compile Include="App_Code\CSystemMessage.cs" />
     <Compile Include="App_Code\MessageBox.cs" />
     <Compile Include="App_Code\MessageBoxCore.cs" />
@@ -840,6 +847,13 @@
     </Compile>
     <Compile Include="QuyetToan\PL01_tong_hop_kinh_phi.aspx.designer.cs">
       <DependentUpon>PL01_tong_hop_kinh_phi.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="QuyetToan\PL02_kinh_phi_su_dung_quyet_toan.aspx.cs">
+      <DependentUpon>PL02_kinh_phi_su_dung_quyet_toan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="QuyetToan\PL02_kinh_phi_su_dung_quyet_toan.aspx.designer.cs">
+      <DependentUpon>PL02_kinh_phi_su_dung_quyet_toan.aspx</DependentUpon>
     </Compile>
     <Compile Include="Test\Test.aspx.cs">
       <DependentUpon>Test.aspx</DependentUpon>

@@ -23,40 +23,44 @@ namespace QuanLyDuToan
 		{
 			try
 			{
-				if (Session[SESSION.AccounLoginYN] != null)
+				if (!IsPostBack)
 				{
-					if (Session[SESSION.AccounLoginYN].ToString().Equals("Y"))
+					if (Session[SESSION.AccounLoginYN] != null)
 					{
-
-						if (Session[SESSION.UserID] == null) return;
-						US_DM_DON_VI v_us = new US_DM_DON_VI(Person.get_id_don_vi());
-						m_lhk_user_name.Text = "Đơn vị: " + v_us.strTEN_DON_VI;
-						m_str_user_name = CIPConvert.ToStr(Session[SESSION.UserName]);
-
-
-						if (!IsPostBack)
+						if (Session[SESSION.AccounLoginYN].ToString().Equals("Y"))
 						{
-							m_us_ht_chuc_nang.get_parent_table(m_str_user_name, m_ds_ht_chuc_nang);
-							// Lấy toàn bộ các menu cấp 1 được cấp quyền và được hiển thị
-							rptMainMenu.DataSource = m_ds_ht_chuc_nang.HT_CHUC_NANG.Select("CHUC_NANG_PARENT_ID IS NULL AND HIEN_THI_YN='Y'", "VI_TRI");
-							rptMainMenu.DataBind();
-							//if (!Person.check_user_have_menu())
-							//{
-							//    Response.Redirect("/Default.aspx", false);
-							//}
-							
-							
+
+							if (Session[SESSION.UserID] == null) return;
+							US_DM_DON_VI v_us = new US_DM_DON_VI(Person.get_id_don_vi());
+							m_lhk_user_name.Text = "Đơn vị: " + v_us.strTEN_DON_VI;
+							m_str_user_name = CIPConvert.ToStr(Session[SESSION.UserName]);
+
+
+							if (!IsPostBack)
+							{
+								m_us_ht_chuc_nang.get_parent_table(m_str_user_name, m_ds_ht_chuc_nang);
+								// Lấy toàn bộ các menu cấp 1 được cấp quyền và được hiển thị
+								rptMainMenu.DataSource = m_ds_ht_chuc_nang.HT_CHUC_NANG.Select("CHUC_NANG_PARENT_ID IS NULL AND HIEN_THI_YN='Y'", "VI_TRI");
+								rptMainMenu.DataBind();
+								//if (!Person.check_user_have_menu())
+								//{
+								//    Response.Redirect("/Default.aspx", false);
+								//}
+
+
+							}
+						}
+						else
+						{
+							Response.Redirect("/Account/Login.aspx");
 						}
 					}
 					else
 					{
-						Response.Redirect("/Account/Login.aspx");
+						Response.Redirect("/Account/Login.aspx", false);
 					}
 				}
-				else
-				{
-					Response.Redirect("/Account/Login.aspx", false);
-				}
+
 			}
 			catch (Exception v_e)
 			{
