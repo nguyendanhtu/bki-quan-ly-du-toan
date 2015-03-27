@@ -39,7 +39,7 @@ namespace SQLDataAccess
     
         public virtual CM_DM_TU_DIEN CM_DM_TU_DIEN { get; set; }
         public virtual ICollection<DM_CHUONG_LOAI_KHOAN_MUC> DM_CHUONG_LOAI_KHOAN_MUC1 { get; set; }
-        public virtual DM_CHUONG_LOAI_KHOAN_MUC DM_CHUONG_LOAI_KHOAN_MUC2 { get; set; }
+        public virtual DM_CHUONG_LOAI_KHOAN_MUC DM_CHUONG_LOAI_KHOAN_MUC_PARENT { get; set; }
         public virtual ICollection<GD_CHI_TIET_GIAO_KH> GD_CHI_TIET_GIAO_KH { get; set; }
         public virtual ICollection<GD_CHI_TIET_GIAO_KH> GD_CHI_TIET_GIAO_KH1 { get; set; }
         public virtual ICollection<GD_CHI_TIET_GIAO_KH> GD_CHI_TIET_GIAO_KH2 { get; set; }
