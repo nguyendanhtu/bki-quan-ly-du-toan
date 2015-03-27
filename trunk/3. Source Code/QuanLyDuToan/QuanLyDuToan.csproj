@@ -68,6 +68,7 @@
   <ItemGroup>
     <Content Include="Account\Login.aspx" />
     <Content Include="Account\Logout.aspx" />
+    <Content Include="BaoCaoQT\BC_PL02_Tong_hop_tinh_hinh_kinh_phi_quyet_toan.aspx" />
     <Content Include="BaoCao\F157_giao_ke_hoach_theo_quyet_dinh.aspx" />
     <Content Include="BaoCao\F257_giao_von_theo_quyet_dinh.aspx" />
     <Content Include="BaoCao\F357_giai_ngan_theo_uy_nhiem_chi.aspx" />
@@ -659,6 +660,13 @@
     <Compile Include="App_Code\WebformReport.cs" />
     <Compile Include="App_Code\WebformControls.cs" />
     <Compile Include="App_Code\Person.cs" />
+    <Compile Include="BaoCaoQT\BC_PL02_Tong_hop_tinh_hinh_kinh_phi_quyet_toan.aspx.cs">
+      <DependentUpon>BC_PL02_Tong_hop_tinh_hinh_kinh_phi_quyet_toan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BaoCaoQT\BC_PL02_Tong_hop_tinh_hinh_kinh_phi_quyet_toan.aspx.designer.cs">
+      <DependentUpon>BC_PL02_Tong_hop_tinh_hinh_kinh_phi_quyet_toan.aspx</DependentUpon>
+    </Compile>
     <Compile Include="BaoCao\F150_giao_von_du_toan_vp_tong_cuc.aspx.cs">
       <DependentUpon>F150_giao_von_du_toan_vp_tong_cuc.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
