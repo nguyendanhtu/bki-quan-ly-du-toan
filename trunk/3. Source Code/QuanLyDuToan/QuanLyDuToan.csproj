@@ -85,6 +85,7 @@
     <Content Include="Downloadify\src\Downloadify.as" />
     <Content Include="DuToan\F305_giay_rut_du_toan_ngan_sach.aspx" />
     <Content Include="packages.config" />
+    <Content Include="Scripts\UI\PL02.js" />
     <Content Include="WebMethod\PL01.asmx" />
     <None Include="Properties\PublishProfiles\QuanLyDuToan.pubxml" />
     <Content Include="BaoCao\F150_giao_von_du_toan_vp_tong_cuc.aspx" />

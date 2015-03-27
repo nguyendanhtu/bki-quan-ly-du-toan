@@ -6250,7 +6250,7 @@
           <Property Name="ID_LOAI" Type="Decimal" Precision="18" Scale="0" />
           <NavigationProperty Name="CM_DM_TU_DIEN" Relationship="BKI_QLDTModel.FK_DM_CHUONG_LOAI_KHOAN_MUC_CM_DM_TU_DIEN_LOAI" FromRole="DM_CHUONG_LOAI_KHOAN_MUC" ToRole="CM_DM_TU_DIEN" />
           <NavigationProperty Name="DM_CHUONG_LOAI_KHOAN_MUC1" Relationship="BKI_QLDTModel.FK_DM_NGUON_DM_NGUON" FromRole="DM_CHUONG_LOAI_KHOAN_MUC" ToRole="DM_CHUONG_LOAI_KHOAN_MUC1" />
-          <NavigationProperty Name="DM_CHUONG_LOAI_KHOAN_MUC2" Relationship="BKI_QLDTModel.FK_DM_NGUON_DM_NGUON" FromRole="DM_CHUONG_LOAI_KHOAN_MUC1" ToRole="DM_CHUONG_LOAI_KHOAN_MUC" />
+          <NavigationProperty Name="DM_CHUONG_LOAI_KHOAN_MUC_PARENT" Relationship="BKI_QLDTModel.FK_DM_NGUON_DM_NGUON" FromRole="DM_CHUONG_LOAI_KHOAN_MUC1" ToRole="DM_CHUONG_LOAI_KHOAN_MUC" />
           <NavigationProperty Name="GD_CHI_TIET_GIAO_KH" Relationship="BKI_QLDTModel.FK_GD_GIAO_KH_DM_CHUONG_LOAI_KHOAN_MUC_CHUONG" FromRole="DM_CHUONG_LOAI_KHOAN_MUC" ToRole="GD_CHI_TIET_GIAO_KH" />
           <NavigationProperty Name="GD_CHI_TIET_GIAO_KH1" Relationship="BKI_QLDTModel.FK_GD_GIAO_KH_DM_CHUONG_LOAI_KHOAN_MUC_KHOAN" FromRole="DM_CHUONG_LOAI_KHOAN_MUC" ToRole="GD_CHI_TIET_GIAO_KH" />
           <NavigationProperty Name="GD_CHI_TIET_GIAO_KH2" Relationship="BKI_QLDTModel.FK_GD_GIAO_KH_DM_CHUONG_LOAI_KHOAN_MUC_MUC" FromRole="DM_CHUONG_LOAI_KHOAN_MUC" ToRole="GD_CHI_TIET_GIAO_KH" />
