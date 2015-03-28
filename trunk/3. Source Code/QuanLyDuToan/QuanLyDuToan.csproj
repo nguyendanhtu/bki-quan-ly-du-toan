@@ -69,6 +69,7 @@
     <Content Include="Account\Login.aspx" />
     <Content Include="Account\Logout.aspx" />
     <Content Include="BaoCaoQT\BC_PL01_Tong_hop_tinh_hinh_kinh_phi_quyet_toan.aspx" />
+    <Content Include="BaoCaoQT\BC_PL02_Kinh_phi_da_su_dung_de_nghi_quyet_toan.aspx" />
     <Content Include="BaoCao\F157_giao_ke_hoach_theo_quyet_dinh.aspx" />
     <Content Include="BaoCao\F257_giao_von_theo_quyet_dinh.aspx" />
     <Content Include="BaoCao\F357_giai_ngan_theo_uy_nhiem_chi.aspx" />
@@ -648,6 +649,13 @@
     </Compile>
     <Compile Include="Account\Logout.aspx.designer.cs">
       <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BaoCaoQT\BC_PL02_Kinh_phi_da_su_dung_de_nghi_quyet_toan.aspx.cs">
+      <DependentUpon>BC_PL02_Kinh_phi_da_su_dung_de_nghi_quyet_toan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BaoCaoQT\BC_PL02_Kinh_phi_da_su_dung_de_nghi_quyet_toan.aspx.designer.cs">
+      <DependentUpon>BC_PL02_Kinh_phi_da_su_dung_de_nghi_quyet_toan.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebMethod\PL01.asmx.cs">
       <DependentUpon>PL01.asmx</DependentUpon>
