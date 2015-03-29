@@ -81,7 +81,7 @@ function getFormatedNumberString(ip_str_number) {
 	for (var i = 0; i < Math.floor((ip_str_number.length - (1 + i)) / 3) ; i++)
 		ip_str_number = ip_str_number.substring(0, ip_str_number.length - (4 * i + 3)) + ',' +
             ip_str_number.substring(ip_str_number.length - (4 * i + 3));
-	return (((sign) ? ip_str_number : '0'));
+	return (((sign) ? ip_str_number : '-' + ip_str_number));
 }
 
 function getNumber(ip_str_number) {

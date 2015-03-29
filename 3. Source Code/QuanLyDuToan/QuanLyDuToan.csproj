@@ -88,6 +88,7 @@
     <Content Include="packages.config" />
     <Content Include="Scripts\UI\PL02.js" />
     <Content Include="WebMethod\PL01.asmx" />
+    <Content Include="WebMethod\PL02.asmx" />
     <None Include="Properties\PublishProfiles\QuanLyDuToan.pubxml" />
     <Content Include="BaoCao\F150_giao_von_du_toan_vp_tong_cuc.aspx" />
     <Content Include="BaoCao\F356_bao_cao_giai_ngan_quy_bt_theo_dm.aspx" />
@@ -659,6 +660,10 @@
     </Compile>
     <Compile Include="WebMethod\PL01.asmx.cs">
       <DependentUpon>PL01.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WebMethod\PL02.asmx.cs">
+      <DependentUpon>PL02.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Content Include="App_Code\CCommonFunction.cs" />

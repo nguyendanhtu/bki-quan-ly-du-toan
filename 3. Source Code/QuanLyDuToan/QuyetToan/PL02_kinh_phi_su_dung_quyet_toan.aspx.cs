@@ -38,7 +38,7 @@ namespace QuanLyDuToan.QuyetToan
 		#region Members
 		public List<GD_PL02_KINH_PHI_DA_SU_DUNG_DE_NGHI_QUYET_TOAN> lst_pl02;
 		public List<ItemCLKM> lst_clkm;
-		public List<string> lst_NDC;
+		public List<string> lst_NDC = new List<string>();
 
 
 		#endregion
