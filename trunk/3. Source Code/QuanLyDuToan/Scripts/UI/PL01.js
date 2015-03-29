@@ -1,10 +1,22 @@
 ﻿/// <reference path="../BigInt.js" />
 /// <reference path="../jquery-1.4.1.js" />
 function CouldUpdate(button) {
-	$(button).removeClass('btn-warning').removeClass('btn-danger').removeClass('btn-primary').removeClass('btn-success').addClass('btn-primary').val('Chưa cập nhật!');
+	$(button)
+		.removeClass('btn-warning')
+		.removeClass('btn-danger')
+		.removeClass('btn-primary')
+		.removeClass('btn-success')
+		.addClass('btn-primary')
+		.val('Chưa cập nhật!');
 }
 function DaCapNhat(button) {
-	$(button).removeClass('btn-warning').removeClass('btn-danger').removeClass('btn-primary').removeClass('btn-success').addClass('btn-success').val('Đã cập nhật!');
+	$(button)
+		.removeClass('btn-warning')
+		.removeClass('btn-danger')
+		.removeClass('btn-primary')
+		.removeClass('btn-success')
+		.addClass('btn-success')
+		.val('Đã cập nhật!');
 }
 function cap_nhat(button) {
 	$(button).val('Đang gửi yêu cầu...');

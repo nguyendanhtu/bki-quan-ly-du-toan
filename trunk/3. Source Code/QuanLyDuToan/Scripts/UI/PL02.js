@@ -1,80 +1,204 @@
-﻿function cap_nhat() {
-	$('#tbl tbody').hide();
-	$('#tbl').empty();
-	$.ajax({
-		url: '../WebMethod/PL01.asmx/genGrid',
-		type: 'post',
-		data: {},
-		dataType: 'text',
-		error: function () {
-			alert('Xảy ra lỗi trong quá trình thực hiện, Bạn vui lòng thực hiện lại thao tác!');
-		},
-		success: function (data) {
-			$('#tbl').append(data);
-			initialRelation();
+﻿var gdPL02 = {
+	cancel: function xoa_trang() {
+		$('#txt_loai').val('');
+		$('#txt_khoan').val('');
+		$('#txt_muc').val('');
+		$('#txt_so_bao_cao').val('0');
+		$('#txt_so_xet_duyet').val('0');
+		$('#txt_tieu_muc').val('').change();
+		$('#btnCapNhat').attr('id_giao_dich', '-1');
+		$('#I').prop('checked', 'checked')
+	},
+	reloadGrid: function updateGrid() {
+
+		$.ajax({
+			url: '../WebMethod/PL02.asmx/genGrid',
+			type: 'post',
+			data: {},
+			dataType: 'text',
+			error: function () {
+				alert('Xảy ra lỗi trong quá trình thực hiện, Bạn vui lòng thực hiện lại thao tác!');
+			},
+			success: function (data) {
+				$('#tbl tbody').hide();
+				$('#tbl').empty();
+				$('#tbl').append(data);
+				gdPL02.autoValidateInput();
+			}
+		});
+	},
+	autoValidateInput: function initialRelation() {
+		var lst_str = $('.str_money');
+		for (var i = 0; i < lst_str.length; i++) {
+			$(lst_str[i]).text(getFormatedNumberString($(lst_str[i]).text()));
 		}
-	});
+		$('#txt_so_bao_cao, #txt_so_xet_duyet').bind("keypress keyup keydown change blur", function () {
+			$('#lbl_chenh_lech').text(getFormatedNumberString(
+				parseFloat($('#txt_so_bao_cao').val().split(',').join('').split('.').join(''))
+				- parseFloat($('#txt_so_xet_duyet').val().split(',').join('').split('.').join(''))
+				+ ''));
+		});
+		$('#txt_loai').bind("keypress keyup keydown change blur", function () {
+			var arr_noi_dung_chi = $.grep(m_lst_clkm, function (element, index) {
+				return element.MaSo == $('#txt_loai').val()
+					&& element.IdLoai == idLoai;
+			});
+			if (arr_noi_dung_chi.length < 1) {
+				$('#txt_loai').css('background', 'lightgray');
+			}
+			else {
+				$('#txt_loai').css('background', 'white');
+				$('#txt_khoan').change();
+			}
+		});
+		$('#txt_khoan').bind("keypress keyup keydown change blur", function () {
+			var arr_noi_dung_chi = $.grep(m_lst_clkm, function (element, index) {
+				return element.MaSo == $('#txt_khoan').val()
+					&& element.IdLoai == idKhoan
+					&& element.MaSoParent == $('#txt_loai').val();
+			});
+			if (arr_noi_dung_chi.length < 1) {
+				$('#txt_khoan').css('background', 'lightgray');
+			}
+			else {
+				$('#txt_khoan').css('background', 'white');
+			}
+		});
+		$('#txt_muc').bind("keypress keyup keydown change blur", function () {
+			var arr_noi_dung_chi = $.grep(m_lst_clkm, function (element, index) {
+				return element.MaSo == $('#txt_muc').val()
+					&& element.IdLoai == idMuc;
+			});
+			if (arr_noi_dung_chi.length < 1) {
+				$('#txt_muc').css('background', 'lightgray');
+			}
+			else {
+				$('#txt_muc').css('background', 'white');
+				$('#txt_tieu_muc').change();
+			}
+		});
+		$('#txt_tieu_muc').bind("keypress keyup keydown change blur", function () {
+			var arr_noi_dung_chi = $.grep(m_lst_clkm, function (element, index) {
+				return element.MaSo == $('#txt_tieu_muc').val().trim()
+					&& element.IdLoai == idTieuMuc
+					&& element.MaSoParent == $('#txt_muc').val().trim();
+			});
+			if (arr_noi_dung_chi.length < 1) {
+				$('#txt_tieu_muc').css('background', 'lightgray');
+				$('#lbl_noi_dung_chi').text('');
+			}
+			else {
+				$('#txt_tieu_muc').css('background', 'white');
+				$('#lbl_noi_dung_chi').text(arr_noi_dung_chi[0].Ten);
+			}
+		});
+	},
+	editItem: function editGD(button) {
+		this.cancel();
+		var txt_ma_tieu_muc = $(button).parent().parent().find('.ma_tieu_muc');
+		$('#btnCapNhat').attr('id_giao_dich', $(txt_ma_tieu_muc).attr('id_giao_dich'));
+		var txt_so_bao_cao = $(button).parent().parent().find('.so_bao_cao');
+		var txt_so_xet_duyet = $(button).parent().parent().find('.so_xet_duyet');
+		var v_str_ma_loai = $(txt_ma_tieu_muc).attr('ma_loai').trim();
+		var v_str_ma_khoan = $(txt_ma_tieu_muc).attr('ma_khoan').trim();
+		var v_str_ma_muc = $(txt_ma_tieu_muc).attr('ma_muc').trim();
+		var v_str_loai = $(txt_ma_tieu_muc).attr('loai').trim();
+		$('#txt_loai').val(v_str_ma_loai);
+		$('#txt_khoan').val(v_str_ma_khoan);
+		$('#txt_muc').val(v_str_ma_muc);
+		$('#txt_tieu_muc').val($(txt_ma_tieu_muc).text().trim()).change().focus();
+		$('#txt_so_bao_cao').val(getFormatedNumberString($(txt_so_bao_cao).text().trim())).change();
+		$('#txt_so_xet_duyet').val(getFormatedNumberString($(txt_so_xet_duyet).text().trim())).change();
+		if (v_str_loai.indexOf(strLDC_I) != -1) {
+			$('#I').prop('checked', 'checked')
+		}
+		else {
+			$('#II').prop('checked', 'checked')
+		}
+	},
+	update: function UpdateGiaoDich() {
+		var v_id_giao_dich = -1;
+		var v_dc_id_don_vi = $('#btnCapNhat').attr('id_don_vi');
+		if ($('#btnCapNhat').attr('id_giao_dich') != undefined) {
+			v_id_giao_dich = $('#btnCapNhat').attr('id_giao_dich');
+		}
+		var v_str_loai = '';
+		if ($('#I').is(':checked')) {
+			v_str_loai = strLDC_I;
+		}
+		else {
+			v_str_loai = strLDC_II;
+		}
+		if (gdPL02.isCheckValidateDataOk()) {
+			$.ajax({
+				url: '../WebMethod/PL02.asmx/UpdateGiaoDich',
+				type: 'post',
+				data: {
+					ip_dc_id_giao_dich: v_id_giao_dich
+					, ip_str_ma_loai: $('#txt_loai').val().trim()
+					, ip_str_ma_khoan: $('#txt_khoan').val().trim()
+					, ip_str_ma_muc: $('#txt_muc').val().trim()
+					, ip_str_ma_tieu_muc: $('#txt_tieu_muc').val().trim()
+					, ip_str_so_bao_cao: $('#txt_so_bao_cao').val().trim()
+					, ip_str_so_xet_duyet: $('#txt_so_xet_duyet').val().trim()
+					, ip_str_noi_dung_chi: $('#lbl_noi_dung_chi').text().trim()
+					, ip_str_loai: v_str_loai.trim()
+					, ip_dc_id_don_vi: IdDonVi
+					, ip_dc_nam: Nam
+				},
+				dataType: 'text',
+				error: function () {
+					alert('Xảy ra lỗi trong quá trình thực hiện, Bạn vui lòng thực hiện lại thao tác!');
+				},
+				success: function () {
+					gdPL02.reloadGrid();
+				}
+			});
+		}
+		else {
+			alert("Dữ liệu Mã Loại, Mã Khoản, Mã Mục, Mã Tiểu mục không đúng! Bạn hãy kiểm tra lại!");
+		}
+
+	},
+	deleteItem: function deleteGiaoDich(button) {
+		var txt_ma_tieu_muc = $(button).parent().parent().find('.ma_tieu_muc');
+		var v_id_giao_dich = $(txt_ma_tieu_muc).attr('id_giao_dich');
+		var isSureDelete = confirm('Bạn có chắc chắn muốn xoá bản ghi này?');
+		if (isSureDelete) {
+			$.ajax({
+				url: '../WebMethod/PL02.asmx/DeleteGiaoDich',
+				type: 'post',
+				data: {
+					ip_dc_id_giao_dich: v_id_giao_dich
+				},
+				dataType: 'text',
+				error: function () {
+					alert('Xảy ra lỗi trong quá trình thực hiện, Bạn vui lòng thực hiện lại thao tác!');
+				},
+				success: function (data) {
+					if (data == "true") {
+						gdPL02.reloadGrid();
+					}
+					else alert('Xảy ra lỗi trong quá trình thực hiện, Bạn vui lòng thực hiện lại thao tác!');
+				}
+			});
+		}
+	},
+	isCheckValidateDataOk: function () {
+		return !($('#txt_loai').css('background-color') == "rgb(211, 211, 211)"//Ma loai nhap sai
+			|| $('#txt_khoan').css('background-color') == "rgb(211, 211, 211)"//Ma khoan nhap sai
+			|| $('#txt_muc').css('background-color') == "rgb(211, 211, 211)"//Ma muc nhap sai
+			|| $('#txt_tieu_muc').css('background-color') == "rgb(211, 211, 211)"//Ma tieu muc nhap sai
+			|| $('#txt_loai').val() == ''
+			|| $('#txt_khoan').val() == ''
+			|| $('#txt_muc').val() == ''
+			|| $('#txt_tieu_muc').val() == ''
+			)
+	}
 }
-function initialRelation() {
-	$('#txt_tieu_muc').bind("keypress keyup keydown change", function () {
-		var arr_noi_dung_chi = $.grep(m_lst_clkm, function (element, index) {
-			return element.MaSo == $('#txt_tieu_muc').val();
-		});
-		if (arr_noi_dung_chi.length > 0) {
-			$('#lbl_noi_dung_chi').text(arr_noi_dung_chi[0].Ten);
-		}
-	});
-	$('#txt_loai').bind("keypress keyup keydown change blur", function () {
-		var arr_noi_dung_chi = $.grep(m_lst_clkm, function (element, index) {
-			return element.MaSo == $('#txt_loai').val()
-				&& element.IdLoai == idLoai;
-		});
-		if (arr_noi_dung_chi.length < 1) {
-			$('#txt_loai').css('background', 'lightgray').focus();
-		}
-		else {
-			$('#txt_loai').css('background', 'white');
-		}
-	});
-	$('#txt_khoan').bind("keypress keyup keydown change blur", function () {
-		var arr_noi_dung_chi = $.grep(m_lst_clkm, function (element, index) {
-			return element.MaSo == $('#txt_khoan').val()
-				&& element.IdLoai == idKhoan
-				&& element.MaSoParent == $('#txt_loai').val();
-		});
-		if (arr_noi_dung_chi.length < 1) {
-			$('#txt_khoan').css('background', 'lightgray').focus();
-		}
-		else {
-			$('#txt_khoan').css('background', 'white');
-		}
-	});
-	$('#txt_muc').bind("keypress keyup keydown change blur", function () {
-		var arr_noi_dung_chi = $.grep(m_lst_clkm, function (element, index) {
-			return element.MaSo == $('#txt_muc').val()
-				&& element.IdLoai == idMuc;
-		});
-		if (arr_noi_dung_chi.length < 1) {
-			$('#txt_muc').css('background', 'lightgray').focus();
-		}
-		else {
-			$('#txt_muc').css('background', 'white');
-		}
-	});
-	$('#txt_tieu_muc').bind("keypress keyup keydown change blur", function () {
-		var arr_noi_dung_chi = $.grep(m_lst_clkm, function (element, index) {
-			return element.MaSo == $('#txt_tieu_muc').val()
-				&& element.IdLoai == idTieuMuc
-				&& element.MaSoParent == $('#txt_muc').val();
-		});
-		if (arr_noi_dung_chi.length < 1) {
-			$('#txt_tieu_muc').css('background', 'lightgray').focus();
-		}
-		else {
-			$('#txt_tieu_muc').css('background', 'white');
-		}
-	});
-}
+
+
 $(document).ready(function () {
-	initialRelation();
+	var IdGiaoDich = -1;
+	gdPL02.autoValidateInput();
 })
