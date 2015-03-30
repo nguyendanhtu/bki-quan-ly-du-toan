@@ -8,7 +8,19 @@
 		}
 
 		.so_tien {
-			width: 80px;
+			width: 85px;
+			text-align: right;
+		}
+
+		body {
+			font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+			font-size: 10px;
+		}
+
+		.form-control {
+			/* display: block; */
+			padding: 3px 2px;
+			font-size: 10px;
 		}
 	</style>
 </asp:Content>
@@ -26,7 +38,7 @@
 				<th rowspan="2">Giá trị CTHT đã quyết toán LK đến năm báo cáo </th>
 				<th rowspan="2">Giá trị CTHT chuyển năm sau QT</th>
 				<th rowspan="2">Kế hoạch còn dư cuối năm</th>
-				<th rowspan="3">Thao tác</th>
+				<th rowspan="3" style="width: 100px">Thao tác</th>
 			</tr>
 			<tr>
 				<th>Kế hoạch năm trước chưa chi hết chuyển sang</th>
@@ -54,51 +66,57 @@
 			<tr>
 				<th></th>
 				<th>
-					<input type="text" id="txtCongTrinh" list="lstCongTrinh" class="form-control" placeholder="Công trình" />
+					<select class="form-control" style="width: 100%" id="LoaiNhiemVu">
+						<%foreach (var lnv in lst_loai_nhiem_vu)%>
+						<%{%>
+						<option value="<%=lnv.Value %>"><%=lnv.Ten %></option>
+						<%}%>
+					</select>
+					<input type="text" id="txtCongTrinh" class="form-control" list="lstCongTrinh" style="width: 100%" placeholder="Công trình" />
 					<datalist id="lstCongTrinh">
 						<%foreach (var cong_trinh in lst_pl04.Select(x => x.CONG_TRINH).Distinct().OrderBy(x => x).ToList())%>
 						<%{%>
 						<option><%=cong_trinh %></option>
 						<%}%>
 					</datalist>
-					<input type="text" id="txtDuAn" class="form-control" placeholder="Dự án" />
+					<textarea id="txtDuAn" class="form-control" rows="3" style="width: 100%" placeholder="Dự án"></textarea>
 				</th>
 				<th>
-					<input type="text" id="txtKeHoachNamTruocChuaChiHetChuyenSang" class="so_tien" />
+					<span id="lblKeHoachNamTruocChuaChiHetChuyenSang" class="so_tien"></span>
 				</th>
 				<th>
-					<input type="text" id="Text1"  class="so_tien giaoKH" />
+					<span id="Text1" class="so_tien giaoKH"></span>
 				</th>
 				<th>
-					<input type="text" id="txtQuyetDinhDieuChinhCuoiCung"  class="so_tien giaoKH" />
+					<span id="lblQuyetDinhDieuChinhCuoiCung" class="so_tien giaoKH"></span>
 				</th>
 				<th>
-					<input type="text" id="txtGiaTriDuToanCongTrinhDuocDuyet" class="so_tien" />
+					<input type="text" id="txtGiaTriDuToanCongTrinhDuocDuyet" class="so_tien form-control format_so_tien" />
 				</th>
 				<th>
-					<input type="text" id="txtGiaTriCTHTNamTruocConNoChuyenSangNamNay" class="so_tien" />
+					<input type="text" id="txtGiaTriCTHTNamTruocConNoChuyenSangNamNay" class="so_tien form-control format_so_tien" />
 				</th>
 				<th>
-					<input type="text" id="txtGiaTriCTHTNamNay" class="so_tien" />
+					<input type="text" id="txtGiaTriCTHTNamNay" class="so_tien form-control format_so_tien" />
 				</th>
 				<th>
-					<input type="text" id="txtCong" class="so_tien" />
+					<span id="lblCong" class="so_tien" />
 				</th>
 				<th>
-					<input type="text" id="txtGiaTriDeNghiQuyetToanTrongNam" class="so_tien" />
+					<input type="text" id="txtGiaTriDeNghiQuyetToanTrongNam" class="so_tien form-control format_so_tien" />
 				</th>
 				<th>
-					<input type="text" id="txtGiaTriCTHTDaQuyetToanLKDenNamBaoCao" class="so_tien" />
+					<input type="text" id="txtGiaTriCTHTDaQuyetToanLKDenNamBaoCao" class="so_tien form-control format_so_tien" />
 				</th>
 				<th>
-					<input type="text" id="txtGiaTriCTHTChuyenNamSauQT" class="so_tien" />
+					<span id="lblGiaTriCTHTChuyenNamSauQT" class="so_tien"></span>
 				</th>
 				<th>
-					<input type="text" id="txtKeHoachConDuCuoiNam" class="so_tien" />
+					<span id="lblKeHoachConDuCuoiNam" class="so_tien"></span>
 				</th>
 				<th>
 					<input type="button" id="btnCapNhat" class="btn btn-sm btn-success" value="Cập nhật" />
-					<input type="button" id="btnCancel" class="btn btn-sm btn-default" value="Huỷ" style="width: 74px" />
+					<input type="button" id="btnCancel" class="btn btn-sm btn-default" value="Huỷ" style="width: 74px" onclick="gdPL04.cancel()" />
 				</th>
 			</tr>
 		</thead>
@@ -107,7 +125,7 @@
 			<%foreach (var ten_loai_nhiem_vu in lst_pl04.Select(x => new { x.TEN_LOAI_NHIEM_VU, x.TT }).Distinct().ToList()) %>
 			<%{%>
 			<tr style="font-weight: bold">
-				<td><%=ten_loai_nhiem_vu.TT%></td>
+				<td class="text-center"><%=ten_loai_nhiem_vu.TT%></td>
 				<td><%=ten_loai_nhiem_vu.TEN_LOAI_NHIEM_VU%></td>
 				<td class='text-right str_money'><%=0%></td>
 				<td class='text-right str_money'><%=0%></td>
@@ -128,11 +146,11 @@
 							.Where(x=>x.TEN_LOAI_NHIEM_VU==ten_loai_nhiem_vu.TEN_LOAI_NHIEM_VU)
 							.Select(x=>x.GIA_TRI_DU_TOAN_CONG_TRINH_DUOC_DUYET+x.GIA_TRI_CTHT_NAM_TRUOC_CON_NO_CHUYEN_NAM_NAY)
 							.ToList().Sum()%></td>
-				<td class='text-right str_money GiaTriDeNghiQuyetToanTrongNam'><%=lst_pl04
+				<td class='text-right str_money'><%=lst_pl04
 							.Where(x=>x.TEN_LOAI_NHIEM_VU==ten_loai_nhiem_vu.TEN_LOAI_NHIEM_VU)
 							.Select(x=>x.GIA_TRI_DE_NGHI_QUYET_TOAN_TRONG_NAM)
 							.ToList().Sum()%></td>
-				<td class='text-right str_money GiaTriCTHTDaQuyetToanLKDenNamBaoCao'><%=lst_pl04
+				<td class='text-right str_mone'><%=lst_pl04
 							.Where(x=>x.TEN_LOAI_NHIEM_VU==ten_loai_nhiem_vu.TEN_LOAI_NHIEM_VU)
 							.Select(x=>x.GIA_TRI_CTHT_DA_QUYET_TOAN_LK_DEN_NAM_BAO_CAO)
 							.ToList().Sum()%></td>
@@ -155,7 +173,7 @@
 											.ToList())%>
 			<%{%>
 			<tr style="font-weight: bold">
-				<td><%=i++%></td>
+				<td class="text-center"><%=i++%></td>
 				<td><%=cong_trinh%></td>
 				<td class='text-right str_money'><%=0%></td>
 				<td class='text-right str_money'><%=0%></td>
@@ -195,19 +213,18 @@
 				<td></td>
 			</tr>
 			<%foreach (var du_an in lst_pl04.Where(x => x.TEN_LOAI_NHIEM_VU == ten_loai_nhiem_vu.TEN_LOAI_NHIEM_VU && x.CONG_TRINH == cong_trinh)
-											.Select(x => new { x.DU_AN ,x.ID})
+											.Select(x => new { x.DU_AN, x.ID })
 											.Distinct()
 											.OrderBy(x => x.DU_AN)
 											.ToList())%>
 			<%{%>
 			<!--Du an-->
 			<tr>
-				<td>-</td>
-				<td><span class="du_an" 
+				<td class="text-center">-</td>
+				<td><span class="du_an"
 					cong_trinh="<%=cong_trinh%>"
 					ten_loai_nhiem_vu="<%=ten_loai_nhiem_vu.TEN_LOAI_NHIEM_VU%>"
-					id_giao_dich="<%=du_an.ID %>"
-					><%=du_an.DU_AN%></span></td>
+					id_giao_dich="<%=du_an.ID %>"><%=du_an.DU_AN%></span></td>
 				<td class='text-right str_money KeHoachNamTruocChuaChiHetChuyenSang'><%=0%></td>
 				<td class='text-right str_money giaoKH'><%=0%></td>
 				<td class='text-right str_money QuyetDinhDieuChinhCuoiCung'><%=0%></td>
@@ -227,11 +244,11 @@
 							.Where(x => x.TEN_LOAI_NHIEM_VU == ten_loai_nhiem_vu.TEN_LOAI_NHIEM_VU && x.CONG_TRINH == cong_trinh && x.DU_AN == du_an.DU_AN)
 							.Select(x => x.GIA_TRI_DU_TOAN_CONG_TRINH_DUOC_DUYET + x.GIA_TRI_CTHT_NAM_TRUOC_CON_NO_CHUYEN_NAM_NAY)
 							.ToList().Sum()%></td>
-				<td class='text-right str_money'><%=lst_pl04
+				<td class='text-right str_money  GiaTriDeNghiQuyetToanTrongNam'><%=lst_pl04
 							.Where(x => x.TEN_LOAI_NHIEM_VU == ten_loai_nhiem_vu.TEN_LOAI_NHIEM_VU && x.CONG_TRINH == cong_trinh && x.DU_AN == du_an.DU_AN)
 							.Select(x => x.GIA_TRI_DE_NGHI_QUYET_TOAN_TRONG_NAM)
 							.ToList().Sum()%></td>
-				<td class='text-right str_money'><%=lst_pl04
+				<td class='text-right str_moneyy GiaTriCTHTDaQuyetToanLKDenNamBaoCao'><%=lst_pl04
 							.Where(x => x.TEN_LOAI_NHIEM_VU == ten_loai_nhiem_vu.TEN_LOAI_NHIEM_VU && x.CONG_TRINH == cong_trinh && x.DU_AN == du_an.DU_AN)
 							.Select(x => x.GIA_TRI_CTHT_DA_QUYET_TOAN_LK_DEN_NAM_BAO_CAO)
 							.ToList().Sum()%></td>
@@ -244,7 +261,9 @@
 							.Select(x => x.GIA_TRI_DE_NGHI_QUYET_TOAN_TRONG_NAM)
 							.ToList().Sum()%></td>
 				<td class="text-center">
-					<input type="button" class="btn btn-sm btn-primary" value="Sửa" /></td>
+					<input type="button" class="btn btn-sm btn-primary" value="Sửa" onclick="gdPL04.editItem(this)" />
+					<input type="button" class="btn btn-sm btn-danger" value="Xoá" onclick="gdPL04.deleteItem(this)" />
+				</td>
 			</tr>
 			<%}%>
 			<%}%>

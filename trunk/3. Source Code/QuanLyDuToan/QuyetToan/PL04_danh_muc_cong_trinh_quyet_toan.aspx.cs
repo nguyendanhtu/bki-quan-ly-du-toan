@@ -18,11 +18,16 @@ namespace QuanLyDuToan.QuyetToan
 		#endregion
 
 		#region Data Structures
-
+		public class ItemLNV
+		{
+			public string Value;
+			public string Ten;
+		}
 		#endregion
 
 		#region Members
 		public List<GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN> lst_pl04;
+		public List<ItemLNV> lst_loai_nhiem_vu;
 		#endregion
 
 		#region Private Methods
@@ -64,6 +69,11 @@ namespace QuanLyDuToan.QuyetToan
 				lst_pl04 = db.GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN
 						   .Where(x => x.ID_DON_VI == 145 && x.NAM == 2014)
 						   .ToList();
+				lst_loai_nhiem_vu = db.CM_DM_TU_DIEN
+							.Where(x => x.ID_LOAI_TU_DIEN == ID_LOAI_TU_DIEN.LOAI_NHIEM_VU)
+							.OrderBy(x=>x.GHI_CHU)
+							.Select(x => new ItemLNV { Ten = x.GHI_CHU + " - " + x.TEN, Value = x.TEN })
+							.ToList();
 			}
 		}
 		#endregion
