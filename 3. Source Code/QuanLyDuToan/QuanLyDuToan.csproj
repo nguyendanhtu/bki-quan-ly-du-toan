@@ -86,9 +86,11 @@
     <Content Include="Downloadify\src\Downloadify.as" />
     <Content Include="DuToan\F305_giay_rut_du_toan_ngan_sach.aspx" />
     <Content Include="packages.config" />
+    <Content Include="Quantri\F816_ghi_log_qldt.aspx" />
     <Content Include="QuyetToan\PL04_danh_muc_cong_trinh_quyet_toan.aspx" />
     <Content Include="Scripts\UI\PL02.js" />
     <Content Include="Scripts\UI\PL04.js" />
+    <Content Include="Styles\jquery.dataTables.min.css" />
     <Content Include="WebMethod\PL01.asmx" />
     <Content Include="WebMethod\PL02.asmx" />
     <None Include="Properties\PublishProfiles\QuanLyDuToan.pubxml" />
@@ -659,6 +661,13 @@
     </Compile>
     <Compile Include="BaoCaoQT\BC_PL02_Kinh_phi_da_su_dung_de_nghi_quyet_toan.aspx.designer.cs">
       <DependentUpon>BC_PL02_Kinh_phi_da_su_dung_de_nghi_quyet_toan.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Quantri\F816_ghi_log_qldt.aspx.cs">
+      <DependentUpon>F816_ghi_log_qldt.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Quantri\F816_ghi_log_qldt.aspx.designer.cs">
+      <DependentUpon>F816_ghi_log_qldt.aspx</DependentUpon>
     </Compile>
     <Compile Include="QuyetToan\PL04_danh_muc_cong_trinh_quyet_toan.aspx.cs">
       <DependentUpon>PL04_danh_muc_cong_trinh_quyet_toan.aspx</DependentUpon>

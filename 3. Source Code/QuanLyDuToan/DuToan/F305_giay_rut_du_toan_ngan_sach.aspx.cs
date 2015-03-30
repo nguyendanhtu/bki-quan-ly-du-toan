@@ -726,6 +726,7 @@ namespace QuanLyDuToan.DuToan
 			// insert dm giai ngan
 			form_to_us_dm_giai_ngan(v_us_dm_giai_ngan);
 			v_us_dm_giai_ngan.Insert();
+			WebformControls.ghiLogDuToan("Thêm mới Giấy rút dự toán số " + v_us_dm_giai_ngan.strSO_UNC);
 			m_hdf_id_dm_giai_ngan.Value = v_us_dm_giai_ngan.dcID.ToString();
 			m_lbl_mess_master.Text = C_STR_LUU_THANH_CONG_UNC;
 			//reload data by form mode
@@ -858,6 +859,7 @@ namespace QuanLyDuToan.DuToan
 				//if (!check_validate_input_dm_giai_ngan_is_ok()) return;
 				form_to_us_dm_giai_ngan(v_us_dm_unc);
 				v_us_dm_unc.Update();
+				WebformControls.ghiLogDuToan("Cập nhật thông tin Giấy rút dự toán số " + v_us_dm_unc.strSO_UNC);
 				m_lbl_mess_info_unc.Text = C_STR_LUU_THANH_CONG;
 			}
 			catch (Exception v_e)
@@ -950,6 +952,7 @@ namespace QuanLyDuToan.DuToan
 				decimal v_dc_id_gd = CIPConvert.ToDecimal(m_grv_unc.DataKeys[e.RowIndex].Value);
 				US_GD_CHI_TIET_GIAI_NGAN v_us = new US_GD_CHI_TIET_GIAI_NGAN();
 				v_us.DeleteByID(v_dc_id_gd);
+				WebformControls.ghiLogDuToan("Xoá bản ghi giải ngân ở Giấy rút dự toán ngân sách số " + new US_DM_GIAI_NGAN(v_us.dcID_GIAI_NGAN).strSO_UNC);
 				m_lbl_mess_detail.Text = C_STR_XOA_THANH_CONG;
 				load_data_to_grid_chi_tiet_uy_nhiem_chi();
 			}
@@ -1209,6 +1212,7 @@ namespace QuanLyDuToan.DuToan
 					v_us_gd.dcSO_TIEN_TT_CHO_DV_HUONG = CIPConvert.ToDecimal(m_txt_grid_edit_so_tien_tt_cho_dv_huong.Text);
 					v_us_gd.strGHI_CHU = "";
 					v_us_gd.Insert();
+					WebformControls.ghiLogDuToan("Thêm bản ghi Giải ngân ở Giấy rút dự toán ngân sách số " + new US_DM_GIAI_NGAN(v_us_gd.dcID_GIAI_NGAN).strSO_UNC);
 					load_data_to_grid_chi_tiet_uy_nhiem_chi();
 					m_lbl_mess_detail.Text = "Bạn đã thêm mới thành công!";
 				}

@@ -343,7 +343,7 @@ namespace QuanLyDuToan.DuToan
 			WebformControls.load_data_to_ddl_don_vi_get_list_don_vi_duoc_xem_du_lieu(Person.get_id_don_vi(), m_ddl_don_vi);
 			m_txt_ngay_thang.Text = CIPConvert.ToStr(DateTime.Now, "dd/MM/yyyy");
 
-			
+
 			load_thong_tin_don_vi_lap_uy_nhiem_chi();
 
 			if (Request.QueryString["ip_dc_id_don_vi"] != null)
@@ -369,7 +369,7 @@ namespace QuanLyDuToan.DuToan
 				if (Request.QueryString["ip_nguon_ns"].ToString().Equals("N") && m_rbl_ma_tkkt.Items.Count > 1)
 					m_rbl_ma_tkkt.Items[0].Selected = true;//chọn mã tkkt Nguồn QBT
 			}
-			
+
 			load_data_to_grid_chi_tiet_uy_nhiem_chi();
 			//load_thong_tin_don_vi();
 
@@ -425,10 +425,10 @@ namespace QuanLyDuToan.DuToan
 										, CIPConvert.ToDecimal(m_ddl_don_vi.SelectedValue)
 										, CCommonFunction.getDate_dau_nam_from_date(DateTime.Now)
 										, CCommonFunction.getDate_cuoi_nam_form_date(DateTime.Now)
-										, WebformFunctions.getValue_from_query_string<string>(this,FormInfo.QueryString.NGUON_NGAN_SACH,STR_NGUON.NGAN_SACH));
+										, WebformFunctions.getValue_from_query_string<string>(this, FormInfo.QueryString.NGUON_NGAN_SACH, STR_NGUON.NGAN_SACH));
 
 			List<DBClassModel.DM_GIAI_NGAN> v_lst_giai_ngan = v_ds_dm_giai_ngan.DM_GIAI_NGAN.ToList<DBClassModel.DM_GIAI_NGAN>();
-			if (v_lst_giai_ngan.Where(x=>x.SO_UNC==m_txt_so_unc.Text.Trim()).ToList().Count>0)
+			if (v_lst_giai_ngan.Where(x => x.SO_UNC == m_txt_so_unc.Text.Trim()).ToList().Count > 0)
 			{
 				m_lbl_mess_master.Text = "Bạn phải nhập Số Uỷ nhiệm chi, đã tồn tại Số uỷ nhiêm chi này!";
 				m_txt_so_unc.Focus();
@@ -449,7 +449,7 @@ namespace QuanLyDuToan.DuToan
 				return false;
 			}
 
-			
+
 			return true;
 		}
 
@@ -463,6 +463,7 @@ namespace QuanLyDuToan.DuToan
 			// insert dm giai ngan
 			form_to_us_dm_giai_ngan(v_us_dm_giai_ngan);
 			v_us_dm_giai_ngan.Insert();
+			WebformControls.ghiLogDuToan("Thêm mới uỷ nhiệm chi số " + v_us_dm_giai_ngan.strSO_UNC);
 			m_hdf_id_dm_giai_ngan.Value = v_us_dm_giai_ngan.dcID.ToString();
 			m_lbl_mess_master.Text = C_STR_LUU_THANH_CONG_UNC;
 			//reload data by form mode
@@ -575,6 +576,7 @@ namespace QuanLyDuToan.DuToan
 			try
 			{
 				insert_unc();
+				
 			}
 			catch (Exception v_e)
 			{
@@ -593,6 +595,7 @@ namespace QuanLyDuToan.DuToan
 				if (!check_validate_input_dm_giai_ngan_is_ok()) return;
 				form_to_us_dm_giai_ngan(v_us_dm_unc);
 				v_us_dm_unc.Update();
+				WebformControls.ghiLogDuToan("Cập nhật thông tin uỷ nhiệm chi số " + v_us_dm_unc.strSO_UNC);
 				m_lbl_mess_info_unc.Text = C_STR_LUU_THANH_CONG;
 			}
 			catch (Exception v_e)
@@ -725,8 +728,9 @@ namespace QuanLyDuToan.DuToan
 			try
 			{
 				decimal v_dc_id_gd = CIPConvert.ToDecimal(m_grv_unc.DataKeys[e.RowIndex].Value);
-				US_GD_CHI_TIET_GIAI_NGAN v_us = new US_GD_CHI_TIET_GIAI_NGAN();
+				US_GD_CHI_TIET_GIAI_NGAN v_us = new US_GD_CHI_TIET_GIAI_NGAN(v_dc_id_gd);
 				v_us.DeleteByID(v_dc_id_gd);
+				WebformControls.ghiLogDuToan("Xoá bản ghi giải ngân ở uỷ nhiêm chi số " + new US_DM_GIAI_NGAN(v_us.dcID_GIAI_NGAN).strSO_UNC);
 				m_lbl_mess_detail.Text = C_STR_XOA_THANH_CONG;
 				load_data_to_grid_chi_tiet_uy_nhiem_chi();
 			}
@@ -896,9 +900,11 @@ namespace QuanLyDuToan.DuToan
 			{
 				case FORM_MODE.THEM:
 					ip_us.Insert();
+					WebformControls.ghiLogDuToan("Thêm bản ghi Giải ngân ở Uỷ nhiệm chi " + new US_DM_GIAI_NGAN(ip_us.dcID_GIAI_NGAN).strSO_UNC);
 					break;
 				case FORM_MODE.SUA:
 					ip_us.Update();
+					WebformControls.ghiLogDuToan("Cập nhật bản ghi Giải ngân ở Uỷ nhiệm chi " + new US_DM_GIAI_NGAN(ip_us.dcID_GIAI_NGAN).strSO_UNC);
 					break;
 				case FORM_MODE.XOA:
 					break;
@@ -952,7 +958,7 @@ namespace QuanLyDuToan.DuToan
 					m_ddl_grid_edit_du_an = (DropDownList)e.Row.FindControl("m_ddl_grid_du_an");
 					if (m_ddl_grid_edit_du_an == null) return;
 
-					WebformControls.load_data_to_ddl_loai_nhiem_vu(m_ddl_grid_edit_loai_nhiem_vu);
+					WebformControls.load_data_to_ddl_loai_nhiem_vu(m_ddl_grid_edit_loai_nhiem_vu, false, true);
 					if (m_ddl_grid_edit_loai_nhiem_vu.Items.Count > 0)
 					{
 						m_ddl_grid_edit_loai_nhiem_vu.SelectedIndex = 0;
@@ -1002,7 +1008,7 @@ namespace QuanLyDuToan.DuToan
 					m_rdb_grid_edit_theo_chuong_loai_khoan_muc = (RadioButton)e.Row.FindControl("m_rdb_grid_edit_theo_chuong_loai_khoan_muc");
 					if (m_ddl_grid_edit_du_an == null) return;
 
-					WebformControls.load_data_to_ddl_loai_nhiem_vu(m_ddl_grid_edit_loai_nhiem_vu);
+					WebformControls.load_data_to_ddl_loai_nhiem_vu(m_ddl_grid_edit_loai_nhiem_vu, false, true);
 					m_ddl_grid_edit_loai_nhiem_vu.SelectedValue = v_us.dcID_LOAI_NHIEM_VU.ToString();
 					load_data_to_ddl_muc_tieu_muc(m_ddl_grid_edit_muc_tieu_muc
 								, CIPConvert.ToDecimal(m_ddl_grid_edit_loai_nhiem_vu.SelectedValue)
@@ -1174,6 +1180,7 @@ namespace QuanLyDuToan.DuToan
 					v_us_gd.dcSO_TIEN_NOP_THUE = CIPConvert.ToDecimal(m_txt_grid_edit_so_tien_nop_thue.Text);
 					v_us_gd.dcSO_TIEN_TT_CHO_DV_HUONG = CIPConvert.ToDecimal(m_txt_grid_edit_so_tien_tt_cho_dv_huong.Text);
 					v_us_gd.strGHI_CHU = "";
+					WebformControls.ghiLogDuToan("Thêm bản ghi Giải ngân ở Uỷ nhiệm chi " + new US_DM_GIAI_NGAN(v_us_gd.dcID_GIAI_NGAN).strSO_UNC);
 					v_us_gd.Insert();
 					load_data_to_grid_chi_tiet_uy_nhiem_chi();
 					m_lbl_mess_detail.Text = "Bạn đã thêm mới thành công!";
@@ -1479,13 +1486,13 @@ namespace QuanLyDuToan.DuToan
 			bool v_b_is_nguon_ns = false;
 			bool v_b_is_chi_theo_du_an = true;
 			DropDownList m_ddl_grid_loai_nhiem_vu = (DropDownList)m_grv_unc.FooterRow.FindControl("m_ddl_grid_loai_nhiem_vu");
-			if (Request.QueryString["ip_nguon_ns"] != null)
-			{
-				if (Request.QueryString["ip_nguon_ns"].ToString().Equals("Y"))
-				{
-					v_b_is_nguon_ns = true;
-				}
-			}
+			//if (Request.QueryString["ip_nguon_ns"] != null)
+			//{
+			//	if (Request.QueryString["ip_nguon_ns"].ToString().Equals("Y"))
+			//	{
+			//		v_b_is_nguon_ns = true;
+			//	}
+			//}
 			WebformControls.load_data_to_ddl_loai_nhiem_vu(m_ddl_grid_loai_nhiem_vu, v_b_is_nguon_ns, v_b_is_chi_theo_du_an);
 			visiable_control_in_grid_cong_trinh_du_an_and_chuong_loai_khoan_muc(sender, true);
 		}
@@ -1495,13 +1502,13 @@ namespace QuanLyDuToan.DuToan
 			bool v_b_is_nguon_ns = false;
 			bool v_b_is_chi_theo_du_an = false;
 			DropDownList m_ddl_grid_loai_nhiem_vu = (DropDownList)m_grv_unc.FooterRow.FindControl("m_ddl_grid_loai_nhiem_vu");
-			if (Request.QueryString["ip_nguon_ns"] != null)
-			{
-				if (Request.QueryString["ip_nguon_ns"].ToString().Equals("Y"))
-				{
-					v_b_is_nguon_ns = true;
-				}
-			}
+			//if (Request.QueryString["ip_nguon_ns"] != null)
+			//{
+			//	if (Request.QueryString["ip_nguon_ns"].ToString().Equals("Y"))
+			//	{
+			//		v_b_is_nguon_ns = true;
+			//	}
+			//}
 			WebformControls.load_data_to_ddl_loai_nhiem_vu(m_ddl_grid_loai_nhiem_vu, v_b_is_nguon_ns, v_b_is_chi_theo_du_an);
 			visiable_control_in_grid_cong_trinh_du_an_and_chuong_loai_khoan_muc(sender, false);
 			m_ddl_grid_loai_nhiem_vu_SelectedIndexChanged(null, null);
@@ -1528,7 +1535,7 @@ namespace QuanLyDuToan.DuToan
 					m_cmd_nhap_moi_unc.Visible = false;
 					m_cmd_save_info_unc.Visible = false;
 				}
-				
+
 			}
 			catch (Exception v_e)
 			{

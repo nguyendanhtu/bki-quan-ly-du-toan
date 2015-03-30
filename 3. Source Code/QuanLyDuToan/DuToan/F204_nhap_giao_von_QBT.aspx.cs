@@ -231,6 +231,7 @@ namespace QuanLyDuToan.DuToan
 		private void delete_gd_chi_tiet_giao_kh_by_ID()
 		{
 			m_us.DeleteByID(CIPConvert.ToDecimal(m_hdf_id_giao_kh.Value));
+			WebformControls.ghiLogDuToan("Xoá bản ghi Giao vốn ở Quyết định số " + new US_DM_QUYET_DINH(CIPConvert.ToDecimal(m_hdf_id_giao_kh.Value)).strSO_QUYET_DINH);
 			load_data_to_grid();
 			m_lbl_mess_detail.Text = "Xoá bản ghi thành công!";
 		}

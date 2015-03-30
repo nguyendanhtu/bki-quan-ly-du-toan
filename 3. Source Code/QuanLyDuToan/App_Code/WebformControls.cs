@@ -753,7 +753,14 @@ namespace QuanLyDuToan.App_Code
 
 		}
 
-
+		public static void ghiLogDuToan(string ip_str_hanh_dong)
+		{
+			US_HT_LICH_SU_QLDT v_us = new US_HT_LICH_SU_QLDT();
+			v_us.dcID_NGUOI_SU_DUNG = Person.get_user_id();
+			v_us.datTHOI_GIAN = DateTime.Now;
+			v_us.strHANH_DONG = ip_str_hanh_dong;
+			v_us.Insert();
+		}
 
 		public static void load_data_to_cbo_loai_hinh_don_vi(
 			eLOAI_TU_DIEN ip_e_trang_thai_tai_san

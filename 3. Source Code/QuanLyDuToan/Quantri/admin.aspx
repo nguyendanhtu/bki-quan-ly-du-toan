@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="admin.aspx.cs" Inherits="QuanLyDuToan.Quantri.admin" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
+	<link href="../Styles/jquery.dataTables.min.css" rel="stylesheet" />
 	<script type="text/javascript" src='<%=ResolveClientUrl("~/Scripts/jquery.dataTables.js")%>'></script>
 	<script type="text/javascript" src='<%=ResolveClientUrl("~/Scripts/jquery.dataTables.sorting.js")%>'></script>
 	<script type="text/javascript">
@@ -64,6 +65,7 @@
 			//		},
 			//		"sProcessing": "Đang tải dữ liệu!"
 			//	}
+
 			//});
 		})
 	</script>
@@ -76,7 +78,7 @@
 			</div>
 		</div>
 		<div>
-			<div>
+			<div style="display:inline">
 				<asp:RadioButton ID="m_rdb_excute" runat="server" Text="Excute" GroupName="pr" Checked="true" />
 				<asp:RadioButton ID="m_rdb_tim_proc" runat="server" Text="Tìm procedure" GroupName="pr" />
 				<asp:RadioButton ID="m_rdb_tim_view" runat="server" Text="Tìm view" GroupName="pr" />
@@ -84,12 +86,15 @@
 				<asp:Button ID="m_cmd_convert" runat="server" CssClass="cssGoogleButton" Text="Convert" OnClick="m_cmd_convert_Click" />
 			</div>
 		</div>
-		<div>
-			<div class=".col-sm-6">
-				<asp:TextBox ID="m_txt_command" runat="server" TextMode="MultiLine" Width="80%" Height="120px"></asp:TextBox>
+		<div class="col-sm-12">
+			<div class="col-sm-6">
+				<asp:TextBox ID="m_txt_command" runat="server" TextMode="MultiLine" Width="95%" Height="120px"></asp:TextBox>
 			</div>
-			<div  class=".col-sm-6">
-				<asp:Button ID="m_cmd_excute" runat="server" OnClick="m_cmd_excute_Click" Text="Excute" Height="120px" Width="80px" />
+			<div  class="col-sm-6">
+				<div class="col-sm-2"><asp:Button ID="m_cmd_excute" runat="server" OnClick="m_cmd_excute_Click" Text="Excute" Height="120px" Width="80px" /></div>
+				<div class="col-sm-10"><asp:TextBox ID="m_txt_lst_command" runat="server" TextMode="MultiLine" Width="100%" Height="120px"></asp:TextBox></div>
+				
+				
 			</div>
 		</div>
 		<div>
