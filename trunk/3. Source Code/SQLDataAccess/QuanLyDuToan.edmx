@@ -66,6 +66,25 @@
           </EntitySet>
           <EntitySet Name="RPT_BAO_CAO_GIAO_VON_THEO_QD" EntityType="BKI_QLDTModel.Store.RPT_BAO_CAO_GIAO_VON_THEO_QD" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="sysdiagrams" EntityType="BKI_QLDTModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TP_PL04" EntityType="BKI_QLDTModel.Store.TP_PL04" store:Type="Tables" store:Schema="dbo" store:Name="TP_PL04">
+            <DefiningQuery>SELECT 
+      [TP_PL04].[ID] AS [ID], 
+      [TP_PL04].[MA_SO] AS [MA_SO], 
+      [TP_PL04].[TT] AS [TT], 
+      [TP_PL04].[CONG_TRINH_HANG_MUC] AS [CONG_TRINH_HANG_MUC], 
+      [TP_PL04].[MA_SO_PARENT] AS [MA_SO_PARENT], 
+      [TP_PL04].[CAP] AS [CAP], 
+      [TP_PL04].[GIA_TRI_DU_TOAN_CONG_TRINH_DUOC_DUYET] AS [GIA_TRI_DU_TOAN_CONG_TRINH_DUOC_DUYET], 
+      [TP_PL04].[GIA_TRI_CTHT_NAM_TRUOC_CON_NO_CHUYEN_NAM_NAY] AS [GIA_TRI_CTHT_NAM_TRUOC_CON_NO_CHUYEN_NAM_NAY], 
+      [TP_PL04].[GIA_TRI_CTHT_NAM_NAY] AS [GIA_TRI_CTHT_NAM_NAY], 
+      [TP_PL04].[GIA_TRI_DE_NGHI_QUYET_TOAN_TRONG_NAM] AS [GIA_TRI_DE_NGHI_QUYET_TOAN_TRONG_NAM], 
+      [TP_PL04].[GIA_TRI_CTHT_DA_QUYET_TOAN_LK_DEN_NAM_BAO_CAO] AS [GIA_TRI_CTHT_DA_QUYET_TOAN_LK_DEN_NAM_BAO_CAO], 
+      [TP_PL04].[ID_DON_VI] AS [ID_DON_VI], 
+      [TP_PL04].[NAM] AS [NAM], 
+      [TP_PL04].[CONG_THUC] AS [CONG_THUC], 
+      [TP_PL04].[GHI_CHU] AS [GHI_CHU]
+      FROM [dbo].[TP_PL04] AS [TP_PL04]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="v_cm_dm_tu_dien" EntityType="BKI_QLDTModel.Store.v_cm_dm_tu_dien" store:Type="Views" store:Schema="dbo" store:Name="v_cm_dm_tu_dien">
             <DefiningQuery>SELECT 
       [v_cm_dm_tu_dien].[ID] AS [ID], 
@@ -881,11 +900,10 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="numeric" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="MA_SO" Type="nvarchar" MaxLength="15" />
           <Property Name="TT" Type="nvarchar" MaxLength="35" />
-          <Property Name="CONG_TRINH_HANG_MUC" Type="nvarchar" MaxLength="250" />
-          <Property Name="MA_SO_PARENT" Type="nvarchar" MaxLength="15" />
-          <Property Name="CAP" Type="numeric" Precision="4" />
+          <Property Name="TEN_LOAI_NHIEM_VU" Type="nvarchar" MaxLength="250" />
+          <Property Name="CONG_TRINH" Type="nvarchar" MaxLength="250" />
+          <Property Name="DU_AN" Type="nvarchar" MaxLength="250" />
           <Property Name="GIA_TRI_DU_TOAN_CONG_TRINH_DUOC_DUYET" Type="numeric" Precision="21" />
           <Property Name="GIA_TRI_CTHT_NAM_TRUOC_CON_NO_CHUYEN_NAM_NAY" Type="numeric" Precision="21" />
           <Property Name="GIA_TRI_CTHT_NAM_NAY" Type="numeric" Precision="21" />
@@ -1069,6 +1087,29 @@
           <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'BKI_QLDT.dbo.TP_PL04' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="TP_PL04">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="numeric" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="MA_SO" Type="nvarchar" MaxLength="15" />
+          <Property Name="TT" Type="nvarchar" MaxLength="35" />
+          <Property Name="CONG_TRINH_HANG_MUC" Type="nvarchar" MaxLength="250" />
+          <Property Name="MA_SO_PARENT" Type="nvarchar" MaxLength="15" />
+          <Property Name="CAP" Type="numeric" Precision="4" />
+          <Property Name="GIA_TRI_DU_TOAN_CONG_TRINH_DUOC_DUYET" Type="numeric" Precision="21" />
+          <Property Name="GIA_TRI_CTHT_NAM_TRUOC_CON_NO_CHUYEN_NAM_NAY" Type="numeric" Precision="21" />
+          <Property Name="GIA_TRI_CTHT_NAM_NAY" Type="numeric" Precision="21" />
+          <Property Name="GIA_TRI_DE_NGHI_QUYET_TOAN_TRONG_NAM" Type="numeric" Precision="21" />
+          <Property Name="GIA_TRI_CTHT_DA_QUYET_TOAN_LK_DEN_NAM_BAO_CAO" Type="numeric" Precision="21" />
+          <Property Name="ID_DON_VI" Type="numeric" />
+          <Property Name="NAM" Type="numeric" Precision="4" />
+          <Property Name="CONG_THUC" Type="nvarchar" MaxLength="250" />
+          <Property Name="GHI_CHU" Type="nvarchar" MaxLength="250" />
         </EntityType>
         <!--Errors Found During Generation:
       warning 6002: The table/view 'BKI_QLDT.dbo.v_cm_dm_tu_dien' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
@@ -4507,7 +4548,6 @@
           <EntitySet Name="GD_PL01_TONG_HOP_TINH_HINH_KINH_PHI_VA_QUYET_TOAN_CHI" EntityType="BKI_QLDTModel.GD_PL01_TONG_HOP_TINH_HINH_KINH_PHI_VA_QUYET_TOAN_CHI" />
           <EntitySet Name="GD_PL02_KINH_PHI_DA_SU_DUNG_DE_NGHI_QUYET_TOAN" EntityType="BKI_QLDTModel.GD_PL02_KINH_PHI_DA_SU_DUNG_DE_NGHI_QUYET_TOAN" />
           <EntitySet Name="GD_PL03_THUC_HIEN_XU_LY_KIEN_NGHI_CUA_KIEM_TOAN_THANH_TRA_TAI_CHINH" EntityType="BKI_QLDTModel.GD_PL03_THUC_HIEN_XU_LY_KIEN_NGHI_CUA_KIEM_TOAN_THANH_TRA_TAI_CHINH" />
-          <EntitySet Name="GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN" EntityType="BKI_QLDTModel.GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN" />
           <EntitySet Name="GD_PL05_DANH_MUC_CONG_TRINH_HOAN_THANH_GIAM_TRU_THANH_TOAN" EntityType="BKI_QLDTModel.GD_PL05_DANH_MUC_CONG_TRINH_HOAN_THANH_GIAM_TRU_THANH_TOAN" />
           <EntitySet Name="HT_BACKUP_HISTORY" EntityType="BKI_QLDTModel.HT_BACKUP_HISTORY" />
           <EntitySet Name="HT_BUSINESS_PROCESS_LOCK" EntityType="BKI_QLDTModel.HT_BUSINESS_PROCESS_LOCK" />
@@ -4701,10 +4741,6 @@
           <AssociationSet Name="FK_GD_PL03_THUC_HIEN_XU_LY_KIEN_NGHI_CUA_KIEM_TOAN_THANH_TRA_TAI_CHINH_DM_DON_VI" Association="BKI_QLDTModel.FK_GD_PL03_THUC_HIEN_XU_LY_KIEN_NGHI_CUA_KIEM_TOAN_THANH_TRA_TAI_CHINH_DM_DON_VI">
             <End Role="DM_DON_VI" EntitySet="DM_DON_VI" />
             <End Role="GD_PL03_THUC_HIEN_XU_LY_KIEN_NGHI_CUA_KIEM_TOAN_THANH_TRA_TAI_CHINH" EntitySet="GD_PL03_THUC_HIEN_XU_LY_KIEN_NGHI_CUA_KIEM_TOAN_THANH_TRA_TAI_CHINH" />
-          </AssociationSet>
-          <AssociationSet Name="FK_GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN_DM_DON_VI" Association="BKI_QLDTModel.FK_GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN_DM_DON_VI">
-            <End Role="DM_DON_VI" EntitySet="DM_DON_VI" />
-            <End Role="GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN" EntitySet="GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN" />
           </AssociationSet>
           <AssociationSet Name="FK_GD_PL05_DANH_MUC_CONG_TRINH_HOAN_THANH_GIAM_TRU_THANH_TOAN_DM_DON_VI" Association="BKI_QLDTModel.FK_GD_PL05_DANH_MUC_CONG_TRINH_HOAN_THANH_GIAM_TRU_THANH_TOAN_DM_DON_VI">
             <End Role="DM_DON_VI" EntitySet="DM_DON_VI" />
@@ -6201,6 +6237,12 @@
             <Parameter Name="ip_sequence_increment" Mode="In" Type="Int32" />
             <Parameter Name="Val" Mode="InOut" Type="Decimal" />
           </FunctionImport>
+          <EntitySet Name="TP_PL04" EntityType="BKI_QLDTModel.TP_PL04" />
+          <EntitySet Name="GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN" EntityType="BKI_QLDTModel.GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN" />
+          <AssociationSet Name="FK_GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN_DM_DON_VI" Association="BKI_QLDTModel.FK_GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN_DM_DON_VI">
+            <End Role="DM_DON_VI" EntitySet="DM_DON_VI" />
+            <End Role="GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN" EntitySet="GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="CM_COMPANY_INFO">
           <Key>
@@ -6278,10 +6320,10 @@
           <Property Name="ID_LOAI" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="ID_DON_VI" Type="Decimal" Precision="18" Scale="0" />
           <NavigationProperty Name="DM_CONG_TRINH_DU_AN_GOI_THAU1" Relationship="BKI_QLDTModel.FK_DM_CONG_TRINH_DU_AN_GOI_THAU_DM_CONG_TRINH_DU_AN_GOI_THAU" FromRole="DM_CONG_TRINH_DU_AN_GOI_THAU" ToRole="DM_CONG_TRINH_DU_AN_GOI_THAU1" />
-          <NavigationProperty Name="DM_CONG_TRINH_DU_AN_GOI_THAU2" Relationship="BKI_QLDTModel.FK_DM_CONG_TRINH_DU_AN_GOI_THAU_DM_CONG_TRINH_DU_AN_GOI_THAU" FromRole="DM_CONG_TRINH_DU_AN_GOI_THAU1" ToRole="DM_CONG_TRINH_DU_AN_GOI_THAU" />
+          <NavigationProperty Name="DM_CONG_TRINH_DU_AN_GOI_THAU_PARENT" Relationship="BKI_QLDTModel.FK_DM_CONG_TRINH_DU_AN_GOI_THAU_DM_CONG_TRINH_DU_AN_GOI_THAU" FromRole="DM_CONG_TRINH_DU_AN_GOI_THAU1" ToRole="DM_CONG_TRINH_DU_AN_GOI_THAU" />
           <NavigationProperty Name="DM_DON_VI" Relationship="BKI_QLDTModel.FK_DM_CONG_TRINH_DU_AN_GOI_THAU_DM_DON_VI" FromRole="DM_CONG_TRINH_DU_AN_GOI_THAU" ToRole="DM_DON_VI" />
-          <NavigationProperty Name="GD_CHI_TIET_GIAI_NGAN" Relationship="BKI_QLDTModel.FK_GD_CHI_TIET_GIAI_NGAN_DM_CONG_TRINH_DU_AN_GOI_THAU" FromRole="DM_CONG_TRINH_DU_AN_GOI_THAU" ToRole="GD_CHI_TIET_GIAI_NGAN" />
-          <NavigationProperty Name="GD_CHI_TIET_GIAI_NGAN1" Relationship="BKI_QLDTModel.FK_GD_CHI_TIET_GIAI_NGAN_DM_CONG_TRINH_DU_AN_GOI_THAU1" FromRole="DM_CONG_TRINH_DU_AN_GOI_THAU" ToRole="GD_CHI_TIET_GIAI_NGAN" />
+          <NavigationProperty Name="GD_CHI_TIET_GIAI_NGAN_CONG_TRINH" Relationship="BKI_QLDTModel.FK_GD_CHI_TIET_GIAI_NGAN_DM_CONG_TRINH_DU_AN_GOI_THAU" FromRole="DM_CONG_TRINH_DU_AN_GOI_THAU" ToRole="GD_CHI_TIET_GIAI_NGAN" />
+          <NavigationProperty Name="GD_CHI_TIET_GIAI_NGAN_DU_AN" Relationship="BKI_QLDTModel.FK_GD_CHI_TIET_GIAI_NGAN_DM_CONG_TRINH_DU_AN_GOI_THAU1" FromRole="DM_CONG_TRINH_DU_AN_GOI_THAU" ToRole="GD_CHI_TIET_GIAI_NGAN" />
           <NavigationProperty Name="GD_CHI_TIET_GIAO_KH" Relationship="BKI_QLDTModel.FK_GD_CHI_TIET_GIAO_KH_DM_CONG_TRINH_DU_AN_GOI_THAU" FromRole="DM_CONG_TRINH_DU_AN_GOI_THAU" ToRole="GD_CHI_TIET_GIAO_KH" />
           <NavigationProperty Name="GD_CHI_TIET_GIAO_KH1" Relationship="BKI_QLDTModel.FK_GD_CHI_TIET_GIAO_KH_DM_CONG_TRINH_DU_AN_GOI_THAU1" FromRole="DM_CONG_TRINH_DU_AN_GOI_THAU" ToRole="GD_CHI_TIET_GIAO_KH" />
           <NavigationProperty Name="GD_CHI_TIET_GIAO_VON" Relationship="BKI_QLDTModel.FK_GD_CHI_TIET_GIAO_VON_DM_CONG_TRINH_DU_AN_GOI_THAU" FromRole="DM_CONG_TRINH_DU_AN_GOI_THAU" ToRole="GD_CHI_TIET_GIAO_VON" />
@@ -6313,12 +6355,12 @@
           <NavigationProperty Name="GD_PL01_TONG_HOP_TINH_HINH_KINH_PHI_VA_QUYET_TOAN_CHI" Relationship="BKI_QLDTModel.FK_GD_PL01_TONG_HOP_TINH_HINH_KINH_PHI_VA_QUYET_TOAN_CHI_DM_DON_VI" FromRole="DM_DON_VI" ToRole="GD_PL01_TONG_HOP_TINH_HINH_KINH_PHI_VA_QUYET_TOAN_CHI" />
           <NavigationProperty Name="GD_PL02_KINH_PHI_DA_SU_DUNG_DE_NGHI_QUYET_TOAN" Relationship="BKI_QLDTModel.FK_GD_PL02_KINH_PHI_DA_SU_DUNG_DE_NGHI_QUYET_TOAN_DM_DON_VI" FromRole="DM_DON_VI" ToRole="GD_PL02_KINH_PHI_DA_SU_DUNG_DE_NGHI_QUYET_TOAN" />
           <NavigationProperty Name="GD_PL03_THUC_HIEN_XU_LY_KIEN_NGHI_CUA_KIEM_TOAN_THANH_TRA_TAI_CHINH" Relationship="BKI_QLDTModel.FK_GD_PL03_THUC_HIEN_XU_LY_KIEN_NGHI_CUA_KIEM_TOAN_THANH_TRA_TAI_CHINH_DM_DON_VI" FromRole="DM_DON_VI" ToRole="GD_PL03_THUC_HIEN_XU_LY_KIEN_NGHI_CUA_KIEM_TOAN_THANH_TRA_TAI_CHINH" />
-          <NavigationProperty Name="GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN" Relationship="BKI_QLDTModel.FK_GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN_DM_DON_VI" FromRole="DM_DON_VI" ToRole="GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN" />
           <NavigationProperty Name="GD_PL05_DANH_MUC_CONG_TRINH_HOAN_THANH_GIAM_TRU_THANH_TOAN" Relationship="BKI_QLDTModel.FK_GD_PL05_DANH_MUC_CONG_TRINH_HOAN_THANH_GIAM_TRU_THANH_TOAN_DM_DON_VI" FromRole="DM_DON_VI" ToRole="GD_PL05_DANH_MUC_CONG_TRINH_HOAN_THANH_GIAM_TRU_THANH_TOAN" />
           <NavigationProperty Name="DM_QUYET_DINH" Relationship="BKI_QLDTModel.FK_GD_QUYET_DINH_DM_DON_VI" FromRole="DM_DON_VI" ToRole="DM_QUYET_DINH" />
           <NavigationProperty Name="GD_CHI_TIET_GIAI_NGAN" Relationship="BKI_QLDTModel.FK_GD_UY_NHIEM_CHI_DM_DON_VI" FromRole="DM_DON_VI" ToRole="GD_CHI_TIET_GIAI_NGAN" />
           <NavigationProperty Name="HT_QUAN_HE_SU_DUNG_DU_LIEU" Relationship="BKI_QLDTModel.FK_HT_QUAN_HE_SU_DUNG_DU_LIEU_DM_DON_VI" FromRole="DM_DON_VI" ToRole="HT_QUAN_HE_SU_DUNG_DU_LIEU" />
           <NavigationProperty Name="HT_USER_GROUP" Relationship="BKI_QLDTModel.FK_HT_USER_GROUP_DM_DON_VI" FromRole="DM_DON_VI" ToRole="HT_USER_GROUP" />
+          <NavigationProperty Name="GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN" Relationship="BKI_QLDTModel.FK_GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN_DM_DON_VI" FromRole="DM_DON_VI" ToRole="GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN" />
         </EntityType>
         <EntityType Name="DM_GIAI_NGAN">
           <Key>
@@ -6432,12 +6474,12 @@
           <Property Name="GHI_CHU_4" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
           <Property Name="MA_NGUON_NSNN" Type="String" MaxLength="35" Unicode="true" FixedLength="false" />
           <NavigationProperty Name="CM_DM_TU_DIEN" Relationship="BKI_QLDTModel.FK_GD_UY_NHIEM_CHI_CM_DM_TU_DIEN" FromRole="GD_CHI_TIET_GIAI_NGAN" ToRole="CM_DM_TU_DIEN" />
-          <NavigationProperty Name="DM_CHUONG_LOAI_KHOAN_MUC" Relationship="BKI_QLDTModel.FK_GD_UY_NHIEM_CHI_DM_CHUONG_LOAI_KHOAN_MUC_CHUONG" FromRole="GD_CHI_TIET_GIAI_NGAN" ToRole="DM_CHUONG_LOAI_KHOAN_MUC" />
+          <NavigationProperty Name="DM_CHUONG_LOAI_KHOAN_MUC_CHUONG" Relationship="BKI_QLDTModel.FK_GD_UY_NHIEM_CHI_DM_CHUONG_LOAI_KHOAN_MUC_CHUONG" FromRole="GD_CHI_TIET_GIAI_NGAN" ToRole="DM_CHUONG_LOAI_KHOAN_MUC" />
           <NavigationProperty Name="DM_CHUONG_LOAI_KHOAN_MUC1" Relationship="BKI_QLDTModel.FK_GD_UY_NHIEM_CHI_DM_CHUONG_LOAI_KHOAN_MUC_KHOAN" FromRole="GD_CHI_TIET_GIAI_NGAN" ToRole="DM_CHUONG_LOAI_KHOAN_MUC" />
           <NavigationProperty Name="DM_CHUONG_LOAI_KHOAN_MUC2" Relationship="BKI_QLDTModel.FK_GD_UY_NHIEM_CHI_DM_CHUONG_LOAI_KHOAN_MUC_MUC" FromRole="GD_CHI_TIET_GIAI_NGAN" ToRole="DM_CHUONG_LOAI_KHOAN_MUC" />
           <NavigationProperty Name="DM_CHUONG_LOAI_KHOAN_MUC3" Relationship="BKI_QLDTModel.FK_GD_UY_NHIEM_CHI_DM_CHUONG_LOAI_KHOAN_MUC_TIEU_MUC" FromRole="GD_CHI_TIET_GIAI_NGAN" ToRole="DM_CHUONG_LOAI_KHOAN_MUC" />
-          <NavigationProperty Name="DM_CONG_TRINH_DU_AN_GOI_THAU" Relationship="BKI_QLDTModel.FK_GD_CHI_TIET_GIAI_NGAN_DM_CONG_TRINH_DU_AN_GOI_THAU" FromRole="GD_CHI_TIET_GIAI_NGAN" ToRole="DM_CONG_TRINH_DU_AN_GOI_THAU" />
-          <NavigationProperty Name="DM_CONG_TRINH_DU_AN_GOI_THAU1" Relationship="BKI_QLDTModel.FK_GD_CHI_TIET_GIAI_NGAN_DM_CONG_TRINH_DU_AN_GOI_THAU1" FromRole="GD_CHI_TIET_GIAI_NGAN" ToRole="DM_CONG_TRINH_DU_AN_GOI_THAU" />
+          <NavigationProperty Name="DM_CONG_TRINH_DU_AN_GOI_THAU_CONG_TRINH" Relationship="BKI_QLDTModel.FK_GD_CHI_TIET_GIAI_NGAN_DM_CONG_TRINH_DU_AN_GOI_THAU" FromRole="GD_CHI_TIET_GIAI_NGAN" ToRole="DM_CONG_TRINH_DU_AN_GOI_THAU" />
+          <NavigationProperty Name="DM_CONG_TRINH_DU_AN_GOI_THAU_DU_AN" Relationship="BKI_QLDTModel.FK_GD_CHI_TIET_GIAI_NGAN_DM_CONG_TRINH_DU_AN_GOI_THAU1" FromRole="GD_CHI_TIET_GIAI_NGAN" ToRole="DM_CONG_TRINH_DU_AN_GOI_THAU" />
           <NavigationProperty Name="DM_DON_VI" Relationship="BKI_QLDTModel.FK_GD_UY_NHIEM_CHI_DM_DON_VI" FromRole="GD_CHI_TIET_GIAI_NGAN" ToRole="DM_DON_VI" />
           <NavigationProperty Name="DM_GIAI_NGAN" Relationship="BKI_QLDTModel.FK_GD_UY_NHIEM_CHI_DM_UY_NHIEM_CHI" FromRole="GD_CHI_TIET_GIAI_NGAN" ToRole="DM_GIAI_NGAN" />
         </EntityType>
@@ -6465,12 +6507,12 @@
           <Property Name="GHI_CHU_3" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
           <Property Name="GHI_CHU_4" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
           <NavigationProperty Name="CM_DM_TU_DIEN" Relationship="BKI_QLDTModel.FK_GD_CHI_TIET_GIAO_KH_CM_DM_TU_DIEN" FromRole="GD_CHI_TIET_GIAO_KH" ToRole="CM_DM_TU_DIEN" />
-          <NavigationProperty Name="DM_CHUONG_LOAI_KHOAN_MUC" Relationship="BKI_QLDTModel.FK_GD_GIAO_KH_DM_CHUONG_LOAI_KHOAN_MUC_CHUONG" FromRole="GD_CHI_TIET_GIAO_KH" ToRole="DM_CHUONG_LOAI_KHOAN_MUC" />
-          <NavigationProperty Name="DM_CHUONG_LOAI_KHOAN_MUC1" Relationship="BKI_QLDTModel.FK_GD_GIAO_KH_DM_CHUONG_LOAI_KHOAN_MUC_KHOAN" FromRole="GD_CHI_TIET_GIAO_KH" ToRole="DM_CHUONG_LOAI_KHOAN_MUC" />
-          <NavigationProperty Name="DM_CHUONG_LOAI_KHOAN_MUC2" Relationship="BKI_QLDTModel.FK_GD_GIAO_KH_DM_CHUONG_LOAI_KHOAN_MUC_MUC" FromRole="GD_CHI_TIET_GIAO_KH" ToRole="DM_CHUONG_LOAI_KHOAN_MUC" />
-          <NavigationProperty Name="DM_CHUONG_LOAI_KHOAN_MUC3" Relationship="BKI_QLDTModel.FK_GD_GIAO_KH_DM_CHUONG_LOAI_KHOAN_MUC_TIEU_MUC" FromRole="GD_CHI_TIET_GIAO_KH" ToRole="DM_CHUONG_LOAI_KHOAN_MUC" />
-          <NavigationProperty Name="DM_CONG_TRINH_DU_AN_GOI_THAU" Relationship="BKI_QLDTModel.FK_GD_CHI_TIET_GIAO_KH_DM_CONG_TRINH_DU_AN_GOI_THAU" FromRole="GD_CHI_TIET_GIAO_KH" ToRole="DM_CONG_TRINH_DU_AN_GOI_THAU" />
-          <NavigationProperty Name="DM_CONG_TRINH_DU_AN_GOI_THAU1" Relationship="BKI_QLDTModel.FK_GD_CHI_TIET_GIAO_KH_DM_CONG_TRINH_DU_AN_GOI_THAU1" FromRole="GD_CHI_TIET_GIAO_KH" ToRole="DM_CONG_TRINH_DU_AN_GOI_THAU" />
+          <NavigationProperty Name="DM_CHUONG_LOAI_KHOAN_MUC_CHUONG" Relationship="BKI_QLDTModel.FK_GD_GIAO_KH_DM_CHUONG_LOAI_KHOAN_MUC_CHUONG" FromRole="GD_CHI_TIET_GIAO_KH" ToRole="DM_CHUONG_LOAI_KHOAN_MUC" />
+          <NavigationProperty Name="DM_CHUONG_LOAI_KHOAN_MUC_KHOAN" Relationship="BKI_QLDTModel.FK_GD_GIAO_KH_DM_CHUONG_LOAI_KHOAN_MUC_KHOAN" FromRole="GD_CHI_TIET_GIAO_KH" ToRole="DM_CHUONG_LOAI_KHOAN_MUC" />
+          <NavigationProperty Name="DM_CHUONG_LOAI_KHOAN_MUC_MUC" Relationship="BKI_QLDTModel.FK_GD_GIAO_KH_DM_CHUONG_LOAI_KHOAN_MUC_MUC" FromRole="GD_CHI_TIET_GIAO_KH" ToRole="DM_CHUONG_LOAI_KHOAN_MUC" />
+          <NavigationProperty Name="DM_CHUONG_LOAI_KHOAN_MUC_TIEU_MUC" Relationship="BKI_QLDTModel.FK_GD_GIAO_KH_DM_CHUONG_LOAI_KHOAN_MUC_TIEU_MUC" FromRole="GD_CHI_TIET_GIAO_KH" ToRole="DM_CHUONG_LOAI_KHOAN_MUC" />
+          <NavigationProperty Name="DM_CONG_TRINH_DU_AN_GOI_THAU_CONG_TRINH" Relationship="BKI_QLDTModel.FK_GD_CHI_TIET_GIAO_KH_DM_CONG_TRINH_DU_AN_GOI_THAU" FromRole="GD_CHI_TIET_GIAO_KH" ToRole="DM_CONG_TRINH_DU_AN_GOI_THAU" />
+          <NavigationProperty Name="DM_CONG_TRINH_DU_AN_GOI_THAU_DU_AN" Relationship="BKI_QLDTModel.FK_GD_CHI_TIET_GIAO_KH_DM_CONG_TRINH_DU_AN_GOI_THAU1" FromRole="GD_CHI_TIET_GIAO_KH" ToRole="DM_CONG_TRINH_DU_AN_GOI_THAU" />
           <NavigationProperty Name="DM_DON_VI" Relationship="BKI_QLDTModel.FK_GD_DU_TOAN_DM_DON_VI" FromRole="GD_CHI_TIET_GIAO_KH" ToRole="DM_DON_VI" />
           <NavigationProperty Name="DM_QUYET_DINH" Relationship="BKI_QLDTModel.FK_GD_GIAO_KH_GD_QUYET_DINH" FromRole="GD_CHI_TIET_GIAO_KH" ToRole="DM_QUYET_DINH" />
         </EntityType>
@@ -6574,27 +6616,6 @@
           <Property Name="ID_DON_VI" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="NAM" Type="Decimal" Precision="4" Scale="0" />
           <NavigationProperty Name="DM_DON_VI" Relationship="BKI_QLDTModel.FK_GD_PL03_THUC_HIEN_XU_LY_KIEN_NGHI_CUA_KIEM_TOAN_THANH_TRA_TAI_CHINH_DM_DON_VI" FromRole="GD_PL03_THUC_HIEN_XU_LY_KIEN_NGHI_CUA_KIEM_TOAN_THANH_TRA_TAI_CHINH" ToRole="DM_DON_VI" />
-        </EntityType>
-        <EntityType Name="GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="MA_SO" Type="String" MaxLength="15" Unicode="true" FixedLength="false" />
-          <Property Name="TT" Type="String" MaxLength="35" Unicode="true" FixedLength="false" />
-          <Property Name="CONG_TRINH_HANG_MUC" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
-          <Property Name="MA_SO_PARENT" Type="String" MaxLength="15" Unicode="true" FixedLength="false" />
-          <Property Name="CAP" Type="Decimal" Precision="4" Scale="0" />
-          <Property Name="GIA_TRI_DU_TOAN_CONG_TRINH_DUOC_DUYET" Type="Decimal" Precision="21" Scale="0" />
-          <Property Name="GIA_TRI_CTHT_NAM_TRUOC_CON_NO_CHUYEN_NAM_NAY" Type="Decimal" Precision="21" Scale="0" />
-          <Property Name="GIA_TRI_CTHT_NAM_NAY" Type="Decimal" Precision="21" Scale="0" />
-          <Property Name="GIA_TRI_DE_NGHI_QUYET_TOAN_TRONG_NAM" Type="Decimal" Precision="21" Scale="0" />
-          <Property Name="GIA_TRI_CTHT_DA_QUYET_TOAN_LK_DEN_NAM_BAO_CAO" Type="Decimal" Precision="21" Scale="0" />
-          <Property Name="ID_DON_VI" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="NAM" Type="Decimal" Precision="4" Scale="0" />
-          <Property Name="CONG_THUC" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
-          <Property Name="GHI_CHU" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
-          <NavigationProperty Name="DM_DON_VI" Relationship="BKI_QLDTModel.FK_GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN_DM_DON_VI" FromRole="GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN" ToRole="DM_DON_VI" />
         </EntityType>
         <EntityType Name="GD_PL05_DANH_MUC_CONG_TRINH_HOAN_THANH_GIAM_TRU_THANH_TOAN">
           <Key>
@@ -7687,18 +7708,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN_DM_DON_VI">
-          <End Role="DM_DON_VI" Type="BKI_QLDTModel.DM_DON_VI" Multiplicity="0..1" />
-          <End Role="GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN" Type="BKI_QLDTModel.GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="DM_DON_VI">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN">
-              <PropertyRef Name="ID_DON_VI" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_GD_PL05_DANH_MUC_CONG_TRINH_HOAN_THANH_GIAM_TRU_THANH_TOAN_DM_DON_VI">
           <End Role="DM_DON_VI" Type="BKI_QLDTModel.DM_DON_VI" Multiplicity="0..1" />
           <End Role="GD_PL05_DANH_MUC_CONG_TRINH_HOAN_THANH_GIAM_TRU_THANH_TOAN" Type="BKI_QLDTModel.GD_PL05_DANH_MUC_CONG_TRINH_HOAN_THANH_GIAM_TRU_THANH_TOAN" Multiplicity="*" />
@@ -8478,6 +8487,58 @@
           <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
           <Property Type="Int32" Name="OwnerID" Nullable="false" />
         </ComplexType>
+        <EntityType Name="TP_PL04">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Decimal" Name="ID" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="MA_SO" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="TT" MaxLength="35" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CONG_TRINH_HANG_MUC" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="MA_SO_PARENT" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Type="Decimal" Name="CAP" Precision="4" Scale="0" />
+          <Property Type="Decimal" Name="GIA_TRI_DU_TOAN_CONG_TRINH_DUOC_DUYET" Precision="21" Scale="0" />
+          <Property Type="Decimal" Name="GIA_TRI_CTHT_NAM_TRUOC_CON_NO_CHUYEN_NAM_NAY" Precision="21" Scale="0" />
+          <Property Type="Decimal" Name="GIA_TRI_CTHT_NAM_NAY" Precision="21" Scale="0" />
+          <Property Type="Decimal" Name="GIA_TRI_DE_NGHI_QUYET_TOAN_TRONG_NAM" Precision="21" Scale="0" />
+          <Property Type="Decimal" Name="GIA_TRI_CTHT_DA_QUYET_TOAN_LK_DEN_NAM_BAO_CAO" Precision="21" Scale="0" />
+          <Property Type="Decimal" Name="ID_DON_VI" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="NAM" Precision="4" Scale="0" />
+          <Property Type="String" Name="CONG_THUC" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="GHI_CHU" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Decimal" Name="ID" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="TT" MaxLength="35" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="TEN_LOAI_NHIEM_VU" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CONG_TRINH" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DU_AN" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Type="Decimal" Name="GIA_TRI_DU_TOAN_CONG_TRINH_DUOC_DUYET" Precision="21" Scale="0" />
+          <Property Type="Decimal" Name="GIA_TRI_CTHT_NAM_TRUOC_CON_NO_CHUYEN_NAM_NAY" Precision="21" Scale="0" />
+          <Property Type="Decimal" Name="GIA_TRI_CTHT_NAM_NAY" Precision="21" Scale="0" />
+          <Property Type="Decimal" Name="GIA_TRI_DE_NGHI_QUYET_TOAN_TRONG_NAM" Precision="21" Scale="0" />
+          <Property Type="Decimal" Name="GIA_TRI_CTHT_DA_QUYET_TOAN_LK_DEN_NAM_BAO_CAO" Precision="21" Scale="0" />
+          <Property Type="Decimal" Name="ID_DON_VI" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="NAM" Precision="4" Scale="0" />
+          <Property Type="String" Name="CONG_THUC" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="GHI_CHU" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="DM_DON_VI" Relationship="BKI_QLDTModel.FK_GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN_DM_DON_VI" FromRole="GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN" ToRole="DM_DON_VI" />
+        </EntityType>
+        <Association Name="FK_GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN_DM_DON_VI">
+          <End Type="BKI_QLDTModel.DM_DON_VI" Role="DM_DON_VI" Multiplicity="0..1" />
+          <End Type="BKI_QLDTModel.GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN" Role="GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DM_DON_VI">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN">
+              <PropertyRef Name="ID_DON_VI" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -8776,27 +8837,6 @@
                 <ScalarProperty Name="SO_KIEN_NGHI_CO_QUAN_NHA_NUOC" ColumnName="SO_KIEN_NGHI_CO_QUAN_NHA_NUOC" />
                 <ScalarProperty Name="ID_DON_VI" ColumnName="ID_DON_VI" />
                 <ScalarProperty Name="NAM" ColumnName="NAM" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN">
-            <EntityTypeMapping TypeName="BKI_QLDTModel.GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN">
-              <MappingFragment StoreEntitySet="GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="MA_SO" ColumnName="MA_SO" />
-                <ScalarProperty Name="TT" ColumnName="TT" />
-                <ScalarProperty Name="CONG_TRINH_HANG_MUC" ColumnName="CONG_TRINH_HANG_MUC" />
-                <ScalarProperty Name="MA_SO_PARENT" ColumnName="MA_SO_PARENT" />
-                <ScalarProperty Name="CAP" ColumnName="CAP" />
-                <ScalarProperty Name="GIA_TRI_DU_TOAN_CONG_TRINH_DUOC_DUYET" ColumnName="GIA_TRI_DU_TOAN_CONG_TRINH_DUOC_DUYET" />
-                <ScalarProperty Name="GIA_TRI_CTHT_NAM_TRUOC_CON_NO_CHUYEN_NAM_NAY" ColumnName="GIA_TRI_CTHT_NAM_TRUOC_CON_NO_CHUYEN_NAM_NAY" />
-                <ScalarProperty Name="GIA_TRI_CTHT_NAM_NAY" ColumnName="GIA_TRI_CTHT_NAM_NAY" />
-                <ScalarProperty Name="GIA_TRI_DE_NGHI_QUYET_TOAN_TRONG_NAM" ColumnName="GIA_TRI_DE_NGHI_QUYET_TOAN_TRONG_NAM" />
-                <ScalarProperty Name="GIA_TRI_CTHT_DA_QUYET_TOAN_LK_DEN_NAM_BAO_CAO" ColumnName="GIA_TRI_CTHT_DA_QUYET_TOAN_LK_DEN_NAM_BAO_CAO" />
-                <ScalarProperty Name="ID_DON_VI" ColumnName="ID_DON_VI" />
-                <ScalarProperty Name="NAM" ColumnName="NAM" />
-                <ScalarProperty Name="CONG_THUC" ColumnName="CONG_THUC" />
-                <ScalarProperty Name="GHI_CHU" ColumnName="GHI_CHU" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -10287,6 +10327,47 @@
           <FunctionImportMapping FunctionImportName="update_truong_lop" FunctionName="BKI_QLDTModel.Store.update_truong_lop" />
           <FunctionImportMapping FunctionImportName="update_v_contact" FunctionName="BKI_QLDTModel.Store.update_v_contact" />
           <FunctionImportMapping FunctionImportName="ut_next_sequence" FunctionName="BKI_QLDTModel.Store.ut_next_sequence" />
+          <EntitySetMapping Name="TP_PL04">
+            <EntityTypeMapping TypeName="BKI_QLDTModel.TP_PL04">
+              <MappingFragment StoreEntitySet="TP_PL04">
+                <ScalarProperty Name="GHI_CHU" ColumnName="GHI_CHU" />
+                <ScalarProperty Name="CONG_THUC" ColumnName="CONG_THUC" />
+                <ScalarProperty Name="NAM" ColumnName="NAM" />
+                <ScalarProperty Name="ID_DON_VI" ColumnName="ID_DON_VI" />
+                <ScalarProperty Name="GIA_TRI_CTHT_DA_QUYET_TOAN_LK_DEN_NAM_BAO_CAO" ColumnName="GIA_TRI_CTHT_DA_QUYET_TOAN_LK_DEN_NAM_BAO_CAO" />
+                <ScalarProperty Name="GIA_TRI_DE_NGHI_QUYET_TOAN_TRONG_NAM" ColumnName="GIA_TRI_DE_NGHI_QUYET_TOAN_TRONG_NAM" />
+                <ScalarProperty Name="GIA_TRI_CTHT_NAM_NAY" ColumnName="GIA_TRI_CTHT_NAM_NAY" />
+                <ScalarProperty Name="GIA_TRI_CTHT_NAM_TRUOC_CON_NO_CHUYEN_NAM_NAY" ColumnName="GIA_TRI_CTHT_NAM_TRUOC_CON_NO_CHUYEN_NAM_NAY" />
+                <ScalarProperty Name="GIA_TRI_DU_TOAN_CONG_TRINH_DUOC_DUYET" ColumnName="GIA_TRI_DU_TOAN_CONG_TRINH_DUOC_DUYET" />
+                <ScalarProperty Name="CAP" ColumnName="CAP" />
+                <ScalarProperty Name="MA_SO_PARENT" ColumnName="MA_SO_PARENT" />
+                <ScalarProperty Name="CONG_TRINH_HANG_MUC" ColumnName="CONG_TRINH_HANG_MUC" />
+                <ScalarProperty Name="TT" ColumnName="TT" />
+                <ScalarProperty Name="MA_SO" ColumnName="MA_SO" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN">
+            <EntityTypeMapping TypeName="BKI_QLDTModel.GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN">
+              <MappingFragment StoreEntitySet="GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN">
+                <ScalarProperty Name="GHI_CHU" ColumnName="GHI_CHU" />
+                <ScalarProperty Name="CONG_THUC" ColumnName="CONG_THUC" />
+                <ScalarProperty Name="NAM" ColumnName="NAM" />
+                <ScalarProperty Name="ID_DON_VI" ColumnName="ID_DON_VI" />
+                <ScalarProperty Name="GIA_TRI_CTHT_DA_QUYET_TOAN_LK_DEN_NAM_BAO_CAO" ColumnName="GIA_TRI_CTHT_DA_QUYET_TOAN_LK_DEN_NAM_BAO_CAO" />
+                <ScalarProperty Name="GIA_TRI_DE_NGHI_QUYET_TOAN_TRONG_NAM" ColumnName="GIA_TRI_DE_NGHI_QUYET_TOAN_TRONG_NAM" />
+                <ScalarProperty Name="GIA_TRI_CTHT_NAM_NAY" ColumnName="GIA_TRI_CTHT_NAM_NAY" />
+                <ScalarProperty Name="GIA_TRI_CTHT_NAM_TRUOC_CON_NO_CHUYEN_NAM_NAY" ColumnName="GIA_TRI_CTHT_NAM_TRUOC_CON_NO_CHUYEN_NAM_NAY" />
+                <ScalarProperty Name="GIA_TRI_DU_TOAN_CONG_TRINH_DUOC_DUYET" ColumnName="GIA_TRI_DU_TOAN_CONG_TRINH_DUOC_DUYET" />
+                <ScalarProperty Name="DU_AN" ColumnName="DU_AN" />
+                <ScalarProperty Name="CONG_TRINH" ColumnName="CONG_TRINH" />
+                <ScalarProperty Name="TEN_LOAI_NHIEM_VU" ColumnName="TEN_LOAI_NHIEM_VU" />
+                <ScalarProperty Name="TT" ColumnName="TT" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
