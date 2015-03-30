@@ -28,10 +28,18 @@ namespace QuanLyDuToan.BaoCaoQT {
             public decimal? IdLoai;
             public string MaSoParent;
         }
+        public class ItemBaoCaoDonVi {
+            public decimal? ID_DON_VI;
+            public string TEN_DON_VI;
+        }
         #endregion
 
         #region Members
         public List<GD_PL02_KINH_PHI_DA_SU_DUNG_DE_NGHI_QUYET_TOAN> lst_pl02;
+        public List<GD_PL02_KINH_PHI_DA_SU_DUNG_DE_NGHI_QUYET_TOAN> lst_cuc;
+        public List<GD_PL02_KINH_PHI_DA_SU_DUNG_DE_NGHI_QUYET_TOAN> lst_so;
+        public List<GD_PL02_KINH_PHI_DA_SU_DUNG_DE_NGHI_QUYET_TOAN> lst_ban;
+        public List<ItemBaoCaoDonVi> lst_don_vi;
         public List<ItemCLKM> lst_clkm;
         public List<string> lst_NDC;
 
@@ -257,6 +265,26 @@ namespace QuanLyDuToan.BaoCaoQT {
             }
             return "C";
         }
+
+        private void load_ten_don_vi(BKI_QLDTEntities ip_db) {
+
+            lst_don_vi = ip_db.GD_PL01_TONG_HOP_TINH_HINH_KINH_PHI_VA_QUYET_TOAN_CHI
+                                    .Select(x => new ItemBaoCaoDonVi { ID_DON_VI = x.DM_DON_VI.ID, TEN_DON_VI = x.DM_DON_VI.TEN_DON_VI })
+                                    .Distinct()
+                                    .ToList();
+        }
+        private void load_lst_ban(BKI_QLDTEntities db) {
+          
+        }
+
+        private void load_lst_so(BKI_QLDTEntities db) {
+            
+        }
+
+        private void load_lst_cuc(BKI_QLDTEntities db) {
+           
+        }
+
         #endregion
 
         #region Events
@@ -264,6 +292,7 @@ namespace QuanLyDuToan.BaoCaoQT {
             lst_NDC = new List<string>();
             lst_NDC.Add("I. Kinh phí năm quyết toán năm nay:");
             lst_NDC.Add("II. KP năm trước chưa QT, quyết toán năm nay");
+            //get list ...
             using (BKI_QLDTEntities db = new BKI_QLDTEntities()) {
                 lst_pl02 = db.GD_PL02_KINH_PHI_DA_SU_DUNG_DE_NGHI_QUYET_TOAN
                             .Where(x => x.ID_DON_VI == 145 && x.NAM == 2014)
@@ -283,7 +312,10 @@ namespace QuanLyDuToan.BaoCaoQT {
                     })
                     .ToList();
 
-
+                load_ten_don_vi(db);
+                load_lst_cuc(db);
+                load_lst_so(db);
+                load_lst_ban(db);
             }
         }
         #endregion

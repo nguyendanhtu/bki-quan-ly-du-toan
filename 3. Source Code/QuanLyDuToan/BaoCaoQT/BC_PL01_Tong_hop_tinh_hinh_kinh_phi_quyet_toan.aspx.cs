@@ -47,6 +47,7 @@ namespace QuanLyDuToan.BaoCaoQT {
                                             .Select(x => new ItemBaoCaoDonVi { ID_DON_VI = x.DM_DON_VI.ID, TEN_DON_VI = x.DM_DON_VI.TEN_DON_VI })
                                             .Distinct()
                                             .ToList();
+
                     if (lst_PL01.Where(x => x.DM_DON_VI.TEN_DON_VI.ToString().ToUpper().Contains("CỤC")).ToList().Count > 0) {
                         lst_cuc = lst_PL01
                             .Where(x => x.ID_DON_VI == lst_PL01[0].ID_DON_VI)
