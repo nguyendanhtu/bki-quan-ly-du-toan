@@ -12,13 +12,14 @@ namespace SQLDataAccess
     using System;
     using System.Collections.Generic;
     
-    public partial class GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN
+    public partial class TP_PL04
     {
         public decimal ID { get; set; }
+        public string MA_SO { get; set; }
         public string TT { get; set; }
-        public string TEN_LOAI_NHIEM_VU { get; set; }
-        public string CONG_TRINH { get; set; }
-        public string DU_AN { get; set; }
+        public string CONG_TRINH_HANG_MUC { get; set; }
+        public string MA_SO_PARENT { get; set; }
+        public Nullable<decimal> CAP { get; set; }
         public Nullable<decimal> GIA_TRI_DU_TOAN_CONG_TRINH_DUOC_DUYET { get; set; }
         public Nullable<decimal> GIA_TRI_CTHT_NAM_TRUOC_CON_NO_CHUYEN_NAM_NAY { get; set; }
         public Nullable<decimal> GIA_TRI_CTHT_NAM_NAY { get; set; }
@@ -28,7 +29,5 @@ namespace SQLDataAccess
         public Nullable<decimal> NAM { get; set; }
         public string CONG_THUC { get; set; }
         public string GHI_CHU { get; set; }
-    
-        public virtual DM_DON_VI DM_DON_VI { get; set; }
     }
 }

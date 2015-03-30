@@ -17,8 +17,8 @@ namespace SQLDataAccess
         public DM_CONG_TRINH_DU_AN_GOI_THAU()
         {
             this.DM_CONG_TRINH_DU_AN_GOI_THAU1 = new HashSet<DM_CONG_TRINH_DU_AN_GOI_THAU>();
-            this.GD_CHI_TIET_GIAI_NGAN = new HashSet<GD_CHI_TIET_GIAI_NGAN>();
-            this.GD_CHI_TIET_GIAI_NGAN1 = new HashSet<GD_CHI_TIET_GIAI_NGAN>();
+            this.GD_CHI_TIET_GIAI_NGAN_CONG_TRINH = new HashSet<GD_CHI_TIET_GIAI_NGAN>();
+            this.GD_CHI_TIET_GIAI_NGAN_DU_AN = new HashSet<GD_CHI_TIET_GIAI_NGAN>();
             this.GD_CHI_TIET_GIAO_KH = new HashSet<GD_CHI_TIET_GIAO_KH>();
             this.GD_CHI_TIET_GIAO_KH1 = new HashSet<GD_CHI_TIET_GIAO_KH>();
             this.GD_CHI_TIET_GIAO_VON = new HashSet<GD_CHI_TIET_GIAO_VON>();
@@ -38,10 +38,10 @@ namespace SQLDataAccess
         public Nullable<decimal> ID_DON_VI { get; set; }
     
         public virtual ICollection<DM_CONG_TRINH_DU_AN_GOI_THAU> DM_CONG_TRINH_DU_AN_GOI_THAU1 { get; set; }
-        public virtual DM_CONG_TRINH_DU_AN_GOI_THAU DM_CONG_TRINH_DU_AN_GOI_THAU2 { get; set; }
+        public virtual DM_CONG_TRINH_DU_AN_GOI_THAU DM_CONG_TRINH_DU_AN_GOI_THAU_PARENT { get; set; }
         public virtual DM_DON_VI DM_DON_VI { get; set; }
-        public virtual ICollection<GD_CHI_TIET_GIAI_NGAN> GD_CHI_TIET_GIAI_NGAN { get; set; }
-        public virtual ICollection<GD_CHI_TIET_GIAI_NGAN> GD_CHI_TIET_GIAI_NGAN1 { get; set; }
+        public virtual ICollection<GD_CHI_TIET_GIAI_NGAN> GD_CHI_TIET_GIAI_NGAN_CONG_TRINH { get; set; }
+        public virtual ICollection<GD_CHI_TIET_GIAI_NGAN> GD_CHI_TIET_GIAI_NGAN_DU_AN { get; set; }
         public virtual ICollection<GD_CHI_TIET_GIAO_KH> GD_CHI_TIET_GIAO_KH { get; set; }
         public virtual ICollection<GD_CHI_TIET_GIAO_KH> GD_CHI_TIET_GIAO_KH1 { get; set; }
         public virtual ICollection<GD_CHI_TIET_GIAO_VON> GD_CHI_TIET_GIAO_VON { get; set; }
