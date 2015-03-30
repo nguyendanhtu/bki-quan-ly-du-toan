@@ -11,6 +11,7 @@ using IP.Core.IPException;
 using IP.Core.IPCommon;
 using QuanLyDuToan.App_Code;
 using System.Data;
+
 namespace QuanLyDuToan.DuToan
 {
 	public partial class F104_nhap_du_toan_ke_hoach : System.Web.UI.Page
@@ -765,6 +766,7 @@ namespace QuanLyDuToan.DuToan
 			{
 				case LOAI_FORM.THEM:
 					m_us.Insert();
+					WebformControls.ghiLogDuToan("Nhập Giao kế hoạch ở Quyết định số " + new US_DM_QUYET_DINH(m_us.dcID_QUYET_DINH).strSO_QUYET_DINH);
 					m_lbl_mess_detail.Text = "Bạn đã ghi dữ liệu thành công!";
 					break;
 				case LOAI_FORM.SUA:
@@ -782,6 +784,7 @@ namespace QuanLyDuToan.DuToan
 						//	, WinFormControls.get_dau_nam_form_date(v_us_quyet_dinh.datNGAY_THANG)
 						//	, WinFormControls.get_cuoi_nam_form_date(v_us_quyet_dinh.datNGAY_THANG));
 						m_us.Update();
+						WebformControls.ghiLogDuToan("Cập nhật bản ghi Giao kế hoạch ở Quyết định số " + new US_DM_QUYET_DINH(m_us.dcID_QUYET_DINH).strSO_QUYET_DINH);
 						m_lbl_mess_detail.Text = "Bạn đã cập nhật dữ liệu thành công!";
 						//m_us.CommitTransaction();
 					}
@@ -798,7 +801,9 @@ namespace QuanLyDuToan.DuToan
 		}
 		private void delete_gd_chi_tiet_giao_kh_by_ID()
 		{
-			m_us.DeleteByID(CIPConvert.ToDecimal(m_hdf_id_giao_kh.Value));
+			decimal v_dc_id_giao_kh=CIPConvert.ToDecimal(m_hdf_id_giao_kh.Value);
+			WebformControls.ghiLogDuToan("Xoá bản ghi Giao kế hoạch ở Quyết định số " + new US_DM_QUYET_DINH(new US_GD_CHI_TIET_GIAO_KH(v_dc_id_giao_kh).dcID_QUYET_DINH).strSO_QUYET_DINH);
+			m_us.DeleteByID(v_dc_id_giao_kh);
 			load_data_to_grid();
 			m_lbl_mess_detail.Text = "Xoá bản ghi thành công!";
 		}
