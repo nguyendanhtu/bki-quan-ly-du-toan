@@ -274,15 +274,78 @@ namespace QuanLyDuToan.BaoCaoQT {
                                     .ToList();
         }
         private void load_lst_ban(BKI_QLDTEntities db) {
-          
+            if (lst_pl02.Where(x => x.DM_DON_VI.TEN_DON_VI.ToUpper().Contains("BAN")).ToList().Count() > 0) {
+                lst_ban = lst_pl02.Where(x => x.ID_DON_VI == lst_pl02[0].ID_DON_VI)
+                    .Select(x => new GD_PL02_KINH_PHI_DA_SU_DUNG_DE_NGHI_QUYET_TOAN {
+                        ID = 10000,
+                        MA_LOAI = x.MA_LOAI,
+                        MA_KHOAN = x.MA_KHOAN,
+                        MA_MUC = x.MA_MUC,
+                        MA_TIEU_MUC = x.MA_TIEU_MUC,
+                        NOI_DUNG_CHI = x.NOI_DUNG_CHI,
+                        NHOM = x.NHOM,
+                        LOAI = x.LOAI,
+                        ID_DON_VI = x.ID_DON_VI,
+                        NAM = x.NAM,
+                        SO_XET_DUYET = lst_pl02.Where(y => y.DM_DON_VI.TEN_DON_VI.ToUpper().Contains("BAN")).Select(y => y.SO_XET_DUYET == null ? 0 : y.SO_XET_DUYET).ToList().Sum()
+                                      ,
+                        SO_BAO_CAO = lst_pl02.Where(y => y.DM_DON_VI.TEN_DON_VI.ToUpper().Contains("BAN")).Select(y => y.SO_BAO_CAO == null ? 0 : y.SO_BAO_CAO).ToList().Sum()
+                                      ,
+                        DM_DON_VI = new DM_DON_VI { TEN_DON_VI = "BAN QLDA", ID = 10000 }
+
+                    }).ToList();
+
+            }
         }
 
         private void load_lst_so(BKI_QLDTEntities db) {
-            
+            if (lst_pl02.Where(x => x.DM_DON_VI.TEN_DON_VI.ToUpper().Contains("SỞ")).ToList().Count() > 0) {
+                lst_so = lst_pl02.Where(x => x.ID_DON_VI == lst_pl02[0].ID_DON_VI)
+                    .Select(x => new GD_PL02_KINH_PHI_DA_SU_DUNG_DE_NGHI_QUYET_TOAN {
+                        ID = 10000,
+                        MA_LOAI = x.MA_LOAI,
+                        MA_KHOAN = x.MA_KHOAN,
+                        MA_MUC = x.MA_MUC,
+                        MA_TIEU_MUC = x.MA_TIEU_MUC,
+                        NOI_DUNG_CHI = x.NOI_DUNG_CHI,
+                        NHOM = x.NHOM,
+                        LOAI = x.LOAI,
+                        ID_DON_VI = x.ID_DON_VI,
+                        NAM = x.NAM,
+                        SO_XET_DUYET = lst_pl02.Where(y => y.DM_DON_VI.TEN_DON_VI.ToUpper().Contains("SỞ")).Select(y => y.SO_XET_DUYET == null ? 0 : y.SO_XET_DUYET).ToList().Sum()
+                                      ,
+                        SO_BAO_CAO = lst_pl02.Where(y => y.DM_DON_VI.TEN_DON_VI.ToUpper().Contains("SỞ")).Select(y => y.SO_BAO_CAO == null ? 0 : y.SO_BAO_CAO).ToList().Sum()
+                                      ,
+                        DM_DON_VI = new DM_DON_VI { TEN_DON_VI = "SỞ GTVT", ID = 20000 }
+
+                    }).ToList();
+
+            }
         }
 
         private void load_lst_cuc(BKI_QLDTEntities db) {
-           
+            if (lst_pl02.Where(x => x.DM_DON_VI.TEN_DON_VI.ToUpper().Contains("CỤC")).ToList().Count() > 0) {
+                lst_cuc = lst_pl02.Where(x => x.ID_DON_VI == lst_pl02[0].ID_DON_VI)
+                    .Select(x => new GD_PL02_KINH_PHI_DA_SU_DUNG_DE_NGHI_QUYET_TOAN {
+                        ID = 10000,
+                        MA_LOAI = x.MA_LOAI,
+                        MA_KHOAN = x.MA_KHOAN,
+                        MA_MUC = x.MA_MUC,
+                        MA_TIEU_MUC = x.MA_TIEU_MUC,
+                        NOI_DUNG_CHI = x.NOI_DUNG_CHI,
+                        NHOM = x.NHOM,
+                        LOAI = x.LOAI,
+                        ID_DON_VI = x.ID_DON_VI,
+                        NAM = x.NAM,
+                        SO_XET_DUYET = lst_pl02.Where(y => y.DM_DON_VI.TEN_DON_VI.ToUpper().Contains("CỤC")).Select(y => y.SO_XET_DUYET == null ? 0 : y.SO_XET_DUYET).ToList().Sum()
+                                      ,
+                        SO_BAO_CAO = lst_pl02.Where(y => y.DM_DON_VI.TEN_DON_VI.ToUpper().Contains("CỤC")).Select(y => y.SO_BAO_CAO == null ? 0 : y.SO_BAO_CAO).ToList().Sum()
+                                      ,
+                        DM_DON_VI = new DM_DON_VI { TEN_DON_VI = "CỤC QLĐB", ID = 30000 }
+
+                    }).ToList();
+
+            }
         }
 
         #endregion
@@ -295,7 +358,7 @@ namespace QuanLyDuToan.BaoCaoQT {
             //get list ...
             using (BKI_QLDTEntities db = new BKI_QLDTEntities()) {
                 lst_pl02 = db.GD_PL02_KINH_PHI_DA_SU_DUNG_DE_NGHI_QUYET_TOAN
-                            .Where(x => x.ID_DON_VI == 145 && x.NAM == 2014)
+                            .Where(x => x.NAM == 2014)
                             .ToList();
                 var lst_dm_clkm = db.DM_CHUONG_LOAI_KHOAN_MUC.ToList();
                 lst_clkm = db
@@ -316,6 +379,20 @@ namespace QuanLyDuToan.BaoCaoQT {
                 load_lst_cuc(db);
                 load_lst_so(db);
                 load_lst_ban(db);
+
+                if (lst_ban != null) {
+                    lst_pl02.AddRange(lst_ban);
+                    lst_don_vi.Add(new ItemBaoCaoDonVi { ID_DON_VI = 10000, TEN_DON_VI = "BAN QLĐB" });
+                }
+                if (lst_so != null) {
+                    lst_pl02.AddRange(lst_so);
+                    lst_don_vi.Add(new ItemBaoCaoDonVi { ID_DON_VI = 20000, TEN_DON_VI = "SỞ GTVT" });
+                }
+                if (lst_cuc != null) {
+                    lst_pl02.AddRange(lst_cuc);
+                    lst_don_vi.Add(new ItemBaoCaoDonVi { ID_DON_VI = 30000, TEN_DON_VI = "CỤC QLDA" });
+                }
+                    
             }
         }
         #endregion
