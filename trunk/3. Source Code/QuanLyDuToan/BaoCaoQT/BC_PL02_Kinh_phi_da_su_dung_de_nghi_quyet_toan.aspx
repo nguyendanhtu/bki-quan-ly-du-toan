@@ -44,12 +44,10 @@
 				<th rowspan='2' class='clkm'>Mục</th>
 				<th rowspan='2' class='clkm'>Tiểu mục</th>
 				<th rowspan='2' style='width: 200px'>Nội dung chi</th>
-				<th colspan='3'>Tổng cộng</th>
-			</tr>
-			<tr class='text-center'>
-				<th rowspan='1' colspan='1' class='so_tien'>Số báo cáo</th>
-				<th rowspan='1' colspan='1' class='so_tien'>Số phê duyệt</th>
-				<th rowspan='1' colspan='1' class='so_tien'>Chênh lệch</th>
+                <%foreach (var don_vi in lst_don_vi.OrderBy(x=>x.TEN_DON_VI
+)) {%>
+                <th class="col-sm-1 text-center"><span><%=don_vi.TEN_DON_VI%></span></th>
+                <%}%>
 			</tr>
 		<%--	<tr>
 				<td>Nhập mới</td>
