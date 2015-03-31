@@ -11,9 +11,10 @@
 	<script type="text/javascript" src='<%=ResolveClientUrl("~/Scripts/jquery-ui.min.js")%>'></script>
 	<title></title>
 	<style type="text/css">
-	 .hiddenCell {
-            display:none;
-        }
+		.hiddenCell {
+			display: none;
+		}
+
 		p {
 			height: 17px;
 			margin: 0px;
@@ -335,7 +336,11 @@
 												<br />
 												<br />
 												<p style="font-size: 13px">&nbsp;&nbsp;&nbsp; Kế toán trưởng&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;Chủ tài khoản</p>
-
+												<br />
+												<br />
+												<br />
+												<br />
+												
 											</td>
 											<td style="width: 70%; vertical-align: top">
 												<table style="width: 100%;" cellspacing="0px">
@@ -347,11 +352,21 @@
 															<p style="text-align: center; font-weight: bold" class="para">BỘ PHẬN KIỂM SOÁT CHI NGÀY:................</p>
 															<br />
 															<p style="font-size: 13px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Kiểm soát&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;Phụ trách</p>
+															<br />
+															<br />
+															<br />
+															<br />
+															
 														</td>
 														<td>
 															<p style="text-align: center; font-weight: bold;" class="para">BỘ PHẬN KẾ TOÁN GHI SỔ NGÀY:................</p>
 															<br />
 															<p style="font-size: 13px">&nbsp;&nbsp;&nbsp;&nbsp; Kế toán&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Kế toán trưởng&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Giám đốc&nbsp; </p>
+															<br />
+															<br />
+															<br />
+															<br />
+															
 														</td>
 													</tr>
 													<tr>
@@ -377,11 +392,19 @@
 												<p>NGÂN HÀNG A GHI SỐ NGÀY........</p>
 												<br />
 												<p class="para" style="font-weight: bold; text-align: center">Kế toán&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Kế toán trưởng&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;Giám đốc</p>
+												<br />
+															<br />
+															<br />
+															<br />
 											</td>
 											<td style="text-align: center">
 												<p>KBNN B, NGÂN HÀNG B GHI SỐ NGÀY........</p>
 												<br />
 												<p class="para" style="font-weight: bold; text-align: center">Kế toán&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Kế toán trưởng&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;Giám đốc</p>
+												<br />
+															<br />
+															<br />
+															<br />
 											</td>
 										</tr>
 										<tr>

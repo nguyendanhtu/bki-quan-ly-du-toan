@@ -236,6 +236,7 @@ namespace QuanLyDuToan.BaoCao
 													, Person.get_id_don_vi()
 													)
 								, m_ddl_don_vi);
+			m_ddl_don_vi.SelectedValue = Person.get_id_don_vi().ToString();
 		}
 		private void load_data_to_grid()
 		{
@@ -379,8 +380,8 @@ namespace QuanLyDuToan.BaoCao
 		{
 			try
 			{
-
 				m_ddl_loai_nv_SelectedIndexChanged(null, null);
+				load_data_to_grid();
 			}
 			catch (Exception v_e)
 			{
