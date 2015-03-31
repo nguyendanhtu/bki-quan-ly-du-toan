@@ -104,7 +104,10 @@ namespace QuanLyDuToan.Quantri
 				//	return;
 				//}
 				SqlCommand v_sql_cmd = new SqlCommand(v_str_command);
-				m_txt_lst_command.Text = v_str_command + Environment.NewLine + m_txt_lst_command.Text;
+				m_txt_lst_command.Text = v_str_command
+					+ Environment.NewLine
+					+"------------------------------------------"
+					+Environment.NewLine + m_txt_lst_command.Text;
 				v_bs.FillDatasetByCommand(m_ds, v_sql_cmd);
 				m_lbl_mess.Text = "Command(s) completed successfully.";
 				//m_grv.DataSource = m_ds.Tables[0];
