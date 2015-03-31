@@ -14,13 +14,13 @@
 
 		body {
 			font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-			font-size: 10px;
+			font-size: 11px;
 		}
 
 		.form-control {
 			/* display: block; */
 			padding: 3px 2px;
-			font-size: 10px;
+			font-size: 11px;
 		}
 	</style>
 </asp:Content>

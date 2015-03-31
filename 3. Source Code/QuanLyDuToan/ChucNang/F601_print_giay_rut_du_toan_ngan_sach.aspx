@@ -17,11 +17,14 @@
 	<link href="~/bootstrap-3.2.0-dist/css/bootstrap-theme.css" rel="stylesheet" type="text/css" />
 	<title></title>
 	<style type="text/css">
-		.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+		.col_30 {
+			width: 33.33%;
+		}
+		/*.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
 			position: relative;
 			min-height: 1px;
 			padding-right: 0px;
-		}
+		}*/
 
 		.table {
 			margin-bottom: 0px;
@@ -83,7 +86,7 @@
 
 			<table style="width: 900px; margin: auto;">
 				<tr>
-					<td style="border: 1px solid gray; width: 20%">Không ghi vào khu vực này</td>
+					<td style="border: 1px solid gray; width: 20%;text-align:center">Không ghi vào khu vực này</td>
 					<td style="font-weight: bold; font-size: 24px; text-align: center; width: 60%">GIẤY RÚT DỰ TOÁN NGÂN SÁCH</td>
 					<td style="border: 1px solid gray; width: 20%; text-align: center">Mẫu C2-02/NS		
 						<br />
@@ -126,22 +129,22 @@
 
 				<tr>
 					<td colspan="3">
-						<table id="main_table" class="col-sm-12">
+						<table id="main_table" style="width: 100%">
 							<tr>
-								<td colspan="2" class="col-sm-12">
-									<table class="col-sm-12">
+								<td colspan="2" style="width: 100%">
+									<table style="width: 100%">
 										<tr>
 											<td>
-												<table class="col-sm-12">
+												<table style="width: 100%">
 													<tr>
-														<td class="col-sm-3 text-right">
+														<td style="width: 25%; text-align: right">
 															<span>Đơn vị rút dự toán:</span>
 														</td>
-														<td class="col-sm-3">
+														<td style="width: 25%;">
 															<asp:Label ID="m_lbl_don_vi_rut_du_toan" runat="server"></asp:Label>
 														</td>
-														<td class="col-sm-3 text-right">Mã ĐVQHNS</td>
-														<td class="col-sm-3">
+														<td style="width: 25%; text-align: right">Mã ĐVQHNS: </td>
+														<td style="width: 25%;">
 															<asp:Label ID="m_lbl_ma_dvqhns" ForeColor="Black" runat="server"></asp:Label>
 														</td>
 													</tr>
@@ -150,21 +153,21 @@
 										</tr>
 										<tr>
 											<td>
-												<table class="col-sm-12">
+												<table style="width: 100%">
 													<tr>
-														<td class="col-sm-3 text-right">
+														<td style="width: 25%; text-align: right">
 															<span>Tài khoản:
 															</span>
 														</td>
-														<td class="col-sm-3">
+														<td style="width: 25%;">
 															<asp:Label ID="m_lbl_tai_khoan" runat="server"></asp:Label>
 														</td>
-														<td class="col-sm-3 text-right">
+														<td style="width: 25%; text-align: right">
 															<span>Tại KBNN:	
 
 															</span>
 														</td>
-														<td class="col-sm-3">
+														<td style="width: 25%;">
 															<asp:Label ID="m_lbl_tai_kbns" ForeColor="Black" Width="150px" runat="server"></asp:Label>
 														</td>
 													</tr>
@@ -174,17 +177,17 @@
 
 										<tr>
 											<td>
-												<table class="col-sm-12">
+												<table style="width: 100%">
 													<tr>
-														<td class="col-sm-3 text-right">
+														<td style="width: 25%; text-align: right">
 															<span>Mã cấp NS:
 
 															</span>
 														</td>
-														<td class="col-sm-3">
+														<td style="width: 25%;">
 															<asp:Label ID="m_lbl_ma_cap_ns" ForeColor="Black" Width="150px" runat="server"></asp:Label>
 														</td>
-														<td class="col-sm-6">
+														<td colspan="2">
 															<span>Tên CTMT, DA:</span>
 															<asp:Label ID="m_lbl_ten_ctmt_da" ForeColor="Black" Width="273px" runat="server"></asp:Label>
 														</td>
@@ -194,14 +197,14 @@
 										</tr>
 										<tr>
 											<td>
-												<table class="col-sm-12">
+												<table style="width: 100%">
 													<tr>
-														<td class="col-sm-3"></td>
-														<td class="col-sm-3"></td>
-														<td class="col-sm-3 text-right">
+														<td style="width: 25%; text-align: right"></td>
+														<td style="width: 25%; text-align: right"></td>
+														<td style="width: 25%; text-align: right">
 															<span>Mã CTMT, DA(*):</span>
 														</td>
-														<td class="col-sm-3">
+														<td style="width: 25%">
 															<asp:Label ID="m_lbl_ma_ctmt_da_htct" ForeColor="Black" Width="150px" runat="server"></asp:Label>
 														</td>
 													</tr>
@@ -210,19 +213,19 @@
 										</tr>
 										<tr>
 											<td>
-												<table class="col-sm-12">
+												<table  style="width: 100%">
 													<tr>
-														<td class="col-sm-3 text-right">
+														<td style="width: 25%; text-align: right">
 															<span>Năm NS:  
 															</span>
 															<asp:Label ID="m_lbl_nam_ns" ForeColor="Black" runat="server"></asp:Label>
 														</td>
 
-														<td class="col-sm-3 text-center">
+														<td style="width: 25%; text-align: center">
 															<span>Số CKC, HĐK:</span>
 															<asp:Label ID="m_lbl_so_ckc_hdk" ForeColor="Black" runat="server"></asp:Label>
 														</td>
-														<td class="col-sm-6">
+														<td colspan="2">
 															<span>Số CKC, HĐTH:	
  
 															</span>
@@ -237,8 +240,8 @@
 								</td>
 							</tr>
 							<tr>
-								<td colspan="2" class="col-sm-12">
-									<table class="col-sm-12">
+								<td colspan="2" style="width:100%">
+									<table  style="width:100%">
 										<tr>
 											<td>
 												<asp:GridView ID="m_grv" runat="server"
@@ -574,6 +577,10 @@
 												<p class="para" style="font-weight: bold; text-align: center">Kiểm toán&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Phụ trách</p>
 												<br />
 												<br />
+												<br />
+												<br />
+												<br />
+												<br />
 											</td>
 											<td style="text-align: center">
 												<p style="font-weight: bold">
@@ -582,6 +589,10 @@
 
 												<p>Ngày.....tháng.....năm.........</p>
 												<p class="para" style="font-weight: bold; text-align: center">Kế toán trưởng&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Thủ trưởng đơn vị</p>
+												<br />
+												<br />
+												<br />
+												<br />
 												<br />
 												<br />
 											</td>
@@ -606,7 +617,10 @@
 
 												<br />
 												<br />
-
+												<br />
+												<br />
+												<br />
+												<br />
 											</td>
 											<td style="width: 70%; vertical-align: top">
 												<table class="table bordertop0" style="width: 100%; margin-bottom: 0px;">
@@ -618,10 +632,18 @@
 															<p style="font-size: 13px; width: 305px;">&nbsp;&nbsp;&nbsp;&nbsp; Kế toán&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Kế toán trưởng&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Giám đốc&nbsp; </p>
 															<br />
 															<br />
+															<br />
+															<br />
+															<br />
+															<br />
 														</td>
 														<td>
 															<p style="text-align: center; font-size: 13px; font-weight: bold;" class="para">KBNN B, NH B ghi sổ ngày..../..../......</p>
 															<p style="font-size: 13px; width: 305px;">&nbsp;&nbsp;&nbsp;&nbsp; Kế toán&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Kế toán trưởng&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Giám đốc&nbsp; </p>
+															<br />
+															<br />
+															<br />
+															<br />
 															<br />
 															<br />
 														</td>
