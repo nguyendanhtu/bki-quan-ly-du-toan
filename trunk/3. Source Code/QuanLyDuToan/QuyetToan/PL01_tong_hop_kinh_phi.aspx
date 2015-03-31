@@ -2,10 +2,19 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 	<script src="../Scripts/UI/PL01.js"></script>
-	<%--<script src="../Scripts/BigInt.js"></script>--%>
+	<script src="../Scripts/jquery.dataTables.js"></script>
+	<script src="../Scripts/jquery.fixedheadertable.min.js"></script>
 	<style>
 		.format_so_tien {
-		text-align:right;
+			text-align: right;
+		}
+
+		.top {
+			text-align: right;
+		}
+
+		.form-control {
+			background-color:white;
 		}
 	</style>
 	<script type="text/javascript">
@@ -13,16 +22,17 @@
 	</script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-	
-	<table class=' table table-hover' id='tbl' style='width:900px;margin: auto'>
+
+	<table class=' table table-hover' id='tblPL01' style='width: 900px; margin: auto'>
 		<thead>
 			<tr class='text-center'>
 				<th class='col-sm-1' style='height: 50px;'>Mã số</th>
 				<th class='col-sm-3'>Nội dung chi</th>
 				<th class='col-sm-1'>Số báo cáo</th>
 				<th class='col-sm-1'>Số xét duyệt</th>
-				<th class='col-sm-1'>Công thức</th>
-				<th class='col-sm-1'><input type='button' class='btn btn-sm btn-success' value='Lưu dữ liệu' onclick='luu_du_lieu()' /></th>
+				<%--<th class='col-sm-1'>Công thức</th>--%>
+				<th class='col-sm-1'>
+					<input type='button' class='btn btn-sm btn-success' value='Lưu dữ liệu' onclick='luu_du_lieu()' /></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -41,9 +51,9 @@
 				<td class='col-sm-1'>
 					<input type='text' class='form-control  format_so_tien so_xet_duyet <%=formatClass(item.MA_SO) %>' value='<%= item.SO_XET_DUYET %>' />
 				</td>
-				<td class='col-sm-1 text-center'>
+				<%--<td class='col-sm-1 text-center'>
 					<span class=' ma_so <%= item.MA_SO %> cong_thuc' ><%=formatCongThuc( item.CONG_THUC) %></span>
-				</td>
+				</td>--%>
 				<td class='col-sm-1 text-center'>
 					<input type='button' class='btn btn-sm btn-success cap_nhat' value='Đã cập nhật' onclick='cap_nhat(this)' />
 				</td>
@@ -51,5 +61,5 @@
 			<%} %>
 		</tbody>
 	</table>
-	
+
 </asp:Content>

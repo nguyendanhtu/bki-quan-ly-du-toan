@@ -38,7 +38,7 @@
 	<script src="../Scripts/UI/PL02.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-	<table class='table table-hover scroll' style='width: 900px; margin: auto' id='tbl'>
+	<table class='table table-hover scroll' style='width: 900px; margin: auto' id='tblPL02'>
 		<thead style='vertical-align: middle;'>
 			<tr class='text-center'>
 				<th rowspan='2' class='clkm'>Loại</th>

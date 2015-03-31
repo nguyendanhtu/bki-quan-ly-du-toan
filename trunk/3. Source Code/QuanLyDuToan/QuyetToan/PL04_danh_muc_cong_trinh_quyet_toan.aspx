@@ -2,6 +2,8 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 	<script src="../Scripts/UI/PL04.js"></script>
+	<%--<script src="../Scripts/jquery.dataTables.js"></script>
+	<script src="../Scripts/jquery.fixedheadertable.min.js"></script>--%>
 	<style type="text/css">
 		#tblPL04 > thead > tr > th {
 			border: 1px solid #000;
