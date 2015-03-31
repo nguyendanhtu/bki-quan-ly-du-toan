@@ -137,7 +137,7 @@ namespace QuanLyDuToan.BaoCaoQT {
                                   .Where(y => y.DM_DON_VI.TEN_DON_VI.ToUpper().Contains("BAN") && y.MA_SO == x.MA_SO)
                              .Select(y => y.SO_BAO_CAO == null ? 0 : y.SO_BAO_CAO).ToList().Sum()
                              ,
-                             DM_DON_VI = new DM_DON_VI { TEN_DON_VI = "CỤC QLĐB", ID = 30000 }
+                             DM_DON_VI = new DM_DON_VI { TEN_DON_VI = "BAN QLDA", ID = 30000 }
 
                          })
                          .ToList();
