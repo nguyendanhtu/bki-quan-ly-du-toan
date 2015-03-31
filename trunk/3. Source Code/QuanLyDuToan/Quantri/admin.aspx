@@ -10,7 +10,7 @@
 			var table = $('#m_grv').dataTable({
 
 				"sPaginationType": "full_numbers",
-				"iDisplayLength": 15,
+				"iDisplayLength": 8,
 				"bServerSide": false,
 				"bProcessing": true,
 				"bSort": false,
