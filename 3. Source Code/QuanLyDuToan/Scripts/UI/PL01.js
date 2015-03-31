@@ -136,12 +136,46 @@ function autoTinhTong(maxMaSo) {
 		EventByFormula(i, 'so_xet_duyet');
 	}
 }
+function formatTable() {
+	var table = $('#tblPL01').dataTable({
+
+		"sPaginationType": "full_numbers",
+		"iDisplayLength": 500,
+		"bServerSide": false,
+		"bProcessing": true,
+		"bSort": false,
+		"bAutoWidth": false,
+		"sScrollY": "600",
+		"sScrollX": "100%",
+		"sScrollXInner": "100%",
+		"bScrollCollapse": true,
+		"bInfo": true,
+		"sDom": 'T<"clear"><"top">rt<"bottom">',
+		"bFilter": true,
+		"bLengthChange": true,
+		"oLanguage": {
+			"sSearch": "Tìm kiếm: ",
+			"sEmptyTable": "Không có dữ liệu phù hợp!",
+			"sInfo": "Có _TOTAL_ bản ghi (Trang hiện tại: từ _START_ đến _END_)",
+			"sInfoFiltered": " - Có tất cả _MAX_ bản ghi",
+			"oPaginate": {
+				"sPrevious": "Trang trước",
+				"sNext": "Trang tiếp",
+				"sFirst": "Trang đầu",
+				"sLast": "Trang cuối"
+			},
+			"sProcessing": "Đang tải dữ liệu!"
+		}
+	});
+	new $.fn.dataTable.FixedHeader(table);
+}
 $(document).ready(function () {
 	autoTinhTong(70);
 	formatInputMoneyInit();
 	$('.cap_nhat').each(function () {
 		DaCapNhat(this);
-	})
+	});
+	formatTable();
 });
 
 

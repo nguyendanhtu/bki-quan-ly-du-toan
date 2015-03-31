@@ -92,14 +92,5 @@ namespace QuanLyDuToan.Quantri {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox m_txt_lst_command;
-        
-        /// <summary>
-        /// m_grv control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView m_grv;
     }
 }

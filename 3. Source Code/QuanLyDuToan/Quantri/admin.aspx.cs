@@ -107,14 +107,14 @@ namespace QuanLyDuToan.Quantri
 				m_txt_lst_command.Text = v_str_command + Environment.NewLine + m_txt_lst_command.Text;
 				v_bs.FillDatasetByCommand(m_ds, v_sql_cmd);
 				m_lbl_mess.Text = "Command(s) completed successfully.";
-				m_grv.DataSource = m_ds.Tables[0];
-				m_grv.DataBind();
+				//m_grv.DataSource = m_ds.Tables[0];
+				//m_grv.DataBind();
 			}
 			catch (Exception v_e)
 			{
 				m_lbl_mess.Text = "Lỗi: " + v_e.ToString();
-				m_grv.DataSource = null;
-				m_grv.DataBind();
+				//m_grv.DataSource = null;
+				//m_grv.DataBind();
 
 			}
 		}
