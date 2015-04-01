@@ -96,8 +96,8 @@ namespace QuanLyDuToan.WebMethod
 					<input type='text' id='txt_so_xet_duyet' value='0' class='so_tien format_so_tien  text-right' /></td>
 				<td class='text-right'><span id='lbl_chenh_lech' class='so_tien'>0</span></td>
 				<td class='text-center'>
-					<input type='button' id='btnCapNhat' class='btn btn-sm btn-success' value='Cập nhật' onclick='gdPL02.update()' />
-					<input type='button' id='Button1' class='btn btn-sm btn-default' value='Xoá trắng' onclick='gdPL02.cancel()' />
+					<input type='button' id='btnCapNhat' style='width:91px' class='btn btn-sm btn-success' value='Ghi dữ liệu' onclick='gdPL02.update()' />
+					<input type='button' id='btnCancel' class='btn btn-sm btn-default' value='Huỷ thao tác' onclick='gdPL02.cancel()' />
 				</td>
 			</tr>
 		</thead>

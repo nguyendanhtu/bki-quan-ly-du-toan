@@ -243,14 +243,14 @@
                                     </asp:TemplateField>
                                     <asp:TemplateField ItemStyle-HorizontalAlign="Left" HeaderText="(0)" HeaderStyle-Height="10px">
                                         <ItemTemplate>
-                                            <%#Eval(RPT_BC_TINH_HINH_GIAI_NGAN.TONG_SO_KM, "{0:#,##0}")%>
+                                            <%#Eval(RPT_BC_TINH_HINH_GIAI_NGAN.TONG_SO_KM, "{0:#.###}")%>
                                         </ItemTemplate>
                                         <HeaderStyle Height="10px" HorizontalAlign="Center" />
                                         <ItemStyle HorizontalAlign="Right" />
                                     </asp:TemplateField>
                                     <asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="(1)" HeaderStyle-Height="10px">
                                         <ItemTemplate>
-                                            <a class='a<%# Eval(GRID_GIAI_NGAN.ID)%>' href="<%FormInfo.FormName.F157.ToString();%><%# format_link_to_chi_tiet(
+                                            <a class='a<%# Eval(GRID_GIAI_NGAN.ID)%>' href="<%#FormInfo.FormName.F157.ToString()%><%# format_link_to_chi_tiet(
                                                     Eval(RPT_BC_TINH_HINH_GIAI_NGAN.REPORT_LEVEL)
                                                     ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID_DON_VI)
                                                     ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID_LOAI_NHIEM_VU)
@@ -264,7 +264,7 @@
                                     </asp:TemplateField>
                                     <asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="(2)" HeaderStyle-Height="10px">
                                         <ItemTemplate>
-                                            <a class='a<%# Eval(GRID_GIAI_NGAN.ID)%>' href="<%FormInfo.FormName.F157.ToString();%><%# format_link_to_chi_tiet(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.REPORT_LEVEL)
+                                            <a class='a<%# Eval(GRID_GIAI_NGAN.ID)%>' href="<%#FormInfo.FormName.F157.ToString()%><%# format_link_to_chi_tiet(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.REPORT_LEVEL)
                                                    ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID_DON_VI)
                                                     ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID_LOAI_NHIEM_VU)
                                                     ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID_CONG_TRINH_KHOAN)
@@ -292,7 +292,7 @@
                                     </asp:TemplateField>
                                     <asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="(4)" HeaderStyle-Height="10px">
                                         <ItemTemplate>
-                                            <a class='a<%# Eval(GRID_GIAI_NGAN.ID)%>' href="<%FormInfo.FormName.F257.ToString();%><%# format_link_to_chi_tiet_trong_thang(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.REPORT_LEVEL)
+                                            <a class='a<%# Eval(GRID_GIAI_NGAN.ID)%>' href="<%#FormInfo.FormName.F257.ToString()%><%# format_link_to_chi_tiet_trong_thang(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.REPORT_LEVEL)
                                                    ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID_DON_VI)
                                                     ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID_LOAI_NHIEM_VU)
                                                     ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID_CONG_TRINH_KHOAN)
@@ -305,7 +305,7 @@
                                     </asp:TemplateField>
                                     <asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="(5)" HeaderStyle-Height="10px">
                                         <ItemTemplate>
-                                            <a class='a<%# Eval(GRID_GIAI_NGAN.ID)%>' href="<%FormInfo.FormName.F257.ToString();%><%# format_link_to_chi_tiet(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.REPORT_LEVEL)
+                                            <a class='a<%# Eval(GRID_GIAI_NGAN.ID)%>' href="<%#FormInfo.FormName.F257.ToString()%><%# format_link_to_chi_tiet(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.REPORT_LEVEL)
                                                    ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID_DON_VI)
                                                     ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID_LOAI_NHIEM_VU)
                                                     ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID_CONG_TRINH_KHOAN)
@@ -346,7 +346,7 @@
                                     <asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="(8)" HeaderStyle-Height="10px">
                                         <ItemTemplate>
 
-                                            <a class='a<%# Eval(GRID_GIAI_NGAN.ID)%>' href="<%FormInfo.FormName.F357.ToString();%><%# format_link_to_chi_tiet_trong_thang(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.REPORT_LEVEL)
+                                            <a class='a<%# Eval(GRID_GIAI_NGAN.ID)%>' href="<%#FormInfo.FormName.F357.ToString()%><%# format_link_to_chi_tiet_trong_thang(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.REPORT_LEVEL)
                                                     ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID_DON_VI)
                                                     ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID_LOAI_NHIEM_VU)
                                                     ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID_CONG_TRINH_KHOAN)
@@ -359,7 +359,7 @@
                                     </asp:TemplateField>
                                     <asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="(9)" HeaderStyle-Height="10px">
                                         <ItemTemplate>
-                                            <a class='a<%# Eval(GRID_GIAI_NGAN.ID)%>' href="<%FormInfo.FormName.F357.ToString();%><%# format_link_to_chi_tiet(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.REPORT_LEVEL)
+                                            <a class='a<%# Eval(GRID_GIAI_NGAN.ID)%>' href="<%#FormInfo.FormName.F357.ToString()%><%# format_link_to_chi_tiet(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.REPORT_LEVEL)
                                                   ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID_DON_VI)
                                                     ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID_LOAI_NHIEM_VU)
                                                     ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID_CONG_TRINH_KHOAN)
@@ -372,7 +372,7 @@
                                     </asp:TemplateField>
                                     <asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="(10)" HeaderStyle-Height="10px">
                                         <ItemTemplate>
-                                            <a class='a<%# Eval(GRID_GIAI_NGAN.ID)%>' href="<%FormInfo.FormName.F357.ToString();%><%# format_link_to_chi_tiet_trong_thang(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.REPORT_LEVEL)
+                                            <a class='a<%# Eval(GRID_GIAI_NGAN.ID)%>' href="<%#FormInfo.FormName.F357.ToString()%><%# format_link_to_chi_tiet_trong_thang(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.REPORT_LEVEL)
                                                   ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID_DON_VI)
                                                     ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID_LOAI_NHIEM_VU)
                                                     ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID_CONG_TRINH_KHOAN)
@@ -385,7 +385,7 @@
                                     </asp:TemplateField>
                                     <asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="(11)" HeaderStyle-Height="10px">
                                         <ItemTemplate>
-                                            <a class='a<%# Eval(GRID_GIAI_NGAN.ID)%>' href="<%FormInfo.FormName.F357.ToString();%><%# format_link_to_chi_tiet(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.REPORT_LEVEL)
+                                            <a class='a<%# Eval(GRID_GIAI_NGAN.ID)%>' href="<%#FormInfo.FormName.F357.ToString()%><%# format_link_to_chi_tiet(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.REPORT_LEVEL)
                                                     ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID_DON_VI)
                                                     ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID_LOAI_NHIEM_VU)
                                                     ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID_CONG_TRINH_KHOAN)

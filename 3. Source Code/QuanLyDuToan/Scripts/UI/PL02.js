@@ -1,5 +1,6 @@
 ﻿var gdPL02 = {
 	cancel: function xoa_trang() {
+		$('#btnCapNhat').val('Ghi dữ liệu');
 		$('#txt_loai').val('');
 		$('#txt_khoan').val('');
 		$('#txt_muc').val('');
@@ -20,9 +21,9 @@
 				alert('Xảy ra lỗi trong quá trình thực hiện, Bạn vui lòng thực hiện lại thao tác!');
 			},
 			success: function (data) {
-				$('#tbl tbody').hide();
-				$('#tbl').empty();
-				$('#tbl').append(data);
+				$('#tblPL02 tbody').hide();
+				$('#tblPL02').empty();
+				$('#tblPL02').append(data);
 				gdPL02.autoValidateInput();
 			}
 		});
@@ -95,6 +96,7 @@
 	},
 	editItem: function editGD(button) {
 		this.cancel();
+		$('#btnCapNhat').val('Cập nhật')
 		var txt_ma_tieu_muc = $(button).parent().parent().find('.ma_tieu_muc');
 		$('#btnCapNhat').attr('id_giao_dich', $(txt_ma_tieu_muc).attr('id_giao_dich'));
 		var txt_so_bao_cao = $(button).parent().parent().find('.so_bao_cao');
@@ -229,8 +231,6 @@
 		new $.fn.dataTable.FixedHeader(table);
 	}
 }
-
-
 $(document).ready(function () {
 	var IdGiaoDich = -1;
 	gdPL02.autoValidateInput();

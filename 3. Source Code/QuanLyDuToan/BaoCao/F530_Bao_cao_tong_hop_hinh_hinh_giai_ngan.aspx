@@ -157,7 +157,7 @@
 									</asp:TemplateField>
 									<asp:TemplateField ItemStyle-HorizontalAlign="Left" HeaderText="(0)" HeaderStyle-Height="10px">
 										<ItemTemplate>
-											<%#Eval(RPT_BC_TINH_HINH_GIAI_NGAN.TONG_SO_KM, "{0:#,##0}")%>
+											<%#Eval(RPT_BC_TINH_HINH_GIAI_NGAN.TONG_SO_KM,"{0:#.###}")%>
 										</ItemTemplate>
 										<HeaderStyle Height="10px" HorizontalAlign="Center" />
 										<ItemStyle HorizontalAlign="Right" />

@@ -8,6 +8,7 @@ using IP.Core.IPCommon;
 using System.Data.SqlClient;
 using IP.Core.IPBusinessService;
 using System.Data;
+using System.Text.RegularExpressions;
 
 namespace QuanLyDuToan.Quantri
 {
@@ -103,13 +104,18 @@ namespace QuanLyDuToan.Quantri
 				//	m_grv.DataBind();
 				//	return;
 				//}
-				SqlCommand v_sql_cmd = new SqlCommand(v_str_command);
-				m_txt_lst_command.Text = v_str_command
-					+ Environment.NewLine
-					+"------------------------------------------"
-					+Environment.NewLine + m_txt_lst_command.Text;
-				v_bs.FillDatasetByCommand(m_ds, v_sql_cmd);
-				m_lbl_mess.Text = "Command(s) completed successfully.";
+				List<string> lst_cmd = Regex.Split(v_str_command, "GO").ToList();
+				foreach (var str_cmd in lst_cmd)
+				{
+					SqlCommand v_sql_cmd = new SqlCommand(str_cmd);
+					m_txt_lst_command.Text = str_cmd
+						+ Environment.NewLine
+						+ "------------------------------------------"
+						+ Environment.NewLine + m_txt_lst_command.Text;
+					v_bs.FillDatasetByCommand(m_ds, v_sql_cmd);
+					m_lbl_mess.Text = "Command(s) completed successfully.";
+				}
+				
 				//m_grv.DataSource = m_ds.Tables[0];
 				//m_grv.DataBind();
 			}

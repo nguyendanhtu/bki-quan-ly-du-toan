@@ -44,9 +44,9 @@ var gdPL04 = {
 		});
 	},
 	autoValidateInput: function initialRelation() {
-		var lst_str = $('.str_money');
+		var lst_str = $('.format_so_tien');
 		for (var i = 0; i < lst_str.length; i++) {
-			$(lst_str[i]).text(getFormatedNumberString($(lst_str[i]).text()));
+			$(lst_str[i]).val(getFormatedNumberString($(lst_str[i]).val()));
 		}
 		$('#txtGiaTriCTHTNamTruocConNoChuyenSangNamNay, #txtGiaTriCTHTNamNay')
 			.bind("keypress keyup keydown change blur", function () {
