@@ -88,7 +88,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td colspan="2" valign="top" style="width: 420px">
+					<td colspan="2"style="width: 420px;vertical-align:top">
 						<table class="cssTable table" style="width: 100%">
 							<tr>
 								<td colspan="3">
@@ -295,7 +295,7 @@
 													</td>
 													<td colspan="2" style="text-align: left">
 														<span>
-															<asp:TextBox ID="m_txt_so_km" runat="server" CssClass="form-control csscurrency format_so_tien" Style="text-align: right" Text="0" Width="190px" AutoPostBack="false"></asp:TextBox>(km)</span>
+															<asp:TextBox ID="m_txt_so_km" runat="server" CssClass="form-control" Style="text-align: right" Text="0" Width="190px" AutoPostBack="false"></asp:TextBox>(km)</span>
 													</td>
 												</tr>
 											</asp:Panel>
@@ -416,7 +416,7 @@
 
 											<asp:TemplateField HeaderText="Chiều dài tuyến (km)"  HeaderStyle-CssClass="hiddenCell" ItemStyle-HorizontalAlign="Right" ItemStyle-Width="100px">
 												<ItemTemplate>
-													<asp:Label ID="m_lbl_so_km_grid" runat="server" Text='<%#format_so_tien(Eval(GRID_GIAO_KH.So_KM).ToString()) %>'>
+													<asp:Label ID="m_lbl_so_km_grid" runat="server" Text='<%#Eval(GRID_GIAO_KH.So_KM,"{0:#.###}") %>'>
 													</asp:Label>
 												</ItemTemplate>
 											</asp:TemplateField>

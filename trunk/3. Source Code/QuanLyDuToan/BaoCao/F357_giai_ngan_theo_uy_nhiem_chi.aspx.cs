@@ -84,13 +84,24 @@ namespace QuanLyDuToan.BaoCao
 															, FormInfo.QueryString.ID_CONG_TRINH
 															, CONST_GIAO_DICH.ID_TAT_CA
 															);
+			string ip_str_nguon_ns = WebformFunctions.getValue_from_query_string<string>(
+															this
+															, FormInfo.QueryString.NGUON_NGAN_SACH
+															, STR_NGUON.QUY_BAO_TRI
+															);
 
 			//2. Đổ dữ liệu vào các dropdownlist:
 			//2.1. Đơn vị
 			this.load_data_to_ddl_don_vi();
+			m_ddl_don_vi.SelectedValue = ip_dc_id_don_vi.ToString();
 
 			//2.2. Loại nhiệm vụ
-			App_Code.WebformControls.load_data_to_ddl_loai_nhiem_vu(m_ddl_loai_nv);
+			if (ip_str_nguon_ns==STR_NGUON.NGAN_SACH)
+			{
+				App_Code.WebformControls.load_data_to_ddl_loai_nhiem_vu(m_ddl_loai_nv, true, false);
+			}
+			else
+				App_Code.WebformControls.load_data_to_ddl_loai_nhiem_vu(m_ddl_loai_nv,false, true);
 			m_ddl_loai_nv.SelectedValue = CIPConvert.ToStr(ip_dc_id_loai_nhiem_vu);
 
 			//2.3. Công trình

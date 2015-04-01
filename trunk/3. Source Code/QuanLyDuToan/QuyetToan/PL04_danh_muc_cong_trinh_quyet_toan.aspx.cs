@@ -28,35 +28,73 @@ namespace QuanLyDuToan.QuyetToan
 		#region Members
 		public List<GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN> lst_pl04;
 		public List<ItemLNV> lst_loai_nhiem_vu;
+		public List<DM_CONG_TRINH_DU_AN_GOI_THAU> lst_du_an;
+		public List<GD_CHI_TIET_GIAO_KH> lst_giao_kh;
 		#endregion
 
 		#region Private Methods
-		private void InsertDataDuToanToQuyetToan(decimal ip_dc_id_don_vi, string ip_str_nam_quyet_toan)
+		private void InsertDataDuToanToQuyetToan(decimal ip_dc_id_don_vi, decimal ip_dc_nam_quyet_toan)
 		{
-			using (BKI_QLDTEntities db = new BKI_QLDTEntities())
-			{
-				DateTime v_dat_dau_nam = new DateTime(Int16.Parse(ip_str_nam_quyet_toan), 1, 1);
-				DateTime v_dat_cuoi_nam = CCommonFunction.getDate_cuoi_nam_form_date(v_dat_dau_nam);
-				List<GD_CHI_TIET_GIAO_KH> lst_giao_kh = db.GD_CHI_TIET_GIAO_KH
-											.Where(x => x.DM_QUYET_DINH.NGAY_THANG >= v_dat_dau_nam
-														&& x.DM_QUYET_DINH.NGAY_THANG <= v_dat_cuoi_nam
-														&& x.ID_DON_VI == ip_dc_id_don_vi)
-											.ToList();
-				List<GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN> lst_pl04 = db.GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN
-											.Where(x => x.NAM == CIPConvert.ToDecimal(ip_str_nam_quyet_toan)
-												&& x.ID_DON_VI == ip_dc_id_don_vi)
-											.ToList();
-				List<DM_CONG_TRINH_DU_AN_GOI_THAU> lst_cong_trinh = lst_giao_kh.Select(x => x.DM_CONG_TRINH_DU_AN_GOI_THAU_CONG_TRINH).Distinct().ToList();
-				//List<DM_CONG_TRINH_DU_AN_GOI_THAU> lst_du_an = lst_giao_kh.Select(x => x.DM_CONG_TRINH_DU_AN_GOI_THAU_CONG_TRINH).Distinct().ToList();
-				//foreach (var gd_kh in lst_giao_kh)
-				//{
-				//	if (lst_pl04.Where(x => x.CAP == 2
-				//		&& x.CONG_TRINH_HANG_MUC == gd_kh.DM_CONG_TRINH_DU_AN_GOI_THAU_CONG_TRINH.TEN).ToList().Count < 1)
-				//	{
+			BKI_QLDTEntities db = new BKI_QLDTEntities();
+			DateTime v_dat_dau_nam = new DateTime(Int16.Parse(ip_dc_nam_quyet_toan.ToString()), 1, 1);
+			DateTime v_dat_cuoi_nam = CCommonFunction.getDate_cuoi_nam_form_date(v_dat_dau_nam);
+			lst_giao_kh = db.GD_CHI_TIET_GIAO_KH
+										.Where(x => x.DM_QUYET_DINH.NGAY_THANG >= v_dat_dau_nam
+													&& x.DM_QUYET_DINH.NGAY_THANG <= v_dat_cuoi_nam
+													&& x.ID_DON_VI == ip_dc_id_don_vi
+													&& x.ID_CHUONG == null)
+										.ToList();
+			List<GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN> lst_pl04 = db.GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN
+										.Where(x => x.NAM == ip_dc_nam_quyet_toan
+											&& x.ID_DON_VI == ip_dc_id_don_vi)
+										.ToList();
 
-				//	}
-				//}
+			//Insert gd_pl04 từ gd_chi_tiet_giao
+			foreach (var gd_giao_kh in lst_giao_kh)
+			{
+				if (lst_pl04
+					.Where(x => x.TEN_LOAI_NHIEM_VU.ToUpper() == gd_giao_kh.CM_DM_TU_DIEN.TEN.ToUpper()
+							&& x.CONG_TRINH.ToUpper() == gd_giao_kh.DM_CONG_TRINH_DU_AN_GOI_THAU_CONG_TRINH.TEN.ToUpper()
+							&& x.DU_AN.ToUpper() == gd_giao_kh.DM_CONG_TRINH_DU_AN_GOI_THAU_DU_AN.TEN.ToUpper()
+							)
+					.ToList()
+					.Count() < 1
+					)
+				{
+					GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN gd = new GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN();
+					gd.CONG_TRINH = gd_giao_kh.DM_CONG_TRINH_DU_AN_GOI_THAU_CONG_TRINH.TEN;
+					gd.TEN_LOAI_NHIEM_VU = gd_giao_kh.CM_DM_TU_DIEN.TEN;
+					gd.DU_AN = gd_giao_kh.DM_CONG_TRINH_DU_AN_GOI_THAU_DU_AN.TEN;
+					gd.ID_DON_VI = ip_dc_id_don_vi;
+					gd.NAM = ip_dc_nam_quyet_toan;
+					gd.TT = gd_giao_kh.CM_DM_TU_DIEN.GHI_CHU.ToUpper();
+					gd.GIA_TRI_CTHT_DA_QUYET_TOAN_LK_DEN_NAM_BAO_CAO = 0;
+					gd.GIA_TRI_CTHT_NAM_NAY = 0;
+					gd.GIA_TRI_CTHT_NAM_TRUOC_CON_NO_CHUYEN_NAM_NAY = 0;
+					gd.GIA_TRI_DE_NGHI_QUYET_TOAN_TRONG_NAM = 0;
+					gd.GIA_TRI_DU_TOAN_CONG_TRINH_DUOC_DUYET = 0;
+					db.GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN.Add(gd);
+					db.SaveChanges();
+				}
 			}
+
+			//Xoá gd_pl04 nếu không có trong gd_chi_tiet_giao_kh
+			foreach (var gd_pl04 in lst_pl04)
+			{
+				if (lst_giao_kh
+					.Where(x => x.CM_DM_TU_DIEN.TEN.ToUpper() == gd_pl04.TEN_LOAI_NHIEM_VU.ToUpper()
+							&& x.DM_CONG_TRINH_DU_AN_GOI_THAU_CONG_TRINH.TEN.ToUpper() == gd_pl04.CONG_TRINH.ToUpper()
+							&& x.DM_CONG_TRINH_DU_AN_GOI_THAU_DU_AN.TEN.ToUpper() == gd_pl04.DU_AN.ToUpper()
+							)
+					.ToList()
+					.Count() < 1
+					)
+				{
+					db.GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN.Remove(gd_pl04);
+					db.SaveChanges();
+				}
+			}
+
 		}
 		#endregion
 
@@ -66,17 +104,17 @@ namespace QuanLyDuToan.QuyetToan
 			//InsertDataDuToanToQuyetToan(Person.get_id_don_vi(),"2014");
 			using (BKI_QLDTEntities db = new BKI_QLDTEntities())
 			{
+				InsertDataDuToanToQuyetToan(241, 2014);
 				lst_pl04 = db.GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN
-						   .Where(x => x.ID_DON_VI == 145 && x.NAM == 2014)
+						   .Where(x => x.ID_DON_VI == 241 && x.NAM == 2014)
 						   .ToList();
 				lst_loai_nhiem_vu = db.CM_DM_TU_DIEN
 							.Where(x => x.ID_LOAI_TU_DIEN == ID_LOAI_TU_DIEN.LOAI_NHIEM_VU)
-							.OrderBy(x=>x.GHI_CHU)
+							.OrderBy(x => x.GHI_CHU)
 							.Select(x => new ItemLNV { Ten = x.GHI_CHU + " - " + x.TEN, Value = x.TEN })
 							.ToList();
 			}
 		}
 		#endregion
-
 	}
 }

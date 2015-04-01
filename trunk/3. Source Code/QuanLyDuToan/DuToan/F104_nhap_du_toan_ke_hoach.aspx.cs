@@ -159,7 +159,9 @@ namespace QuanLyDuToan.DuToan
 				//Lấy id_reported_user
 				v_id_dc_reported_user = Person.get_user_id();
 				//1. Get dataset
-				DS_GRID_GIAO_KH v_ds = new DS_GRID_GIAO_KH();
+				DataSet v_ds = new DataSet();
+				v_ds.Tables.Add(new DataTable());
+				v_ds.AcceptChanges();
 				//2. Lay du lieu
 				US_GRID_GIAO_KH v_us = new US_GRID_GIAO_KH();
 				decimal v_dc_id_quyet_dinh = -1;
@@ -527,7 +529,7 @@ namespace QuanLyDuToan.DuToan
 					break;
 			}
 
-			m_us.strGHI_CHU_2 = m_txt_so_km.Text.Replace(",", "").Replace(".", "").Trim();//ghi vao ghi chu 2
+			m_us.strGHI_CHU_2 = m_txt_so_km.Text.Replace(",", "").Trim();//ghi vao ghi chu 2
 
 			m_us.dcID_LOAI_NHIEM_VU = CIPConvert.ToDecimal(m_ddl_loai_nhiem_vu.SelectedValue);
 			//neu form mode la Quy BT thi so_tien_ns=0

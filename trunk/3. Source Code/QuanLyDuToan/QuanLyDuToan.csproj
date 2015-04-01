@@ -93,6 +93,9 @@
     <Content Include="Styles\jquery.dataTables.min.css" />
     <Content Include="WebMethod\PL01.asmx" />
     <Content Include="WebMethod\PL02.asmx" />
+    <Content Include="WebMethod\PL03.asmx" />
+    <Content Include="WebMethod\PL04.asmx" />
+    <Content Include="WebMethod\PL05.asmx" />
     <None Include="Properties\PublishProfiles\QuanLyDuToan.pubxml" />
     <Content Include="BaoCao\F150_giao_von_du_toan_vp_tong_cuc.aspx" />
     <Content Include="BaoCao\F356_bao_cao_giai_ngan_quy_bt_theo_dm.aspx" />
@@ -682,6 +685,18 @@
     </Compile>
     <Compile Include="WebMethod\PL02.asmx.cs">
       <DependentUpon>PL02.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WebMethod\PL03.asmx.cs">
+      <DependentUpon>PL03.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WebMethod\PL04.asmx.cs">
+      <DependentUpon>PL04.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WebMethod\PL05.asmx.cs">
+      <DependentUpon>PL05.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Content Include="App_Code\CCommonFunction.cs" />
