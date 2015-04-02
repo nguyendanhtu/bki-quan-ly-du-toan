@@ -22,7 +22,7 @@
         <EntityTypeShape EntityType="BKI_QLDTModel.GD_KHOI_LUONG" Width="1.5" PointX="9.75" PointY="37" IsExpanded="true" />
         <EntityTypeShape EntityType="BKI_QLDTModel.GD_PL01_TONG_HOP_TINH_HINH_KINH_PHI_VA_QUYET_TOAN_CHI" Width="1.5" PointX="7.5" PointY="45" IsExpanded="true" />
         <EntityTypeShape EntityType="BKI_QLDTModel.GD_PL02_KINH_PHI_DA_SU_DUNG_DE_NGHI_QUYET_TOAN" Width="1.5" PointX="7.5" PointY="48.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="BKI_QLDTModel.GD_PL03_THUC_HIEN_XU_LY_KIEN_NGHI_CUA_KIEM_TOAN_THANH_TRA_TAI_CHINH" Width="1.5" PointX="7.5" PointY="52.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BKI_QLDTModel.GD_PL03_THUC_HIEN_XU_LY_KIEN_NGHI_CUA_KIEM_TOAN_THANH_TRA_TAI_CHINH" Width="2.375" PointX="7.125" PointY="52.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BKI_QLDTModel.GD_PL05_DANH_MUC_CONG_TRINH_HOAN_THANH_GIAM_TRU_THANH_TOAN" Width="1.5" PointX="7.5" PointY="61.5" IsExpanded="true" />
         <EntityTypeShape EntityType="BKI_QLDTModel.HT_BACKUP_HISTORY" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BKI_QLDTModel.HT_BUSINESS_PROCESS_LOCK" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />

@@ -21,9 +21,11 @@ namespace SQLDataAccess
         public string MA_SO_PARENT { get; set; }
         public Nullable<decimal> CAP { get; set; }
         public Nullable<decimal> SO_KIEN_NGHI_KIEM_TOAN_NHA_NUOC { get; set; }
-        public Nullable<decimal> SO_KIEN_NGHI_CO_QUAN_NHA_NUOC { get; set; }
         public Nullable<decimal> ID_DON_VI { get; set; }
         public Nullable<decimal> NAM { get; set; }
+        public Nullable<decimal> SO_KIEN_NGHI_CO_QUAN_TAI_CHINH { get; set; }
+        public Nullable<decimal> SO_DA_NOP_TRA_KIEM_TOAN_NHA_NUOC { get; set; }
+        public Nullable<decimal> SO_DA_NOP_TRA_CO_QUAN_TAI_CHINH { get; set; }
     
         public virtual DM_DON_VI DM_DON_VI { get; set; }
     }
