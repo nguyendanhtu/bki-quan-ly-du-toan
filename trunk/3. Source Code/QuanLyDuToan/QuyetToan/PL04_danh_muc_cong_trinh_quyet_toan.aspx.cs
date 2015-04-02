@@ -53,18 +53,18 @@ namespace QuanLyDuToan.QuyetToan
 			foreach (var gd_giao_kh in lst_giao_kh)
 			{
 				if (lst_pl04
-					.Where(x => x.TEN_LOAI_NHIEM_VU.ToUpper() == gd_giao_kh.CM_DM_TU_DIEN.TEN.ToUpper()
-							&& x.CONG_TRINH.ToUpper() == gd_giao_kh.DM_CONG_TRINH_DU_AN_GOI_THAU_CONG_TRINH.TEN.ToUpper()
-							&& x.DU_AN.ToUpper() == gd_giao_kh.DM_CONG_TRINH_DU_AN_GOI_THAU_DU_AN.TEN.ToUpper()
+					.Where(x => x.TEN_LOAI_NHIEM_VU.Trim().ToUpper() == gd_giao_kh.CM_DM_TU_DIEN.TEN.Trim().ToUpper()
+							&& x.CONG_TRINH.Trim().ToUpper() == gd_giao_kh.DM_CONG_TRINH_DU_AN_GOI_THAU_CONG_TRINH.TEN.Trim().ToUpper()
+							&& x.DU_AN.Trim().ToUpper() == gd_giao_kh.DM_CONG_TRINH_DU_AN_GOI_THAU_DU_AN.TEN.Trim().ToUpper()
 							)
 					.ToList()
 					.Count() < 1
 					)
 				{
 					GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN gd = new GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN();
-					gd.CONG_TRINH = gd_giao_kh.DM_CONG_TRINH_DU_AN_GOI_THAU_CONG_TRINH.TEN;
-					gd.TEN_LOAI_NHIEM_VU = gd_giao_kh.CM_DM_TU_DIEN.TEN;
-					gd.DU_AN = gd_giao_kh.DM_CONG_TRINH_DU_AN_GOI_THAU_DU_AN.TEN;
+					gd.CONG_TRINH = gd_giao_kh.DM_CONG_TRINH_DU_AN_GOI_THAU_CONG_TRINH.TEN.Trim();
+					gd.TEN_LOAI_NHIEM_VU = gd_giao_kh.CM_DM_TU_DIEN.TEN.Trim();
+					gd.DU_AN = gd_giao_kh.DM_CONG_TRINH_DU_AN_GOI_THAU_DU_AN.TEN.Trim();
 					gd.ID_DON_VI = ip_dc_id_don_vi;
 					gd.NAM = ip_dc_nam_quyet_toan;
 					gd.TT = gd_giao_kh.CM_DM_TU_DIEN.GHI_CHU.ToUpper();
@@ -82,9 +82,9 @@ namespace QuanLyDuToan.QuyetToan
 			foreach (var gd_pl04 in lst_pl04)
 			{
 				if (lst_giao_kh
-					.Where(x => x.CM_DM_TU_DIEN.TEN.ToUpper() == gd_pl04.TEN_LOAI_NHIEM_VU.ToUpper()
-							&& x.DM_CONG_TRINH_DU_AN_GOI_THAU_CONG_TRINH.TEN.ToUpper() == gd_pl04.CONG_TRINH.ToUpper()
-							&& x.DM_CONG_TRINH_DU_AN_GOI_THAU_DU_AN.TEN.ToUpper() == gd_pl04.DU_AN.ToUpper()
+					.Where(x => x.CM_DM_TU_DIEN.TEN.Trim().ToUpper() == gd_pl04.TEN_LOAI_NHIEM_VU.Trim().ToUpper()
+							&& x.DM_CONG_TRINH_DU_AN_GOI_THAU_CONG_TRINH.TEN.Trim().ToUpper() == gd_pl04.CONG_TRINH.Trim().ToUpper()
+							&& x.DM_CONG_TRINH_DU_AN_GOI_THAU_DU_AN.TEN.Trim().ToUpper() == gd_pl04.DU_AN.Trim().ToUpper()
 							)
 					.ToList()
 					.Count() < 1

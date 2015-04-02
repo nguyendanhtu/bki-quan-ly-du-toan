@@ -6,6 +6,7 @@
 //		$(lst_str[i]).text(getFormatedNumberString($(lst_str[i]).text()));
 //	}
 //}
+var lstParaClass = [".GTDTCTDD", ".GTCTHTNTCNCNN", ".GTCTHTNN", ".DTDNQTTN", ".GTCTHTDQTLKDNBC", ".GTCTHTCNSQT", ".KHCDCN",".cong"];
 var gdPL04 = {
 	cancel: function xoa_trang() {
 		$('#txtCongTrinh').val('');
@@ -24,6 +25,105 @@ var gdPL04 = {
 		$('#txtGiaTriCTHTChuyenNamSauQT').val('0');
 		$('#txtKeHoachConDuCuoiNam').val('0')
 		$('#btnCapNhat').attr('id_giao_dich', '-1');
+	},
+	isChangeDataNeedToUpdate: function () {
+		lst_input = $('.input_control');
+		for (var i = 0; i < lst_input.length; i++) {
+			$(lst_input[i]).bind("keypress keyup keydown change blur", function () {
+				$(this).parent().parent().find('.cap_nhat').val("Cập nhật").addClass("btn-primary").removeClass("btn-success");
+			});
+		}
+	},
+	autoComputedByRow: function (i) {
+
+		var strGiaTriDuToanCongTrinhDuocDuyet = '.GiaTriDuToanCongTrinhDuocDuyet.' + i;
+		var strGiaTriCTHTNamTruocConNoChuyenSangNamNay = '.GiaTriCTHTNamTruocConNoChuyenSangNamNay.' + i;
+		var strGiaTriGiaTriCTHTNamNay = '.GiaTriCTHTNamNay.' + i;
+		var strGiaTriDeNghiQuyetToanTrongNam = '.GiaTriDeNghiQuyetToanTrongNam.' + i;
+		var strGiaTriCTHTDaQuyetToanLKDenNamBaoCao = '.GiaTriCTHTDaQuyetToanLKDenNamBaoCao.' + i;
+		var strQDDCCC = '.QDDCCC.' + i;
+		var strcong = '.cong.' + i;
+		var strGTCTHTCNSQT = '.GTCTHTCNSQT.' + i;
+		var strKHCDCN = '.KHCDCN.' + i;
+		$(strGiaTriCTHTNamTruocConNoChuyenSangNamNay).bind("keypress keyup keydown change blur", function (txtGTCTHTNamNay) {
+			$(strcong).text(
+				getFormatedNumberString(parseFloat($(strGiaTriGiaTriCTHTNamNay).val().split(',').join('').split('.').join(''))
+				+ parseFloat($(strGiaTriCTHTNamTruocConNoChuyenSangNamNay).val().split(',').join('').split('.').join(''))
+				+ '')
+				).change();
+		});
+		$(strGiaTriGiaTriCTHTNamNay).bind("keypress keyup keydown change blur", function (txtGTCTHTNamNay) {
+			$(strcong).text(
+				getFormatedNumberString(parseFloat($(strGiaTriGiaTriCTHTNamNay).val().split(',').join('').split('.').join(''))
+				+ parseFloat($(strGiaTriCTHTNamTruocConNoChuyenSangNamNay).val().split(',').join('').split('.').join(''))
+				+ '')
+				).change();
+		});
+		$(strcong).bind("keypress keyup keydown change blur", function (txtGTCTHTNamNay) {
+			$(strGTCTHTCNSQT).text(
+				getFormatedNumberString(parseFloat($(strcong).text().split(',').join('').split('.').join(''))
+				- parseFloat($(strGiaTriDeNghiQuyetToanTrongNam).val().split(',').join('').split('.').join(''))
+				+ '')
+				).change();
+		});
+		$(strGiaTriDeNghiQuyetToanTrongNam).bind("keypress keyup keydown change blur", function (txtGTCTHTNamNay) {
+			$(strGTCTHTCNSQT).text(
+				getFormatedNumberString(parseFloat($(strcong).text().split(',').join('').split('.').join(''))
+				- parseFloat($(strGiaTriDeNghiQuyetToanTrongNam).val().split(',').join('').split('.').join(''))
+				+ '')
+				).change();
+		});
+		$(strQDDCCC).bind("keypress keyup keydown change blur", function (txtGTCTHTNamNay) {
+			$(strKHCDCN).text(
+				getFormatedNumberString(parseFloat($(strQDDCCC).text().split(',').join('').split('.').join(''))
+				- parseFloat($(strGiaTriDeNghiQuyetToanTrongNam).val().split(',').join('').split('.').join(''))
+				+ '')
+				).change();
+		});
+		$(strGiaTriDeNghiQuyetToanTrongNam).bind("keypress keyup keydown change blur", function (txtGTCTHTNamNay) {
+			$(strKHCDCN).text(
+				getFormatedNumberString(parseFloat($(strQDDCCC).text().split(',').join('').split('.').join(''))
+				- parseFloat($(strGiaTriDeNghiQuyetToanTrongNam).val().split(',').join('').split('.').join(''))
+				+ '')
+				).change();
+		});
+
+	},
+	autoComputedLoaiNhiemVuByCongTrinh: function (index, paraClassValue) {
+		var strLNV = paraClassValue + "[ma_so='lnv_" + index + "\'";
+		var strCT = paraClassValue + "[ma_so_parent='lnv_" + index + "\'";
+		var lstCT = $(strCT);
+		for (var i = 0; i < lstCT.length; i++) {
+			$(lstCT[i]).bind("keypress keyup keydown change blur", function () {
+				var tong = 0;
+				for (var j = 0; j < lstCT.length; j++) {
+					var elementValue = $(lstCT[j]).text();
+					if ($(lstCT[j]).text()=="") {
+						elementValue = $(lstCT[j]).val();
+					}
+					tong = parseFloat(tong) + parseFloat(elementValue.split(',').join('').split('.').join(''));
+				}
+				$(strLNV).text(getFormatedNumberString(tong));
+			});
+		}
+	},
+	autoComputedCongTrinhByDuAn: function (index, paraClassValue) {
+		var strCT = paraClassValue + "[ma_so='ct_" + index + "\'";
+		var strDA = paraClassValue + "[ma_so_parent='ct_" + index + "\'";
+		var lstDA = $(strDA);
+		for (var i = 0; i < lstDA.length; i++) {
+			$(lstDA[i]).bind("keypress keyup keydown change blur", function () {
+				var tong = 0;
+				for (var j = 0; j < lstDA.length; j++) {
+					var elementValue = $(lstDA[j]).text();
+					if ($(lstDA[j]).text() == "") {
+						elementValue = $(lstDA[j]).val();
+					}
+					tong = parseFloat(tong) + parseFloat(elementValue.split(',').join('').split('.').join(''));
+				}
+				$(strCT).text(getFormatedNumberString(tong)).change();
+			});
+		}
 	},
 	reloadGrid: function updateGrid() {
 
@@ -47,6 +147,10 @@ var gdPL04 = {
 		var lst_str = $('.format_so_tien');
 		for (var i = 0; i < lst_str.length; i++) {
 			$(lst_str[i]).val(getFormatedNumberString($(lst_str[i]).val()));
+		}
+		var lst_str = $('.str_money');
+		for (var i = 0; i < lst_str.length; i++) {
+			$(lst_str[i]).text(getFormatedNumberString($(lst_str[i]).text()));
 		}
 		$('#txtGiaTriCTHTNamTruocConNoChuyenSangNamNay, #txtGiaTriCTHTNamNay')
 			.bind("keypress keyup keydown change blur", function () {
@@ -100,47 +204,49 @@ var gdPL04 = {
 		$('#txtGiaTriCTHTDaQuyetToanLKDenNamBaoCao').val($(lblGiaTriCTHTDaQuyetToanLKDenNamBaoCao).text()).change();
 
 	},
-	update: function UpdateGiaoDich() {
-		var v_id_giao_dich = -1;
-		var v_dc_id_don_vi = $('#btnCapNhat').attr('id_don_vi');
-		if ($('#btnCapNhat').attr('id_giao_dich') != undefined) {
-			v_id_giao_dich = $('#btnCapNhat').attr('id_giao_dich');
-		}
-		var v_str_loai = '';
-		if ($('#I').is(':checked')) {
-			v_str_loai = strLDC_I;
-		}
-		else {
-			v_str_loai = strLDC_II;
-		}
-		if (gdPL02.isCheckValidateDataOk()) {
+	update: function UpdateGiaoDich(button) {
+		lblDuAN = $(button).parent().parent().find('.du_an')
+		txtGTDTCongTrinhDuocDuyet = $(button).parent().parent().find('.GiaTriDuToanCongTrinhDuocDuyet');
+		txtGTCTHTNamTruocConNoChuyenSangNamNay = $(button).parent().parent().find('.GiaTriCTHTNamTruocConNoChuyenSangNamNay');
+		txtGTCTHTNamNay = $(button).parent().parent().find('.GiaTriCTHTNamNay');
+		txtGTDNQTTrongNam = $(button).parent().parent().find('.GiaTriDeNghiQuyetToanTrongNam');
+		txtGTCTHTDQTLKDenNamBaoCao = $(button).parent().parent().find('.GiaTriCTHTDaQuyetToanLKDenNamBaoCao');
+
+		if (gdPL04.isCheckValidateDataOk(
+			$(txtGTDTCongTrinhDuocDuyet).val()
+			, $(txtGTCTHTNamTruocConNoChuyenSangNamNay).val()
+			, $(txtGTCTHTNamNay).val()
+			, $(txtGTDNQTTrongNam).val()
+			, $(txtGTCTHTDQTLKDenNamBaoCao).val()
+			)) {
 			$.ajax({
-				url: '../WebMethod/PL02.asmx/UpdateGiaoDich',
+				url: '../WebMethod/PL04.asmx/UpdateGiaoDich',
 				type: 'post',
 				data: {
-					ip_dc_id_giao_dich: v_id_giao_dich
-					, ip_str_ma_loai: $('#txt_loai').val().trim()
-					, ip_str_ma_khoan: $('#txt_khoan').val().trim()
-					, ip_str_ma_muc: $('#txt_muc').val().trim()
-					, ip_str_ma_tieu_muc: $('#txt_tieu_muc').val().trim()
-					, ip_str_so_bao_cao: $('#txt_so_bao_cao').val().trim()
-					, ip_str_so_xet_duyet: $('#txt_so_xet_duyet').val().trim()
-					, ip_str_noi_dung_chi: $('#lbl_noi_dung_chi').text().trim()
-					, ip_str_loai: v_str_loai.trim()
-					, ip_dc_id_don_vi: IdDonVi
-					, ip_dc_nam: Nam
+					ip_dc_id_giao_dich: $(lblDuAN).attr('id_giao_dich')
+					, ip_str_TT: $(lblDuAN).attr('ten_loai_nhiem_vu')
+					, ip_str_ten_loai_nhiem_vu: $(lblDuAN).attr('ten_loai_nhiem_vu')
+					, ip_str_cong_trinh: $(lblDuAN).attr('cong_trinh')
+					, ip_str_du_an: $(lblDuAN).text()
+					, ip_str_GTDTCongTrinhDuocDuyet: $(txtGTDTCongTrinhDuocDuyet).val()
+					, ip_str_GTCTHTNamTruocConNoChuyenSangNamNay: $(txtGTCTHTNamTruocConNoChuyenSangNamNay).val()
+					, ip_str_GTCTHTNamNay: $(txtGTCTHTNamNay).val()
+					, ip_str_GTDNQTTrongNam: $(txtGTDNQTTrongNam).val()
+					, ip_str_GTCTHTDQTLKDenNamBaoCao: $(txtGTCTHTDQTLKDenNamBaoCao).val()
+
 				},
 				dataType: 'text',
 				error: function () {
 					alert('Xảy ra lỗi trong quá trình thực hiện, Bạn vui lòng thực hiện lại thao tác!');
 				},
 				success: function () {
-					gdPL02.reloadGrid();
+					//gdPL02.reloadGrid();
+					$(button).val("Đã cập nhật").removeClass("btn-primary").addClass("btn-success");
 				}
 			});
 		}
 		else {
-			alert("Dữ liệu Mã Loại, Mã Khoản, Mã Mục, Mã Tiểu mục không đúng! Bạn hãy kiểm tra lại!");
+			alert("Bạn phải nhập số tiền!");
 		}
 
 	},
@@ -168,16 +274,16 @@ var gdPL04 = {
 			//});
 		}
 	},
-	isCheckValidateDataOk: function () {
-		return !($('#txt_loai').css('background-color') == "rgb(211, 211, 211)"//Ma loai nhap sai
-			|| $('#txt_khoan').css('background-color') == "rgb(211, 211, 211)"//Ma khoan nhap sai
-			|| $('#txt_muc').css('background-color') == "rgb(211, 211, 211)"//Ma muc nhap sai
-			|| $('#txt_tieu_muc').css('background-color') == "rgb(211, 211, 211)"//Ma tieu muc nhap sai
-			|| $('#txt_loai').val() == ''
-			|| $('#txt_khoan').val() == ''
-			|| $('#txt_muc').val() == ''
-			|| $('#txt_tieu_muc').val() == ''
-			)
+	isCheckValidateDataOk: function (strGTDTCongTrinhDuocDuyet
+									, strGTCTHTNamTruocConNoChuyenSangNamNay
+									, strGTCTHTNamNay
+									, strGTDNQTTrongNam
+									, strGTCTHTDQTLKDenNamBaoCao) {
+		return strGTDTCongTrinhDuocDuyet != ""
+		&& strGTCTHTNamTruocConNoChuyenSangNamNay != ""
+		&& strGTCTHTNamNay != ""
+		&& strGTDNQTTrongNam != ""
+		&& strGTCTHTDQTLKDenNamBaoCao != "";
 	},
 	formatTable: function formatTable() {
 		var table = $('#tblPL04').dataTable({
@@ -211,9 +317,30 @@ var gdPL04 = {
 			}
 		});
 		new $.fn.dataTable.FixedHeader(table);
+	},
+	updateAll: function () {
+		var lstBtnCapNhat = $('.cap_nhat');
+		for (var i = 0; i < lstBtnCapNhat.length; i++) {
+			$(lstBtnCapNhat[i]).click();
+		}
 	}
 }
 $(document).ready(function () {
 	//autoFormatInitData();
 	gdPL04.autoValidateInput();
+	gdPL04.isChangeDataNeedToUpdate();
+	for (var i = 0; i < MaxRecord; i++) {
+		gdPL04.autoComputedByRow(i);
+	}
+
+	for (var para = 0; para < lstParaClass.length; para++) {
+		for (var j = 1; j <= MaxCT; j++) {
+			gdPL04.autoComputedCongTrinhByDuAn(j, lstParaClass[para]);
+		}
+		for (var i = 1; i <= MaxLNV; i++) {
+			gdPL04.autoComputedLoaiNhiemVuByCongTrinh(i, lstParaClass[para]);
+		}
+	}
+
+
 })
