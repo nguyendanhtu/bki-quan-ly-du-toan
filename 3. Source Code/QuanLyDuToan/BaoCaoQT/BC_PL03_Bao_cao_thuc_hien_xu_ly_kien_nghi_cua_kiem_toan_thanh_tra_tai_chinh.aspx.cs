@@ -16,6 +16,7 @@ namespace QuanLyDuToan.BaoCaoQT {
         public List<GD_PL03_THUC_HIEN_XU_LY_KIEN_NGHI_CUA_KIEM_TOAN_THANH_TRA_TAI_CHINH> lst_cuc;
         public List<GD_PL03_THUC_HIEN_XU_LY_KIEN_NGHI_CUA_KIEM_TOAN_THANH_TRA_TAI_CHINH> lst_so;
         public List<GD_PL03_THUC_HIEN_XU_LY_KIEN_NGHI_CUA_KIEM_TOAN_THANH_TRA_TAI_CHINH> lst_ban;
+        public string[] LoaiDonVi = { LoaiDonvi.SO, LoaiDonvi.CUC, LoaiDonvi.BAN }; 
         #endregion
 
         #region Data Structure
@@ -27,6 +28,11 @@ namespace QuanLyDuToan.BaoCaoQT {
         public class ItemBaoCaoDonVi {
             public decimal? ID_DON_VI;
             public string TEN_DON_VI;
+        }
+        public class LoaiDonvi {
+            public const string SO = "Sở GTVT";
+            public const string CUC = "CỤC QLĐB";
+            public const string BAN = "BAN QLDA";
         }
         #endregion
 
@@ -162,7 +168,7 @@ namespace QuanLyDuToan.BaoCaoQT {
 
         protected void Page_Load(object sender, EventArgs e) {
             if (!IsPostBack) {
-                using (BKI_QLDTEntities db = new BKI_QLDTEntities()) {
+                    BKI_QLDTEntities db = new BKI_QLDTEntities();
                     lst_PL03 = db.GD_PL03_THUC_HIEN_XU_LY_KIEN_NGHI_CUA_KIEM_TOAN_THANH_TRA_TAI_CHINH
                                             .Where(x => x.NAM == 2014)
                                             .ToList();
@@ -172,18 +178,18 @@ namespace QuanLyDuToan.BaoCaoQT {
                                             .Distinct()
                                             .ToList();
                     //add list cuc
-                    add_list_cuc();
+                    //add_list_cuc();
 
                     //add list so
-                    add_list_so();
+                    //add_list_so();
 
                     //add list ban
-                    add_list_ban();
+                    //add_list_ban();
 
                     //add list grid
-                    add_list_grid();
+                    //add_list_grid();
 
-                }
+                
 
             }
         }
