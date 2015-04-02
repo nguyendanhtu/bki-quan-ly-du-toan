@@ -43,7 +43,7 @@
                 <%foreach (var don_vi in lst_don_vi.OrderBy(x => x.TEN_DON_VI
 )) {%>
                 <td style="text-align: right">
-                    <span class="so_tien"><%=lst_PL03.Where(x=>x.ID_DON_VI==don_vi.ID_DON_VI&&x.MA_SO==item.MaSo).Select(x=>x.SO_KIEN_NGHI_CO_QUAN_NHA_NUOC).FirstOrDefault() %></span>
+                    <span class="so_tien"><%=lst_PL03.Where(x=>x.ID_DON_VI==don_vi.ID_DON_VI&&x.MA_SO==item.MaSo).Select(x=>x.SO_KIEN_NGHI_CO_QUAN_TAI_CHINH).FirstOrDefault() %></span>
                 </td>
                 <%}%>
             </tr>

@@ -57,9 +57,9 @@ namespace QuanLyDuToan.BaoCaoQT {
                          .Where(y => y.DM_DON_VI.TEN_DON_VI.ToUpper().Contains("BAN") && y.MA_SO == x.MA_SO)
                          .Select(y => y.SO_KIEN_NGHI_KIEM_TOAN_NHA_NUOC == null ? 0 : y.SO_KIEN_NGHI_KIEM_TOAN_NHA_NUOC).ToList().Sum()
                      ,
-                     SO_KIEN_NGHI_CO_QUAN_NHA_NUOC = lst_PL03
+                     SO_KIEN_NGHI_CO_QUAN_TAI_CHINH = lst_PL03
                           .Where(y => y.DM_DON_VI.TEN_DON_VI.ToUpper().Contains("BAN") && y.MA_SO == x.MA_SO)
-                     .Select(y => y.SO_KIEN_NGHI_CO_QUAN_NHA_NUOC == null ? 0 : y.SO_KIEN_NGHI_CO_QUAN_NHA_NUOC).ToList().Sum()
+                     .Select(y => y.SO_KIEN_NGHI_CO_QUAN_TAI_CHINH == null ? 0 : y.SO_KIEN_NGHI_CO_QUAN_TAI_CHINH).ToList().Sum()
                      ,
                      DM_DON_VI = new DM_DON_VI { TEN_DON_VI = "BAN QLDA", ID = 30000 }
 
@@ -94,9 +94,9 @@ namespace QuanLyDuToan.BaoCaoQT {
                          .Where(y => y.DM_DON_VI.TEN_DON_VI.ToUpper().Contains("SỞ") && y.MA_SO == x.MA_SO)
                          .Select(y => y.SO_KIEN_NGHI_KIEM_TOAN_NHA_NUOC == null ? 0 : y.SO_KIEN_NGHI_KIEM_TOAN_NHA_NUOC).ToList().Sum()
                      ,
-                     SO_KIEN_NGHI_CO_QUAN_NHA_NUOC = lst_PL03
+                     SO_KIEN_NGHI_CO_QUAN_TAI_CHINH = lst_PL03
                           .Where(y => y.DM_DON_VI.TEN_DON_VI.ToUpper().Contains("SỞ") && y.MA_SO == x.MA_SO)
-                     .Select(y => y.SO_KIEN_NGHI_CO_QUAN_NHA_NUOC == null ? 0 : y.SO_KIEN_NGHI_CO_QUAN_NHA_NUOC).ToList().Sum()
+                     .Select(y => y.SO_KIEN_NGHI_CO_QUAN_TAI_CHINH == null ? 0 : y.SO_KIEN_NGHI_CO_QUAN_TAI_CHINH).ToList().Sum()
                      ,
                      DM_DON_VI = new DM_DON_VI { TEN_DON_VI = "SỞ GTVT", ID = 20000 }
                  })
@@ -130,9 +130,9 @@ namespace QuanLyDuToan.BaoCaoQT {
                             .Where(y => y.DM_DON_VI.TEN_DON_VI.ToUpper().Contains("CỤC") && y.MA_SO == x.MA_SO)
                             .Select(y => y.SO_KIEN_NGHI_KIEM_TOAN_NHA_NUOC == null ? 0 : y.SO_KIEN_NGHI_KIEM_TOAN_NHA_NUOC).ToList().Sum()
                         ,
-                        SO_KIEN_NGHI_CO_QUAN_NHA_NUOC = lst_PL03
+                        SO_KIEN_NGHI_CO_QUAN_TAI_CHINH = lst_PL03
                              .Where(y => y.DM_DON_VI.TEN_DON_VI.ToUpper().Contains("CỤC") && y.MA_SO == x.MA_SO)
-                        .Select(y => y.SO_KIEN_NGHI_CO_QUAN_NHA_NUOC == null ? 0 : y.SO_KIEN_NGHI_CO_QUAN_NHA_NUOC).ToList().Sum()
+                        .Select(y => y.SO_KIEN_NGHI_CO_QUAN_TAI_CHINH == null ? 0 : y.SO_KIEN_NGHI_CO_QUAN_TAI_CHINH).ToList().Sum()
                         ,
                         DM_DON_VI = new DM_DON_VI { TEN_DON_VI = "Cục QLĐB", ID = 10000 }
                     })

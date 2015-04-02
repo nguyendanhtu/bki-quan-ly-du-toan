@@ -891,9 +891,11 @@
           <Property Name="MA_SO_PARENT" Type="nvarchar" MaxLength="15" />
           <Property Name="CAP" Type="numeric" Precision="4" />
           <Property Name="SO_KIEN_NGHI_KIEM_TOAN_NHA_NUOC" Type="numeric" Precision="21" />
-          <Property Name="SO_KIEN_NGHI_CO_QUAN_NHA_NUOC" Type="numeric" Precision="21" />
+          <Property Name="SO_KIEN_NGHI_CO_QUAN_TAI_CHINH" Type="numeric" Precision="21" />
           <Property Name="ID_DON_VI" Type="numeric" />
           <Property Name="NAM" Type="numeric" Precision="4" />
+          <Property Name="SO_DA_NOP_TRA_KIEM_TOAN_NHA_NUOC" Type="numeric" Precision="21" />
+          <Property Name="SO_DA_NOP_TRA_CO_QUAN_TAI_CHINH" Type="numeric" Precision="21" />
         </EntityType>
         <EntityType Name="GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN">
           <Key>
@@ -6612,10 +6614,12 @@
           <Property Name="MA_SO_PARENT" Type="String" MaxLength="15" Unicode="true" FixedLength="false" />
           <Property Name="CAP" Type="Decimal" Precision="4" Scale="0" />
           <Property Name="SO_KIEN_NGHI_KIEM_TOAN_NHA_NUOC" Type="Decimal" Precision="21" Scale="0" />
-          <Property Name="SO_KIEN_NGHI_CO_QUAN_NHA_NUOC" Type="Decimal" Precision="21" Scale="0" />
           <Property Name="ID_DON_VI" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="NAM" Type="Decimal" Precision="4" Scale="0" />
           <NavigationProperty Name="DM_DON_VI" Relationship="BKI_QLDTModel.FK_GD_PL03_THUC_HIEN_XU_LY_KIEN_NGHI_CUA_KIEM_TOAN_THANH_TRA_TAI_CHINH_DM_DON_VI" FromRole="GD_PL03_THUC_HIEN_XU_LY_KIEN_NGHI_CUA_KIEM_TOAN_THANH_TRA_TAI_CHINH" ToRole="DM_DON_VI" />
+          <Property Type="Decimal" Name="SO_KIEN_NGHI_CO_QUAN_TAI_CHINH" Precision="21" Scale="0" />
+          <Property Type="Decimal" Name="SO_DA_NOP_TRA_KIEM_TOAN_NHA_NUOC" Precision="21" Scale="0" />
+          <Property Type="Decimal" Name="SO_DA_NOP_TRA_CO_QUAN_TAI_CHINH" Precision="21" Scale="0" />
         </EntityType>
         <EntityType Name="GD_PL05_DANH_MUC_CONG_TRINH_HOAN_THANH_GIAM_TRU_THANH_TOAN">
           <Key>
@@ -8827,6 +8831,9 @@
           <EntitySetMapping Name="GD_PL03_THUC_HIEN_XU_LY_KIEN_NGHI_CUA_KIEM_TOAN_THANH_TRA_TAI_CHINH">
             <EntityTypeMapping TypeName="BKI_QLDTModel.GD_PL03_THUC_HIEN_XU_LY_KIEN_NGHI_CUA_KIEM_TOAN_THANH_TRA_TAI_CHINH">
               <MappingFragment StoreEntitySet="GD_PL03_THUC_HIEN_XU_LY_KIEN_NGHI_CUA_KIEM_TOAN_THANH_TRA_TAI_CHINH">
+                <ScalarProperty Name="SO_DA_NOP_TRA_CO_QUAN_TAI_CHINH" ColumnName="SO_DA_NOP_TRA_CO_QUAN_TAI_CHINH" />
+                <ScalarProperty Name="SO_DA_NOP_TRA_KIEM_TOAN_NHA_NUOC" ColumnName="SO_DA_NOP_TRA_KIEM_TOAN_NHA_NUOC" />
+                <ScalarProperty Name="SO_KIEN_NGHI_CO_QUAN_TAI_CHINH" ColumnName="SO_KIEN_NGHI_CO_QUAN_TAI_CHINH" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="MA_SO" ColumnName="MA_SO" />
                 <ScalarProperty Name="TT" ColumnName="TT" />
@@ -8834,7 +8841,6 @@
                 <ScalarProperty Name="MA_SO_PARENT" ColumnName="MA_SO_PARENT" />
                 <ScalarProperty Name="CAP" ColumnName="CAP" />
                 <ScalarProperty Name="SO_KIEN_NGHI_KIEM_TOAN_NHA_NUOC" ColumnName="SO_KIEN_NGHI_KIEM_TOAN_NHA_NUOC" />
-                <ScalarProperty Name="SO_KIEN_NGHI_CO_QUAN_NHA_NUOC" ColumnName="SO_KIEN_NGHI_CO_QUAN_NHA_NUOC" />
                 <ScalarProperty Name="ID_DON_VI" ColumnName="ID_DON_VI" />
                 <ScalarProperty Name="NAM" ColumnName="NAM" />
               </MappingFragment>
