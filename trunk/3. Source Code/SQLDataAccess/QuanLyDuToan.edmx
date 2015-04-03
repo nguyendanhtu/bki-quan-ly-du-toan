@@ -66,6 +66,52 @@
           </EntitySet>
           <EntitySet Name="RPT_BAO_CAO_GIAO_VON_THEO_QD" EntityType="BKI_QLDTModel.Store.RPT_BAO_CAO_GIAO_VON_THEO_QD" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="sysdiagrams" EntityType="BKI_QLDTModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TP_PL01" EntityType="BKI_QLDTModel.Store.TP_PL01" store:Type="Tables" store:Schema="dbo" store:Name="TP_PL01">
+            <DefiningQuery>SELECT 
+      [TP_PL01].[ID] AS [ID], 
+      [TP_PL01].[MA_SO] AS [MA_SO], 
+      [TP_PL01].[CHI_TIEU] AS [CHI_TIEU], 
+      [TP_PL01].[MA_SO_PARENT] AS [MA_SO_PARENT], 
+      [TP_PL01].[CAP] AS [CAP], 
+      [TP_PL01].[SO_BAO_CAO] AS [SO_BAO_CAO], 
+      [TP_PL01].[SO_XET_DUYET] AS [SO_XET_DUYET], 
+      [TP_PL01].[CONG_THUC] AS [CONG_THUC], 
+      [TP_PL01].[ID_DON_VI] AS [ID_DON_VI], 
+      [TP_PL01].[NAM] AS [NAM]
+      FROM [dbo].[TP_PL01] AS [TP_PL01]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="TP_PL02" EntityType="BKI_QLDTModel.Store.TP_PL02" store:Type="Tables" store:Schema="dbo" store:Name="TP_PL02">
+            <DefiningQuery>SELECT 
+      [TP_PL02].[ID] AS [ID], 
+      [TP_PL02].[MA_LOAI] AS [MA_LOAI], 
+      [TP_PL02].[MA_KHOAN] AS [MA_KHOAN], 
+      [TP_PL02].[MA_MUC] AS [MA_MUC], 
+      [TP_PL02].[MA_TIEU_MUC] AS [MA_TIEU_MUC], 
+      [TP_PL02].[NOI_DUNG_CHI] AS [NOI_DUNG_CHI], 
+      [TP_PL02].[NHOM] AS [NHOM], 
+      [TP_PL02].[LOAI] AS [LOAI], 
+      [TP_PL02].[ID_DON_VI] AS [ID_DON_VI], 
+      [TP_PL02].[NAM] AS [NAM], 
+      [TP_PL02].[SO_BAO_CAO] AS [SO_BAO_CAO], 
+      [TP_PL02].[SO_PHE_DUYET] AS [SO_PHE_DUYET]
+      FROM [dbo].[TP_PL02] AS [TP_PL02]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="TP_PL03" EntityType="BKI_QLDTModel.Store.TP_PL03" store:Type="Tables" store:Schema="dbo" store:Name="TP_PL03">
+            <DefiningQuery>SELECT 
+      [TP_PL03].[ID] AS [ID], 
+      [TP_PL03].[MA_SO] AS [MA_SO], 
+      [TP_PL03].[TT] AS [TT], 
+      [TP_PL03].[NOI_DUNG] AS [NOI_DUNG], 
+      [TP_PL03].[MA_SO_PARENT] AS [MA_SO_PARENT], 
+      [TP_PL03].[CAP] AS [CAP], 
+      [TP_PL03].[SO_KIEN_NGHI_KIEM_TOAN_NHA_NUOC] AS [SO_KIEN_NGHI_KIEM_TOAN_NHA_NUOC], 
+      [TP_PL03].[SO_KIEN_NGHI_CO_QUAN_TAI_CHINH] AS [SO_KIEN_NGHI_CO_QUAN_TAI_CHINH], 
+      [TP_PL03].[ID_DON_VI] AS [ID_DON_VI], 
+      [TP_PL03].[NAM] AS [NAM], 
+      [TP_PL03].[SO_DA_NOP_TRA_KIEM_TOAN_NHA_NUOC] AS [SO_DA_NOP_TRA_KIEM_TOAN_NHA_NUOC], 
+      [TP_PL03].[SO_DA_NOP_TRA_CO_QUAN_TAI_CHINH] AS [SO_DA_NOP_TRA_CO_QUAN_TAI_CHINH]
+      FROM [dbo].[TP_PL03] AS [TP_PL03]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="TP_PL04" EntityType="BKI_QLDTModel.Store.TP_PL04" store:Type="Tables" store:Schema="dbo" store:Name="TP_PL04">
             <DefiningQuery>SELECT 
       [TP_PL04].[ID] AS [ID], 
@@ -84,6 +130,20 @@
       [TP_PL04].[CONG_THUC] AS [CONG_THUC], 
       [TP_PL04].[GHI_CHU] AS [GHI_CHU]
       FROM [dbo].[TP_PL04] AS [TP_PL04]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="TP_PL05" EntityType="BKI_QLDTModel.Store.TP_PL05" store:Type="Tables" store:Schema="dbo" store:Name="TP_PL05">
+            <DefiningQuery>SELECT 
+      [TP_PL05].[ID] AS [ID], 
+      [TP_PL05].[MA_SO] AS [MA_SO], 
+      [TP_PL05].[STT] AS [STT], 
+      [TP_PL05].[NOI_DUNG] AS [NOI_DUNG], 
+      [TP_PL05].[MA_SO_PARENT] AS [MA_SO_PARENT], 
+      [TP_PL05].[CAP] AS [CAP], 
+      [TP_PL05].[GIA_TRI_KHOI_LUONG_CONG_TRINH_HOAN_THANH] AS [GIA_TRI_KHOI_LUONG_CONG_TRINH_HOAN_THANH], 
+      [TP_PL05].[GIA_TRI_KHOI_LUONG_DUOC_QUYET_TOAN] AS [GIA_TRI_KHOI_LUONG_DUOC_QUYET_TOAN], 
+      [TP_PL05].[ID_DON_VI] AS [ID_DON_VI], 
+      [TP_PL05].[NAM] AS [NAM]
+      FROM [dbo].[TP_PL05] AS [TP_PL05]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="v_cm_dm_tu_dien" EntityType="BKI_QLDTModel.Store.v_cm_dm_tu_dien" store:Type="Views" store:Schema="dbo" store:Name="v_cm_dm_tu_dien">
             <DefiningQuery>SELECT 
@@ -1091,6 +1151,65 @@
           <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
         <!--Errors Found During Generation:
+      warning 6002: The table/view 'BKI_QLDT.dbo.TP_PL01' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="TP_PL01">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="numeric" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="MA_SO" Type="nvarchar" MaxLength="15" />
+          <Property Name="CHI_TIEU" Type="nvarchar" MaxLength="250" />
+          <Property Name="MA_SO_PARENT" Type="nvarchar" MaxLength="15" />
+          <Property Name="CAP" Type="numeric" Precision="4" />
+          <Property Name="SO_BAO_CAO" Type="numeric" Precision="21" />
+          <Property Name="SO_XET_DUYET" Type="numeric" Precision="21" />
+          <Property Name="CONG_THUC" Type="nvarchar" MaxLength="250" />
+          <Property Name="ID_DON_VI" Type="numeric" />
+          <Property Name="NAM" Type="numeric" Precision="4" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'BKI_QLDT.dbo.TP_PL02' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="TP_PL02">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="ID_DON_VI" />
+          </Key>
+          <Property Name="ID" Type="numeric" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="MA_LOAI" Type="nvarchar" MaxLength="35" />
+          <Property Name="MA_KHOAN" Type="nvarchar" MaxLength="35" />
+          <Property Name="MA_MUC" Type="nvarchar" MaxLength="35" />
+          <Property Name="MA_TIEU_MUC" Type="nvarchar" MaxLength="35" />
+          <Property Name="NOI_DUNG_CHI" Type="nvarchar" MaxLength="250" />
+          <Property Name="NHOM" Type="nvarchar" MaxLength="250" />
+          <Property Name="LOAI" Type="nvarchar" MaxLength="250" />
+          <Property Name="ID_DON_VI" Type="numeric" Nullable="false" />
+          <Property Name="NAM" Type="numeric" Precision="4" />
+          <Property Name="SO_BAO_CAO" Type="numeric" Precision="21" />
+          <Property Name="SO_PHE_DUYET" Type="numeric" Precision="21" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'BKI_QLDT.dbo.TP_PL03' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="TP_PL03">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="numeric" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="MA_SO" Type="nvarchar" MaxLength="15" />
+          <Property Name="TT" Type="nvarchar" MaxLength="35" />
+          <Property Name="NOI_DUNG" Type="nvarchar" MaxLength="250" />
+          <Property Name="MA_SO_PARENT" Type="nvarchar" MaxLength="15" />
+          <Property Name="CAP" Type="numeric" Precision="4" />
+          <Property Name="SO_KIEN_NGHI_KIEM_TOAN_NHA_NUOC" Type="numeric" Precision="21" />
+          <Property Name="SO_KIEN_NGHI_CO_QUAN_TAI_CHINH" Type="numeric" Precision="21" />
+          <Property Name="ID_DON_VI" Type="numeric" />
+          <Property Name="NAM" Type="numeric" Precision="4" />
+          <Property Name="SO_DA_NOP_TRA_KIEM_TOAN_NHA_NUOC" Type="numeric" Precision="21" />
+          <Property Name="SO_DA_NOP_TRA_CO_QUAN_TAI_CHINH" Type="numeric" Precision="21" />
+        </EntityType>
+        <!--Errors Found During Generation:
       warning 6002: The table/view 'BKI_QLDT.dbo.TP_PL04' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="TP_PL04">
@@ -1112,6 +1231,24 @@
           <Property Name="NAM" Type="numeric" Precision="4" />
           <Property Name="CONG_THUC" Type="nvarchar" MaxLength="250" />
           <Property Name="GHI_CHU" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'BKI_QLDT.dbo.TP_PL05' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="TP_PL05">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="numeric" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="MA_SO" Type="nvarchar" MaxLength="15" />
+          <Property Name="STT" Type="nvarchar" MaxLength="35" />
+          <Property Name="NOI_DUNG" Type="nvarchar" MaxLength="250" />
+          <Property Name="MA_SO_PARENT" Type="nvarchar" MaxLength="15" />
+          <Property Name="CAP" Type="numeric" Precision="4" />
+          <Property Name="GIA_TRI_KHOI_LUONG_CONG_TRINH_HOAN_THANH" Type="numeric" Precision="21" />
+          <Property Name="GIA_TRI_KHOI_LUONG_DUOC_QUYET_TOAN" Type="numeric" Precision="21" />
+          <Property Name="ID_DON_VI" Type="numeric" />
+          <Property Name="NAM" Type="numeric" Precision="4" />
         </EntityType>
         <!--Errors Found During Generation:
       warning 6002: The table/view 'BKI_QLDT.dbo.v_cm_dm_tu_dien' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
@@ -4279,11 +4416,10 @@
           <Parameter Name="iErrorCode" Type="int" Mode="InOut" />
         </Function>
         <Function Name="pr_HT_LICH_SU_QLDT_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="dcID_NGUOI_SU_DUNG" Type="numeric" Mode="In" />
-          <Parameter Name="daTHOI_GIAN" Type="datetime" Mode="In" />
-          <Parameter Name="sHANH_DONG" Type="nvarchar" Mode="In" />
-          <Parameter Name="dcID" Type="numeric" Mode="InOut" />
-          <Parameter Name="iErrorCode" Type="int" Mode="InOut" />
+          <Parameter Name="ID_NGUOI_SU_DUNG" Type="numeric" Mode="In" />
+          <Parameter Name="THOI_GIAN" Type="datetime" Mode="In" />
+          <Parameter Name="HANH_DONG" Type="nvarchar" Mode="In" />
+          <Parameter Name="ID" Type="numeric" Mode="InOut" />
         </Function>
         <Function Name="pr_HT_LICH_SU_QLDT_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="dcID" Type="numeric" Mode="In" />
@@ -5991,11 +6127,10 @@
             <Parameter Name="iErrorCode" Mode="InOut" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="pr_HT_LICH_SU_QLDT_Insert">
-            <Parameter Name="dcID_NGUOI_SU_DUNG" Mode="In" Type="Decimal" />
-            <Parameter Name="daTHOI_GIAN" Mode="In" Type="DateTime" />
-            <Parameter Name="sHANH_DONG" Mode="In" Type="String" />
-            <Parameter Name="dcID" Mode="InOut" Type="Decimal" />
-            <Parameter Name="iErrorCode" Mode="InOut" Type="Int32" />
+            <Parameter Name="ID_NGUOI_SU_DUNG" Mode="In" Type="Decimal" />
+            <Parameter Name="THOI_GIAN" Mode="In" Type="DateTime" />
+            <Parameter Name="HANH_DONG" Mode="In" Type="String" />
+            <Parameter Name="ID" Mode="InOut" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="pr_HT_LICH_SU_QLDT_Update">
             <Parameter Name="dcID" Mode="In" Type="Decimal" />
@@ -6245,6 +6380,10 @@
             <End Role="DM_DON_VI" EntitySet="DM_DON_VI" />
             <End Role="GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN" EntitySet="GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN" />
           </AssociationSet>
+          <EntitySet Name="TP_PL01" EntityType="BKI_QLDTModel.TP_PL01" />
+          <EntitySet Name="TP_PL02" EntityType="BKI_QLDTModel.TP_PL02" />
+          <EntitySet Name="TP_PL05" EntityType="BKI_QLDTModel.TP_PL05" />
+          <EntitySet Name="TP_PL03" EntityType="BKI_QLDTModel.TP_PL03" />
         </EntityContainer>
         <EntityType Name="CM_COMPANY_INFO">
           <Key>
@@ -8543,6 +8682,71 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="TP_PL01">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Decimal" Name="ID" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="MA_SO" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CHI_TIEU" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="MA_SO_PARENT" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Type="Decimal" Name="CAP" Precision="4" Scale="0" />
+          <Property Type="Decimal" Name="SO_BAO_CAO" Precision="21" Scale="0" />
+          <Property Type="Decimal" Name="SO_XET_DUYET" Precision="21" Scale="0" />
+          <Property Type="String" Name="CONG_THUC" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Type="Decimal" Name="ID_DON_VI" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="NAM" Precision="4" Scale="0" />
+        </EntityType>
+        <EntityType Name="TP_PL02">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="ID_DON_VI" />
+          </Key>
+          <Property Type="Decimal" Name="ID" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="MA_LOAI" MaxLength="35" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="MA_KHOAN" MaxLength="35" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="MA_MUC" MaxLength="35" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="MA_TIEU_MUC" MaxLength="35" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="NOI_DUNG_CHI" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="NHOM" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LOAI" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Type="Decimal" Name="ID_DON_VI" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="NAM" Precision="4" Scale="0" />
+          <Property Type="Decimal" Name="SO_BAO_CAO" Precision="21" Scale="0" />
+          <Property Type="Decimal" Name="SO_PHE_DUYET" Precision="21" Scale="0" />
+        </EntityType>
+        <EntityType Name="TP_PL05">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Decimal" Name="ID" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="MA_SO" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="STT" MaxLength="35" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="NOI_DUNG" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="MA_SO_PARENT" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Type="Decimal" Name="CAP" Precision="4" Scale="0" />
+          <Property Type="Decimal" Name="GIA_TRI_KHOI_LUONG_CONG_TRINH_HOAN_THANH" Precision="21" Scale="0" />
+          <Property Type="Decimal" Name="GIA_TRI_KHOI_LUONG_DUOC_QUYET_TOAN" Precision="21" Scale="0" />
+          <Property Type="Decimal" Name="ID_DON_VI" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="NAM" Precision="4" Scale="0" />
+        </EntityType>
+        <EntityType Name="TP_PL03">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Decimal" Name="ID" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="MA_SO" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="TT" MaxLength="35" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="NOI_DUNG" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="MA_SO_PARENT" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Type="Decimal" Name="CAP" Precision="4" Scale="0" />
+          <Property Type="Decimal" Name="SO_KIEN_NGHI_KIEM_TOAN_NHA_NUOC" Precision="21" Scale="0" />
+          <Property Type="Decimal" Name="SO_KIEN_NGHI_CO_QUAN_TAI_CHINH" Precision="21" Scale="0" />
+          <Property Type="Decimal" Name="ID_DON_VI" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="NAM" Precision="4" Scale="0" />
+          <Property Type="Decimal" Name="SO_DA_NOP_TRA_KIEM_TOAN_NHA_NUOC" Precision="21" Scale="0" />
+          <Property Type="Decimal" Name="SO_DA_NOP_TRA_CO_QUAN_TAI_CHINH" Precision="21" Scale="0" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -10370,6 +10574,74 @@
                 <ScalarProperty Name="CONG_TRINH" ColumnName="CONG_TRINH" />
                 <ScalarProperty Name="TEN_LOAI_NHIEM_VU" ColumnName="TEN_LOAI_NHIEM_VU" />
                 <ScalarProperty Name="TT" ColumnName="TT" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TP_PL01">
+            <EntityTypeMapping TypeName="BKI_QLDTModel.TP_PL01">
+              <MappingFragment StoreEntitySet="TP_PL01">
+                <ScalarProperty Name="NAM" ColumnName="NAM" />
+                <ScalarProperty Name="ID_DON_VI" ColumnName="ID_DON_VI" />
+                <ScalarProperty Name="CONG_THUC" ColumnName="CONG_THUC" />
+                <ScalarProperty Name="SO_XET_DUYET" ColumnName="SO_XET_DUYET" />
+                <ScalarProperty Name="SO_BAO_CAO" ColumnName="SO_BAO_CAO" />
+                <ScalarProperty Name="CAP" ColumnName="CAP" />
+                <ScalarProperty Name="MA_SO_PARENT" ColumnName="MA_SO_PARENT" />
+                <ScalarProperty Name="CHI_TIEU" ColumnName="CHI_TIEU" />
+                <ScalarProperty Name="MA_SO" ColumnName="MA_SO" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TP_PL02">
+            <EntityTypeMapping TypeName="BKI_QLDTModel.TP_PL02">
+              <MappingFragment StoreEntitySet="TP_PL02">
+                <ScalarProperty Name="SO_PHE_DUYET" ColumnName="SO_PHE_DUYET" />
+                <ScalarProperty Name="SO_BAO_CAO" ColumnName="SO_BAO_CAO" />
+                <ScalarProperty Name="NAM" ColumnName="NAM" />
+                <ScalarProperty Name="ID_DON_VI" ColumnName="ID_DON_VI" />
+                <ScalarProperty Name="LOAI" ColumnName="LOAI" />
+                <ScalarProperty Name="NHOM" ColumnName="NHOM" />
+                <ScalarProperty Name="NOI_DUNG_CHI" ColumnName="NOI_DUNG_CHI" />
+                <ScalarProperty Name="MA_TIEU_MUC" ColumnName="MA_TIEU_MUC" />
+                <ScalarProperty Name="MA_MUC" ColumnName="MA_MUC" />
+                <ScalarProperty Name="MA_KHOAN" ColumnName="MA_KHOAN" />
+                <ScalarProperty Name="MA_LOAI" ColumnName="MA_LOAI" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TP_PL05">
+            <EntityTypeMapping TypeName="BKI_QLDTModel.TP_PL05">
+              <MappingFragment StoreEntitySet="TP_PL05">
+                <ScalarProperty Name="NAM" ColumnName="NAM" />
+                <ScalarProperty Name="ID_DON_VI" ColumnName="ID_DON_VI" />
+                <ScalarProperty Name="GIA_TRI_KHOI_LUONG_DUOC_QUYET_TOAN" ColumnName="GIA_TRI_KHOI_LUONG_DUOC_QUYET_TOAN" />
+                <ScalarProperty Name="GIA_TRI_KHOI_LUONG_CONG_TRINH_HOAN_THANH" ColumnName="GIA_TRI_KHOI_LUONG_CONG_TRINH_HOAN_THANH" />
+                <ScalarProperty Name="CAP" ColumnName="CAP" />
+                <ScalarProperty Name="MA_SO_PARENT" ColumnName="MA_SO_PARENT" />
+                <ScalarProperty Name="NOI_DUNG" ColumnName="NOI_DUNG" />
+                <ScalarProperty Name="STT" ColumnName="STT" />
+                <ScalarProperty Name="MA_SO" ColumnName="MA_SO" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TP_PL03">
+            <EntityTypeMapping TypeName="BKI_QLDTModel.TP_PL03">
+              <MappingFragment StoreEntitySet="TP_PL03">
+                <ScalarProperty Name="SO_DA_NOP_TRA_CO_QUAN_TAI_CHINH" ColumnName="SO_DA_NOP_TRA_CO_QUAN_TAI_CHINH" />
+                <ScalarProperty Name="SO_DA_NOP_TRA_KIEM_TOAN_NHA_NUOC" ColumnName="SO_DA_NOP_TRA_KIEM_TOAN_NHA_NUOC" />
+                <ScalarProperty Name="NAM" ColumnName="NAM" />
+                <ScalarProperty Name="ID_DON_VI" ColumnName="ID_DON_VI" />
+                <ScalarProperty Name="SO_KIEN_NGHI_CO_QUAN_TAI_CHINH" ColumnName="SO_KIEN_NGHI_CO_QUAN_TAI_CHINH" />
+                <ScalarProperty Name="SO_KIEN_NGHI_KIEM_TOAN_NHA_NUOC" ColumnName="SO_KIEN_NGHI_KIEM_TOAN_NHA_NUOC" />
+                <ScalarProperty Name="CAP" ColumnName="CAP" />
+                <ScalarProperty Name="MA_SO_PARENT" ColumnName="MA_SO_PARENT" />
+                <ScalarProperty Name="NOI_DUNG" ColumnName="NOI_DUNG" />
+                <ScalarProperty Name="TT" ColumnName="TT" />
+                <ScalarProperty Name="MA_SO" ColumnName="MA_SO" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>

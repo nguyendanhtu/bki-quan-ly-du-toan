@@ -88,8 +88,10 @@
     <Content Include="DuToan\F305_giay_rut_du_toan_ngan_sach.aspx" />
     <Content Include="packages.config" />
     <Content Include="Quantri\F816_ghi_log_qldt.aspx" />
+    <Content Include="QuyetToan\PL03_thuc_hien_xu_ly_kien_nghi_cua_kiem_toan_thanh_tra_tai_chinh.aspx" />
     <Content Include="QuyetToan\PL04_danh_muc_cong_trinh_quyet_toan.aspx" />
     <Content Include="Scripts\UI\PL02.js" />
+    <Content Include="Scripts\UI\PL03.js" />
     <Content Include="Scripts\UI\PL04.js" />
     <Content Include="Styles\jquery.dataTables.min.css" />
     <Content Include="WebMethod\PL01.asmx" />
@@ -679,6 +681,13 @@
     </Compile>
     <Compile Include="Quantri\F816_ghi_log_qldt.aspx.designer.cs">
       <DependentUpon>F816_ghi_log_qldt.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="QuyetToan\PL03_thuc_hien_xu_ly_kien_nghi_cua_kiem_toan_thanh_tra_tai_chinh.aspx.cs">
+      <DependentUpon>PL03_thuc_hien_xu_ly_kien_nghi_cua_kiem_toan_thanh_tra_tai_chinh.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="QuyetToan\PL03_thuc_hien_xu_ly_kien_nghi_cua_kiem_toan_thanh_tra_tai_chinh.aspx.designer.cs">
+      <DependentUpon>PL03_thuc_hien_xu_ly_kien_nghi_cua_kiem_toan_thanh_tra_tai_chinh.aspx</DependentUpon>
     </Compile>
     <Compile Include="QuyetToan\PL04_danh_muc_cong_trinh_quyet_toan.aspx.cs">
       <DependentUpon>PL04_danh_muc_cong_trinh_quyet_toan.aspx</DependentUpon>

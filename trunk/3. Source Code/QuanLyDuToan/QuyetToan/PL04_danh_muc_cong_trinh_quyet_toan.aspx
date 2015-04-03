@@ -22,6 +22,10 @@
 			padding: 3px 2px;
 			font-size: 11px;
 		}
+		.table {
+			max-width: 300%;
+			background:white;
+		}
 	</style>
 	<script type="text/javascript">
 		var MaxRecord =<%=lst_pl04.Count%> +'';
@@ -31,16 +35,24 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-	<table class="table table-hover " style="margin: auto" id="tblPL04">
+	<table class="table table-hover " style="margin: auto;width:<%=(lst_giao_kh
+							.Where(x=>x.DM_QUYET_DINH.ID_LOAI_QUYET_DINH_GIAO!=WebUS.ID_LOAI_GIAO_DICH.DIEU_CHINH)
+							.Select(x => new { x.DM_QUYET_DINH.NGAY_THANG, x.DM_QUYET_DINH.SO_QUYET_DINH })
+							.Distinct()			
+							.ToList().Count+2)*65+950%>px" id="tblPL04">
 		<thead style="vertical-align: middle">
 			<tr>
 				<th rowspan="2">TT</th>
-				<th rowspan="2" style="width: 200px">Công trinh hạng mục</th>
+				<th rowspan="2" style="width:250px">Công trinh hạng mục</th>
 				<th colspan="<%=lst_giao_kh
 							.Where(x=>x.DM_QUYET_DINH.ID_LOAI_QUYET_DINH_GIAO!=WebUS.ID_LOAI_GIAO_DICH.DIEU_CHINH)
 							.Select(x => new { x.DM_QUYET_DINH.NGAY_THANG, x.DM_QUYET_DINH.SO_QUYET_DINH })
 							.Distinct()			
-							.ToList().Count+2 %>">Kế hoạch được giao trong năm</th>
+							.ToList().Count+2 %>" style="width:<%=(lst_giao_kh
+							.Where(x=>x.DM_QUYET_DINH.ID_LOAI_QUYET_DINH_GIAO!=WebUS.ID_LOAI_GIAO_DICH.DIEU_CHINH)
+							.Select(x => new { x.DM_QUYET_DINH.NGAY_THANG, x.DM_QUYET_DINH.SO_QUYET_DINH })
+							.Distinct()			
+							.ToList().Count+2)*65%>px">Kế hoạch được giao trong năm</th>
 				<th rowspan="2">Giá trị dự toán công trình được duyệt</th>
 				<th colspan="3">Giá trị công trình hoàn thành</th>
 				<th rowspan="2">Giá trị đề nghị quyết toán trong năm</th>
@@ -162,7 +174,7 @@
 							.ToList().Sum()%></td>
 				<td class='text-right str_money cong <%=ten_loai_nhiem_vu.TEN_LOAI_NHIEM_VU.Replace(" ","") %>' ma_so="<%="lnv_"+LnvIndex %>"><%= lst_pl04
 							.Where(x=>x.TEN_LOAI_NHIEM_VU==ten_loai_nhiem_vu.TEN_LOAI_NHIEM_VU)
-							.Select(x=>x.GIA_TRI_DU_TOAN_CONG_TRINH_DUOC_DUYET+x.GIA_TRI_CTHT_NAM_TRUOC_CON_NO_CHUYEN_NAM_NAY)
+							.Select(x=>x.GIA_TRI_CTHT_NAM_NAY+x.GIA_TRI_CTHT_NAM_TRUOC_CON_NO_CHUYEN_NAM_NAY)
 							.ToList().Sum()%></td>
 				<td class='text-right str_money DTDNQTTN <%=ten_loai_nhiem_vu.TEN_LOAI_NHIEM_VU.Replace(" ","") %>' ma_so="<%="lnv_"+LnvIndex %>"><%= lst_pl04
 							.Where(x=>x.TEN_LOAI_NHIEM_VU==ten_loai_nhiem_vu.TEN_LOAI_NHIEM_VU)
@@ -174,7 +186,7 @@
 							.ToList().Sum()%></td>
 				<td class='text-right str_money GTCTHTCNSQT <%=ten_loai_nhiem_vu.TEN_LOAI_NHIEM_VU.Replace(" ","") %>' ma_so="<%="lnv_"+LnvIndex %>"><%= lst_pl04
 							.Where(x=>x.TEN_LOAI_NHIEM_VU==ten_loai_nhiem_vu.TEN_LOAI_NHIEM_VU)
-							.Select(x=>x.GIA_TRI_DU_TOAN_CONG_TRINH_DUOC_DUYET+x.GIA_TRI_CTHT_NAM_TRUOC_CON_NO_CHUYEN_NAM_NAY-x.GIA_TRI_DE_NGHI_QUYET_TOAN_TRONG_NAM)
+							.Select(x=>x.GIA_TRI_CTHT_NAM_NAY+x.GIA_TRI_CTHT_NAM_TRUOC_CON_NO_CHUYEN_NAM_NAY-x.GIA_TRI_DE_NGHI_QUYET_TOAN_TRONG_NAM)
 							.ToList().Sum()%></td>
 				<td class='text-right str_money KHCDCN  <%=ten_loai_nhiem_vu.TEN_LOAI_NHIEM_VU.Replace(" ","") %>' ma_so="<%="lnv_"+LnvIndex %>"><%=
 						lst_giao_kh
@@ -205,7 +217,7 @@
 				<td class='text-right str_money %>'>
 					<%=lst_giao_kh
 						.Where(x=>x.CM_DM_TU_DIEN.TEN.ToUpper()==ten_loai_nhiem_vu.TEN_LOAI_NHIEM_VU.ToUpper()
-							&&x.DM_CONG_TRINH_DU_AN_GOI_THAU_CONG_TRINH.TEN.ToUpper()==cong_trinh.ToUpper()
+							&&x.DM_CONG_TRINH_DU_AN_GOI_THAU_CONG_TRINH.TEN.Trim().ToUpper()==cong_trinh.ToUpper()
 							)
 						.Select(x=>x.SO_TIEN_NAM_TRUOC_CHUYEN_SANG)
 						.ToList()
@@ -221,8 +233,9 @@
 				<%{%>
 				<td class='text-right str_money'><%=lst_giao_kh
 						.Where(x=>x.ID_QUYET_DINH==qd
-							&&x.CM_DM_TU_DIEN.TEN.ToUpper()==ten_loai_nhiem_vu.TEN_LOAI_NHIEM_VU.ToUpper()
-							&&x.DM_CONG_TRINH_DU_AN_GOI_THAU_CONG_TRINH.TEN.ToUpper()==cong_trinh.ToUpper()
+							&&x.CM_DM_TU_DIEN.TEN.ToUpper()==ten_loai_nhiem_vu.TEN_LOAI_NHIEM_VU.Trim().ToUpper()
+							&&x.DM_CONG_TRINH_DU_AN_GOI_THAU_CONG_TRINH.TEN.Trim().ToUpper()==cong_trinh.Trim().ToUpper()
+							&&x.DM_QUYET_DINH.ID==qd
 							)
 						.Select(x=>x.SO_TIEN_QUY_BT)
 						.ToList()
@@ -254,7 +267,7 @@
 							.ToList().Sum()%></td>
 				<td class='text-right str_money cong' ma_so="<%="ct_"+CtIndex %>" ma_so_parent="<%="lnv_"+LnvIndex %>"><%=lst_pl04
 							.Where(x=>x.TEN_LOAI_NHIEM_VU==ten_loai_nhiem_vu.TEN_LOAI_NHIEM_VU&&x.CONG_TRINH==cong_trinh)
-							.Select(x=>x.GIA_TRI_DU_TOAN_CONG_TRINH_DUOC_DUYET+x.GIA_TRI_CTHT_NAM_TRUOC_CON_NO_CHUYEN_NAM_NAY)
+							.Select(x=>x.GIA_TRI_CTHT_NAM_NAY+x.GIA_TRI_CTHT_NAM_TRUOC_CON_NO_CHUYEN_NAM_NAY)
 							.ToList().Sum()%></td>
 				<td class='text-right str_money DTDNQTTN' ma_so="<%="ct_"+CtIndex %>" ma_so_parent="<%="lnv_"+LnvIndex %>"><%=lst_pl04
 							.Where(x=>x.TEN_LOAI_NHIEM_VU==ten_loai_nhiem_vu.TEN_LOAI_NHIEM_VU&&x.CONG_TRINH==cong_trinh)
@@ -266,7 +279,7 @@
 							.ToList().Sum()%></td>
 				<td class='text-right str_money' ma_so="<%="ct_"+CtIndex %>" ma_so_parent="<%="lnv_"+LnvIndex %>"><%=lst_pl04
 							.Where(x=>x.TEN_LOAI_NHIEM_VU==ten_loai_nhiem_vu.TEN_LOAI_NHIEM_VU&&x.CONG_TRINH==cong_trinh)
-							.Select(x=>x.GIA_TRI_DU_TOAN_CONG_TRINH_DUOC_DUYET+x.GIA_TRI_CTHT_NAM_TRUOC_CON_NO_CHUYEN_NAM_NAY-x.GIA_TRI_DE_NGHI_QUYET_TOAN_TRONG_NAM)
+							.Select(x=>x.GIA_TRI_CTHT_NAM_NAY+x.GIA_TRI_CTHT_NAM_TRUOC_CON_NO_CHUYEN_NAM_NAY-x.GIA_TRI_DE_NGHI_QUYET_TOAN_TRONG_NAM)
 							.ToList().Sum()%></td>
 				<td class='text-right str_money' ma_so="<%="ct_"+CtIndex %>" ma_so_parent="<%="lnv_"+LnvIndex %>"><%=
 						lst_giao_kh
@@ -300,9 +313,9 @@
 					id_giao_dich="<%=du_an.ID %>"><%=du_an.DU_AN%></span></td>
 				<td class='text-right str_money KeHoachNamTruocChuaChiHetChuyenSang <%=classIndex %>'>
 					<%=lst_giao_kh
-						.Where(x=>x.CM_DM_TU_DIEN.TEN.ToUpper()==ten_loai_nhiem_vu.TEN_LOAI_NHIEM_VU.ToUpper()
-							&&x.DM_CONG_TRINH_DU_AN_GOI_THAU_CONG_TRINH.TEN.ToUpper()==cong_trinh.ToUpper()
-							&&x.DM_CONG_TRINH_DU_AN_GOI_THAU_DU_AN.TEN.ToUpper()==du_an.DU_AN.ToUpper()
+						.Where(x=>x.CM_DM_TU_DIEN.TEN.ToUpper()==ten_loai_nhiem_vu.TEN_LOAI_NHIEM_VU.Trim().ToUpper()
+							&&x.DM_CONG_TRINH_DU_AN_GOI_THAU_CONG_TRINH.TEN.Trim().ToUpper()==cong_trinh.Trim().ToUpper()
+							&&x.DM_CONG_TRINH_DU_AN_GOI_THAU_DU_AN.TEN.Trim().ToUpper()==du_an.DU_AN.Trim().ToUpper()
 							)
 						.Select(x=>x.SO_TIEN_NAM_TRUOC_CHUYEN_SANG)
 						.ToList()
@@ -317,10 +330,10 @@
 							.ToList())%>
 				<%{%>
 				<td class='text-right str_money'><%=lst_giao_kh
-						.Where(x=>x.ID_QUYET_DINH==qd
-							&&x.CM_DM_TU_DIEN.TEN.ToUpper()==ten_loai_nhiem_vu.TEN_LOAI_NHIEM_VU.ToUpper()
-							&&x.DM_CONG_TRINH_DU_AN_GOI_THAU_CONG_TRINH.TEN.ToUpper()==cong_trinh.ToUpper()
-							&&x.DM_CONG_TRINH_DU_AN_GOI_THAU_DU_AN.TEN.ToUpper()==du_an.DU_AN.ToUpper()
+						.Where(x=>x.CM_DM_TU_DIEN.TEN.ToUpper()==ten_loai_nhiem_vu.TEN_LOAI_NHIEM_VU.Trim().ToUpper()
+							&&x.DM_CONG_TRINH_DU_AN_GOI_THAU_CONG_TRINH.TEN.Trim().ToUpper()==cong_trinh.Trim().ToUpper()
+							&&x.DM_CONG_TRINH_DU_AN_GOI_THAU_DU_AN.TEN.Trim().ToUpper()==du_an.DU_AN.Trim().ToUpper()
+							&&x.DM_QUYET_DINH.ID==qd
 							)
 						.Select(x=>x.SO_TIEN_QUY_BT)
 						.ToList()
@@ -330,9 +343,9 @@
 				<td class='text-right str_money QDDCCC <%=classIndex %>'>
 					<%=lst_giao_kh
 						.Where(x=>x.DM_QUYET_DINH.ID_LOAI_QUYET_DINH_GIAO==WebUS.ID_LOAI_GIAO_DICH.DIEU_CHINH
-							&&x.CM_DM_TU_DIEN.TEN.ToUpper()==ten_loai_nhiem_vu.TEN_LOAI_NHIEM_VU.ToUpper()
-							&&x.DM_CONG_TRINH_DU_AN_GOI_THAU_CONG_TRINH.TEN.ToUpper()==cong_trinh.ToUpper()
-							&&x.DM_CONG_TRINH_DU_AN_GOI_THAU_DU_AN.TEN.ToUpper()==du_an.DU_AN.ToUpper()
+							&&x.CM_DM_TU_DIEN.TEN.ToUpper()==ten_loai_nhiem_vu.TEN_LOAI_NHIEM_VU.Trim().ToUpper()
+							&&x.DM_CONG_TRINH_DU_AN_GOI_THAU_CONG_TRINH.TEN.Trim().ToUpper()==cong_trinh.Trim().ToUpper()
+							&&x.DM_CONG_TRINH_DU_AN_GOI_THAU_DU_AN.TEN.Trim().ToUpper()==du_an.DU_AN.Trim().ToUpper()
 							)
 						.Select(x=>x.SO_TIEN_NAM_TRUOC_CHUYEN_SANG)
 						.ToList()
@@ -372,7 +385,7 @@
 							.Where(x => x.TEN_LOAI_NHIEM_VU == ten_loai_nhiem_vu.TEN_LOAI_NHIEM_VU 
 								&& x.CONG_TRINH == cong_trinh 
 								&& x.ID == du_an.ID)
-							.Select(x => x.GIA_TRI_DU_TOAN_CONG_TRINH_DUOC_DUYET + x.GIA_TRI_CTHT_NAM_TRUOC_CON_NO_CHUYEN_NAM_NAY)
+							.Select(x => x.GIA_TRI_CTHT_NAM_NAY + x.GIA_TRI_CTHT_NAM_TRUOC_CON_NO_CHUYEN_NAM_NAY)
 							.ToList().Sum()%>
 					</span></td>
 				<td class='text-right '>
@@ -399,7 +412,7 @@
 							.Where(x => x.TEN_LOAI_NHIEM_VU == ten_loai_nhiem_vu.TEN_LOAI_NHIEM_VU 
 								&& x.CONG_TRINH == cong_trinh 
 								&& x.ID == du_an.ID)
-							.Select(x => x.GIA_TRI_DU_TOAN_CONG_TRINH_DUOC_DUYET + x.GIA_TRI_CTHT_NAM_TRUOC_CON_NO_CHUYEN_NAM_NAY - x.GIA_TRI_DE_NGHI_QUYET_TOAN_TRONG_NAM)
+							.Select(x => x.GIA_TRI_CTHT_NAM_NAY + x.GIA_TRI_CTHT_NAM_TRUOC_CON_NO_CHUYEN_NAM_NAY - x.GIA_TRI_DE_NGHI_QUYET_TOAN_TRONG_NAM)
 							.ToList().Sum()%></td>
 				<td class='text-right str_money KHCDCN <%=classIndex %>'><%=0 - lst_pl04
 							.Where(x => x.TEN_LOAI_NHIEM_VU == ten_loai_nhiem_vu.TEN_LOAI_NHIEM_VU 
