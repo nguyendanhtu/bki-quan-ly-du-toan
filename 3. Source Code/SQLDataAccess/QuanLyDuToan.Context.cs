@@ -78,6 +78,10 @@ namespace SQLDataAccess
         public DbSet<V_USER_GROUP_QUYEN> V_USER_GROUP_QUYEN { get; set; }
         public DbSet<TP_PL04> TP_PL04 { get; set; }
         public DbSet<GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN> GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN { get; set; }
+        public DbSet<TP_PL01> TP_PL01 { get; set; }
+        public DbSet<TP_PL02> TP_PL02 { get; set; }
+        public DbSet<TP_PL05> TP_PL05 { get; set; }
+        public DbSet<TP_PL03> TP_PL03 { get; set; }
     
         public virtual ObjectResult<desc_table_Result> desc_table(string ip_table_name)
         {
@@ -4305,21 +4309,21 @@ namespace SQLDataAccess
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pr_HT_LICH_SU_QLDT_Delete", dcIDParameter, iErrorCode);
         }
     
-        public virtual int pr_HT_LICH_SU_QLDT_Insert(Nullable<decimal> dcID_NGUOI_SU_DUNG, Nullable<System.DateTime> daTHOI_GIAN, string sHANH_DONG, ObjectParameter dcID, ObjectParameter iErrorCode)
+        public virtual int pr_HT_LICH_SU_QLDT_Insert(Nullable<decimal> iD_NGUOI_SU_DUNG, Nullable<System.DateTime> tHOI_GIAN, string hANH_DONG, ObjectParameter iD)
         {
-            var dcID_NGUOI_SU_DUNGParameter = dcID_NGUOI_SU_DUNG.HasValue ?
-                new ObjectParameter("dcID_NGUOI_SU_DUNG", dcID_NGUOI_SU_DUNG) :
-                new ObjectParameter("dcID_NGUOI_SU_DUNG", typeof(decimal));
+            var iD_NGUOI_SU_DUNGParameter = iD_NGUOI_SU_DUNG.HasValue ?
+                new ObjectParameter("ID_NGUOI_SU_DUNG", iD_NGUOI_SU_DUNG) :
+                new ObjectParameter("ID_NGUOI_SU_DUNG", typeof(decimal));
     
-            var daTHOI_GIANParameter = daTHOI_GIAN.HasValue ?
-                new ObjectParameter("daTHOI_GIAN", daTHOI_GIAN) :
-                new ObjectParameter("daTHOI_GIAN", typeof(System.DateTime));
+            var tHOI_GIANParameter = tHOI_GIAN.HasValue ?
+                new ObjectParameter("THOI_GIAN", tHOI_GIAN) :
+                new ObjectParameter("THOI_GIAN", typeof(System.DateTime));
     
-            var sHANH_DONGParameter = sHANH_DONG != null ?
-                new ObjectParameter("sHANH_DONG", sHANH_DONG) :
-                new ObjectParameter("sHANH_DONG", typeof(string));
+            var hANH_DONGParameter = hANH_DONG != null ?
+                new ObjectParameter("HANH_DONG", hANH_DONG) :
+                new ObjectParameter("HANH_DONG", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pr_HT_LICH_SU_QLDT_Insert", dcID_NGUOI_SU_DUNGParameter, daTHOI_GIANParameter, sHANH_DONGParameter, dcID, iErrorCode);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pr_HT_LICH_SU_QLDT_Insert", iD_NGUOI_SU_DUNGParameter, tHOI_GIANParameter, hANH_DONGParameter, iD);
         }
     
         public virtual int pr_HT_LICH_SU_QLDT_Update(Nullable<decimal> dcID, Nullable<decimal> dcID_NGUOI_SU_DUNG, Nullable<System.DateTime> daTHOI_GIAN, string sHANH_DONG, ObjectParameter iErrorCode)
