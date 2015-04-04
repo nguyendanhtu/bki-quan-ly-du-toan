@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using SQLDataAccess;
+using IP.Core.IPCommon;
+using QuanLyDuToan.App_Code;
 
 namespace QuanLyDuToan.BaoCaoQT {
     public partial class BC_PL02_Tong_hop_tinh_hinh_kinh_phi_quyet_toan : System.Web.UI.Page {
@@ -14,10 +16,12 @@ namespace QuanLyDuToan.BaoCaoQT {
 
         #region Data Member
         public List<GD_PL01_TONG_HOP_TINH_HINH_KINH_PHI_VA_QUYET_TOAN_CHI> lst_PL01;
+        public List<decimal?> lst_nam;
         public List<ItemBaoCaoDonVi> lst_don_vi;
         public List<GD_PL01_TONG_HOP_TINH_HINH_KINH_PHI_VA_QUYET_TOAN_CHI> lst_cuc;
         public List<GD_PL01_TONG_HOP_TINH_HINH_KINH_PHI_VA_QUYET_TOAN_CHI> lst_so;
         public List<GD_PL01_TONG_HOP_TINH_HINH_KINH_PHI_VA_QUYET_TOAN_CHI> lst_ban;
+        public decimal ini_nam = CIPConvert.ToDecimal(DateTime.Now.Year);
         #endregion
 
         #region Data Structure
@@ -32,7 +36,47 @@ namespace QuanLyDuToan.BaoCaoQT {
         #endregion
 
         #region Private Method
+        private void load_data() {
+            decimal v_dc_nam = CIPConvert.ToDecimal(m_ddl_chon_nam.SelectedValue);
+            using (BKI_QLDTEntities db = new BKI_QLDTEntities()) {
+                lst_PL01 = db.GD_PL01_TONG_HOP_TINH_HINH_KINH_PHI_VA_QUYET_TOAN_CHI
+                                        .Where(x => x.NAM == v_dc_nam)
+                                        .ToList();
 
+                lst_don_vi = db.GD_PL01_TONG_HOP_TINH_HINH_KINH_PHI_VA_QUYET_TOAN_CHI
+                                        .Select(x => new ItemBaoCaoDonVi { ID_DON_VI = x.DM_DON_VI.ID, TEN_DON_VI = x.DM_DON_VI.TEN_DON_VI })
+                                        .Distinct()
+                                        .ToList();
+
+                //add list cuc
+                add_list_cuc();
+
+                //add list so
+                add_list_so();
+
+                //add list ban
+                add_list_ban();
+
+                //add list grid
+                add_list_grid();
+            }
+        }
+        private void load_ddl_chon_nam() {
+            using (BKI_QLDTEntities db = new BKI_QLDTEntities()) {
+                lst_nam = db.GD_PL01_TONG_HOP_TINH_HINH_KINH_PHI_VA_QUYET_TOAN_CHI
+                                            .Select(x => x.NAM)
+                                            .Distinct()
+                                            .OrderByDescending(x => x)
+                                            .ToList();
+            }
+            m_ddl_chon_nam.DataSource = lst_nam;
+            m_ddl_chon_nam.DataBind();
+        }
+        private void set_initial_form_load() {
+
+            load_ddl_chon_nam();
+
+        }
         private void add_list_ban() {
             if (lst_PL01.Where(x => x.DM_DON_VI.TEN_DON_VI.ToString().ToUpper().Contains("BAN")).ToList().Count > 0) {
                 lst_ban = lst_PL01
@@ -157,30 +201,21 @@ namespace QuanLyDuToan.BaoCaoQT {
 
         protected void Page_Load(object sender, EventArgs e) {
             if (!IsPostBack) {
-                using (BKI_QLDTEntities db = new BKI_QLDTEntities()) {
-                    lst_PL01 = db.GD_PL01_TONG_HOP_TINH_HINH_KINH_PHI_VA_QUYET_TOAN_CHI
-                                            .Where(x => x.NAM == 2014)
-                                            .ToList();
-
-                    lst_don_vi = db.GD_PL01_TONG_HOP_TINH_HINH_KINH_PHI_VA_QUYET_TOAN_CHI
-                                            .Select(x => new ItemBaoCaoDonVi { ID_DON_VI = x.DM_DON_VI.ID, TEN_DON_VI = x.DM_DON_VI.TEN_DON_VI })
-                                            .Distinct()
-                                            .ToList();
-                    //add list cuc
-                    add_list_cuc();
-
-                    //add list so
-                    add_list_so();
-
-                    //add list ban
-                    add_list_ban();
-
-                    //add list grid
-                    add_list_grid();
-
-                }
-
+                set_initial_form_load();
+                load_data();
             }
+        }
+
+        protected void m_ddl_chon_nam_SelectedIndexChanged(object sender, EventArgs e) {
+            try {
+                load_data();
+            }
+
+            catch (Exception v_e) {
+
+                CSystemLog_301.ExceptionHandle(this, v_e);
+            }
+
         }
 
         #endregion
