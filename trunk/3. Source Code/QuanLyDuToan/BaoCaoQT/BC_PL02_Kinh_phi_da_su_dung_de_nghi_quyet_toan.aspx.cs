@@ -1,4 +1,5 @@
-﻿using SQLDataAccess;
+﻿using IP.Core.IPCommon;
+using SQLDataAccess;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -42,11 +43,42 @@ namespace QuanLyDuToan.BaoCaoQT {
         public List<ItemBaoCaoDonVi> lst_don_vi;
         public List<ItemCLKM> lst_clkm;
         public List<string> lst_NDC;
-
+        public List<decimal?> lst_nam;
 
         #endregion
 
         #region Private Methods
+        private void load_data()
+        {
+            lst_NDC = new List<string>();
+            lst_NDC.Add("I. Kinh phí năm quyết toán năm nay:");
+            lst_NDC.Add("II. KP năm trước chưa QT, quyết toán năm nay");
+            decimal v_dc_nam = CIPConvert.ToDecimal(m_ddl_chon_nam.SelectedValue);
+            //get list ...
+            BKI_QLDTEntities db = new BKI_QLDTEntities();
+            //Lay len bao cao PL02 nam 2014
+            lst_pl02 = db.GD_PL02_KINH_PHI_DA_SU_DUNG_DE_NGHI_QUYET_TOAN
+                        .Where(x => x.NAM == v_dc_nam)
+                        .ToList();
+            //Lay danh sach Chuong Loai khoan muc
+            var lst_dm_clkm = db.DM_CHUONG_LOAI_KHOAN_MUC.ToList();
+            lst_clkm = db
+                .DM_CHUONG_LOAI_KHOAN_MUC
+                .Select(x => new
+                ItemCLKM {
+                    MaSo = x.MA_SO
+                             ,
+                    Ten = x.TEN
+                             ,
+                    IdLoai = x.ID_LOAI
+                             ,
+                    MaSoParent = x.DM_CHUONG_LOAI_KHOAN_MUC_PARENT.MA_SO
+                })
+                .ToList();
+
+            //Lay danh sach don vi de gen header
+            load_ten_don_vi(db, 2014);
+        }
         public string genGrid() {
             string result = "";
             result += @"<table class='table table-hover' style='width:900px; margin:auto'>
@@ -265,7 +297,17 @@ namespace QuanLyDuToan.BaoCaoQT {
             }
             return "C";
         }
-
+        private void load_ddl_chon_nam() {
+            using (BKI_QLDTEntities db = new BKI_QLDTEntities()) {
+                lst_nam = db.GD_PL02_KINH_PHI_DA_SU_DUNG_DE_NGHI_QUYET_TOAN
+                                            .Select(x => x.NAM)
+                                            .Distinct()
+                                            .OrderByDescending(x => x)
+                                            .ToList();
+            }
+            m_ddl_chon_nam.DataSource = lst_nam;
+            m_ddl_chon_nam.DataBind();
+        }
         private void load_ten_don_vi(BKI_QLDTEntities ip_db, decimal ip_dc_nam) {
             lst_don_vi = ip_db.GD_PL02_KINH_PHI_DA_SU_DUNG_DE_NGHI_QUYET_TOAN
                                     .Where(x => x.NAM == ip_dc_nam)
@@ -353,49 +395,19 @@ namespace QuanLyDuToan.BaoCaoQT {
 
         #region Events
         protected void Page_Load(object sender, EventArgs e) {
-            lst_NDC = new List<string>();
-            lst_NDC.Add("I. Kinh phí năm quyết toán năm nay:");
-            lst_NDC.Add("II. KP năm trước chưa QT, quyết toán năm nay");
-            //get list ...
-            BKI_QLDTEntities db = new BKI_QLDTEntities();
-            //Lay len bao cao PL02 nam 2014
-            lst_pl02 = db.GD_PL02_KINH_PHI_DA_SU_DUNG_DE_NGHI_QUYET_TOAN
-                        .Where(x => x.NAM == 2014)
-                        .ToList();
-            //Lay danh sach Chuong Loai khoan muc
-            var lst_dm_clkm = db.DM_CHUONG_LOAI_KHOAN_MUC.ToList();
-            lst_clkm = db
-                .DM_CHUONG_LOAI_KHOAN_MUC
-                .Select(x => new
-                ItemCLKM {
-                    MaSo = x.MA_SO
-                             ,
-                    Ten = x.TEN
-                             ,
-                    IdLoai = x.ID_LOAI
-                             ,
-                    MaSoParent = x.DM_CHUONG_LOAI_KHOAN_MUC_PARENT.MA_SO
-                })
-                .ToList();
+            load_ddl_chon_nam();
+            load_data();
+        }
 
-            //Lay danh sach don vi de gen header
-            load_ten_don_vi(db, 2014);
-            //load_lst_cuc(db);
-            //load_lst_so(db);
-            //load_lst_ban(db);
+        protected void m_ddl_chon_nam_SelectedIndexChanged(object sender, EventArgs e) {
+            try {
+                load_data();
+            }
 
-            //if (lst_pl02.Where(x => x.DM_DON_VI.TEN_DON_VI.ToUpper().Contains("BAN")).ToList().Count() > 0) {
-            //    //lst_pl02.AddRange(lst_ban);
-            //    lst_don_vi.Add(new ItemBaoCaoDonVi { ID_DON_VI = 10000, TEN_DON_VI = "BAN QLĐB" });
-            //}
-            //if (lst_pl02.Where(x => x.DM_DON_VI.TEN_DON_VI.ToUpper().Contains("SỞ")).ToList().Count() > 0) {
-            //   // lst_pl02.AddRange(lst_so);
-            //    lst_don_vi.Add(new ItemBaoCaoDonVi { ID_DON_VI = 20000, TEN_DON_VI = "SỞ GTVT" });
-            //}
-            //if (lst_pl02.Where(x => x.DM_DON_VI.TEN_DON_VI.ToUpper().Contains("CỤC")).ToList().Count() > 0) {
-            //    //lst_pl02.AddRange(lst_cuc);
-            //    lst_don_vi.Add(new ItemBaoCaoDonVi { ID_DON_VI = 30000, TEN_DON_VI = "CỤC QLDA" });
-            //}
+            catch (Exception v_e) {
+
+                CSystemLog_301.ExceptionHandle(this, v_e);
+            }
 
         }
         #endregion
