@@ -5,18 +5,36 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using SQLDataAccess;
+using IP.Core.IPCommon;
 namespace QuanLyDuToan.BaoCaoQT {
     public partial class BC_PL03_Bao_cao_thuc_hien_xu_ly_kien_nghi_cua_kiem_toan_thanh_tra_tai_chinh : System.Web.UI.Page {
         #region Public Function
+        public string genClassCSS(string ip_str_ten_don_vi, string ip_str_para) {
+            string result = "";
+            string v_str_loai_don_vi = ip_str_ten_don_vi.Split(' ')[0].ToUpper();
+            if (v_str_loai_don_vi=="SỞ") {
+                result += "so_";
+            }
+            if (v_str_loai_don_vi == "CỤC") {
+                result += "cuc_";
+            }
+            if (v_str_loai_don_vi == "BAN") {
+                result += "ban_";
+            }
+
+            return result + ip_str_para;
+        }
         #endregion
 
         #region Data Member
         public List<GD_PL03_THUC_HIEN_XU_LY_KIEN_NGHI_CUA_KIEM_TOAN_THANH_TRA_TAI_CHINH> lst_PL03;
         public List<ItemBaoCaoDonVi> lst_don_vi;
+        public List<decimal?> lst_nam;
+        public decimal m_dc_nam;
         public List<GD_PL03_THUC_HIEN_XU_LY_KIEN_NGHI_CUA_KIEM_TOAN_THANH_TRA_TAI_CHINH> lst_cuc;
         public List<GD_PL03_THUC_HIEN_XU_LY_KIEN_NGHI_CUA_KIEM_TOAN_THANH_TRA_TAI_CHINH> lst_so;
         public List<GD_PL03_THUC_HIEN_XU_LY_KIEN_NGHI_CUA_KIEM_TOAN_THANH_TRA_TAI_CHINH> lst_ban;
-        public string[] LoaiDonVi = { LoaiDonvi.SO, LoaiDonvi.CUC, LoaiDonvi.BAN }; 
+        public string[] LoaiDonVi = { LoaiDonvi.SO, LoaiDonvi.CUC, LoaiDonvi.BAN };
         #endregion
 
         #region Data Structure
@@ -37,6 +55,33 @@ namespace QuanLyDuToan.BaoCaoQT {
         #endregion
 
         #region Private Method
+        private void load_data() {
+            m_dc_nam = CIPConvert.ToDecimal(m_ddl_chon_nam.SelectedValue);
+            BKI_QLDTEntities db = new BKI_QLDTEntities();
+            lst_PL03 = db.GD_PL03_THUC_HIEN_XU_LY_KIEN_NGHI_CUA_KIEM_TOAN_THANH_TRA_TAI_CHINH
+                                    .Where(x => x.NAM == m_dc_nam)
+                                    .ToList();
+
+            lst_don_vi = db.GD_PL03_THUC_HIEN_XU_LY_KIEN_NGHI_CUA_KIEM_TOAN_THANH_TRA_TAI_CHINH
+                                    .Select(x => new ItemBaoCaoDonVi { ID_DON_VI = x.DM_DON_VI.ID, TEN_DON_VI = x.DM_DON_VI.TEN_DON_VI })
+                                    .Distinct()
+                                    .ToList();
+        }
+        private void load_ddl_chon_nam() {
+            using (BKI_QLDTEntities db = new BKI_QLDTEntities()) {
+                lst_nam = db.GD_PL01_TONG_HOP_TINH_HINH_KINH_PHI_VA_QUYET_TOAN_CHI
+                                            .Select(x => x.NAM)
+                                            .Distinct()
+                                            .OrderByDescending(x => x)
+                                            .ToList();
+            }
+            m_ddl_chon_nam.DataSource = lst_nam;
+            m_ddl_chon_nam.DataBind();
+        }
+
+        private void set_initial_form_load() {
+            load_ddl_chon_nam();
+        }
 
         private void add_list_ban() {
             if (lst_PL03.Where(x => x.DM_DON_VI.TEN_DON_VI.ToString().ToUpper().Contains("BAN")).ToList().Count > 0) {
@@ -168,31 +213,25 @@ namespace QuanLyDuToan.BaoCaoQT {
 
         protected void Page_Load(object sender, EventArgs e) {
             if (!IsPostBack) {
-                    BKI_QLDTEntities db = new BKI_QLDTEntities();
-                    lst_PL03 = db.GD_PL03_THUC_HIEN_XU_LY_KIEN_NGHI_CUA_KIEM_TOAN_THANH_TRA_TAI_CHINH
-                                            .Where(x => x.NAM == 2014)
-                                            .ToList();
-
-                    lst_don_vi = db.GD_PL03_THUC_HIEN_XU_LY_KIEN_NGHI_CUA_KIEM_TOAN_THANH_TRA_TAI_CHINH
-                                            .Select(x => new ItemBaoCaoDonVi { ID_DON_VI = x.DM_DON_VI.ID, TEN_DON_VI = x.DM_DON_VI.TEN_DON_VI })
-                                            .Distinct()
-                                            .ToList();
-                    //add list cuc
-                    //add_list_cuc();
-
-                    //add list so
-                    //add_list_so();
-
-                    //add list ban
-                    //add_list_ban();
-
-                    //add list grid
-                    //add_list_grid();
-
-                
-
+                set_initial_form_load();
+                load_data();
             }
         }
+
+      
+        protected void m_ddl_chon_nam_SelectedIndexChanged(object sender, EventArgs e) {
+            try {
+                load_data();
+            }
+
+            catch (Exception v_e) {
+
+                CSystemLog_301.ExceptionHandle(this, v_e);
+            }
+
+        }
+
+
 
         #endregion
     }

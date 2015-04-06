@@ -3,29 +3,64 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
     <script type="text/javascript">
         $(document).ready(function () {
+            var lstClassNotVisible = ['.so_ktnc', '.so_tong', '.ban_ktnc', '.ban_tong'];
+            for (var i = 0; i < lstClassNotVisible.length; i++) {
+                $(lstClassNotVisible[i]).css('display', 'none');
+            }
             var lst = $('.so_tien');
             for (var i = 0; i < lst.length; i++) {
                 $(lst[i]).text(formatString($(lst[i]).text()));
+                $("#<%=m_ddl_chon_nam.ClientID%>").select2();
             }
         })
+        function pageLoad(sender, args) {
+            if (args.get_isPartialLoad()) {
+                $("#<%=m_ddl_chon_nam.ClientID%>").select2();
+            }
+            var lstClassNotVisible = ['.so_ktnc', '.so_tong', '.ban_ktnc', '.ban_tong'];
+            for (var i = 0; i < lstClassNotVisible.length; i++) {
+                $(lstClassNotVisible[i]).css('display', 'none');
+            }
+
+        }
+
     </script>
+    <style>
+        .so_ktnc, .so_tong, .ban_ktnc, .ban_tong{
+            display:none;
+        }
+        #tblPL03 > thead > tr > th {
+			border: 1px solid #000;
+		}
+        .so_tien {
+            text-align:right;
+        }
+        #tblPL03 {
+        background-color:white;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    <h3 class="h3 text-center">PL03 -BÁO CÁO THỰC HIỆN XỬ LÝ KIẾN NGHỊ CỦA KIỂM TOÁN, THANH TRA, TÀI CHÍNH NĂM 2014</h3>
+    <h3 class="h3 text-center">PL03 -BÁO CÁO THỰC HIỆN XỬ LÝ KIẾN NGHỊ CỦA KIỂM TOÁN, THANH TRA, TÀI CHÍNH</h3>
+    <div class="control text-center">
+        <span class="lb" style="font-weight: 300; font-size: medium">Năm</span>
+        &nbsp;&nbsp;&nbsp;
+            <asp:DropDownList ID="m_ddl_chon_nam" runat="server" Width="80px" AutoPostBack="True" CssClass="select2" OnSelectedIndexChanged="m_ddl_chon_nam_SelectedIndexChanged"></asp:DropDownList>
+    </div>
     <h4 class="h4 text-center"><i>(Dùng cho đơn vị dự toán: cấp I, cấp II và cấp III)</i></h4>
-    <table class="table table-hover" style="width:2200px">
+    <table class="table table-hover table-bordered" style="width: 2200px" id="tblPL03">
 
-        <thead style="border:2px;border-radius:initial;border-bottom-color:black;border-bottom-style:double">
+        <thead style="border: 2px; border-radius: initial; border-bottom-color: black; border-bottom-style: double">
             <tr class="text-center">
-                <th>TT</th>
-                <th style="width: 150px">Nội dung</th>
+                <th  rowspan="2">TT</th>
+                <th style="width: 150px" rowspan="2">Nội dung</th>
                 <th colspan="3">Số kiến nghị của</th>
                 <th colspan="3">Số đã nộp trả Quỹ BTĐB TW trong năm nay</th>
                 <th colspan="3">Số còn phải nộp Quỹ BTĐB TW</th>
                 <%foreach (var dvct in LoaiDonVi) {%>
                 <th colspan="3" class="col-sm-1 text-center"><span><%=dvct%></span></th>
                 <%foreach (var don_vi in lst_don_vi.Where(x => x.TEN_DON_VI.Contains(dvct.Split(' ')[0])).OrderBy(x => x.TEN_DON_VI)) {%>
-                <th colspan="3" class="col-sm-1 text-center"><span><%=don_vi.TEN_DON_VI%></span></th>
+                <th colspan="1" class="col-sm-1 text-center"><span><%=don_vi.TEN_DON_VI%></span></th>
                 <%} %>
                 <%} %>
                 <%--                <%foreach (var don_vi in lst_don_vi.OrderBy(x => x.TEN_DON_VI
@@ -34,8 +69,7 @@
                 <%}%>--%>
             </tr>
             <tr>
-                <th></th>
-                <th></th>
+               
                 <%-- Header số kiến nghị của --%>
                 <th>Tổng số</th>
                 <th>Kiểm toán nhà nước</th>
@@ -54,9 +88,9 @@
                 <th class="col-sm-1 text-center"><span>Kiểm toán nhà nước</span></th>
                 <th class="col-sm-1 text-center"><span>Cơ quan tài chính</span></th>
                 <%foreach (var don_vi in lst_don_vi.Where(x => x.TEN_DON_VI.Contains(dvct.Split(' ')[0])).OrderBy(x => x.TEN_DON_VI)) {%>
-                <th class="col-sm-1 text-center"><span>Tổng số</span></th>
-                <th class="col-sm-1 text-center"><span>Kiểm toán nhà nước</span></th>
-                <th class="col-sm-1 text-center"><span>Cơ quan tài chính</span></th>
+                <th class="col-sm-1 text-center <%=genClassCSS(don_vi.TEN_DON_VI,"tong")%>"><span>Tổng số</span></th>
+                <th class="col-sm-1 text-center <%=genClassCSS(don_vi.TEN_DON_VI,"ktnc")%>"><span>Kiểm toán nhà nước</span></th>
+                <th class="col-sm-1 text-center <%=genClassCSS(don_vi.TEN_DON_VI,"cqtc")%>"><span>Cơ quan tài chính</span></th>
                 <%} %>
                 <%} %>
                 <%-- <%foreach (var don_vi in lst_don_vi.OrderBy(x => x.TEN_DON_VI
@@ -79,46 +113,46 @@
                 </td>
                 <%-- 2) Gen columns Số kiến nghị --%>
                 <%-- a) Tổng số --%>
-                <td>
-                    <span class="so_tien"><%=lst_PL03.Where(x=>x.NAM==2014&&x.ID_DON_VI==x.DM_DON_VI.ID&&x.MA_SO==item.MaSo).Select(x=>x.SO_KIEN_NGHI_CO_QUAN_TAI_CHINH+x.SO_KIEN_NGHI_KIEM_TOAN_NHA_NUOC).Sum()%></span>
+                <td class="text-right">
+                    <span class="so_tien"><%=lst_PL03.Where(x=>x.NAM==m_dc_nam&&x.ID_DON_VI==x.DM_DON_VI.ID&&x.MA_SO==item.MaSo).Select(x=>x.SO_KIEN_NGHI_CO_QUAN_TAI_CHINH+x.SO_KIEN_NGHI_KIEM_TOAN_NHA_NUOC).Sum()%></span>
                 </td>
                 <%-- b) Kiểm toám nhà nước --%>
-                <td>
-                    <span class="so_tien"><%=lst_PL03.Where(x=>x.NAM==2014&&x.ID_DON_VI==x.DM_DON_VI.ID&&x.MA_SO==item.MaSo).Select(x=>x.SO_KIEN_NGHI_KIEM_TOAN_NHA_NUOC).Sum()%></span>
+               <td class="text-right">
+                    <span class="so_tien"><%=lst_PL03.Where(x=>x.NAM==m_dc_nam&&x.ID_DON_VI==x.DM_DON_VI.ID&&x.MA_SO==item.MaSo).Select(x=>x.SO_KIEN_NGHI_KIEM_TOAN_NHA_NUOC).Sum()%></span>
                 </td>
                 <%-- c) Cơ quan tài chính --%>
-                <td>
-                    <span class="so_tien"><%=lst_PL03.Where(x=>x.NAM==2014&&x.ID_DON_VI==x.DM_DON_VI.ID&&x.MA_SO==item.MaSo).Select(x=>x.SO_KIEN_NGHI_CO_QUAN_TAI_CHINH).Sum()%></span>
+                <td class="text-right">
+                    <span class="so_tien"><%=lst_PL03.Where(x=>x.NAM==m_dc_nam&&x.ID_DON_VI==x.DM_DON_VI.ID&&x.MA_SO==item.MaSo).Select(x=>x.SO_KIEN_NGHI_CO_QUAN_TAI_CHINH).Sum()%></span>
                 </td>
                 <%-- 3) Gen columns  Số đã nộp trả Quỹ BTĐB TW trong năm nay --%>
                 <%-- a) Tổng số --%>
-                <td>
-                    <span class="so_tien"><%=lst_PL03.Where(x=>x.NAM==2014&&x.ID_DON_VI==x.DM_DON_VI.ID&&x.MA_SO==item.MaSo).Select(x=>x.SO_DA_NOP_TRA_CO_QUAN_TAI_CHINH==null?0:x.SO_DA_NOP_TRA_CO_QUAN_TAI_CHINH+x.SO_DA_NOP_TRA_KIEM_TOAN_NHA_NUOC).Sum()%></span>
+                <td class="text-right">
+                    <span class="so_tien"><%=lst_PL03.Where(x=>x.NAM==m_dc_nam&&x.ID_DON_VI==x.DM_DON_VI.ID&&x.MA_SO==item.MaSo).Select(x=>x.SO_DA_NOP_TRA_CO_QUAN_TAI_CHINH==null?0:x.SO_DA_NOP_TRA_CO_QUAN_TAI_CHINH+x.SO_DA_NOP_TRA_KIEM_TOAN_NHA_NUOC).Sum()%></span>
                 </td>
                 <%-- b) Kiểm toám nhà nước --%>
-                <td>
-                    <span class="so_tien"><%=lst_PL03.Where(x=>x.NAM==2014&&x.ID_DON_VI==x.DM_DON_VI.ID&&x.MA_SO==item.MaSo).Select(x=>x.SO_DA_NOP_TRA_KIEM_TOAN_NHA_NUOC==null?0:x.SO_DA_NOP_TRA_KIEM_TOAN_NHA_NUOC).Sum()%></span>
+                <td class="text-right">
+                    <span class="so_tien"><%=lst_PL03.Where(x=>x.NAM==m_dc_nam&&x.ID_DON_VI==x.DM_DON_VI.ID&&x.MA_SO==item.MaSo).Select(x=>x.SO_DA_NOP_TRA_KIEM_TOAN_NHA_NUOC==null?0:x.SO_DA_NOP_TRA_KIEM_TOAN_NHA_NUOC).Sum()%></span>
                 </td>
                 <%-- c) Cơ quan tài chính --%>
-                <td>
-                    <span class="so_tien"><%=lst_PL03.Where(x=>x.NAM==2014&&x.ID_DON_VI==x.DM_DON_VI.ID&&x.MA_SO==item.MaSo).Select(x=>x.SO_DA_NOP_TRA_CO_QUAN_TAI_CHINH==null?0:x.SO_DA_NOP_TRA_CO_QUAN_TAI_CHINH).Sum()%></span>
+                <td class="text-right">
+                    <span class="so_tien"><%=lst_PL03.Where(x=>x.NAM==m_dc_nam&&x.ID_DON_VI==x.DM_DON_VI.ID&&x.MA_SO==item.MaSo).Select(x=>x.SO_DA_NOP_TRA_CO_QUAN_TAI_CHINH==null?0:x.SO_DA_NOP_TRA_CO_QUAN_TAI_CHINH).Sum()%></span>
                 </td>
                 <%-- 4) Gen columns Số còn phải nộp Quỹ BTĐB TW --%>
                 <%-- a) Tổng số --%>
-                <td>
-                    <span class="so_tien"><%=lst_PL03.Where(x=>x.NAM==2014&&x.ID_DON_VI==x.DM_DON_VI.ID&&x.MA_SO==item.MaSo).Select(x=>(x.SO_KIEN_NGHI_KIEM_TOAN_NHA_NUOC-x.SO_DA_NOP_TRA_KIEM_TOAN_NHA_NUOC)+(x.SO_KIEN_NGHI_CO_QUAN_TAI_CHINH-x.SO_DA_NOP_TRA_CO_QUAN_TAI_CHINH)).Sum()%></span>
+                <td class="text-right">
+                    <span class="so_tien"><%=lst_PL03.Where(x=>x.NAM==m_dc_nam&&x.ID_DON_VI==x.DM_DON_VI.ID&&x.MA_SO==item.MaSo).Select(x=>(x.SO_KIEN_NGHI_KIEM_TOAN_NHA_NUOC-x.SO_DA_NOP_TRA_KIEM_TOAN_NHA_NUOC)+(x.SO_KIEN_NGHI_CO_QUAN_TAI_CHINH-x.SO_DA_NOP_TRA_CO_QUAN_TAI_CHINH)).Sum()%></span>
                 </td>
                 <%-- b) Kiểm toám nhà nước --%>
-                <td>
-                    <span class="so_tien"><%=lst_PL03.Where(x=>x.NAM==2014&&x.ID_DON_VI==x.DM_DON_VI.ID&&x.MA_SO==item.MaSo).Select(x=>x.SO_KIEN_NGHI_KIEM_TOAN_NHA_NUOC-x.SO_DA_NOP_TRA_KIEM_TOAN_NHA_NUOC).Sum()%></span>
+                <td class="text-right">
+                    <span class="so_tien"><%=lst_PL03.Where(x=>x.NAM==m_dc_nam&&x.ID_DON_VI==x.DM_DON_VI.ID&&x.MA_SO==item.MaSo).Select(x=>x.SO_KIEN_NGHI_KIEM_TOAN_NHA_NUOC-x.SO_DA_NOP_TRA_KIEM_TOAN_NHA_NUOC).Sum()%></span>
                 </td>
                 <%-- c) Cơ quan tài chính --%>
-                <td>
-                    <span class="so_tien"><%=lst_PL03.Where(x=>x.NAM==2014&&x.ID_DON_VI==x.DM_DON_VI.ID&&x.MA_SO==item.MaSo).Select(x=>x.SO_KIEN_NGHI_CO_QUAN_TAI_CHINH-x.SO_DA_NOP_TRA_CO_QUAN_TAI_CHINH).Sum()%></span>
+                 <td class="text-right">
+                    <span class="so_tien"><%=lst_PL03.Where(x=>x.NAM==m_dc_nam&&x.ID_DON_VI==x.DM_DON_VI.ID&&x.MA_SO==item.MaSo).Select(x=>x.SO_KIEN_NGHI_CO_QUAN_TAI_CHINH-x.SO_DA_NOP_TRA_CO_QUAN_TAI_CHINH).Sum()%></span>
                 </td>
                 <%-- 5) Gen columns theo tổng loại đơn vị chỉ tính theo số kiến nghị --%>
                 <%foreach (var dvct in LoaiDonVi) {%>
-                 <%-- a) Tổng số --%>
+                <%-- a) Tổng số --%>
                 <td style="text-align: right">
                     <span class="so_tien"><%=lst_PL03.Where(x=>x.DM_DON_VI.TEN_DON_VI.Contains(dvct.Split(' ')[0])&&x.MA_SO==item.MaSo).Select(x=>x.SO_KIEN_NGHI_CO_QUAN_TAI_CHINH+x.SO_KIEN_NGHI_KIEM_TOAN_NHA_NUOC).ToList().Sum() %></span>
                 </td>
@@ -130,20 +164,20 @@
                 <td style="text-align: right">
                     <span class="so_tien"><%=lst_PL03.Where(x=>x.DM_DON_VI.TEN_DON_VI.Contains(dvct.Split(' ')[0])&&x.MA_SO==item.MaSo).Select(x=>x.SO_KIEN_NGHI_CO_QUAN_TAI_CHINH).ToList().Sum() %></span>
                 </td>
-                
-                  <%-- 6) Gen columns theo đơn vị chỉ tính theo số kiến nghị --%>
-                <%foreach (var don_vi in lst_don_vi.Where(x => x.TEN_DON_VI.Contains(dvct.Split(' ')[0])).OrderBy(x=>x.TEN_DON_VI)
+
+                <%-- 6) Gen columns theo đơn vị chỉ tính theo số kiến nghị --%>
+                <%foreach (var don_vi in lst_don_vi.Where(x => x.TEN_DON_VI.Contains(dvct.Split(' ')[0])).OrderBy(x => x.TEN_DON_VI)
 ) {%>
                 <%--a) Tổng số --%>
-                <td style="text-align: right">
+                <td class="<%=genClassCSS(don_vi.TEN_DON_VI,"tong")%>" style="text-align: right">
                     <span class="so_tien"><%=lst_PL03.Where(x=>x.ID_DON_VI==don_vi.ID_DON_VI&&x.MA_SO==item.MaSo).Select(x=>x.SO_KIEN_NGHI_CO_QUAN_TAI_CHINH+x.SO_KIEN_NGHI_KIEM_TOAN_NHA_NUOC).FirstOrDefault() %></span>
                 </td>
                 <%-- b) Kiểm toám nhà nước --%>
-                <td style="text-align: right">
+                <td class="<%=genClassCSS(don_vi.TEN_DON_VI,"ktnc")%>" style="text-align: right">
                     <span class="so_tien"><%=lst_PL03.Where(x=>x.ID_DON_VI==don_vi.ID_DON_VI&&x.MA_SO==item.MaSo).Select(x=>x.SO_KIEN_NGHI_KIEM_TOAN_NHA_NUOC).FirstOrDefault() %></span>
                 </td>
                 <%-- c) Cơ quan tài chính --%>
-                <td style="text-align: right">
+                <td class="<%=genClassCSS(don_vi.TEN_DON_VI,"cqtc")%>" style="text-align: right">
                     <span class="so_tien"><%=lst_PL03.Where(x=>x.ID_DON_VI==don_vi.ID_DON_VI&&x.MA_SO==item.MaSo).Select(x=>x.SO_KIEN_NGHI_CO_QUAN_TAI_CHINH).FirstOrDefault() %></span>
                 </td>
                 <%}%>
