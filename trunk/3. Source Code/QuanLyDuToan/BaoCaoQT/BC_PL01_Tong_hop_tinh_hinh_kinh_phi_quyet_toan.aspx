@@ -10,6 +10,14 @@
             }
         })
     </script>
+    <style>
+            #btlPL01 > thead > tr > th {
+			border: 1px solid #000;
+		}
+               #tblPL03 {
+        background-color:white;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <h3 class="h3 text-center">PL01 - TỔNG HỢP TÌNH HÌNH KINH PHÍ VÀ QUYẾT TOÁN CHI QŨY BẢO TRÌ ĐƯỜNG BỘ</h3>
@@ -21,7 +29,7 @@
         </div>
     </div>
     <br />
-    <table class="col-sm-12 table table-hover">
+    <table class="col-sm-12 table table-hover table-bordered" id="btlPL01">
 
         <thead>
             <tr class="text-center">
