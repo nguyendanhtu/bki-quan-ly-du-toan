@@ -24,6 +24,15 @@
             width: 100%;
             z-index: 100;
         }
+          #tblPL02 > thead > tr > th {
+			border: 1px solid #000;
+		}
+        .so_tien {
+            text-align:right;
+        }
+        #tblPL02 {
+        background-color:white;
+        }
     </style>
     <script type="text/javascript">
        $(document).ready(function () {
@@ -52,7 +61,7 @@
         </div>
     </div>
     <br />
-    <table class='table table-hover' style='width: 900px; margin: auto' id="tbl">
+    <table class='table table-hover table-bordered' style='width: 900px; margin: auto' id="tblPL02">
         <thead style='vertical-align: middle'>
             <tr class='text-center'>
                 <th rowspan='2' class='clkm'>Loại</th>
