@@ -78,7 +78,7 @@ namespace QuanLyDuToan.Quantri
 			US_HT_CHUC_NANG v_us_ht_chuc_nang = new US_HT_CHUC_NANG();
 			DS_HT_CHUC_NANG v_ds_ht_chuc_nang = new DS_HT_CHUC_NANG();
 
-			v_us_ht_chuc_nang.FillDataset(v_ds_ht_chuc_nang, " WHERE CHUC_NANG_PARENT_ID IS NULL ORDER BY ID");
+			v_us_ht_chuc_nang.FillDataset(v_ds_ht_chuc_nang, " WHERE CHUC_NANG_PARENT_ID IS NULL ORDER BY "+HT_CHUC_NANG.TEN_CHUC_NANG);
 
 			m_cbo_chuc_nang_cha.Items.Add(new ListItem("Không có", "0"));
 			for (int v_i = 0; v_i < v_ds_ht_chuc_nang.HT_CHUC_NANG.Rows.Count; v_i++)
@@ -91,7 +91,7 @@ namespace QuanLyDuToan.Quantri
 			US_HT_CHUC_NANG v_us_ht_chuc_nang = new US_HT_CHUC_NANG();
 			DS_HT_CHUC_NANG v_ds_ht_chuc_nang = new DS_HT_CHUC_NANG();
 
-			v_us_ht_chuc_nang.FillDataset(v_ds_ht_chuc_nang, " WHERE CHUC_NANG_PARENT_ID is null ORDER BY ID");
+			v_us_ht_chuc_nang.FillDataset(v_ds_ht_chuc_nang, " WHERE CHUC_NANG_PARENT_ID is null ORDER BY "+HT_CHUC_NANG.TEN_CHUC_NANG);
 
 			m_cbo_chuc_nang_cap_1.Items.Add(new ListItem("Tất cả", "0"));
 			for (int v_i = 0; v_i < v_ds_ht_chuc_nang.HT_CHUC_NANG.Rows.Count; v_i++)

@@ -62,7 +62,7 @@ namespace QuanLyDuToan.DanhMuc
 		{
 			US_CM_DM_LOAI_TD v_us_loai_tu_dien = new US_CM_DM_LOAI_TD();
 			DS_CM_DM_LOAI_TD v_ds_loai_tu_dien = new DS_CM_DM_LOAI_TD();
-			v_us_loai_tu_dien.FillDataset(v_ds_loai_tu_dien);
+			v_us_loai_tu_dien.FillDataset(v_ds_loai_tu_dien," order by "+CM_DM_LOAI_TD.TEN_LOAI);
 			m_cbo_loai_tu_dien.DataSource = v_ds_loai_tu_dien.CM_DM_LOAI_TD;
 			m_cbo_loai_tu_dien.DataTextField = CM_DM_LOAI_TD.TEN_LOAI;
 			m_cbo_loai_tu_dien.DataValueField = CM_DM_LOAI_TD.ID;
