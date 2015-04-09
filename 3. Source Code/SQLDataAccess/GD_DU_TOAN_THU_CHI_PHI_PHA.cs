@@ -12,23 +12,26 @@ namespace SQLDataAccess
     using System;
     using System.Collections.Generic;
     
-    public partial class GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN
+    public partial class GD_DU_TOAN_THU_CHI_PHI_PHA
     {
         public decimal ID { get; set; }
+        public string MA_SO { get; set; }
+        public string MA_SO_PARENT { get; set; }
         public string TT { get; set; }
-        public string TEN_LOAI_NHIEM_VU { get; set; }
-        public string CONG_TRINH { get; set; }
-        public string DU_AN { get; set; }
-        public Nullable<decimal> GIA_TRI_DU_TOAN_CONG_TRINH_DUOC_DUYET { get; set; }
-        public Nullable<decimal> GIA_TRI_CTHT_NAM_TRUOC_CON_NO_CHUYEN_NAM_NAY { get; set; }
-        public Nullable<decimal> GIA_TRI_CTHT_NAM_NAY { get; set; }
-        public Nullable<decimal> GIA_TRI_DE_NGHI_QUYET_TOAN_TRONG_NAM { get; set; }
-        public Nullable<decimal> GIA_TRI_CTHT_DA_QUYET_TOAN_LK_DEN_NAM_BAO_CAO { get; set; }
+        public string HANG_MUC { get; set; }
+        public Nullable<decimal> KINH_PHI_GIAO_KH { get; set; }
+        public Nullable<decimal> KLTH_QUY_I { get; set; }
+        public Nullable<decimal> KLTH_QUY_II { get; set; }
+        public Nullable<decimal> KLTH_QUY_III { get; set; }
+        public Nullable<decimal> KLTH_QUY_IV { get; set; }
+        public string GHI_CHU_GIAO_KH { get; set; }
+        public string GHI_CHU_QUY_I { get; set; }
+        public string GHI_CHU_QUY_II { get; set; }
+        public string GHI_CHU_QUY_III { get; set; }
+        public string GHI_CHU_QUY_IV { get; set; }
         public Nullable<decimal> ID_DON_VI { get; set; }
         public Nullable<decimal> NAM { get; set; }
         public string CONG_THUC { get; set; }
-        public string GHI_CHU { get; set; }
-        public Nullable<decimal> GIA_TRI_QUYET_TOAN { get; set; }
     
         public virtual DM_DON_VI DM_DON_VI { get; set; }
     }

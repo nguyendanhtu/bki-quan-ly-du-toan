@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="ece3cc88bdc740a1b41f6692184b2f4c" Name="Diagram1" ZoomLevel="71">
+      <Diagram DiagramId="ece3cc88bdc740a1b41f6692184b2f4c" Name="Diagram1" ZoomLevel="67">
         <EntityTypeShape EntityType="BKI_QLDTModel.CM_COMPANY_INFO" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BKI_QLDTModel.CM_DM_LOAI_TD" Width="1.5" PointX="0.75" PointY="40.625" IsExpanded="true" />
         <EntityTypeShape EntityType="BKI_QLDTModel.CM_DM_TU_DIEN" Width="1.5" PointX="3" PointY="39.5" IsExpanded="true" />
@@ -115,6 +115,8 @@
         <EntityTypeShape EntityType="BKI_QLDTModel.TP_PL03" Width="2.875" PointX="16.75" PointY="5.75" />
         <EntityTypeShape EntityType="BKI_QLDTModel.GD_PL05_DANH_MUC_CONG_TRINH_HOAN_THANH_GIAM_TRU_THANH_TOAN" Width="1.5" PointX="2.0740922065796759" PointY="17.508561380910017" />
         <AssociationConnector Association="BKI_QLDTModel.FK_GD_PL05_DANH_MUC_CONG_TRINH_HOAN_THANH_GIAM_TRU_THANH_TOAN_DM_DON_VI" />
+        <EntityTypeShape EntityType="BKI_QLDTModel.GD_DU_TOAN_THU_CHI_PHI_PHA" Width="1.5" PointX="7.049761358206049" PointY="25.25419199152579" />
+        <AssociationConnector Association="BKI_QLDTModel.FK_GD_DU_TOAN_THU_CHI_PHI_PHA_DM_DON_VI" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
