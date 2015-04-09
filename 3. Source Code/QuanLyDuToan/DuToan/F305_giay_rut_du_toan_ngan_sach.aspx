@@ -62,7 +62,7 @@
 					strKhoan = strLoaiKhoan.split(" - ")[1];
 					$(this).parent().parent().find('.txt_footer_ma_chuong').val('021');
 					$(this).parent().parent().find('.txt_footer_ma_loai').val(strLoai);
-					$(this).parent().parent().find('.txt_footer_ma_khoan').val(strKhoan);
+					//$(this).parent().parent().find('.txt_footer_ma_khoan').val(strKhoan);
 					$(this).parent().parent().find('.txt_footer_noi_dung_thanh_toan').focus();
 				});
 				$('.ddl_edit_tieu_muc').change(function () {
@@ -73,7 +73,7 @@
 					strKhoan = strLoaiKhoan.split(" - ")[1];
 					$(this).parent().parent().find('.txt_edit_ma_chuong').val('021');
 					$(this).parent().parent().find('.txt_edit_ma_loai').val(strLoai);
-					$(this).parent().parent().find('.txt_edit_ma_khoan').val(strKhoan);
+					//$(this).parent().parent().find('.txt_edit_ma_khoan').val(strKhoan);
 					$(this).parent().parent().find('.txt_edit_noi_dung_thanh_toan').focus();
 				});
 
@@ -104,7 +104,7 @@
 				strKhoan = strLoaiKhoan.split(" - ")[1];
 				$(this).parent().parent().find('.txt_footer_ma_chuong').val('021');
 				$(this).parent().parent().find('.txt_footer_ma_loai').val(strLoai);
-				$(this).parent().parent().find('.txt_footer_ma_khoan').val(strKhoan);
+				//$(this).parent().parent().find('.txt_footer_ma_khoan').val(strKhoan);
 				$(this).parent().parent().find('.txt_footer_noi_dung_thanh_toan').focus();
 			});
 
@@ -116,7 +116,7 @@
 				strKhoan = strLoaiKhoan.split(" - ")[1];
 				$(this).parent().parent().find('.txt_edit_ma_chuong').val('021');
 				$(this).parent().parent().find('.txt_edit_ma_loai').val(strLoai);
-				$(this).parent().parent().find('.txt_edit_ma_khoan').val(strKhoan);
+				//$(this).parent().parent().find('.txt_edit_ma_khoan').val(strKhoan);
 				$(this).parent().parent().find('.txt_edit_noi_dung_thanh_toan').focus();
 			});
 		}
@@ -415,11 +415,11 @@
 														</asp:TemplateField>
 														<asp:TemplateField HeaderText="Mã nguồn NSNN" HeaderStyle-Width="60px">
 															<ItemTemplate>
-																<asp:Label ID="m_lbl_grid_ma_nguon_nsnn" Text='<%#Eval(GRID_GIAI_NGAN.MA_KHOAN).ToString() %>' runat="server"></asp:Label>
+																<asp:Label ID="m_lbl_grid_ma_nguon_nsnn" Text='<%#Eval("MA_NGUON_NSNN") %>' runat="server"></asp:Label>
 															</ItemTemplate>
 															<EditItemTemplate>
 																<asp:TextBox ID="m_txt_grid_edit_ma_nguon_nsnn" CssClass="form-control txt_edit_ma_khoan" runat="server" Width="96%"
-																	Text='<%#Eval(GRID_GIAI_NGAN.MA_KHOAN) %>'></asp:TextBox>
+																	Text='<%#Eval("MA_NGUON_NSNN") %>'></asp:TextBox>
 															</EditItemTemplate>
 															<FooterTemplate>
 																<asp:TextBox ID="m_txt_grid_ma_nguon_nsnn" runat="server" CssClass="form-control txt_footer_ma_khoan" Width="96%" Style="text-align: left"></asp:TextBox>

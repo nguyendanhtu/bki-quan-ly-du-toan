@@ -90,9 +90,14 @@
     <Content Include="Quantri\F816_ghi_log_qldt.aspx" />
     <Content Include="QuyetToan\PL03_thuc_hien_xu_ly_kien_nghi_cua_kiem_toan_thanh_tra_tai_chinh.aspx" />
     <Content Include="QuyetToan\PL04_danh_muc_cong_trinh_quyet_toan.aspx" />
+    <Content Include="QuyetToan\PL05_DanhMucGiaTriCongTrinhHoanThanhGiamTruThanhToan.aspx" />
+    <Content Include="Scripts\jquery.bpopup.js" />
+    <Content Include="Scripts\jquery.linq.js" />
+    <Content Include="Scripts\linq.js" />
     <Content Include="Scripts\UI\PL02.js" />
     <Content Include="Scripts\UI\PL03.js" />
     <Content Include="Scripts\UI\PL04.js" />
+    <Content Include="Scripts\UI\PL05.js" />
     <Content Include="Styles\jquery.dataTables.min.css" />
     <Content Include="WebMethod\PL01.asmx" />
     <Content Include="WebMethod\PL02.asmx" />
@@ -695,6 +700,13 @@
     </Compile>
     <Compile Include="QuyetToan\PL04_danh_muc_cong_trinh_quyet_toan.aspx.designer.cs">
       <DependentUpon>PL04_danh_muc_cong_trinh_quyet_toan.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="QuyetToan\PL05_DanhMucGiaTriCongTrinhHoanThanhGiamTruThanhToan.aspx.cs">
+      <DependentUpon>PL05_DanhMucGiaTriCongTrinhHoanThanhGiamTruThanhToan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="QuyetToan\PL05_DanhMucGiaTriCongTrinhHoanThanhGiamTruThanhToan.aspx.designer.cs">
+      <DependentUpon>PL05_DanhMucGiaTriCongTrinhHoanThanhGiamTruThanhToan.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebMethod\PL01.asmx.cs">
       <DependentUpon>PL01.asmx</DependentUpon>

@@ -67,6 +67,24 @@ namespace QuanLyDuToan.DuToan {
         protected global::System.Web.UI.WebControls.TextBox m_txt_ma_dvqhns;
         
         /// <summary>
+        /// m_txt_ma_dvqhns_1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox m_txt_ma_dvqhns_1;
+        
+        /// <summary>
+        /// m_txt_ma_dvqhns_2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox m_txt_ma_dvqhns_2;
+        
+        /// <summary>
         /// m_cmd_save control.
         /// </summary>
         /// <remarks>

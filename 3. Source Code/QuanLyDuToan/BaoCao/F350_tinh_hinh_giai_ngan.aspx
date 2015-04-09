@@ -333,17 +333,17 @@
                                         <HeaderStyle Height="10px" HorizontalAlign="Center" />
                                         <ItemStyle HorizontalAlign="Right" Width="120px" />
                                     </asp:TemplateField>
-                                    <asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="(5) + (7)" HeaderStyle-Height="10px">
+                                    <asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="(8) = (5) + (7)" HeaderStyle-Height="10px">
                                         <ItemTemplate>
                                            <%-- <font class='a<%# Eval(GRID_GIAI_NGAN.ID)%>'><%# CIPConvert.ToStr( format_so_tien( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_QBT_TONG) )
                                                 + format_so_tien( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_NS_TONG)), "#,###") %></font>--%>
-                                             <font class='a<%# Eval(GRID_GIAI_NGAN.ID)%>'><%# CCommonFunction.getMoney_string_format(CCommonFunction.getMoney_number(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_NS_TONG))
+                                             <font class='a<%# Eval(GRID_GIAI_NGAN.ID)%>'><%# CCommonFunction.getMoney_string_format(CCommonFunction.getMoney_number(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_QBT_TONG))
                                                 + CCommonFunction.getMoney_number(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_NS_TONG))) %></font>
                                         </ItemTemplate>
                                         <HeaderStyle Height="10px" HorizontalAlign="Center" />
                                         <ItemStyle HorizontalAlign="Right" Width="120px" />
                                     </asp:TemplateField>
-                                    <asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="(8)" HeaderStyle-Height="10px">
+                                    <asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="(9)" HeaderStyle-Height="10px">
                                         <ItemTemplate>
 
                                             <a class='a<%# Eval(GRID_GIAI_NGAN.ID)%>' href="<%#FormInfo.FormName.F357.ToString()%><%# format_link_to_chi_tiet_trong_thang(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.REPORT_LEVEL)
@@ -357,7 +357,7 @@
                                         <HeaderStyle Height="10px" HorizontalAlign="Center" />
                                         <ItemStyle HorizontalAlign="Right" Width="120px" />
                                     </asp:TemplateField>
-                                    <asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="(9)" HeaderStyle-Height="10px">
+                                    <asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="(10)" HeaderStyle-Height="10px">
                                         <ItemTemplate>
                                             <a class='a<%# Eval(GRID_GIAI_NGAN.ID)%>' href="<%#FormInfo.FormName.F357.ToString()%><%# format_link_to_chi_tiet(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.REPORT_LEVEL)
                                                   ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID_DON_VI)
@@ -370,7 +370,7 @@
                                         <HeaderStyle Height="10px" HorizontalAlign="Center" />
                                         <ItemStyle HorizontalAlign="Right" Width="120px" />
                                     </asp:TemplateField>
-                                    <asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="(10)" HeaderStyle-Height="10px">
+                                    <asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="(11)" HeaderStyle-Height="10px">
                                         <ItemTemplate>
                                             <a class='a<%# Eval(GRID_GIAI_NGAN.ID)%>' href="<%#FormInfo.FormName.F357.ToString()%><%# format_link_to_chi_tiet_trong_thang(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.REPORT_LEVEL)
                                                   ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID_DON_VI)
@@ -383,7 +383,7 @@
                                         <HeaderStyle Height="10px" HorizontalAlign="Center" />
                                         <ItemStyle HorizontalAlign="Right" Width="120px" />
                                     </asp:TemplateField>
-                                    <asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="(11)" HeaderStyle-Height="10px">
+                                    <asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="(12)" HeaderStyle-Height="10px">
                                         <ItemTemplate>
                                             <a class='a<%# Eval(GRID_GIAI_NGAN.ID)%>' href="<%#FormInfo.FormName.F357.ToString()%><%# format_link_to_chi_tiet(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.REPORT_LEVEL)
                                                     ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID_DON_VI)
@@ -398,7 +398,7 @@
                                         <ItemStyle HorizontalAlign="Right" Width="120px" />
                                     </asp:TemplateField>
 
-                                    <asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="(9+11)" HeaderStyle-Height="10px">
+                                    <asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="(13) = (10) + (12)" HeaderStyle-Height="10px">
                                         <ItemTemplate>
                                            <%-- <font class='a<%# Eval(GRID_GIAI_NGAN.ID)%>'><%# CIPConvert.ToStr( (format_so_tien(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_QBT_TONG)) 
                                             + format_so_tien( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_NS_TONG))) 
@@ -410,7 +410,7 @@
                                         <ItemStyle HorizontalAlign="Right" Width="120px" />
                                     </asp:TemplateField>
 
-                                    <asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="(5+7) - (9+11)" HeaderStyle-Height="10px">
+                                    <asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="(14) = (5+7) - (10+12)" HeaderStyle-Height="10px">
                                         <ItemTemplate>
                                            <%-- <font class='a<%# Eval(GRID_GIAI_NGAN.ID)%>'><%# CIPConvert.ToStr( (format_so_tien(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_QBT_TONG)) 
                                             + format_so_tien( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_NS_TONG))) 
@@ -424,7 +424,7 @@
                                         <HeaderStyle Height="10px" HorizontalAlign="Center" />
                                         <ItemStyle HorizontalAlign="Right" Width="120px" />
                                     </asp:TemplateField>
-                                    <asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="(12) = (1) + (c) - (5)" HeaderStyle-Height="10px">
+                                    <asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="(15) = (1) + (c) - (5)" HeaderStyle-Height="10px">
                                         <ItemTemplate>
                                             <%--<font class='a<%# Eval(GRID_GIAI_NGAN.ID)%>'><%# CIPConvert.ToStr(format_so_tien(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_QBT)) +format_so_tien(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_NAM_TRUOC_CHUYEN_SANG))  
                                                         - format_so_tien(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_QBT_TONG)), "#,###") %></font>--%>
@@ -444,7 +444,7 @@
                                         <HeaderStyle Height="10px" HorizontalAlign="Center" />
                                         <ItemStyle HorizontalAlign="Right" Width="120px" />
                                     </asp:TemplateField>
-                                    <asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="" HeaderStyle-Height="10px">
+                                    <asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="(17)" HeaderStyle-Height="10px">
                                         <ItemTemplate>
                                            <%-- <font class='a<%# Eval(GRID_GIAI_NGAN.ID)%>'><%# CIPConvert.ToStr( format_so_tien(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.GIA_TRI_THUC_HIEN)) , "#,###") %></font>--%>
                                              <font class='a<%# Eval(GRID_GIAI_NGAN.ID)%>'><%#CCommonFunction.getMoney_string_format(CCommonFunction.getMoney_number(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.GIA_TRI_THUC_HIEN))) %></font>
@@ -452,7 +452,7 @@
                                         <HeaderStyle Height="10px" HorizontalAlign="Center" />
                                         <ItemStyle HorizontalAlign="Right" Width="120px" />
                                     </asp:TemplateField>
-                                    <asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="" HeaderStyle-Height="10px">
+                                    <asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="(18)" HeaderStyle-Height="10px">
                                         <ItemTemplate>
                                             <%--<font class='a<%# Eval(GRID_GIAI_NGAN.ID)%>'><%# CIPConvert.ToStr( format_so_tien(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.SO_CHUA_GN)) , "#,###") %></font>--%>
                                             <font class='a<%# Eval(GRID_GIAI_NGAN.ID)%>'><%# CCommonFunction.getMoney_string_format( CCommonFunction.getMoney_number(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.SO_CHUA_GN))) %></font>

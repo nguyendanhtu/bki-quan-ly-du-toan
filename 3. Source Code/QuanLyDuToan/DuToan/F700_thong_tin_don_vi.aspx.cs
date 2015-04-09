@@ -54,6 +54,9 @@ namespace QuanLyDuToan.DuToan
                 m_txt_kho_bac.Text = v_us.strKHO_BAC;
                 m_txt_ma_tkkt_nguon_ns.Text = v_us.strMA_TKKT2;
                 m_txt_ma_tkkt_quy_bao_tri.Text = v_us.strMA_TKKT1;
+				m_txt_ma_dvqhns.Text = v_us.strMA_DVQHNS;
+				m_txt_ma_dvqhns_1.Text = v_us.strMA_DVQHNS_1;
+				m_txt_ma_dvqhns_2.Text = v_us.strMA_DVQHNS_2;
             }
             else {
                 v_us.dcID_DON_VI = Person.get_id_don_vi();
@@ -88,6 +91,8 @@ namespace QuanLyDuToan.DuToan
                     v_us_thong_tin_don_vi.strDIA_CHI = m_txt_dia_chi.Text.Trim();
                     v_us_thong_tin_don_vi.strKHO_BAC = m_txt_kho_bac.Text.Trim();
                     v_us_thong_tin_don_vi.strMA_DVQHNS = m_txt_ma_dvqhns.Text.Trim();
+					v_us_thong_tin_don_vi.strMA_DVQHNS_1 = m_txt_ma_dvqhns_1.Text.Trim();
+					v_us_thong_tin_don_vi.strMA_DVQHNS_2 = m_txt_ma_dvqhns_2.Text.Trim();
                     v_us_thong_tin_don_vi.strMA_TKKT1 = m_txt_ma_tkkt_quy_bao_tri.Text.Trim();
                     v_us_thong_tin_don_vi.strMA_TKKT2 = m_txt_ma_tkkt_nguon_ns.Text.Trim();
                     v_us_thong_tin_don_vi.Update();

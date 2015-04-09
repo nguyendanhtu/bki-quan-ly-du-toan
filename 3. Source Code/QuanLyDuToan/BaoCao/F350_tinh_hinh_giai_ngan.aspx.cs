@@ -26,7 +26,7 @@ namespace QuanLyDuToan.BaoCao
 		#region Public Function
 		public string getSTT(string ip_str_noi_dung)
 		{
-			if (ip_str_noi_dung.Equals("Tổng cộng")) return "";
+			if (ip_str_noi_dung.Contains("Tổng cộng")) return "";
 			m_i_stt++;
 			return m_i_stt.ToString();
 		}
