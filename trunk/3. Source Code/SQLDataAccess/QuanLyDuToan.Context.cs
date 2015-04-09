@@ -82,6 +82,7 @@ namespace SQLDataAccess
         public DbSet<TP_PL05> TP_PL05 { get; set; }
         public DbSet<TP_PL03> TP_PL03 { get; set; }
         public DbSet<GD_PL05_DANH_MUC_CONG_TRINH_HOAN_THANH_GIAM_TRU_THANH_TOAN> GD_PL05_DANH_MUC_CONG_TRINH_HOAN_THANH_GIAM_TRU_THANH_TOAN { get; set; }
+        public DbSet<GD_DU_TOAN_THU_CHI_PHI_PHA> GD_DU_TOAN_THU_CHI_PHI_PHA { get; set; }
     
         public virtual ObjectResult<desc_table_Result> desc_table(string ip_table_name)
         {
@@ -1519,7 +1520,7 @@ namespace SQLDataAccess
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pr_DM_THONG_TIN_DON_VI_Delete", iDParameter);
         }
     
-        public virtual int pr_DM_THONG_TIN_DON_VI_Insert(Nullable<decimal> iD_DON_VI, string dIA_CHI, string kHO_BAC, string mA_TKKT1, string mA_DVQHNS, string mA_TKKT2, ObjectParameter iD)
+        public virtual int pr_DM_THONG_TIN_DON_VI_Insert(Nullable<decimal> iD_DON_VI, string dIA_CHI, string kHO_BAC, string mA_TKKT1, string mA_DVQHNS, string mA_TKKT2, string mA_DVQHNS_1, string mA_DVQHNS_2, ObjectParameter iD)
         {
             var iD_DON_VIParameter = iD_DON_VI.HasValue ?
                 new ObjectParameter("ID_DON_VI", iD_DON_VI) :
@@ -1545,10 +1546,18 @@ namespace SQLDataAccess
                 new ObjectParameter("MA_TKKT2", mA_TKKT2) :
                 new ObjectParameter("MA_TKKT2", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pr_DM_THONG_TIN_DON_VI_Insert", iD_DON_VIParameter, dIA_CHIParameter, kHO_BACParameter, mA_TKKT1Parameter, mA_DVQHNSParameter, mA_TKKT2Parameter, iD);
+            var mA_DVQHNS_1Parameter = mA_DVQHNS_1 != null ?
+                new ObjectParameter("MA_DVQHNS_1", mA_DVQHNS_1) :
+                new ObjectParameter("MA_DVQHNS_1", typeof(string));
+    
+            var mA_DVQHNS_2Parameter = mA_DVQHNS_2 != null ?
+                new ObjectParameter("MA_DVQHNS_2", mA_DVQHNS_2) :
+                new ObjectParameter("MA_DVQHNS_2", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pr_DM_THONG_TIN_DON_VI_Insert", iD_DON_VIParameter, dIA_CHIParameter, kHO_BACParameter, mA_TKKT1Parameter, mA_DVQHNSParameter, mA_TKKT2Parameter, mA_DVQHNS_1Parameter, mA_DVQHNS_2Parameter, iD);
         }
     
-        public virtual int pr_DM_THONG_TIN_DON_VI_Update(Nullable<decimal> iD, Nullable<decimal> iD_DON_VI, string dIA_CHI, string kHO_BAC, string mA_TKKT1, string mA_DVQHNS, string mA_TKKT2)
+        public virtual int pr_DM_THONG_TIN_DON_VI_Update(Nullable<decimal> iD, Nullable<decimal> iD_DON_VI, string dIA_CHI, string kHO_BAC, string mA_TKKT1, string mA_DVQHNS, string mA_TKKT2, string mA_DVQHNS_1, string mA_DVQHNS_2)
         {
             var iDParameter = iD.HasValue ?
                 new ObjectParameter("ID", iD) :
@@ -1578,7 +1587,15 @@ namespace SQLDataAccess
                 new ObjectParameter("MA_TKKT2", mA_TKKT2) :
                 new ObjectParameter("MA_TKKT2", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pr_DM_THONG_TIN_DON_VI_Update", iDParameter, iD_DON_VIParameter, dIA_CHIParameter, kHO_BACParameter, mA_TKKT1Parameter, mA_DVQHNSParameter, mA_TKKT2Parameter);
+            var mA_DVQHNS_1Parameter = mA_DVQHNS_1 != null ?
+                new ObjectParameter("MA_DVQHNS_1", mA_DVQHNS_1) :
+                new ObjectParameter("MA_DVQHNS_1", typeof(string));
+    
+            var mA_DVQHNS_2Parameter = mA_DVQHNS_2 != null ?
+                new ObjectParameter("MA_DVQHNS_2", mA_DVQHNS_2) :
+                new ObjectParameter("MA_DVQHNS_2", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pr_DM_THONG_TIN_DON_VI_Update", iDParameter, iD_DON_VIParameter, dIA_CHIParameter, kHO_BACParameter, mA_TKKT1Parameter, mA_DVQHNSParameter, mA_TKKT2Parameter, mA_DVQHNS_1Parameter, mA_DVQHNS_2Parameter);
         }
     
         public virtual int pr_DM_UY_NHIEM_CHI_Delete(Nullable<decimal> iD)

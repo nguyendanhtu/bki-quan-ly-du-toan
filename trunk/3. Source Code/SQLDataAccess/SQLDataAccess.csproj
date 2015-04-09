@@ -94,6 +94,9 @@
     <Compile Include="GD_CHI_TIET_GIAO_VON.cs">
       <DependentUpon>QuanLyDuToan.tt</DependentUpon>
     </Compile>
+    <Compile Include="GD_DU_TOAN_THU_CHI_PHI_PHA.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
     <Compile Include="GD_KHOI_LUONG.cs">
       <DependentUpon>QuanLyDuToan.tt</DependentUpon>
     </Compile>
