@@ -161,8 +161,12 @@
 											<td style="text-align: right">
 												<span>&nbsp;&nbsp; Mã ĐVQHNS:</span>
 											</td>
-											<td>
-												<asp:TextBox ID="m_lbl_ma_dvqhns" ForeColor="Black" Width="150px" runat="server" CssClass="cssTextBox form-control"></asp:TextBox>
+											<td colspan="2" style="display:table-row">
+												
+												<asp:RadioButton ID="m_rdb_ma_dvqhns" Checked="true" runat="server" GroupName="madvqhns" />
+												<asp:RadioButton ID="m_rdb_ma_dvqhns_1" runat="server" GroupName="madvqhns" />
+												<asp:RadioButton ID="m_rdb_ma_dvqhns_2" runat="server" GroupName="madvqhns" />
+
 											</td>
 										</tr>
 										<tr>

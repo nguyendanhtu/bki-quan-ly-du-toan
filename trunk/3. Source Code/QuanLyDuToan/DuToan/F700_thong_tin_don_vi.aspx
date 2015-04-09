@@ -29,7 +29,10 @@
 		</tr>
 		<tr>
 			<td>Mã ĐVQHNS: </td>
-			<td><asp:TextBox ID="m_txt_ma_dvqhns" cssclass="form-control"  runat="server" Width="150px"></asp:TextBox></td>
+			<td><asp:TextBox ID="m_txt_ma_dvqhns" cssclass="form-control"  runat="server" Width="150px"></asp:TextBox>
+				<asp:TextBox ID="m_txt_ma_dvqhns_1" cssclass="form-control"  runat="server" Width="150px"></asp:TextBox>
+				<asp:TextBox ID="m_txt_ma_dvqhns_2" cssclass="form-control"  runat="server" Width="150px"></asp:TextBox>
+			</td>
 		</tr>
 		
 		<tr>

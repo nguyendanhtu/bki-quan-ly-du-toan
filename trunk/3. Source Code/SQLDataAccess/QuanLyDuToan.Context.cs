@@ -46,7 +46,6 @@ namespace SQLDataAccess
         public DbSet<GD_PL01_TONG_HOP_TINH_HINH_KINH_PHI_VA_QUYET_TOAN_CHI> GD_PL01_TONG_HOP_TINH_HINH_KINH_PHI_VA_QUYET_TOAN_CHI { get; set; }
         public DbSet<GD_PL02_KINH_PHI_DA_SU_DUNG_DE_NGHI_QUYET_TOAN> GD_PL02_KINH_PHI_DA_SU_DUNG_DE_NGHI_QUYET_TOAN { get; set; }
         public DbSet<GD_PL03_THUC_HIEN_XU_LY_KIEN_NGHI_CUA_KIEM_TOAN_THANH_TRA_TAI_CHINH> GD_PL03_THUC_HIEN_XU_LY_KIEN_NGHI_CUA_KIEM_TOAN_THANH_TRA_TAI_CHINH { get; set; }
-        public DbSet<GD_PL05_DANH_MUC_CONG_TRINH_HOAN_THANH_GIAM_TRU_THANH_TOAN> GD_PL05_DANH_MUC_CONG_TRINH_HOAN_THANH_GIAM_TRU_THANH_TOAN { get; set; }
         public DbSet<HT_BACKUP_HISTORY> HT_BACKUP_HISTORY { get; set; }
         public DbSet<HT_BUSINESS_PROCESS_LOCK> HT_BUSINESS_PROCESS_LOCK { get; set; }
         public DbSet<HT_CHUC_NANG> HT_CHUC_NANG { get; set; }
@@ -82,6 +81,7 @@ namespace SQLDataAccess
         public DbSet<TP_PL02> TP_PL02 { get; set; }
         public DbSet<TP_PL05> TP_PL05 { get; set; }
         public DbSet<TP_PL03> TP_PL03 { get; set; }
+        public DbSet<GD_PL05_DANH_MUC_CONG_TRINH_HOAN_THANH_GIAM_TRU_THANH_TOAN> GD_PL05_DANH_MUC_CONG_TRINH_HOAN_THANH_GIAM_TRU_THANH_TOAN { get; set; }
     
         public virtual ObjectResult<desc_table_Result> desc_table(string ip_table_name)
         {

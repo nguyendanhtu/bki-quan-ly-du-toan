@@ -402,7 +402,7 @@ namespace WebUS
 			v_sp.addNVarcharInputParam("@ip_str_is_nguon_ns", ip_str_is_nguon_ns);
 			v_sp.fillDataSetByCommand(this, op_ds);
 		}
-		public void get_grid_giay_rut_du_toan(DS_GRID_GIAI_NGAN op_ds
+		public void get_grid_giay_rut_du_toan(DataSet op_ds
 			 , decimal ip_dc_id_don_vi
 			 , decimal ip_dc_id_dm_uy_nhiem_chi
 			, decimal ip_dc_id_user

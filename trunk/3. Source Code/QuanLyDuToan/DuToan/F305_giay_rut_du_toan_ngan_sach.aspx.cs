@@ -54,6 +54,7 @@ namespace QuanLyDuToan.DuToan
 		TextBox m_txt_grid_edit_so_tien_nop_thue;
 		TextBox m_txt_grid_edit_so_tien_tt_cho_dv_huong;
 		TextBox m_txt_grid_edit_ghi_chu;
+		TextBox m_txt_grid_edit_ma_nguon_nsnn;
 
 		//2. Control Add New
 
@@ -63,7 +64,9 @@ namespace QuanLyDuToan.DuToan
 		private void load_data_to_grid_chi_tiet_uy_nhiem_chi()
 		{
 			US_GRID_GIAI_NGAN v_us = new US_GRID_GIAI_NGAN();
-			DS_GRID_GIAI_NGAN v_ds = new DS_GRID_GIAI_NGAN();
+			DataSet v_ds = new DataSet();
+			v_ds.Tables.Add(new DataTable());
+			v_ds.AcceptChanges();
 			v_ds.EnforceConstraints = false;
 			if (m_hdf_id_dm_giai_ngan.Value.Trim().Equals("")) return;
 			v_us.get_grid_giay_rut_du_toan(
@@ -181,6 +184,12 @@ namespace QuanLyDuToan.DuToan
 			m_txt_grid_edit_ghi_chu = WebformFunctions.getControl_in_template<TextBox>(
 																					   m_grv_unc
 																					   , "m_txt_grid_edit_ghi_chu"
+																					   , ip_i_row_index
+																					   , eGridItem.EditItem
+																					   );
+			m_txt_grid_edit_ma_nguon_nsnn = WebformFunctions.getControl_in_template<TextBox>(
+																					   m_grv_unc
+																					   , "m_txt_grid_edit_ma_nguon_nsnn"
 																					   , ip_i_row_index
 																					   , eGridItem.EditItem
 																					   );
@@ -489,6 +498,7 @@ namespace QuanLyDuToan.DuToan
 				{
 					ip_us.dcID_TIEU_MUC = CIPConvert.ToDecimal(v_arr_id[4]);
 				}
+				ip_us.strMA_NGUON_NSNN = m_txt_grid_edit_ma_nguon_nsnn.Text.Trim();
 				ip_us.SetID_CONG_TRINHNull();
 				ip_us.SetID_DU_ANNull();
 
@@ -1097,6 +1107,7 @@ namespace QuanLyDuToan.DuToan
 					TextBox m_txt_grid_edit_so_tien_nop_thue = (TextBox)m_grv_unc.FooterRow.FindControl("m_txt_grid_so_tien_nop_thue");
 					TextBox m_txt_grid_edit_so_tien_tt_cho_dv_huong = (TextBox)m_grv_unc.FooterRow.FindControl("m_txt_grid_so_tien_thanh_toan_cho_don_vi_huong");
 					TextBox m_txt_grid_ghi_chu = (TextBox)m_grv_unc.FooterRow.FindControl("m_txt_grid_ghi_chu");
+					TextBox m_txt_grid_ma_nsnn = (TextBox)m_grv_unc.FooterRow.FindControl("m_txt_grid_ma_nguon_nsnn");
 
 					m_txt_grid_edit_so_tien_nop_thue.Text = m_txt_grid_edit_so_tien_nop_thue.Text.Trim().Replace(",", "").Replace(".", "");
 					m_txt_grid_edit_so_tien_tt_cho_dv_huong.Text = m_txt_grid_edit_so_tien_tt_cho_dv_huong.Text.Trim().Replace(",", "").Replace(".", "");
@@ -1192,6 +1203,7 @@ namespace QuanLyDuToan.DuToan
 							v_us_gd.dcID_TIEU_MUC = CIPConvert.ToDecimal(v_arr_id[4]);
 						}
 						v_us_gd.SetID_CONG_TRINHNull();
+						v_us_gd.strMA_NGUON_NSNN = m_txt_grid_ma_nsnn.Text.Trim();
 						v_us_gd.SetID_DU_ANNull();
 
 					}

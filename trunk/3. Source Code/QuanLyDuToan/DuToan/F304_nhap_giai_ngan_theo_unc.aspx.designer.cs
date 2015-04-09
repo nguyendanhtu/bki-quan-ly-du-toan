@@ -130,13 +130,31 @@ namespace QuanLyDuToan.DuToan {
         protected global::System.Web.UI.WebControls.TextBox m_txt_ma_ctmt_da_htct;
         
         /// <summary>
-        /// m_lbl_ma_dvqhns control.
+        /// m_rdb_ma_dvqhns control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox m_lbl_ma_dvqhns;
+        protected global::System.Web.UI.WebControls.RadioButton m_rdb_ma_dvqhns;
+        
+        /// <summary>
+        /// m_rdb_ma_dvqhns_1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton m_rdb_ma_dvqhns_1;
+        
+        /// <summary>
+        /// m_rdb_ma_dvqhns_2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton m_rdb_ma_dvqhns_2;
         
         /// <summary>
         /// m_cmd_luu_unc control.

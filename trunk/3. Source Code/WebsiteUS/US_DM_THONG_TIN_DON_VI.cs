@@ -176,6 +176,50 @@ namespace WebUS
 			pm_objDR["MA_TKKT2"] = System.Convert.DBNull;
 		}
 
+		public string strMA_DVQHNS_1
+		{
+			get
+			{
+				return CNull.RowNVLString(pm_objDR, "MA_DVQHNS_1", IPConstants.c_DefaultString);
+			}
+			set
+			{
+				pm_objDR["MA_DVQHNS_1"] = value;
+			}
+		}
+
+		public bool IsMA_DVQHNS_1Null()
+		{
+			return pm_objDR.IsNull("MA_DVQHNS_1");
+		}
+
+		public void SetMA_DVQHNS_1Null()
+		{
+			pm_objDR["MA_DVQHNS_1"] = System.Convert.DBNull;
+		}
+
+		public string strMA_DVQHNS_2
+		{
+			get
+			{
+				return CNull.RowNVLString(pm_objDR, "MA_DVQHNS_2", IPConstants.c_DefaultString);
+			}
+			set
+			{
+				pm_objDR["MA_DVQHNS_2"] = value;
+			}
+		}
+
+		public bool IsMA_DVQHNS_2Null()
+		{
+			return pm_objDR.IsNull("MA_DVQHNS_2");
+		}
+
+		public void SetMA_DVQHNS_2Null()
+		{
+			pm_objDR["MA_DVQHNS_2"] = System.Convert.DBNull;
+		}
+
 		#endregion
 		#region "Init Functions"
 		public US_DM_THONG_TIN_DON_VI()

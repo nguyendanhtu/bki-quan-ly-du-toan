@@ -94,6 +94,8 @@ namespace QuanLyDuToan.DuToan
 		}
 		private void us_object_to_form(US_DM_GIAI_NGAN ip_us)
 		{
+			US_DM_THONG_TIN_DON_VI v_us_dm_thong_tin_don_vi = new US_DM_THONG_TIN_DON_VI();
+			v_us_dm_thong_tin_don_vi.InitByID_DON_VI(CIPConvert.ToDecimal(m_ddl_don_vi.SelectedValue));
 			m_txt_ngay_thang.Text = CIPConvert.ToStr(ip_us.datNGAY_THANG, "dd/MM/yyyy");
 			if (ip_us.strIS_NGUON_NS_YN.Trim().ToUpper() == "N")
 			{
@@ -101,7 +103,19 @@ namespace QuanLyDuToan.DuToan
 			}
 			else m_rbl_ma_tkkt.SelectedIndex = 1;
 
-			m_lbl_ma_dvqhns.Text = ip_us.strMA_DVQHNS;
+			if (ip_us.strMA_DVQHNS==v_us_dm_thong_tin_don_vi.strMA_DVQHNS)
+			{
+				m_rdb_ma_dvqhns.Checked = true;
+			}
+			else if (ip_us.strMA_DVQHNS == v_us_dm_thong_tin_don_vi.strMA_DVQHNS_1)
+			{
+				m_rdb_ma_dvqhns_1.Checked = true;
+			}
+			else if (ip_us.strMA_DVQHNS == v_us_dm_thong_tin_don_vi.strMA_DVQHNS_2)
+			{
+				m_rdb_ma_dvqhns_2.Checked = true;
+			}
+			//m_lbl_ma_dvqhns.Text = ip_us.strMA_DVQHNS;
 			m_txt_ma_ctmt_da_htct.Text = ip_us.strMA_CTMT_DA_HTCT;
 			//info dm unc
 			m_txt_nt_ten_don_vi.Text = ip_us.strNT_TEN_DON_VI;
@@ -225,7 +239,10 @@ namespace QuanLyDuToan.DuToan
 			//2.1 Hiển thị thông tin cơ bản của đơn vị
 			m_lbl_dia_chi.Text = v_us_ttdv.strDIA_CHI;
 			m_lbl_tai_kho_bac_nha_nuoc.Text = v_us_ttdv.strKHO_BAC;
-			m_lbl_ma_dvqhns.Text = v_us_ttdv.strMA_DVQHNS;
+			m_rdb_ma_dvqhns.Text = v_us_ttdv.IsMA_DVQHNSNull() ? "Mã DVQHNS 1" : v_us_ttdv.strMA_DVQHNS;
+			m_rdb_ma_dvqhns_1.Text = v_us_ttdv.IsMA_DVQHNS_1Null() ? "Mã DVQHNS 1" : v_us_ttdv.strMA_DVQHNS_1;
+			m_rdb_ma_dvqhns_2.Text = v_us_ttdv.IsMA_DVQHNS_2Null() ? "Mã DVQHNS 1" : v_us_ttdv.strMA_DVQHNS_2;
+			//m_lbl_ma_dvqhns.Text = v_us_ttdv.strMA_DVQHNS;
 			//2.2 Hiển thị số tài khoản của đơn vị thông qua control List Radio Button
 			/*
 			 * Mỗi đơn vị nhiều nhất có 2 tài khoản: 1 tài khoản NS và 1 tài khoản QBT
@@ -379,7 +396,21 @@ namespace QuanLyDuToan.DuToan
 		{
 			op_us.dcID_DON_VI = CIPConvert.ToDecimal(m_ddl_don_vi.SelectedValue);
 			op_us.strMA_CTMT_DA_HTCT = m_txt_ma_ctmt_da_htct.Text.Trim();
-			op_us.strMA_DVQHNS = m_lbl_ma_dvqhns.Text.Trim();
+			string v_str_ma_dvqhns = "";
+			if (m_rdb_ma_dvqhns.Checked)
+			{
+				v_str_ma_dvqhns = m_rdb_ma_dvqhns.Text;
+			}
+			else if (m_rdb_ma_dvqhns_1.Checked)
+			{
+				v_str_ma_dvqhns = m_rdb_ma_dvqhns_1.Text;
+			}
+			else if (m_rdb_ma_dvqhns_2.Checked)
+			{
+				v_str_ma_dvqhns = m_rdb_ma_dvqhns_2.Text;
+			}
+
+			op_us.strMA_DVQHNS = v_str_ma_dvqhns;
 			op_us.strIS_NGUON_NS_YN = WebformFunctions.getValue_from_query_string<string>(
 														this
 														, FormInfo.QueryString.NGUON_NGAN_SACH
