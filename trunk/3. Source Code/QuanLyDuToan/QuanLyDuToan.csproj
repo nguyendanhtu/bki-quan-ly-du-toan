@@ -99,6 +99,7 @@
     <Content Include="Scripts\UI\PL04.js" />
     <Content Include="Scripts\UI\PL05.js" />
     <Content Include="Styles\jquery.dataTables.min.css" />
+    <Content Include="Template\TPL_F304.txt" />
     <Content Include="WebMethod\PL01.asmx" />
     <Content Include="WebMethod\PL02.asmx" />
     <Content Include="WebMethod\PL03.asmx" />

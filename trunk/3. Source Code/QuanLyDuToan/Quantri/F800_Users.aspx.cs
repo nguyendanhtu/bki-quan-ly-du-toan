@@ -68,7 +68,7 @@ namespace QuanLyDuToan.Quantri
 			{
 				US_HT_USER_GROUP v_us_user_group = new US_HT_USER_GROUP();
 				DS_HT_USER_GROUP v_ds_user_group = new DS_HT_USER_GROUP();
-				v_us_user_group.FillDataset(v_ds_user_group);
+				v_us_user_group.FillDataset(v_ds_user_group," order by "+HT_USER_GROUP.USER_GROUP_NAME);
 				m_cbo_user_group.DataSource = v_ds_user_group.HT_USER_GROUP;
 				m_cbo_user_group.DataTextField = HT_USER_GROUP.USER_GROUP_NAME;
 				m_cbo_user_group.DataValueField = CM_DM_LOAI_TD.ID;
