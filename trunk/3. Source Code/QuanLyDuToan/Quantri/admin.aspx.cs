@@ -9,6 +9,8 @@ using System.Data.SqlClient;
 using IP.Core.IPBusinessService;
 using System.Data;
 using System.Text.RegularExpressions;
+using System.IO;
+using Ionic.Zip;
 
 namespace QuanLyDuToan.Quantri
 {
@@ -16,7 +18,12 @@ namespace QuanLyDuToan.Quantri
 	{
 		#region Members
 		public DataSet m_ds = new DataSet();
-
+		string _BackupName = "BKI_QLDT"
+						+ "_" + DateTime.Now.Year.ToString()
+						+ "_" + DateTime.Now.Month.ToString()
+						+ "_" + DateTime.Now.Day.ToString()
+						+ "_" + DateTime.Now.Millisecond.ToString()
+						+ ".bak";
 		#endregion
 
 		#region Private Methods
@@ -115,7 +122,7 @@ namespace QuanLyDuToan.Quantri
 					v_bs.FillDatasetByCommand(m_ds, v_sql_cmd);
 					m_lbl_mess.Text = "Command(s) completed successfully.";
 				}
-				
+
 				//m_grv.DataSource = m_ds.Tables[0];
 				//m_grv.DataBind();
 			}
@@ -132,5 +139,55 @@ namespace QuanLyDuToan.Quantri
 			m_lbl_mess.Text = CIPConvert.Deciphering(m_txt_convert_encoding.Text.Trim());
 		}
 		#endregion
+
+		public void BackUp()
+		{
+			if (!Directory.Exists(@"c:\SQLServerBackups\"))
+			{
+				Directory.CreateDirectory(@"c:\SQLServerBackups\");
+			}
+			SqlConnection sqlConnection = CProvider.getConnection();
+			sqlConnection.Open();
+			string sqlQuery = "BACKUP DATABASE BKI_QLDT TO DISK = 'C:\\SQLServerBackups\\" + _BackupName + "' WITH FORMAT, MEDIANAME = 'Z_SQLServerBackups', NAME = '" + _BackupName + "';";
+			SqlCommand sqlCommand = new SqlCommand(sqlQuery, sqlConnection);
+			sqlCommand.CommandType = CommandType.Text;
+			int iRows = sqlCommand.ExecuteNonQuery();
+			sqlConnection.Close();
+
+			#region Response
+			HttpResponse Response = HttpContext.Current.Response;
+			Response.Clear();
+			Response.BufferOutput = false;
+			Response.ContentType = "application/zip";
+			Response.AddHeader("content-disposition", "inline; filename=\"" + _BackupName + "\".zip");
+			#endregion
+			#region Compress
+			using (var memoryStream = new System.IO.MemoryStream())
+			{
+				using (ZipFile zip = new ZipFile())
+				{
+					zip.CompressionLevel = Ionic.Zlib.CompressionLevel.BestCompression;
+					zip.ParallelDeflateThreshold = -1;
+					zip.AddDirectory(@"c:\SQLServerBackups\");
+					zip.Save(memoryStream);
+				}
+
+				memoryStream.Position = 0;
+				var b = new byte[1024];
+				int n;
+				while ((n = memoryStream.Read(b, 0, b.Length)) > 0)
+					Response.OutputStream.Write(b, 0, n);
+			}
+			#endregion
+
+			Directory.Delete(@"c:\SQLServerBackups\", true);
+
+			Response.Close();
+		}
+
+		protected void m_cmd_backup_database_Click(object sender, EventArgs e)
+		{
+			BackUp();
+		}
 	}
 }

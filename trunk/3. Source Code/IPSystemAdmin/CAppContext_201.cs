@@ -19,23 +19,23 @@ using IP.Core.IPData;
 
 namespace IP.Core.IPSystemAdmin
 {
-#region Nhiệm vụ của Class
+	#region Nhiệm vụ của Class
 	//************************************************************************
 	//* Phục vụ lấy dữ liệu đặc trưng cho ứng dụng
 	//*
 	//************************************************************************
-#endregion
-	
+	#endregion
+
 	public class CAppContext_201 : IControlerControl
 	{
-		
-#region Variables
+
+		#region Variables
 		private static US_HT_NGUOI_SU_DUNG m_us_user;
 		private static string m_strRunMode;
 		private static DS_HT_PHAN_QUYEN_DETAIL m_dsDecentralization = new DS_HT_PHAN_QUYEN_DETAIL();
-#endregion
-		
-#region Public interface
+		#endregion
+
+		#region Public interface
 		public static void LoadDecentralizationByUserLogin()
 		{
 			US_HT_PHAN_QUYEN_DETAIL v_us = new US_HT_PHAN_QUYEN_DETAIL();
@@ -46,17 +46,17 @@ namespace IP.Core.IPSystemAdmin
 		{
 			return IP.Core.IPSystemAdmin.CAppContext_201.CanUseThisControl(ip_strFormName, ip_strControlName, ip_strControlType);
 		}
-		
+
 		public static bool IsHavingQuyen(string i_str_ma_quyen)
 		{
 			return US_HT_NGUOI_SU_DUNG.IsHavingMA_QUYEN(
 				CAppContext_201.getCurrentUserID()
 				, i_str_ma_quyen);
-			
+
 		}
-		
-		
-		
+
+
+
 		public static void InitializeContext(CLoginInformation_302 i_LoginInfo)
 		{
 			//*****************************************************************
@@ -69,7 +69,7 @@ namespace IP.Core.IPSystemAdmin
 			//        Debug.Assert(m_strCurrentUserName <> "")
 			try
 			{
-				
+
 				m_us_user = i_LoginInfo.m_us_user;
 				//* 2. load phân quyền hệ thống về
 				//* 3. Các biến môi trường khác
@@ -82,7 +82,7 @@ namespace IP.Core.IPSystemAdmin
 				throw (ex);
 			}
 		}
-		
+
 		public static DateTime getCurentDate()
 		{
 			//*****************************************************************
@@ -90,32 +90,32 @@ namespace IP.Core.IPSystemAdmin
 			//***********************************************************************
 			return System.DateTime.Now.Date;
 		}
-		
+
 		public static string getCurrentUserName()
 		{
 			return m_us_user.strTEN_TRUY_CAP;
 		}
-		
+
 		public static string getCurrentUser()
 		{
 			return m_us_user.strTEN;
 		}
-		
+
 		public static decimal getCurrentUserID()
 		{
 			return m_us_user.dcID;
 		}
-		
+
 		public static string getRunMode()
 		{
 			return m_strRunMode;
 		}
-		
+
 		public static string getAppPath()
 		{
 			return AppDomain.CurrentDomain.SetupInformation.ApplicationBase;
 		}
-		
+
 		public static string get_DefaultReportRootPath()
 		{
 			string v_strRootPath = "";
@@ -124,22 +124,22 @@ namespace IP.Core.IPSystemAdmin
 			v_strRootPath += "\\Reports";
 			return v_strRootPath;
 		}
-		
+
 		public static bool checkLicense()
 		{
-			
+
 			return default(bool);
 		}
-#endregion
-		
-		
-#region Private Methods
+		#endregion
+
+
+		#region Private Methods
 		private static void LoadDecentralization(DS_HT_PHAN_QUYEN_DETAIL ip_dsDecentralization)
 		{
 			m_dsDecentralization = ip_dsDecentralization;
 		}
-		
-		private static bool CanUseThisControl(string 
+
+		private static bool CanUseThisControl(string
 			ip_strFormName, string ip_strControlName, string ip_strControlType)
 		{
 			if (m_dsDecentralization.HT_PHAN_QUYEN_DETAIL.Select("FORM_NAME = \'" + ip_strFormName + "\' AND CONTROL_NAME =\'" + ip_strControlName + "\'").Length > 0)
@@ -148,7 +148,7 @@ namespace IP.Core.IPSystemAdmin
 			}
 			return false;
 		}
-#endregion
+		#endregion
 	}
 	public class PHAN_QUYEN
 	{
@@ -190,5 +190,5 @@ namespace IP.Core.IPSystemAdmin
 		public const string QUY_TRINH_CAP_CC = "Quy_trinh_cap_cc";
 		public const string IN_SO_SO_HUU_TRAI_PHIEU = "In_so_so_huu_trai_phieu";
 	}
-	
+
 }

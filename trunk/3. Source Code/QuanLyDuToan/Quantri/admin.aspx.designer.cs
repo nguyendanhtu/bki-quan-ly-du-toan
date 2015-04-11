@@ -67,6 +67,15 @@ namespace QuanLyDuToan.Quantri {
         protected global::System.Web.UI.WebControls.Button m_cmd_convert;
         
         /// <summary>
+        /// m_cmd_backup_database control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button m_cmd_backup_database;
+        
+        /// <summary>
         /// m_txt_command control.
         /// </summary>
         /// <remarks>
