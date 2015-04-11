@@ -138,6 +138,32 @@ namespace DBClassModel
 
 		public string TTDVH_SO_TIEN { get; set; }
 
+		public string THUC_CHI_YN { get; set; }
+
+		public string TAM_UNG_YN { get; set; }
+
+		public string UNG_TRUOC_DU_DK_THANH_TOAN_YN { get; set; }
+
+		public string UNG_TRUOC_CHUA_DU_DK_THANH_TOAN_YN { get; set; }
+
+		public string CHUYEN_KHOAN_YN { get; set; }
+
+		public string TIEN_MAT_YN { get; set; }
+
+		public string MA_CAP_NS { get; set; }
+
+		public string SO_CKC_HDK { get; set; }
+
+		public string SO_CKC_HDTH { get; set; }
+
+		public string TEN_CTMT_DA { get; set; }
+
+		public string NGUOI_NHAN_TIEN_CMND_SO { get; set; }
+
+		public string NGUOI_NHAN_TIEN_CAP_NGAY { get; set; }
+
+		public string NGUOI_NHAN_TIEN_NOI_CAP { get; set; }
+
 	}
 	public class DM_QUYET_DINH
 	{
@@ -171,6 +197,10 @@ namespace DBClassModel
 		public string MA_DVQHNS { get; set; }
 
 		public string MA_TKKT2 { get; set; }
+
+		public string MA_DVQHNS_1 { get; set; }
+
+		public string MA_DVQHNS_2 { get; set; }
 
 	}
 	public class DOC_COLUMN_COMMENT
@@ -226,6 +256,8 @@ namespace DBClassModel
 		public string GHI_CHU_3 { get; set; }
 
 		public string GHI_CHU_4 { get; set; }
+
+		public string MA_NGUON_NSNN { get; set; }
 
 	}
 	public class GD_CHI_TIET_GIAO_KH
@@ -306,6 +338,45 @@ namespace DBClassModel
 		public string GHI_CHU_4 { get; set; }
 
 	}
+	public class GD_DU_TOAN_THU_CHI_PHI_PHA
+	{
+		public decimal ID { get; set; }
+
+		public string MA_SO { get; set; }
+
+		public string MA_SO_PARENT { get; set; }
+
+		public string TT { get; set; }
+
+		public string HANG_MUC { get; set; }
+
+		public decimal? KINH_PHI_GIAO_KH { get; set; }
+
+		public decimal? KLTH_QUY_I { get; set; }
+
+		public decimal? KLTH_QUY_II { get; set; }
+
+		public decimal? KLTH_QUY_III { get; set; }
+
+		public decimal? KLTH_QUY_IV { get; set; }
+
+		public string GHI_CHU_GIAO_KH { get; set; }
+
+		public string GHI_CHU_QUY_I { get; set; }
+
+		public string GHI_CHU_QUY_II { get; set; }
+
+		public string GHI_CHU_QUY_III { get; set; }
+
+		public string GHI_CHU_QUY_IV { get; set; }
+
+		public decimal? ID_DON_VI { get; set; }
+
+		public decimal? NAM { get; set; }
+
+		public string CONG_THUC { get; set; }
+
+	}
 	public class GD_KHOI_LUONG
 	{
 		public decimal ID { get; set; }
@@ -333,6 +404,173 @@ namespace DBClassModel
 		public string GHI_CHU_4 { get; set; }
 
 	}
+	public class GD_PL01_TONG_HOP_TINH_HINH_KINH_PHI_VA_QUYET_TOAN_CHI
+	{
+		public decimal ID { get; set; }
+
+		public string MA_SO { get; set; }
+
+		public string CHI_TIEU { get; set; }
+
+		public string MA_SO_PARENT { get; set; }
+
+		public decimal? CAP { get; set; }
+
+		public decimal? SO_BAO_CAO { get; set; }
+
+		public decimal? SO_XET_DUYET { get; set; }
+
+		public string CONG_THUC { get; set; }
+
+		public decimal? ID_DON_VI { get; set; }
+
+		public decimal? NAM { get; set; }
+
+	}
+	public class GD_PL02_KINH_PHI_DA_SU_DUNG_DE_NGHI_QUYET_TOAN
+	{
+		public decimal ID { get; set; }
+
+		public string MA_LOAI { get; set; }
+
+		public string MA_KHOAN { get; set; }
+
+		public string MA_MUC { get; set; }
+
+		public string MA_TIEU_MUC { get; set; }
+
+		public string NOI_DUNG_CHI { get; set; }
+
+		public string NHOM { get; set; }
+
+		public string LOAI { get; set; }
+
+		public decimal? ID_DON_VI { get; set; }
+
+		public decimal? NAM { get; set; }
+
+		public decimal? SO_BAO_CAO { get; set; }
+
+		public decimal? SO_XET_DUYET { get; set; }
+
+	}
+	public class GD_PL03_THUC_HIEN_XU_LY_KIEN_NGHI_CUA_KIEM_TOAN_THANH_TRA_TAI_CHINH
+	{
+		public decimal ID { get; set; }
+
+		public string MA_SO { get; set; }
+
+		public string TT { get; set; }
+
+		public string NOI_DUNG { get; set; }
+
+		public string MA_SO_PARENT { get; set; }
+
+		public decimal? CAP { get; set; }
+
+		public decimal? SO_KIEN_NGHI_KIEM_TOAN_NHA_NUOC { get; set; }
+
+		public decimal? SO_KIEN_NGHI_CO_QUAN_TAI_CHINH { get; set; }
+
+		public decimal? ID_DON_VI { get; set; }
+
+		public decimal? NAM { get; set; }
+
+		public decimal? SO_DA_NOP_TRA_KIEM_TOAN_NHA_NUOC { get; set; }
+
+		public decimal? SO_DA_NOP_TRA_CO_QUAN_TAI_CHINH { get; set; }
+
+	}
+	public class GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN
+	{
+		public decimal ID { get; set; }
+
+		public string TT { get; set; }
+
+		public string TEN_LOAI_NHIEM_VU { get; set; }
+
+		public string CONG_TRINH { get; set; }
+
+		public string DU_AN { get; set; }
+
+		public decimal? GIA_TRI_DU_TOAN_CONG_TRINH_DUOC_DUYET { get; set; }
+
+		public decimal? GIA_TRI_CTHT_NAM_TRUOC_CON_NO_CHUYEN_NAM_NAY { get; set; }
+
+		public decimal? GIA_TRI_CTHT_NAM_NAY { get; set; }
+
+		public decimal? GIA_TRI_DE_NGHI_QUYET_TOAN_TRONG_NAM { get; set; }
+
+		public decimal? GIA_TRI_QUYET_TOAN { get; set; }
+
+		public decimal? GIA_TRI_CTHT_DA_QUYET_TOAN_LK_DEN_NAM_BAO_CAO { get; set; }
+
+		public decimal? ID_DON_VI { get; set; }
+
+		public decimal? NAM { get; set; }
+
+		public string CONG_THUC { get; set; }
+
+		public string GHI_CHU { get; set; }
+
+	}
+	public class GD_PL05_DANH_MUC_CONG_TRINH_HOAN_THANH_GIAM_TRU_THANH_TOAN
+	{
+		public decimal ID { get; set; }
+
+		public string STT { get; set; }
+
+		public string TEN_LOAI_NHIEM_VU { get; set; }
+
+		public string CONG_TRINH { get; set; }
+
+		public string DU_AN { get; set; }
+
+		public decimal? ID_DON_VI { get; set; }
+
+		public decimal? NAM { get; set; }
+
+		public decimal? I_GTKLCTHTTN { get; set; }
+
+		public decimal? I_GTKLDQT { get; set; }
+
+		public decimal? II_GTKLCTHTTN { get; set; }
+
+		public decimal? II_GTKLDQT { get; set; }
+
+		public decimal? III_1_GTKLCTHTTN { get; set; }
+
+		public decimal? III_1_GTKLDQT { get; set; }
+
+		public decimal? III_2_GTKLCTHTTN { get; set; }
+
+		public decimal? III_2_GTKLDQT { get; set; }
+
+		public decimal? III_3_GTKLCTHTTN { get; set; }
+
+		public decimal? III_3_GTKLDQT { get; set; }
+
+		public decimal? IV_1_GTKLCTHTTN { get; set; }
+
+		public decimal? IV_1_GTKLDQT { get; set; }
+
+		public decimal? IV_2_GTKLCTHTTN { get; set; }
+
+		public decimal? IV_2_GTKLDQT { get; set; }
+
+		public decimal? IV_3_GTKLCTHTTN { get; set; }
+
+		public decimal? IV_3_GTKLDQT { get; set; }
+
+		public decimal? IV_4_GTKLCTHTTN { get; set; }
+
+		public decimal? IV_4_GTKLDQT { get; set; }
+
+		public decimal? V_GTKLCTHTTN { get; set; }
+
+		public decimal? V_GTKLDQT { get; set; }
+
+	}
 	public class GRID_GIAI_NGAN
 	{
 		public decimal? ID { get; set; }
@@ -358,6 +596,14 @@ namespace DBClassModel
 		public decimal? ID_REPORTED_USER { get; set; }
 
 		public decimal? ID_CHA { get; set; }
+
+		public string MA_CHUONG { get; set; }
+
+		public string MA_LOAI { get; set; }
+
+		public string MA_KHOAN { get; set; }
+
+		public string MA_NGUON_NSNN { get; set; }
 
 	}
 	public class GRID_GIAO_KH
@@ -682,6 +928,178 @@ namespace DBClassModel
 		public string CONG_TRINH_KHOAN_YN { get; set; }
 
 	}
+	public class TP_DU_TOAN_THU_CHI_PHI_PHA
+	{
+		public decimal ID { get; set; }
+
+		public string MA_SO { get; set; }
+
+		public string MA_SO_PARENT { get; set; }
+
+		public string TT { get; set; }
+
+		public string HANG_MUC { get; set; }
+
+		public decimal? KINH_PHI_GIAO_KH { get; set; }
+
+		public decimal? KLTH_QUY_I { get; set; }
+
+		public decimal? KLTH_QUY_II { get; set; }
+
+		public decimal? KLTH_QUY_III { get; set; }
+
+		public decimal? KLTH_QUY_IV { get; set; }
+
+		public string GHI_CHU_GIAO_KH { get; set; }
+
+		public string GHI_CHU_QUY_I { get; set; }
+
+		public string GHI_CHU_QUY_II { get; set; }
+
+		public string GHI_CHU_QUY_III { get; set; }
+
+		public string GHI_CHU_QUY_IV { get; set; }
+
+		public decimal? ID_DON_VI { get; set; }
+
+		public decimal? NAM { get; set; }
+
+		public string CONG_THUC { get; set; }
+
+	}
+	public class TP_PL01
+	{
+		public decimal ID { get; set; }
+
+		public string MA_SO { get; set; }
+
+		public string CHI_TIEU { get; set; }
+
+		public string MA_SO_PARENT { get; set; }
+
+		public decimal? CAP { get; set; }
+
+		public decimal? SO_BAO_CAO { get; set; }
+
+		public decimal? SO_XET_DUYET { get; set; }
+
+		public string CONG_THUC { get; set; }
+
+		public decimal? ID_DON_VI { get; set; }
+
+		public decimal? NAM { get; set; }
+
+	}
+	public class TP_PL02
+	{
+		public decimal ID { get; set; }
+
+		public string MA_LOAI { get; set; }
+
+		public string MA_KHOAN { get; set; }
+
+		public string MA_MUC { get; set; }
+
+		public string MA_TIEU_MUC { get; set; }
+
+		public string NOI_DUNG_CHI { get; set; }
+
+		public string NHOM { get; set; }
+
+		public string LOAI { get; set; }
+
+		public decimal ID_DON_VI { get; set; }
+
+		public decimal? NAM { get; set; }
+
+		public decimal? SO_BAO_CAO { get; set; }
+
+		public decimal? SO_PHE_DUYET { get; set; }
+
+	}
+	public class TP_PL03
+	{
+		public decimal ID { get; set; }
+
+		public string MA_SO { get; set; }
+
+		public string TT { get; set; }
+
+		public string NOI_DUNG { get; set; }
+
+		public string MA_SO_PARENT { get; set; }
+
+		public decimal? CAP { get; set; }
+
+		public decimal? SO_KIEN_NGHI_KIEM_TOAN_NHA_NUOC { get; set; }
+
+		public decimal? SO_KIEN_NGHI_CO_QUAN_TAI_CHINH { get; set; }
+
+		public decimal? ID_DON_VI { get; set; }
+
+		public decimal? NAM { get; set; }
+
+		public decimal? SO_DA_NOP_TRA_KIEM_TOAN_NHA_NUOC { get; set; }
+
+		public decimal? SO_DA_NOP_TRA_CO_QUAN_TAI_CHINH { get; set; }
+
+	}
+	public class TP_PL04
+	{
+		public decimal ID { get; set; }
+
+		public string MA_SO { get; set; }
+
+		public string TT { get; set; }
+
+		public string CONG_TRINH_HANG_MUC { get; set; }
+
+		public string MA_SO_PARENT { get; set; }
+
+		public decimal? CAP { get; set; }
+
+		public decimal? GIA_TRI_DU_TOAN_CONG_TRINH_DUOC_DUYET { get; set; }
+
+		public decimal? GIA_TRI_CTHT_NAM_TRUOC_CON_NO_CHUYEN_NAM_NAY { get; set; }
+
+		public decimal? GIA_TRI_CTHT_NAM_NAY { get; set; }
+
+		public decimal? GIA_TRI_DE_NGHI_QUYET_TOAN_TRONG_NAM { get; set; }
+
+		public decimal? GIA_TRI_CTHT_DA_QUYET_TOAN_LK_DEN_NAM_BAO_CAO { get; set; }
+
+		public decimal? ID_DON_VI { get; set; }
+
+		public decimal? NAM { get; set; }
+
+		public string CONG_THUC { get; set; }
+
+		public string GHI_CHU { get; set; }
+
+	}
+	public class TP_PL05
+	{
+		public decimal ID { get; set; }
+
+		public string MA_SO { get; set; }
+
+		public string STT { get; set; }
+
+		public string NOI_DUNG { get; set; }
+
+		public string MA_SO_PARENT { get; set; }
+
+		public decimal? CAP { get; set; }
+
+		public decimal? GIA_TRI_KHOI_LUONG_CONG_TRINH_HOAN_THANH { get; set; }
+
+		public decimal? GIA_TRI_KHOI_LUONG_DUOC_QUYET_TOAN { get; set; }
+
+		public decimal? ID_DON_VI { get; set; }
+
+		public decimal? NAM { get; set; }
+
+	}
 	public class UT_SEQUENCES
 	{
 		public string SEQ_NAME { get; set; }
@@ -819,6 +1237,32 @@ namespace DBClassModel
 
 		public string TTDVH_SO_TIEN { get; set; }
 
+		public string THUC_CHI_YN { get; set; }
+
+		public string TAM_UNG_YN { get; set; }
+
+		public string UNG_TRUOC_DU_DK_THANH_TOAN_YN { get; set; }
+
+		public string UNG_TRUOC_CHUA_DU_DK_THANH_TOAN_YN { get; set; }
+
+		public string CHUYEN_KHOAN_YN { get; set; }
+
+		public string TIEN_MAT_YN { get; set; }
+
+		public string MA_CAP_NS { get; set; }
+
+		public string SO_CKC_HDK { get; set; }
+
+		public string SO_CKC_HDTH { get; set; }
+
+		public string TEN_CTMT_DA { get; set; }
+
+		public string NGUOI_NHAN_TIEN_CMND_SO { get; set; }
+
+		public string NGUOI_NHAN_TIEN_CAP_NGAY { get; set; }
+
+		public string NGUOI_NHAN_TIEN_NOI_CAP { get; set; }
+
 		public decimal SO_TIEN_NOP_THUE { get; set; }
 
 		public string NOI_DUNG_CHI { get; set; }
@@ -828,6 +1272,16 @@ namespace DBClassModel
 		public decimal? SO_TIEN_TT_CHO_DV_HUONG { get; set; }
 
 		public string DISPLAY { get; set; }
+
+		public string MA_CHUONG { get; set; }
+
+		public string MA_LOAI { get; set; }
+
+		public string MA_KHOAN { get; set; }
+
+		public string TEN_DU_AN { get; set; }
+
+		public decimal? TONG { get; set; }
 
 	}
 	public class V_DM_QUYET_DINH
@@ -960,6 +1414,8 @@ namespace DBClassModel
 
 		public string GHI_CHU_4 { get; set; }
 
+		public string MA_NGUON_NSNN { get; set; }
+
 		public DateTime NGAY_THANG { get; set; }
 
 		public string SO_UNC { get; set; }
@@ -1003,6 +1459,12 @@ namespace DBClassModel
 		public string TEN_CONG_TRINH { get; set; }
 
 		public string TEN_DU_AN { get; set; }
+
+		public string MA_CHUONG { get; set; }
+
+		public string MA_LOAI { get; set; }
+
+		public string MA_KHOAN { get; set; }
 
 	}
 	public class V_GD_GIAO_KH_QBT
@@ -1157,6 +1619,5 @@ namespace DBClassModel
 		public string TEN_TRUY_CAP { get; set; }
 
 		public string MAT_KHAU { get; set; }
-
 	}
 }

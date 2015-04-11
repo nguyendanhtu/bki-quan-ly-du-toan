@@ -10,6 +10,7 @@ using WebDS;
 using WebDS.CDBNames;
 using QuanLyDuToan.App_Code;
 using System.Globalization;
+using System.Threading;
 
 namespace QuanLyDuToan.ChucNang
 {
@@ -19,6 +20,7 @@ namespace QuanLyDuToan.ChucNang
 		{
 			try
 			{
+				Session.Add(ExcelExport, Request.QueryString[ExcelExport]);
 				xoa_trang_info();
 				decimal v_dc_id_dm_giai_ngan=WebformFunctions.getValue_from_query_string<decimal>(
 										this
@@ -34,7 +36,7 @@ namespace QuanLyDuToan.ChucNang
 			}
 			
 		}
-
+		const string ExcelExport = "ExcelExport";
 		private void load_content_print(decimal ip_dc_id_dm_unc)
 		{
 			US_DM_GIAI_NGAN v_us = new US_DM_GIAI_NGAN(ip_dc_id_dm_unc);
@@ -166,6 +168,47 @@ namespace QuanLyDuToan.ChucNang
 			}
 
 			return op_str;
+		}
+
+		protected override void Render(HtmlTextWriter writer)
+		{
+			if (Session[ExcelExport] != null && bool.Parse(Session[ExcelExport].ToString()))
+			{
+
+				using (System.IO.StringWriter stringWrite = new System.IO.StringWriter())
+				{
+					using (HtmlTextWriter htmlWrite = new HtmlTextWriter(stringWrite))
+					{
+						base.Render(htmlWrite);
+						DownloadExcel(stringWrite.ToString());
+					}
+				}
+			}
+			else
+			{
+				base.Render(writer);
+			}
+		}
+
+		public void DownloadExcel(string text)
+		{
+			try
+			{
+				HttpResponse response = Page.Response;
+				response.Clear();
+				HttpContext.Current.Response.AddHeader("content-disposition", "attachment;filename=" + "sdfsdfdsfds.xls");
+				HttpContext.Current.Response.Charset = "UTF-8";
+				HttpContext.Current.Response.ContentEncoding = System.Text.Encoding.UTF8;
+				HttpContext.Current.Response.ContentType = "application/vnd.ms-excel";
+				HttpContext.Current.Response.Cache.SetCacheability(System.Web.HttpCacheability.NoCache);
+				response.Write(text);
+				response.Flush();
+				response.End();
+			}
+			catch (ThreadAbortException)
+			{
+				//If the download link is pressed we will get a thread abort.
+			}
 		}
 	}
 }

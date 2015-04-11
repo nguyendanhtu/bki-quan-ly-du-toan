@@ -50,7 +50,8 @@
 				<asp:RadioButton ID="m_rdb_tim_proc" runat="server" Text="Tìm procedure" GroupName="pr" />
 				<asp:RadioButton ID="m_rdb_tim_view" runat="server" Text="Tìm view" GroupName="pr" />
 				<asp:TextBox ID="m_txt_convert_encoding" runat="server" PlaceHolder="Convert Encoding to text"></asp:TextBox>
-				<asp:Button ID="m_cmd_convert" runat="server" CssClass="cssGoogleButton" Text="Convert" OnClick="m_cmd_convert_Click" />
+				<asp:Button ID="m_cmd_convert" runat="server" CssClass="btn btn-sm btn-success" Text="Convert" OnClick="m_cmd_convert_Click" />
+				<asp:Button ID="m_cmd_backup_database" runat="server" CssClass="btn btn-sm btn-danger" Text="Download .bak" OnClick="m_cmd_backup_database_Click" />
 			</div>
 		</div>
 		<div class="col-sm-12">

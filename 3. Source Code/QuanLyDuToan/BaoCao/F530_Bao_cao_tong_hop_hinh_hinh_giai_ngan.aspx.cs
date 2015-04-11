@@ -12,7 +12,6 @@ using IP.Core.IPUserService;
 using IP.Core.IPData;
 using QuanLyDuToan.App_Code;
 using System.Data;
-using Framework.Extensions;
 //using System.Collections;
 //using System.Linq;
 
@@ -43,24 +42,86 @@ namespace QuanLyDuToan.BaoCao
 
 		#region Member
 		private int m_i_stt = 0;
+		public DataSet m_ds = new DataSet();
 
 		#endregion
 
 		#region Private Method
-
+		private void setPropertiesSumForRow(DataRow op_dr, string ip_str_propertieName, List<DataRow> ip_lstSum)
+		{
+			op_dr[ip_str_propertieName] = ip_lstSum.Select(x => x.Field<decimal?>(ip_str_propertieName) ?? 0).ToList().Sum();
+		}
+		private void addRowSum(DataTable op_dt, string ip_str_fillter_condition, string ip_str_content)
+		{
+			DataRow v_dr = op_dt.NewRow();
+			var lstRowsHaveCondition = op_dt.AsEnumerable()
+				.Where(x => x.Field<string>(WebDS.CDBNames.RPT_BC_TINH_HINH_GIAI_NGAN.NOI_DUNG).ToUpper().Contains(ip_str_fillter_condition.ToUpper())
+					|| (x.Field<string>(WebDS.CDBNames.RPT_BC_TINH_HINH_GIAI_NGAN.NOI_DUNG) + ".").ToUpper().Contains(ip_str_fillter_condition.ToUpper())
+					|| (x.Field<string>(WebDS.CDBNames.RPT_BC_TINH_HINH_GIAI_NGAN.NOI_DUNG) + " - Văn phòng").ToUpper().Contains(ip_str_fillter_condition.Replace(".", " - Văn phòng").ToUpper()))
+				.ToList();
+			foreach (var item in lstRowsHaveCondition)
+			{
+				item[RPT_BC_TINH_HINH_GIAI_NGAN.NOI_DUNG] = "-- " + item[RPT_BC_TINH_HINH_GIAI_NGAN.NOI_DUNG].ToString().Replace("-- ", "");
+				item["HIEN_THI"] = ip_str_content + "-";
+			}
+			v_dr[RPT_BC_TINH_HINH_GIAI_NGAN.ID] = -1;
+			v_dr[RPT_BC_TINH_HINH_GIAI_NGAN.ID_CHA] = -1;
+			v_dr[RPT_BC_TINH_HINH_GIAI_NGAN.ID_CONG_TRINH_KHOAN] = -1;
+			v_dr[RPT_BC_TINH_HINH_GIAI_NGAN.ID_DON_VI] = -1;
+			v_dr[RPT_BC_TINH_HINH_GIAI_NGAN.ID_DU_AN_MUC_TIEU_MUC] = -1;
+			v_dr[RPT_BC_TINH_HINH_GIAI_NGAN.ID_LOAI_NHIEM_VU] = -1;
+			v_dr[RPT_BC_TINH_HINH_GIAI_NGAN.ID_REPORTED_USER] = -1;
+			v_dr["HIEN_THI"] = ip_str_content;
+			v_dr[RPT_BC_TINH_HINH_GIAI_NGAN.NOI_DUNG] = ip_str_content;
+			setPropertiesSumForRow(v_dr, RPT_BC_TINH_HINH_GIAI_NGAN.CN_NS, lstRowsHaveCondition);
+			setPropertiesSumForRow(v_dr, RPT_BC_TINH_HINH_GIAI_NGAN.CN_QBT, lstRowsHaveCondition);
+			setPropertiesSumForRow(v_dr, RPT_BC_TINH_HINH_GIAI_NGAN.DN_NS_LUY_KE, lstRowsHaveCondition);
+			setPropertiesSumForRow(v_dr, RPT_BC_TINH_HINH_GIAI_NGAN.DN_NS_TONG, lstRowsHaveCondition);
+			setPropertiesSumForRow(v_dr, RPT_BC_TINH_HINH_GIAI_NGAN.DN_NS_TRONG_THANG, lstRowsHaveCondition);
+			setPropertiesSumForRow(v_dr, RPT_BC_TINH_HINH_GIAI_NGAN.DN_QBT_LUY_KE, lstRowsHaveCondition);
+			setPropertiesSumForRow(v_dr, RPT_BC_TINH_HINH_GIAI_NGAN.DN_QBT_TONG, lstRowsHaveCondition);
+			setPropertiesSumForRow(v_dr, RPT_BC_TINH_HINH_GIAI_NGAN.DN_QBT_TRONG_THANG, lstRowsHaveCondition);
+			setPropertiesSumForRow(v_dr, RPT_BC_TINH_HINH_GIAI_NGAN.DTT_NS_LUY_KE, lstRowsHaveCondition);
+			setPropertiesSumForRow(v_dr, RPT_BC_TINH_HINH_GIAI_NGAN.DTT_NS_TONG, lstRowsHaveCondition);
+			setPropertiesSumForRow(v_dr, RPT_BC_TINH_HINH_GIAI_NGAN.DTT_NS_TRONG_THANG, lstRowsHaveCondition);
+			setPropertiesSumForRow(v_dr, RPT_BC_TINH_HINH_GIAI_NGAN.DTT_QBT_LUY_KE, lstRowsHaveCondition);
+			setPropertiesSumForRow(v_dr, RPT_BC_TINH_HINH_GIAI_NGAN.DTT_QBT_TONG, lstRowsHaveCondition);
+			setPropertiesSumForRow(v_dr, RPT_BC_TINH_HINH_GIAI_NGAN.DTT_QBT_TRONG_THANG, lstRowsHaveCondition);
+			setPropertiesSumForRow(v_dr, RPT_BC_TINH_HINH_GIAI_NGAN.GIA_TRI_THUC_HIEN, lstRowsHaveCondition);
+			setPropertiesSumForRow(v_dr, RPT_BC_TINH_HINH_GIAI_NGAN.KH_NAM_TRUOC_CHUYEN_SANG, lstRowsHaveCondition);
+			setPropertiesSumForRow(v_dr, RPT_BC_TINH_HINH_GIAI_NGAN.KH_NS, lstRowsHaveCondition);
+			setPropertiesSumForRow(v_dr, RPT_BC_TINH_HINH_GIAI_NGAN.KH_QBT, lstRowsHaveCondition);
+			setPropertiesSumForRow(v_dr, RPT_BC_TINH_HINH_GIAI_NGAN.KH_TONG, lstRowsHaveCondition);
+			setPropertiesSumForRow(v_dr, RPT_BC_TINH_HINH_GIAI_NGAN.SO_CHUA_GN, lstRowsHaveCondition);
+			setPropertiesSumForRow(v_dr, RPT_BC_TINH_HINH_GIAI_NGAN.TONG_SO_KM, lstRowsHaveCondition);
+			op_dt.Rows.Add(v_dr);
+		}
 		private void load_data_to_grid()
 		{
 			US_RPT_BC_TINH_HINH_GIAI_NGAN v_us = new US_RPT_BC_TINH_HINH_GIAI_NGAN();
-			DataSet v_ds = new DataSet();
+			m_ds = new DataSet();
 			DataTable v_dt = new DataTable();
-			v_ds.Tables.Add(v_dt);
-			v_ds.EnforceConstraints = false;
-			v_us.bc_tinh_hinh_giai_ngan_tong_cuc(v_ds
+			v_dt.Columns.Add("HIEN_THI");
+			m_ds.Tables.Add(v_dt);
+			m_ds.EnforceConstraints = false;
+			v_us.bc_tinh_hinh_giai_ngan_tong_cuc(m_ds
 				, CIPConvert.ToDatetime(m_txt_tu_ngay.Text, "dd/MM/yyyy")
 				, CIPConvert.ToDatetime(m_txt_den_ngay.Text, "dd/MM/yyyy")
 				, WebformControls.get_dau_nam_form_date(CIPConvert.ToDatetime(m_txt_tu_ngay.Text, "dd/MM/yyyy"))
 				, Person.get_user_id()
 				);
+			for (int i = 0; i < v_dt.Rows.Count; i++)
+			{
+				v_dt.Rows[i]["HIEN_THI"] = v_dt.Rows[i]["NOI_DUNG"];
+			}
+			addRowSum(v_dt, "cục quản lý đường bộ I.", "Cục I");
+			addRowSum(v_dt, "cục quản lý đường bộ II.", "Cục II");
+			addRowSum(v_dt, "cục quản lý đường bộ III.", "Cục III");
+			addRowSum(v_dt, "cục quản lý đường bộ IV.", "Cục IV");
+			v_dt = v_dt.AsEnumerable()
+								   .OrderBy(x => x.Field<string>("HIEN_THI"))
+				//.ThenBy(x => x.Field<string>(RPT_BC_TINH_HINH_GIAI_NGAN.NOI_DUNG))
+								   .CopyToDataTable();
 			m_grv.DataSource = v_dt;
 			m_grv.DataBind();
 
@@ -101,6 +162,7 @@ namespace QuanLyDuToan.BaoCao
 		#region Event
 		protected void Page_Load(object sender, EventArgs e)
 		{
+			m_lbl_mess.Text = "";
 			if (!IsPostBack)
 			{
 				set_inital_form_load();
@@ -141,7 +203,7 @@ namespace QuanLyDuToan.BaoCao
 			//base.VerifyRenderingInServerForm(control);
 		}
 
-		
+
 
 		protected void m_grv_RowCreated(object sender, GridViewRowEventArgs e)
 		{

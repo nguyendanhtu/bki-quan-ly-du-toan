@@ -274,11 +274,6 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="RPT_BC_TINH_HINH_GIAI_NGAN.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>RPT_BC_TINH_HINH_GIAI_NGAN.xsd</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config">
@@ -738,17 +733,6 @@
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="RPT_BC_TINH_HINH_GIAI_NGAN.xsc">
-      <DependentUpon>RPT_BC_TINH_HINH_GIAI_NGAN.xsd</DependentUpon>
-    </None>
-    <None Include="RPT_BC_TINH_HINH_GIAI_NGAN.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>RPT_BC_TINH_HINH_GIAI_NGAN.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="RPT_BC_TINH_HINH_GIAI_NGAN.xss">
-      <DependentUpon>RPT_BC_TINH_HINH_GIAI_NGAN.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
