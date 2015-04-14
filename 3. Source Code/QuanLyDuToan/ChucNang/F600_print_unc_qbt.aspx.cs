@@ -74,7 +74,7 @@ namespace QuanLyDuToan.ChucNang
 			m_lbl_don_vi_tra_tien.Text = v_us_dm_don_vi.strTEN_DON_VI;
 			m_lbl_dia_chi.Text = v_us_thong_tin_don_vi.strDIA_CHI;
 			m_lbl_tai_kho_bac_nha_nuoc.Text = v_us_thong_tin_don_vi.strKHO_BAC;
-			m_lbl_ma_tkkt.Text = "";
+			m_lbl_ma_tkkt.Text = v_us.strMA_TKKT ;
 			m_lbl_ma_dvqhns.Text = v_us.strMA_DVQHNS;
 			m_lbl_ma_ctmt_da_htct.Text = v_us.strMA_CTMT_DA_HTCT;
 			m_lbl_so_tien_ghi_bang_chu.Text = "...........................................................................................................";

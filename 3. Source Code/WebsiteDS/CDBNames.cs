@@ -15,6 +15,14 @@ namespace WebDS.CDBNames
 		public const string MA_TKKT1 = "MA_TKKT1";
 		public const string MA_DVQHNS = "MA_DVQHNS";
 		public const string MA_TKKT2 = "MA_TKKT2";
+		public const string MA_DVQHNS_1 = "MA_DVQHNS_1";
+		public const string MA_DVQHNS_2 = "MA_DVQHNS_2";
+		public const string MA_TKKT_QBT_2 = "MA_TKKT_QBT_2";
+		public const string MA_TKKT_QBT_3 = "MA_TKKT_QBT_3";
+		public const string MA_TKKT_QBT_4 = "MA_TKKT_QBT_4";
+		public const string MA_TKKT_NS_2 = "MA_TKKT_NS_2";
+		public const string MA_TKKT_NS_3 = "MA_TKKT_NS_3";
+		public const string MA_TKKT_NS_4 = "MA_TKKT_NS_4";
 	}
 
 	public class RPT_BAO_CAO_GIAO_VON

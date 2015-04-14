@@ -792,6 +792,28 @@ namespace WebUS
 			pm_objDR["NGUOI_NHAN_TIEN_NOI_CAP"] = System.Convert.DBNull;
 		}
 
+		public string strMA_TKKT
+		{
+			get
+			{
+				return CNull.RowNVLString(pm_objDR, "MA_TKKT", IPConstants.c_DefaultString);
+			}
+			set
+			{
+				pm_objDR["MA_TKKT"] = value;
+			}
+		}
+
+		public bool IsMA_TKKTNull()
+		{
+			return pm_objDR.IsNull("MA_TKKT");
+		}
+
+		public void SetMA_TKKTNull()
+		{
+			pm_objDR["MA_TKKT"] = System.Convert.DBNull;
+		}
+
 		public decimal dcSO_TIEN_NOP_THUE
 		{
 			get
@@ -900,6 +922,116 @@ namespace WebUS
 		public void SetDISPLAYNull()
 		{
 			pm_objDR["DISPLAY"] = System.Convert.DBNull;
+		}
+
+		public string strMA_CHUONG
+		{
+			get
+			{
+				return CNull.RowNVLString(pm_objDR, "MA_CHUONG", IPConstants.c_DefaultString);
+			}
+			set
+			{
+				pm_objDR["MA_CHUONG"] = value;
+			}
+		}
+
+		public bool IsMA_CHUONGNull()
+		{
+			return pm_objDR.IsNull("MA_CHUONG");
+		}
+
+		public void SetMA_CHUONGNull()
+		{
+			pm_objDR["MA_CHUONG"] = System.Convert.DBNull;
+		}
+
+		public string strMA_LOAI
+		{
+			get
+			{
+				return CNull.RowNVLString(pm_objDR, "MA_LOAI", IPConstants.c_DefaultString);
+			}
+			set
+			{
+				pm_objDR["MA_LOAI"] = value;
+			}
+		}
+
+		public bool IsMA_LOAINull()
+		{
+			return pm_objDR.IsNull("MA_LOAI");
+		}
+
+		public void SetMA_LOAINull()
+		{
+			pm_objDR["MA_LOAI"] = System.Convert.DBNull;
+		}
+
+		public string strMA_KHOAN
+		{
+			get
+			{
+				return CNull.RowNVLString(pm_objDR, "MA_KHOAN", IPConstants.c_DefaultString);
+			}
+			set
+			{
+				pm_objDR["MA_KHOAN"] = value;
+			}
+		}
+
+		public bool IsMA_KHOANNull()
+		{
+			return pm_objDR.IsNull("MA_KHOAN");
+		}
+
+		public void SetMA_KHOANNull()
+		{
+			pm_objDR["MA_KHOAN"] = System.Convert.DBNull;
+		}
+
+		public string strTEN_DU_AN
+		{
+			get
+			{
+				return CNull.RowNVLString(pm_objDR, "TEN_DU_AN", IPConstants.c_DefaultString);
+			}
+			set
+			{
+				pm_objDR["TEN_DU_AN"] = value;
+			}
+		}
+
+		public bool IsTEN_DU_ANNull()
+		{
+			return pm_objDR.IsNull("TEN_DU_AN");
+		}
+
+		public void SetTEN_DU_ANNull()
+		{
+			pm_objDR["TEN_DU_AN"] = System.Convert.DBNull;
+		}
+
+		public decimal dcTONG
+		{
+			get
+			{
+				return CNull.RowNVLDecimal(pm_objDR, "TONG", IPConstants.c_DefaultDecimal);
+			}
+			set
+			{
+				pm_objDR["TONG"] = value;
+			}
+		}
+
+		public bool IsTONGNull()
+		{
+			return pm_objDR.IsNull("TONG");
+		}
+
+		public void SetTONGNull()
+		{
+			pm_objDR["TONG"] = System.Convert.DBNull;
 		}
 
 		#endregion

@@ -367,6 +367,8 @@ namespace WebDS {
             
             private global::System.Data.DataColumn columnMA_KHOAN;
             
+            private global::System.Data.DataColumn columnMA_TKKT;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public V_GD_GIAI_NGAN_QBTDataTable() {
@@ -754,6 +756,14 @@ namespace WebDS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn MA_TKKTColumn {
+                get {
+                    return this.columnMA_TKKT;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -833,7 +843,8 @@ namespace WebDS {
                         string TEN_DU_AN, 
                         string MA_CHUONG, 
                         string MA_LOAI, 
-                        string MA_KHOAN) {
+                        string MA_KHOAN, 
+                        string MA_TKKT) {
                 V_GD_GIAI_NGAN_QBTRow rowV_GD_GIAI_NGAN_QBTRow = ((V_GD_GIAI_NGAN_QBTRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         ID,
@@ -879,7 +890,8 @@ namespace WebDS {
                         TEN_DU_AN,
                         MA_CHUONG,
                         MA_LOAI,
-                        MA_KHOAN};
+                        MA_KHOAN,
+                        MA_TKKT};
                 rowV_GD_GIAI_NGAN_QBTRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowV_GD_GIAI_NGAN_QBTRow);
                 return rowV_GD_GIAI_NGAN_QBTRow;
@@ -952,6 +964,7 @@ namespace WebDS {
                 this.columnMA_CHUONG = base.Columns["MA_CHUONG"];
                 this.columnMA_LOAI = base.Columns["MA_LOAI"];
                 this.columnMA_KHOAN = base.Columns["MA_KHOAN"];
+                this.columnMA_TKKT = base.Columns["MA_TKKT"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1045,6 +1058,8 @@ namespace WebDS {
                 base.Columns.Add(this.columnMA_LOAI);
                 this.columnMA_KHOAN = new global::System.Data.DataColumn("MA_KHOAN", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnMA_KHOAN);
+                this.columnMA_TKKT = new global::System.Data.DataColumn("MA_TKKT", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMA_TKKT);
                 this.columnID.AllowDBNull = false;
                 this.columnID_DON_VI.AllowDBNull = false;
                 this.columnSO_TIEN_NOP_THUE.AllowDBNull = false;
@@ -1088,6 +1103,7 @@ namespace WebDS {
                 this.columnMA_LOAI.MaxLength = 15;
                 this.columnMA_KHOAN.AllowDBNull = false;
                 this.columnMA_KHOAN.MaxLength = 15;
+                this.columnMA_TKKT.MaxLength = 35;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1879,6 +1895,22 @@ namespace WebDS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string MA_TKKT {
+                get {
+                    try {
+                        return ((string)(this[this.tableV_GD_GIAI_NGAN_QBT.MA_TKKTColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'MA_TKKT\' in table \'V_GD_GIAI_NGAN_QBT\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableV_GD_GIAI_NGAN_QBT.MA_TKKTColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsID_CONG_TRINHNull() {
                 return this.IsNull(this.tableV_GD_GIAI_NGAN_QBT.ID_CONG_TRINHColumn);
             }
@@ -2260,6 +2292,18 @@ namespace WebDS {
             public void SetTTDVH_SO_TIENNull() {
                 this[this.tableV_GD_GIAI_NGAN_QBT.TTDVH_SO_TIENColumn] = global::System.Convert.DBNull;
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsMA_TKKTNull() {
+                return this.IsNull(this.tableV_GD_GIAI_NGAN_QBT.MA_TKKTColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetMA_TKKTNull() {
+                this[this.tableV_GD_GIAI_NGAN_QBT.MA_TKKTColumn] = global::System.Convert.DBNull;
+            }
         }
         
         /// <summary>
@@ -2465,6 +2509,7 @@ namespace WebDS.DS_V_GD_GIAI_NGAN_QBTTableAdapters {
             tableMapping.ColumnMappings.Add("MA_CHUONG", "MA_CHUONG");
             tableMapping.ColumnMappings.Add("MA_LOAI", "MA_LOAI");
             tableMapping.ColumnMappings.Add("MA_KHOAN", "MA_KHOAN");
+            tableMapping.ColumnMappings.Add("MA_TKKT", "MA_TKKT");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -2481,7 +2526,7 @@ namespace WebDS.DS_V_GD_GIAI_NGAN_QBTTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT ID, ID_DON_VI, ID_CONG_TRINH, SO_TIEN_NOP_THUE, ID_GIAI_NGAN, NOI_DUNG_CHI, GHI_CHU, ID_CHUONG, ID_KHOAN, ID_MUC, ID_TIEU_MUC, SO_TIEN_TT_CHO_DV_HUONG, ID_DU_AN, ID_LOAI_NHIEM_VU, GHI_CHU_1, GHI_CHU_2, GHI_CHU_3, GHI_CHU_4, MA_NGUON_NSNN, NGAY_THANG, SO_UNC, IS_NGUON_NS_YN, MA_DVQHNS, MA_CTMT_DA_HTCT, NT_TEN_DON_VI, NT_MA_SO_THUE, NT_MA_NDKT, NT_MA_CHUONG, NT_CQ_QL_THU, NT_MA_CQ_THU, NT_KBNN_HACH_TOAN_KHOAN_THU, NT_SO_TIEN_NOP_THUE, TTDVH_DON_VI_NHAN_TIEN, TTDVH_MA_DVQHNS, TTDVH_DIA_CHI, TTDVH_TAI_KHOAN, TTDVH_MA_CTMT_DA_VA_HTCT, TTDVH_KHO_BAC, TTDVH_SO_TIEN, TEN_CONG_TRINH, TEN_DU_AN, MA_CHUONG, MA_LOAI, MA_KHOAN FROM dbo.V_GD_GIAI_NGAN_QBT";
+            this._commandCollection[0].CommandText = @"SELECT ID, ID_DON_VI, ID_CONG_TRINH, SO_TIEN_NOP_THUE, ID_GIAI_NGAN, NOI_DUNG_CHI, GHI_CHU, ID_CHUONG, ID_KHOAN, ID_MUC, ID_TIEU_MUC, SO_TIEN_TT_CHO_DV_HUONG, ID_DU_AN, ID_LOAI_NHIEM_VU, GHI_CHU_1, GHI_CHU_2, GHI_CHU_3, GHI_CHU_4, MA_NGUON_NSNN, NGAY_THANG, SO_UNC, IS_NGUON_NS_YN, MA_DVQHNS, MA_CTMT_DA_HTCT, NT_TEN_DON_VI, NT_MA_SO_THUE, NT_MA_NDKT, NT_MA_CHUONG, NT_CQ_QL_THU, NT_MA_CQ_THU, NT_KBNN_HACH_TOAN_KHOAN_THU, NT_SO_TIEN_NOP_THUE, TTDVH_DON_VI_NHAN_TIEN, TTDVH_MA_DVQHNS, TTDVH_DIA_CHI, TTDVH_TAI_KHOAN, TTDVH_MA_CTMT_DA_VA_HTCT, TTDVH_KHO_BAC, TTDVH_SO_TIEN, TEN_CONG_TRINH, TEN_DU_AN, MA_CHUONG, MA_LOAI, MA_KHOAN, MA_TKKT FROM dbo.V_GD_GIAI_NGAN_QBT";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         

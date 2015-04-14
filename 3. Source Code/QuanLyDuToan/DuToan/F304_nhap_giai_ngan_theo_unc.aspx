@@ -5,9 +5,10 @@
 <%@ Import Namespace="WebDS.CDBNames" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="Server">
 	<style type="text/css">
-	 label {
-			display: table-cell;
+	label {
+			white-space: nowrap;
 			width: 200px;
+			padding-right: 3px;
 		}
 		.radioButtonList {
 			list-style: none;
@@ -143,9 +144,11 @@
 											<td style="text-align: right">
 												<span>Mã TKKT</span>
 											</td>
-											<td colspan="2">
-												<asp:RadioButtonList ID="m_rbl_ma_tkkt" runat="server" RepeatDirection="Horizontal" Enabled="false" CssClass="radioButtonList radio-inline">
-												</asp:RadioButtonList>
+											<td colspan="3">
+												<asp:RadioButton ID="m_rdb_ma_tkkt_quy" Checked="true" runat="server" GroupName="ma_tkkt" />
+												<asp:RadioButton ID="m_rdb_ma_tkkt_quy_2" runat="server" GroupName="ma_tkkt" /><br />
+												<asp:RadioButton ID="m_rdb_ma_tkkt_quy_3" runat="server" GroupName="ma_tkkt" />
+												<asp:RadioButton ID="m_rdb_ma_tkkt_quy_4" runat="server" GroupName="ma_tkkt" />
 											</td>
 
 										</tr>

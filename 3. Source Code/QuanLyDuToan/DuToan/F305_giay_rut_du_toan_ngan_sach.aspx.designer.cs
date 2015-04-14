@@ -157,13 +157,40 @@ namespace QuanLyDuToan.DuToan {
         protected global::System.Web.UI.WebControls.Button m_cmd_nhap_moi_unc;
         
         /// <summary>
-        /// m_rbl_ma_tkkt control.
+        /// m_rdb_ma_tkkt_ns control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList m_rbl_ma_tkkt;
+        protected global::System.Web.UI.WebControls.RadioButton m_rdb_ma_tkkt_ns;
+        
+        /// <summary>
+        /// m_rdb_ma_tkkt_ns_2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton m_rdb_ma_tkkt_ns_2;
+        
+        /// <summary>
+        /// m_rdb_ma_tkkt_ns_3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton m_rdb_ma_tkkt_ns_3;
+        
+        /// <summary>
+        /// m_rdb_ma_tkkt_ns_4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton m_rdb_ma_tkkt_ns_4;
         
         /// <summary>
         /// m_txt_tai_kho_bac_nha_nuoc control.

@@ -84,6 +84,7 @@
     <Content Include="bootstrap-3.2.0-dist\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="bootstrap-3.2.0-dist\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="ChucNang\F601_print_giay_rut_du_toan_ngan_sach.aspx" />
+    <Content Include="DanhMuc\F003_DanhMucChuongLoaiKhoanMucTieuMuc.aspx" />
     <Content Include="Downloadify\README.textile" />
     <Content Include="Downloadify\src\com\dynamicflash\util\Base64.as" />
     <Content Include="Downloadify\src\com\dynamicflash\util\tests\Base64Test.as" />
@@ -684,6 +685,13 @@
     </Compile>
     <Compile Include="BaoCaoQT\BC_PL03_Bao_cao_thuc_hien_xu_ly_kien_nghi_cua_kiem_toan_thanh_tra_tai_chinh.aspx.designer.cs">
       <DependentUpon>BC_PL03_Bao_cao_thuc_hien_xu_ly_kien_nghi_cua_kiem_toan_thanh_tra_tai_chinh.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DanhMuc\F003_DanhMucChuongLoaiKhoanMucTieuMuc.aspx.cs">
+      <DependentUpon>F003_DanhMucChuongLoaiKhoanMucTieuMuc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DanhMuc\F003_DanhMucChuongLoaiKhoanMucTieuMuc.aspx.designer.cs">
+      <DependentUpon>F003_DanhMucChuongLoaiKhoanMucTieuMuc.aspx</DependentUpon>
     </Compile>
     <Compile Include="Quantri\F816_ghi_log_qldt.aspx.cs">
       <DependentUpon>F816_ghi_log_qldt.aspx</DependentUpon>

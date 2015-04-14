@@ -69,7 +69,7 @@ namespace QuanLyDuToan.ChucNang
 			//load info Don vi tra tien
 			m_lbl_don_vi_rut_du_toan.Text = v_us_dm_don_vi.strTEN_DON_VI;
 			m_lbl_tai_kbns.Text = v_us_thong_tin_don_vi.strKHO_BAC;
-			m_lbl_tai_khoan.Text = "";
+			m_lbl_tai_khoan.Text = v_us.strMA_TKKT;
 			m_lbl_ma_dvqhns.Text = v_us.strMA_DVQHNS;
 			m_lbl_ma_ctmt_da_htct.Text = v_us.strMA_CTMT_DA_HTCT;
 			m_lbl_so_tien_ghi_bang_chu.Text = "...........................................................................................................";

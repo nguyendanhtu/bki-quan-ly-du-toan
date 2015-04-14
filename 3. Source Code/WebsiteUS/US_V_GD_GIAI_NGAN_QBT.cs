@@ -990,6 +990,28 @@ namespace WebUS
 			pm_objDR["MA_KHOAN"] = System.Convert.DBNull;
 		}
 
+		public string strMA_TKKT
+		{
+			get
+			{
+				return CNull.RowNVLString(pm_objDR, "MA_TKKT", IPConstants.c_DefaultString);
+			}
+			set
+			{
+				pm_objDR["MA_TKKT"] = value;
+			}
+		}
+
+		public bool IsMA_TKKTNull()
+		{
+			return pm_objDR.IsNull("MA_TKKT");
+		}
+
+		public void SetMA_TKKTNull()
+		{
+			pm_objDR["MA_TKKT"] = System.Convert.DBNull;
+		}
+
 		#endregion
 		#region "Init Functions"
 		public US_V_GD_GIAI_NGAN_QBT()
