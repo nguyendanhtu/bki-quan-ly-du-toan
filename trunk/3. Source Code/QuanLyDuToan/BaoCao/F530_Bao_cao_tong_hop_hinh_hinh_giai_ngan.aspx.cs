@@ -61,10 +61,10 @@ namespace QuanLyDuToan.BaoCao
 				.ToList();
 			foreach (var item in lstRowsHaveCondition)
 			{
-				item[RPT_BC_TINH_HINH_GIAI_NGAN.NOI_DUNG] = "-- " + item[RPT_BC_TINH_HINH_GIAI_NGAN.NOI_DUNG].ToString().Replace("-- ", "");
+				item[RPT_BC_TINH_HINH_GIAI_NGAN.NOI_DUNG] = "--- " + item[RPT_BC_TINH_HINH_GIAI_NGAN.NOI_DUNG].ToString().Replace("-- ", "");
 				item["HIEN_THI"] = ip_str_content + "-";
 			}
-			v_dr[RPT_BC_TINH_HINH_GIAI_NGAN.ID] = -1;
+			v_dr[RPT_BC_TINH_HINH_GIAI_NGAN.ID] = 2000;
 			v_dr[RPT_BC_TINH_HINH_GIAI_NGAN.ID_CHA] = -1;
 			v_dr[RPT_BC_TINH_HINH_GIAI_NGAN.ID_CONG_TRINH_KHOAN] = -1;
 			v_dr[RPT_BC_TINH_HINH_GIAI_NGAN.ID_DON_VI] = -1;
@@ -114,10 +114,10 @@ namespace QuanLyDuToan.BaoCao
 			{
 				v_dt.Rows[i]["HIEN_THI"] = v_dt.Rows[i]["NOI_DUNG"];
 			}
-			addRowSum(v_dt, "cục quản lý đường bộ I.", "Cục I");
-			addRowSum(v_dt, "cục quản lý đường bộ II.", "Cục II");
-			addRowSum(v_dt, "cục quản lý đường bộ III.", "Cục III");
-			addRowSum(v_dt, "cục quản lý đường bộ IV.", "Cục IV");
+			addRowSum(v_dt, "cục quản lý đường bộ I.", "Cục QLĐB I");
+			addRowSum(v_dt, "cục quản lý đường bộ II.", "Cục QLĐB II");
+			addRowSum(v_dt, "cục quản lý đường bộ III.", "Cục QLĐB III");
+			addRowSum(v_dt, "cục quản lý đường bộ IV.", "Cục QLĐB IV");
 			v_dt = v_dt.AsEnumerable()
 								   .OrderBy(x => x.Field<string>("HIEN_THI"))
 				//.ThenBy(x => x.Field<string>(RPT_BC_TINH_HINH_GIAI_NGAN.NOI_DUNG))
@@ -153,7 +153,8 @@ namespace QuanLyDuToan.BaoCao
 		private void set_inital_form_load()
 		{
 			//Đặt giá trị mặc định cho control khi chưa được chọn
-			m_txt_tu_ngay.Text = CIPConvert.ToStr(WebUS.CCommonFunction.getDate_dau_nam_from_date(DateTime.Now), "dd/MM/yyyy");
+			DateTime v_dat_dau_thang = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
+			m_txt_tu_ngay.Text = CIPConvert.ToStr(v_dat_dau_thang, "dd/MM/yyyy");
 			m_txt_den_ngay.Text = CIPConvert.ToStr(DateTime.Now, "dd/MM/yyyy");
 			load_data_to_grid();
 		}
