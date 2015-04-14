@@ -203,10 +203,11 @@ namespace QuanLyDuToan.BaoCao
 				, FormInfo.QueryString.ID_DON_VI
 				, Person.get_id_don_vi());
 			//load ngay thang theo query string
+			DateTime v_dat_dau_thang = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
 			m_txt_tu_ngay.Text = WebformFunctions.getValue_from_query_string<String>(
 				this
 				, FormInfo.QueryString.TU_NGAY
-				, CIPConvert.ToStr(CCommonFunction.getDate_dau_nam_from_date(DateTime.Now), "dd/MM/yyyy"));
+				, CIPConvert.ToStr(v_dat_dau_thang, "dd/MM/yyyy"));
 			m_txt_den_ngay.Text = WebformFunctions.getValue_from_query_string<String>(
 				this
 				, FormInfo.QueryString.DEN_NGAY
