@@ -234,8 +234,10 @@
 														</span>
 													</div>
 													<div class="col-sm-3">
-														<asp:RadioButtonList ID="m_rbl_ma_tkkt" runat="server" RepeatDirection="Horizontal" Enabled="false" CssClass="radioButtonList radio-inline">
-														</asp:RadioButtonList>
+														<asp:RadioButton ID="m_rdb_ma_tkkt_ns" Checked="true" runat="server" GroupName="ma_tkkt" />
+														<asp:RadioButton ID="m_rdb_ma_tkkt_ns_2" runat="server" GroupName="ma_tkkt" /><br />
+														<asp:RadioButton ID="m_rdb_ma_tkkt_ns_3" runat="server" GroupName="ma_tkkt" />
+														<asp:RadioButton ID="m_rdb_ma_tkkt_ns_4" runat="server" GroupName="ma_tkkt" />
 													</div>
 													<div class="col-sm-3 text-right">
 														<span>Tại KBNN:	
@@ -465,7 +467,7 @@
 															<EditItemTemplate>
 																<table class="table bordertop0" style="width: 100%">
 																	<tr>
-																		<td style="text-align:center">
+																		<td style="text-align: center">
 																			<asp:Button ID="lbtnUpdate" CssClass="btn btn-success btn-sm" runat="server" CommandName="Update" ForeColor="White"
 																				Text="Cập nhật" />
 																			<asp:Button ID="lbtnCancel" CssClass="btn btn-sm" runat="server" CommandName="Cancel"
@@ -671,17 +673,19 @@
 									<table class="table bordertop0" style="width: 100%; border-top: 1px solid gray;">
 										<tr>
 											<td style="width: 50%; text-align: center; border-right: 1px solid gray; border-bottom: hidden">
-												<p style="font-weight:bold">Bộ phận kiểm soát của KBNN			
-</p>
+												<p style="font-weight: bold">
+													Bộ phận kiểm soát của KBNN			
+												</p>
 												<p>Ngày.....tháng.....năm.........</p>
 												<p class="para" style="font-weight: bold; text-align: center">Kiểm toán&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Phụ trách</p>
 												<br />
 												<br />
 											</td>
 											<td style="text-align: center">
-												<p style="font-weight:bold">Đơn vị sử dụng ngân sách						
-</p>
-												
+												<p style="font-weight: bold">
+													Đơn vị sử dụng ngân sách						
+												</p>
+
 												<p>Ngày.....tháng.....năm.........</p>
 												<p class="para" style="font-weight: bold; text-align: center">Kế toán trưởng&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Thủ trưởng đơn vị</p>
 												<br />
@@ -697,13 +701,15 @@
 									<table class="table bordertop0" style="border: 1px solid; width: 100%; border-right: hidden; border-left: hidden; border-bottom: hidden">
 										<tr>
 											<td style="width: 30%; text-align: center; vertical-align: top; border-right: 1px solid gray; border-left: hidden">
-												<p style="font-weight: bold">Người nhận tiền	
+												<p style="font-weight: bold">
+													Người nhận tiền	
 		
-</p>
-												<p>(Ký, ghi rõ họ, tên)	
-</p>
-												
-												
+												</p>
+												<p>
+													(Ký, ghi rõ họ, tên)	
+												</p>
+
+
 												<br />
 												<br />
 
@@ -712,8 +718,9 @@
 												<table class="table bordertop0" style="width: 100%; margin-bottom: 0px;">
 													<tr>
 														<td style="border-right: 1px solid gray; width: 50%">
-															<p style="text-align: center; font-size: 13px; font-weight: bold; width: 293px;" class="para">KBNN A ghi sổ và thanh toán ngày..../..../......      				
-</p>
+															<p style="text-align: center; font-size: 13px; font-weight: bold; width: 293px;" class="para">
+																KBNN A ghi sổ và thanh toán ngày..../..../......      				
+															</p>
 															<p style="font-size: 13px; width: 305px;">&nbsp;&nbsp;&nbsp;&nbsp; Kế toán&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Kế toán trưởng&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Giám đốc&nbsp; </p>
 															<br />
 															<br />
@@ -732,7 +739,7 @@
 									</table>
 								</td>
 							</tr>
-							
+
 							<tr>
 								<td colspan="6" style="text-align: center">
 									<asp:Button ID="m_cmd_save_info_unc" Text="Lưu thông tin" runat="server" CssClass="btn btn-sm btn-success"

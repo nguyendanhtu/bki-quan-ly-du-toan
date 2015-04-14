@@ -21,17 +21,28 @@
 		</tr>
 		<tr>
 			<td>Mã TKKT Quỹ BT: </td>
-			<td><asp:TextBox ID="m_txt_ma_tkkt_quy_bao_tri" cssclass="form-control" runat="server" Width="150px"></asp:TextBox></td>
+			<td>
+				<asp:TextBox ID="m_txt_ma_tkkt_quy_bao_tri" placeholder="Mã TKKT Quỹ bảo trì 1" cssclass="form-control" runat="server" Width="150px"></asp:TextBox>
+				<asp:TextBox ID="m_txt_ma_tkkt_quy_bao_tri_2" placeholder="Mã TKKT Quỹ bảo trì 2" cssclass="form-control" runat="server" Width="150px"></asp:TextBox>
+				<asp:TextBox ID="m_txt_ma_tkkt_quy_bao_tri_3" placeholder="Mã TKKT Quỹ bảo trì 3" cssclass="form-control" runat="server" Width="150px"></asp:TextBox>
+				<asp:TextBox ID="m_txt_ma_tkkt_quy_bao_tri_4" placeholder="Mã TKKT Quỹ bảo trì 4" cssclass="form-control" runat="server" Width="150px"></asp:TextBox>
+
+			</td>
 		</tr>
 		<tr>
 			<td>Mã TKKT Nguồn NS: </td>
-			<td><asp:TextBox ID="m_txt_ma_tkkt_nguon_ns" cssclass="form-control"  runat="server" Width="150px"></asp:TextBox></td>
+			<td>
+				<asp:TextBox ID="m_txt_ma_tkkt_nguon_ns" placeholder="Mã TKKT Ngân sách 1" cssclass="form-control"  runat="server" Width="150px"></asp:TextBox>
+				<asp:TextBox ID="m_txt_ma_tkkt_nguon_ns_2" placeholder="Mã TKKT Ngân sách 2" cssclass="form-control"  runat="server" Width="150px"></asp:TextBox>
+				<asp:TextBox ID="m_txt_ma_tkkt_nguon_ns_3" placeholder="Mã TKKT Ngân sách 3" cssclass="form-control"  runat="server" Width="150px"></asp:TextBox>
+				<asp:TextBox ID="m_txt_ma_tkkt_nguon_ns_4" placeholder="Mã TKKT Ngân sách 4" cssclass="form-control"  runat="server" Width="150px"></asp:TextBox>
+			</td>
 		</tr>
 		<tr>
 			<td>Mã ĐVQHNS: </td>
-			<td><asp:TextBox ID="m_txt_ma_dvqhns" cssclass="form-control"  runat="server" Width="150px"></asp:TextBox>
-				<asp:TextBox ID="m_txt_ma_dvqhns_1" cssclass="form-control"  runat="server" Width="150px"></asp:TextBox>
-				<asp:TextBox ID="m_txt_ma_dvqhns_2" cssclass="form-control"  runat="server" Width="150px"></asp:TextBox>
+			<td><asp:TextBox ID="m_txt_ma_dvqhns"  placeholder="Mã ĐVQHNS 1" cssclass="form-control"  runat="server" Width="150px"></asp:TextBox>
+				<asp:TextBox ID="m_txt_ma_dvqhns_1"  placeholder="Mã ĐVQHNS 2" cssclass="form-control"  runat="server" Width="150px"></asp:TextBox>
+				<asp:TextBox ID="m_txt_ma_dvqhns_2"  placeholder="Mã ĐVQHNS 3" cssclass="form-control"  runat="server" Width="150px"></asp:TextBox>
 			</td>
 		</tr>
 		

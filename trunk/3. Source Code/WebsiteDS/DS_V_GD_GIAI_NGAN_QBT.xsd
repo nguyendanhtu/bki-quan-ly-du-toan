@@ -12,7 +12,7 @@
               <DbSource ConnectionRef="BKI_QLDTConnectionString (Settings)" DbObjectName="BKI_QLDT.dbo.V_GD_GIAI_NGAN_QBT" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT ID, ID_DON_VI, ID_CONG_TRINH, SO_TIEN_NOP_THUE, ID_GIAI_NGAN, NOI_DUNG_CHI, GHI_CHU, ID_CHUONG, ID_KHOAN, ID_MUC, ID_TIEU_MUC, SO_TIEN_TT_CHO_DV_HUONG, ID_DU_AN, ID_LOAI_NHIEM_VU, GHI_CHU_1, GHI_CHU_2, GHI_CHU_3, GHI_CHU_4, MA_NGUON_NSNN, NGAY_THANG, SO_UNC, IS_NGUON_NS_YN, MA_DVQHNS, MA_CTMT_DA_HTCT, NT_TEN_DON_VI, NT_MA_SO_THUE, NT_MA_NDKT, NT_MA_CHUONG, NT_CQ_QL_THU, NT_MA_CQ_THU, NT_KBNN_HACH_TOAN_KHOAN_THU, NT_SO_TIEN_NOP_THUE, TTDVH_DON_VI_NHAN_TIEN, TTDVH_MA_DVQHNS, TTDVH_DIA_CHI, TTDVH_TAI_KHOAN, TTDVH_MA_CTMT_DA_VA_HTCT, TTDVH_KHO_BAC, TTDVH_SO_TIEN, TEN_CONG_TRINH, TEN_DU_AN, MA_CHUONG, MA_LOAI, MA_KHOAN FROM dbo.V_GD_GIAI_NGAN_QBT</CommandText>
+                    <CommandText>SELECT ID, ID_DON_VI, ID_CONG_TRINH, SO_TIEN_NOP_THUE, ID_GIAI_NGAN, NOI_DUNG_CHI, GHI_CHU, ID_CHUONG, ID_KHOAN, ID_MUC, ID_TIEU_MUC, SO_TIEN_TT_CHO_DV_HUONG, ID_DU_AN, ID_LOAI_NHIEM_VU, GHI_CHU_1, GHI_CHU_2, GHI_CHU_3, GHI_CHU_4, MA_NGUON_NSNN, NGAY_THANG, SO_UNC, IS_NGUON_NS_YN, MA_DVQHNS, MA_CTMT_DA_HTCT, NT_TEN_DON_VI, NT_MA_SO_THUE, NT_MA_NDKT, NT_MA_CHUONG, NT_CQ_QL_THU, NT_MA_CQ_THU, NT_KBNN_HACH_TOAN_KHOAN_THU, NT_SO_TIEN_NOP_THUE, TTDVH_DON_VI_NHAN_TIEN, TTDVH_MA_DVQHNS, TTDVH_DIA_CHI, TTDVH_TAI_KHOAN, TTDVH_MA_CTMT_DA_VA_HTCT, TTDVH_KHO_BAC, TTDVH_SO_TIEN, TEN_CONG_TRINH, TEN_DU_AN, MA_CHUONG, MA_LOAI, MA_KHOAN, MA_TKKT FROM dbo.V_GD_GIAI_NGAN_QBT</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -63,6 +63,7 @@
               <Mapping SourceColumn="MA_CHUONG" DataSetColumn="MA_CHUONG" />
               <Mapping SourceColumn="MA_LOAI" DataSetColumn="MA_LOAI" />
               <Mapping SourceColumn="MA_KHOAN" DataSetColumn="MA_KHOAN" />
+              <Mapping SourceColumn="MA_TKKT" DataSetColumn="MA_TKKT" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -304,6 +305,13 @@
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MA_TKKT" msprop:Generator_ColumnVarNameInTable="columnMA_TKKT" msprop:Generator_ColumnPropNameInRow="MA_TKKT" msprop:Generator_ColumnPropNameInTable="MA_TKKTColumn" msprop:Generator_UserColumnName="MA_TKKT" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="35" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>

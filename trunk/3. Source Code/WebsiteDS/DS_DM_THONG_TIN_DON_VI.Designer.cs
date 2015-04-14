@@ -297,6 +297,18 @@ namespace WebDS {
             
             private global::System.Data.DataColumn columnMA_DVQHNS_2;
             
+            private global::System.Data.DataColumn columnMA_TKKT_QBT_2;
+            
+            private global::System.Data.DataColumn columnMA_TKKT_QBT_3;
+            
+            private global::System.Data.DataColumn columnMA_TKKT_QBT_4;
+            
+            private global::System.Data.DataColumn columnMA_TKKT_NS_2;
+            
+            private global::System.Data.DataColumn columnMA_TKKT_NS_3;
+            
+            private global::System.Data.DataColumn columnMA_TKKT_NS_4;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public DM_THONG_TIN_DON_VIDataTable() {
@@ -404,6 +416,54 @@ namespace WebDS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn MA_TKKT_QBT_2Column {
+                get {
+                    return this.columnMA_TKKT_QBT_2;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn MA_TKKT_QBT_3Column {
+                get {
+                    return this.columnMA_TKKT_QBT_3;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn MA_TKKT_QBT_4Column {
+                get {
+                    return this.columnMA_TKKT_QBT_4;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn MA_TKKT_NS_2Column {
+                get {
+                    return this.columnMA_TKKT_NS_2;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn MA_TKKT_NS_3Column {
+                get {
+                    return this.columnMA_TKKT_NS_3;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn MA_TKKT_NS_4Column {
+                get {
+                    return this.columnMA_TKKT_NS_4;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -439,7 +499,7 @@ namespace WebDS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public DM_THONG_TIN_DON_VIRow AddDM_THONG_TIN_DON_VIRow(decimal ID_DON_VI, string DIA_CHI, string KHO_BAC, string MA_TKKT1, string MA_DVQHNS, string MA_TKKT2, string MA_DVQHNS_1, string MA_DVQHNS_2) {
+            public DM_THONG_TIN_DON_VIRow AddDM_THONG_TIN_DON_VIRow(decimal ID_DON_VI, string DIA_CHI, string KHO_BAC, string MA_TKKT1, string MA_DVQHNS, string MA_TKKT2, string MA_DVQHNS_1, string MA_DVQHNS_2, string MA_TKKT_QBT_2, string MA_TKKT_QBT_3, string MA_TKKT_QBT_4, string MA_TKKT_NS_2, string MA_TKKT_NS_3, string MA_TKKT_NS_4) {
                 DM_THONG_TIN_DON_VIRow rowDM_THONG_TIN_DON_VIRow = ((DM_THONG_TIN_DON_VIRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -450,7 +510,13 @@ namespace WebDS {
                         MA_DVQHNS,
                         MA_TKKT2,
                         MA_DVQHNS_1,
-                        MA_DVQHNS_2};
+                        MA_DVQHNS_2,
+                        MA_TKKT_QBT_2,
+                        MA_TKKT_QBT_3,
+                        MA_TKKT_QBT_4,
+                        MA_TKKT_NS_2,
+                        MA_TKKT_NS_3,
+                        MA_TKKT_NS_4};
                 rowDM_THONG_TIN_DON_VIRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDM_THONG_TIN_DON_VIRow);
                 return rowDM_THONG_TIN_DON_VIRow;
@@ -495,6 +561,12 @@ namespace WebDS {
                 this.columnMA_TKKT2 = base.Columns["MA_TKKT2"];
                 this.columnMA_DVQHNS_1 = base.Columns["MA_DVQHNS_1"];
                 this.columnMA_DVQHNS_2 = base.Columns["MA_DVQHNS_2"];
+                this.columnMA_TKKT_QBT_2 = base.Columns["MA_TKKT_QBT_2"];
+                this.columnMA_TKKT_QBT_3 = base.Columns["MA_TKKT_QBT_3"];
+                this.columnMA_TKKT_QBT_4 = base.Columns["MA_TKKT_QBT_4"];
+                this.columnMA_TKKT_NS_2 = base.Columns["MA_TKKT_NS_2"];
+                this.columnMA_TKKT_NS_3 = base.Columns["MA_TKKT_NS_3"];
+                this.columnMA_TKKT_NS_4 = base.Columns["MA_TKKT_NS_4"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -518,6 +590,18 @@ namespace WebDS {
                 base.Columns.Add(this.columnMA_DVQHNS_1);
                 this.columnMA_DVQHNS_2 = new global::System.Data.DataColumn("MA_DVQHNS_2", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnMA_DVQHNS_2);
+                this.columnMA_TKKT_QBT_2 = new global::System.Data.DataColumn("MA_TKKT_QBT_2", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMA_TKKT_QBT_2);
+                this.columnMA_TKKT_QBT_3 = new global::System.Data.DataColumn("MA_TKKT_QBT_3", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMA_TKKT_QBT_3);
+                this.columnMA_TKKT_QBT_4 = new global::System.Data.DataColumn("MA_TKKT_QBT_4", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMA_TKKT_QBT_4);
+                this.columnMA_TKKT_NS_2 = new global::System.Data.DataColumn("MA_TKKT_NS_2", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMA_TKKT_NS_2);
+                this.columnMA_TKKT_NS_3 = new global::System.Data.DataColumn("MA_TKKT_NS_3", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMA_TKKT_NS_3);
+                this.columnMA_TKKT_NS_4 = new global::System.Data.DataColumn("MA_TKKT_NS_4", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMA_TKKT_NS_4);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnID}, true));
                 this.columnID.AutoIncrement = true;
@@ -533,6 +617,12 @@ namespace WebDS {
                 this.columnMA_TKKT2.MaxLength = 35;
                 this.columnMA_DVQHNS_1.MaxLength = 35;
                 this.columnMA_DVQHNS_2.MaxLength = 35;
+                this.columnMA_TKKT_QBT_2.MaxLength = 35;
+                this.columnMA_TKKT_QBT_3.MaxLength = 35;
+                this.columnMA_TKKT_QBT_4.MaxLength = 35;
+                this.columnMA_TKKT_NS_2.MaxLength = 35;
+                this.columnMA_TKKT_NS_3.MaxLength = 35;
+                this.columnMA_TKKT_NS_4.MaxLength = 35;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -814,6 +904,102 @@ namespace WebDS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string MA_TKKT_QBT_2 {
+                get {
+                    try {
+                        return ((string)(this[this.tableDM_THONG_TIN_DON_VI.MA_TKKT_QBT_2Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'MA_TKKT_QBT_2\' in table \'DM_THONG_TIN_DON_VI\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDM_THONG_TIN_DON_VI.MA_TKKT_QBT_2Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string MA_TKKT_QBT_3 {
+                get {
+                    try {
+                        return ((string)(this[this.tableDM_THONG_TIN_DON_VI.MA_TKKT_QBT_3Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'MA_TKKT_QBT_3\' in table \'DM_THONG_TIN_DON_VI\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDM_THONG_TIN_DON_VI.MA_TKKT_QBT_3Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string MA_TKKT_QBT_4 {
+                get {
+                    try {
+                        return ((string)(this[this.tableDM_THONG_TIN_DON_VI.MA_TKKT_QBT_4Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'MA_TKKT_QBT_4\' in table \'DM_THONG_TIN_DON_VI\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDM_THONG_TIN_DON_VI.MA_TKKT_QBT_4Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string MA_TKKT_NS_2 {
+                get {
+                    try {
+                        return ((string)(this[this.tableDM_THONG_TIN_DON_VI.MA_TKKT_NS_2Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'MA_TKKT_NS_2\' in table \'DM_THONG_TIN_DON_VI\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDM_THONG_TIN_DON_VI.MA_TKKT_NS_2Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string MA_TKKT_NS_3 {
+                get {
+                    try {
+                        return ((string)(this[this.tableDM_THONG_TIN_DON_VI.MA_TKKT_NS_3Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'MA_TKKT_NS_3\' in table \'DM_THONG_TIN_DON_VI\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDM_THONG_TIN_DON_VI.MA_TKKT_NS_3Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string MA_TKKT_NS_4 {
+                get {
+                    try {
+                        return ((string)(this[this.tableDM_THONG_TIN_DON_VI.MA_TKKT_NS_4Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'MA_TKKT_NS_4\' in table \'DM_THONG_TIN_DON_VI\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDM_THONG_TIN_DON_VI.MA_TKKT_NS_4Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsID_DON_VINull() {
                 return this.IsNull(this.tableDM_THONG_TIN_DON_VI.ID_DON_VIColumn);
             }
@@ -906,6 +1092,78 @@ namespace WebDS {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetMA_DVQHNS_2Null() {
                 this[this.tableDM_THONG_TIN_DON_VI.MA_DVQHNS_2Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsMA_TKKT_QBT_2Null() {
+                return this.IsNull(this.tableDM_THONG_TIN_DON_VI.MA_TKKT_QBT_2Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetMA_TKKT_QBT_2Null() {
+                this[this.tableDM_THONG_TIN_DON_VI.MA_TKKT_QBT_2Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsMA_TKKT_QBT_3Null() {
+                return this.IsNull(this.tableDM_THONG_TIN_DON_VI.MA_TKKT_QBT_3Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetMA_TKKT_QBT_3Null() {
+                this[this.tableDM_THONG_TIN_DON_VI.MA_TKKT_QBT_3Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsMA_TKKT_QBT_4Null() {
+                return this.IsNull(this.tableDM_THONG_TIN_DON_VI.MA_TKKT_QBT_4Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetMA_TKKT_QBT_4Null() {
+                this[this.tableDM_THONG_TIN_DON_VI.MA_TKKT_QBT_4Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsMA_TKKT_NS_2Null() {
+                return this.IsNull(this.tableDM_THONG_TIN_DON_VI.MA_TKKT_NS_2Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetMA_TKKT_NS_2Null() {
+                this[this.tableDM_THONG_TIN_DON_VI.MA_TKKT_NS_2Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsMA_TKKT_NS_3Null() {
+                return this.IsNull(this.tableDM_THONG_TIN_DON_VI.MA_TKKT_NS_3Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetMA_TKKT_NS_3Null() {
+                this[this.tableDM_THONG_TIN_DON_VI.MA_TKKT_NS_3Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsMA_TKKT_NS_4Null() {
+                return this.IsNull(this.tableDM_THONG_TIN_DON_VI.MA_TKKT_NS_4Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetMA_TKKT_NS_4Null() {
+                this[this.tableDM_THONG_TIN_DON_VI.MA_TKKT_NS_4Column] = global::System.Convert.DBNull;
             }
         }
         
@@ -1077,10 +1335,16 @@ namespace WebDS.DS_DM_THONG_TIN_DON_VITableAdapters {
             tableMapping.ColumnMappings.Add("MA_TKKT2", "MA_TKKT2");
             tableMapping.ColumnMappings.Add("MA_DVQHNS_1", "MA_DVQHNS_1");
             tableMapping.ColumnMappings.Add("MA_DVQHNS_2", "MA_DVQHNS_2");
+            tableMapping.ColumnMappings.Add("MA_TKKT_QBT_2", "MA_TKKT_QBT_2");
+            tableMapping.ColumnMappings.Add("MA_TKKT_QBT_3", "MA_TKKT_QBT_3");
+            tableMapping.ColumnMappings.Add("MA_TKKT_QBT_4", "MA_TKKT_QBT_4");
+            tableMapping.ColumnMappings.Add("MA_TKKT_NS_2", "MA_TKKT_NS_2");
+            tableMapping.ColumnMappings.Add("MA_TKKT_NS_3", "MA_TKKT_NS_3");
+            tableMapping.ColumnMappings.Add("MA_TKKT_NS_4", "MA_TKKT_NS_4");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[DM_THONG_TIN_DON_VI] WHERE (([ID] = @Original_ID) AND ((@IsNull_ID_DON_VI = 1 AND [ID_DON_VI] IS NULL) OR ([ID_DON_VI] = @Original_ID_DON_VI)) AND ((@IsNull_DIA_CHI = 1 AND [DIA_CHI] IS NULL) OR ([DIA_CHI] = @Original_DIA_CHI)) AND ((@IsNull_KHO_BAC = 1 AND [KHO_BAC] IS NULL) OR ([KHO_BAC] = @Original_KHO_BAC)) AND ((@IsNull_MA_TKKT1 = 1 AND [MA_TKKT1] IS NULL) OR ([MA_TKKT1] = @Original_MA_TKKT1)) AND ((@IsNull_MA_DVQHNS = 1 AND [MA_DVQHNS] IS NULL) OR ([MA_DVQHNS] = @Original_MA_DVQHNS)) AND ((@IsNull_MA_TKKT2 = 1 AND [MA_TKKT2] IS NULL) OR ([MA_TKKT2] = @Original_MA_TKKT2)) AND ((@IsNull_MA_DVQHNS_1 = 1 AND [MA_DVQHNS_1] IS NULL) OR ([MA_DVQHNS_1] = @Original_MA_DVQHNS_1)) AND ((@IsNull_MA_DVQHNS_2 = 1 AND [MA_DVQHNS_2] IS NULL) OR ([MA_DVQHNS_2] = @Original_MA_DVQHNS_2)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[DM_THONG_TIN_DON_VI] WHERE (([ID] = @Original_ID) AND ((@IsNull_ID_DON_VI = 1 AND [ID_DON_VI] IS NULL) OR ([ID_DON_VI] = @Original_ID_DON_VI)) AND ((@IsNull_DIA_CHI = 1 AND [DIA_CHI] IS NULL) OR ([DIA_CHI] = @Original_DIA_CHI)) AND ((@IsNull_KHO_BAC = 1 AND [KHO_BAC] IS NULL) OR ([KHO_BAC] = @Original_KHO_BAC)) AND ((@IsNull_MA_TKKT1 = 1 AND [MA_TKKT1] IS NULL) OR ([MA_TKKT1] = @Original_MA_TKKT1)) AND ((@IsNull_MA_DVQHNS = 1 AND [MA_DVQHNS] IS NULL) OR ([MA_DVQHNS] = @Original_MA_DVQHNS)) AND ((@IsNull_MA_TKKT2 = 1 AND [MA_TKKT2] IS NULL) OR ([MA_TKKT2] = @Original_MA_TKKT2)) AND ((@IsNull_MA_DVQHNS_1 = 1 AND [MA_DVQHNS_1] IS NULL) OR ([MA_DVQHNS_1] = @Original_MA_DVQHNS_1)) AND ((@IsNull_MA_DVQHNS_2 = 1 AND [MA_DVQHNS_2] IS NULL) OR ([MA_DVQHNS_2] = @Original_MA_DVQHNS_2)) AND ((@IsNull_MA_TKKT_QBT_2 = 1 AND [MA_TKKT_QBT_2] IS NULL) OR ([MA_TKKT_QBT_2] = @Original_MA_TKKT_QBT_2)) AND ((@IsNull_MA_TKKT_QBT_3 = 1 AND [MA_TKKT_QBT_3] IS NULL) OR ([MA_TKKT_QBT_3] = @Original_MA_TKKT_QBT_3)) AND ((@IsNull_MA_TKKT_QBT_4 = 1 AND [MA_TKKT_QBT_4] IS NULL) OR ([MA_TKKT_QBT_4] = @Original_MA_TKKT_QBT_4)) AND ((@IsNull_MA_TKKT_NS_2 = 1 AND [MA_TKKT_NS_2] IS NULL) OR ([MA_TKKT_NS_2] = @Original_MA_TKKT_NS_2)) AND ((@IsNull_MA_TKKT_NS_3 = 1 AND [MA_TKKT_NS_3] IS NULL) OR ([MA_TKKT_NS_3] = @Original_MA_TKKT_NS_3)) AND ((@IsNull_MA_TKKT_NS_4 = 1 AND [MA_TKKT_NS_4] IS NULL) OR ([MA_TKKT_NS_4] = @Original_MA_TKKT_NS_4)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ID_DON_VI", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_DON_VI", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -1099,10 +1363,22 @@ namespace WebDS.DS_DM_THONG_TIN_DON_VITableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MA_DVQHNS_1", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MA_DVQHNS_1", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_MA_DVQHNS_2", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MA_DVQHNS_2", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MA_DVQHNS_2", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MA_DVQHNS_2", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_MA_TKKT_QBT_2", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MA_TKKT_QBT_2", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MA_TKKT_QBT_2", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MA_TKKT_QBT_2", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_MA_TKKT_QBT_3", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MA_TKKT_QBT_3", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MA_TKKT_QBT_3", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MA_TKKT_QBT_3", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_MA_TKKT_QBT_4", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MA_TKKT_QBT_4", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MA_TKKT_QBT_4", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MA_TKKT_QBT_4", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_MA_TKKT_NS_2", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MA_TKKT_NS_2", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MA_TKKT_NS_2", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MA_TKKT_NS_2", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_MA_TKKT_NS_3", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MA_TKKT_NS_3", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MA_TKKT_NS_3", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MA_TKKT_NS_3", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_MA_TKKT_NS_4", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MA_TKKT_NS_4", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MA_TKKT_NS_4", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MA_TKKT_NS_4", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[DM_THONG_TIN_DON_VI] ([ID_DON_VI], [DIA_CHI], [KHO_BAC], [MA_TKKT1], [MA_DVQHNS], [MA_TKKT2], [MA_DVQHNS_1], [MA_DVQHNS_2]) VALUES (@ID_DON_VI, @DIA_CHI, @KHO_BAC, @MA_TKKT1, @MA_DVQHNS, @MA_TKKT2, @MA_DVQHNS_1, @MA_DVQHNS_2);
-SELECT ID, ID_DON_VI, DIA_CHI, KHO_BAC, MA_TKKT1, MA_DVQHNS, MA_TKKT2, MA_DVQHNS_1, MA_DVQHNS_2 FROM DM_THONG_TIN_DON_VI WHERE (ID = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[DM_THONG_TIN_DON_VI] ([ID_DON_VI], [DIA_CHI], [KHO_BAC], [MA_TKKT1], [MA_DVQHNS], [MA_TKKT2], [MA_DVQHNS_1], [MA_DVQHNS_2], [MA_TKKT_QBT_2], [MA_TKKT_QBT_3], [MA_TKKT_QBT_4], [MA_TKKT_NS_2], [MA_TKKT_NS_3], [MA_TKKT_NS_4]) VALUES (@ID_DON_VI, @DIA_CHI, @KHO_BAC, @MA_TKKT1, @MA_DVQHNS, @MA_TKKT2, @MA_DVQHNS_1, @MA_DVQHNS_2, @MA_TKKT_QBT_2, @MA_TKKT_QBT_3, @MA_TKKT_QBT_4, @MA_TKKT_NS_2, @MA_TKKT_NS_3, @MA_TKKT_NS_4);
+SELECT ID, ID_DON_VI, DIA_CHI, KHO_BAC, MA_TKKT1, MA_DVQHNS, MA_TKKT2, MA_DVQHNS_1, MA_DVQHNS_2, MA_TKKT_QBT_2, MA_TKKT_QBT_3, MA_TKKT_QBT_4, MA_TKKT_NS_2, MA_TKKT_NS_3, MA_TKKT_NS_4 FROM DM_THONG_TIN_DON_VI WHERE (ID = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_DON_VI", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "ID_DON_VI", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DIA_CHI", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DIA_CHI", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1112,10 +1388,40 @@ SELECT ID, ID_DON_VI, DIA_CHI, KHO_BAC, MA_TKKT1, MA_DVQHNS, MA_TKKT2, MA_DVQHNS
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MA_TKKT2", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MA_TKKT2", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MA_DVQHNS_1", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MA_DVQHNS_1", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MA_DVQHNS_2", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MA_DVQHNS_2", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MA_TKKT_QBT_2", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MA_TKKT_QBT_2", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MA_TKKT_QBT_3", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MA_TKKT_QBT_3", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MA_TKKT_QBT_4", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MA_TKKT_QBT_4", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MA_TKKT_NS_2", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MA_TKKT_NS_2", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MA_TKKT_NS_3", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MA_TKKT_NS_3", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MA_TKKT_NS_4", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MA_TKKT_NS_4", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[DM_THONG_TIN_DON_VI] SET [ID_DON_VI] = @ID_DON_VI, [DIA_CHI] = @DIA_CHI, [KHO_BAC] = @KHO_BAC, [MA_TKKT1] = @MA_TKKT1, [MA_DVQHNS] = @MA_DVQHNS, [MA_TKKT2] = @MA_TKKT2, [MA_DVQHNS_1] = @MA_DVQHNS_1, [MA_DVQHNS_2] = @MA_DVQHNS_2 WHERE (([ID] = @Original_ID) AND ((@IsNull_ID_DON_VI = 1 AND [ID_DON_VI] IS NULL) OR ([ID_DON_VI] = @Original_ID_DON_VI)) AND ((@IsNull_DIA_CHI = 1 AND [DIA_CHI] IS NULL) OR ([DIA_CHI] = @Original_DIA_CHI)) AND ((@IsNull_KHO_BAC = 1 AND [KHO_BAC] IS NULL) OR ([KHO_BAC] = @Original_KHO_BAC)) AND ((@IsNull_MA_TKKT1 = 1 AND [MA_TKKT1] IS NULL) OR ([MA_TKKT1] = @Original_MA_TKKT1)) AND ((@IsNull_MA_DVQHNS = 1 AND [MA_DVQHNS] IS NULL) OR ([MA_DVQHNS] = @Original_MA_DVQHNS)) AND ((@IsNull_MA_TKKT2 = 1 AND [MA_TKKT2] IS NULL) OR ([MA_TKKT2] = @Original_MA_TKKT2)) AND ((@IsNull_MA_DVQHNS_1 = 1 AND [MA_DVQHNS_1] IS NULL) OR ([MA_DVQHNS_1] = @Original_MA_DVQHNS_1)) AND ((@IsNull_MA_DVQHNS_2 = 1 AND [MA_DVQHNS_2] IS NULL) OR ([MA_DVQHNS_2] = @Original_MA_DVQHNS_2)));
-SELECT ID, ID_DON_VI, DIA_CHI, KHO_BAC, MA_TKKT1, MA_DVQHNS, MA_TKKT2, MA_DVQHNS_1, MA_DVQHNS_2 FROM DM_THONG_TIN_DON_VI WHERE (ID = @ID)";
+            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[DM_THONG_TIN_DON_VI] SET [ID_DON_VI] = @ID_DON_VI, [DIA_CHI] = @DIA" +
+                "_CHI, [KHO_BAC] = @KHO_BAC, [MA_TKKT1] = @MA_TKKT1, [MA_DVQHNS] = @MA_DVQHNS, [M" +
+                "A_TKKT2] = @MA_TKKT2, [MA_DVQHNS_1] = @MA_DVQHNS_1, [MA_DVQHNS_2] = @MA_DVQHNS_2" +
+                ", [MA_TKKT_QBT_2] = @MA_TKKT_QBT_2, [MA_TKKT_QBT_3] = @MA_TKKT_QBT_3, [MA_TKKT_Q" +
+                "BT_4] = @MA_TKKT_QBT_4, [MA_TKKT_NS_2] = @MA_TKKT_NS_2, [MA_TKKT_NS_3] = @MA_TKK" +
+                "T_NS_3, [MA_TKKT_NS_4] = @MA_TKKT_NS_4 WHERE (([ID] = @Original_ID) AND ((@IsNul" +
+                "l_ID_DON_VI = 1 AND [ID_DON_VI] IS NULL) OR ([ID_DON_VI] = @Original_ID_DON_VI))" +
+                " AND ((@IsNull_DIA_CHI = 1 AND [DIA_CHI] IS NULL) OR ([DIA_CHI] = @Original_DIA_" +
+                "CHI)) AND ((@IsNull_KHO_BAC = 1 AND [KHO_BAC] IS NULL) OR ([KHO_BAC] = @Original" +
+                "_KHO_BAC)) AND ((@IsNull_MA_TKKT1 = 1 AND [MA_TKKT1] IS NULL) OR ([MA_TKKT1] = @" +
+                "Original_MA_TKKT1)) AND ((@IsNull_MA_DVQHNS = 1 AND [MA_DVQHNS] IS NULL) OR ([MA" +
+                "_DVQHNS] = @Original_MA_DVQHNS)) AND ((@IsNull_MA_TKKT2 = 1 AND [MA_TKKT2] IS NU" +
+                "LL) OR ([MA_TKKT2] = @Original_MA_TKKT2)) AND ((@IsNull_MA_DVQHNS_1 = 1 AND [MA_" +
+                "DVQHNS_1] IS NULL) OR ([MA_DVQHNS_1] = @Original_MA_DVQHNS_1)) AND ((@IsNull_MA_" +
+                "DVQHNS_2 = 1 AND [MA_DVQHNS_2] IS NULL) OR ([MA_DVQHNS_2] = @Original_MA_DVQHNS_" +
+                "2)) AND ((@IsNull_MA_TKKT_QBT_2 = 1 AND [MA_TKKT_QBT_2] IS NULL) OR ([MA_TKKT_QB" +
+                "T_2] = @Original_MA_TKKT_QBT_2)) AND ((@IsNull_MA_TKKT_QBT_3 = 1 AND [MA_TKKT_QB" +
+                "T_3] IS NULL) OR ([MA_TKKT_QBT_3] = @Original_MA_TKKT_QBT_3)) AND ((@IsNull_MA_T" +
+                "KKT_QBT_4 = 1 AND [MA_TKKT_QBT_4] IS NULL) OR ([MA_TKKT_QBT_4] = @Original_MA_TK" +
+                "KT_QBT_4)) AND ((@IsNull_MA_TKKT_NS_2 = 1 AND [MA_TKKT_NS_2] IS NULL) OR ([MA_TK" +
+                "KT_NS_2] = @Original_MA_TKKT_NS_2)) AND ((@IsNull_MA_TKKT_NS_3 = 1 AND [MA_TKKT_" +
+                "NS_3] IS NULL) OR ([MA_TKKT_NS_3] = @Original_MA_TKKT_NS_3)) AND ((@IsNull_MA_TK" +
+                "KT_NS_4 = 1 AND [MA_TKKT_NS_4] IS NULL) OR ([MA_TKKT_NS_4] = @Original_MA_TKKT_N" +
+                "S_4)));\r\nSELECT ID, ID_DON_VI, DIA_CHI, KHO_BAC, MA_TKKT1, MA_DVQHNS, MA_TKKT2, " +
+                "MA_DVQHNS_1, MA_DVQHNS_2, MA_TKKT_QBT_2, MA_TKKT_QBT_3, MA_TKKT_QBT_4, MA_TKKT_N" +
+                "S_2, MA_TKKT_NS_3, MA_TKKT_NS_4 FROM DM_THONG_TIN_DON_VI WHERE (ID = @ID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_DON_VI", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "ID_DON_VI", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DIA_CHI", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DIA_CHI", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1125,6 +1431,12 @@ SELECT ID, ID_DON_VI, DIA_CHI, KHO_BAC, MA_TKKT1, MA_DVQHNS, MA_TKKT2, MA_DVQHNS
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MA_TKKT2", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MA_TKKT2", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MA_DVQHNS_1", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MA_DVQHNS_1", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MA_DVQHNS_2", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MA_DVQHNS_2", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MA_TKKT_QBT_2", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MA_TKKT_QBT_2", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MA_TKKT_QBT_3", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MA_TKKT_QBT_3", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MA_TKKT_QBT_4", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MA_TKKT_QBT_4", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MA_TKKT_NS_2", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MA_TKKT_NS_2", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MA_TKKT_NS_3", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MA_TKKT_NS_3", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MA_TKKT_NS_4", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MA_TKKT_NS_4", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ID_DON_VI", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_DON_VI", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_DON_VI", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "ID_DON_VI", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -1142,6 +1454,18 @@ SELECT ID, ID_DON_VI, DIA_CHI, KHO_BAC, MA_TKKT1, MA_DVQHNS, MA_TKKT2, MA_DVQHNS
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MA_DVQHNS_1", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MA_DVQHNS_1", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_MA_DVQHNS_2", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MA_DVQHNS_2", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MA_DVQHNS_2", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MA_DVQHNS_2", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_MA_TKKT_QBT_2", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MA_TKKT_QBT_2", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MA_TKKT_QBT_2", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MA_TKKT_QBT_2", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_MA_TKKT_QBT_3", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MA_TKKT_QBT_3", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MA_TKKT_QBT_3", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MA_TKKT_QBT_3", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_MA_TKKT_QBT_4", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MA_TKKT_QBT_4", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MA_TKKT_QBT_4", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MA_TKKT_QBT_4", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_MA_TKKT_NS_2", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MA_TKKT_NS_2", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MA_TKKT_NS_2", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MA_TKKT_NS_2", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_MA_TKKT_NS_3", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MA_TKKT_NS_3", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MA_TKKT_NS_3", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MA_TKKT_NS_3", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_MA_TKKT_NS_4", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MA_TKKT_NS_4", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MA_TKKT_NS_4", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MA_TKKT_NS_4", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 0, "ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -1159,7 +1483,8 @@ SELECT ID, ID_DON_VI, DIA_CHI, KHO_BAC, MA_TKKT1, MA_DVQHNS, MA_TKKT2, MA_DVQHNS
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT ID, ID_DON_VI, DIA_CHI, KHO_BAC, MA_TKKT1, MA_DVQHNS, MA_TKKT2, MA_DVQHNS_" +
-                "1, MA_DVQHNS_2 FROM dbo.DM_THONG_TIN_DON_VI";
+                "1, MA_DVQHNS_2, MA_TKKT_QBT_2, MA_TKKT_QBT_3, MA_TKKT_QBT_4, MA_TKKT_NS_2, MA_TK" +
+                "KT_NS_3, MA_TKKT_NS_4 FROM dbo.DM_THONG_TIN_DON_VI";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -1220,7 +1545,7 @@ SELECT ID, ID_DON_VI, DIA_CHI, KHO_BAC, MA_TKKT1, MA_DVQHNS, MA_TKKT2, MA_DVQHNS
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(decimal Original_ID, global::System.Nullable<decimal> Original_ID_DON_VI, string Original_DIA_CHI, string Original_KHO_BAC, string Original_MA_TKKT1, string Original_MA_DVQHNS, string Original_MA_TKKT2, string Original_MA_DVQHNS_1, string Original_MA_DVQHNS_2) {
+        public virtual int Delete(decimal Original_ID, global::System.Nullable<decimal> Original_ID_DON_VI, string Original_DIA_CHI, string Original_KHO_BAC, string Original_MA_TKKT1, string Original_MA_DVQHNS, string Original_MA_TKKT2, string Original_MA_DVQHNS_1, string Original_MA_DVQHNS_2, string Original_MA_TKKT_QBT_2, string Original_MA_TKKT_QBT_3, string Original_MA_TKKT_QBT_4, string Original_MA_TKKT_NS_2, string Original_MA_TKKT_NS_3, string Original_MA_TKKT_NS_4) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((decimal)(Original_ID));
             if ((Original_ID_DON_VI.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
@@ -1286,6 +1611,54 @@ SELECT ID, ID_DON_VI, DIA_CHI, KHO_BAC, MA_TKKT1, MA_DVQHNS, MA_TKKT2, MA_DVQHNS
                 this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(0));
                 this.Adapter.DeleteCommand.Parameters[16].Value = ((string)(Original_MA_DVQHNS_2));
             }
+            if ((Original_MA_TKKT_QBT_2 == null)) {
+                this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[18].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[18].Value = ((string)(Original_MA_TKKT_QBT_2));
+            }
+            if ((Original_MA_TKKT_QBT_3 == null)) {
+                this.Adapter.DeleteCommand.Parameters[19].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[20].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[19].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[20].Value = ((string)(Original_MA_TKKT_QBT_3));
+            }
+            if ((Original_MA_TKKT_QBT_4 == null)) {
+                this.Adapter.DeleteCommand.Parameters[21].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[22].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[21].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[22].Value = ((string)(Original_MA_TKKT_QBT_4));
+            }
+            if ((Original_MA_TKKT_NS_2 == null)) {
+                this.Adapter.DeleteCommand.Parameters[23].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[24].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[23].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[24].Value = ((string)(Original_MA_TKKT_NS_2));
+            }
+            if ((Original_MA_TKKT_NS_3 == null)) {
+                this.Adapter.DeleteCommand.Parameters[25].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[26].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[25].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[26].Value = ((string)(Original_MA_TKKT_NS_3));
+            }
+            if ((Original_MA_TKKT_NS_4 == null)) {
+                this.Adapter.DeleteCommand.Parameters[27].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[28].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[27].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[28].Value = ((string)(Original_MA_TKKT_NS_4));
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -1306,7 +1679,7 @@ SELECT ID, ID_DON_VI, DIA_CHI, KHO_BAC, MA_TKKT1, MA_DVQHNS, MA_TKKT2, MA_DVQHNS
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(global::System.Nullable<decimal> ID_DON_VI, string DIA_CHI, string KHO_BAC, string MA_TKKT1, string MA_DVQHNS, string MA_TKKT2, string MA_DVQHNS_1, string MA_DVQHNS_2) {
+        public virtual int Insert(global::System.Nullable<decimal> ID_DON_VI, string DIA_CHI, string KHO_BAC, string MA_TKKT1, string MA_DVQHNS, string MA_TKKT2, string MA_DVQHNS_1, string MA_DVQHNS_2, string MA_TKKT_QBT_2, string MA_TKKT_QBT_3, string MA_TKKT_QBT_4, string MA_TKKT_NS_2, string MA_TKKT_NS_3, string MA_TKKT_NS_4) {
             if ((ID_DON_VI.HasValue == true)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = ((decimal)(ID_DON_VI.Value));
             }
@@ -1355,6 +1728,42 @@ SELECT ID, ID_DON_VI, DIA_CHI, KHO_BAC, MA_TKKT1, MA_DVQHNS, MA_TKKT2, MA_DVQHNS
             else {
                 this.Adapter.InsertCommand.Parameters[7].Value = ((string)(MA_DVQHNS_2));
             }
+            if ((MA_TKKT_QBT_2 == null)) {
+                this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(MA_TKKT_QBT_2));
+            }
+            if ((MA_TKKT_QBT_3 == null)) {
+                this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(MA_TKKT_QBT_3));
+            }
+            if ((MA_TKKT_QBT_4 == null)) {
+                this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[10].Value = ((string)(MA_TKKT_QBT_4));
+            }
+            if ((MA_TKKT_NS_2 == null)) {
+                this.Adapter.InsertCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[11].Value = ((string)(MA_TKKT_NS_2));
+            }
+            if ((MA_TKKT_NS_3 == null)) {
+                this.Adapter.InsertCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[12].Value = ((string)(MA_TKKT_NS_3));
+            }
+            if ((MA_TKKT_NS_4 == null)) {
+                this.Adapter.InsertCommand.Parameters[13].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[13].Value = ((string)(MA_TKKT_NS_4));
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -1384,6 +1793,12 @@ SELECT ID, ID_DON_VI, DIA_CHI, KHO_BAC, MA_TKKT1, MA_DVQHNS, MA_TKKT2, MA_DVQHNS
                     string MA_TKKT2, 
                     string MA_DVQHNS_1, 
                     string MA_DVQHNS_2, 
+                    string MA_TKKT_QBT_2, 
+                    string MA_TKKT_QBT_3, 
+                    string MA_TKKT_QBT_4, 
+                    string MA_TKKT_NS_2, 
+                    string MA_TKKT_NS_3, 
+                    string MA_TKKT_NS_4, 
                     decimal Original_ID, 
                     global::System.Nullable<decimal> Original_ID_DON_VI, 
                     string Original_DIA_CHI, 
@@ -1393,6 +1808,12 @@ SELECT ID, ID_DON_VI, DIA_CHI, KHO_BAC, MA_TKKT1, MA_DVQHNS, MA_TKKT2, MA_DVQHNS
                     string Original_MA_TKKT2, 
                     string Original_MA_DVQHNS_1, 
                     string Original_MA_DVQHNS_2, 
+                    string Original_MA_TKKT_QBT_2, 
+                    string Original_MA_TKKT_QBT_3, 
+                    string Original_MA_TKKT_QBT_4, 
+                    string Original_MA_TKKT_NS_2, 
+                    string Original_MA_TKKT_NS_3, 
+                    string Original_MA_TKKT_NS_4, 
                     decimal ID) {
             if ((ID_DON_VI.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = ((decimal)(ID_DON_VI.Value));
@@ -1442,72 +1863,156 @@ SELECT ID, ID_DON_VI, DIA_CHI, KHO_BAC, MA_TKKT1, MA_DVQHNS, MA_TKKT2, MA_DVQHNS
             else {
                 this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(MA_DVQHNS_2));
             }
-            this.Adapter.UpdateCommand.Parameters[8].Value = ((decimal)(Original_ID));
-            if ((Original_ID_DON_VI.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((decimal)(Original_ID_DON_VI.Value));
+            if ((MA_TKKT_QBT_2 == null)) {
+                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(MA_TKKT_QBT_2));
+            }
+            if ((MA_TKKT_QBT_3 == null)) {
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(MA_TKKT_QBT_3));
+            }
+            if ((MA_TKKT_QBT_4 == null)) {
                 this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
-            if ((Original_DIA_CHI == null)) {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
+            else {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(MA_TKKT_QBT_4));
+            }
+            if ((MA_TKKT_NS_2 == null)) {
+                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(MA_TKKT_NS_2));
+            }
+            if ((MA_TKKT_NS_3 == null)) {
                 this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_DIA_CHI));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(MA_TKKT_NS_3));
             }
-            if ((Original_KHO_BAC == null)) {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
+            if ((MA_TKKT_NS_4 == null)) {
+                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Original_KHO_BAC));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(MA_TKKT_NS_4));
             }
-            if ((Original_MA_TKKT1 == null)) {
+            this.Adapter.UpdateCommand.Parameters[14].Value = ((decimal)(Original_ID));
+            if ((Original_ID_DON_VI.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((decimal)(Original_ID_DON_VI.Value));
+            }
+            else {
                 this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Original_MA_TKKT1));
-            }
-            if ((Original_MA_DVQHNS == null)) {
+            if ((Original_DIA_CHI == null)) {
                 this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(Original_MA_DVQHNS));
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(Original_DIA_CHI));
             }
-            if ((Original_MA_TKKT2 == null)) {
+            if ((Original_KHO_BAC == null)) {
                 this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((string)(Original_MA_TKKT2));
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((string)(Original_KHO_BAC));
             }
-            if ((Original_MA_DVQHNS_1 == null)) {
+            if ((Original_MA_TKKT1 == null)) {
                 this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[22].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((string)(Original_MA_DVQHNS_1));
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((string)(Original_MA_TKKT1));
             }
-            if ((Original_MA_DVQHNS_2 == null)) {
+            if ((Original_MA_DVQHNS == null)) {
                 this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[24].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((string)(Original_MA_DVQHNS_2));
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((string)(Original_MA_DVQHNS));
             }
-            this.Adapter.UpdateCommand.Parameters[25].Value = ((decimal)(ID));
+            if ((Original_MA_TKKT2 == null)) {
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[26].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((string)(Original_MA_TKKT2));
+            }
+            if ((Original_MA_DVQHNS_1 == null)) {
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[28].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[28].Value = ((string)(Original_MA_DVQHNS_1));
+            }
+            if ((Original_MA_DVQHNS_2 == null)) {
+                this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[30].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[30].Value = ((string)(Original_MA_DVQHNS_2));
+            }
+            if ((Original_MA_TKKT_QBT_2 == null)) {
+                this.Adapter.UpdateCommand.Parameters[31].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[32].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[31].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[32].Value = ((string)(Original_MA_TKKT_QBT_2));
+            }
+            if ((Original_MA_TKKT_QBT_3 == null)) {
+                this.Adapter.UpdateCommand.Parameters[33].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[34].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[33].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[34].Value = ((string)(Original_MA_TKKT_QBT_3));
+            }
+            if ((Original_MA_TKKT_QBT_4 == null)) {
+                this.Adapter.UpdateCommand.Parameters[35].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[36].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[35].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[36].Value = ((string)(Original_MA_TKKT_QBT_4));
+            }
+            if ((Original_MA_TKKT_NS_2 == null)) {
+                this.Adapter.UpdateCommand.Parameters[37].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[38].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[37].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[38].Value = ((string)(Original_MA_TKKT_NS_2));
+            }
+            if ((Original_MA_TKKT_NS_3 == null)) {
+                this.Adapter.UpdateCommand.Parameters[39].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[40].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[39].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[40].Value = ((string)(Original_MA_TKKT_NS_3));
+            }
+            if ((Original_MA_TKKT_NS_4 == null)) {
+                this.Adapter.UpdateCommand.Parameters[41].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[42].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[41].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[42].Value = ((string)(Original_MA_TKKT_NS_4));
+            }
+            this.Adapter.UpdateCommand.Parameters[43].Value = ((decimal)(ID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -1537,6 +2042,12 @@ SELECT ID, ID_DON_VI, DIA_CHI, KHO_BAC, MA_TKKT1, MA_DVQHNS, MA_TKKT2, MA_DVQHNS
                     string MA_TKKT2, 
                     string MA_DVQHNS_1, 
                     string MA_DVQHNS_2, 
+                    string MA_TKKT_QBT_2, 
+                    string MA_TKKT_QBT_3, 
+                    string MA_TKKT_QBT_4, 
+                    string MA_TKKT_NS_2, 
+                    string MA_TKKT_NS_3, 
+                    string MA_TKKT_NS_4, 
                     decimal Original_ID, 
                     global::System.Nullable<decimal> Original_ID_DON_VI, 
                     string Original_DIA_CHI, 
@@ -1545,8 +2056,14 @@ SELECT ID, ID_DON_VI, DIA_CHI, KHO_BAC, MA_TKKT1, MA_DVQHNS, MA_TKKT2, MA_DVQHNS
                     string Original_MA_DVQHNS, 
                     string Original_MA_TKKT2, 
                     string Original_MA_DVQHNS_1, 
-                    string Original_MA_DVQHNS_2) {
-            return this.Update(ID_DON_VI, DIA_CHI, KHO_BAC, MA_TKKT1, MA_DVQHNS, MA_TKKT2, MA_DVQHNS_1, MA_DVQHNS_2, Original_ID, Original_ID_DON_VI, Original_DIA_CHI, Original_KHO_BAC, Original_MA_TKKT1, Original_MA_DVQHNS, Original_MA_TKKT2, Original_MA_DVQHNS_1, Original_MA_DVQHNS_2, Original_ID);
+                    string Original_MA_DVQHNS_2, 
+                    string Original_MA_TKKT_QBT_2, 
+                    string Original_MA_TKKT_QBT_3, 
+                    string Original_MA_TKKT_QBT_4, 
+                    string Original_MA_TKKT_NS_2, 
+                    string Original_MA_TKKT_NS_3, 
+                    string Original_MA_TKKT_NS_4) {
+            return this.Update(ID_DON_VI, DIA_CHI, KHO_BAC, MA_TKKT1, MA_DVQHNS, MA_TKKT2, MA_DVQHNS_1, MA_DVQHNS_2, MA_TKKT_QBT_2, MA_TKKT_QBT_3, MA_TKKT_QBT_4, MA_TKKT_NS_2, MA_TKKT_NS_3, MA_TKKT_NS_4, Original_ID, Original_ID_DON_VI, Original_DIA_CHI, Original_KHO_BAC, Original_MA_TKKT1, Original_MA_DVQHNS, Original_MA_TKKT2, Original_MA_DVQHNS_1, Original_MA_DVQHNS_2, Original_MA_TKKT_QBT_2, Original_MA_TKKT_QBT_3, Original_MA_TKKT_QBT_4, Original_MA_TKKT_NS_2, Original_MA_TKKT_NS_3, Original_MA_TKKT_NS_4, Original_ID);
         }
     }
     

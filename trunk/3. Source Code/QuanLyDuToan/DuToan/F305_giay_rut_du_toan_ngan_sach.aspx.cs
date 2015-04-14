@@ -290,11 +290,10 @@ namespace QuanLyDuToan.DuToan
 			op_us.strTTDVH_KHO_BAC = m_txt_ttdvh_tai_kbnn.Text;
 			op_us.strTTDVH_SO_TIEN = m_txt_ttdvh_so_tien_thanh_toan.Text;
 			op_us.strIS_NGUON_NS_YN = STR_NGUON.NGAN_SACH;
-			//if (m_rbl_ma_tkkt.SelectedIndex == 0)
-			//{
-			//	op_us.strIS_NGUON_NS_YN = STR_NGUON.NGAN_SACH;
-			//}
-			//else op_us.strIS_NGUON_NS_YN = STR_NGUON.QUY_BAO_TRI;
+			op_us.strMA_TKKT = m_rdb_ma_tkkt_ns.Checked ? m_rdb_ma_tkkt_ns.Text :
+								m_rdb_ma_tkkt_ns_2.Checked ? m_rdb_ma_tkkt_ns_2.Text :
+								m_rdb_ma_tkkt_ns_3.Checked ? m_rdb_ma_tkkt_ns_3.Text :
+								m_rdb_ma_tkkt_ns_4.Checked ? m_rdb_ma_tkkt_ns_4.Text : "";
 		}
 		private void us_object_to_form(US_DM_GIAI_NGAN ip_us)
 		{
@@ -314,8 +313,12 @@ namespace QuanLyDuToan.DuToan
 			m_txt_so_ckc_hdk.Text = ip_us.strSO_CKC_HDK;
 			m_txt_so_ckc_hdth.Text = ip_us.strSO_CKC_HDTH;
 
-			m_rbl_ma_tkkt.SelectedIndex = 1;
-			m_rbl_ma_tkkt.Items[0].Attributes.Add("style", "display:none");
+			if (m_rdb_ma_tkkt_ns.Text == ip_us.strMA_TKKT) m_rdb_ma_tkkt_ns.Checked = true;
+			else if (m_rdb_ma_tkkt_ns_2.Text == ip_us.strMA_TKKT) m_rdb_ma_tkkt_ns_2.Checked = true;
+			else if (m_rdb_ma_tkkt_ns_3.Text == ip_us.strMA_TKKT) m_rdb_ma_tkkt_ns_3.Checked = true;
+			else if (m_rdb_ma_tkkt_ns_4.Text == ip_us.strMA_TKKT) m_rdb_ma_tkkt_ns_4.Checked = true;
+			else
+				m_rdb_ma_tkkt_ns.Checked = true;
 
 			m_lbl_ma_dvqhns.Text = ip_us.strMA_DVQHNS;
 
@@ -449,26 +452,30 @@ namespace QuanLyDuToan.DuToan
 			 * Item 2: Lưu thông tin tài khoản NS - tương ứng với trường Ma_TKKT_2 trong CSDL
 			 */
 			//Xoá tất cả item cũ
-			m_rbl_ma_tkkt.Items.Clear();
-			//Nếu đơn vị chưa nhập thông tin tài khoản -> Không thể lập UNC -> Trở về
-			if (v_us_ttdv.IsMA_TKKT1Null() && v_us_ttdv.IsMA_TKKT2Null()) return;
-			//Nếu không có tài khoản 2 => Có tài khoản 1 => Hiển thị thông tin tài khoản 1
-			if (v_us_ttdv.IsMA_TKKT2Null() | v_us_ttdv.strMA_TKKT2.Trim().Equals(""))
-			{
-				ListItem v_li_1 = new ListItem(v_us_ttdv.strMA_TKKT1);
-				m_rbl_ma_tkkt.Items.Add(v_li_1);
-				m_rbl_ma_tkkt.Items[0].Selected = true;
-			}
-			else//Trường hợp có cả 2 tài khoản
-			{
-				ListItem v_li_1 = new ListItem(v_us_ttdv.strMA_TKKT1);
-				ListItem v_li_2 = new ListItem(v_us_ttdv.strMA_TKKT2);
-				m_rbl_ma_tkkt.Items.Add(v_li_1);
-				m_rbl_ma_tkkt.Items.Add(v_li_2);
-				//Đặt mặc định chọn Tài khoản NS - Ma_TKKT_1
-				m_rbl_ma_tkkt.Items[1].Selected = true;
-				m_rbl_ma_tkkt.Items[0].Attributes.Add("style", "display:none");
-			}
+			//m_rbl_ma_tkkt.Items.Clear();
+			////Nếu đơn vị chưa nhập thông tin tài khoản -> Không thể lập UNC -> Trở về
+			//if (v_us_ttdv.IsMA_TKKT1Null() && v_us_ttdv.IsMA_TKKT2Null()) return;
+			////Nếu không có tài khoản 2 => Có tài khoản 1 => Hiển thị thông tin tài khoản 1
+			//if (v_us_ttdv.IsMA_TKKT2Null() | v_us_ttdv.strMA_TKKT2.Trim().Equals(""))
+			//{
+			//	ListItem v_li_1 = new ListItem(v_us_ttdv.strMA_TKKT1);
+			//	m_rbl_ma_tkkt.Items.Add(v_li_1);
+			//	m_rbl_ma_tkkt.Items[0].Selected = true;
+			//}
+			//else//Trường hợp có cả 2 tài khoản
+			//{
+			//	ListItem v_li_1 = new ListItem(v_us_ttdv.strMA_TKKT1);
+			//	ListItem v_li_2 = new ListItem(v_us_ttdv.strMA_TKKT2);
+			//	m_rbl_ma_tkkt.Items.Add(v_li_1);
+			//	m_rbl_ma_tkkt.Items.Add(v_li_2);
+			//	//Đặt mặc định chọn Tài khoản NS - Ma_TKKT_1
+			//	m_rbl_ma_tkkt.Items[1].Selected = true;
+			//	m_rbl_ma_tkkt.Items[0].Attributes.Add("style", "display:none");
+			//}
+			m_rdb_ma_tkkt_ns.Text = v_us_ttdv.strMA_TKKT2 == "" ? "Mã TKKT NS 1" : v_us_ttdv.strMA_TKKT2;
+			m_rdb_ma_tkkt_ns_2.Text = v_us_ttdv.strMA_TKKT_NS_2 == "" ? "Mã TKKT NS 2" : v_us_ttdv.strMA_TKKT_NS_2;
+			m_rdb_ma_tkkt_ns_3.Text = v_us_ttdv.strMA_TKKT_NS_3 == "" ? "Mã TKKT NS 3" : v_us_ttdv.strMA_TKKT_NS_3;
+			m_rdb_ma_tkkt_ns_4.Text = v_us_ttdv.strMA_TKKT_NS_4 == "" ? "Mã TKKT NS 4" : v_us_ttdv.strMA_TKKT_NS_4;
 		}
 
 		private void set_enable_control_giai_ngan(bool ip_b_is_enable)
@@ -480,7 +487,7 @@ namespace QuanLyDuToan.DuToan
 			m_txt_so_unc.Enabled = ip_b_is_enable;
 			m_txt_ngay_thang.Enabled = ip_b_is_enable;
 			//m_txt_ma_ctmt_da_htct.Enabled = ip_b_is_enable;
-			m_rbl_ma_tkkt.Enabled = ip_b_is_enable;
+			//m_rbl_ma_tkkt.Enabled = ip_b_is_enable;
 		}
 		private void save_data_gd_chi_tiet_giai_ngan_in_grid(US_GD_CHI_TIET_GIAI_NGAN ip_us, FORM_MODE ip_form_mode)
 		{
@@ -578,7 +585,7 @@ namespace QuanLyDuToan.DuToan
 		private void reset_control()
 		{
 
-			m_rbl_ma_tkkt.Enabled = false;
+			//m_rbl_ma_tkkt.Enabled = false;
 			m_lbl_mess_grid.Text = "";
 			m_lbl_mess_detail.Text = "";
 			m_lbl_mess_master.Text = "";
@@ -675,6 +682,10 @@ namespace QuanLyDuToan.DuToan
 			op_us.strNGUOI_NHAN_TIEN_CMND_SO = m_txt_cmnd_so.Text;
 			op_us.strNGUOI_NHAN_TIEN_CAP_NGAY = m_txt_cap_ngay.Text;
 			op_us.strNGUOI_NHAN_TIEN_NOI_CAP = m_txt_noi_cap.Text;
+			op_us.strMA_TKKT = m_rdb_ma_tkkt_ns.Checked ? m_rdb_ma_tkkt_ns.Text :
+								m_rdb_ma_tkkt_ns_2.Checked ? m_rdb_ma_tkkt_ns_2.Text :
+								m_rdb_ma_tkkt_ns_3.Checked ? m_rdb_ma_tkkt_ns_3.Text :
+								m_rdb_ma_tkkt_ns_4.Checked ? m_rdb_ma_tkkt_ns_4.Text : "";
 		}
 		private void us_dm_giai_ngan_to_form(US_DM_GIAI_NGAN ip_us)
 		{
@@ -773,8 +784,8 @@ namespace QuanLyDuToan.DuToan
 				load_data_to_ddl_giai_ngan();
 				m_ddl_dm_giai_ngan.Visible = true;
 				m_txt_so_unc.Visible = false;
-				m_rbl_ma_tkkt.SelectedIndex = 1;
-				m_rbl_ma_tkkt.Items[0].Attributes.Add("style", "display:none");
+				m_rdb_ma_tkkt_ns.Checked = true;
+				//m_rbl_ma_tkkt.Items[0].Attributes.Add("style", "display:none");
 			}
 			catch (Exception v_e)
 			{

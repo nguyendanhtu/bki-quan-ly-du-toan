@@ -49,6 +49,33 @@ namespace QuanLyDuToan.DuToan {
         protected global::System.Web.UI.WebControls.TextBox m_txt_ma_tkkt_quy_bao_tri;
         
         /// <summary>
+        /// m_txt_ma_tkkt_quy_bao_tri_2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox m_txt_ma_tkkt_quy_bao_tri_2;
+        
+        /// <summary>
+        /// m_txt_ma_tkkt_quy_bao_tri_3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox m_txt_ma_tkkt_quy_bao_tri_3;
+        
+        /// <summary>
+        /// m_txt_ma_tkkt_quy_bao_tri_4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox m_txt_ma_tkkt_quy_bao_tri_4;
+        
+        /// <summary>
         /// m_txt_ma_tkkt_nguon_ns control.
         /// </summary>
         /// <remarks>
@@ -56,6 +83,33 @@ namespace QuanLyDuToan.DuToan {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox m_txt_ma_tkkt_nguon_ns;
+        
+        /// <summary>
+        /// m_txt_ma_tkkt_nguon_ns_2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox m_txt_ma_tkkt_nguon_ns_2;
+        
+        /// <summary>
+        /// m_txt_ma_tkkt_nguon_ns_3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox m_txt_ma_tkkt_nguon_ns_3;
+        
+        /// <summary>
+        /// m_txt_ma_tkkt_nguon_ns_4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox m_txt_ma_tkkt_nguon_ns_4;
         
         /// <summary>
         /// m_txt_ma_dvqhns control.

@@ -220,6 +220,138 @@ namespace WebUS
 			pm_objDR["MA_DVQHNS_2"] = System.Convert.DBNull;
 		}
 
+		public string strMA_TKKT_QBT_2
+		{
+			get
+			{
+				return CNull.RowNVLString(pm_objDR, "MA_TKKT_QBT_2", IPConstants.c_DefaultString);
+			}
+			set
+			{
+				pm_objDR["MA_TKKT_QBT_2"] = value;
+			}
+		}
+
+		public bool IsMA_TKKT_QBT_2Null()
+		{
+			return pm_objDR.IsNull("MA_TKKT_QBT_2");
+		}
+
+		public void SetMA_TKKT_QBT_2Null()
+		{
+			pm_objDR["MA_TKKT_QBT_2"] = System.Convert.DBNull;
+		}
+
+		public string strMA_TKKT_QBT_3
+		{
+			get
+			{
+				return CNull.RowNVLString(pm_objDR, "MA_TKKT_QBT_3", IPConstants.c_DefaultString);
+			}
+			set
+			{
+				pm_objDR["MA_TKKT_QBT_3"] = value;
+			}
+		}
+
+		public bool IsMA_TKKT_QBT_3Null()
+		{
+			return pm_objDR.IsNull("MA_TKKT_QBT_3");
+		}
+
+		public void SetMA_TKKT_QBT_3Null()
+		{
+			pm_objDR["MA_TKKT_QBT_3"] = System.Convert.DBNull;
+		}
+
+		public string strMA_TKKT_QBT_4
+		{
+			get
+			{
+				return CNull.RowNVLString(pm_objDR, "MA_TKKT_QBT_4", IPConstants.c_DefaultString);
+			}
+			set
+			{
+				pm_objDR["MA_TKKT_QBT_4"] = value;
+			}
+		}
+
+		public bool IsMA_TKKT_QBT_4Null()
+		{
+			return pm_objDR.IsNull("MA_TKKT_QBT_4");
+		}
+
+		public void SetMA_TKKT_QBT_4Null()
+		{
+			pm_objDR["MA_TKKT_QBT_4"] = System.Convert.DBNull;
+		}
+
+		public string strMA_TKKT_NS_2
+		{
+			get
+			{
+				return CNull.RowNVLString(pm_objDR, "MA_TKKT_NS_2", IPConstants.c_DefaultString);
+			}
+			set
+			{
+				pm_objDR["MA_TKKT_NS_2"] = value;
+			}
+		}
+
+		public bool IsMA_TKKT_NS_2Null()
+		{
+			return pm_objDR.IsNull("MA_TKKT_NS_2");
+		}
+
+		public void SetMA_TKKT_NS_2Null()
+		{
+			pm_objDR["MA_TKKT_NS_2"] = System.Convert.DBNull;
+		}
+
+		public string strMA_TKKT_NS_3
+		{
+			get
+			{
+				return CNull.RowNVLString(pm_objDR, "MA_TKKT_NS_3", IPConstants.c_DefaultString);
+			}
+			set
+			{
+				pm_objDR["MA_TKKT_NS_3"] = value;
+			}
+		}
+
+		public bool IsMA_TKKT_NS_3Null()
+		{
+			return pm_objDR.IsNull("MA_TKKT_NS_3");
+		}
+
+		public void SetMA_TKKT_NS_3Null()
+		{
+			pm_objDR["MA_TKKT_NS_3"] = System.Convert.DBNull;
+		}
+
+		public string strMA_TKKT_NS_4
+		{
+			get
+			{
+				return CNull.RowNVLString(pm_objDR, "MA_TKKT_NS_4", IPConstants.c_DefaultString);
+			}
+			set
+			{
+				pm_objDR["MA_TKKT_NS_4"] = value;
+			}
+		}
+
+		public bool IsMA_TKKT_NS_4Null()
+		{
+			return pm_objDR.IsNull("MA_TKKT_NS_4");
+		}
+
+		public void SetMA_TKKT_NS_4Null()
+		{
+			pm_objDR["MA_TKKT_NS_4"] = System.Convert.DBNull;
+		}
+
 		#endregion
 		#region "Init Functions"
 		public US_DM_THONG_TIN_DON_VI()

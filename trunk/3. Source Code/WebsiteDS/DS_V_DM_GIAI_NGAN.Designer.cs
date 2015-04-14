@@ -349,6 +349,8 @@ namespace WebDS {
             
             private global::System.Data.DataColumn columnNGUOI_NHAN_TIEN_NOI_CAP;
             
+            private global::System.Data.DataColumn columnMA_TKKT;
+            
             private global::System.Data.DataColumn columnSO_TIEN_NOP_THUE;
             
             private global::System.Data.DataColumn columnNOI_DUNG_CHI;
@@ -684,6 +686,14 @@ namespace WebDS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn MA_TKKTColumn {
+                get {
+                    return this.columnMA_TKKT;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn SO_TIEN_NOP_THUEColumn {
                 get {
                     return this.columnSO_TIEN_NOP_THUE;
@@ -835,6 +845,7 @@ namespace WebDS {
                         string NGUOI_NHAN_TIEN_CMND_SO, 
                         string NGUOI_NHAN_TIEN_CAP_NGAY, 
                         string NGUOI_NHAN_TIEN_NOI_CAP, 
+                        string MA_TKKT, 
                         decimal SO_TIEN_NOP_THUE, 
                         string NOI_DUNG_CHI, 
                         string GHI_CHU, 
@@ -882,6 +893,7 @@ namespace WebDS {
                         NGUOI_NHAN_TIEN_CMND_SO,
                         NGUOI_NHAN_TIEN_CAP_NGAY,
                         NGUOI_NHAN_TIEN_NOI_CAP,
+                        MA_TKKT,
                         SO_TIEN_NOP_THUE,
                         NOI_DUNG_CHI,
                         GHI_CHU,
@@ -962,6 +974,7 @@ namespace WebDS {
                 this.columnNGUOI_NHAN_TIEN_CMND_SO = base.Columns["NGUOI_NHAN_TIEN_CMND_SO"];
                 this.columnNGUOI_NHAN_TIEN_CAP_NGAY = base.Columns["NGUOI_NHAN_TIEN_CAP_NGAY"];
                 this.columnNGUOI_NHAN_TIEN_NOI_CAP = base.Columns["NGUOI_NHAN_TIEN_NOI_CAP"];
+                this.columnMA_TKKT = base.Columns["MA_TKKT"];
                 this.columnSO_TIEN_NOP_THUE = base.Columns["SO_TIEN_NOP_THUE"];
                 this.columnNOI_DUNG_CHI = base.Columns["NOI_DUNG_CHI"];
                 this.columnGHI_CHU = base.Columns["GHI_CHU"];
@@ -1047,6 +1060,8 @@ namespace WebDS {
                 base.Columns.Add(this.columnNGUOI_NHAN_TIEN_CAP_NGAY);
                 this.columnNGUOI_NHAN_TIEN_NOI_CAP = new global::System.Data.DataColumn("NGUOI_NHAN_TIEN_NOI_CAP", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNGUOI_NHAN_TIEN_NOI_CAP);
+                this.columnMA_TKKT = new global::System.Data.DataColumn("MA_TKKT", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMA_TKKT);
                 this.columnSO_TIEN_NOP_THUE = new global::System.Data.DataColumn("SO_TIEN_NOP_THUE", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSO_TIEN_NOP_THUE);
                 this.columnNOI_DUNG_CHI = new global::System.Data.DataColumn("NOI_DUNG_CHI", typeof(string), null, global::System.Data.MappingType.Element);
@@ -1107,6 +1122,7 @@ namespace WebDS {
                 this.columnNGUOI_NHAN_TIEN_CMND_SO.MaxLength = 35;
                 this.columnNGUOI_NHAN_TIEN_CAP_NGAY.MaxLength = 35;
                 this.columnNGUOI_NHAN_TIEN_NOI_CAP.MaxLength = 250;
+                this.columnMA_TKKT.MaxLength = 35;
                 this.columnSO_TIEN_NOP_THUE.AllowDBNull = false;
                 this.columnNOI_DUNG_CHI.MaxLength = 250;
                 this.columnGHI_CHU.MaxLength = 250;
@@ -1806,6 +1822,22 @@ namespace WebDS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string MA_TKKT {
+                get {
+                    try {
+                        return ((string)(this[this.tableV_DM_GIAI_NGAN.MA_TKKTColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'MA_TKKT\' in table \'V_DM_GIAI_NGAN\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableV_DM_GIAI_NGAN.MA_TKKTColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public decimal SO_TIEN_NOP_THUE {
                 get {
                     return ((decimal)(this[this.tableV_DM_GIAI_NGAN.SO_TIEN_NOP_THUEColumn]));
@@ -2302,6 +2334,18 @@ namespace WebDS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsMA_TKKTNull() {
+                return this.IsNull(this.tableV_DM_GIAI_NGAN.MA_TKKTColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetMA_TKKTNull() {
+                this[this.tableV_DM_GIAI_NGAN.MA_TKKTColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsNOI_DUNG_CHINull() {
                 return this.IsNull(this.tableV_DM_GIAI_NGAN.NOI_DUNG_CHIColumn);
             }
@@ -2555,6 +2599,7 @@ namespace WebDS.DS_V_DM_GIAI_NGANTableAdapters {
             tableMapping.ColumnMappings.Add("NGUOI_NHAN_TIEN_CMND_SO", "NGUOI_NHAN_TIEN_CMND_SO");
             tableMapping.ColumnMappings.Add("NGUOI_NHAN_TIEN_CAP_NGAY", "NGUOI_NHAN_TIEN_CAP_NGAY");
             tableMapping.ColumnMappings.Add("NGUOI_NHAN_TIEN_NOI_CAP", "NGUOI_NHAN_TIEN_NOI_CAP");
+            tableMapping.ColumnMappings.Add("MA_TKKT", "MA_TKKT");
             tableMapping.ColumnMappings.Add("SO_TIEN_NOP_THUE", "SO_TIEN_NOP_THUE");
             tableMapping.ColumnMappings.Add("NOI_DUNG_CHI", "NOI_DUNG_CHI");
             tableMapping.ColumnMappings.Add("GHI_CHU", "GHI_CHU");
@@ -2581,7 +2626,7 @@ namespace WebDS.DS_V_DM_GIAI_NGANTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT ID, ID_DON_VI, NGAY_THANG, SO_UNC, IS_NGUON_NS_YN, MA_DVQHNS, MA_CTMT_DA_HTCT, NT_TEN_DON_VI, NT_MA_SO_THUE, NT_MA_NDKT, NT_MA_CHUONG, NT_CQ_QL_THU, NT_MA_CQ_THU, NT_KBNN_HACH_TOAN_KHOAN_THU, NT_SO_TIEN_NOP_THUE, TTDVH_DON_VI_NHAN_TIEN, TTDVH_MA_DVQHNS, TTDVH_DIA_CHI, TTDVH_TAI_KHOAN, TTDVH_MA_CTMT_DA_VA_HTCT, TTDVH_KHO_BAC, TTDVH_SO_TIEN, THUC_CHI_YN, TAM_UNG_YN, UNG_TRUOC_DU_DK_THANH_TOAN_YN, UNG_TRUOC_CHUA_DU_DK_THANH_TOAN_YN, CHUYEN_KHOAN_YN, TIEN_MAT_YN, MA_CAP_NS, SO_CKC_HDK, SO_CKC_HDTH, TEN_CTMT_DA, NGUOI_NHAN_TIEN_CMND_SO, NGUOI_NHAN_TIEN_CAP_NGAY, NGUOI_NHAN_TIEN_NOI_CAP, SO_TIEN_NOP_THUE, NOI_DUNG_CHI, GHI_CHU, SO_TIEN_TT_CHO_DV_HUONG, DISPLAY, MA_CHUONG, MA_LOAI, MA_KHOAN, TEN_DU_AN, TONG FROM dbo.V_DM_GIAI_NGAN";
+            this._commandCollection[0].CommandText = @"SELECT ID, ID_DON_VI, NGAY_THANG, SO_UNC, IS_NGUON_NS_YN, MA_DVQHNS, MA_CTMT_DA_HTCT, NT_TEN_DON_VI, NT_MA_SO_THUE, NT_MA_NDKT, NT_MA_CHUONG, NT_CQ_QL_THU, NT_MA_CQ_THU, NT_KBNN_HACH_TOAN_KHOAN_THU, NT_SO_TIEN_NOP_THUE, TTDVH_DON_VI_NHAN_TIEN, TTDVH_MA_DVQHNS, TTDVH_DIA_CHI, TTDVH_TAI_KHOAN, TTDVH_MA_CTMT_DA_VA_HTCT, TTDVH_KHO_BAC, TTDVH_SO_TIEN, THUC_CHI_YN, TAM_UNG_YN, UNG_TRUOC_DU_DK_THANH_TOAN_YN, UNG_TRUOC_CHUA_DU_DK_THANH_TOAN_YN, CHUYEN_KHOAN_YN, TIEN_MAT_YN, MA_CAP_NS, SO_CKC_HDK, SO_CKC_HDTH, TEN_CTMT_DA, NGUOI_NHAN_TIEN_CMND_SO, NGUOI_NHAN_TIEN_CAP_NGAY, NGUOI_NHAN_TIEN_NOI_CAP, MA_TKKT, SO_TIEN_NOP_THUE, NOI_DUNG_CHI, GHI_CHU, SO_TIEN_TT_CHO_DV_HUONG, DISPLAY, MA_CHUONG, MA_LOAI, MA_KHOAN, TEN_DU_AN, TONG FROM dbo.V_DM_GIAI_NGAN";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         

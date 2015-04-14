@@ -53,7 +53,13 @@ namespace QuanLyDuToan.DuToan
                 m_txt_dia_chi.Text = v_us.strDIA_CHI;
                 m_txt_kho_bac.Text = v_us.strKHO_BAC;
                 m_txt_ma_tkkt_nguon_ns.Text = v_us.strMA_TKKT2;
+				m_txt_ma_tkkt_nguon_ns_2.Text = v_us.strMA_TKKT_NS_2;
+				m_txt_ma_tkkt_nguon_ns_3.Text = v_us.strMA_TKKT_NS_3;
+				m_txt_ma_tkkt_nguon_ns_4.Text = v_us.strMA_TKKT_NS_4;
                 m_txt_ma_tkkt_quy_bao_tri.Text = v_us.strMA_TKKT1;
+				m_txt_ma_tkkt_quy_bao_tri_2.Text = v_us.strMA_TKKT_QBT_2;
+				m_txt_ma_tkkt_quy_bao_tri_3.Text = v_us.strMA_TKKT_QBT_3;
+				m_txt_ma_tkkt_quy_bao_tri_4.Text = v_us.strMA_TKKT_QBT_4;
 				m_txt_ma_dvqhns.Text = v_us.strMA_DVQHNS;
 				m_txt_ma_dvqhns_1.Text = v_us.strMA_DVQHNS_1;
 				m_txt_ma_dvqhns_2.Text = v_us.strMA_DVQHNS_2;
@@ -94,7 +100,13 @@ namespace QuanLyDuToan.DuToan
 					v_us_thong_tin_don_vi.strMA_DVQHNS_1 = m_txt_ma_dvqhns_1.Text.Trim();
 					v_us_thong_tin_don_vi.strMA_DVQHNS_2 = m_txt_ma_dvqhns_2.Text.Trim();
                     v_us_thong_tin_don_vi.strMA_TKKT1 = m_txt_ma_tkkt_quy_bao_tri.Text.Trim();
+					v_us_thong_tin_don_vi.strMA_TKKT_QBT_2 = m_txt_ma_tkkt_quy_bao_tri_2.Text.Trim();
+					v_us_thong_tin_don_vi.strMA_TKKT_QBT_3 = m_txt_ma_tkkt_quy_bao_tri_3.Text.Trim();
+					v_us_thong_tin_don_vi.strMA_TKKT_QBT_4 = m_txt_ma_tkkt_quy_bao_tri_4.Text.Trim();
                     v_us_thong_tin_don_vi.strMA_TKKT2 = m_txt_ma_tkkt_nguon_ns.Text.Trim();
+					v_us_thong_tin_don_vi.strMA_TKKT_NS_2 = m_txt_ma_tkkt_nguon_ns_2.Text.Trim();
+					v_us_thong_tin_don_vi.strMA_TKKT_NS_3 = m_txt_ma_tkkt_nguon_ns_3.Text.Trim();
+					v_us_thong_tin_don_vi.strMA_TKKT_NS_4 = m_txt_ma_tkkt_nguon_ns_4.Text.Trim();
                     v_us_thong_tin_don_vi.Update();
 					m_lbl_mess.Text = "Cập nhật dữ liệu thành công! Bạn đã có thể sử dụng các chức năng của chương trình";
 				}
