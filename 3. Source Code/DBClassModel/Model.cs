@@ -43,13 +43,13 @@ namespace DBClassModel
 	{
 		public decimal ID { get; set; }
 
-		public decimal? ID_CHA { get; set; }
+		public decimal ID_CHA { get; set; }
 
 		public string TEN { get; set; }
 
 		public string MA_SO { get; set; }
 
-		public decimal? ID_LOAI { get; set; }
+		public decimal ID_LOAI { get; set; }
 
 	}
 	public class DM_CONG_TRINH_DU_AN_GOI_THAU

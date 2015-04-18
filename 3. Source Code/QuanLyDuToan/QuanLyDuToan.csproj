@@ -100,6 +100,7 @@
     <Content Include="Scripts\jquery.floatThead.js" />
     <Content Include="Scripts\jquery.linq.js" />
     <Content Include="Scripts\linq.js" />
+    <Content Include="Scripts\UI\F104.js" />
     <Content Include="Scripts\UI\PL02.js" />
     <Content Include="Scripts\UI\PL03.js" />
     <Content Include="Scripts\UI\PL04.js" />
