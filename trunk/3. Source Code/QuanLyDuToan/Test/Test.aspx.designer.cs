@@ -11,23 +11,5 @@ namespace QuanLyDuToan.Test {
     
     
     public partial class Test {
-        
-        /// <summary>
-        /// m_uc_message control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::QuanLyDuToan.UC_Message m_uc_message;
-        
-        /// <summary>
-        /// m_cmd_mess_click control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button m_cmd_mess_click;
     }
 }
