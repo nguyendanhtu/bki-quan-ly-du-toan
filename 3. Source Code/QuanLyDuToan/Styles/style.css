@@ -286,3 +286,7 @@ label {
 .lt-ie9 .about {
   background: #313131;
 }
+.left-inner-addon {
+    position: relative;
+}
+

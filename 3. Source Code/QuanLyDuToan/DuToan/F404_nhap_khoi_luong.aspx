@@ -128,7 +128,7 @@
 														Visible='<%# visible_label_so_tien(Eval("ID").ToString()) %>' Text='<%#format_so_tien(Eval(GRID_GIAO_VON.QUY).ToString()) %>'></asp:Label>
 												</ItemTemplate>
 											</asp:TemplateField>
-											<asp:TemplateField HeaderText="Số chưa giải ngân cho nhà thầu theo nghiệm thu A-B" ItemStyle-HorizontalAlign="Right" ItemStyle-Width="100px"  ItemStyle-BackColor="LightBlue">
+											<%--<asp:TemplateField HeaderText="Số chưa giải ngân cho nhà thầu theo nghiệm thu A-B" ItemStyle-HorizontalAlign="Right" ItemStyle-Width="100px"  ItemStyle-BackColor="LightBlue">
 												<ItemTemplate>
 													<asp:TextBox ID="m_txt_so_tien_quy_bao_tri_grid" runat="server" Style="text-align: right" CssClass="csscurrency format_so_tien"
 														Visible='<%# !visible_label_so_tien(Eval("ID").ToString()) %>'
@@ -137,22 +137,7 @@
 														Visible='<%# visible_label_so_tien(Eval("ID").ToString()) %>'
 														Text='<%#format_so_tien(Eval(GRID_GIAO_VON.NS).ToString()) %>'></asp:Label>
 												</ItemTemplate>
-											</asp:TemplateField>
-											<%-- <asp:TemplateField HeaderText="Tổng" ItemStyle-HorizontalAlign="Right" ItemStyle-Width="100px">
-                                                                <ItemTemplate>
-                                                                    <asp:Label ID="m_lbl_so_tien_tong_grid" runat="server" Style="text-align: right"
-                                                                        Text='<%#format_so_tien(Eval(GRID_GIAO_VON.TONG).ToString()) %>'></asp:Label>
-                                                                </ItemTemplate>
-                                                            </asp:TemplateField>--%>
-											<%-- <asp:TemplateField HeaderText="Xóa" HeaderStyle-Width="2%">
-                                                                <ItemTemplate>
-                                                                    <asp:LinkButton ID="m_link_delete" runat="server" CausesValidation="false" CommandArgument='<%#Eval("ID")%>'
-                                                                        CommandName="Xoa" ToolTip="Xóa" OnClientClick="return confirm ('Bạn có thực sự muốn xóa bản ghi này?')">
-                     <img alt="Xóa" src="../Images/Button/deletered.png" />
-                                                                    </asp:LinkButton>
-                                                                </ItemTemplate>
-                                                                <ItemStyle HorizontalAlign="Center"></ItemStyle>
-                                                            </asp:TemplateField>--%>
+											</asp:TemplateField>--%>
 										</Columns>
 									</asp:GridView>
 								</td>

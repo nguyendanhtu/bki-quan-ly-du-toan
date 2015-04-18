@@ -95,6 +95,7 @@
     <Content Include="QuyetToan\PL03_thuc_hien_xu_ly_kien_nghi_cua_kiem_toan_thanh_tra_tai_chinh.aspx" />
     <Content Include="QuyetToan\PL04_danh_muc_cong_trinh_quyet_toan.aspx" />
     <Content Include="QuyetToan\PL05_DanhMucGiaTriCongTrinhHoanThanhGiamTruThanhToan.aspx" />
+    <Content Include="Scripts\fixHeader.js" />
     <Content Include="Scripts\jquery.bpopup.js" />
     <Content Include="Scripts\jquery.floatThead.js" />
     <Content Include="Scripts\jquery.linq.js" />
