@@ -35,7 +35,6 @@
 	<script type="text/javascript" src='<%=ResolveClientUrl("~/Downloadify/js/downloadify.min.js")%>'></script>
 	<script type="text/javascript" src='<%=ResolveClientUrl("~/Scripts/ExportExcel.js")%>'></script>
 	<!-- Knockoutjs-->
-	<script type="text/javascript" src='<%=ResolveClientUrl("~/Scripts/knockout-3.2.0.js")%>'></script>
 	<asp:ContentPlaceHolder ID="HeadContent" runat="server">
 	</asp:ContentPlaceHolder>
 </head>
