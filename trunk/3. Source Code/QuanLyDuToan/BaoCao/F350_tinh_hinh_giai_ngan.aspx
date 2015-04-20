@@ -349,8 +349,7 @@
 													,"N") %>"
 												title="Xem chi tiết">
 												<%# CIPConvert.ToStr( 
-												format_so_tien( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_QBT_TONG))
-                                                + format_so_tien( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_QBT_TRONG_THANG))
+												format_so_tien( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_QBT_LUY_KE))
 												, "#,###") %>
 											</a>
 										</ItemTemplate>
@@ -370,8 +369,7 @@
 											%></font>--%>
 											<font class='a<%# Eval(GRID_GIAI_NGAN.ID)%>'>
 												<%# CIPConvert.ToStr( 
-												format_so_tien( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_NS_TONG))
-                                                + format_so_tien( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_NS_TRONG_THANG))
+												format_so_tien( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_NS_LUY_KE))
 												, "#,###") %>
                                             </font>
 										</ItemTemplate>
@@ -384,10 +382,8 @@
                                                 + format_so_tien( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_NS_TONG)), "#,###") %></font>--%>
 											<font class='a<%# Eval(GRID_GIAI_NGAN.ID)%>'>
 												 <%# CIPConvert.ToStr( 
-												format_so_tien( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_QBT_TONG))
-                                                + format_so_tien( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_QBT_TRONG_THANG))
-												+ format_so_tien( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_NS_TONG))
-                                                + format_so_tien( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_NS_TRONG_THANG))
+												format_so_tien( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_QBT_LUY_KE))
+												+ format_so_tien( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_NS_LUY_KE))
 												, "#,###") %>
                                              </font>
 										</ItemTemplate>
@@ -418,8 +414,7 @@
 													,"N") %>"
 												title="Xem chi tiết">
 												<%# CIPConvert.ToStr( 
-												format_so_tien( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_QBT_TONG))
-                                                + format_so_tien( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_QBT_TRONG_THANG))
+												format_so_tien( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_QBT_LUY_KE))
 												, "#,###") %>
 											</a>
 										</ItemTemplate>
@@ -449,8 +444,7 @@
 													,"Y") %>'"
 												title="Xem chi tiết">
 												<%# CIPConvert.ToStr( 
-												format_so_tien( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_NS_TONG))
-                                                + format_so_tien( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_NS_TRONG_THANG))
+												format_so_tien( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_NS_LUY_KE))
 												, "#,###") %>
 										</ItemTemplate>
 										<ItemStyle HorizontalAlign="Right" Width="120px" />
@@ -461,10 +455,8 @@
 										<ItemTemplate>
 											<font class='a<%# Eval(GRID_GIAI_NGAN.ID)%>'>
 												 <%# CIPConvert.ToStr( 
-												format_so_tien( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_QBT_TONG))
-                                                + format_so_tien( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_QBT_TRONG_THANG))
-												+ format_so_tien( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_NS_TONG))
-                                                + format_so_tien( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_NS_TRONG_THANG))
+												format_so_tien( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_QBT_LUY_KE))
+												+ format_so_tien( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_NS_LUY_KE))
 												, "#,###") %>
 
 											</font>
@@ -477,14 +469,10 @@
 										<ItemTemplate>
 											<font class='a<%# Eval(GRID_GIAI_NGAN.ID)%>'>
 												 <%# CIPConvert.ToStr( 
-												format_so_tien( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_QBT_TONG))
-                                                + format_so_tien( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_QBT_TRONG_THANG))
-												+ format_so_tien( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_NS_TONG))
-                                                + format_so_tien( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_NS_TRONG_THANG))
-												-(format_so_tien( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_QBT_TONG))
-                                                + format_so_tien( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_QBT_TRONG_THANG))
-												+ format_so_tien( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_NS_TONG))
-                                                + format_so_tien( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_NS_TRONG_THANG)))
+												format_so_tien( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_QBT_LUY_KE))
+												+ format_so_tien( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_NS_LUY_KE))
+												-(format_so_tien( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_QBT_LUY_KE))
+												+ format_so_tien( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_NS_LUY_KE)))
 												, "#,###") %>
 											</font>
 										</ItemTemplate>
@@ -497,8 +485,7 @@
 												<%# CIPConvert.ToStr( 
 												format_so_tien( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_QBT))
                                                 + format_so_tien( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_NS))
-												-(format_so_tien( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_QBT_TONG))
-                                                + format_so_tien( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_QBT_TRONG_THANG)))
+												-(format_so_tien( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_QBT_LUY_KE)))
 												, "#,###") %>
 											</font>
 										</ItemTemplate>
@@ -510,8 +497,7 @@
 											<font class='a<%# Eval(GRID_GIAI_NGAN.ID)%>'>
 												<%# CIPConvert.ToStr( 
 												 format_so_tien( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_NS))
-												-(format_so_tien( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_NS_TONG))
-                                                + format_so_tien( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_NS_TRONG_THANG)))
+												-(format_so_tien( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_NS_LUY_KE)))
 												, "#,###") %>
 											</font>
 										</ItemTemplate>
@@ -530,10 +516,8 @@
 											<font class='a<%# Eval(GRID_GIAI_NGAN.ID)%>'>
 												<%# CIPConvert.ToStr( 
 												 format_so_tien( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.GIA_TRI_THUC_HIEN))
-												-(format_so_tien( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_QBT_TONG))
-                                                + format_so_tien( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_QBT_TRONG_THANG))
-												+ format_so_tien( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_NS_TONG))
-                                                + format_so_tien( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_NS_TRONG_THANG)))
+												-(format_so_tien( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_QBT_LUY_KE))
+												+ format_so_tien( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_NS_LUY_KE)))
 												, "#,###") %>
 											</font>
 										</ItemTemplate>
