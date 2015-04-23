@@ -90,6 +90,7 @@
     <Content Include="Downloadify\src\com\dynamicflash\util\tests\Base64Test.as" />
     <Content Include="Downloadify\src\Downloadify.as" />
     <Content Include="DuToan\F305_giay_rut_du_toan_ngan_sach.aspx" />
+    <Content Include="DuToan\F505_DuToanThuChiPhiPha.aspx" />
     <Content Include="packages.config" />
     <Content Include="Quantri\F816_ghi_log_qldt.aspx" />
     <Content Include="QuyetToan\PL03_thuc_hien_xu_ly_kien_nghi_cua_kiem_toan_thanh_tra_tai_chinh.aspx" />
@@ -101,12 +102,14 @@
     <Content Include="Scripts\jquery.linq.js" />
     <Content Include="Scripts\linq.js" />
     <Content Include="Scripts\UI\F104.js" />
+    <Content Include="Scripts\UI\F505.js" />
     <Content Include="Scripts\UI\PL02.js" />
     <Content Include="Scripts\UI\PL03.js" />
     <Content Include="Scripts\UI\PL04.js" />
     <Content Include="Scripts\UI\PL05.js" />
     <Content Include="Styles\jquery.dataTables.min.css" />
     <Content Include="Template\TPL_F304.txt" />
+    <Content Include="WebMethod\F505.asmx" />
     <Content Include="WebMethod\PL01.asmx" />
     <Content Include="WebMethod\PL02.asmx" />
     <Content Include="WebMethod\PL03.asmx" />
@@ -695,6 +698,13 @@
     <Compile Include="DanhMuc\F003_DanhMucChuongLoaiKhoanMucTieuMuc.aspx.designer.cs">
       <DependentUpon>F003_DanhMucChuongLoaiKhoanMucTieuMuc.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DuToan\F505_DuToanThuChiPhiPha.aspx.cs">
+      <DependentUpon>F505_DuToanThuChiPhiPha.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DuToan\F505_DuToanThuChiPhiPha.aspx.designer.cs">
+      <DependentUpon>F505_DuToanThuChiPhiPha.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Quantri\F816_ghi_log_qldt.aspx.cs">
       <DependentUpon>F816_ghi_log_qldt.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -722,6 +732,10 @@
     </Compile>
     <Compile Include="QuyetToan\PL05_DanhMucGiaTriCongTrinhHoanThanhGiamTruThanhToan.aspx.designer.cs">
       <DependentUpon>PL05_DanhMucGiaTriCongTrinhHoanThanhGiamTruThanhToan.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebMethod\F505.asmx.cs">
+      <DependentUpon>F505.asmx</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="WebMethod\PL01.asmx.cs">
       <DependentUpon>PL01.asmx</DependentUpon>

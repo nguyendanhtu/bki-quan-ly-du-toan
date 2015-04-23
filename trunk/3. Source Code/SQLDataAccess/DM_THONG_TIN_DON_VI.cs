@@ -23,6 +23,12 @@ namespace SQLDataAccess
         public string MA_TKKT2 { get; set; }
         public string MA_DVQHNS_1 { get; set; }
         public string MA_DVQHNS_2 { get; set; }
+        public string MA_TKKT_QBT_2 { get; set; }
+        public string MA_TKKT_QBT_3 { get; set; }
+        public string MA_TKKT_QBT_4 { get; set; }
+        public string MA_TKKT_NS_2 { get; set; }
+        public string MA_TKKT_NS_3 { get; set; }
+        public string MA_TKKT_NS_4 { get; set; }
     
         public virtual DM_DON_VI DM_DON_VI { get; set; }
     }

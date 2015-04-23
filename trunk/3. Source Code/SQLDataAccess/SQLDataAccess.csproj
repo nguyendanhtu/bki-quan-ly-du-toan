@@ -317,7 +317,7 @@
     <Compile Include="sp_helpdiagrams_Result.cs">
       <DependentUpon>QuanLyDuToan.tt</DependentUpon>
     </Compile>
-    <Compile Include="sysdiagram.cs">
+    <Compile Include="TP_DU_TOAN_THU_CHI_PHI_PHA_PHA.cs">
       <DependentUpon>QuanLyDuToan.tt</DependentUpon>
     </Compile>
     <Compile Include="TP_PL01.cs">
@@ -327,12 +327,6 @@
       <DependentUpon>QuanLyDuToan.tt</DependentUpon>
     </Compile>
     <Compile Include="TP_PL03.cs">
-      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
-    </Compile>
-    <Compile Include="TP_PL04.cs">
-      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
-    </Compile>
-    <Compile Include="TP_PL05.cs">
       <DependentUpon>QuanLyDuToan.tt</DependentUpon>
     </Compile>
     <Compile Include="v_cm_dm_tu_dien.cs">
@@ -382,7 +376,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.Config" />
+    <None Include="App.Config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
     <EntityDeploy Include="QuanLyDuToan.edmx">
       <Generator>EntityModelCodeGenerator</Generator>

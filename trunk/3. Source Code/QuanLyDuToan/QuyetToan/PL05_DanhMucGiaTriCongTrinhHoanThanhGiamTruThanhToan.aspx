@@ -53,7 +53,7 @@
 	<asp:DropDownList ID="m_cbo_nam" runat="server" ClientIDMode="Static">
 		<asp:ListItem Value="2014" Text="2014"></asp:ListItem>
 	</asp:DropDownList>
-	<table style="width: 1000px; margin: auto" id="tbl_pl05" class="table table-bordered" id_don_vi="<%=lst_pl05.FirstOrDefault().ID_DON_VI %>">
+	<table style="width: 1000px; margin: auto" id="tbl_pl05" class="table table-bordered" id_don_vi="<%=lst_pl04.FirstOrDefault().ID_DON_VI %>">
 		<thead>
 			<tr>
 				<th>TT</th>
