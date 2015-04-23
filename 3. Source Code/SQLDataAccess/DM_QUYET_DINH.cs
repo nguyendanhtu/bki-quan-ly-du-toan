@@ -18,6 +18,7 @@ namespace SQLDataAccess
         {
             this.GD_CHI_TIET_GIAO_KH = new HashSet<GD_CHI_TIET_GIAO_KH>();
             this.GD_CHI_TIET_GIAO_VON = new HashSet<GD_CHI_TIET_GIAO_VON>();
+            this.GD_DU_TOAN_THU_CHI_PHI_PHA = new HashSet<GD_DU_TOAN_THU_CHI_PHI_PHA>();
         }
     
         public decimal ID { get; set; }
@@ -33,5 +34,6 @@ namespace SQLDataAccess
         public virtual DM_DON_VI DM_DON_VI { get; set; }
         public virtual ICollection<GD_CHI_TIET_GIAO_KH> GD_CHI_TIET_GIAO_KH { get; set; }
         public virtual ICollection<GD_CHI_TIET_GIAO_VON> GD_CHI_TIET_GIAO_VON { get; set; }
+        public virtual ICollection<GD_DU_TOAN_THU_CHI_PHI_PHA> GD_DU_TOAN_THU_CHI_PHI_PHA { get; set; }
     }
 }

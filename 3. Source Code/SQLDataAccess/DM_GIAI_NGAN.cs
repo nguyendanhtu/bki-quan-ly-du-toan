@@ -54,6 +54,7 @@ namespace SQLDataAccess
         public string NGUOI_NHAN_TIEN_CMND_SO { get; set; }
         public string NGUOI_NHAN_TIEN_CAP_NGAY { get; set; }
         public string NGUOI_NHAN_TIEN_NOI_CAP { get; set; }
+        public string MA_TKKT { get; set; }
     
         public virtual DM_DON_VI DM_DON_VI { get; set; }
         public virtual ICollection<GD_CHI_TIET_GIAI_NGAN> GD_CHI_TIET_GIAI_NGAN { get; set; }

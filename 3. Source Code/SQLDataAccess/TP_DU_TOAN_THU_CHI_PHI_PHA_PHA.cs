@@ -12,7 +12,7 @@ namespace SQLDataAccess
     using System;
     using System.Collections.Generic;
     
-    public partial class GD_DU_TOAN_THU_CHI_PHI_PHA
+    public partial class TP_DU_TOAN_THU_CHI_PHI_PHA_PHA
     {
         public decimal ID { get; set; }
         public string MA_SO { get; set; }
@@ -32,10 +32,6 @@ namespace SQLDataAccess
         public Nullable<decimal> ID_DON_VI { get; set; }
         public Nullable<decimal> NAM { get; set; }
         public string CONG_THUC { get; set; }
-        public bool IS_FIX { get; set; }
-        public Nullable<decimal> ID_QUYET_DINH { get; set; }
-    
-        public virtual DM_DON_VI DM_DON_VI { get; set; }
-        public virtual DM_QUYET_DINH DM_QUYET_DINH { get; set; }
+        public Nullable<bool> IS_FIX { get; set; }
     }
 }

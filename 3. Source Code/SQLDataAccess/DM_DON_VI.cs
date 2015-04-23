@@ -30,7 +30,6 @@ namespace SQLDataAccess
             this.GD_CHI_TIET_GIAI_NGAN = new HashSet<GD_CHI_TIET_GIAI_NGAN>();
             this.HT_QUAN_HE_SU_DUNG_DU_LIEU = new HashSet<HT_QUAN_HE_SU_DUNG_DU_LIEU>();
             this.HT_USER_GROUP = new HashSet<HT_USER_GROUP>();
-            this.GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN = new HashSet<GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN>();
             this.GD_PL05_DANH_MUC_CONG_TRINH_HOAN_THANH_GIAM_TRU_THANH_TOAN = new HashSet<GD_PL05_DANH_MUC_CONG_TRINH_HOAN_THANH_GIAM_TRU_THANH_TOAN>();
             this.GD_DU_TOAN_THU_CHI_PHI_PHA = new HashSet<GD_DU_TOAN_THU_CHI_PHI_PHA>();
         }
@@ -60,7 +59,6 @@ namespace SQLDataAccess
         public virtual ICollection<GD_CHI_TIET_GIAI_NGAN> GD_CHI_TIET_GIAI_NGAN { get; set; }
         public virtual ICollection<HT_QUAN_HE_SU_DUNG_DU_LIEU> HT_QUAN_HE_SU_DUNG_DU_LIEU { get; set; }
         public virtual ICollection<HT_USER_GROUP> HT_USER_GROUP { get; set; }
-        public virtual ICollection<GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN> GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN { get; set; }
         public virtual ICollection<GD_PL05_DANH_MUC_CONG_TRINH_HOAN_THANH_GIAM_TRU_THANH_TOAN> GD_PL05_DANH_MUC_CONG_TRINH_HOAN_THANH_GIAM_TRU_THANH_TOAN { get; set; }
         public virtual ICollection<GD_DU_TOAN_THU_CHI_PHI_PHA> GD_DU_TOAN_THU_CHI_PHI_PHA { get; set; }
     }

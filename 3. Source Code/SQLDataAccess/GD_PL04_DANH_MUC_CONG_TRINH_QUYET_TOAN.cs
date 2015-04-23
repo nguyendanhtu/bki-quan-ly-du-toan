@@ -29,7 +29,5 @@ namespace SQLDataAccess
         public string CONG_THUC { get; set; }
         public string GHI_CHU { get; set; }
         public Nullable<decimal> GIA_TRI_QUYET_TOAN { get; set; }
-    
-        public virtual DM_DON_VI DM_DON_VI { get; set; }
     }
 }

@@ -58,5 +58,6 @@ namespace SQLDataAccess
         public string MA_CHUONG { get; set; }
         public string MA_LOAI { get; set; }
         public string MA_KHOAN { get; set; }
+        public string MA_TKKT { get; set; }
     }
 }

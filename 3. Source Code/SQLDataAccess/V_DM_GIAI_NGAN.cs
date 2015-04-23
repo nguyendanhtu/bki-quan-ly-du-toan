@@ -59,5 +59,6 @@ namespace SQLDataAccess
         public string MA_KHOAN { get; set; }
         public string TEN_DU_AN { get; set; }
         public Nullable<decimal> TONG { get; set; }
+        public string MA_TKKT { get; set; }
     }
 }
