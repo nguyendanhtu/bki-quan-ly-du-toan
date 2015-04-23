@@ -297,13 +297,18 @@ namespace QuanLyDuToan.BaoCaoQT {
             }
             return "C";
         }
-        private void load_ddl_chon_nam() {
+        private void load_ddl_chon_nam() { 
             using (BKI_QLDTEntities db = new BKI_QLDTEntities()) {
                 lst_nam = db.GD_PL02_KINH_PHI_DA_SU_DUNG_DE_NGHI_QUYET_TOAN
                                             .Select(x => x.NAM)
                                             .Distinct()
                                             .OrderByDescending(x => x)
                                             .ToList();
+            }
+            //kiểm tra có dữ liệu trong database không
+            if (lst_nam.Count < 1)
+            {
+                lst_nam.Add(CIPConvert.ToDecimal(DateTime.Now.Year));
             }
             m_ddl_chon_nam.DataSource = lst_nam;
             m_ddl_chon_nam.DataBind();
@@ -340,7 +345,7 @@ namespace QuanLyDuToan.BaoCaoQT {
             }
         }
 
-        private void load_lst_so(BKI_QLDTEntities db) {
+        private void load_lst_so(BKI_QLDTEntities db) { 
             if (lst_pl02.Where(x => x.DM_DON_VI.TEN_DON_VI.ToUpper().Contains("SỞ")).ToList().Count() > 0) {
                 lst_so = lst_pl02.Where(x => x.ID_DON_VI == lst_pl02[0].ID_DON_VI)
                     .Select(x => new GD_PL02_KINH_PHI_DA_SU_DUNG_DE_NGHI_QUYET_TOAN {
