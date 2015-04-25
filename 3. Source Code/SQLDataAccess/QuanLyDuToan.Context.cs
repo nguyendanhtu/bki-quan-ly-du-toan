@@ -81,7 +81,6 @@ namespace SQLDataAccess
         public DbSet<TP_DU_TOAN_THU_CHI_PHI_PHA_PHA> TP_DU_TOAN_THU_CHI_PHI_PHA_PHA { get; set; }
         public DbSet<TP_PL02> TP_PL02 { get; set; }
         public DbSet<GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN> GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN { get; set; }
-        public DbSet<sysdiagram> sysdiagrams { get; set; }
     
         public virtual ObjectResult<desc_table_Result> desc_table(string ip_table_name)
         {
