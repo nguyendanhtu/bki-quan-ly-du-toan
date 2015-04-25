@@ -10,8 +10,8 @@
             var lst = $('.so_tien');
             for (var i = 0; i < lst.length; i++) {
                 $(lst[i]).text(formatString($(lst[i]).text()));
-                $("#<%=m_ddl_chon_nam.ClientID%>").select2();
             }
+            $("#<%=m_ddl_chon_nam.ClientID%>").select2();
         })
         function pageLoad(sender, args) {
             if (args.get_isPartialLoad()) {
