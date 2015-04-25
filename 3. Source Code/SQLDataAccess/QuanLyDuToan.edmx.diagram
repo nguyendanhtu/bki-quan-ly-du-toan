@@ -112,9 +112,11 @@
         <EntityTypeShape EntityType="BKI_QLDTModel.GD_DU_TOAN_THU_CHI_PHI_PHA" Width="1.5" PointX="7.5" PointY="35.625" />
         <AssociationConnector Association="BKI_QLDTModel.FK_GD_DU_TOAN_THU_CHI_PHI_PHA_DM_DON_VI" />
         <EntityTypeShape EntityType="BKI_QLDTModel.TP_DU_TOAN_THU_CHI_PHI_PHA_PHA" Width="1.5" PointX="14.75" PointY="17.75" />
-        <EntityTypeShape EntityType="BKI_QLDTModel.TP_PL02" Width="1.5" PointX="9.95520676390976" PointY="18.032599561862927" />
+        <EntityTypeShape EntityType="BKI_QLDTModel.TP_PL02" Width="1.5" PointX="8.625" PointY="18.125" />
         <EntityTypeShape EntityType="BKI_QLDTModel.GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN" Width="1.5" PointX="11.432214684520018" PointY="16.520872377101739" />
         <AssociationConnector Association="BKI_QLDTModel.FK_GD_DU_TOAN_THU_CHI_PHI_PHA_DM_QUYET_DINH" />
+        <EntityTypeShape EntityType="BKI_QLDTModel.sysdiagram" Width="1.5" PointX="4.4923433179465793" PointY="30.391369550671136" />
+        <AssociationConnector Association="BKI_QLDTModel.FK_GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN_DM_DON_VI" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

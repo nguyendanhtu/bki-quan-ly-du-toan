@@ -66,6 +66,7 @@
       FROM [dbo].[RPT_BAO_CAO_GIAO_VON] AS [RPT_BAO_CAO_GIAO_VON]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="RPT_BAO_CAO_GIAO_VON_THEO_QD" EntityType="BKI_QLDTModel.Store.RPT_BAO_CAO_GIAO_VON_THEO_QD" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="sysdiagrams" EntityType="BKI_QLDTModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="TP_DU_TOAN_THU_CHI_PHI_PHA_PHA" EntityType="BKI_QLDTModel.Store.TP_DU_TOAN_THU_CHI_PHI_PHA_PHA" store:Type="Tables" store:Schema="dbo" store:Name="TP_DU_TOAN_THU_CHI_PHI_PHA_PHA">
             <DefiningQuery>SELECT 
       [TP_DU_TOAN_THU_CHI_PHI_PHA_PHA].[ID] AS [ID], 
@@ -594,6 +595,10 @@
           <AssociationSet Name="FK_GD_PL03_THUC_HIEN_XU_LY_KIEN_NGHI_CUA_KIEM_TOAN_THANH_TRA_TAI_CHINH_DM_DON_VI" Association="BKI_QLDTModel.Store.FK_GD_PL03_THUC_HIEN_XU_LY_KIEN_NGHI_CUA_KIEM_TOAN_THANH_TRA_TAI_CHINH_DM_DON_VI">
             <End Role="DM_DON_VI" EntitySet="DM_DON_VI" />
             <End Role="GD_PL03_THUC_HIEN_XU_LY_KIEN_NGHI_CUA_KIEM_TOAN_THANH_TRA_TAI_CHINH" EntitySet="GD_PL03_THUC_HIEN_XU_LY_KIEN_NGHI_CUA_KIEM_TOAN_THANH_TRA_TAI_CHINH" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN_DM_DON_VI" Association="BKI_QLDTModel.Store.FK_GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN_DM_DON_VI">
+            <End Role="DM_DON_VI" EntitySet="DM_DON_VI" />
+            <End Role="GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN" EntitySet="GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN" />
           </AssociationSet>
           <AssociationSet Name="FK_GD_PL05_DANH_MUC_CONG_TRINH_HOAN_THANH_GIAM_TRU_THANH_TOAN_DM_DON_VI" Association="BKI_QLDTModel.Store.FK_GD_PL05_DANH_MUC_CONG_TRINH_HOAN_THANH_GIAM_TRU_THANH_TOAN_DM_DON_VI">
             <End Role="DM_DON_VI" EntitySet="DM_DON_VI" />
@@ -1188,6 +1193,16 @@
           <Property Name="ID_CHA" Type="numeric" />
           <Property Name="REPORT_LEVEL" Type="nvarchar" MaxLength="50" />
           <Property Name="ID_REPORTED_USER" Type="numeric" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
         <!--Errors Found During Generation:
       warning 6002: The table/view 'BKI_QLDT.dbo.TP_DU_TOAN_THU_CHI_PHI_PHA_PHA' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
@@ -2196,6 +2211,18 @@
               <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="GD_PL03_THUC_HIEN_XU_LY_KIEN_NGHI_CUA_KIEM_TOAN_THANH_TRA_TAI_CHINH">
+              <PropertyRef Name="ID_DON_VI" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN_DM_DON_VI">
+          <End Role="DM_DON_VI" Type="BKI_QLDTModel.Store.DM_DON_VI" Multiplicity="0..1" />
+          <End Role="GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN" Type="BKI_QLDTModel.Store.GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DM_DON_VI">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN">
               <PropertyRef Name="ID_DON_VI" />
             </Dependent>
           </ReferentialConstraint>
@@ -4668,6 +4695,105 @@
           <Parameter Name="ip_sequence_increment" Type="int" Mode="In" />
           <Parameter Name="Val" Type="numeric" Mode="InOut" />
         </Function>
+        <!--Errors Found During Generation:
+      warning 6013: The table/view 'BKI_QLDT.dbo.GRID_GIAI_NGAN' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+      
+      <EntityType Name="GRID_GIAI_NGAN">
+        <Property Name="ID" Type="numeric" />
+        <Property Name="NOI_DUNG" Type="nvarchar" MaxLength="250" />
+        <Property Name="SO_TIEN_NT" Type="numeric" Precision="21" />
+        <Property Name="SO_TIEN_TTCDVH" Type="numeric" Precision="21" />
+        <Property Name="TONG" Type="numeric" Precision="21" />
+        <Property Name="ID_DON_VI" Type="numeric" />
+        <Property Name="STT" Type="numeric" />
+        <Property Name="REPORT_LEVEL" Type="numeric" />
+        <Property Name="KE_HOACH_CHI" Type="numeric" Precision="21" />
+        <Property Name="GHI_CHU" Type="nvarchar" MaxLength="250" />
+        <Property Name="ID_REPORTED_USER" Type="numeric" />
+        <Property Name="ID_CHA" Type="numeric" />
+        <Property Name="MA_CHUONG" Type="nvarchar" MaxLength="35" />
+        <Property Name="MA_LOAI" Type="nvarchar" MaxLength="35" />
+        <Property Name="MA_KHOAN" Type="nvarchar" MaxLength="35" />
+        <Property Name="MA_NGUON_NSNN" Type="nvarchar" MaxLength="35" />
+      </EntityType>
+      Errors Found During Generation:
+      warning 6013: The table/view 'BKI_QLDT.dbo.GRID_GIAO_KH' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+      
+      <EntityType Name="GRID_GIAO_KH">
+        <Property Name="ID" Type="numeric" />
+        <Property Name="NOI_DUNG" Type="nvarchar" MaxLength="250" />
+        <Property Name="NTCT" Type="numeric" Precision="21" />
+        <Property Name="QUY" Type="numeric" Precision="21" />
+        <Property Name="NS" Type="numeric" Precision="21" />
+        <Property Name="TONG" Type="numeric" Precision="21" />
+        <Property Name="ID_DON_VI" Type="numeric" />
+        <Property Name="STT" Type="nvarchar" MaxLength="35" />
+        <Property Name="REPORT_LEVEL" Type="nvarchar" MaxLength="35" />
+        <Property Name="ID_REPORTED_USER" Type="numeric" />
+        <Property Name="ID_CHA" Type="numeric" />
+        <Property Name="So_KM" Type="numeric" Precision="21" Scale="3" />
+      </EntityType>
+      Errors Found During Generation:
+      warning 6013: The table/view 'BKI_QLDT.dbo.GRID_GIAO_VON' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+      
+      <EntityType Name="GRID_GIAO_VON">
+        <Property Name="ID" Type="numeric" />
+        <Property Name="NOI_DUNG" Type="nvarchar" MaxLength="250" />
+        <Property Name="NTCT" Type="numeric" Precision="21" />
+        <Property Name="QUY" Type="numeric" Precision="21" />
+        <Property Name="NS" Type="numeric" Precision="21" />
+        <Property Name="TONG" Type="numeric" Precision="21" />
+        <Property Name="ID_DON_VI" Type="numeric" />
+        <Property Name="STT" Type="nvarchar" MaxLength="35" />
+        <Property Name="REPORT_LEVEL" Type="nvarchar" MaxLength="35" />
+        <Property Name="KE_HOACH_CHI" Type="numeric" Precision="21" />
+        <Property Name="ID_REPORTED_USER" Type="numeric" />
+        <Property Name="ID_CHA" Type="numeric" />
+      </EntityType>
+      Errors Found During Generation:
+      warning 6013: The table/view 'BKI_QLDT.dbo.RPT_BC_TINH_HINH_GIAI_NGAN' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+      
+      <EntityType Name="RPT_BC_TINH_HINH_GIAI_NGAN">
+        <Property Name="ID" Type="numeric" />
+        <Property Name="STT" Type="nvarchar" MaxLength="15" />
+        <Property Name="NOI_DUNG" Type="nvarchar" MaxLength="250" />
+        <Property Name="KH_QBT" Type="numeric" Precision="21" />
+        <Property Name="KH_NS" Type="numeric" Precision="21" />
+        <Property Name="KH_NAM_TRUOC_CHUYEN_SANG" Type="numeric" Precision="21" />
+        <Property Name="KH_TONG" Type="numeric" Precision="21" />
+        <Property Name="DN_QBT_TRONG_THANG" Type="numeric" Precision="21" />
+        <Property Name="DN_QBT_LUY_KE" Type="numeric" Precision="21" />
+        <Property Name="DN_QBT_TONG" Type="numeric" Precision="21" />
+        <Property Name="DN_NS_TRONG_THANG" Type="numeric" Precision="21" />
+        <Property Name="DN_NS_LUY_KE" Type="numeric" Precision="21" />
+        <Property Name="DN_NS_TONG" Type="numeric" Precision="21" />
+        <Property Name="DTT_QBT_TRONG_THANG" Type="numeric" Precision="21" />
+        <Property Name="DTT_QBT_LUY_KE" Type="numeric" Precision="21" />
+        <Property Name="DTT_QBT_TONG" Type="numeric" Precision="21" />
+        <Property Name="DTT_NS_TRONG_THANG" Type="numeric" Precision="21" />
+        <Property Name="DTT_NS_LUY_KE" Type="numeric" Precision="21" />
+        <Property Name="DTT_NS_TONG" Type="numeric" Precision="21" />
+        <Property Name="CN_QBT" Type="numeric" Precision="21" />
+        <Property Name="CN_NS" Type="numeric" Precision="21" />
+        <Property Name="ID_DON_VI" Type="numeric" />
+        <Property Name="REPORT_LEVEL" Type="nvarchar" MaxLength="15" />
+        <Property Name="ID_CHA" Type="numeric" />
+        <Property Name="ID_REPORTED_USER" Type="numeric" />
+        <Property Name="GIA_TRI_THUC_HIEN" Type="numeric" Precision="21" />
+        <Property Name="SO_CHUA_GN" Type="numeric" Precision="21" />
+        <Property Name="TONG_SO_KM" Type="numeric" Precision="21" Scale="3" />
+        <Property Name="ID_CONG_TRINH_KHOAN" Type="numeric" />
+        <Property Name="ID_LOAI_NHIEM_VU" Type="numeric" />
+        <Property Name="ID_DU_AN_MUC_TIEU_MUC" Type="numeric" />
+        <Property Name="CONG_TRINH_KHOAN_YN" Type="nvarchar" MaxLength="1" />
+      </EntityType>
+      Errors Found During Generation:
+      warning 6013: The table/view 'BKI_QLDT.dbo.UT_SEQUENCES' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+      
+      <EntityType Name="UT_SEQUENCES">
+        <Property Name="SEQ_NAME" Type="varchar" MaxLength="30" />
+        <Property Name="SEQ_VALUE" Type="numeric" />
+      </EntityType>-->
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -6410,6 +6536,11 @@
             <End Role="DM_QUYET_DINH" EntitySet="DM_QUYET_DINH" />
             <End Role="GD_DU_TOAN_THU_CHI_PHI_PHA" EntitySet="GD_DU_TOAN_THU_CHI_PHI_PHA" />
           </AssociationSet>
+          <EntitySet Name="sysdiagrams" EntityType="BKI_QLDTModel.sysdiagram" />
+          <AssociationSet Name="FK_GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN_DM_DON_VI" Association="BKI_QLDTModel.FK_GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN_DM_DON_VI">
+            <End Role="DM_DON_VI" EntitySet="DM_DON_VI" />
+            <End Role="GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN" EntitySet="GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="CM_COMPANY_INFO">
           <Key>
@@ -6528,6 +6659,7 @@
           <NavigationProperty Name="HT_USER_GROUP" Relationship="BKI_QLDTModel.FK_HT_USER_GROUP_DM_DON_VI" FromRole="DM_DON_VI" ToRole="HT_USER_GROUP" />
           <NavigationProperty Name="GD_PL05_DANH_MUC_CONG_TRINH_HOAN_THANH_GIAM_TRU_THANH_TOAN" Relationship="BKI_QLDTModel.FK_GD_PL05_DANH_MUC_CONG_TRINH_HOAN_THANH_GIAM_TRU_THANH_TOAN_DM_DON_VI" FromRole="DM_DON_VI" ToRole="GD_PL05_DANH_MUC_CONG_TRINH_HOAN_THANH_GIAM_TRU_THANH_TOAN" />
           <NavigationProperty Name="GD_DU_TOAN_THU_CHI_PHI_PHA" Relationship="BKI_QLDTModel.FK_GD_DU_TOAN_THU_CHI_PHI_PHA_DM_DON_VI" FromRole="DM_DON_VI" ToRole="GD_DU_TOAN_THU_CHI_PHI_PHA" />
+          <NavigationProperty Name="GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN" Relationship="BKI_QLDTModel.FK_GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN_DM_DON_VI" FromRole="DM_DON_VI" ToRole="GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN" />
         </EntityType>
         <EntityType Name="DM_GIAI_NGAN">
           <Key>
@@ -8807,6 +8939,7 @@
           <Property Type="String" Name="CONG_THUC" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="GHI_CHU" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Type="Decimal" Name="GIA_TRI_QUYET_TOAN" Precision="21" Scale="0" />
+          <NavigationProperty Name="DM_DON_VI" Relationship="BKI_QLDTModel.FK_GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN_DM_DON_VI" FromRole="GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN" ToRole="DM_DON_VI" />
         </EntityType>
         <Association Name="FK_GD_DU_TOAN_THU_CHI_PHI_PHA_DM_QUYET_DINH">
           <End Type="BKI_QLDTModel.DM_QUYET_DINH" Role="DM_QUYET_DINH" Multiplicity="0..1" />
@@ -8817,6 +8950,28 @@
             </Principal>
             <Dependent Role="GD_DU_TOAN_THU_CHI_PHI_PHA">
               <PropertyRef Name="ID_QUYET_DINH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Type="String" Name="name" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="principal_id" Nullable="false" />
+          <Property Type="Int32" Name="diagram_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="version" />
+          <Property Type="Binary" Name="definition" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK_GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN_DM_DON_VI">
+          <End Type="BKI_QLDTModel.DM_DON_VI" Role="DM_DON_VI" Multiplicity="0..1" />
+          <End Type="BKI_QLDTModel.GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN" Role="GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DM_DON_VI">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN">
+              <PropertyRef Name="ID_DON_VI" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -10723,6 +10878,17 @@
                 <ScalarProperty Name="TEN_LOAI_NHIEM_VU" ColumnName="TEN_LOAI_NHIEM_VU" />
                 <ScalarProperty Name="TT" ColumnName="TT" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="BKI_QLDTModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

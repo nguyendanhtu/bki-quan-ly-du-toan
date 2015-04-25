@@ -317,6 +317,9 @@
     <Compile Include="sp_helpdiagrams_Result.cs">
       <DependentUpon>QuanLyDuToan.tt</DependentUpon>
     </Compile>
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
     <Compile Include="TP_DU_TOAN_THU_CHI_PHI_PHA_PHA.cs">
       <DependentUpon>QuanLyDuToan.tt</DependentUpon>
     </Compile>
