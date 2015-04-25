@@ -5,6 +5,11 @@
 			border: 1px solid #000;
 		}
     </style>
+     <script type="text/javascript">
+         $(document).ready(function () {
+                 $("#<%=m_ddl_chon_nam.ClientID%>").select2();
+          })
+     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
      <h3 class="h3 text-center">PL07 -BÁO CÁO QUYẾT TOÁN VỐN SCĐB TỪ NGUỒN QUỸ BTĐB TW</h3>
