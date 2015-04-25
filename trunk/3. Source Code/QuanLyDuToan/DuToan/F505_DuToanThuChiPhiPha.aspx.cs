@@ -42,6 +42,7 @@ namespace QuanLyDuToan.DuToan
 			load_data_to_lst_du_toan_thu_chi_phi_pha(db, v_dc_id_don_vi, v_dc_nam);
 			load_data_to_lst_quyet_dinh(db, v_dc_id_don_vi, (int)v_dc_nam);
 		}
+		
 		private void load_data_to_lst_du_toan_thu_chi_phi_pha(
 			BKI_QLDTEntities ip_db
 			, decimal ip_dc_id_don_vi
@@ -50,9 +51,10 @@ namespace QuanLyDuToan.DuToan
 		{
 			m_lst_du_toan_thu_chi_phi_pha = ip_db.GD_DU_TOAN_THU_CHI_PHI_PHA
 											.Where(x => x.ID_DON_VI == ip_dc_id_don_vi && x.NAM == ip_dc_nam)
-											.OrderBy(x => x.MA_SO)
+											.OrderBy(x => x.MA_SO.Substring(0, 4))
+											.ThenBy(x=>x.MA_SO_PARENT)
+											.ThenBy(x => x.TT)
 											.ToList();
-											
 		}
 
 		private void load_data_to_lst_quyet_dinh(

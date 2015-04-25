@@ -4,7 +4,9 @@
 var F505 = {
 	initialControl: function () {
 		$('#m_ddl_quyet_dinh').select2();
-
+		this.autoComputed();
+		this.autoFormatInitialValue();
+		//this.FormatTable();
 	},
 	Message: function (message) {
 		alert(message);
@@ -23,11 +25,9 @@ var F505 = {
 				F505.Message('Xảy ra lỗi trong quá trình thực hiện, Bạn vui lòng thực hiện lại thao tác!');
 			},
 			success: function (data) {
-				//append grid
-				
-
-				//initial cong thuc
-
+				$('#F505 tbody').empty();
+				$('#F505').append(data);
+				F505.initialControl();
 			}
 		});
 
@@ -51,7 +51,10 @@ var F505 = {
 	},
 	addSubItem: function (button, ma_so_parent) {
 		$('#ThongTinChung').attr('ma_so_parent', ma_so_parent).bPopup();
-		console.log('addItem, ma_so_parent = ' + $('#ThongTinChung').attr('ma_so_parent'));
+		//reset value control
+		$('#tt').val('').focus();
+		$('#hang_muc').val('');
+		$('#kinh_phi_giao').val('');
 	},
 	deleteItem: function (button, id_giao_dich) {
 		//delete Item in database
@@ -69,21 +72,41 @@ var F505 = {
 				console.log('deleteItem, id_giao_dich=' + id_giao_dich);
 				//delete row in table
 				$(button).parent().parent().remove();
-				//? reload grid
+				F505.reloadGrid();
 			}
 		});
-		
+
 
 	},
 	cancel: function () {
 		$('#ThongTinChung').bPopup().close();
 	},
 	saveItem: function (button, id_giao_dich) {
+		var id_quyet_dinh = $('#m_ddl_quyet_dinh').val();
 		var tt = $(button).parent().parent().find('.tt').val();
 		var hang_muc = $(button).parent().parent().find('.hang_muc').val();
 		var kinh_phi_giao = $(button).parent().parent().find('.kinh_phi_giao').val();
 		if (this.check_data_is_validate(button)) {
-			console.log('saveItem, id_giao_dich=' + id_giao_dich + ", hang_muc: " + hang_muc + ", kinh phi giao = " + kinh_phi_giao);
+			$.ajax({
+				url: '../WebMethod/F505.asmx/SaveItem',
+				type: 'post',
+				data: {
+					ip_dc_id_quyet_dinh: id_quyet_dinh
+					, ip_dc_id_don_vi: m_dc_id_don_vi
+					, ip_dc_id_giao_dich: id_giao_dich
+					, ip_str_tt: tt
+					, ip_str_hang_muc: hang_muc
+					, ip_str_kinh_phi_giao: kinh_phi_giao
+					, ip_str_GHI_CHU_GIAO_KH: ''
+				},
+				dataType: 'text',
+				error: function () {
+					F505.Message('Xảy ra lỗi trong quá trình thực hiện, Bạn vui lòng thực hiện lại thao tác!');
+				},
+				success: function (data) {
+					//F505.cancel();
+				}
+			});
 		}
 
 	},
@@ -121,14 +144,90 @@ var F505 = {
 				F505.Message('Xảy ra lỗi trong quá trình thực hiện, Bạn vui lòng thực hiện lại thao tác!');
 			},
 			success: function (data) {
-				//console.log('deleteItem, id_giao_dich=' + id_giao_dich);
-				//delete row in table
-				$(button).parent().parent().remove();
-				//? reload grid
+				F505.cancel();
+				F505.reloadGrid();
 			}
 		});
-		//reload grid
-		//this.reloadGrid();
+	},
+	saveAllData: function () {
+		var lstBtnSave = $('.cap_nhat');
+		for (var i = 0; i < lstBtnSave.length; i++) {
+			$(lstBtnSave[i]).click();
+		}
+		this.reloadGrid();
+	},
+	autoComputed: function () {
+		var lst_ma_so = Enumerable.From($('.kinh_phi_giao')).Select(function (x) { return $(x).attr('ma_so') }).ToArray();
+		for (var i = 0; i < lst_ma_so.length; i++) {
+			F505.autoComputedChildren(lst_ma_so[i], 'kinh_phi_giao');
+		}
+	},
+	autoComputedChildren: function (ma_so_parent, classCongThuc) {
+		var strClassParent = "." + classCongThuc + "[ma_so='" + ma_so_parent + "']";
+		var strClassChildren = "." + classCongThuc + "[ma_so_parent='" + ma_so_parent + "']";
+		var lstChildren = $(strClassChildren);
+		for (var i = 0; i < lstChildren.length; i++) {
+
+			$(lstChildren[i]).bind("keypress keyup keydown change", (function (e) {
+				if (e.keyCode != 17
+					&& e.keyCode != 16
+					&& e.keyCode != 37
+					&& e.keyCode != 39
+					&& e.keyCode != 36) {
+					var tong = 0.0;
+					for (var j = 0; j < lstChildren.length; j++) {
+						tong += parseFloat($(lstChildren[j]).val()
+											.split(',').join('').split('.').join(''));
+					}
+					$(strClassParent).val(getFormatedNumberString(tong)).change();
+				}
+			}));
+		}
+	},
+	autoFormatInitialValue: function () {
+		var lstFormat = $('.kinh_phi_giao');
+		for (var i = 0; i < lstFormat.length; i++) {
+			var value = $(lstFormat[i]).val();
+			$(lstFormat[i]).val(getFormatedNumberString(value)).change();
+			$(lstFormat[i]).bind("keypress keyup keydown change", (function (e) {
+				if (e.keyCode != 17 && e.keyCode != 16 && e.keyCode != 37 && e.keyCode != 39 && e.keyCode != 36) {
+					$(this).val(formatString($(this).val()));
+				}
+			}))
+		}
+	},
+	FormatTable: function formatTable() {
+		var table = $('#F505').dataTable({
+
+			"sPaginationType": "full_numbers",
+			"iDisplayLength": 500,
+			"bServerSide": false,
+			"bProcessing": true,
+			"bSort": false,
+			"bAutoWidth": false,
+			"sScrollY": "600",
+			"sScrollX": "100%",
+			"sScrollXInner": "100%",
+			"bScrollCollapse": true,
+			"bInfo": true,
+			"sDom": 'T<"clear"><"top">rt<"bottom">',
+			"bFilter": true,
+			"bLengthChange": true,
+			"oLanguage": {
+				"sSearch": "Tìm kiếm: ",
+				"sEmptyTable": "Không có dữ liệu phù hợp!",
+				"sInfo": "Có _TOTAL_ bản ghi (Trang hiện tại: từ _START_ đến _END_)",
+				"sInfoFiltered": " - Có tất cả _MAX_ bản ghi",
+				"oPaginate": {
+					"sPrevious": "Trang trước",
+					"sNext": "Trang tiếp",
+					"sFirst": "Trang đầu",
+					"sLast": "Trang cuối"
+				},
+				"sProcessing": "Đang tải dữ liệu!"
+			}
+		});
+		new $.fn.dataTable.FixedHeader(table);
 	}
 }
 
