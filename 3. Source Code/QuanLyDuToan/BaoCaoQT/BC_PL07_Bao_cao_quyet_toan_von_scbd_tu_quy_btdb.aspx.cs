@@ -19,9 +19,15 @@ namespace QuanLyDuToan.BaoCaoQT
         public List<decimal?> lst_nam;
         public decimal m_nam;
         public List<GD_CHI_TIET_GIAO_KH> lst_giao_kh;
+        public List<ItemBaoCaoDonVi> lst_don_vi;
         #endregion
 
         #region Data Structure
+        public class ItemBaoCaoDonVi
+        {
+            public decimal? ID_DON_VI;
+            public string TEN_DON_VI;
+        }
         #endregion
 
         #region Private Method
@@ -31,9 +37,12 @@ namespace QuanLyDuToan.BaoCaoQT
             m_nam = CIPConvert.ToDecimal(m_ddl_chon_nam.SelectedValue);
             BKI_QLDTEntities db = new BKI_QLDTEntities();
             lst_PL04 = db.GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN
-                           .Where(x=>x.NAM == 2014)
+                           .Where(x=>x.NAM == m_nam)
                            .ToList();
-
+            lst_don_vi = db.GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN
+                                      .Select(x => new ItemBaoCaoDonVi { ID_DON_VI = x.DM_DON_VI.ID  , TEN_DON_VI = x.DM_DON_VI.TEN_DON_VI })
+                                      .Distinct()
+                                      .ToList();
             lst_giao_kh = db.GD_CHI_TIET_GIAO_KH.Where(x =>x.DM_QUYET_DINH.NGAY_THANG.Year == m_nam).ToList();
         }
         private void load_ddl_chon_nam()
