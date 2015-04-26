@@ -189,11 +189,11 @@ var F505 = {
 		for (var i = 0; i < lstFormat.length; i++) {
 			var value = $(lstFormat[i]).val();
 			$(lstFormat[i]).val(getFormatedNumberString(value)).change();
-			$(lstFormat[i]).bind("keypress keyup keydown change", (function (e) {
-				if (e.keyCode != 17 && e.keyCode != 16 && e.keyCode != 37 && e.keyCode != 39 && e.keyCode != 36) {
-					$(this).val(formatString($(this).val()));
-				}
-			}))
+			//$(lstFormat[i]).bind("keypress keyup keydown change", (function (e) {
+			//	if (e.keyCode != 17 && e.keyCode != 16 && e.keyCode != 37 && e.keyCode != 39 && e.keyCode != 36) {
+			//		$(this).val(formatString($(this).val()));
+			//	}
+			//}))
 		}
 	},
 	FormatTable: function formatTable() {

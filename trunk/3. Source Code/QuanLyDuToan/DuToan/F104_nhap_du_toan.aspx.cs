@@ -25,8 +25,10 @@ namespace QuanLyDuToan.DuToan
 			load_data_to_lst_quyet_dinh(db);
 			load_data_to_lst_ct_da_gt(db);
 			load_data_to_lst_loai_nhiem_vu(db);
-			load_data_to_lst_giao_kh(db);
-			load_data_to_lst_gd(db);
+			m_lst_giao_kh = new List<pr_F104_nhap_du_toan_ke_hoach_Result>();
+			m_lst_gd = new List<DBClassModel.GD_CHI_TIET_GIAO_KH>();
+			//load_data_to_lst_giao_kh(db);
+			//load_data_to_lst_gd(db);
 
 			m_str_nguon=WebformFunctions.getValue_from_query_string<string>(
 								this
@@ -122,7 +124,7 @@ namespace QuanLyDuToan.DuToan
 		public List<DBClassModel.GD_CHI_TIET_GIAO_KH> m_lst_gd;
 		public List<DBClassModel.DM_DON_VI> m_lst_don_vi;
 		public List<DBClassModel.CM_DM_TU_DIEN> m_lst_loai_nhiem_vu;
-		public string m_str_nguon;
+		public string m_str_nguon="N";
 		public decimal m_dc_id_don_vi;
 		public decimal m_dc_id_quyet_dinh;
 		#endregion
@@ -189,34 +191,21 @@ namespace QuanLyDuToan.DuToan
 		}
 		private void load_data_to_lst_giao_kh(BKI_QLDTEntities ip_db)
 		{
-			decimal v_dc_id_don_vi = 103;
-			decimal v_dc_id_quyet_dinh = 198;
-			string v_str_is_nguon_ns = "N";
+			decimal v_dc_id_quyet_dinh;
+			if (m_lst_quyet_dinh.Count > 0)
+			{
+				v_dc_id_quyet_dinh = m_lst_quyet_dinh[0].ID;
+			}
+			else return;
 			decimal v_id_dc_reported_user = Person.get_user_id();
 			US_GRID_GIAO_KH v_us = new US_GRID_GIAO_KH();
 			DataSet v_ds = new DataSet();
 			v_ds.Tables.Add(new DataTable());
-			v_ds.AcceptChanges();
-			if (Request.QueryString["ip_nguon_ns"] == "Y")
-			{
-				v_str_is_nguon_ns = "Y";
-			}
-
-			//ip_db.pr_F104_nhap_du_toan_ke_hoach(
-			//				v_dc_id_quyet_dinh
-			//				, v_str_is_nguon_ns
-			//				, v_id_dc_reported_user
-			//				, v_dc_id_don_vi);
-
-
-
-
-
 			v_us.get_grid_giao_kh_qbt(v_ds
 				, v_dc_id_quyet_dinh
-				, v_str_is_nguon_ns
+				, m_str_nguon
 				, v_id_dc_reported_user
-				, v_dc_id_don_vi);
+				, m_dc_id_don_vi);
 			m_lst_giao_kh = v_ds.Tables[0]
 							.AsEnumerable()
 							.Select(x => new pr_F104_nhap_du_toan_ke_hoach_Result
@@ -239,11 +228,14 @@ namespace QuanLyDuToan.DuToan
 
 		private void load_data_to_lst_gd(BKI_QLDTEntities ip_db)
 		{
-			decimal v_dc_id_don_vi = 103;
-			decimal v_dc_id_quyet_dinh = 198;
-			string v_str_is_nguon_ns = "N";
+			decimal v_dc_id_quyet_dinh;
+			if (m_lst_quyet_dinh.Count > 0)
+			{
+				v_dc_id_quyet_dinh = m_lst_quyet_dinh[0].ID;
+			}
+			else return;
 			m_lst_gd = ip_db.GD_CHI_TIET_GIAO_KH
-				.Where(x => x.ID_DON_VI == v_dc_id_don_vi
+				.Where(x => x.ID_DON_VI == m_dc_id_don_vi
 					&& x.ID_QUYET_DINH == v_dc_id_quyet_dinh)
 				.ToList()
 				.Select(x => x.CopyAs<DBClassModel.GD_CHI_TIET_GIAO_KH>())

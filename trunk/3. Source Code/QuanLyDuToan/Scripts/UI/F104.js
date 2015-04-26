@@ -5,8 +5,11 @@
 var F104 = {
 	initialFormLoad: function () {
 		F104.defineEvent();
+		F104.load_data_to_ddl_quyet_dinh(m_lst_quyet_dinh, "#m_ddl_quyet_dinh", true);
+		F104.load_data_to_ddl_quyet_dinh(m_lst_quyet_dinh, "#m_ddl_quyet_dinh_1", false);
+		F104.load_data_to_ddl_quyet_dinh(m_lst_quyet_dinh, "#m_ddl_quyet_dinh_2", false);
+		//load data to ddl_don_vi va reload grid
 		F104.load_data_to_ddl_don_vi(m_lst_don_vi);
-		F104.load_data_to_ddl_quyet_dinh(m_lst_quyet_dinh);
 		F104.load_data_to_ddl_loai_nhiem_vu(m_lst_loai_nhiem_vu);
 		F104.load_data_to_ddl_cong_trinh(m_lst_ct_da_gt);
 		F104.load_data_to_ddl_chuong(m_lst_clkm);
@@ -16,13 +19,13 @@ var F104 = {
 		F104.load_data_to_ddl_tieu_muc(m_lst_clkm);
 		$('input[type=radio][name=chi_theo]').change();
 		F104.formatControlByNguon();
-		F104.autoComputedByParentRow();
 
 		//computed event in grid
+		F104.autoComputedByParentRow();
 		F104.autoComputedBYLoaiNhiemVuCongTrinhDuAn();
 
 		//format control so tien
-		F104.formatControlSoTien();
+		//F104.formatControlSoTien();
 		F104.autoTinhTongKinhPhi();
 
 	},
@@ -49,7 +52,7 @@ var F104 = {
 							.FirstOrDefault();
 			//Neu la qd Bo sung hoac Dieu chinh, hoi co muon chuyen cong trinh, du an tu quyet dinh khac sang khong
 			//reload grid
-
+			F104.reloadGrid();
 			//Hien thi thong tin cua quyet dinh
 
 			var v_loai_quyet_dinh = "";
@@ -65,9 +68,24 @@ var F104 = {
 			$('#m_txt_loai_quyet_dinh').val('').val(v_loai_quyet_dinh);
 			$('#m_txt_ngay_thang').val('').val(qd.str_NGAY_THANG);
 			$('#m_txt_noi_dung').val('').val(qd.NOI_DUNG);
-			$('#m_lbl_quyet_dinh_so').text(qd.SO_QUYET_DINH);
-			$('#m_lbl_ngay').text(qd.str_NGAY_THANG);
-			$('#m_lbl_ve_viec').text(qd.NOI_DUNG);
+			//$('#m_lbl_quyet_dinh_so').text(qd.SO_QUYET_DINH);
+			//$('#m_lbl_ngay').text(qd.str_NGAY_THANG);
+			//$('#m_lbl_ve_viec').text(qd.NOI_DUNG);
+		});
+		$('#m_ddl_don_vi').bind("change", function () {
+			//reload grid
+			F104.reloadGrid();
+			//visible tool Quyet dinh
+			if ($('#m_ddl_don_vi').val() == m_dc_id_don_vi) {
+				$('#m_ddl_quyet_dinh').css('width', '222px');
+				$('#toolButton').show();
+			}
+			else {
+				$('#m_ddl_quyet_dinh').css('width', '250px');
+				$('#toolButton').hide();
+			}
+			$('#m_ddl_quyet_dinh').select2("destroy");
+			$('#m_ddl_quyet_dinh').select2();
 		});
 	},
 
@@ -111,12 +129,19 @@ var F104 = {
 		}
 	},
 	formatControlSoTien: function () {
-		var lst_so_tien = $('.format_so_tien');
-		for (var i = 0; i < lst_so_tien.length; i++) {
-			$(lst_so_tien[i]).bind("change keyup keydown focus", function () {
-				$(lst_so_tien[i]).val(getFormatedNumberString($(lst_so_tien[i]).val() + ''));
-			});
-		}
+		$('.format_so_tien').bind("change blur keyup focus", function (e) {
+			var arr_keyCode_comma = [110, 188, 190];
+			var str_format = getFormatedNumberString($(this).val());
+
+			if ((e.keyCode >= 48 && e.keyCode <= 57)
+				|| (e.keyCode >= 96 && e.keyCode <= 105)
+				|| Enumerable.From(arr_keyCode_comma)
+					.Where(function (x) { return x == e.keyCode })
+					.ToArray().length > 0) {
+				var str_format = getFormatedNumberString($(this).val());
+				$(this).val(str_format);
+			}
+		});
 	},
 	autoTinhTongKinhPhi: function () {
 		$('#m_txt_kinh_phi_nam_truoc_chuyen_sang').bind("change keyup keydown", function () {
@@ -146,6 +171,7 @@ var F104 = {
 
 	/*region CRUD*/
 	deleteGiaoDich: function (id_giao_dich) {
+		$('#loading').show();
 		//ajax delete giao dich
 		$.ajax({
 			url: '../WebMethod/F104.asmx/DeleteGiaoDich',
@@ -157,7 +183,7 @@ var F104 = {
 			},
 			success: function (data) {
 				//reload grid
-
+				F104.reloadGrid();
 			}
 		});
 	},
@@ -266,10 +292,12 @@ var F104 = {
 		$('#m_txt_kinh_phi_quy_bao_tri').val('0').val(getFormatedNumberString(gd.SO_TIEN_QUY_BT + "")).change();
 		$('#m_txt_kinh_phi_ngan_sach').val('0').val(getFormatedNumberString(gd.SO_TIEN_NS + "")).change();
 		$('#m_txt_ghi_chu').val('').val(gd.GHI_CHU);
+		$('#m_cmd_ghi_du_lieu').val('Cập nhật');
 
 	},
 	insertGiaoDich: function () {
 		if (this.check_validate_data_is_ok()) {
+			$('#loading').show();
 			//ajax insert giao dich
 			var id_chuong = -1;
 			var id_khoan = -1;
@@ -300,14 +328,13 @@ var F104 = {
 					tu_chu_yn = "N";
 				}
 			}
-			console.log(id);
 			$.ajax({
 				url: '../WebMethod/F104.asmx/UpdateGiaoDich',
 				type: 'post',
 				data: {
 					ip_dc_ID: id
-					, ip_dc_ID_QUYET_DINH: 198//$('#m_ddl_quyet_dinh').val()
-					, ip_dc_ID_DON_VI: 103//$('#m_ddl_don_vi').val()
+					, ip_dc_ID_QUYET_DINH: $('#m_ddl_quyet_dinh').val()
+					, ip_dc_ID_DON_VI: $('#m_ddl_don_vi').val()
 					, ip_str_CONG_TRINH: cong_trinh
 					, ip_dc_SO_TIEN_QUY_BT: $('#m_txt_kinh_phi_quy_bao_tri').val().split(',').join('').split('.').join('')
 					, ip_dc_SO_TIEN_NS: $('#m_txt_kinh_phi_ngan_sach').val().split(',').join('').split('.').join('')
@@ -331,13 +358,41 @@ var F104 = {
 				},
 				success: function (data) {
 					//reload grid
-
+					F104.reloadGrid();
 				}
 			});
 		}
 	},
 	updateAll: function () {
+		//tao list data submit to server
+		$('#loading').show();
+		var lst_data = [];
 		var lst_td = $(".lnv[id_giao_dich!='-1']");
+		for (var i = 0; i < lst_td.length; i++) {
+			var item_data = {
+				ID: $(lst_td[i]).attr('id_giao_dich'),
+				SO_KM: $(lst_td[i]).parent().find('.so_km').val(),
+				KP_NAM_TRUOC_CHUYEN_SANG: $(lst_td[i]).parent().find('.kinh_phi_nam_truoc_chuyen_sang').val(),
+				KP_NGAN_SACH: $(lst_td[i]).parent().find('.kinh_phi_ngan_sach').val(),
+				KP_QUY_BT: $(lst_td[i]).parent().find('.kinh_phi_quy_bao_tri').val()
+			}
+			lst_data.push(item_data);
+		}
+		//ajax submit to server
+		$.ajax({
+			url: '../WebMethod/F104.asmx/UpdateAll',
+			type: 'post',
+			data: { ip_str_arr: JSON.stringify(lst_data) },
+			dataType: "text",
+			error: function (data) {
+				alert('Xảy ra lỗi trong quá trình thực hiện, Bạn vui lòng thực hiện lại thao tác!');
+				//reload grid
+			},
+			success: function (data) {
+				//reload grid
+				F104.reloadGrid();
+			}
+		});
 	},
 	cancel: function () {
 		$('#m_cmd_ghi_du_lieu').attr('id_giao_dich', '-1');
@@ -347,15 +402,87 @@ var F104 = {
 		$('#m_txt_kinh_phi_nam_truoc_chuyen_sang').val('0');
 		$('#m_txt_kinh_phi_quy_bao_tri').val('0');
 		$('#m_txt_tong').val('0');
-		$('#m_txt_ghi_chu').val('0');
+		$('#m_txt_ghi_chu').val('');
 		$('#m_txt_noi_dung_du_toan').val('0');
 		$('#m_txt_kinh_phi_ngan_sach').val('0');
+		$('#m_cmd_ghi_du_lieu').val('Ghi dữ liệu');
 	},
 
 	reloadGrid: function () {
+		$('#loading').show();
+		var id_quyet_dinh = $('#m_ddl_quyet_dinh').val();
+		var id_don_vi = $('#m_ddl_don_vi').val();
+		$.ajax({
+			url: '../WebMethod/F104.asmx/GenGrid',
+			type: 'post',
+			data: {
+				ip_dc_ID_QUYET_DINH: id_quyet_dinh
+				, ip_dc_ID_DON_VI: id_don_vi
+				, ip_str_nguon: m_str_nguon_ns
+			},
+			dataType: "text",
+			error: function (data) {
+				$('#loading').hide();
+				alert('Xảy ra lỗi trong quá trình thực hiện, Bạn vui lòng thực hiện lại thao tác!');
+				//reload grid
+			},
+			success: function (data) {
+				var tbody = data.split("||||||||||")[0];
+				//reload grid
+				$('#F104 tbody').empty().append(tbody);
+				//computed event in grid
+				F104.autoComputedByParentRow();
+				F104.autoComputedBYLoaiNhiemVuCongTrinhDuAn();
+				F104.formatControlBYRole();
+				F104.formatControlSoTien();
+
+				//reload list giao dich
+				m_lst_gd = $.parseJSON(data.split("||||||||||")[1]);
+				F104.cancel();
+				$('#loading').hide();
+			}
+		});
 
 	},
 	/*endregion CRUD*/
+
+	/*region tool*/
+	openTool: function () {
+		$('#toolQuyetDinh').bPopup();
+		//$('#toolQuyetDinh').css('z-index',400);
+	},
+	closeTool: function () {
+		$('#toolQuyetDinh').bPopup().close();
+	},
+	excuteTool: function () {
+		//excuted tool
+		var id_quyet_dinh_1 = $('#m_ddl_quyet_dinh_1').val();
+		var id_quyet_dinh_2 = $('#m_ddl_quyet_dinh_2').val();
+		var id_don_vi = $('#m_ddl_don_vi').val();
+		$.ajax({
+			url: '../WebMethod/F104.asmx/CopyItemFromQuyetDinh',
+			type: 'post',
+			data: {
+				ip_dc_id_don_vi: id_don_vi
+				, ip_dc_id_quyet_dinh_1: id_quyet_dinh_1
+				, ip_dc_id_quyet_dinh_2: id_quyet_dinh_2
+			},
+			dataType: "text",
+			error: function (data) {
+				$('#loading').hide();
+				alert('Xảy ra lỗi trong quá trình thực hiện, Bạn vui lòng thực hiện lại thao tác!');
+			},
+			success: function (data) {
+				//reload grid theo quyet dinh 2
+				$('#m_ddl_quyet_dinh').val(id_quyet_dinh_2).change();
+
+				//close tool
+				F104.closeTool();
+			}
+		});
+
+	},
+	/*endregion tool*/
 
 
 	load_data_to_ddl_don_vi: function (lst) {
@@ -363,9 +490,10 @@ var F104 = {
 		for (var i = 0; i < lst.length; i++) {
 			html_don_vi += "<option value='" + lst[i].ID + "'>" + lst[i].TEN_DON_VI + "</option>";
 		}
-		$('#m_ddl_don_vi').empty().append(html_don_vi).select2();
+		$('#m_ddl_don_vi').empty().append(html_don_vi).change().select2();
+		//.change() event to call reloadGrid()
 	},
-	load_data_to_ddl_quyet_dinh: function (lst) {
+	load_data_to_ddl_quyet_dinh: function (lst, op_ddl_quyet_dinh, isSelect2) {
 		var html_qd = "";
 		for (var i = 0; i < lst.length; i++) {
 			var v_loai_quyet_dinh = "";
@@ -380,7 +508,10 @@ var F104 = {
 			}
 			html_qd += "<option value='" + lst[i].ID + "'>" + v_loai_quyet_dinh + "_" + lst[i].str_NGAY_THANG + "_" + lst[i].SO_QUYET_DINH + "_" + lst[i].NOI_DUNG + "</option>";
 		}
-		$('#m_ddl_quyet_dinh').empty().append(html_qd).change().select2();
+		if (isSelect2) {
+			$(op_ddl_quyet_dinh).empty().append(html_qd).select2();
+		}
+		else $(op_ddl_quyet_dinh).empty().append(html_qd);
 	},
 	load_data_to_ddl_loai_nhiem_vu: function (lst) {
 		$('#m_ddl_loai_nhiem_vu').removeAttr("disabled");
@@ -452,7 +583,7 @@ var F104 = {
 		for (var i = 0; i < lst_chuong.length; i++) {
 			html_chuong += "<option value='" + lst_chuong[i].ID + "'>" + lst_chuong[i].MA_SO.trim() + "_" + lst_chuong[i].TEN + "</option>";
 		}
-		$('#m_ddl_chuong').empty().append(html_chuong).select2();
+		$('#m_ddl_chuong').empty().append(html_chuong).val('17').attr('disabled', 'disabled').select2();
 	},
 	load_data_to_ddl_loai: function (lst) {
 		var lst_loai = Enumerable.From(lst)
@@ -618,6 +749,19 @@ var F104 = {
 				}
 				$(txt_parent_grid_tong).val(getFormatedNumberString(tong));
 			});
+		}
+	},
+
+	formatControlBYRole: function () {
+		//Neu la don vi khac thi khong duoc xoa, them
+		if ($('#m_ddl_don_vi').val() != m_dc_id_don_vi) {
+			//khong co quyen xoa
+			$('.private_don_vi').hide();
+			$('.sua_giao_dich').val('Xem');
+		}
+		else {
+			$('.private_don_vi').show();
+			$('.sua_giao_dich').val('Sửa');
 		}
 	}
 }

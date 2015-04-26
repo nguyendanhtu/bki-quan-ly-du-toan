@@ -84,7 +84,7 @@
   margin-top: 13px;'></button>
 						</td>
 						<td >
-							<input type='text' class='text-right form-control kinh_phi_giao <%= gd.IS_FIX? "text-bold disable":"" %>' value='<%=gd.KINH_PHI_GIAO_KH %>' style='width:150px' ma_so='<%=gd.MA_SO %>' ma_so_parent='<%=gd.MA_SO_PARENT %>' /></td>
+							<input type='text' class='text-right form-control kinh_phi_giao format_so_tien <%= gd.IS_FIX? "text-bold disable":"" %>' value='<%=gd.KINH_PHI_GIAO_KH %>' style='width:150px' ma_so='<%=gd.MA_SO %>' ma_so_parent='<%=gd.MA_SO_PARENT %>' /></td>
 						<td class='text-center' style='width:150px'>
 							
 							<%if (m_lst_du_toan_thu_chi_phi_pha

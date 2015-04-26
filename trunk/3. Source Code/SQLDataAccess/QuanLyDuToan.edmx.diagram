@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="ece3cc88bdc740a1b41f6692184b2f4c" Name="Diagram1" ZoomLevel="116">
+      <Diagram DiagramId="ece3cc88bdc740a1b41f6692184b2f4c" Name="Diagram1" ZoomLevel="94">
         <EntityTypeShape EntityType="BKI_QLDTModel.CM_COMPANY_INFO" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BKI_QLDTModel.CM_DM_LOAI_TD" Width="1.5" PointX="0.75" PointY="46.375" IsExpanded="true" />
         <EntityTypeShape EntityType="BKI_QLDTModel.CM_DM_TU_DIEN" Width="1.5" PointX="3" PointY="45.375" IsExpanded="true" />
