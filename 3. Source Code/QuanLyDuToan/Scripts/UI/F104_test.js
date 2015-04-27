@@ -5,28 +5,28 @@
 var F104 = {
 	initialFormLoad: function () {
 		F104.defineEvent();
-		F104.load_data_to_ddl_don_vi(m_lst_don_vi);
-		F104.load_data_to_ddl_quyet_dinh(m_lst_quyet_dinh, "#m_ddl_quyet_dinh_1", false);
-		F104.load_data_to_ddl_quyet_dinh(m_lst_quyet_dinh, "#m_ddl_quyet_dinh_2", false);
+		//F104.load_data_to_ddl_don_vi(m_lst_don_vi);
+		//F104.load_data_to_ddl_quyet_dinh(m_lst_quyet_dinh, "#m_ddl_quyet_dinh_1", false);
+		//F104.load_data_to_ddl_quyet_dinh(m_lst_quyet_dinh, "#m_ddl_quyet_dinh_2", false);
 		//load data to ddl_don_vi va reload grid
-		F104.load_data_to_ddl_quyet_dinh(m_lst_quyet_dinh, "#m_ddl_quyet_dinh", true);
+		//F104.load_data_to_ddl_quyet_dinh(m_lst_quyet_dinh, "#m_ddl_quyet_dinh", true);
 
-		F104.load_data_to_ddl_loai_nhiem_vu(m_lst_loai_nhiem_vu);
-		F104.load_data_to_ddl_cong_trinh(m_lst_ct_da_gt);
-		F104.load_data_to_ddl_chuong(m_lst_clkm);
-		F104.load_data_to_ddl_loai(m_lst_clkm);
-		F104.load_data_to_ddl_khoan(m_lst_clkm);
-		F104.load_data_to_ddl_muc(m_lst_clkm);
-		F104.load_data_to_ddl_tieu_muc(m_lst_clkm);
-		$('input[type=radio][name=chi_theo]').change();
-		F104.formatControlByNguon();
+		//F104.load_data_to_ddl_loai_nhiem_vu(m_lst_loai_nhiem_vu);
+		//F104.load_data_to_ddl_cong_trinh(m_lst_ct_da_gt);
+		//F104.load_data_to_ddl_chuong(m_lst_clkm);
+		//F104.load_data_to_ddl_loai(m_lst_clkm);
+		//F104.load_data_to_ddl_khoan(m_lst_clkm);
+		//F104.load_data_to_ddl_muc(m_lst_clkm);
+		//F104.load_data_to_ddl_tieu_muc(m_lst_clkm);
+		//$('input[type=radio][name=chi_theo]').change();
+		//F104.formatControlByNguon();
 
 		//computed event in grid
 		F104.autoComputedByParentRow();
 		F104.autoComputedBYLoaiNhiemVuCongTrinhDuAn();
 
 		//format control so tien
-		F104.formatInitialSoTien();
+		F104.formatControlSoTien();
 		F104.autoTinhTongKinhPhi();
 
 	},
@@ -143,13 +143,6 @@ var F104 = {
 				$(this).val(str_format);
 			}
 		});
-	},
-	formatInitialSoTien: function () {
-		var lst=$('.format_so_tien, .grid_tong');
-		for (var i = 0; i < lst.length; i++) {
-			$(lst[i]).val(getFormatedNumberString($(lst[i]).val()));
-		}
-		
 	},
 	autoTinhTongKinhPhi: function () {
 		$('#m_txt_kinh_phi_nam_truoc_chuyen_sang').bind("change keyup keydown", function () {
@@ -446,7 +439,6 @@ var F104 = {
 				F104.autoComputedBYLoaiNhiemVuCongTrinhDuAn();
 				F104.formatControlBYRole();
 				F104.formatControlSoTien();
-				F104.formatInitialSoTien();
 
 				//reload list giao dich
 				m_lst_gd = $.parseJSON(data.split("||||||||||")[1]);

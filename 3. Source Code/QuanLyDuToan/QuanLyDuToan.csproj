@@ -107,6 +107,7 @@
     <Content Include="Scripts\jquery.linq.js" />
     <Content Include="Scripts\jquery.min.js" />
     <Content Include="Scripts\linq.js" />
+    <Content Include="Scripts\UI\F104_test.js" />
     <Content Include="Scripts\UI\F104.js" />
     <Content Include="Scripts\UI\F505.js" />
     <Content Include="Scripts\UI\PL02.js" />
@@ -133,7 +134,9 @@
     <Content Include="Styles\jquery-ui.theme.min.css" />
     <Content Include="Styles\jquery.dataTables.min.css" />
     <Content Include="Template\TPL_F304.txt" />
-    <Content Include="Test\tudm.html" />
+    <Content Include="Test\tudm.aspx" />
+    <Content Include="UserControls\F104Grid.ascx" />
+    <Content Include="UserControls\TableGiaoKH.ascx" />
     <Content Include="WebMethod\F104.asmx" />
     <Content Include="WebMethod\F505.asmx" />
     <Content Include="WebMethod\PL01.asmx" />
@@ -180,9 +183,8 @@
     <Content Include="Template\TPL_F390.txt" />
     <Content Include="Template\TPL_F520.txt" />
     <Content Include="Template\TPL_F530.txt" />
-    <Content Include="Test\Test.aspx" />
     <Content Include="UC_Message.ascx" />
-    <Content Include="UserControl\MessageBoxUserControl.ascx" />
+    <Content Include="UserControls\MessageBoxUserControl.ascx" />
     <Content Include="DanhMuc\test.aspx" />
     <Content Include="DuToan\F404_nhap_khoi_luong.aspx" />
     <Content Include="DuToan\F700_thong_tin_don_vi.aspx" />
@@ -702,6 +704,7 @@
     <Compile Include="Account\Logout.aspx.designer.cs">
       <DependentUpon>Logout.aspx</DependentUpon>
     </Compile>
+    <Compile Include="App_Code\UIUtil.cs" />
     <Compile Include="BaoCaoQT\BC_PL02_Kinh_phi_da_su_dung_de_nghi_quyet_toan.aspx.cs">
       <DependentUpon>BC_PL02_Kinh_phi_da_su_dung_de_nghi_quyet_toan.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -764,6 +767,27 @@
     </Compile>
     <Compile Include="QuyetToan\PL05_DanhMucGiaTriCongTrinhHoanThanhGiamTruThanhToan.aspx.designer.cs">
       <DependentUpon>PL05_DanhMucGiaTriCongTrinhHoanThanhGiamTruThanhToan.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Test\tudm.aspx.cs">
+      <DependentUpon>tudm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Test\tudm.aspx.designer.cs">
+      <DependentUpon>tudm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\F104Grid.ascx.cs">
+      <DependentUpon>F104Grid.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\F104Grid.ascx.designer.cs">
+      <DependentUpon>F104Grid.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\TableGiaoKH.ascx.cs">
+      <DependentUpon>TableGiaoKH.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\TableGiaoKH.ascx.designer.cs">
+      <DependentUpon>TableGiaoKH.ascx</DependentUpon>
     </Compile>
     <Compile Include="WebMethod\F104.asmx.cs">
       <DependentUpon>F104.asmx</DependentUpon>
@@ -1004,13 +1028,6 @@
     <Compile Include="QuyetToan\PL02_kinh_phi_su_dung_quyet_toan.aspx.designer.cs">
       <DependentUpon>PL02_kinh_phi_su_dung_quyet_toan.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Test\Test.aspx.cs">
-      <DependentUpon>Test.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Test\Test.aspx.designer.cs">
-      <DependentUpon>Test.aspx</DependentUpon>
-    </Compile>
     <Compile Include="UC_Message.ascx.cs">
       <DependentUpon>UC_Message.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1018,11 +1035,11 @@
     <Compile Include="UC_Message.ascx.designer.cs">
       <DependentUpon>UC_Message.ascx</DependentUpon>
     </Compile>
-    <Compile Include="UserControl\MessageBoxUserControl.ascx.cs">
+    <Compile Include="UserControls\MessageBoxUserControl.ascx.cs">
       <DependentUpon>MessageBoxUserControl.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="UserControl\MessageBoxUserControl.ascx.designer.cs">
+    <Compile Include="UserControls\MessageBoxUserControl.ascx.designer.cs">
       <DependentUpon>MessageBoxUserControl.ascx</DependentUpon>
     </Compile>
     <Compile Include="DanhMuc\F004_Danh_sach_chuong_loai_khoan_muc.aspx.cs">
