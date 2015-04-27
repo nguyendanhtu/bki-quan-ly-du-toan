@@ -7,9 +7,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace QuanLyDuToan.Test {
+namespace QuanLyDuToan.UserControls {
     
     
-    public partial class Test {
+    public partial class MessageBoxUserControl {
     }
 }

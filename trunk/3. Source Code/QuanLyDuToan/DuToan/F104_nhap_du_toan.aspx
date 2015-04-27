@@ -35,6 +35,9 @@
 			background-color: white;
 			display: none;
 		}
+		.loai_nhiem_vu, .loai_khoan, .cong_trinh {
+			font-weight: bold;
+		}
 	</style>
 	<script src="../Scripts/jquery.bpopup.js"></script>
 	<script src="../Scripts/linq.js"></script>
@@ -202,7 +205,7 @@
 						</div>
 					</div>
 					<div class="col-sm-12" id="div_kinh_phi_nam_truoc_chuyen_sang">
-						<div class="col-sm-4 text-right">KP năm trước chuyển sang</div>
+						<div class="col-sm-4 text-right">KP năm trước CS</div>
 						<div class="col-sm-8">
 							<input type="text" id="m_txt_kinh_phi_nam_truoc_chuyen_sang" value="0" class="form-control   format_so_tien text-right" style="width: 100%" />
 						</div>
@@ -324,7 +327,7 @@
 		</div>
 	</div>
 	<div id='toolQuyetDinh' class='popup' style='width: 700px; display: none;z-index:1000' id_giao_dich='-1' ma_so_parent='-1'>
-		<h4 id='detail-title' class='text-center' style='border-bottom: 1px solid black; font-weight: bolder'>Sao chép ddanh sách dự án/Công trình (Khoản/Mục) từ Quyết định khác</h4>
+		<h4 id='detail-title' class='text-center' style='border-bottom: 1px solid black; font-weight: bolder'>Sao chép danh sách dự án/Công trình (Khoản/Mục) từ Quyết định khác</h4>
 
 		<div class='popup-content' style='margin: 30px'>
 			<div class='col-sm-12 row'>
