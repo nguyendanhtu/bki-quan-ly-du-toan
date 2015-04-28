@@ -69,6 +69,11 @@ namespace QuanLyDuToan.BaoCaoQT {
                                             .OrderByDescending(x => x)
                                             .ToList();
             }
+            //kiểm tra có dữ liệu trong database không
+            if (lst_nam.Count < 1)
+            {
+                lst_nam.Add(CIPConvert.ToDecimal(DateTime.Now.Year));
+            }
             m_ddl_chon_nam.DataSource = lst_nam;
             m_ddl_chon_nam.DataBind();
         }
