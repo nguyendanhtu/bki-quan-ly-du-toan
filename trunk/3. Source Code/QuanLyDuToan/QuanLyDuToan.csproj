@@ -74,6 +74,8 @@
     <Content Include="BaoCaoQT\BC_PL01_Tong_hop_tinh_hinh_kinh_phi_quyet_toan.aspx" />
     <Content Include="BaoCaoQT\BC_PL02_Kinh_phi_da_su_dung_de_nghi_quyet_toan.aspx" />
     <Content Include="BaoCaoQT\BC_PL03_Bao_cao_thuc_hien_xu_ly_kien_nghi_cua_kiem_toan_thanh_tra_tai_chinh.aspx" />
+    <Content Include="BaoCaoQT\BC_PL05_Danh_muc_giam_tru_quyet_toan.aspx" />
+    <Content Include="BaoCaoQT\BC_PL07_Bao_cao_quyet_toan_von_scbd_tu_quy_btdb.aspx" />
     <Content Include="BaoCao\F157_giao_ke_hoach_theo_quyet_dinh.aspx" />
     <Content Include="BaoCao\F257_giao_von_theo_quyet_dinh.aspx" />
     <Content Include="BaoCao\F357_giai_ngan_theo_uy_nhiem_chi.aspx" />
@@ -718,6 +720,20 @@
     </Compile>
     <Compile Include="BaoCaoQT\BC_PL03_Bao_cao_thuc_hien_xu_ly_kien_nghi_cua_kiem_toan_thanh_tra_tai_chinh.aspx.designer.cs">
       <DependentUpon>BC_PL03_Bao_cao_thuc_hien_xu_ly_kien_nghi_cua_kiem_toan_thanh_tra_tai_chinh.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BaoCaoQT\BC_PL05_Danh_muc_giam_tru_quyet_toan.aspx.cs">
+      <DependentUpon>BC_PL05_Danh_muc_giam_tru_quyet_toan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BaoCaoQT\BC_PL05_Danh_muc_giam_tru_quyet_toan.aspx.designer.cs">
+      <DependentUpon>BC_PL05_Danh_muc_giam_tru_quyet_toan.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BaoCaoQT\BC_PL07_Bao_cao_quyet_toan_von_scbd_tu_quy_btdb.aspx.cs">
+      <DependentUpon>BC_PL07_Bao_cao_quyet_toan_von_scbd_tu_quy_btdb.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BaoCaoQT\BC_PL07_Bao_cao_quyet_toan_von_scbd_tu_quy_btdb.aspx.designer.cs">
+      <DependentUpon>BC_PL07_Bao_cao_quyet_toan_von_scbd_tu_quy_btdb.aspx</DependentUpon>
     </Compile>
     <Compile Include="DanhMuc\F003_DanhMucChuongLoaiKhoanMucTieuMuc.aspx.cs">
       <DependentUpon>F003_DanhMucChuongLoaiKhoanMucTieuMuc.aspx</DependentUpon>
