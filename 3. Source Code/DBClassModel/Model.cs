@@ -30,7 +30,7 @@ namespace DBClassModel
 	#endregion
 
 	#region Gen class
-	
+
 	public class CM_COMPANY_INFO
 	{
 		public decimal ID { get; set; }
@@ -339,6 +339,12 @@ namespace DBClassModel
 
 		public string GHI_CHU_4 { get; set; }
 
+		public decimal TONG_MUC_DAU_TU { get; set; }
+
+		public decimal THOI_GIAN_THUC_HIEN { get; set; }
+
+		public string LOAI_CONG_TRINH { get; set; }
+
 	}
 	public class GD_CHI_TIET_GIAO_VON
 	{
@@ -445,6 +451,8 @@ namespace DBClassModel
 		public string GHI_CHU_3 { get; set; }
 
 		public string GHI_CHU_4 { get; set; }
+
+		public decimal SO_TIEN_DA_NGHIEM_THU_NS { get; set; }
 
 	}
 	public class GD_PL01_TONG_HOP_TINH_HINH_KINH_PHI_VA_QUYET_TOAN_CHI
@@ -555,63 +563,6 @@ namespace DBClassModel
 		public string GHI_CHU { get; set; }
 
 		public decimal GIA_TRI_QUYET_TOAN { get; set; }
-
-	}
-	public class GD_PL05_DANH_MUC_CONG_TRINH_HOAN_THANH_GIAM_TRU_THANH_TOAN
-	{
-		public decimal ID { get; set; }
-
-		public string STT { get; set; }
-
-		public string TEN_LOAI_NHIEM_VU { get; set; }
-
-		public string CONG_TRINH { get; set; }
-
-		public string DU_AN { get; set; }
-
-		public decimal ID_DON_VI { get; set; }
-
-		public decimal NAM { get; set; }
-
-		public decimal I_GTKLCTHTTN { get; set; }
-
-		public decimal I_GTKLDQT { get; set; }
-
-		public decimal II_GTKLCTHTTN { get; set; }
-
-		public decimal II_GTKLDQT { get; set; }
-
-		public decimal III_1_GTKLCTHTTN { get; set; }
-
-		public decimal III_1_GTKLDQT { get; set; }
-
-		public decimal III_2_GTKLCTHTTN { get; set; }
-
-		public decimal III_2_GTKLDQT { get; set; }
-
-		public decimal III_3_GTKLCTHTTN { get; set; }
-
-		public decimal III_3_GTKLDQT { get; set; }
-
-		public decimal IV_1_GTKLCTHTTN { get; set; }
-
-		public decimal IV_1_GTKLDQT { get; set; }
-
-		public decimal IV_2_GTKLCTHTTN { get; set; }
-
-		public decimal IV_2_GTKLDQT { get; set; }
-
-		public decimal IV_3_GTKLCTHTTN { get; set; }
-
-		public decimal IV_3_GTKLDQT { get; set; }
-
-		public decimal IV_4_GTKLCTHTTN { get; set; }
-
-		public decimal IV_4_GTKLDQT { get; set; }
-
-		public decimal V_GTKLCTHTTN { get; set; }
-
-		public decimal V_GTKLDQT { get; set; }
 
 	}
 	public class GRID_GIAI_NGAN
@@ -969,6 +920,14 @@ namespace DBClassModel
 		public decimal ID_DU_AN_MUC_TIEU_MUC { get; set; }
 
 		public string CONG_TRINH_KHOAN_YN { get; set; }
+
+		public decimal KH_NTCS_QBT { get; set; }
+
+		public decimal KH_NTCS_NS { get; set; }
+
+		public decimal GIA_TRI_THUC_HIEN_QBT { get; set; }
+
+		public decimal GIA_TRI_THUC_HIEN_NS { get; set; }
 
 	}
 	public class TP_DU_TOAN_THU_CHI_PHI_PHA_PHA
@@ -1502,6 +1461,12 @@ namespace DBClassModel
 
 		public string GHI_CHU_4 { get; set; }
 
+		public decimal TONG_MUC_DAU_TU { get; set; }
+
+		public decimal THOI_GIAN_THUC_HIEN { get; set; }
+
+		public string LOAI_CONG_TRINH { get; set; }
+
 		public string SO_QUYET_DINH { get; set; }
 
 		public string NOI_DUNG { get; set; }
@@ -1599,6 +1564,8 @@ namespace DBClassModel
 		public string GHI_CHU_3 { get; set; }
 
 		public string GHI_CHU_4 { get; set; }
+
+		public decimal SO_TIEN_DA_NGHIEM_THU_NS { get; set; }
 
 		public string TEN_CONG_TRINH { get; set; }
 

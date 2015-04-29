@@ -76,7 +76,6 @@ namespace SQLDataAccess
         public DbSet<V_USER_GROUP_QUYEN> V_USER_GROUP_QUYEN { get; set; }
         public DbSet<TP_PL01> TP_PL01 { get; set; }
         public DbSet<TP_PL03> TP_PL03 { get; set; }
-        public DbSet<GD_PL05_DANH_MUC_CONG_TRINH_HOAN_THANH_GIAM_TRU_THANH_TOAN> GD_PL05_DANH_MUC_CONG_TRINH_HOAN_THANH_GIAM_TRU_THANH_TOAN { get; set; }
         public DbSet<GD_DU_TOAN_THU_CHI_PHI_PHA> GD_DU_TOAN_THU_CHI_PHI_PHA { get; set; }
         public DbSet<TP_DU_TOAN_THU_CHI_PHI_PHA_PHA> TP_DU_TOAN_THU_CHI_PHI_PHA_PHA { get; set; }
         public DbSet<TP_PL02> TP_PL02 { get; set; }

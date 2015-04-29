@@ -112,9 +112,6 @@
     <Compile Include="GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN.cs">
       <DependentUpon>QuanLyDuToan.tt</DependentUpon>
     </Compile>
-    <Compile Include="GD_PL05_DANH_MUC_CONG_TRINH_HOAN_THANH_GIAM_TRU_THANH_TOAN.cs">
-      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
-    </Compile>
     <Compile Include="HT_BACKUP_HISTORY.cs">
       <DependentUpon>QuanLyDuToan.tt</DependentUpon>
     </Compile>

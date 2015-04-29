@@ -78,11 +78,11 @@ var F104 = {
 			F104.reloadGrid();
 			//visible tool Quyet dinh
 			if ($('#m_ddl_don_vi').val() == m_dc_id_don_vi) {
-				$('#m_ddl_quyet_dinh').css('width', '222px');
+				$('#m_ddl_quyet_dinh').css('width', '210px');
 				$('#toolButton').show();
 			}
 			else {
-				$('#m_ddl_quyet_dinh').css('width', '250px');
+				$('#m_ddl_quyet_dinh').css('width', '240px');
 				$('#toolButton').hide();
 			}
 			$('#m_ddl_quyet_dinh').select2("destroy");
@@ -241,6 +241,16 @@ var F104 = {
 				$('#m_txt_du_an').focus();
 				return false;
 			}
+			if ($('#m_txt_tong_muc_dau_tu').val() == "") {
+				alert('Bạn phải nhập Tổng mức đầu tư');
+				$('#m_txt_tong_muc_dau_tu').focus();
+				return false;
+			}
+			if ($('#m_txt_thoi_gian_thuc_hien').val() == "") {
+				alert('Bạn phải nhập Thời gian thực hiện');
+				$('#m_txt_thoi_gian_thuc_hien').focus();
+				return false;
+			}
 			if ($('#m_txt_chieu_dai_tuyen').val() == "") {
 				alert('Bạn phải nhập Chiều dài tuyến');
 				$('#m_txt_chieu_dai_tuyen').focus();
@@ -301,6 +311,8 @@ var F104 = {
 		$('#m_txt_chieu_dai_tuyen').val('0').val(gd.GHI_CHU_2);
 		$('#m_txt_kinh_phi_nam_truoc_chuyen_sang').val('0').val(getFormatedNumberString(gd.SO_TIEN_NAM_TRUOC_CHUYEN_SANG + "")).focus().change();
 		$('#m_txt_kinh_phi_quy_bao_tri').val('0').val(getFormatedNumberString(gd.SO_TIEN_QUY_BT + "")).change();
+		$('#m_txt_tong_muc_dau_tu').val('0').val(getFormatedNumberString(gd.TONG_MUC_DAU_TU + "")).change();
+		$('#m_txt_thoi_gian_thuc_hien').val('0').val(getFormatedNumberString(gd.THOI_GIAN_THUC_HIEN + "")).change();
 		$('#m_txt_kinh_phi_ngan_sach').val('0').val(getFormatedNumberString(gd.SO_TIEN_NS + "")).change();
 		$('#m_txt_ghi_chu').val('').val(gd.GHI_CHU);
 		$('#m_cmd_ghi_du_lieu').val('Cập nhật');
@@ -349,6 +361,8 @@ var F104 = {
 					, ip_str_CONG_TRINH: cong_trinh
 					, ip_dc_SO_TIEN_QUY_BT: $('#m_txt_kinh_phi_quy_bao_tri').val().split(',').join('').split('.').join('')
 					, ip_dc_SO_TIEN_NS: $('#m_txt_kinh_phi_ngan_sach').val().split(',').join('').split('.').join('')
+					, ip_dc_TONG_MUC_DAU_TU: $('#m_txt_tong_muc_dau_tu').val().split(',').join('').split('.').join('')
+					, ip_dc_THOI_GIAN_THUC_HIEN: $('#m_txt_thoi_gian_thuc_hien').val().split(',').join('').split('.').join('')
 					, ip_dc_ID_CHUONG: id_chuong
 					, ip_dc_ID_KHOAN: id_khoan
 					, ip_dc_ID_MUC: id_muc
@@ -385,7 +399,9 @@ var F104 = {
 				SO_KM: $(lst_td[i]).parent().find('.so_km').val(),
 				KP_NAM_TRUOC_CHUYEN_SANG: $(lst_td[i]).parent().find('.kinh_phi_nam_truoc_chuyen_sang').val(),
 				KP_NGAN_SACH: $(lst_td[i]).parent().find('.kinh_phi_ngan_sach').val(),
-				KP_QUY_BT: $(lst_td[i]).parent().find('.kinh_phi_quy_bao_tri').val()
+				KP_QUY_BT: $(lst_td[i]).parent().find('.kinh_phi_quy_bao_tri').val(),
+				TONG_MUC_DAU_TU: $(lst_td[i]).parent().find('.tong_mu_dau_tu').val(),
+				THOI_GIAN_THUC_HIEN: $(lst_td[i]).parent().find('.thoi_gian_thuc_hien').val()
 			}
 			lst_data.push(item_data);
 		}
@@ -414,8 +430,10 @@ var F104 = {
 		$('#m_txt_kinh_phi_quy_bao_tri').val('0');
 		$('#m_txt_tong').val('0');
 		$('#m_txt_ghi_chu').val('');
-		$('#m_txt_noi_dung_du_toan').val('0');
+		$('#m_txt_noi_dung_du_toan').val('');
 		$('#m_txt_kinh_phi_ngan_sach').val('0');
+		$('#m_txt_tong_muc_dau_tu').val('0');
+		$('#m_txt_thoi_gian_thuc_hien').val('0');
 		$('#m_cmd_ghi_du_lieu').val('Ghi dữ liệu');
 	},
 
@@ -518,7 +536,7 @@ var F104 = {
 			else if (lst[i].ID_LOAI_QUYET_DINH_GIAO == DIEU_CHINH) {
 				v_loai_quyet_dinh = "QĐ điều chỉnh";
 			}
-			html_qd += "<option value='" + lst[i].ID + "'>" + v_loai_quyet_dinh + "_" + lst[i].str_NGAY_THANG + "_" + lst[i].SO_QUYET_DINH + "_" + lst[i].NOI_DUNG + "</option>";
+			html_qd += "<option value='" + lst[i].ID + "'>" + v_loai_quyet_dinh + " _" + lst[i].str_NGAY_THANG + " _" + lst[i].SO_QUYET_DINH + " _" + lst[i].NOI_DUNG + "</option>";
 		}
 		if (isSelect2) {
 			$(op_ddl_quyet_dinh).empty().append(html_qd).change().select2();
@@ -666,6 +684,8 @@ var F104 = {
 			var txt_children_kinh_phi_nam_truoc_chuyen_sang = $(lst_tr[i]).find('.kinh_phi_nam_truoc_chuyen_sang ');
 			var txt_children_kinh_phi_ngan_sach = $(lst_tr[i]).find('.kinh_phi_ngan_sach');
 			var txt_children_kinh_phi_quy_bao_tri = $(lst_tr[i]).find('.kinh_phi_quy_bao_tri');
+			var txt_children_tong_muc_dau_tu = $(lst_tr[i]).find('.tong_muc_dau_tu');
+			var txt_children_thoi_gian_thuc_hien = $(lst_tr[i]).find('.thoi_gian_thuc_hien');
 			$(txt_children_kinh_phi_nam_truoc_chuyen_sang).bind("change keyup keydown", function () {
 				var kp_ntcs = $(this).parent().parent().find('.kinh_phi_nam_truoc_chuyen_sang').val();
 				var kp_ns = $(this).parent().parent().find('.kinh_phi_ngan_sach').val();
@@ -699,6 +719,7 @@ var F104 = {
 				+ parseFloat(kp_qbt.split(',').join('').split('.').join(''));
 				$(txt_tong).val(getFormatedNumberString(tong_grid));
 			});
+
 		}
 
 	},
@@ -706,6 +727,8 @@ var F104 = {
 		//define parent row
 		var tr_parent = $('#F104 tbody tr').find("[ma_so='" + ma_so_parent + "']");
 		var txt_parent_so_km = $(tr_parent).parent().find('.so_km');
+		var txt_parent_tong_muc_dau_tu = $(tr_parent).find('.tong_muc_dau_tu');
+		var txt_parent_thoi_gian_thuc_hien = $(tr_parent).find('.thoi_gian_thuc_hien');
 		var txt_parent_kinh_phi_nam_truoc_chuyen_sang = $(tr_parent).parent().find('.kinh_phi_nam_truoc_chuyen_sang ');
 		var txt_parent_kinh_phi_ngan_sach = $(tr_parent).parent().find('.kinh_phi_ngan_sach');
 		var txt_parent_kinh_phi_quy_bao_tri = $(tr_parent).parent().find('.kinh_phi_quy_bao_tri ');
@@ -717,6 +740,9 @@ var F104 = {
 			var lst_children = $('#F104 tbody tr').find("[ma_so_parent='" + ma_so_parent + "']");
 			var txt_children_so_km = $(lst_children[i]).parent().find('.so_km');
 			var txt_children_kinh_phi_nam_truoc_chuyen_sang = $(lst_children[i]).parent().find('.kinh_phi_nam_truoc_chuyen_sang ');
+			var txt_children_tong_muc_dau_tu = $(lst_children[i]).find('.tong_muc_dau_tu');
+			var txt_children_thoi_gian_thuc_hien = $(lst_children[i]).find('.thoi_gian_thuc_hien');
+			var txt_parent_kinh_phi_nam_truoc_chuyen_sang = $(tr_parent).parent().find('.kinh_phi_nam_truoc_chuyen_sang ');
 			var txt_children_kinh_phi_ngan_sach = $(lst_children[i]).parent().find('.kinh_phi_ngan_sach');
 			var txt_children_kinh_phi_quy_bao_tri = $(lst_children[i]).parent().find('.kinh_phi_quy_bao_tri');
 			var txt_children_grid_tong = $(lst_children[i]).parent().find('.grid_tong');
@@ -728,6 +754,22 @@ var F104 = {
 					tong += parseFloat($($(lst_children[j]).parent().find('.so_km')).val());
 				}
 				$(txt_parent_so_km).val(tong).change();
+			});
+			//Tong muc dau tu
+			$(txt_children_tong_muc_dau_tu).bind("change keyup keydown", function () {
+				var tong = 0;
+				for (var j = 0; j < lst_children.length; j++) {
+					tong += parseFloat($($(lst_children[j]).parent().find('.tong_muc_dau_tu')).val());
+				}
+				$(txt_parent_tong_muc_dau_tu).val(tong).change();
+			});
+			//Thoi gian thuc hien
+			$(txt_children_thoi_gian_thuc_hien).bind("change keyup keydown", function () {
+				var tong = 0;
+				for (var j = 0; j < lst_children.length; j++) {
+					tong += parseFloat($($(lst_children[j]).parent().find('.thoi_gian_thuc_hien')).val());
+				}
+				$(txt_parent_thoi_gian_thuc_hien).val(tong).change();
 			});
 			//Kinh phi nam truoc chuyen sang
 			$(txt_children_kinh_phi_nam_truoc_chuyen_sang).bind("change keyup keydown", function () {
