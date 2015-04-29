@@ -334,12 +334,18 @@ namespace WebUS
 		public void get_grid_khoi_luong(DataSet op_ds
 			, decimal ip_dc_id_don_vi
 			, DateTime ip_dat_ngay_nhap
+			, DateTime ip_dat_dau_nam
+			, DateTime ip_dat_cuoi_nam
+			, string ip_str_nguon_ns
 			, decimal ip_dc_id_loai_nv
 			)
 		{
 			CStoredProc v_sp = new CStoredProc("pr_F404_nhap_khoi_luong");
 			v_sp.addDecimalInputParam("@ip_dc_id_don_vi", ip_dc_id_don_vi);
+			v_sp.addDatetimeInputParam("@ip_dat_dau_nam", ip_dat_dau_nam);
+			v_sp.addDatetimeInputParam("@ip_dat_cuoi_nam", ip_dat_cuoi_nam);
 			v_sp.addDatetimeInputParam("@ip_dat_ngay_nhap", ip_dat_ngay_nhap);
+			v_sp.addNVarcharInputParam("@ip_str_nguon_ns", ip_str_nguon_ns);
 			v_sp.addDecimalInputParam("@ip_dc_id_loai_nhiem_vu", ip_dc_id_loai_nv);
 
 			v_sp.fillDataSetByCommand(this, op_ds);
