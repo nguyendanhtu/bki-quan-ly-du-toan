@@ -51,8 +51,7 @@ namespace QuanLyDuToan.DuToan
 		{
 			m_lst_du_toan_thu_chi_phi_pha = ip_db.GD_DU_TOAN_THU_CHI_PHI_PHA
 											.Where(x => x.ID_DON_VI == ip_dc_id_don_vi && x.NAM == ip_dc_nam)
-											.OrderBy(x => x.MA_SO.Substring(0, 4))
-											.ThenBy(x=>x.MA_SO_PARENT)
+											.OrderBy(x => x.MA_SO)
 											.ThenBy(x => x.TT)
 											.ToList();
 		}

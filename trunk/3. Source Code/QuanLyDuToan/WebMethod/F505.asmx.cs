@@ -19,6 +19,12 @@ namespace QuanLyDuToan.WebMethod
 	// [System.Web.Script.Services.ScriptService]
 	public class F505 : System.Web.Services.WebService
 	{
+		public string genMaSO(string ip_str_ma_so_parent)
+		{
+			string v_str_ma_so = "";
+
+			return v_str_ma_so;
+		}
 
 		public static decimal getMoney_number(object ip_str_so_tien)
 		{
@@ -103,7 +109,7 @@ namespace QuanLyDuToan.WebMethod
 			GD_DU_TOAN_THU_CHI_PHI_PHA gd = new GD_DU_TOAN_THU_CHI_PHI_PHA();
 			gd.ID_DON_VI = ip_dc_id_don_vi;
 			gd.ID_QUYET_DINH = ip_dc_id_quyet_dinh;
-			gd.MA_SO = (v_i_ma_so + 1).ToString();
+			gd.MA_SO = genMaSO(ip_str_ma_so_parent);
 			gd.MA_SO_PARENT = ip_str_ma_so_parent;
 			gd.TT = ip_str_tt;
 			gd.HANG_MUC = ip_str_hang_muc;

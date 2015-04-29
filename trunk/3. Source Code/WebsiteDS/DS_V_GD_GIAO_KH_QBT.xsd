@@ -12,7 +12,7 @@
               <DbSource ConnectionRef="BKI_QLDTConnectionString (Settings)" DbObjectName="BKI_QLDT.dbo.V_GD_GIAO_KH_QBT" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT ID, ID_QUYET_DINH, ID_DON_VI, ID_CONG_TRINH, SO_TIEN_QUY_BT, SO_TIEN_NS, ID_CHUONG, ID_KHOAN, ID_MUC, GHI_CHU, ID_TIEU_MUC, SO_TIEN_NAM_TRUOC_CHUYEN_SANG, ID_LOAI_NHIEM_VU, ID_DU_AN, TU_CHU_YN, GHI_CHU_1, GHI_CHU_2, GHI_CHU_3, GHI_CHU_4, SO_QUYET_DINH, NOI_DUNG, NGAY_THANG, ID_LOAI_QUYET_DINH, ID_LOAI_QUYET_DINH_GIAO, TEN_CONG_TRINH, TEN_DU_AN, TEN_NGAN, STT FROM dbo.V_GD_GIAO_KH_QBT</CommandText>
+                    <CommandText>SELECT ID, ID_QUYET_DINH, ID_DON_VI, ID_CONG_TRINH, SO_TIEN_QUY_BT, SO_TIEN_NS, ID_CHUONG, ID_KHOAN, ID_MUC, GHI_CHU, ID_TIEU_MUC, SO_TIEN_NAM_TRUOC_CHUYEN_SANG, ID_LOAI_NHIEM_VU, ID_DU_AN, TU_CHU_YN, GHI_CHU_1, GHI_CHU_2, GHI_CHU_3, GHI_CHU_4, TONG_MUC_DAU_TU, THOI_GIAN_THUC_HIEN, SO_QUYET_DINH, NOI_DUNG, NGAY_THANG, ID_LOAI_QUYET_DINH, ID_LOAI_QUYET_DINH_GIAO, TEN_CONG_TRINH, TEN_DU_AN, MA_LOAI_KHOAN, TEN_NGAN, STT FROM dbo.V_GD_GIAO_KH_QBT</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -38,6 +38,8 @@
               <Mapping SourceColumn="GHI_CHU_2" DataSetColumn="GHI_CHU_2" />
               <Mapping SourceColumn="GHI_CHU_3" DataSetColumn="GHI_CHU_3" />
               <Mapping SourceColumn="GHI_CHU_4" DataSetColumn="GHI_CHU_4" />
+              <Mapping SourceColumn="TONG_MUC_DAU_TU" DataSetColumn="TONG_MUC_DAU_TU" />
+              <Mapping SourceColumn="THOI_GIAN_THUC_HIEN" DataSetColumn="THOI_GIAN_THUC_HIEN" />
               <Mapping SourceColumn="SO_QUYET_DINH" DataSetColumn="SO_QUYET_DINH" />
               <Mapping SourceColumn="NOI_DUNG" DataSetColumn="NOI_DUNG" />
               <Mapping SourceColumn="NGAY_THANG" DataSetColumn="NGAY_THANG" />
@@ -45,6 +47,7 @@
               <Mapping SourceColumn="ID_LOAI_QUYET_DINH_GIAO" DataSetColumn="ID_LOAI_QUYET_DINH_GIAO" />
               <Mapping SourceColumn="TEN_CONG_TRINH" DataSetColumn="TEN_CONG_TRINH" />
               <Mapping SourceColumn="TEN_DU_AN" DataSetColumn="TEN_DU_AN" />
+              <Mapping SourceColumn="MA_LOAI_KHOAN" DataSetColumn="MA_LOAI_KHOAN" />
               <Mapping SourceColumn="TEN_NGAN" DataSetColumn="TEN_NGAN" />
               <Mapping SourceColumn="STT" DataSetColumn="STT" />
             </Mappings>
@@ -61,7 +64,7 @@
         <xs:element name="V_GD_GIAO_KH_QBT" msprop:Generator_TableClassName="V_GD_GIAO_KH_QBTDataTable" msprop:Generator_TableVarName="tableV_GD_GIAO_KH_QBT" msprop:Generator_TablePropName="V_GD_GIAO_KH_QBT" msprop:Generator_RowDeletingName="V_GD_GIAO_KH_QBTRowDeleting" msprop:Generator_RowChangingName="V_GD_GIAO_KH_QBTRowChanging" msprop:Generator_RowEvHandlerName="V_GD_GIAO_KH_QBTRowChangeEventHandler" msprop:Generator_RowDeletedName="V_GD_GIAO_KH_QBTRowDeleted" msprop:Generator_UserTableName="V_GD_GIAO_KH_QBT" msprop:Generator_RowChangedName="V_GD_GIAO_KH_QBTRowChanged" msprop:Generator_RowEvArgName="V_GD_GIAO_KH_QBTRowChangeEvent" msprop:Generator_RowClassName="V_GD_GIAO_KH_QBTRow">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:decimal" />
+              <xs:element name="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:decimal" />
               <xs:element name="ID_QUYET_DINH" msprop:Generator_ColumnVarNameInTable="columnID_QUYET_DINH" msprop:Generator_ColumnPropNameInRow="ID_QUYET_DINH" msprop:Generator_ColumnPropNameInTable="ID_QUYET_DINHColumn" msprop:Generator_UserColumnName="ID_QUYET_DINH" type="xs:decimal" />
               <xs:element name="ID_DON_VI" msprop:Generator_ColumnVarNameInTable="columnID_DON_VI" msprop:Generator_ColumnPropNameInRow="ID_DON_VI" msprop:Generator_ColumnPropNameInTable="ID_DON_VIColumn" msprop:Generator_UserColumnName="ID_DON_VI" type="xs:decimal" />
               <xs:element name="ID_CONG_TRINH" msprop:Generator_ColumnVarNameInTable="columnID_CONG_TRINH" msprop:Generator_ColumnPropNameInRow="ID_CONG_TRINH" msprop:Generator_ColumnPropNameInTable="ID_CONG_TRINHColumn" msprop:Generator_UserColumnName="ID_CONG_TRINH" type="xs:decimal" minOccurs="0" />
@@ -116,6 +119,8 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="TONG_MUC_DAU_TU" msprop:Generator_ColumnVarNameInTable="columnTONG_MUC_DAU_TU" msprop:Generator_ColumnPropNameInRow="TONG_MUC_DAU_TU" msprop:Generator_ColumnPropNameInTable="TONG_MUC_DAU_TUColumn" msprop:Generator_UserColumnName="TONG_MUC_DAU_TU" type="xs:decimal" minOccurs="0" />
+              <xs:element name="THOI_GIAN_THUC_HIEN" msprop:Generator_ColumnVarNameInTable="columnTHOI_GIAN_THUC_HIEN" msprop:Generator_ColumnPropNameInRow="THOI_GIAN_THUC_HIEN" msprop:Generator_ColumnPropNameInTable="THOI_GIAN_THUC_HIENColumn" msprop:Generator_UserColumnName="THOI_GIAN_THUC_HIEN" type="xs:decimal" minOccurs="0" />
               <xs:element name="SO_QUYET_DINH" msprop:Generator_ColumnVarNameInTable="columnSO_QUYET_DINH" msprop:Generator_ColumnPropNameInRow="SO_QUYET_DINH" msprop:Generator_ColumnPropNameInTable="SO_QUYET_DINHColumn" msprop:Generator_UserColumnName="SO_QUYET_DINH">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -143,7 +148,14 @@
               <xs:element name="TEN_DU_AN" msprop:Generator_ColumnVarNameInTable="columnTEN_DU_AN" msprop:Generator_ColumnPropNameInRow="TEN_DU_AN" msprop:Generator_ColumnPropNameInTable="TEN_DU_ANColumn" msprop:Generator_UserColumnName="TEN_DU_AN">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:maxLength value="250" />
+                    <xs:maxLength value="298" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MA_LOAI_KHOAN" msprop:Generator_ColumnVarNameInTable="columnMA_LOAI_KHOAN" msprop:Generator_ColumnPropNameInRow="MA_LOAI_KHOAN" msprop:Generator_ColumnPropNameInTable="MA_LOAI_KHOANColumn" msprop:Generator_UserColumnName="MA_LOAI_KHOAN">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="38" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
@@ -166,9 +178,5 @@
         </xs:element>
       </xs:choice>
     </xs:complexType>
-    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
-      <xs:selector xpath=".//mstns:V_GD_GIAO_KH_QBT" />
-      <xs:field xpath="mstns:ID" />
-    </xs:unique>
   </xs:element>
 </xs:schema>

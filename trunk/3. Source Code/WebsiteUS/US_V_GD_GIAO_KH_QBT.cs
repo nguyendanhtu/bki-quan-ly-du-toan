@@ -440,6 +440,50 @@ namespace WebUS
 			pm_objDR["GHI_CHU_4"] = System.Convert.DBNull;
 		}
 
+		public decimal dcTONG_MUC_DAU_TU
+		{
+			get
+			{
+				return CNull.RowNVLDecimal(pm_objDR, "TONG_MUC_DAU_TU", IPConstants.c_DefaultDecimal);
+			}
+			set
+			{
+				pm_objDR["TONG_MUC_DAU_TU"] = value;
+			}
+		}
+
+		public bool IsTONG_MUC_DAU_TUNull()
+		{
+			return pm_objDR.IsNull("TONG_MUC_DAU_TU");
+		}
+
+		public void SetTONG_MUC_DAU_TUNull()
+		{
+			pm_objDR["TONG_MUC_DAU_TU"] = System.Convert.DBNull;
+		}
+
+		public decimal dcTHOI_GIAN_THUC_HIEN
+		{
+			get
+			{
+				return CNull.RowNVLDecimal(pm_objDR, "THOI_GIAN_THUC_HIEN", IPConstants.c_DefaultDecimal);
+			}
+			set
+			{
+				pm_objDR["THOI_GIAN_THUC_HIEN"] = value;
+			}
+		}
+
+		public bool IsTHOI_GIAN_THUC_HIENNull()
+		{
+			return pm_objDR.IsNull("THOI_GIAN_THUC_HIEN");
+		}
+
+		public void SetTHOI_GIAN_THUC_HIENNull()
+		{
+			pm_objDR["THOI_GIAN_THUC_HIEN"] = System.Convert.DBNull;
+		}
+
 		public string strSO_QUYET_DINH
 		{
 			get
@@ -592,6 +636,28 @@ namespace WebUS
 		public void SetTEN_DU_ANNull()
 		{
 			pm_objDR["TEN_DU_AN"] = System.Convert.DBNull;
+		}
+
+		public string strMA_LOAI_KHOAN
+		{
+			get
+			{
+				return CNull.RowNVLString(pm_objDR, "MA_LOAI_KHOAN", IPConstants.c_DefaultString);
+			}
+			set
+			{
+				pm_objDR["MA_LOAI_KHOAN"] = value;
+			}
+		}
+
+		public bool IsMA_LOAI_KHOANNull()
+		{
+			return pm_objDR.IsNull("MA_LOAI_KHOAN");
+		}
+
+		public void SetMA_LOAI_KHOANNull()
+		{
+			pm_objDR["MA_LOAI_KHOAN"] = System.Convert.DBNull;
 		}
 
 		public string strTEN_NGAN
