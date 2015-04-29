@@ -17,6 +17,7 @@ namespace QuanLyDuToan.DuToan
 	{
 		DS_GD_CHI_TIET_GIAO_VON m_ds = new DS_GD_CHI_TIET_GIAO_VON();
 		US_GD_CHI_TIET_GIAO_VON m_us = new US_GD_CHI_TIET_GIAO_VON();
+		string m_str_nguon_ns = "N";
 
 		public class LOAI_FORM
 		{
@@ -30,12 +31,23 @@ namespace QuanLyDuToan.DuToan
 
 		private void load_data_to_grid()
 		{
+
 			m_lbl_mess_qd.Text = "";
 			decimal v_dc_id_quyet_dinh = -1;
 
 			var v_id_loai_nv = string.IsNullOrEmpty(m_ddl_loai_nhiem_vu.SelectedValue) ? -1 : CIPConvert.ToDecimal(m_ddl_loai_nhiem_vu.SelectedValue);
 
 			load_data_to_grid(v_dc_id_quyet_dinh, v_id_loai_nv, -1, -1);
+			if (m_str_nguon_ns.Equals(STR_NGUON.NGAN_SACH))
+			{
+				m_grv.Columns[2].Visible = false;
+				m_grv.Columns[3].Visible = true;
+			}
+			else if (m_str_nguon_ns.Equals(STR_NGUON.QUY_BAO_TRI))
+			{
+				m_grv.Columns[3].Visible = false;
+				m_grv.Columns[2].Visible = true;
+			}
 		}
 
 		private void load_data_to_grid(decimal ip_id_quyet_dinh, decimal ip_id_loai_nhiem_vu = -1,
@@ -73,6 +85,9 @@ namespace QuanLyDuToan.DuToan
 				v_ds
 				, CIPConvert.ToDecimal(m_ddl_don_vi.SelectedValue)
 				, v_dat_now
+				, v_dat_dau_nam
+				, v_dat_cuoi_nam
+				, m_str_nguon_ns
 				, CIPConvert.ToDecimal(m_ddl_loai_nhiem_vu.SelectedValue));
 
 			m_grv.DataSource = v_ds.Tables[0];
@@ -110,8 +125,8 @@ namespace QuanLyDuToan.DuToan
 		private void save_data_in_grid(GridView ip_grv)
 		{
 			GridViewRow[] v_arr_gvr = new GridViewRow[ip_grv.Rows.Count];
-			System.Web.UI.WebControls.TextBox v_txt_so_chua_giai_ngan_cho_nha_thau;
-			System.Web.UI.WebControls.TextBox v_txt_gia_tri_thuc_hien_da_nghiem_thu;
+			System.Web.UI.WebControls.TextBox m_txt_so_tien_ngan_sach_grid;
+			System.Web.UI.WebControls.TextBox m_txt_so_tien_quy_bao_tri_grid;
 			LinkButton v_lb_id_gd;
 
 			ip_grv.Rows.CopyTo(v_arr_gvr, 0);
@@ -119,10 +134,8 @@ namespace QuanLyDuToan.DuToan
 			for (int i = 0; i < v_arr_gvr.Length; i++)
 			{
 				//1. Duyet tung dong cua gridview, lay du lieu tu textbox
-				v_txt_gia_tri_thuc_hien_da_nghiem_thu = (System.Web.UI.WebControls.TextBox)v_arr_gvr[i].FindControl("m_txt_so_tien_ngan_sach_grid");
-				v_txt_so_chua_giai_ngan_cho_nha_thau = new TextBox();
-				v_txt_so_chua_giai_ngan_cho_nha_thau.Text = "0";
-				//(System.Web.UI.WebControls.TextBox)v_arr_gvr[i].FindControl("m_txt_so_tien_quy_bao_tri_grid");
+				m_txt_so_tien_ngan_sach_grid = (System.Web.UI.WebControls.TextBox)v_arr_gvr[i].FindControl("m_txt_so_tien_ngan_sach_grid");
+				m_txt_so_tien_quy_bao_tri_grid = (System.Web.UI.WebControls.TextBox)v_arr_gvr[i].FindControl("m_txt_so_tien_quy_bao_tri_grid");
 				v_lb_id_gd = (LinkButton)v_arr_gvr[i].FindControl("m_lbl_delete");
 				if (v_lb_id_gd.CommandArgument.ToString().Equals("") | v_lb_id_gd.CommandArgument.ToString().Equals("-1"))
 				{
@@ -134,8 +147,8 @@ namespace QuanLyDuToan.DuToan
 					{
 						//update du lieu vao csdl
 						US_GD_KHOI_LUONG v_us = new US_GD_KHOI_LUONG(CIPConvert.ToDecimal(v_lb_id_gd.CommandArgument.ToString()));
-						v_us.dcSO_TIEN_DA_NGHIEM_THU = WebformControls.get_so_tien(v_txt_gia_tri_thuc_hien_da_nghiem_thu.Text);
-						v_us.dcSO_TIEN_CHUA_GIAI_NGAN = WebformControls.get_so_tien(v_txt_so_chua_giai_ngan_cho_nha_thau.Text);
+						v_us.dcSO_TIEN_DA_NGHIEM_THU = WebformControls.get_so_tien(m_txt_so_tien_quy_bao_tri_grid.Text);
+						v_us.dcSO_TIEN_DA_NGHIEM_THU_NS = WebformControls.get_so_tien(m_txt_so_tien_ngan_sach_grid.Text);
 						v_us.Update();
 					}
 					catch (Exception)
@@ -183,7 +196,7 @@ namespace QuanLyDuToan.DuToan
 		private void load_data_to_cbo()
 		{
 			//WinFormControls.load_data_to_cbo_quyet_dinh_by_loai_quyet_dinh(WinFormControls.LOAI_QUYET_DINH.GIAO_VON, m_ddl_quyet_dinh);
-			WebformControls.load_data_to_ddl_loai_nhiem_vu(m_ddl_loai_nhiem_vu);
+			WebformControls.load_data_to_ddl_loai_nhiem_vu(m_ddl_loai_nhiem_vu, false,true);
 
 		}
 
@@ -196,11 +209,24 @@ namespace QuanLyDuToan.DuToan
 		{
 			try
 			{
+				m_str_nguon_ns = WebformFunctions.getValue_from_query_string<string>(
+					this
+					, FormInfo.QueryString.NGUON_NGAN_SACH
+					, STR_NGUON.QUY_BAO_TRI);
+
 				m_lbl_mess_grid.Text = "";
 				if (!IsPostBack)
 				{
 					m_txt_ngay_thang.Text = CIPConvert.ToStr(DateTime.Now, "dd/MM/yyyy");
 					load_data_to_cbo();
+					if (m_str_nguon_ns.Equals(STR_NGUON.QUY_BAO_TRI))
+					{
+						m_lbl_title.Text = "Giá trị thực hiện đã nghiệm thu A-B - Nguồn Quỹ bảo trì";
+					}
+					else if (m_str_nguon_ns.Equals(STR_NGUON.NGAN_SACH))
+					{
+						m_lbl_title.Text = "Giá trị thực hiện đã nghiệm thu A-B - Nguồn Ngân sách";
+					}
 					set_inital_form_mode();
 					if (Request.QueryString["ip_dc_id_quyet_dinh"] != null)
 					{
@@ -215,6 +241,7 @@ namespace QuanLyDuToan.DuToan
 				CSystemLog_301.ExceptionHandle(this, v_e);
 			}
 		}
+
 		protected void m_cmd_tim_kiem_Click(object sender, EventArgs e)
 		{
 			try
