@@ -16,7 +16,7 @@ namespace QuanLyDuToan.BaoCaoQT
         #endregion
 
         #region Data Member
-        public List<GD_PL05_DANH_MUC_CONG_TRINH_HOAN_THANH_GIAM_TRU_THANH_TOAN> lst_PL05;
+        public List<GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN> lst_PL04;
         public List<decimal?> lst_nam;
         public List<ItemBaoCaoDonVi> lst_don_vi;
         public decimal ini_nam = CIPConvert.ToDecimal(DateTime.Now.Year);
@@ -41,11 +41,11 @@ namespace QuanLyDuToan.BaoCaoQT
             decimal v_dc_nam = CIPConvert.ToDecimal(m_ddl_chon_nam.SelectedValue);
             using (BKI_QLDTEntities db = new BKI_QLDTEntities())
             {
-                lst_PL05 = db.GD_PL05_DANH_MUC_CONG_TRINH_HOAN_THANH_GIAM_TRU_THANH_TOAN
+                lst_PL04 = db.GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN
                                         .Where(x => x.NAM == v_dc_nam)
                                         .ToList();
 
-                lst_don_vi = db.GD_PL05_DANH_MUC_CONG_TRINH_HOAN_THANH_GIAM_TRU_THANH_TOAN
+                lst_don_vi = db.GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN
                                         .Select(x => new ItemBaoCaoDonVi { ID_DON_VI = x.DM_DON_VI.ID, TEN_DON_VI = x.DM_DON_VI.TEN_DON_VI })
                                         .Distinct()
                                         .ToList();
@@ -55,7 +55,7 @@ namespace QuanLyDuToan.BaoCaoQT
         {
             using (BKI_QLDTEntities db = new BKI_QLDTEntities())
             {
-                lst_nam = db.GD_PL05_DANH_MUC_CONG_TRINH_HOAN_THANH_GIAM_TRU_THANH_TOAN
+                lst_nam = db.GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN
                                             .Select(x => x.NAM)
                                             .Distinct()
                                             .OrderByDescending(x => x)
