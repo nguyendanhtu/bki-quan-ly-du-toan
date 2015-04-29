@@ -43,5 +43,8 @@ namespace SQLDataAccess
         public string MA_LOAI_KHOAN { get; set; }
         public string TEN_NGAN { get; set; }
         public string STT { get; set; }
+        public Nullable<decimal> TONG_MUC_DAU_TU { get; set; }
+        public Nullable<decimal> THOI_GIAN_THUC_HIEN { get; set; }
+        public string LOAI_CONG_TRINH { get; set; }
     }
 }

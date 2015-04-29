@@ -114,6 +114,8 @@ namespace QuanLyDuToan.WebMethod
 					, decimal ip_dc_ID_QUYET_DINH
 					, decimal ip_dc_ID_DON_VI
 					, string ip_str_CONG_TRINH
+					, decimal ip_dc_TONG_MUC_DAU_TU
+					, decimal ip_dc_THOI_GIAN_THUC_HIEN
 					, decimal ip_dc_SO_TIEN_QUY_BT
 					, decimal ip_dc_SO_TIEN_NS
 					, decimal ip_dc_ID_CHUONG
@@ -144,6 +146,8 @@ namespace QuanLyDuToan.WebMethod
 			gd.ID_DON_VI = ip_dc_ID_DON_VI;
 			gd.SO_TIEN_QUY_BT = ip_dc_SO_TIEN_QUY_BT;
 			gd.SO_TIEN_NS = ip_dc_SO_TIEN_NS;
+			gd.TONG_MUC_DAU_TU = ip_dc_TONG_MUC_DAU_TU;
+			gd.THOI_GIAN_THUC_HIEN = ip_dc_THOI_GIAN_THUC_HIEN;
 			if (ip_dc_ID_CHUONG == -1) gd.ID_CHUONG = null;
 			else gd.ID_CHUONG = ip_dc_ID_CHUONG;
 			if (ip_dc_ID_KHOAN == -1) gd.ID_KHOAN = null;
@@ -221,81 +225,9 @@ namespace QuanLyDuToan.WebMethod
 			, decimal ip_dc_ID_DON_VI
 			, string ip_str_nguon)
 		{
-			List<pr_F104_nhap_du_toan_ke_hoach_Result> m_lst_giao_kh;
 			List<DBClassModel.GD_CHI_TIET_GIAO_KH> m_lst_gd;
 
-			//load data to list to gen grid
-			decimal v_id_dc_reported_user = 234234234;
-			//US_GRID_GIAO_KH v_us = new US_GRID_GIAO_KH();
-			//DataSet v_ds = new DataSet();
-			//v_ds.Tables.Add(new DataTable());
-			//v_us.get_grid_giao_kh_qbt(v_ds
-			//	, ip_dc_ID_QUYET_DINH
-			//	, ip_str_nguon
-			//	, v_id_dc_reported_user
-			//	, ip_dc_ID_DON_VI);
-			//m_lst_giao_kh = v_ds.Tables[0]
-			//				.AsEnumerable()
-			//				.Select(x => new pr_F104_nhap_du_toan_ke_hoach_Result
-			//				{
-			//					ID = (x.IsNull("ID") ? -1 : CIPConvert.ToDecimal(x["ID"])),
-			//					ID_CHA = (x.IsNull("ID_CHA") ? -1 : CIPConvert.ToDecimal(x["ID_CHA"])),
-			//					ID_DON_VI = (x.IsNull("ID_DON_VI") ? -1 : CIPConvert.ToDecimal(x["ID_DON_VI"])),
-			//					ID_REPORTED_USER = (x.IsNull("ID_REPORTED_USER") ? -1 : CIPConvert.ToDecimal(x["ID_REPORTED_USER"])),
-			//					NOI_DUNG = x["NOI_DUNG"].ToString(),
-			//					NS = (x.IsNull("NS") ? 0 : CIPConvert.ToDecimal(x["NS"])),
-			//					NTCT = (x.IsNull("NTCT") ? 0 : CIPConvert.ToDecimal(x["NTCT"])),
-			//					QUY = (x.IsNull("QUY") ? 0 : CIPConvert.ToDecimal(x["QUY"])),
-			//					REPORT_LEVEL = x["REPORT_LEVEL"].ToString(),
-			//					So_KM = (x.IsNull("So_KM") ? 0 : CIPConvert.ToDecimal(x["So_KM"])),
-			//					STT = x["STT"].ToString(),
-			//					TONG = (x.IsNull("TONG") ? 0 : CIPConvert.ToDecimal(x["TONG"])),
-			//				})
-			//				.ToList();
 			string grid = "";
-//			foreach (var gd in m_lst_giao_kh)
-//			{
-//				grid += @"<tr style='" + (gd.ID == -1 ? "font-weight:bold" : "") + @"'>
-//								<!--Xoá-->
-//								<td style='width: 90px' class='text-center delete'>
-//									";
-//				if (gd.ID != -1)
-//				{
-//					grid += @"<input type='button' class='xoa_giao_dich btn btn-xs btn-danger private_don_vi' value='Xoá' onclick='F104.deleteGiaoDich(" + gd.ID + ")' />";
-//				}
-
-//				if (gd.ID != -1)
-//				{
-//					grid += @"<input type='button' class='sua_giao_dich btn btn-xs btn-primary' value='Sửa' onclick='F104.editGiaoDich(" + gd.ID + @")' />";
-//				}
-//				grid += @"</td>
-//								<!--Nhiem vu chi-->
-//								<td ma_so='" + genMaSo(gd) + @"' id_giao_dich='" + gd.ID + @"' ma_so_parent='" + genMaSoParent(gd) + @"' class='lnv'>"
-//					+ gd.NOI_DUNG + @"
-//								</td>
-//								<!--Chiều dài tuyến-->
-//								<td class='text-right' style='width: 50px'>
-//									<input type='text' class='so_km form-control text-right' value='" + IP.Core.IPCommon.CIPConvert.ToStr(gd.So_KM, "#,##0.##") + @"' />
-//								</td>
-//								<!--Kinh phi Nam truoc chuyen sang-->
-//								<td class='text-right' style='width: 100px'>
-//									<input type='text' class='kinh_phi_nam_truoc_chuyen_sang form-control text-right format_so_tien' value='" + IP.Core.IPCommon.CIPConvert.ToStr(gd.NTCT, "#,##0.##") + @"' />
-//								</td>
-//								<!--Kinh phi Ngan sach-->
-//								<td class='text-right' style='width: 100px'>
-//									<input type='text' class='kinh_phi_ngan_sach form-control text-right format_so_tien' value='" + IP.Core.IPCommon.CIPConvert.ToStr(gd.NS, "#,##0.##") + @"' />
-//								</td>
-//								<!--Kinh phi Quy bao tri-->
-//								<td class='text-right' style='width: 100px'>
-//									<input type='text' class='kinh_phi_quy_bao_tri form-control text-right format_so_tien' value='" + IP.Core.IPCommon.CIPConvert.ToStr(gd.QUY, "#,##0.##") + @"' />
-//								</td>
-//								<!--Tổng-->
-//								<td class='text-right' style='width: 100px'>
-//									<input type='text' class='grid_tong form-control text-right' value='" + IP.Core.IPCommon.CIPConvert.ToStr(gd.TONG, "#,##0.##") + @"' />
-//								</td>
-//							</tr>";
-//			}
-
 			//load data to list giao dich
 			BKI_QLDTEntities db = new BKI_QLDTEntities();
 			var v_lst_gd = db.GD_CHI_TIET_GIAO_KH
@@ -305,9 +237,6 @@ namespace QuanLyDuToan.WebMethod
 			m_lst_gd = v_lst_gd
 				.Select(x => x.CopyAs<DBClassModel.GD_CHI_TIET_GIAO_KH>())
 				.ToList();
-			//grid = UIUtil.RenderUserControl<TableGiaoKH>(
-			//	"~/UserControl/TableGiaoKH.ascx"
-			//	, uc => { uc.m_lst_gd = v_lst_gd; });
 			grid = F104Grid.RenderToString(v_lst_gd);
 			string result = "";
 			result += grid + "||||||||||";
@@ -322,6 +251,8 @@ namespace QuanLyDuToan.WebMethod
 			public string KP_NAM_TRUOC_CHUYEN_SANG { get; set; }
 			public string KP_NGAN_SACH { get; set; }
 			public string KP_QUY_BT { get; set; }
+			public string TONG_MUC_DAU_TU { get; set; }
+			public string THOI_GIAN_THUC_HIEN { get; set; }
 		}
 
 		[WebMethod]
@@ -345,6 +276,9 @@ namespace QuanLyDuToan.WebMethod
 					gd.SO_TIEN_NAM_TRUOC_CHUYEN_SANG = Convert.ToDecimal(ip_arr[i].KP_NAM_TRUOC_CHUYEN_SANG.Trim().Replace(",", "").Replace(".", ""));
 					gd.SO_TIEN_NS = Convert.ToDecimal(ip_arr[i].KP_NGAN_SACH.Trim().Replace(",", "").Replace(".", ""));
 					gd.SO_TIEN_QUY_BT = Convert.ToDecimal(ip_arr[i].KP_QUY_BT.Trim().Replace(",", "").Replace(".", ""));
+					gd.TONG_MUC_DAU_TU = Convert.ToDecimal(ip_arr[i].TONG_MUC_DAU_TU.Trim().Replace(",", "").Replace(".", ""));
+					gd.THOI_GIAN_THUC_HIEN = Convert.ToDecimal(ip_arr[i].THOI_GIAN_THUC_HIEN.Trim().Replace(",", "").Replace(".", ""));
+
 					db.SaveChanges();
 				}
 			}
@@ -380,7 +314,7 @@ namespace QuanLyDuToan.WebMethod
 					//Kiem tra xem da co trong Giao Ke hoach cua Quyet dinh 2 chua
 					if (lst_gd_qd_2.Where(x => x.ID_CONG_TRINH == gd_qd1.ID_CONG_TRINH
 											&& x.ID_DU_AN == gd_qd1.ID_DU_AN
-											&&x.ID_LOAI_NHIEM_VU==gd_qd1.ID_LOAI_NHIEM_VU)
+											&& x.ID_LOAI_NHIEM_VU == gd_qd1.ID_LOAI_NHIEM_VU)
 											.ToList()
 											.Count == 0)
 					//Neu chua co thi them vao Giao Ke hoach voi so tien NS, QBT, NTCS =0
@@ -397,6 +331,8 @@ namespace QuanLyDuToan.WebMethod
 						v_gd.SO_TIEN_NAM_TRUOC_CHUYEN_SANG = 0;
 						v_gd.SO_TIEN_NS = 0;
 						v_gd.SO_TIEN_QUY_BT = 0;
+						v_gd.TONG_MUC_DAU_TU = 0;
+						v_gd.THOI_GIAN_THUC_HIEN = 0;
 						db.GD_CHI_TIET_GIAO_KH.Add(v_gd);
 						db.SaveChanges();
 					}
@@ -432,6 +368,8 @@ namespace QuanLyDuToan.WebMethod
 						v_gd.SO_TIEN_NAM_TRUOC_CHUYEN_SANG = 0;
 						v_gd.SO_TIEN_NS = 0;
 						v_gd.SO_TIEN_QUY_BT = 0;
+						v_gd.TONG_MUC_DAU_TU = 0;
+						v_gd.THOI_GIAN_THUC_HIEN = 0;
 						db.GD_CHI_TIET_GIAO_KH.Add(v_gd);
 						db.SaveChanges();
 					}

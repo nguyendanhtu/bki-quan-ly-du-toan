@@ -20,7 +20,7 @@ namespace QuanLyDuToan.QuyetToan
 
 		#region Members
 		public List<GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN> lst_pl04;
-		public List<GD_PL05_DANH_MUC_CONG_TRINH_HOAN_THANH_GIAM_TRU_THANH_TOAN> lst_pl05;
+		//public List<GD_PL05_DANH_MUC_CONG_TRINH_HOAN_THANH_GIAM_TRU_THANH_TOAN> lst_pl05;
 
 		#endregion
 
@@ -35,10 +35,10 @@ namespace QuanLyDuToan.QuyetToan
 					.Where(x => x.ID_DON_VI == ip_dc_id_don_vi
 							&& x.NAM == ip_dc_nam)
 					.ToList();
-			lst_pl05=ip_db.GD_PL05_DANH_MUC_CONG_TRINH_HOAN_THANH_GIAM_TRU_THANH_TOAN
-					.Where(x => x.ID_DON_VI == ip_dc_id_don_vi
-							&& x.NAM == ip_dc_nam)
-					.ToList();
+			//lst_pl05=ip_db.GD_PL05_DANH_MUC_CONG_TRINH_HOAN_THANH_GIAM_TRU_THANH_TOAN
+			//		.Where(x => x.ID_DON_VI == ip_dc_id_don_vi
+			//				&& x.NAM == ip_dc_nam)
+			//		.ToList();
 		}
 
 		#endregion

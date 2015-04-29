@@ -28,5 +28,6 @@ namespace SQLDataAccess
         public string GHI_CHU_4 { get; set; }
         public string TEN_CONG_TRINH { get; set; }
         public string TEN_DU_AN { get; set; }
+        public Nullable<decimal> SO_TIEN_DA_NGHIEM_THU_NS { get; set; }
     }
 }

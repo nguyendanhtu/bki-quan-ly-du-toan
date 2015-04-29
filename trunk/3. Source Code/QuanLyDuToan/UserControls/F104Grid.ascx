@@ -38,6 +38,18 @@
 						.Sum() %>" />
 			</td>
 			<td>
+				<!--Tong muc dau tu-->
+				<input type="text" class="tong_muc_dau_tu form-control text-right format_so_tien"
+					value="<%=m_lst_gd.Select(x=>x.TONG_MUC_DAU_TU)
+						.Sum() %>" />
+			</td>
+			<td>
+				<!--Thoi gian thuc hien-->
+				<input type="text" class="thoi_gian_thuc_hien form-control text-right format_so_tien"
+					value="<%=m_lst_gd.Select(x=>x.THOI_GIAN_THUC_HIEN)
+						.Sum() %>" />
+			</td>
+			<td>
 				<!--Kinh phi nam truoc chuyen sang-->
 				<input type="text" class="kinh_phi_nam_truoc_chuyen_sang form-control text-right format_so_tien"
 					value="<%=m_lst_gd.Select(x=>x.SO_TIEN_NAM_TRUOC_CHUYEN_SANG)
@@ -94,6 +106,22 @@
 				<input type="text" class="so_km form-control text-right" value="<%=m_lst_gd
 						 .Where(x=>x.ID_LOAI_NHIEM_VU==lnv.ID_LOAI_NHIEM_VU)
 						 .Select(x=>Convert.ToDecimal(x.GHI_CHU_2))
+						 .Sum() %>" />
+			</td>
+			<td>
+				<!--Tong muc dau tu-->
+				<input type="text" class="tong_muc_dau_tu form-control text-right format_so_tien"
+					value="<%=m_lst_gd
+						 .Where(x=>x.ID_LOAI_NHIEM_VU==lnv.ID_LOAI_NHIEM_VU)
+						 .Select(x=>x.TONG_MUC_DAU_TU)
+						 .Sum() %>" />
+			</td>
+			<td>
+				<!--Thoi gian thuc hien-->
+				<input type="text" class="thoi_gian_thuc_hien form-control text-right format_so_tien"
+					value="<%=m_lst_gd
+						 .Where(x=>x.ID_LOAI_NHIEM_VU==lnv.ID_LOAI_NHIEM_VU)
+						 .Select(x=>x.THOI_GIAN_THUC_HIEN)
 						 .Sum() %>" />
 			</td>
 			<td>
@@ -166,6 +194,22 @@
 								.Sum()%>" />
 			</td>
 			<td>
+				<!--Tong muc dau tu-->
+				<input type="text" class="tong_muc_dau_tu form-control text-right format_so_tien"
+					value="<%=m_lst_gd.Where(x=>x.ID_LOAI_NHIEM_VU==lnv.ID_LOAI_NHIEM_VU
+									&&x.ID_CONG_TRINH==cong_trinh.ID_CONG_TRINH)
+								.Select(x=>x.TONG_MUC_DAU_TU)
+								.Sum()%>" />
+			</td>
+			<td>
+				<!--Thoi gian thuc hien-->
+				<input type="text" class="thoi_gian_thuc_hien form-control text-right format_so_tien"
+					value="<%=m_lst_gd.Where(x=>x.ID_LOAI_NHIEM_VU==lnv.ID_LOAI_NHIEM_VU
+									&&x.ID_CONG_TRINH==cong_trinh.ID_CONG_TRINH)
+								.Select(x=>x.THOI_GIAN_THUC_HIEN)
+								.Sum()%>" />
+			</td>
+			<td>
 				<!--Kinh phi nam truoc chuyen sang-->
 				<input type="text" class="kinh_phi_nam_truoc_chuyen_sang form-control text-right format_so_tien"
 					value="<%=m_lst_gd.Where(x=>x.ID_LOAI_NHIEM_VU==lnv.ID_LOAI_NHIEM_VU
@@ -225,6 +269,16 @@
 				<!--Chieu dai tuyen-->
 				<input type="text" class="so_km form-control text-right"
 					value="<%=du_an.GHI_CHU_2%>" />
+			</td>
+			<td>
+				<!--Tong muc dau tu-->
+				<input type="text" class="tong_muc_dau_tu form-control text-right format_so_tien"
+					value="<%=du_an.TONG_MUC_DAU_TU%>" />
+			</td>
+			<td>
+				<!--Thoi gian thuc hien-->
+				<input type="text" class="thoi_gian_thuc_hien form-control text-right format_so_tien"
+					value="<%=du_an.THOI_GIAN_THUC_HIEN%>" />
 			</td>
 			<td>
 				<!--Kinh phi nam truoc chuyen sang-->
@@ -291,6 +345,22 @@
 								.Sum()%>" />
 			</td>
 			<td>
+				<!--Tong muc dau tu-->
+				<input type="text" class="tong_muc_dau_tu form-control text-right format_so_tien"
+					value="<%=m_lst_gd.Where(x=>x.ID_LOAI_NHIEM_VU==lnv.ID_LOAI_NHIEM_VU
+										&&x.ID_KHOAN==khoan.ID_KHOAN)
+								.Select(x=>x.TONG_MUC_DAU_TU)
+								.Sum()%>" />
+			</td>
+			<td>
+				<!--Thoi gian thuc hien-->
+				<input type="text" class="thoi_gian_thuc_hien form-control text-right format_so_tien"
+					value="<%=m_lst_gd.Where(x=>x.ID_LOAI_NHIEM_VU==lnv.ID_LOAI_NHIEM_VU
+										&&x.ID_KHOAN==khoan.ID_KHOAN)
+								.Select(x=>x.THOI_GIAN_THUC_HIEN)
+								.Sum()%>" />
+			</td>
+			<td>
 				<!--Kinh phi nam truoc chuyen sang-->
 				<input type="text" class="kinh_phi_nam_truoc_chuyen_sang form-control text-right format_so_tien"
 					value="<%=m_lst_gd.Where(x=>x.ID_LOAI_NHIEM_VU==lnv.ID_LOAI_NHIEM_VU
@@ -352,6 +422,16 @@
 					value="<%=0 %>" />
 			</td>
 			<td>
+				<!--Tong muc dau tu-->
+				<input type="text" class="tong_muc_dau_tu form-control text-right format_so_tien"
+					value="<%=muc.TONG_MUC_DAU_TU%>" />
+			</td>
+			<td>
+				<!--Thoi gian thuc hien-->
+				<input type="text" class="thoi_gian_thuc_hien form-control text-right format_so_tien"
+					value="<%=muc.THOI_GIAN_THUC_HIEN%>" />
+			</td>
+			<td>
 				<!--Kinh phi nam truoc chuyen sang-->
 				<input type="text" class="kinh_phi_nam_truoc_chuyen_sang form-control text-right format_so_tien"
 					value="<%=muc.SO_TIEN_NAM_TRUOC_CHUYEN_SANG %>" />
@@ -399,6 +479,16 @@
 				<!--Chieu dai tuyen-->
 				<input type="text" class="so_km form-control text-right"
 					value="<%=0 %>" />
+			</td>
+			<td>
+				<!--Tong muc dau tu-->
+				<input type="text" class="tong_muc_dau_tu form-control text-right format_so_tien"
+					value="<%=tieu_muc.TONG_MUC_DAU_TU%>" />
+			</td>
+			<td>
+				<!--Thoi gian thuc hien-->
+				<input type="text" class="thoi_gian_thuc_hien form-control text-right format_so_tien"
+					value="<%=tieu_muc.THOI_GIAN_THUC_HIEN%>" />
 			</td>
 			<td>
 				<!--Kinh phi nam truoc chuyen sang-->

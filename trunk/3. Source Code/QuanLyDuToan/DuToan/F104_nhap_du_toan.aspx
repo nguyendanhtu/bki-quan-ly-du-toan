@@ -31,10 +31,12 @@
 			padding: 5px;
 			border-radius: 1px;
 		}
+
 		#toolQuyetDinh {
 			background-color: white;
 			display: none;
 		}
+
 		.loai_nhiem_vu, .loai_khoan, .cong_trinh {
 			font-weight: bold;
 		}
@@ -69,9 +71,9 @@
 	</script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server" ClientIDMode="Static">
-	<div style="width: 1200px; margin: auto">
-		<div class="col-sm-12" style="border: 1px solid #ddd">
-			<div class="col-sm-4" style="border: 1px solid #ddd; padding: 0px">
+	<div style="width: 1250px; margin: auto">
+		<div class="col-sm-12" style="border: 1px solid #ddd; width: 100%">
+			<div style="border: 1px solid #ddd; padding: 0px; width: 385px; display: block; float: left">
 				<div class="col-sm-12">
 					<div class="col-sm-12">
 						<pre>Thông tin chung</pre>
@@ -85,7 +87,7 @@
 					<div class="col-sm-12">
 						<div class="col-sm-4 text-right">Quyết định</div>
 						<div class="col-sm-8">
-							<select id="m_ddl_quyet_dinh" style="width: 222px"></select>
+							<select id="m_ddl_quyet_dinh" style="width: 210px"></select>
 							<button type="button" id="toolButton" class="btn btn-xs btn-primary glyphicon glyphicon-cog" onclick="F104.openTool()"></button>
 						</div>
 					</div>
@@ -148,7 +150,18 @@
 							<datalist id="dtl_du_an"></datalist>
 						</div>
 					</div>
-
+					<div class="col-sm-12 theo_du_an">
+						<div class="col-sm-4 text-right">Tổng mức đầu tư(*)</div>
+						<div class="col-sm-8">
+							<input type="text" id="m_txt_tong_muc_dau_tu" value="0" class="form-control  format_so_tien text-right" style="width: 100%" />
+						</div>
+					</div>
+					<div class="col-sm-12 theo_du_an">
+						<div class="col-sm-4 text-right" style="font-size:11px">Thời gian thực hiện(*)</div>
+						<div class="col-sm-8">
+							<input type="text" id="m_txt_thoi_gian_thuc_hien" value="0" class="form-control  format_so_tien text-right" style="width: 100%" />
+						</div>
+					</div>
 					<div class="col-sm-12 theo_muc_luc_ngan_sach">
 						<div class="col-sm-4 text-right">Chương</div>
 						<div class="col-sm-8">
@@ -243,7 +256,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-sm-8" style="border: 1px solid #ddd; padding-right: 0px">
+			<div style="border: 1px solid #ddd; padding-right: 0px; width: 860px; display: block; float: left">
 				<%--<div class="col-sm-12">
 					<pre>Quyết định số: <label id="m_lbl_quyet_dinh_so"></label> ngày <label id="m_lbl_ngay"></label> về việc <label id="m_lbl_ve_viec"></label> </pre>
 				</div>--%>
@@ -256,6 +269,8 @@
 								</th>
 								<th rowspan="2">Nhiệm vụ chi</th>
 								<th rowspan="2" style="width: 50px">Chiều dài tuyến (km)</th>
+								<th rowspan="2" style="width: 100px">Tổng mức đầu tư</th>
+								<th rowspan="2" style="width: 50px">Thời gian thực hiện</th>
 								<th rowspan="1" style="width: 100px">Kinh phí năm trước chuyển sang</th>
 								<th rowspan="1" style="width: 100px">Kinh phí Ngân sách</th>
 								<th rowspan="1" style="width: 100px">Kinh phí Quỹ bảo trì</th>
@@ -269,48 +284,6 @@
 							</tr>
 						</thead>
 						<tbody>
-							<%foreach (var gd in m_lst_giao_kh)%>
-							<%{%>
-							<tr style='<%=(gd.ID==-1?"font-weight:bold": "")%>'>
-								<!--Xoá-->
-								<td style='width: 90px' class='text-center delete'>
-									<%if (gd.ID != -1)%>
-									<%{%>
-									<input type='button' class='xoa_giao_dich btn btn-xs btn-danger private_don_vi' value='Xoá' onclick='F104.deleteGiaoDich(<%=gd.ID%>)' />
-									<%}%>
-
-									<%if (gd.ID != -1)%>
-									<%{%>
-									<input type='button' class='sua_giao_dich btn btn-xs btn-primary' value='Sửa' onclick='F104.editGiaoDich(<%=gd.ID%>)' />
-									<%}%>
-								</td>
-								<!--Nhiem vu chi-->
-								<td ma_so='<%=genMaSo(gd) %>' id_giao_dich='<%=gd.ID %>' ma_so_parent='<%=genMaSoParent(gd) %>' class='lnv'>
-									<%=gd.NOI_DUNG %>
-								</td>
-								<!--Chiều dài tuyến-->
-								<td class='text-right' style='width: 50px'>
-									<input type='text' class='so_km form-control text-right' value='<%=IP.Core.IPCommon.CIPConvert.ToStr(gd.So_KM,"#,##0.##") %>' />
-								</td>
-								<!--Kinh phi Nam truoc chuyen sang-->
-								<td class='text-right' style='width: 100px'>
-									<%--<%=IP.Core.IPCommon.CIPConvert.ToStr(gd.NTCT,'#,##0.##') %>--%>
-									<input type='text' class='kinh_phi_nam_truoc_chuyen_sang form-control text-right format_so_tien' value='<%=IP.Core.IPCommon.CIPConvert.ToStr(gd.NTCT,"#,##0.##") %>' />
-								</td>
-								<!--Kinh phi Ngan sach-->
-								<td class='text-right' style='width: 100px'>
-									<input type='text' class='kinh_phi_ngan_sach form-control text-right format_so_tien' value='<%=IP.Core.IPCommon.CIPConvert.ToStr(gd.NS,"#,##0.##") %>' />
-								</td>
-								<!--Kinh phi Quy bao tri-->
-								<td class='text-right' style='width: 100px'>
-									<input type='text' class='kinh_phi_quy_bao_tri form-control text-right format_so_tien' value='<%=IP.Core.IPCommon.CIPConvert.ToStr(gd.QUY,"#,##0.##") %>' />
-								</td>
-								<!--Tổng-->
-								<td class='text-right' style='width: 100px'>
-									<input type='text' class='grid_tong form-control text-right' value='<%=IP.Core.IPCommon.CIPConvert.ToStr(gd.TONG,"#,##0.##") %>' />
-								</td>
-							</tr>
-							<%}%>
 						</tbody>
 						<tfoot></tfoot>
 					</table>
@@ -326,22 +299,26 @@
 			</p>
 		</div>
 	</div>
-	<div id='toolQuyetDinh' class='popup' style='width: 700px; display: none;z-index:1000' id_giao_dich='-1' ma_so_parent='-1'>
+	<div id='toolQuyetDinh' class='popup' style='width: 700px; display: none; z-index: 1000' id_giao_dich='-1' ma_so_parent='-1'>
 		<h4 id='detail-title' class='text-center' style='border-bottom: 1px solid black; font-weight: bolder'>Sao chép danh sách dự án/Công trình (Khoản/Mục) từ Quyết định khác</h4>
 
 		<div class='popup-content' style='margin: 30px'>
 			<div class='col-sm-12 row'>
-				<div class="col-sm-2 text-center"><label>Từ Quyết định:</label></div>
-				<div class="col-sm-4">
-					<select id="m_ddl_quyet_dinh_1" style="width:100%;"></select>
+				<div class="col-sm-2 text-center">
+					<label>Từ Quyết định:</label>
 				</div>
-				<div class="col-sm-2 text-center"><label>Sang quyết định:</label></div>
 				<div class="col-sm-4">
-					<select id="m_ddl_quyet_dinh_2"  style="width:100%;"></select>
+					<select id="m_ddl_quyet_dinh_1" style="width: 100%;"></select>
+				</div>
+				<div class="col-sm-2 text-center">
+					<label>Sang quyết định:</label>
+				</div>
+				<div class="col-sm-4">
+					<select id="m_ddl_quyet_dinh_2" style="width: 100%;"></select>
 				</div>
 			</div>
-			
-			<div class='col-sm-12 text-center' style='margin-bottom: 30px;margin-top:20px'>
+
+			<div class='col-sm-12 text-center' style='margin-bottom: 30px; margin-top: 20px'>
 				<input type="button" id="m_cmd_thuc_hien_sao_chep" class="btn btn-sm btn-primary" value="Thực hiện" onclick="F104.excuteTool()" />
 				<input type='button' class='btn btn-sm btn-default' value='Huỷ thao tác' onclick='F104.closeTool()' />
 			</div>

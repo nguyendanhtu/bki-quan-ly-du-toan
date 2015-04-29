@@ -26,6 +26,7 @@ namespace SQLDataAccess
         public string GHI_CHU_2 { get; set; }
         public string GHI_CHU_3 { get; set; }
         public string GHI_CHU_4 { get; set; }
+        public Nullable<decimal> SO_TIEN_DA_NGHIEM_THU_NS { get; set; }
     
         public virtual CM_DM_TU_DIEN CM_DM_TU_DIEN { get; set; }
         public virtual DM_CONG_TRINH_DU_AN_GOI_THAU DM_CONG_TRINH_DU_AN_GOI_THAU { get; set; }

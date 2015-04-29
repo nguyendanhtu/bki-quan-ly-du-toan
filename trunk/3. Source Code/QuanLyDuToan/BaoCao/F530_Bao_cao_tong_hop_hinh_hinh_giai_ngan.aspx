@@ -187,7 +187,7 @@
 				<div class="outer">
 					<div style="width: 1200px; margin: auto;" id="double-scroll">
 						<asp:GridView ID="m_grv" runat="server" AutoGenerateColumns="False" ClientIDMode="Static"
-							Width="3900px" CellPadding="0" ForeColor="Black" AllowSorting="True" PageSize="60"
+							Width="3900px" class="table-striped" CellPadding="0" ForeColor="Black" AllowSorting="True" PageSize="60"
 							EmptyDataText="Không có dữ liệu phù hợp" OnRowCreated="m_grv_RowCreated" EnableModelValidation="True">
 
 							<Columns>
