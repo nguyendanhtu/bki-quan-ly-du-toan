@@ -286,6 +286,28 @@ namespace WebUS
 			pm_objDR["GHI_CHU_4"] = System.Convert.DBNull;
 		}
 
+		public decimal dcSO_TIEN_DA_NGHIEM_THU_NS
+		{
+			get
+			{
+				return CNull.RowNVLDecimal(pm_objDR, "SO_TIEN_DA_NGHIEM_THU_NS", IPConstants.c_DefaultDecimal);
+			}
+			set
+			{
+				pm_objDR["SO_TIEN_DA_NGHIEM_THU_NS"] = value;
+			}
+		}
+
+		public bool IsSO_TIEN_DA_NGHIEM_THU_NSNull()
+		{
+			return pm_objDR.IsNull("SO_TIEN_DA_NGHIEM_THU_NS");
+		}
+
+		public void SetSO_TIEN_DA_NGHIEM_THU_NSNull()
+		{
+			pm_objDR["SO_TIEN_DA_NGHIEM_THU_NS"] = System.Convert.DBNull;
+		}
+
 		#endregion
 		#region "Init Functions"
 		public US_GD_KHOI_LUONG()
