@@ -111,6 +111,7 @@
     <Content Include="Scripts\linq.js" />
     <Content Include="Scripts\UI\F104_test.js" />
     <Content Include="Scripts\UI\F104.js" />
+    <Content Include="Scripts\UI\F404.js" />
     <Content Include="Scripts\UI\F505.js" />
     <Content Include="Scripts\UI\PL02.js" />
     <Content Include="Scripts\UI\PL03.js" />
@@ -138,8 +139,10 @@
     <Content Include="Template\TPL_F304.txt" />
     <Content Include="Test\tudm.aspx" />
     <Content Include="UserControls\F104Grid.ascx" />
+    <Content Include="UserControls\F404Grid.ascx" />
     <Content Include="UserControls\TableGiaoKH.ascx" />
     <Content Include="WebMethod\F104.asmx" />
+    <Content Include="WebMethod\F404.asmx" />
     <Content Include="WebMethod\F505.asmx" />
     <Content Include="WebMethod\PL01.asmx" />
     <Content Include="WebMethod\PL02.asmx" />
@@ -798,6 +801,13 @@
     <Compile Include="UserControls\F104Grid.ascx.designer.cs">
       <DependentUpon>F104Grid.ascx</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\F404Grid.ascx.cs">
+      <DependentUpon>F404Grid.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\F404Grid.ascx.designer.cs">
+      <DependentUpon>F404Grid.ascx</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\TableGiaoKH.ascx.cs">
       <DependentUpon>TableGiaoKH.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -807,6 +817,10 @@
     </Compile>
     <Compile Include="WebMethod\F104.asmx.cs">
       <DependentUpon>F104.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WebMethod\F404.asmx.cs">
+      <DependentUpon>F404.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="WebMethod\F505.asmx.cs">
@@ -1305,7 +1319,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>8822</DevelopmentServerPort>
+          <DevelopmentServerPort>4402</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:14773/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>

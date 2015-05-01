@@ -27,7 +27,7 @@ namespace QuanLyDuToan.WebMethod
 		#region Data Structure
 
 		#endregion
-
+		 
 		#region Public Function
 		public string genClassCSS(pr_F104_nhap_du_toan_ke_hoach_Result ip_gd)
 		{
@@ -163,7 +163,7 @@ namespace QuanLyDuToan.WebMethod
 			//Xu ly du lieu, lay id cong trinh, id du an
 			DM_CONG_TRINH_DU_AN_GOI_THAU v_cong_trinh = db.DM_CONG_TRINH_DU_AN_GOI_THAU
 				.FirstOrDefault(x => x.TEN.Trim() == ip_str_CONG_TRINH.Trim()
-				&& x.DM_CONG_TRINH_DU_AN_GOI_THAU1.Where(y => y.TEN == ip_str_DU_AN).Count() > 0);
+				&& x.DM_CONG_TRINH_DU_AN_GOI_THAU_CHILDREN.Where(y => y.TEN == ip_str_DU_AN).Count() > 0);
 
 
 			//Neu cong trinh khong co trong csdl thi insert vao 

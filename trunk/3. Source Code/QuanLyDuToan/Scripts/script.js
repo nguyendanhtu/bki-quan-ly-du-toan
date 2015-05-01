@@ -22,14 +22,14 @@
 	//});
 	$('.format_so_tien').bind("change blur keyup focus", function (e) {
 		var arr_keyCode_comma = [110, 188, 190];
-		var str_format = getFormatedNumberString($(this).val());
+		
 
 		if ((e.keyCode >= 48 && e.keyCode <= 57)
 			|| (e.keyCode >= 96 && e.keyCode <= 105)
 			|| Enumerable.From(arr_keyCode_comma)
 				.Where(function (x) { return x == e.keyCode })
 				.ToArray().length > 0) {
-			var str_format = getFormatedNumberString($(this).val());
+			var str_format = getFormatedNumberString($(this).val().split(",").join("").split(".").join());
 			$(this).val(str_format);
 		}
 	});

@@ -29,8 +29,8 @@ namespace SQLDataAccess
         public decimal ID_LOAI_QUYET_DINH { get; set; }
         public decimal ID_LOAI_QUYET_DINH_GIAO { get; set; }
     
-        public virtual CM_DM_TU_DIEN CM_DM_TU_DIEN { get; set; }
-        public virtual CM_DM_TU_DIEN CM_DM_TU_DIEN1 { get; set; }
+        public virtual CM_DM_TU_DIEN CM_DM_TU_DIEN_LOAI_QUYET_DINH { get; set; }
+        public virtual CM_DM_TU_DIEN CM_DM_TU_DIEN_LOAI_QUYET_DINH_GIAO { get; set; }
         public virtual DM_DON_VI DM_DON_VI { get; set; }
         public virtual ICollection<GD_CHI_TIET_GIAO_KH> GD_CHI_TIET_GIAO_KH { get; set; }
         public virtual ICollection<GD_CHI_TIET_GIAO_VON> GD_CHI_TIET_GIAO_VON { get; set; }

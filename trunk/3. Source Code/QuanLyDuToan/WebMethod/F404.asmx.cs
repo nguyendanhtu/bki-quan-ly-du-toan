@@ -1,61 +1,56 @@
-﻿using SQLDataAccess;
+﻿using QuanLyDuToan.UserControls;
+using SQLDataAccess;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using WebDS;
-using WebUS;
-using Framework.Extensions;
-using QuanLyDuToan.App_Code;
 using System.Web.Script.Serialization;
+using System.Web.Services;
+using WebUS;
 
-namespace QuanLyDuToan.Test
+namespace QuanLyDuToan.WebMethod
 {
-	public partial class tudm : System.Web.UI.Page
+	/// <summary>
+	/// Summary description for F404
+	/// </summary>
+	[WebService(Namespace = "http://tempuri.org/")]
+	[WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
+	[System.ComponentModel.ToolboxItem(false)]
+	// To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 
+	// [System.Web.Script.Services.ScriptService]
+	public class F404 : System.Web.Services.WebService
 	{
-		/*
-		 * Gen grid Khoi luong
-		 */
-		public List<GD_KHOI_LUONG> m_lst_gd;
-		public List<DBClassModel.DM_DON_VI> m_lst_don_vi;
-		public string m_str_nguon = "N";
-		public decimal m_dc_id_don_vi;
-		protected void Page_Load(object sender, EventArgs e)
+		#region Data Stuctures
+		public class KhoiLuongItem
 		{
-			BKI_QLDTEntities db = new BKI_QLDTEntities();
-			DateTime v_dat_ngay_nhap = new DateTime(2015, 04, 18);
-			//m_lst_gd = db.GD_KHOI_LUONG.Where(x => x.ID_DON_VI == 263
-			//	&& x.NGAY_THANG == v_dat_ngay_nhap).ToList();
-			load_data_to_lst_don_vi(db);
-			m_str_nguon = WebformFunctions.getValue_from_query_string<string>(
-								this
-								, FormInfo.QueryString.NGUON_NGAN_SACH
-								, STR_NGUON.QUY_BAO_TRI
-								);
-			m_dc_id_don_vi = Person.get_id_don_vi();
-			load_data_to_grid_by_nguon(m_str_nguon, 263, v_dat_ngay_nhap, db);
+			public decimal ID { get; set; }
+			public string GIA_TRI_THUC_HIEN_QBT { get; set; }
+			public string GIA_TRI_THUC_HIEN_NS { get; set; }
 		}
-		private void load_data_to_grid_by_nguon(
+		#endregion
+
+		#region Private Methods
+		private List<GD_KHOI_LUONG> load_data_to_grid_by_nguon(
 			string ip_str_nguon_ns
 			, decimal ip_dc_id_don_vi
 			, DateTime ip_dat_ngay_nhap_khoi_luong
-			, BKI_QLDTEntities ip_db)
+			)
 		{
+			BKI_QLDTEntities db = new BKI_QLDTEntities();
+
 			//Tính toán các biến sử dụng
 			DateTime v_dat_dau_nam = CCommonFunction.getDate_dau_nam_from_date(ip_dat_ngay_nhap_khoi_luong);
 			DateTime v_dat_cuoi_nam = CCommonFunction.getDate_cuoi_nam_form_date(ip_dat_ngay_nhap_khoi_luong);
 
 			//Get list GD_GIAO_KH của năm
-			var v_lst_gd_giao_kh = ip_db.GD_CHI_TIET_GIAO_KH
+			var v_lst_gd_giao_kh = db.GD_CHI_TIET_GIAO_KH
 										.Where(x => x.ID_DON_VI == ip_dc_id_don_vi
 											&& x.DM_QUYET_DINH.NGAY_THANG >= v_dat_dau_nam
 											&& x.DM_QUYET_DINH.NGAY_THANG <= v_dat_cuoi_nam)
 										.ToList();
 
 			//Get list GD_KHOI_LUONG cua ngày nhập
-			var v_lst_gd_khoi_luong = ip_db.GD_KHOI_LUONG
+			var v_lst_gd_khoi_luong = db.GD_KHOI_LUONG
 											.Where(x => x.ID_DON_VI == ip_dc_id_don_vi
 												&& x.NGAY_THANG == ip_dat_ngay_nhap_khoi_luong.Date)
 											.ToList();
@@ -78,11 +73,11 @@ namespace QuanLyDuToan.Test
 						gd_kl.ID_DU_AN = kh.ID_DU_AN;
 						gd_kl.SO_TIEN_DA_NGHIEM_THU = 0;
 						gd_kl.SO_TIEN_DA_NGHIEM_THU_NS = 0;
-						ip_db.GD_KHOI_LUONG.Add(gd_kl);
-						ip_db.SaveChanges();
+						db.GD_KHOI_LUONG.Add(gd_kl);
+						db.SaveChanges();
 
 						//reload list khối lượng
-						v_lst_gd_khoi_luong = ip_db.GD_KHOI_LUONG
+						v_lst_gd_khoi_luong = db.GD_KHOI_LUONG
 											.Where(x => x.ID_DON_VI == ip_dc_id_don_vi
 												&& x.NGAY_THANG == ip_dat_ngay_nhap_khoi_luong.Date)
 											.ToList();
@@ -105,11 +100,11 @@ namespace QuanLyDuToan.Test
 						gd_kl.ID_TIEU_MUC = kh.ID_TIEU_MUC;
 						gd_kl.SO_TIEN_DA_NGHIEM_THU = 0;
 						gd_kl.SO_TIEN_DA_NGHIEM_THU_NS = 0;
-						ip_db.GD_KHOI_LUONG.Add(gd_kl);
-						ip_db.SaveChanges();
+						db.GD_KHOI_LUONG.Add(gd_kl);
+						db.SaveChanges();
 
 						//reload list khối lượng
-						v_lst_gd_khoi_luong = ip_db.GD_KHOI_LUONG
+						v_lst_gd_khoi_luong = db.GD_KHOI_LUONG
 											.Where(x => x.ID_DON_VI == ip_dc_id_don_vi
 												&& x.NGAY_THANG == ip_dat_ngay_nhap_khoi_luong.Date)
 											.ToList();
@@ -125,8 +120,8 @@ namespace QuanLyDuToan.Test
 					if (v_lst_gd_giao_kh.Where(x => x.ID_CONG_TRINH == kl.ID_CONG_TRINH
 						&& x.ID_DU_AN == kl.ID_DU_AN).Count() == 0)
 					{
-						ip_db.GD_KHOI_LUONG.Remove(kl);
-						ip_db.SaveChanges();
+						db.GD_KHOI_LUONG.Remove(kl);
+						db.SaveChanges();
 					}
 				}
 				else if (kl.ID_KHOAN != null)
@@ -135,30 +130,30 @@ namespace QuanLyDuToan.Test
 						&& x.ID_MUC == kl.ID_MUC
 						&& x.ID_TIEU_MUC == kl.ID_TIEU_MUC).Count() == 0)
 					{
-						ip_db.GD_KHOI_LUONG.Remove(kl);
-						ip_db.SaveChanges();
+						db.GD_KHOI_LUONG.Remove(kl);
+						db.SaveChanges();
 					}
 				}
 			}
 			//reload list khối lượng
-			v_lst_gd_khoi_luong = ip_db.GD_KHOI_LUONG
+			v_lst_gd_khoi_luong = db.GD_KHOI_LUONG
 								.Where(x => x.ID_DON_VI == ip_dc_id_don_vi
 									&& x.NGAY_THANG == ip_dat_ngay_nhap_khoi_luong.Date)
 								.ToList();
 			//Load dữ liệu theo Nguồn: Ngân sách hoặc Quỹ bảo trì
-			List<GD_CHI_TIET_GIAO_KH> v_lst_giao_kh_theo_nguon = new List<GD_CHI_TIET_GIAO_KH>() ;
+			List<GD_CHI_TIET_GIAO_KH> v_lst_giao_kh_theo_nguon = new List<GD_CHI_TIET_GIAO_KH>();
 			//Lấy list giao kh, chứa id_Cong_trinh/id_du_an (id_khoan/id_muc, id_tieu_muc) theo nguồn
-			if (ip_str_nguon_ns=="N")
+			if (ip_str_nguon_ns == "N")
 			{
-				 v_lst_giao_kh_theo_nguon = v_lst_gd_giao_kh.Where(x => x.SO_TIEN_NS == 0).ToList();
-				
+				v_lst_giao_kh_theo_nguon = v_lst_gd_giao_kh.Where(x => x.SO_TIEN_NS == 0).ToList();
+
 			}
-			else if (ip_str_nguon_ns=="Y")
+			else if (ip_str_nguon_ns == "Y")
 			{
-				 v_lst_giao_kh_theo_nguon = v_lst_gd_giao_kh.Where(x => x.SO_TIEN_QUY_BT == 0).ToList();
+				v_lst_giao_kh_theo_nguon = v_lst_gd_giao_kh.Where(x => x.SO_TIEN_QUY_BT == 0).ToList();
 			}
 			//Load những đầu mục GD_KHOI_LUONG theo nguồn
-			m_lst_gd = v_lst_gd_khoi_luong
+			return v_lst_gd_khoi_luong
 							.Where(x => (x.ID_KHOAN != null
 										&& v_lst_giao_kh_theo_nguon.Where(y => y.ID_KHOAN == x.ID_KHOAN
 																	&& y.ID_MUC == x.ID_MUC
@@ -168,24 +163,10 @@ namespace QuanLyDuToan.Test
 																	&& y.ID_DU_AN == x.ID_DU_AN).Count() > 0)
 							).ToList();
 		}
-		private void load_data_to_lst_don_vi(BKI_QLDTEntities ip_db)
-		{
-			decimal v_dc_id_don_vi = Person.get_id_don_vi();
-			DS_DM_DON_VI v_ds = new DS_DM_DON_VI();
-			US_DM_DON_VI v_us = new US_DM_DON_VI();
-			v_us.load_danh_sach_don_vi_X_duoc_xem_du_lieu(v_dc_id_don_vi, v_ds);
-			m_lst_don_vi = v_ds.Tables[0].ToList<DBClassModel.DM_DON_VI>()
-				.ToList();
-		}
+		#endregion
 
-		public class KhoiLuongItem
-		{
-			public decimal ID { get; set; }
-			public string GIA_TRI_THUC_HIEN_QBT { get; set; }
-			public string GIA_TRI_THUC_HIEN_NS { get; set; }
-		}
-
-		public  void UpdateAll(string ip_str_arr)
+		[WebMethod]
+		public void UpdateAll(string ip_str_arr)
 		{
 			JavaScriptSerializer js = new JavaScriptSerializer();
 			KhoiLuongItem[] ip_arr = js.Deserialize<KhoiLuongItem[]>(ip_str_arr);
@@ -200,6 +181,20 @@ namespace QuanLyDuToan.Test
 				db.SaveChanges();
 			}
 
+		}
+
+		[WebMethod]
+		public void genGrid(string ip_str_nguon_ns, decimal ip_dc_id_don_vi, string ip_str_ngay_nhap)
+		{
+			DateTime v_dat_ngay_nhap=IP.Core.IPCommon.CIPConvert.ToDatetime(ip_str_ngay_nhap,"dd/MM/yyyy");
+			List<GD_KHOI_LUONG> v_lst_khoi_luong = new List<GD_KHOI_LUONG>();
+			v_lst_khoi_luong=load_data_to_grid_by_nguon(ip_str_nguon_ns, ip_dc_id_don_vi, v_dat_ngay_nhap);
+			string result = "";
+			if (v_lst_khoi_luong!=null)
+			{
+				result = F404Grid.RenderToString(v_lst_khoi_luong);
+			}
+			Context.Response.Write(result);
 		}
 	}
 }
