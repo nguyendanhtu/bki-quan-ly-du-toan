@@ -266,7 +266,7 @@ namespace QuanLyDuToan.BaoCao
 				, CIPConvert.ToDatetime(m_txt_den_ngay.Text, "dd/MM/yyyy")
 				, WebformControls.get_dau_nam_form_date(CIPConvert.ToDatetime(m_txt_tu_ngay.Text, "dd/MM/yyyy"))
 				, CIPConvert.ToDecimal(m_ddl_don_vi.SelectedValue)
-				, get_random_id_session()    // tránh xóa dữ liệu của 2 người cùng đăng nhập một user
+				, Person.get_id_don_vi()    // tránh xóa dữ liệu của 2 người cùng đăng nhập một user
 				, CIPConvert.ToDecimal(m_ddl_du_an.SelectedValue)
 				, CIPConvert.ToDecimal(m_ddl_cong_trinh.SelectedValue)
 				, CIPConvert.ToDecimal(m_ddl_loai_nv.SelectedValue)
@@ -406,7 +406,6 @@ namespace QuanLyDuToan.BaoCao
 
 		protected void m_grv_RowCreated(object sender, GridViewRowEventArgs e)
 		{
-			//Tao header cua grid
 			const string v_c_str_header_css_class = "HeaderStyle";
 			if (e.Row.RowType == DataControlRowType.Header) // If header created
 			{
@@ -419,13 +418,13 @@ namespace QuanLyDuToan.BaoCao
 						new CellInfoHeader("STT",3,1)
 						,new CellInfoHeader("Nội dung",3,1)
 						,new CellInfoHeader("Số km",3,1)
-						,new CellInfoHeader("Kế hoạch(dự toán) được chi cả năm",1,4)
+						,new CellInfoHeader("Kế hoạch(dự toán) được sử dụng trong năm",1,7)
 						,new CellInfoHeader("Kinh phí đã nhận",1,5)
 						,new CellInfoHeader("Kinh phí đã thanh toán, giải ngân",1,5)
-						,new CellInfoHeader("Số kinh phí chưa giải ngân",3,1)
-						,new CellInfoHeader("Kinh phí còn được nhận",2,2)
-						,new CellInfoHeader("Giá trị thực hiện đã nghiệm thu A-B",3,1)
-						,new CellInfoHeader("Số chưa GN cho nhà thầu theo nghiệm thu A-B",3,1)
+						,new CellInfoHeader("Số kinh phí chưa GN",1,3)
+						,new CellInfoHeader("Kinh phí còn được nhận",1,3)
+						,new CellInfoHeader("Giá trị thực hiện đã nghiệm thu A-B",1,3)
+						,new CellInfoHeader("Số chưa GN cho nhà thầu theo nghiệm thu A-B",1,3)
 				});
 				//Tao dong 2
 				WebformFunctions.addHeaderRow_to_grid_view(
@@ -434,16 +433,34 @@ namespace QuanLyDuToan.BaoCao
 					, v_c_str_header_css_class
 					, new CellInfoHeader[] 
 					{ 
-						new CellInfoHeader("Từ quỹ bảo trì",2,1)
-						,new CellInfoHeader("Từ Ngân sách",2,1)
-						,new CellInfoHeader("Số dư năm trước chuyển sang",2,1)
-						,new CellInfoHeader("Tổng số",2,1)
-						,new CellInfoHeader("Từ quỹ bảo trì",1,2)
-						,new CellInfoHeader("Từ Ngân sách",1,2)
-						,new CellInfoHeader("Tổng số",2,1)
-						,new CellInfoHeader("Từ quỹ bảo trì",1,2)
-						,new CellInfoHeader("Từ Ngân sách",1,2)
-						,new CellInfoHeader("Tổng số",2,1)
+						//Ke hoach du toan duoc su dung trong nam
+						new CellInfoHeader("Quỹ bảo trì",1,3)
+						,new CellInfoHeader("Ngân sách",1,3)
+						,new CellInfoHeader("Tổng cộng",2,1)
+						//Kinh phi da nhan
+						,new CellInfoHeader("Quỹ bảo trì",1,2)
+						,new CellInfoHeader("Ngân sách",1,2)
+						,new CellInfoHeader("Tổng cộng",2,1)
+						//Kinh phi da thanh toan, giai ngan
+						,new CellInfoHeader("Quỹ bảo trì",1,2)
+						,new CellInfoHeader("Ngân sách",1,2)
+						,new CellInfoHeader("Tổng cộng",2,1)
+						//Kinh phi chua GN
+						,new CellInfoHeader("Quỹ bảo trì",2,1)
+						,new CellInfoHeader("Ngân sách",2,1)
+						,new CellInfoHeader("Tổng cộng",2,1)
+						//Kinh phi con duoc nhan
+						,new CellInfoHeader("Quỹ bảo trì",2,1)
+						,new CellInfoHeader("Ngân sách",2,1)
+						,new CellInfoHeader("Tổng cộng",2,1)
+						//Gia tri thuc hien da nghiem thu
+						,new CellInfoHeader("Quỹ bảo trì",2,1)
+						,new CellInfoHeader("Ngân sách",2,1)
+						,new CellInfoHeader("Tổng cộng",2,1)
+						//So chua giai ngan
+						,new CellInfoHeader("Quỹ bảo trì",2,1)
+						,new CellInfoHeader("Ngân sách",2,1)
+						,new CellInfoHeader("Tổng cộng",2,1)
 					});
 				//Tao dong 3
 				WebformFunctions.addHeaderRow_to_grid_view(
@@ -452,19 +469,28 @@ namespace QuanLyDuToan.BaoCao
 					, v_c_str_header_css_class
 					, new CellInfoHeader[] 
 					{ 
-						new CellInfoHeader("Trong tháng",1,1)
-						,new CellInfoHeader("Luỹ kế từ đấu năm",1,1)
+						//Ke hoach - Quy bao tri
+						new CellInfoHeader("Số dư năm trước chuyển sang",1,1)
+						,new CellInfoHeader("Kế hoạch giao trong năm",1,1)
+						,new CellInfoHeader("Cộng",1,1)
+						//Ke hoach - Ngan sach
+						,new CellInfoHeader("Số dư năm trước chuyển sang",1,1)
+						,new CellInfoHeader("Kế hoạch giao trong năm",1,1)
+						,new CellInfoHeader("Cộng",1,1)
+						//Kinh phi da nhan - Quy bao tri
 						,new CellInfoHeader("Trong tháng",1,1)
 						,new CellInfoHeader("Luỹ kế từ đầu năm",1,1)
+						//Kinh phi da nhan - Ngan sach
 						,new CellInfoHeader("Trong tháng",1,1)
 						,new CellInfoHeader("Luỹ kế từ đầu năm",1,1)
+						//Kinh phi da thanh toan, giai ngan - Quy bao tri
 						,new CellInfoHeader("Trong tháng",1,1)
 						,new CellInfoHeader("Luỹ kế từ đầu năm",1,1)
-						,new CellInfoHeader("Từ quỹ bảo trì",1,1)
-						,new CellInfoHeader("Từ Ngân sách",1,1)
+						//Kinh phi da thanh toan, giai ngan - Ngan sach
+						,new CellInfoHeader("Trong tháng",1,1)
+						,new CellInfoHeader("Luỹ kế từ đầu năm",1,1)
 					});
 			}
-
 		}
 	}
 
