@@ -33,7 +33,7 @@
 			</td>
 			<td>
 				<!--Chieu dai tuyen-->
-				<input type="text" class="so_km form-control text-right format_so_tien"
+				<input type="text" class="so_km form-control text-right "
 					value="<%=m_lst_gd.Select(x=>Convert.ToDecimal(x.GHI_CHU_2))
 						.Sum() %>" />
 			</td>
@@ -81,9 +81,9 @@
 							   {
 								   ID_LOAI_NHIEM_VU = x.ID_LOAI_NHIEM_VU
 								   ,
-								   TEN = x.CM_DM_TU_DIEN.TEN
+								   TEN = x.CM_DM_TU_DIEN_LOAI_NHIEM_VU.TEN
 								   ,
-								   GHI_CHU = x.CM_DM_TU_DIEN.GHI_CHU
+								   GHI_CHU = x.CM_DM_TU_DIEN_LOAI_NHIEM_VU.GHI_CHU
 
 							   })
 							   .Distinct()
@@ -255,7 +255,7 @@
 		<%foreach (var du_an in lst_du_an)%>
 		<%{%>
 		<!--Level 3: Du an-->
-		<tr class="du_an">
+		<tr class="du_an" id_giao_dich="<%=du_an.ID %>">
 			<td style='width: 90px' class='text-center delete'>
 				<!--Thao tac-->
 				<input type='button' class='xoa_giao_dich btn btn-xs btn-danger private_don_vi' value='Xoá' onclick='F104.deleteGiaoDich(<%=du_an.ID%>)' />
@@ -322,6 +322,7 @@
 										,
 										MA_LOAI = x.DM_CHUONG_LOAI_KHOAN_MUC_KHOAN.DM_CHUONG_LOAI_KHOAN_MUC_PARENT.MA_SO
 									})
+									.Distinct()
 									.OrderBy(x => x.MA_KHOAN)
 									.ToList(); %>
 		<%foreach (var khoan in lst_khoan)%>
@@ -406,7 +407,7 @@
 			<%foreach (var muc in lst_muc)%>
 		<%{%>
 		<!--Level 3: Muc-->
-		<tr class="muc">
+		<tr class="muc" id_giao_dich="<%=muc.ID %>">
 			<td style='width: 90px' class='text-center delete'>
 				<!--Thao tac-->
 				<input type='button' class='xoa_giao_dich btn btn-xs btn-danger private_don_vi' value='Xoá' onclick='F104.deleteGiaoDich(<%=muc.ID%>)' />
@@ -463,7 +464,7 @@
 		<!--Level 3: Tieu muc-->
 		<%foreach (var tieu_muc in lst_tieu_muc)%>
 		<%{%>
-		<tr class="tieu_muc">
+		<tr class="tieu_muc" id_giao_dich="<%=tieu_muc.ID %>">
 			<td style='width: 90px' class='text-center delete'>
 				<!--Thao tac-->
 				<input type='button' class='xoa_giao_dich btn btn-xs btn-danger private_don_vi' value='Xoá' onclick='F104.deleteGiaoDich(<%=tieu_muc.ID%>)' />

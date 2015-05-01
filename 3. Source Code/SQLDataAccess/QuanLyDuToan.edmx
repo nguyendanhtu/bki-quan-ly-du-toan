@@ -575,11 +575,27 @@
             <End Role="CM_DM_TU_DIEN" EntitySet="CM_DM_TU_DIEN" />
             <End Role="GD_KHOI_LUONG" EntitySet="GD_KHOI_LUONG" />
           </AssociationSet>
-          <AssociationSet Name="FK_GD_KHOI_LUONG_DM_CONG_TRINH_DU_AN_GOI_THAU" Association="BKI_QLDTModel.Store.FK_GD_KHOI_LUONG_DM_CONG_TRINH_DU_AN_GOI_THAU">
+          <AssociationSet Name="FK_GD_KHOI_LUONG_DM_CHUONG_LOAI_KHOAN_MUC" Association="BKI_QLDTModel.Store.FK_GD_KHOI_LUONG_DM_CHUONG_LOAI_KHOAN_MUC">
+            <End Role="DM_CHUONG_LOAI_KHOAN_MUC" EntitySet="DM_CHUONG_LOAI_KHOAN_MUC" />
+            <End Role="GD_KHOI_LUONG" EntitySet="GD_KHOI_LUONG" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GD_KHOI_LUONG_DM_CHUONG_LOAI_KHOAN_MUC1" Association="BKI_QLDTModel.Store.FK_GD_KHOI_LUONG_DM_CHUONG_LOAI_KHOAN_MUC1">
+            <End Role="DM_CHUONG_LOAI_KHOAN_MUC" EntitySet="DM_CHUONG_LOAI_KHOAN_MUC" />
+            <End Role="GD_KHOI_LUONG" EntitySet="GD_KHOI_LUONG" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GD_KHOI_LUONG_DM_CHUONG_LOAI_KHOAN_MUC2" Association="BKI_QLDTModel.Store.FK_GD_KHOI_LUONG_DM_CHUONG_LOAI_KHOAN_MUC2">
+            <End Role="DM_CHUONG_LOAI_KHOAN_MUC" EntitySet="DM_CHUONG_LOAI_KHOAN_MUC" />
+            <End Role="GD_KHOI_LUONG" EntitySet="GD_KHOI_LUONG" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GD_KHOI_LUONG_DM_CHUONG_LOAI_KHOAN_MUC3" Association="BKI_QLDTModel.Store.FK_GD_KHOI_LUONG_DM_CHUONG_LOAI_KHOAN_MUC3">
+            <End Role="DM_CHUONG_LOAI_KHOAN_MUC" EntitySet="DM_CHUONG_LOAI_KHOAN_MUC" />
+            <End Role="GD_KHOI_LUONG" EntitySet="GD_KHOI_LUONG" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GD_KHOI_LUONG_DM_CONG_TRINH_DU_AN_GOI_THAU2" Association="BKI_QLDTModel.Store.FK_GD_KHOI_LUONG_DM_CONG_TRINH_DU_AN_GOI_THAU2">
             <End Role="DM_CONG_TRINH_DU_AN_GOI_THAU" EntitySet="DM_CONG_TRINH_DU_AN_GOI_THAU" />
             <End Role="GD_KHOI_LUONG" EntitySet="GD_KHOI_LUONG" />
           </AssociationSet>
-          <AssociationSet Name="FK_GD_KHOI_LUONG_DM_CONG_TRINH_DU_AN_GOI_THAU1" Association="BKI_QLDTModel.Store.FK_GD_KHOI_LUONG_DM_CONG_TRINH_DU_AN_GOI_THAU1">
+          <AssociationSet Name="FK_GD_KHOI_LUONG_DM_CONG_TRINH_DU_AN_GOI_THAU3" Association="BKI_QLDTModel.Store.FK_GD_KHOI_LUONG_DM_CONG_TRINH_DU_AN_GOI_THAU3">
             <End Role="DM_CONG_TRINH_DU_AN_GOI_THAU" EntitySet="DM_CONG_TRINH_DU_AN_GOI_THAU" />
             <End Role="GD_KHOI_LUONG" EntitySet="GD_KHOI_LUONG" />
           </AssociationSet>
@@ -942,6 +958,10 @@
           <Property Name="GHI_CHU_3" Type="nvarchar" MaxLength="250" />
           <Property Name="GHI_CHU_4" Type="nvarchar" MaxLength="250" />
           <Property Name="SO_TIEN_DA_NGHIEM_THU_NS" Type="numeric" Precision="21" />
+          <Property Name="ID_CHUONG" Type="numeric" />
+          <Property Name="ID_KHOAN" Type="numeric" />
+          <Property Name="ID_MUC" Type="numeric" />
+          <Property Name="ID_TIEU_MUC" Type="numeric" />
         </EntityType>
         <EntityType Name="GD_PL01_TONG_HOP_TINH_HINH_KINH_PHI_VA_QUYET_TOAN_CHI">
           <Key>
@@ -2114,19 +2134,55 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_GD_KHOI_LUONG_DM_CONG_TRINH_DU_AN_GOI_THAU">
-          <End Role="DM_CONG_TRINH_DU_AN_GOI_THAU" Type="BKI_QLDTModel.Store.DM_CONG_TRINH_DU_AN_GOI_THAU" Multiplicity="0..1" />
+        <Association Name="FK_GD_KHOI_LUONG_DM_CHUONG_LOAI_KHOAN_MUC">
+          <End Role="DM_CHUONG_LOAI_KHOAN_MUC" Type="BKI_QLDTModel.Store.DM_CHUONG_LOAI_KHOAN_MUC" Multiplicity="0..1" />
           <End Role="GD_KHOI_LUONG" Type="BKI_QLDTModel.Store.GD_KHOI_LUONG" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="DM_CONG_TRINH_DU_AN_GOI_THAU">
+            <Principal Role="DM_CHUONG_LOAI_KHOAN_MUC">
               <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="GD_KHOI_LUONG">
-              <PropertyRef Name="ID_DU_AN" />
+              <PropertyRef Name="ID_CHUONG" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_GD_KHOI_LUONG_DM_CONG_TRINH_DU_AN_GOI_THAU1">
+        <Association Name="FK_GD_KHOI_LUONG_DM_CHUONG_LOAI_KHOAN_MUC1">
+          <End Role="DM_CHUONG_LOAI_KHOAN_MUC" Type="BKI_QLDTModel.Store.DM_CHUONG_LOAI_KHOAN_MUC" Multiplicity="0..1" />
+          <End Role="GD_KHOI_LUONG" Type="BKI_QLDTModel.Store.GD_KHOI_LUONG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DM_CHUONG_LOAI_KHOAN_MUC">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="GD_KHOI_LUONG">
+              <PropertyRef Name="ID_KHOAN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GD_KHOI_LUONG_DM_CHUONG_LOAI_KHOAN_MUC2">
+          <End Role="DM_CHUONG_LOAI_KHOAN_MUC" Type="BKI_QLDTModel.Store.DM_CHUONG_LOAI_KHOAN_MUC" Multiplicity="0..1" />
+          <End Role="GD_KHOI_LUONG" Type="BKI_QLDTModel.Store.GD_KHOI_LUONG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DM_CHUONG_LOAI_KHOAN_MUC">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="GD_KHOI_LUONG">
+              <PropertyRef Name="ID_MUC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GD_KHOI_LUONG_DM_CHUONG_LOAI_KHOAN_MUC3">
+          <End Role="DM_CHUONG_LOAI_KHOAN_MUC" Type="BKI_QLDTModel.Store.DM_CHUONG_LOAI_KHOAN_MUC" Multiplicity="0..1" />
+          <End Role="GD_KHOI_LUONG" Type="BKI_QLDTModel.Store.GD_KHOI_LUONG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DM_CHUONG_LOAI_KHOAN_MUC">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="GD_KHOI_LUONG">
+              <PropertyRef Name="ID_TIEU_MUC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GD_KHOI_LUONG_DM_CONG_TRINH_DU_AN_GOI_THAU2">
           <End Role="DM_CONG_TRINH_DU_AN_GOI_THAU" Type="BKI_QLDTModel.Store.DM_CONG_TRINH_DU_AN_GOI_THAU" Multiplicity="0..1" />
           <End Role="GD_KHOI_LUONG" Type="BKI_QLDTModel.Store.GD_KHOI_LUONG" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2135,6 +2191,18 @@
             </Principal>
             <Dependent Role="GD_KHOI_LUONG">
               <PropertyRef Name="ID_CONG_TRINH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GD_KHOI_LUONG_DM_CONG_TRINH_DU_AN_GOI_THAU3">
+          <End Role="DM_CONG_TRINH_DU_AN_GOI_THAU" Type="BKI_QLDTModel.Store.DM_CONG_TRINH_DU_AN_GOI_THAU" Multiplicity="0..1" />
+          <End Role="GD_KHOI_LUONG" Type="BKI_QLDTModel.Store.GD_KHOI_LUONG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DM_CONG_TRINH_DU_AN_GOI_THAU">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="GD_KHOI_LUONG">
+              <PropertyRef Name="ID_DU_AN" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -3148,6 +3216,7 @@
           <Parameter Name="ip_dc_id_cong_trinh" Type="numeric" Mode="In" />
           <Parameter Name="ip_dat_tu_ngay" Type="datetime" Mode="In" />
           <Parameter Name="ip_dat_den_ngay" Type="datetime" Mode="In" />
+          <Parameter Name="ip_str_nguon_ns" Type="nvarchar" Mode="In" />
         </Function>
         <Function Name="fn_khoi_luong_da_nghiem_thu_du_an" ReturnType="numeric" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ip_dc_id_don_vi" Type="numeric" Mode="In" />
@@ -3156,6 +3225,7 @@
           <Parameter Name="ip_dc_id_du_an" Type="numeric" Mode="In" />
           <Parameter Name="ip_dat_tu_ngay" Type="datetime" Mode="In" />
           <Parameter Name="ip_dat_den_ngay" Type="datetime" Mode="In" />
+          <Parameter Name="ip_str_nguon_ns" Type="nvarchar" Mode="In" />
         </Function>
         <Function Name="fn_khoi_luong_da_nghiem_thu_loai_nhiem_vu" ReturnType="numeric" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ip_dc_id_don_vi" Type="numeric" Mode="In" />
@@ -3180,11 +3250,13 @@
           <Parameter Name="ip_dat_ngay" Type="datetime" Mode="In" />
           <Parameter Name="ip_dc_id_loai_nhiem_vu" Type="numeric" Mode="In" />
           <Parameter Name="ip_dc_id_cong_trinh" Type="numeric" Mode="In" />
+          <Parameter Name="ip_str_nguon_ns" Type="nvarchar" Mode="In" />
         </Function>
         <Function Name="fn_khoi_luong_get_tong_tien_da_nghiem_thu_loai_nhiem_vu" ReturnType="numeric" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ip_dc_id_don_vi" Type="numeric" Mode="In" />
           <Parameter Name="ip_dat_ngay" Type="datetime" Mode="In" />
           <Parameter Name="ip_dc_id_loai_nhiem_vu" Type="numeric" Mode="In" />
+          <Parameter Name="ip_str_nguon_ns" Type="nvarchar" Mode="In" />
         </Function>
         <Function Name="fn_tach_ho_ten" ReturnType="nvarchar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="text" Type="nvarchar" Mode="In" />
@@ -3909,7 +3981,10 @@
         <Function Name="pr_F404_nhap_khoi_luong" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ip_dc_id_don_vi" Type="numeric" Mode="In" />
           <Parameter Name="ip_dc_id_loai_nhiem_vu" Type="numeric" Mode="In" />
+          <Parameter Name="ip_dat_dau_nam" Type="datetime" Mode="In" />
+          <Parameter Name="ip_dat_cuoi_nam" Type="datetime" Mode="In" />
           <Parameter Name="ip_dat_ngay_nhap" Type="datetime" Mode="In" />
+          <Parameter Name="ip_str_nguon_ns" Type="nvarchar" Mode="In" />
         </Function>
         <Function Name="pr_F510_giao_du_toan_theo_loai_khoan_nguon_ns" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ip_dat_tu_ngay" Type="datetime" Mode="In" />
@@ -4007,6 +4082,9 @@
           <Parameter Name="GHI_CHU_2" Type="nvarchar" Mode="In" />
           <Parameter Name="GHI_CHU_3" Type="nvarchar" Mode="In" />
           <Parameter Name="GHI_CHU_4" Type="nvarchar" Mode="In" />
+          <Parameter Name="TONG_MUC_DAU_TU" Type="numeric" Mode="In" />
+          <Parameter Name="THOI_GIAN_THUC_HIEN" Type="numeric" Mode="In" />
+          <Parameter Name="LOAI_CONG_TRINH" Type="nvarchar" Mode="In" />
           <Parameter Name="ID" Type="numeric" Mode="InOut" />
         </Function>
         <Function Name="pr_GD_CHI_TIET_GIAO_KH_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -4029,6 +4107,9 @@
           <Parameter Name="GHI_CHU_2" Type="nvarchar" Mode="In" />
           <Parameter Name="GHI_CHU_3" Type="nvarchar" Mode="In" />
           <Parameter Name="GHI_CHU_4" Type="nvarchar" Mode="In" />
+          <Parameter Name="TONG_MUC_DAU_TU" Type="numeric" Mode="In" />
+          <Parameter Name="THOI_GIAN_THUC_HIEN" Type="numeric" Mode="In" />
+          <Parameter Name="LOAI_CONG_TRINH" Type="nvarchar" Mode="In" />
         </Function>
         <Function Name="pr_GD_CHI_TIET_GIAO_VON_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ID" Type="numeric" Mode="In" />
@@ -4180,6 +4261,7 @@
           <Parameter Name="GHI_CHU_2" Type="nvarchar" Mode="In" />
           <Parameter Name="GHI_CHU_3" Type="nvarchar" Mode="In" />
           <Parameter Name="GHI_CHU_4" Type="nvarchar" Mode="In" />
+          <Parameter Name="SO_TIEN_DA_NGHIEM_THU_NS" Type="numeric" Mode="In" />
           <Parameter Name="ID" Type="numeric" Mode="InOut" />
         </Function>
         <Function Name="pr_gd_khoi_luong_insert_from_gd_giao_kh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -4201,6 +4283,7 @@
           <Parameter Name="GHI_CHU_2" Type="nvarchar" Mode="In" />
           <Parameter Name="GHI_CHU_3" Type="nvarchar" Mode="In" />
           <Parameter Name="GHI_CHU_4" Type="nvarchar" Mode="In" />
+          <Parameter Name="SO_TIEN_DA_NGHIEM_THU_NS" Type="numeric" Mode="In" />
         </Function>
         <Function Name="pr_GD_UY_NHIEM_CHI_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ID" Type="numeric" Mode="In" />
@@ -5610,7 +5693,10 @@
           <FunctionImport Name="pr_F404_nhap_khoi_luong" ReturnType="Collection(BKI_QLDTModel.pr_F404_nhap_khoi_luong_Result)">
             <Parameter Name="ip_dc_id_don_vi" Mode="In" Type="Decimal" />
             <Parameter Name="ip_dc_id_loai_nhiem_vu" Mode="In" Type="Decimal" />
+            <Parameter Name="ip_dat_dau_nam" Mode="In" Type="DateTime" />
+            <Parameter Name="ip_dat_cuoi_nam" Mode="In" Type="DateTime" />
             <Parameter Name="ip_dat_ngay_nhap" Mode="In" Type="DateTime" />
+            <Parameter Name="ip_str_nguon_ns" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="pr_F510_giao_du_toan_theo_loai_khoan_nguon_ns">
             <Parameter Name="ip_dat_tu_ngay" Mode="In" Type="DateTime" />
@@ -5708,6 +5794,9 @@
             <Parameter Name="GHI_CHU_2" Mode="In" Type="String" />
             <Parameter Name="GHI_CHU_3" Mode="In" Type="String" />
             <Parameter Name="GHI_CHU_4" Mode="In" Type="String" />
+            <Parameter Name="TONG_MUC_DAU_TU" Mode="In" Type="Decimal" />
+            <Parameter Name="THOI_GIAN_THUC_HIEN" Mode="In" Type="Decimal" />
+            <Parameter Name="LOAI_CONG_TRINH" Mode="In" Type="String" />
             <Parameter Name="ID" Mode="InOut" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="pr_GD_CHI_TIET_GIAO_KH_Update">
@@ -5730,6 +5819,9 @@
             <Parameter Name="GHI_CHU_2" Mode="In" Type="String" />
             <Parameter Name="GHI_CHU_3" Mode="In" Type="String" />
             <Parameter Name="GHI_CHU_4" Mode="In" Type="String" />
+            <Parameter Name="TONG_MUC_DAU_TU" Mode="In" Type="Decimal" />
+            <Parameter Name="THOI_GIAN_THUC_HIEN" Mode="In" Type="Decimal" />
+            <Parameter Name="LOAI_CONG_TRINH" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="pr_GD_CHI_TIET_GIAO_VON_Delete">
           <Parameter Name="ID" Mode="In" Type="Decimal" />
@@ -5881,6 +5973,7 @@
             <Parameter Name="GHI_CHU_2" Mode="In" Type="String" />
             <Parameter Name="GHI_CHU_3" Mode="In" Type="String" />
             <Parameter Name="GHI_CHU_4" Mode="In" Type="String" />
+            <Parameter Name="SO_TIEN_DA_NGHIEM_THU_NS" Mode="In" Type="Decimal" />
             <Parameter Name="ID" Mode="InOut" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="pr_gd_khoi_luong_insert_from_gd_giao_kh">
@@ -5902,6 +5995,7 @@
             <Parameter Name="GHI_CHU_2" Mode="In" Type="String" />
             <Parameter Name="GHI_CHU_3" Mode="In" Type="String" />
             <Parameter Name="GHI_CHU_4" Mode="In" Type="String" />
+            <Parameter Name="SO_TIEN_DA_NGHIEM_THU_NS" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="pr_GD_UY_NHIEM_CHI_Delete">
           <Parameter Name="ID" Mode="In" Type="Decimal" />
@@ -6385,6 +6479,22 @@
             <End Role="DM_DON_VI" EntitySet="DM_DON_VI" />
             <End Role="GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN" EntitySet="GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN" />
           </AssociationSet>
+          <AssociationSet Name="FK_GD_KHOI_LUONG_DM_CHUONG_LOAI_KHOAN_MUC" Association="BKI_QLDTModel.FK_GD_KHOI_LUONG_DM_CHUONG_LOAI_KHOAN_MUC">
+            <End Role="DM_CHUONG_LOAI_KHOAN_MUC" EntitySet="DM_CHUONG_LOAI_KHOAN_MUC" />
+            <End Role="GD_KHOI_LUONG" EntitySet="GD_KHOI_LUONG" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GD_KHOI_LUONG_DM_CHUONG_LOAI_KHOAN_MUC1" Association="BKI_QLDTModel.FK_GD_KHOI_LUONG_DM_CHUONG_LOAI_KHOAN_MUC1">
+            <End Role="DM_CHUONG_LOAI_KHOAN_MUC" EntitySet="DM_CHUONG_LOAI_KHOAN_MUC" />
+            <End Role="GD_KHOI_LUONG" EntitySet="GD_KHOI_LUONG" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GD_KHOI_LUONG_DM_CHUONG_LOAI_KHOAN_MUC2" Association="BKI_QLDTModel.FK_GD_KHOI_LUONG_DM_CHUONG_LOAI_KHOAN_MUC2">
+            <End Role="DM_CHUONG_LOAI_KHOAN_MUC" EntitySet="DM_CHUONG_LOAI_KHOAN_MUC" />
+            <End Role="GD_KHOI_LUONG" EntitySet="GD_KHOI_LUONG" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GD_KHOI_LUONG_DM_CHUONG_LOAI_KHOAN_MUC3" Association="BKI_QLDTModel.FK_GD_KHOI_LUONG_DM_CHUONG_LOAI_KHOAN_MUC3">
+            <End Role="DM_CHUONG_LOAI_KHOAN_MUC" EntitySet="DM_CHUONG_LOAI_KHOAN_MUC" />
+            <End Role="GD_KHOI_LUONG" EntitySet="GD_KHOI_LUONG" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="CM_COMPANY_INFO">
           <Key>
@@ -6432,21 +6542,25 @@
           <Property Name="TEN" Type="String" Nullable="false" MaxLength="250" Unicode="true" FixedLength="false" />
           <Property Name="MA_SO" Type="String" Nullable="false" MaxLength="15" Unicode="true" FixedLength="false" />
           <Property Name="ID_LOAI" Type="Decimal" Precision="18" Scale="0" />
-          <NavigationProperty Name="CM_DM_TU_DIEN" Relationship="BKI_QLDTModel.FK_DM_CHUONG_LOAI_KHOAN_MUC_CM_DM_TU_DIEN_LOAI" FromRole="DM_CHUONG_LOAI_KHOAN_MUC" ToRole="CM_DM_TU_DIEN" />
-          <NavigationProperty Name="DM_CHUONG_LOAI_KHOAN_MUC1" Relationship="BKI_QLDTModel.FK_DM_NGUON_DM_NGUON" FromRole="DM_CHUONG_LOAI_KHOAN_MUC" ToRole="DM_CHUONG_LOAI_KHOAN_MUC1" />
+          <NavigationProperty Name="CM_DM_TU_DIEN_LOAI" Relationship="BKI_QLDTModel.FK_DM_CHUONG_LOAI_KHOAN_MUC_CM_DM_TU_DIEN_LOAI" FromRole="DM_CHUONG_LOAI_KHOAN_MUC" ToRole="CM_DM_TU_DIEN" />
+          <NavigationProperty Name="DM_CHUONG_LOAI_KHOAN_MUC_CHILDREN" Relationship="BKI_QLDTModel.FK_DM_NGUON_DM_NGUON" FromRole="DM_CHUONG_LOAI_KHOAN_MUC" ToRole="DM_CHUONG_LOAI_KHOAN_MUC1" />
           <NavigationProperty Name="DM_CHUONG_LOAI_KHOAN_MUC_PARENT" Relationship="BKI_QLDTModel.FK_DM_NGUON_DM_NGUON" FromRole="DM_CHUONG_LOAI_KHOAN_MUC1" ToRole="DM_CHUONG_LOAI_KHOAN_MUC" />
-          <NavigationProperty Name="GD_CHI_TIET_GIAO_KH" Relationship="BKI_QLDTModel.FK_GD_GIAO_KH_DM_CHUONG_LOAI_KHOAN_MUC_CHUONG" FromRole="DM_CHUONG_LOAI_KHOAN_MUC" ToRole="GD_CHI_TIET_GIAO_KH" />
-          <NavigationProperty Name="GD_CHI_TIET_GIAO_KH1" Relationship="BKI_QLDTModel.FK_GD_GIAO_KH_DM_CHUONG_LOAI_KHOAN_MUC_KHOAN" FromRole="DM_CHUONG_LOAI_KHOAN_MUC" ToRole="GD_CHI_TIET_GIAO_KH" />
-          <NavigationProperty Name="GD_CHI_TIET_GIAO_KH2" Relationship="BKI_QLDTModel.FK_GD_GIAO_KH_DM_CHUONG_LOAI_KHOAN_MUC_MUC" FromRole="DM_CHUONG_LOAI_KHOAN_MUC" ToRole="GD_CHI_TIET_GIAO_KH" />
-          <NavigationProperty Name="GD_CHI_TIET_GIAO_KH3" Relationship="BKI_QLDTModel.FK_GD_GIAO_KH_DM_CHUONG_LOAI_KHOAN_MUC_TIEU_MUC" FromRole="DM_CHUONG_LOAI_KHOAN_MUC" ToRole="GD_CHI_TIET_GIAO_KH" />
-          <NavigationProperty Name="GD_CHI_TIET_GIAO_VON" Relationship="BKI_QLDTModel.FK_GD_GIAO_VON_DM_CHUONG_LOAI_KHOAN_MUC_CHUONG" FromRole="DM_CHUONG_LOAI_KHOAN_MUC" ToRole="GD_CHI_TIET_GIAO_VON" />
-          <NavigationProperty Name="GD_CHI_TIET_GIAO_VON1" Relationship="BKI_QLDTModel.FK_GD_GIAO_VON_DM_CHUONG_LOAI_KHOAN_MUC_KHOAN" FromRole="DM_CHUONG_LOAI_KHOAN_MUC" ToRole="GD_CHI_TIET_GIAO_VON" />
-          <NavigationProperty Name="GD_CHI_TIET_GIAO_VON2" Relationship="BKI_QLDTModel.FK_GD_GIAO_VON_DM_CHUONG_LOAI_KHOAN_MUC_MUC" FromRole="DM_CHUONG_LOAI_KHOAN_MUC" ToRole="GD_CHI_TIET_GIAO_VON" />
-          <NavigationProperty Name="GD_CHI_TIET_GIAO_VON3" Relationship="BKI_QLDTModel.FK_GD_GIAO_VON_DM_CHUONG_LOAI_KHOAN_MUC_TIEU_MUC" FromRole="DM_CHUONG_LOAI_KHOAN_MUC" ToRole="GD_CHI_TIET_GIAO_VON" />
-          <NavigationProperty Name="GD_CHI_TIET_GIAI_NGAN" Relationship="BKI_QLDTModel.FK_GD_UY_NHIEM_CHI_DM_CHUONG_LOAI_KHOAN_MUC_CHUONG" FromRole="DM_CHUONG_LOAI_KHOAN_MUC" ToRole="GD_CHI_TIET_GIAI_NGAN" />
-          <NavigationProperty Name="GD_CHI_TIET_GIAI_NGAN1" Relationship="BKI_QLDTModel.FK_GD_UY_NHIEM_CHI_DM_CHUONG_LOAI_KHOAN_MUC_KHOAN" FromRole="DM_CHUONG_LOAI_KHOAN_MUC" ToRole="GD_CHI_TIET_GIAI_NGAN" />
-          <NavigationProperty Name="GD_CHI_TIET_GIAI_NGAN2" Relationship="BKI_QLDTModel.FK_GD_UY_NHIEM_CHI_DM_CHUONG_LOAI_KHOAN_MUC_MUC" FromRole="DM_CHUONG_LOAI_KHOAN_MUC" ToRole="GD_CHI_TIET_GIAI_NGAN" />
-          <NavigationProperty Name="GD_CHI_TIET_GIAI_NGAN3" Relationship="BKI_QLDTModel.FK_GD_UY_NHIEM_CHI_DM_CHUONG_LOAI_KHOAN_MUC_TIEU_MUC" FromRole="DM_CHUONG_LOAI_KHOAN_MUC" ToRole="GD_CHI_TIET_GIAI_NGAN" />
+          <NavigationProperty Name="GD_CHI_TIET_GIAO_KH_CHUONG" Relationship="BKI_QLDTModel.FK_GD_GIAO_KH_DM_CHUONG_LOAI_KHOAN_MUC_CHUONG" FromRole="DM_CHUONG_LOAI_KHOAN_MUC" ToRole="GD_CHI_TIET_GIAO_KH" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+          <NavigationProperty Name="GD_CHI_TIET_GIAO_KH_KHOAN" Relationship="BKI_QLDTModel.FK_GD_GIAO_KH_DM_CHUONG_LOAI_KHOAN_MUC_KHOAN" FromRole="DM_CHUONG_LOAI_KHOAN_MUC" ToRole="GD_CHI_TIET_GIAO_KH" />
+          <NavigationProperty Name="GD_CHI_TIET_GIAO_KH_MUC" Relationship="BKI_QLDTModel.FK_GD_GIAO_KH_DM_CHUONG_LOAI_KHOAN_MUC_MUC" FromRole="DM_CHUONG_LOAI_KHOAN_MUC" ToRole="GD_CHI_TIET_GIAO_KH" />
+          <NavigationProperty Name="GD_CHI_TIET_GIAO_KH_TIEU_MUC" Relationship="BKI_QLDTModel.FK_GD_GIAO_KH_DM_CHUONG_LOAI_KHOAN_MUC_TIEU_MUC" FromRole="DM_CHUONG_LOAI_KHOAN_MUC" ToRole="GD_CHI_TIET_GIAO_KH" />
+          <NavigationProperty Name="GD_CHI_TIET_GIAO_VON_CHUONG" Relationship="BKI_QLDTModel.FK_GD_GIAO_VON_DM_CHUONG_LOAI_KHOAN_MUC_CHUONG" FromRole="DM_CHUONG_LOAI_KHOAN_MUC" ToRole="GD_CHI_TIET_GIAO_VON" />
+          <NavigationProperty Name="GD_CHI_TIET_GIAO_VON_KHOAN" Relationship="BKI_QLDTModel.FK_GD_GIAO_VON_DM_CHUONG_LOAI_KHOAN_MUC_KHOAN" FromRole="DM_CHUONG_LOAI_KHOAN_MUC" ToRole="GD_CHI_TIET_GIAO_VON" />
+          <NavigationProperty Name="GD_CHI_TIET_GIAO_VON_MUC" Relationship="BKI_QLDTModel.FK_GD_GIAO_VON_DM_CHUONG_LOAI_KHOAN_MUC_MUC" FromRole="DM_CHUONG_LOAI_KHOAN_MUC" ToRole="GD_CHI_TIET_GIAO_VON" />
+          <NavigationProperty Name="GD_CHI_TIET_GIAO_VON_TIEU_MUC" Relationship="BKI_QLDTModel.FK_GD_GIAO_VON_DM_CHUONG_LOAI_KHOAN_MUC_TIEU_MUC" FromRole="DM_CHUONG_LOAI_KHOAN_MUC" ToRole="GD_CHI_TIET_GIAO_VON" />
+          <NavigationProperty Name="GD_CHI_TIET_GIAI_NGAN_CHUONG" Relationship="BKI_QLDTModel.FK_GD_UY_NHIEM_CHI_DM_CHUONG_LOAI_KHOAN_MUC_CHUONG" FromRole="DM_CHUONG_LOAI_KHOAN_MUC" ToRole="GD_CHI_TIET_GIAI_NGAN" />
+          <NavigationProperty Name="GD_CHI_TIET_GIAI_NGAN_KHOAN" Relationship="BKI_QLDTModel.FK_GD_UY_NHIEM_CHI_DM_CHUONG_LOAI_KHOAN_MUC_KHOAN" FromRole="DM_CHUONG_LOAI_KHOAN_MUC" ToRole="GD_CHI_TIET_GIAI_NGAN" />
+          <NavigationProperty Name="GD_CHI_TIET_GIAI_NGAN_MUC" Relationship="BKI_QLDTModel.FK_GD_UY_NHIEM_CHI_DM_CHUONG_LOAI_KHOAN_MUC_MUC" FromRole="DM_CHUONG_LOAI_KHOAN_MUC" ToRole="GD_CHI_TIET_GIAI_NGAN" />
+          <NavigationProperty Name="GD_CHI_TIET_GIAI_NGAN_TIEU_MUC" Relationship="BKI_QLDTModel.FK_GD_UY_NHIEM_CHI_DM_CHUONG_LOAI_KHOAN_MUC_TIEU_MUC" FromRole="DM_CHUONG_LOAI_KHOAN_MUC" ToRole="GD_CHI_TIET_GIAI_NGAN" />
+          <NavigationProperty Name="GD_KHOI_LUONG_CHUONG" Relationship="BKI_QLDTModel.FK_GD_KHOI_LUONG_DM_CHUONG_LOAI_KHOAN_MUC" FromRole="DM_CHUONG_LOAI_KHOAN_MUC" ToRole="GD_KHOI_LUONG" />
+          <NavigationProperty Name="GD_KHOI_LUONG_KHOAN" Relationship="BKI_QLDTModel.FK_GD_KHOI_LUONG_DM_CHUONG_LOAI_KHOAN_MUC1" FromRole="DM_CHUONG_LOAI_KHOAN_MUC" ToRole="GD_KHOI_LUONG" />
+          <NavigationProperty Name="GD_KHOI_LUONG_MUC" Relationship="BKI_QLDTModel.FK_GD_KHOI_LUONG_DM_CHUONG_LOAI_KHOAN_MUC2" FromRole="DM_CHUONG_LOAI_KHOAN_MUC" ToRole="GD_KHOI_LUONG" />
+          <NavigationProperty Name="GD_KHOI_LUONG_TIEU_MUC" Relationship="BKI_QLDTModel.FK_GD_KHOI_LUONG_DM_CHUONG_LOAI_KHOAN_MUC3" FromRole="DM_CHUONG_LOAI_KHOAN_MUC" ToRole="GD_KHOI_LUONG" />
         </EntityType>
         <EntityType Name="DM_CONG_TRINH_DU_AN_GOI_THAU">
           <Key>
@@ -6461,17 +6575,17 @@
           <Property Name="GHI_CHU_4" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
           <Property Name="ID_LOAI" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="ID_DON_VI" Type="Decimal" Precision="18" Scale="0" />
-          <NavigationProperty Name="DM_CONG_TRINH_DU_AN_GOI_THAU1" Relationship="BKI_QLDTModel.FK_DM_CONG_TRINH_DU_AN_GOI_THAU_DM_CONG_TRINH_DU_AN_GOI_THAU" FromRole="DM_CONG_TRINH_DU_AN_GOI_THAU" ToRole="DM_CONG_TRINH_DU_AN_GOI_THAU1" />
+          <NavigationProperty Name="DM_CONG_TRINH_DU_AN_GOI_THAU_CHILDREN" Relationship="BKI_QLDTModel.FK_DM_CONG_TRINH_DU_AN_GOI_THAU_DM_CONG_TRINH_DU_AN_GOI_THAU" FromRole="DM_CONG_TRINH_DU_AN_GOI_THAU" ToRole="DM_CONG_TRINH_DU_AN_GOI_THAU1" />
           <NavigationProperty Name="DM_CONG_TRINH_DU_AN_GOI_THAU_PARENT" Relationship="BKI_QLDTModel.FK_DM_CONG_TRINH_DU_AN_GOI_THAU_DM_CONG_TRINH_DU_AN_GOI_THAU" FromRole="DM_CONG_TRINH_DU_AN_GOI_THAU1" ToRole="DM_CONG_TRINH_DU_AN_GOI_THAU" />
           <NavigationProperty Name="DM_DON_VI" Relationship="BKI_QLDTModel.FK_DM_CONG_TRINH_DU_AN_GOI_THAU_DM_DON_VI" FromRole="DM_CONG_TRINH_DU_AN_GOI_THAU" ToRole="DM_DON_VI" />
           <NavigationProperty Name="GD_CHI_TIET_GIAI_NGAN_CONG_TRINH" Relationship="BKI_QLDTModel.FK_GD_CHI_TIET_GIAI_NGAN_DM_CONG_TRINH_DU_AN_GOI_THAU" FromRole="DM_CONG_TRINH_DU_AN_GOI_THAU" ToRole="GD_CHI_TIET_GIAI_NGAN" />
           <NavigationProperty Name="GD_CHI_TIET_GIAI_NGAN_DU_AN" Relationship="BKI_QLDTModel.FK_GD_CHI_TIET_GIAI_NGAN_DM_CONG_TRINH_DU_AN_GOI_THAU1" FromRole="DM_CONG_TRINH_DU_AN_GOI_THAU" ToRole="GD_CHI_TIET_GIAI_NGAN" />
-          <NavigationProperty Name="GD_CHI_TIET_GIAO_KH" Relationship="BKI_QLDTModel.FK_GD_CHI_TIET_GIAO_KH_DM_CONG_TRINH_DU_AN_GOI_THAU" FromRole="DM_CONG_TRINH_DU_AN_GOI_THAU" ToRole="GD_CHI_TIET_GIAO_KH" />
-          <NavigationProperty Name="GD_CHI_TIET_GIAO_KH1" Relationship="BKI_QLDTModel.FK_GD_CHI_TIET_GIAO_KH_DM_CONG_TRINH_DU_AN_GOI_THAU1" FromRole="DM_CONG_TRINH_DU_AN_GOI_THAU" ToRole="GD_CHI_TIET_GIAO_KH" />
-          <NavigationProperty Name="GD_CHI_TIET_GIAO_VON" Relationship="BKI_QLDTModel.FK_GD_CHI_TIET_GIAO_VON_DM_CONG_TRINH_DU_AN_GOI_THAU" FromRole="DM_CONG_TRINH_DU_AN_GOI_THAU" ToRole="GD_CHI_TIET_GIAO_VON" />
-          <NavigationProperty Name="GD_CHI_TIET_GIAO_VON1" Relationship="BKI_QLDTModel.FK_GD_CHI_TIET_GIAO_VON_DM_CONG_TRINH_DU_AN_GOI_THAU1" FromRole="DM_CONG_TRINH_DU_AN_GOI_THAU" ToRole="GD_CHI_TIET_GIAO_VON" />
-          <NavigationProperty Name="GD_KHOI_LUONG" Relationship="BKI_QLDTModel.FK_GD_KHOI_LUONG_DM_CONG_TRINH_DU_AN_GOI_THAU" FromRole="DM_CONG_TRINH_DU_AN_GOI_THAU" ToRole="GD_KHOI_LUONG" />
-          <NavigationProperty Name="GD_KHOI_LUONG1" Relationship="BKI_QLDTModel.FK_GD_KHOI_LUONG_DM_CONG_TRINH_DU_AN_GOI_THAU1" FromRole="DM_CONG_TRINH_DU_AN_GOI_THAU" ToRole="GD_KHOI_LUONG" />
+          <NavigationProperty Name="GD_CHI_TIET_GIAO_KH_CONG_TRINH" Relationship="BKI_QLDTModel.FK_GD_CHI_TIET_GIAO_KH_DM_CONG_TRINH_DU_AN_GOI_THAU" FromRole="DM_CONG_TRINH_DU_AN_GOI_THAU" ToRole="GD_CHI_TIET_GIAO_KH" />
+          <NavigationProperty Name="GD_CHI_TIET_GIAO_KH_DU_AN" Relationship="BKI_QLDTModel.FK_GD_CHI_TIET_GIAO_KH_DM_CONG_TRINH_DU_AN_GOI_THAU1" FromRole="DM_CONG_TRINH_DU_AN_GOI_THAU" ToRole="GD_CHI_TIET_GIAO_KH" />
+          <NavigationProperty Name="GD_CHI_TIET_GIAO_VON_CONG_TRINH" Relationship="BKI_QLDTModel.FK_GD_CHI_TIET_GIAO_VON_DM_CONG_TRINH_DU_AN_GOI_THAU" FromRole="DM_CONG_TRINH_DU_AN_GOI_THAU" ToRole="GD_CHI_TIET_GIAO_VON" />
+          <NavigationProperty Name="GD_CHI_TIET_GIAO_VON_DU_AN" Relationship="BKI_QLDTModel.FK_GD_CHI_TIET_GIAO_VON_DM_CONG_TRINH_DU_AN_GOI_THAU1" FromRole="DM_CONG_TRINH_DU_AN_GOI_THAU" ToRole="GD_CHI_TIET_GIAO_VON" />
+          <NavigationProperty Name="GD_KHOI_LUONG_DU_AN" Relationship="BKI_QLDTModel.FK_GD_KHOI_LUONG_DM_CONG_TRINH_DU_AN_GOI_THAU" FromRole="DM_CONG_TRINH_DU_AN_GOI_THAU" ToRole="GD_KHOI_LUONG" />
+          <NavigationProperty Name="GD_KHOI_LUONG_CONG_TRINH" Relationship="BKI_QLDTModel.FK_GD_KHOI_LUONG_DM_CONG_TRINH_DU_AN_GOI_THAU1" FromRole="DM_CONG_TRINH_DU_AN_GOI_THAU" ToRole="GD_KHOI_LUONG" />
         </EntityType>
         <EntityType Name="DM_DON_VI">
           <Key>
@@ -6485,10 +6599,10 @@
           <Property Name="ID_DON_VI_CAP_TREN" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="STT" Type="Decimal" Precision="4" Scale="0" />
           <Property Name="LEVEL_MODE" Type="Decimal" Precision="4" Scale="0" />
-          <NavigationProperty Name="CM_DM_TU_DIEN" Relationship="BKI_QLDTModel.FK_DM_DON_VI_CM_DM_TU_DIEN1" FromRole="DM_DON_VI" ToRole="CM_DM_TU_DIEN" />
-          <NavigationProperty Name="DM_CONG_TRINH_DU_AN_GOI_THAU" Relationship="BKI_QLDTModel.FK_DM_CONG_TRINH_DU_AN_GOI_THAU_DM_DON_VI" FromRole="DM_DON_VI" ToRole="DM_CONG_TRINH_DU_AN_GOI_THAU" />
-          <NavigationProperty Name="DM_DON_VI1" Relationship="BKI_QLDTModel.FK_DM_DON_VI_DM_DON_VI1" FromRole="DM_DON_VI" ToRole="DM_DON_VI1" />
-          <NavigationProperty Name="DM_DON_VI2" Relationship="BKI_QLDTModel.FK_DM_DON_VI_DM_DON_VI1" FromRole="DM_DON_VI1" ToRole="DM_DON_VI" />
+          <NavigationProperty Name="CM_DM_TU_DIEN_LOAI_DON_VI" Relationship="BKI_QLDTModel.FK_DM_DON_VI_CM_DM_TU_DIEN1" FromRole="DM_DON_VI" ToRole="CM_DM_TU_DIEN" />
+          <NavigationProperty Name="DM_CONG_TRINH_DU_AN_GOI_THAU_DON_VI" Relationship="BKI_QLDTModel.FK_DM_CONG_TRINH_DU_AN_GOI_THAU_DM_DON_VI" FromRole="DM_DON_VI" ToRole="DM_CONG_TRINH_DU_AN_GOI_THAU" />
+          <NavigationProperty Name="DM_DON_VI_DON_VI_CAP_TREN_CHILDREN" Relationship="BKI_QLDTModel.FK_DM_DON_VI_DM_DON_VI1" FromRole="DM_DON_VI" ToRole="DM_DON_VI1" />
+          <NavigationProperty Name="DM_DON_VI_DON_VI_CAP_TREN" Relationship="BKI_QLDTModel.FK_DM_DON_VI_DM_DON_VI1" FromRole="DM_DON_VI1" ToRole="DM_DON_VI" />
           <NavigationProperty Name="DM_THONG_TIN_DON_VI" Relationship="BKI_QLDTModel.FK_DM_THONG_TIN_DON_VI_DM_DON_VI" FromRole="DM_DON_VI" ToRole="DM_THONG_TIN_DON_VI" />
           <NavigationProperty Name="DM_GIAI_NGAN" Relationship="BKI_QLDTModel.FK_DM_UY_NHIEM_CHI_DM_DON_VI" FromRole="DM_DON_VI" ToRole="DM_GIAI_NGAN" />
           <NavigationProperty Name="GD_CHI_TIET_GIAO_KH" Relationship="BKI_QLDTModel.FK_GD_DU_TOAN_DM_DON_VI" FromRole="DM_DON_VI" ToRole="GD_CHI_TIET_GIAO_KH" />
@@ -6558,8 +6672,8 @@
           <Property Name="NGAY_THANG" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="ID_LOAI_QUYET_DINH" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
           <Property Name="ID_LOAI_QUYET_DINH_GIAO" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
-          <NavigationProperty Name="CM_DM_TU_DIEN" Relationship="BKI_QLDTModel.FK_DM_QUYET_DINH_CM_DM_TU_DIEN1" FromRole="DM_QUYET_DINH" ToRole="CM_DM_TU_DIEN" />
-          <NavigationProperty Name="CM_DM_TU_DIEN1" Relationship="BKI_QLDTModel.FK_DM_QUYET_DINH_CM_DM_TU_DIEN2" FromRole="DM_QUYET_DINH" ToRole="CM_DM_TU_DIEN" />
+          <NavigationProperty Name="CM_DM_TU_DIEN_LOAI_QUYET_DINH" Relationship="BKI_QLDTModel.FK_DM_QUYET_DINH_CM_DM_TU_DIEN1" FromRole="DM_QUYET_DINH" ToRole="CM_DM_TU_DIEN" />
+          <NavigationProperty Name="CM_DM_TU_DIEN_LOAI_QUYET_DINH_GIAO" Relationship="BKI_QLDTModel.FK_DM_QUYET_DINH_CM_DM_TU_DIEN2" FromRole="DM_QUYET_DINH" ToRole="CM_DM_TU_DIEN" />
           <NavigationProperty Name="DM_DON_VI" Relationship="BKI_QLDTModel.FK_GD_QUYET_DINH_DM_DON_VI" FromRole="DM_QUYET_DINH" ToRole="DM_DON_VI" />
           <NavigationProperty Name="GD_CHI_TIET_GIAO_KH" Relationship="BKI_QLDTModel.FK_GD_GIAO_KH_GD_QUYET_DINH" FromRole="DM_QUYET_DINH" ToRole="GD_CHI_TIET_GIAO_KH" />
           <NavigationProperty Name="GD_CHI_TIET_GIAO_VON" Relationship="BKI_QLDTModel.FK_GD_GIAO_VON_GD_QUYET_DINH" FromRole="DM_QUYET_DINH" ToRole="GD_CHI_TIET_GIAO_VON" />
@@ -6627,9 +6741,9 @@
           <Property Name="MA_NGUON_NSNN" Type="String" MaxLength="35" Unicode="true" FixedLength="false" />
           <NavigationProperty Name="CM_DM_TU_DIEN" Relationship="BKI_QLDTModel.FK_GD_UY_NHIEM_CHI_CM_DM_TU_DIEN" FromRole="GD_CHI_TIET_GIAI_NGAN" ToRole="CM_DM_TU_DIEN" />
           <NavigationProperty Name="DM_CHUONG_LOAI_KHOAN_MUC_CHUONG" Relationship="BKI_QLDTModel.FK_GD_UY_NHIEM_CHI_DM_CHUONG_LOAI_KHOAN_MUC_CHUONG" FromRole="GD_CHI_TIET_GIAI_NGAN" ToRole="DM_CHUONG_LOAI_KHOAN_MUC" />
-          <NavigationProperty Name="DM_CHUONG_LOAI_KHOAN_MUC1" Relationship="BKI_QLDTModel.FK_GD_UY_NHIEM_CHI_DM_CHUONG_LOAI_KHOAN_MUC_KHOAN" FromRole="GD_CHI_TIET_GIAI_NGAN" ToRole="DM_CHUONG_LOAI_KHOAN_MUC" />
-          <NavigationProperty Name="DM_CHUONG_LOAI_KHOAN_MUC2" Relationship="BKI_QLDTModel.FK_GD_UY_NHIEM_CHI_DM_CHUONG_LOAI_KHOAN_MUC_MUC" FromRole="GD_CHI_TIET_GIAI_NGAN" ToRole="DM_CHUONG_LOAI_KHOAN_MUC" />
-          <NavigationProperty Name="DM_CHUONG_LOAI_KHOAN_MUC3" Relationship="BKI_QLDTModel.FK_GD_UY_NHIEM_CHI_DM_CHUONG_LOAI_KHOAN_MUC_TIEU_MUC" FromRole="GD_CHI_TIET_GIAI_NGAN" ToRole="DM_CHUONG_LOAI_KHOAN_MUC" />
+          <NavigationProperty Name="DM_CHUONG_LOAI_KHOAN_MUC_KHOAN" Relationship="BKI_QLDTModel.FK_GD_UY_NHIEM_CHI_DM_CHUONG_LOAI_KHOAN_MUC_KHOAN" FromRole="GD_CHI_TIET_GIAI_NGAN" ToRole="DM_CHUONG_LOAI_KHOAN_MUC" />
+          <NavigationProperty Name="DM_CHUONG_LOAI_KHOAN_MUC_MUC" Relationship="BKI_QLDTModel.FK_GD_UY_NHIEM_CHI_DM_CHUONG_LOAI_KHOAN_MUC_MUC" FromRole="GD_CHI_TIET_GIAI_NGAN" ToRole="DM_CHUONG_LOAI_KHOAN_MUC" />
+          <NavigationProperty Name="DM_CHUONG_LOAI_KHOAN_MUC_TIEU_MUC" Relationship="BKI_QLDTModel.FK_GD_UY_NHIEM_CHI_DM_CHUONG_LOAI_KHOAN_MUC_TIEU_MUC" FromRole="GD_CHI_TIET_GIAI_NGAN" ToRole="DM_CHUONG_LOAI_KHOAN_MUC" />
           <NavigationProperty Name="DM_CONG_TRINH_DU_AN_GOI_THAU_CONG_TRINH" Relationship="BKI_QLDTModel.FK_GD_CHI_TIET_GIAI_NGAN_DM_CONG_TRINH_DU_AN_GOI_THAU" FromRole="GD_CHI_TIET_GIAI_NGAN" ToRole="DM_CONG_TRINH_DU_AN_GOI_THAU" />
           <NavigationProperty Name="DM_CONG_TRINH_DU_AN_GOI_THAU_DU_AN" Relationship="BKI_QLDTModel.FK_GD_CHI_TIET_GIAI_NGAN_DM_CONG_TRINH_DU_AN_GOI_THAU1" FromRole="GD_CHI_TIET_GIAI_NGAN" ToRole="DM_CONG_TRINH_DU_AN_GOI_THAU" />
           <NavigationProperty Name="DM_DON_VI" Relationship="BKI_QLDTModel.FK_GD_UY_NHIEM_CHI_DM_DON_VI" FromRole="GD_CHI_TIET_GIAI_NGAN" ToRole="DM_DON_VI" />
@@ -6658,7 +6772,7 @@
           <Property Name="GHI_CHU_2" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
           <Property Name="GHI_CHU_3" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
           <Property Name="GHI_CHU_4" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
-          <NavigationProperty Name="CM_DM_TU_DIEN" Relationship="BKI_QLDTModel.FK_GD_CHI_TIET_GIAO_KH_CM_DM_TU_DIEN" FromRole="GD_CHI_TIET_GIAO_KH" ToRole="CM_DM_TU_DIEN" />
+          <NavigationProperty Name="CM_DM_TU_DIEN_LOAI_NHIEM_VU" Relationship="BKI_QLDTModel.FK_GD_CHI_TIET_GIAO_KH_CM_DM_TU_DIEN" FromRole="GD_CHI_TIET_GIAO_KH" ToRole="CM_DM_TU_DIEN" />
           <NavigationProperty Name="DM_CHUONG_LOAI_KHOAN_MUC_CHUONG" Relationship="BKI_QLDTModel.FK_GD_GIAO_KH_DM_CHUONG_LOAI_KHOAN_MUC_CHUONG" FromRole="GD_CHI_TIET_GIAO_KH" ToRole="DM_CHUONG_LOAI_KHOAN_MUC" />
           <NavigationProperty Name="DM_CHUONG_LOAI_KHOAN_MUC_KHOAN" Relationship="BKI_QLDTModel.FK_GD_GIAO_KH_DM_CHUONG_LOAI_KHOAN_MUC_KHOAN" FromRole="GD_CHI_TIET_GIAO_KH" ToRole="DM_CHUONG_LOAI_KHOAN_MUC" />
           <NavigationProperty Name="DM_CHUONG_LOAI_KHOAN_MUC_MUC" Relationship="BKI_QLDTModel.FK_GD_GIAO_KH_DM_CHUONG_LOAI_KHOAN_MUC_MUC" FromRole="GD_CHI_TIET_GIAO_KH" ToRole="DM_CHUONG_LOAI_KHOAN_MUC" />
@@ -6692,12 +6806,12 @@
           <Property Name="GHI_CHU_2" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
           <Property Name="GHI_CHU_3" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
           <Property Name="GHI_CHU_4" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
-          <NavigationProperty Name="DM_CHUONG_LOAI_KHOAN_MUC" Relationship="BKI_QLDTModel.FK_GD_GIAO_VON_DM_CHUONG_LOAI_KHOAN_MUC_CHUONG" FromRole="GD_CHI_TIET_GIAO_VON" ToRole="DM_CHUONG_LOAI_KHOAN_MUC" />
-          <NavigationProperty Name="DM_CHUONG_LOAI_KHOAN_MUC1" Relationship="BKI_QLDTModel.FK_GD_GIAO_VON_DM_CHUONG_LOAI_KHOAN_MUC_KHOAN" FromRole="GD_CHI_TIET_GIAO_VON" ToRole="DM_CHUONG_LOAI_KHOAN_MUC" />
-          <NavigationProperty Name="DM_CHUONG_LOAI_KHOAN_MUC2" Relationship="BKI_QLDTModel.FK_GD_GIAO_VON_DM_CHUONG_LOAI_KHOAN_MUC_MUC" FromRole="GD_CHI_TIET_GIAO_VON" ToRole="DM_CHUONG_LOAI_KHOAN_MUC" />
-          <NavigationProperty Name="DM_CHUONG_LOAI_KHOAN_MUC3" Relationship="BKI_QLDTModel.FK_GD_GIAO_VON_DM_CHUONG_LOAI_KHOAN_MUC_TIEU_MUC" FromRole="GD_CHI_TIET_GIAO_VON" ToRole="DM_CHUONG_LOAI_KHOAN_MUC" />
-          <NavigationProperty Name="DM_CONG_TRINH_DU_AN_GOI_THAU" Relationship="BKI_QLDTModel.FK_GD_CHI_TIET_GIAO_VON_DM_CONG_TRINH_DU_AN_GOI_THAU" FromRole="GD_CHI_TIET_GIAO_VON" ToRole="DM_CONG_TRINH_DU_AN_GOI_THAU" />
-          <NavigationProperty Name="DM_CONG_TRINH_DU_AN_GOI_THAU1" Relationship="BKI_QLDTModel.FK_GD_CHI_TIET_GIAO_VON_DM_CONG_TRINH_DU_AN_GOI_THAU1" FromRole="GD_CHI_TIET_GIAO_VON" ToRole="DM_CONG_TRINH_DU_AN_GOI_THAU" />
+          <NavigationProperty Name="DM_CHUONG_LOAI_KHOAN_MUC_CHUONG" Relationship="BKI_QLDTModel.FK_GD_GIAO_VON_DM_CHUONG_LOAI_KHOAN_MUC_CHUONG" FromRole="GD_CHI_TIET_GIAO_VON" ToRole="DM_CHUONG_LOAI_KHOAN_MUC" />
+          <NavigationProperty Name="DM_CHUONG_LOAI_KHOAN_MUC_KHOAN" Relationship="BKI_QLDTModel.FK_GD_GIAO_VON_DM_CHUONG_LOAI_KHOAN_MUC_KHOAN" FromRole="GD_CHI_TIET_GIAO_VON" ToRole="DM_CHUONG_LOAI_KHOAN_MUC" />
+          <NavigationProperty Name="DM_CHUONG_LOAI_KHOAN_MUC_MUC" Relationship="BKI_QLDTModel.FK_GD_GIAO_VON_DM_CHUONG_LOAI_KHOAN_MUC_MUC" FromRole="GD_CHI_TIET_GIAO_VON" ToRole="DM_CHUONG_LOAI_KHOAN_MUC" />
+          <NavigationProperty Name="DM_CHUONG_LOAI_KHOAN_MUC_TIEU_MUC" Relationship="BKI_QLDTModel.FK_GD_GIAO_VON_DM_CHUONG_LOAI_KHOAN_MUC_TIEU_MUC" FromRole="GD_CHI_TIET_GIAO_VON" ToRole="DM_CHUONG_LOAI_KHOAN_MUC" />
+          <NavigationProperty Name="DM_CONG_TRINH_DU_AN_GOI_THAU_CONG_TRINH" Relationship="BKI_QLDTModel.FK_GD_CHI_TIET_GIAO_VON_DM_CONG_TRINH_DU_AN_GOI_THAU" FromRole="GD_CHI_TIET_GIAO_VON" ToRole="DM_CONG_TRINH_DU_AN_GOI_THAU" />
+          <NavigationProperty Name="DM_CONG_TRINH_DU_AN_GOI_THAU_DU_AN" Relationship="BKI_QLDTModel.FK_GD_CHI_TIET_GIAO_VON_DM_CONG_TRINH_DU_AN_GOI_THAU1" FromRole="GD_CHI_TIET_GIAO_VON" ToRole="DM_CONG_TRINH_DU_AN_GOI_THAU" />
           <NavigationProperty Name="DM_DON_VI" Relationship="BKI_QLDTModel.FK_GD_GIAO_VON_DM_DON_VI" FromRole="GD_CHI_TIET_GIAO_VON" ToRole="DM_DON_VI" />
           <NavigationProperty Name="DM_QUYET_DINH" Relationship="BKI_QLDTModel.FK_GD_GIAO_VON_GD_QUYET_DINH" FromRole="GD_CHI_TIET_GIAO_VON" ToRole="DM_QUYET_DINH" />
         </EntityType>
@@ -6718,10 +6832,18 @@
           <Property Name="GHI_CHU_3" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
           <Property Name="GHI_CHU_4" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
           <NavigationProperty Name="CM_DM_TU_DIEN" Relationship="BKI_QLDTModel.FK_GD_KHOI_LUONG_CM_DM_TU_DIEN" FromRole="GD_KHOI_LUONG" ToRole="CM_DM_TU_DIEN" />
-          <NavigationProperty Name="DM_CONG_TRINH_DU_AN_GOI_THAU" Relationship="BKI_QLDTModel.FK_GD_KHOI_LUONG_DM_CONG_TRINH_DU_AN_GOI_THAU" FromRole="GD_KHOI_LUONG" ToRole="DM_CONG_TRINH_DU_AN_GOI_THAU" />
-          <NavigationProperty Name="DM_CONG_TRINH_DU_AN_GOI_THAU1" Relationship="BKI_QLDTModel.FK_GD_KHOI_LUONG_DM_CONG_TRINH_DU_AN_GOI_THAU1" FromRole="GD_KHOI_LUONG" ToRole="DM_CONG_TRINH_DU_AN_GOI_THAU" />
+          <NavigationProperty Name="DM_CONG_TRINH_DU_AN_GOI_THAU_DU_AN" Relationship="BKI_QLDTModel.FK_GD_KHOI_LUONG_DM_CONG_TRINH_DU_AN_GOI_THAU" FromRole="GD_KHOI_LUONG" ToRole="DM_CONG_TRINH_DU_AN_GOI_THAU" />
+          <NavigationProperty Name="DM_CONG_TRINH_DU_AN_GOI_THAU_CONG_TRINH" Relationship="BKI_QLDTModel.FK_GD_KHOI_LUONG_DM_CONG_TRINH_DU_AN_GOI_THAU1" FromRole="GD_KHOI_LUONG" ToRole="DM_CONG_TRINH_DU_AN_GOI_THAU" />
           <NavigationProperty Name="DM_DON_VI" Relationship="BKI_QLDTModel.FK_GD_KHOI_LUONG_DM_DON_VI" FromRole="GD_KHOI_LUONG" ToRole="DM_DON_VI" />
           <Property Type="Decimal" Name="SO_TIEN_DA_NGHIEM_THU_NS" Precision="21" Scale="0" />
+          <Property Type="Decimal" Name="ID_CHUONG" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="ID_KHOAN" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="ID_MUC" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="ID_TIEU_MUC" Precision="18" Scale="0" />
+          <NavigationProperty Name="DM_CHUONG_LOAI_KHOAN_MUC_CHUONG" Relationship="BKI_QLDTModel.FK_GD_KHOI_LUONG_DM_CHUONG_LOAI_KHOAN_MUC" FromRole="GD_KHOI_LUONG" ToRole="DM_CHUONG_LOAI_KHOAN_MUC" />
+          <NavigationProperty Name="DM_CHUONG_LOAI_KHOAN_MUC_KHOAN" Relationship="BKI_QLDTModel.FK_GD_KHOI_LUONG_DM_CHUONG_LOAI_KHOAN_MUC1" FromRole="GD_KHOI_LUONG" ToRole="DM_CHUONG_LOAI_KHOAN_MUC" />
+          <NavigationProperty Name="DM_CHUONG_LOAI_KHOAN_MUC_MUC" Relationship="BKI_QLDTModel.FK_GD_KHOI_LUONG_DM_CHUONG_LOAI_KHOAN_MUC2" FromRole="GD_KHOI_LUONG" ToRole="DM_CHUONG_LOAI_KHOAN_MUC" />
+          <NavigationProperty Name="DM_CHUONG_LOAI_KHOAN_MUC_TIEU_MUC" Relationship="BKI_QLDTModel.FK_GD_KHOI_LUONG_DM_CHUONG_LOAI_KHOAN_MUC3" FromRole="GD_KHOI_LUONG" ToRole="DM_CHUONG_LOAI_KHOAN_MUC" />
         </EntityType>
         <EntityType Name="GD_PL01_TONG_HOP_TINH_HINH_KINH_PHI_VA_QUYET_TOAN_CHI">
           <Key>
@@ -8781,6 +8903,54 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_GD_KHOI_LUONG_DM_CHUONG_LOAI_KHOAN_MUC">
+          <End Type="BKI_QLDTModel.DM_CHUONG_LOAI_KHOAN_MUC" Role="DM_CHUONG_LOAI_KHOAN_MUC" Multiplicity="0..1" />
+          <End Type="BKI_QLDTModel.GD_KHOI_LUONG" Role="GD_KHOI_LUONG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DM_CHUONG_LOAI_KHOAN_MUC">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="GD_KHOI_LUONG">
+              <PropertyRef Name="ID_CHUONG" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GD_KHOI_LUONG_DM_CHUONG_LOAI_KHOAN_MUC1">
+          <End Type="BKI_QLDTModel.DM_CHUONG_LOAI_KHOAN_MUC" Role="DM_CHUONG_LOAI_KHOAN_MUC" Multiplicity="0..1" />
+          <End Type="BKI_QLDTModel.GD_KHOI_LUONG" Role="GD_KHOI_LUONG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DM_CHUONG_LOAI_KHOAN_MUC">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="GD_KHOI_LUONG">
+              <PropertyRef Name="ID_KHOAN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GD_KHOI_LUONG_DM_CHUONG_LOAI_KHOAN_MUC2">
+          <End Type="BKI_QLDTModel.DM_CHUONG_LOAI_KHOAN_MUC" Role="DM_CHUONG_LOAI_KHOAN_MUC" Multiplicity="0..1" />
+          <End Type="BKI_QLDTModel.GD_KHOI_LUONG" Role="GD_KHOI_LUONG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DM_CHUONG_LOAI_KHOAN_MUC">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="GD_KHOI_LUONG">
+              <PropertyRef Name="ID_MUC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GD_KHOI_LUONG_DM_CHUONG_LOAI_KHOAN_MUC3">
+          <End Type="BKI_QLDTModel.DM_CHUONG_LOAI_KHOAN_MUC" Role="DM_CHUONG_LOAI_KHOAN_MUC" Multiplicity="0..1" />
+          <End Type="BKI_QLDTModel.GD_KHOI_LUONG" Role="GD_KHOI_LUONG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DM_CHUONG_LOAI_KHOAN_MUC">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="GD_KHOI_LUONG">
+              <PropertyRef Name="ID_TIEU_MUC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -9029,6 +9199,10 @@
           <EntitySetMapping Name="GD_KHOI_LUONG">
             <EntityTypeMapping TypeName="BKI_QLDTModel.GD_KHOI_LUONG">
               <MappingFragment StoreEntitySet="GD_KHOI_LUONG">
+                <ScalarProperty Name="ID_TIEU_MUC" ColumnName="ID_TIEU_MUC" />
+                <ScalarProperty Name="ID_MUC" ColumnName="ID_MUC" />
+                <ScalarProperty Name="ID_KHOAN" ColumnName="ID_KHOAN" />
+                <ScalarProperty Name="ID_CHUONG" ColumnName="ID_CHUONG" />
                 <ScalarProperty Name="SO_TIEN_DA_NGHIEM_THU_NS" ColumnName="SO_TIEN_DA_NGHIEM_THU_NS" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="NGAY_THANG" ColumnName="NGAY_THANG" />

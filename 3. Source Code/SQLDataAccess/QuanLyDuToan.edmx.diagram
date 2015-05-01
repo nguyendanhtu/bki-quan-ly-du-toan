@@ -4,53 +4,53 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="ece3cc88bdc740a1b41f6692184b2f4c" Name="Diagram1" ZoomLevel="94">
+      <Diagram DiagramId="ece3cc88bdc740a1b41f6692184b2f4c" Name="Diagram1" ZoomLevel="88" DisplayType="true">
         <EntityTypeShape EntityType="BKI_QLDTModel.CM_COMPANY_INFO" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BKI_QLDTModel.CM_DM_LOAI_TD" Width="1.5" PointX="0.75" PointY="46.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="BKI_QLDTModel.CM_DM_TU_DIEN" Width="1.5" PointX="3" PointY="45.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="BKI_QLDTModel.DM_CHUONG_LOAI_KHOAN_MUC" Width="1.5" PointX="5.25" PointY="18" IsExpanded="true" />
-        <EntityTypeShape EntityType="BKI_QLDTModel.DM_CONG_TRINH_DU_AN_GOI_THAU" Width="1.5" PointX="7.5" PointY="41.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="BKI_QLDTModel.DM_DON_VI" Width="1.5" PointX="5.25" PointY="47" IsExpanded="true" />
-        <EntityTypeShape EntityType="BKI_QLDTModel.DM_GIAI_NGAN" Width="1.5" PointX="7.5" PointY="46.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BKI_QLDTModel.DM_QUYET_DINH" Width="1.5" PointX="12.5" PointY="47.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="BKI_QLDTModel.DM_THONG_TIN_DON_VI" Width="1.5" PointX="7.5" PointY="59.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BKI_QLDTModel.CM_DM_LOAI_TD" Width="1.5" PointX="0.75" PointY="44.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BKI_QLDTModel.CM_DM_TU_DIEN" Width="1.5" PointX="3" PointY="43.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BKI_QLDTModel.DM_CHUONG_LOAI_KHOAN_MUC" Width="3.375" PointX="5.25" PointY="22" IsExpanded="true" />
+        <EntityTypeShape EntityType="BKI_QLDTModel.DM_CONG_TRINH_DU_AN_GOI_THAU" Width="1.5" PointX="7.625" PointY="45.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BKI_QLDTModel.DM_DON_VI" Width="1.5" PointX="5.25" PointY="45.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BKI_QLDTModel.DM_GIAI_NGAN" Width="1.5" PointX="7.5" PointY="38.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BKI_QLDTModel.DM_QUYET_DINH" Width="2.875" PointX="10.5" PointY="45.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BKI_QLDTModel.DM_THONG_TIN_DON_VI" Width="1.5" PointX="7.5" PointY="52.25" IsExpanded="true" />
         <EntityTypeShape EntityType="BKI_QLDTModel.DOC_COLUMN_COMMENT" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BKI_QLDTModel.DOC_TABLE_COMMENT" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BKI_QLDTModel.GD_CHI_TIET_GIAI_NGAN" Width="1.5" PointX="9.75" PointY="39.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="BKI_QLDTModel.GD_CHI_TIET_GIAO_KH" Width="1.5" PointX="12.75" PointY="35.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="BKI_QLDTModel.GD_CHI_TIET_GIAO_VON" Width="1.5" PointX="9.75" PointY="32.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BKI_QLDTModel.GD_KHOI_LUONG" Width="1.5" PointX="9.75" PointY="47.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="BKI_QLDTModel.GD_PL01_TONG_HOP_TINH_HINH_KINH_PHI_VA_QUYET_TOAN_CHI" Width="1.5" PointX="7.5" PointY="64.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BKI_QLDTModel.GD_PL02_KINH_PHI_DA_SU_DUNG_DE_NGHI_QUYET_TOAN" Width="1.5" PointX="7.5" PointY="68.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="BKI_QLDTModel.GD_PL03_THUC_HIEN_XU_LY_KIEN_NGHI_CUA_KIEM_TOAN_THANH_TRA_TAI_CHINH" Width="2.375" PointX="7.5" PointY="75.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BKI_QLDTModel.GD_CHI_TIET_GIAI_NGAN" Width="1.5" PointX="2.75" PointY="26.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BKI_QLDTModel.GD_CHI_TIET_GIAO_KH" Width="1.5" PointX="12.75" PointY="34.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BKI_QLDTModel.GD_CHI_TIET_GIAO_VON" Width="1.5" PointX="9.75" PointY="33.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BKI_QLDTModel.GD_KHOI_LUONG" Width="1.5" PointX="9.75" PointY="22" IsExpanded="true" />
+        <EntityTypeShape EntityType="BKI_QLDTModel.GD_PL01_TONG_HOP_TINH_HINH_KINH_PHI_VA_QUYET_TOAN_CHI" Width="1.5" PointX="7.5" PointY="59.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BKI_QLDTModel.GD_PL02_KINH_PHI_DA_SU_DUNG_DE_NGHI_QUYET_TOAN" Width="1.5" PointX="7.5" PointY="63.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BKI_QLDTModel.GD_PL03_THUC_HIEN_XU_LY_KIEN_NGHI_CUA_KIEM_TOAN_THANH_TRA_TAI_CHINH" Width="2.375" PointX="7.5" PointY="68" IsExpanded="true" />
         <EntityTypeShape EntityType="BKI_QLDTModel.HT_BACKUP_HISTORY" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BKI_QLDTModel.HT_BUSINESS_PROCESS_LOCK" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BKI_QLDTModel.HT_CHUC_NANG" Width="1.5" PointX="8.5" PointY="87.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="BKI_QLDTModel.HT_LICH_SU_QLDT" Width="1.5" PointX="12" PointY="86.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BKI_QLDTModel.HT_CHUC_NANG" Width="1.5" PointX="8.5" PointY="79.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BKI_QLDTModel.HT_LICH_SU_QLDT" Width="1.5" PointX="12" PointY="78.5" IsExpanded="true" />
         <EntityTypeShape EntityType="BKI_QLDTModel.HT_LOG_LOGIN" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BKI_QLDTModel.HT_NGUOI_SU_DUNG" Width="1.5" PointX="9.75" PointY="82.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="BKI_QLDTModel.HT_QUAN_HE_SU_DUNG_DU_LIEU" Width="1.5" PointX="9.75" PointY="64" IsExpanded="true" />
-        <EntityTypeShape EntityType="BKI_QLDTModel.HT_QUYEN_GROUP" Width="1.5" PointX="10.75" PointY="79.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="BKI_QLDTModel.HT_QUYEN_USER" Width="1.5" PointX="12" PointY="64.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BKI_QLDTModel.HT_NGUOI_SU_DUNG" Width="1.5" PointX="9.75" PointY="75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BKI_QLDTModel.HT_QUAN_HE_SU_DUNG_DU_LIEU" Width="1.5" PointX="9.75" PointY="59.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BKI_QLDTModel.HT_QUYEN_GROUP" Width="1.5" PointX="10.75" PointY="72" IsExpanded="true" />
+        <EntityTypeShape EntityType="BKI_QLDTModel.HT_QUYEN_USER" Width="1.5" PointX="12" PointY="60" IsExpanded="true" />
         <EntityTypeShape EntityType="BKI_QLDTModel.HT_THAM_SO_HE_THONG" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BKI_QLDTModel.HT_USER_GROUP" Width="1.5" PointX="7.5" PointY="80.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BKI_QLDTModel.HT_USER_GROUP" Width="1.5" PointX="7.5" PointY="72.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BKI_QLDTModel.RPT_BAO_CAO_GIAO_VON" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BKI_QLDTModel.RPT_BAO_CAO_GIAO_VON_THEO_QD" Width="1.5" PointX="2.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BKI_QLDTModel.v_cm_dm_tu_dien" Width="1.5" PointX="4.75" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BKI_QLDTModel.V_DM_CHUONG_LOAI_KHOAN_MUC" Width="1.5" PointX="6.75" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BKI_QLDTModel.V_DM_CHUONG_LOAI_KHOAN_MUC_TIEU_MUC" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BKI_QLDTModel.V_DM_DON_VI" Width="1.5" PointX="8.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BKI_QLDTModel.V_DM_GIAI_NGAN" Width="1.5" PointX="8.75" PointY="9.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BKI_QLDTModel.V_DM_QUYET_DINH" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BKI_QLDTModel.V_DM_QUYET_DINH_KH" Width="1.5" PointX="10.75" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BKI_QLDTModel.v_dm_quyet_dinh_so_don_vi_nhap_du_lieu" Width="1.5" PointX="10.75" PointY="10.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BKI_QLDTModel.V_GD_CHI_TIET_GIAO_VON" Width="1.5" PointX="0.75" PointY="11.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BKI_QLDTModel.V_GD_GIAI_NGAN_QBT" Width="1.5" PointX="12.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BKI_QLDTModel.V_GD_GIAO_KH_QBT" Width="1.5" PointX="12.75" PointY="11.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BKI_QLDTModel.V_GD_GIAO_VON_QBT" Width="1.5" PointX="14.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BKI_QLDTModel.V_GD_KHOI_LUONG_QBT" Width="1.5" PointX="2.75" PointY="11.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BKI_QLDTModel.V_HT_NGUOI_SU_DUNG" Width="1.5" PointX="4.75" PointY="11.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BKI_QLDTModel.V_USER_GROUP_QUYEN" Width="1.5" PointX="4.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BKI_QLDTModel.v_cm_dm_tu_dien" Width="1.5" PointX="6.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BKI_QLDTModel.V_DM_CHUONG_LOAI_KHOAN_MUC" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BKI_QLDTModel.V_DM_CHUONG_LOAI_KHOAN_MUC_TIEU_MUC" Width="1.5" PointX="8.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BKI_QLDTModel.V_DM_DON_VI" Width="1.5" PointX="4.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BKI_QLDTModel.V_DM_GIAI_NGAN" Width="1.5" PointX="6.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BKI_QLDTModel.V_DM_QUYET_DINH" Width="1.5" PointX="8.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BKI_QLDTModel.V_DM_QUYET_DINH_KH" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BKI_QLDTModel.v_dm_quyet_dinh_so_don_vi_nhap_du_lieu" Width="1.5" PointX="10.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BKI_QLDTModel.V_GD_CHI_TIET_GIAO_VON" Width="1.5" PointX="10.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BKI_QLDTModel.V_GD_GIAI_NGAN_QBT" Width="1.5" PointX="0.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BKI_QLDTModel.V_GD_GIAO_KH_QBT" Width="1.5" PointX="12.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BKI_QLDTModel.V_GD_GIAO_VON_QBT" Width="1.5" PointX="12.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BKI_QLDTModel.V_GD_KHOI_LUONG_QBT" Width="1.5" PointX="8.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BKI_QLDTModel.V_HT_NGUOI_SU_DUNG" Width="1.5" PointX="2.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BKI_QLDTModel.V_USER_GROUP_QUYEN" Width="1.5" PointX="14.75" PointY="0.75" IsExpanded="true" />
         <AssociationConnector Association="BKI_QLDTModel.FK_CM_DM_TU_DIEN_CM_DM_LOAI_TD" ManuallyRouted="false" />
         <AssociationConnector Association="BKI_QLDTModel.FK_DM_CHUONG_LOAI_KHOAN_MUC_CM_DM_TU_DIEN_LOAI" ManuallyRouted="false" />
         <AssociationConnector Association="BKI_QLDTModel.FK_DM_DON_VI_CM_DM_TU_DIEN1" ManuallyRouted="false" />
@@ -105,16 +105,20 @@
         <AssociationConnector Association="BKI_QLDTModel.FK_HT_QUYEN_USER_HT_NGUOI_SU_DUNG" ManuallyRouted="false" />
         <AssociationConnector Association="BKI_QLDTModel.FK_HT_QUAN_HE_SU_DUNG_DU_LIEU_HT_USER_GROUP" ManuallyRouted="false" />
         <AssociationConnector Association="BKI_QLDTModel.FK_HT_QUYEN_GROUP_HT_USER_GROUP" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="BKI_QLDTModel.TP_PL01" Width="1.5" PointX="14.75" PointY="12.75" />
-        <EntityTypeShape EntityType="BKI_QLDTModel.TP_PL03" Width="2.875" PointX="16.75" PointY="12.75" />
-        <EntityTypeShape EntityType="BKI_QLDTModel.GD_DU_TOAN_THU_CHI_PHI_PHA" Width="1.5" PointX="7.5" PointY="35.625" />
+        <EntityTypeShape EntityType="BKI_QLDTModel.TP_PL01" Width="1.5" PointX="14.75" PointY="3.75" />
+        <EntityTypeShape EntityType="BKI_QLDTModel.TP_PL03" Width="2.875" PointX="14.75" PointY="7.75" />
+        <EntityTypeShape EntityType="BKI_QLDTModel.GD_DU_TOAN_THU_CHI_PHI_PHA" Width="1.5" PointX="14.125" PointY="46" />
         <AssociationConnector Association="BKI_QLDTModel.FK_GD_DU_TOAN_THU_CHI_PHI_PHA_DM_DON_VI" />
-        <EntityTypeShape EntityType="BKI_QLDTModel.TP_DU_TOAN_THU_CHI_PHI_PHA_PHA" Width="1.5" PointX="14.75" PointY="17.75" />
-        <EntityTypeShape EntityType="BKI_QLDTModel.TP_PL02" Width="1.5" PointX="8.625" PointY="18.125" />
-        <EntityTypeShape EntityType="BKI_QLDTModel.GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN" Width="1.5" PointX="11.432214684520018" PointY="16.520872377101739" />
+        <EntityTypeShape EntityType="BKI_QLDTModel.TP_DU_TOAN_THU_CHI_PHI_PHA_PHA" Width="1.5" PointX="14.75" PointY="12.75" />
+        <EntityTypeShape EntityType="BKI_QLDTModel.TP_PL02" Width="1.5" PointX="10.75" PointY="15.75" />
+        <EntityTypeShape EntityType="BKI_QLDTModel.GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN" Width="1.5" PointX="7.5" PointY="28.375" />
         <AssociationConnector Association="BKI_QLDTModel.FK_GD_DU_TOAN_THU_CHI_PHI_PHA_DM_QUYET_DINH" />
-        <EntityTypeShape EntityType="BKI_QLDTModel.sysdiagram" Width="1.5" PointX="4.4923433179465793" PointY="30.391369550671136" />
+        <EntityTypeShape EntityType="BKI_QLDTModel.sysdiagram" Width="1.5" PointX="16.75" PointY="0.75" />
         <AssociationConnector Association="BKI_QLDTModel.FK_GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN_DM_DON_VI" />
+        <AssociationConnector Association="BKI_QLDTModel.FK_GD_KHOI_LUONG_DM_CHUONG_LOAI_KHOAN_MUC" />
+        <AssociationConnector Association="BKI_QLDTModel.FK_GD_KHOI_LUONG_DM_CHUONG_LOAI_KHOAN_MUC1" />
+        <AssociationConnector Association="BKI_QLDTModel.FK_GD_KHOI_LUONG_DM_CHUONG_LOAI_KHOAN_MUC2" />
+        <AssociationConnector Association="BKI_QLDTModel.FK_GD_KHOI_LUONG_DM_CHUONG_LOAI_KHOAN_MUC3" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

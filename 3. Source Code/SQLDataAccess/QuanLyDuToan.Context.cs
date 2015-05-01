@@ -2564,7 +2564,7 @@ namespace SQLDataAccess
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pr_F390_xem_danh_sach_uy_nhiem_chi_Result>("pr_F390_xem_danh_sach_uy_nhiem_chi", tU_NGAYParameter, dEN_NGAYParameter, tU_KHOAParameter);
         }
     
-        public virtual ObjectResult<pr_F404_nhap_khoi_luong_Result> pr_F404_nhap_khoi_luong(Nullable<decimal> ip_dc_id_don_vi, Nullable<decimal> ip_dc_id_loai_nhiem_vu, Nullable<System.DateTime> ip_dat_ngay_nhap)
+        public virtual ObjectResult<pr_F404_nhap_khoi_luong_Result> pr_F404_nhap_khoi_luong(Nullable<decimal> ip_dc_id_don_vi, Nullable<decimal> ip_dc_id_loai_nhiem_vu, Nullable<System.DateTime> ip_dat_dau_nam, Nullable<System.DateTime> ip_dat_cuoi_nam, Nullable<System.DateTime> ip_dat_ngay_nhap, string ip_str_nguon_ns)
         {
             var ip_dc_id_don_viParameter = ip_dc_id_don_vi.HasValue ?
                 new ObjectParameter("ip_dc_id_don_vi", ip_dc_id_don_vi) :
@@ -2574,11 +2574,23 @@ namespace SQLDataAccess
                 new ObjectParameter("ip_dc_id_loai_nhiem_vu", ip_dc_id_loai_nhiem_vu) :
                 new ObjectParameter("ip_dc_id_loai_nhiem_vu", typeof(decimal));
     
+            var ip_dat_dau_namParameter = ip_dat_dau_nam.HasValue ?
+                new ObjectParameter("ip_dat_dau_nam", ip_dat_dau_nam) :
+                new ObjectParameter("ip_dat_dau_nam", typeof(System.DateTime));
+    
+            var ip_dat_cuoi_namParameter = ip_dat_cuoi_nam.HasValue ?
+                new ObjectParameter("ip_dat_cuoi_nam", ip_dat_cuoi_nam) :
+                new ObjectParameter("ip_dat_cuoi_nam", typeof(System.DateTime));
+    
             var ip_dat_ngay_nhapParameter = ip_dat_ngay_nhap.HasValue ?
                 new ObjectParameter("ip_dat_ngay_nhap", ip_dat_ngay_nhap) :
                 new ObjectParameter("ip_dat_ngay_nhap", typeof(System.DateTime));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pr_F404_nhap_khoi_luong_Result>("pr_F404_nhap_khoi_luong", ip_dc_id_don_viParameter, ip_dc_id_loai_nhiem_vuParameter, ip_dat_ngay_nhapParameter);
+            var ip_str_nguon_nsParameter = ip_str_nguon_ns != null ?
+                new ObjectParameter("ip_str_nguon_ns", ip_str_nguon_ns) :
+                new ObjectParameter("ip_str_nguon_ns", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pr_F404_nhap_khoi_luong_Result>("pr_F404_nhap_khoi_luong", ip_dc_id_don_viParameter, ip_dc_id_loai_nhiem_vuParameter, ip_dat_dau_namParameter, ip_dat_cuoi_namParameter, ip_dat_ngay_nhapParameter, ip_str_nguon_nsParameter);
         }
     
         public virtual int pr_F510_giao_du_toan_theo_loai_khoan_nguon_ns(Nullable<System.DateTime> ip_dat_tu_ngay, Nullable<System.DateTime> ip_dat_den_ngay, string ip_str_tu_khoa)
@@ -2858,7 +2870,7 @@ namespace SQLDataAccess
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pr_GD_CHI_TIET_GIAO_KH_Delete", iDParameter);
         }
     
-        public virtual int pr_GD_CHI_TIET_GIAO_KH_Insert(Nullable<decimal> iD_QUYET_DINH, Nullable<decimal> iD_DON_VI, Nullable<decimal> iD_CONG_TRINH, Nullable<decimal> sO_TIEN_QUY_BT, Nullable<decimal> sO_TIEN_NS, Nullable<decimal> iD_CHUONG, Nullable<decimal> iD_KHOAN, Nullable<decimal> iD_MUC, string gHI_CHU, Nullable<decimal> iD_TIEU_MUC, Nullable<decimal> sO_TIEN_NAM_TRUOC_CHUYEN_SANG, Nullable<decimal> iD_LOAI_NHIEM_VU, Nullable<decimal> iD_DU_AN, string tU_CHU_YN, string gHI_CHU_1, string gHI_CHU_2, string gHI_CHU_3, string gHI_CHU_4, ObjectParameter iD)
+        public virtual int pr_GD_CHI_TIET_GIAO_KH_Insert(Nullable<decimal> iD_QUYET_DINH, Nullable<decimal> iD_DON_VI, Nullable<decimal> iD_CONG_TRINH, Nullable<decimal> sO_TIEN_QUY_BT, Nullable<decimal> sO_TIEN_NS, Nullable<decimal> iD_CHUONG, Nullable<decimal> iD_KHOAN, Nullable<decimal> iD_MUC, string gHI_CHU, Nullable<decimal> iD_TIEU_MUC, Nullable<decimal> sO_TIEN_NAM_TRUOC_CHUYEN_SANG, Nullable<decimal> iD_LOAI_NHIEM_VU, Nullable<decimal> iD_DU_AN, string tU_CHU_YN, string gHI_CHU_1, string gHI_CHU_2, string gHI_CHU_3, string gHI_CHU_4, Nullable<decimal> tONG_MUC_DAU_TU, Nullable<decimal> tHOI_GIAN_THUC_HIEN, string lOAI_CONG_TRINH, ObjectParameter iD)
         {
             var iD_QUYET_DINHParameter = iD_QUYET_DINH.HasValue ?
                 new ObjectParameter("ID_QUYET_DINH", iD_QUYET_DINH) :
@@ -2932,10 +2944,22 @@ namespace SQLDataAccess
                 new ObjectParameter("GHI_CHU_4", gHI_CHU_4) :
                 new ObjectParameter("GHI_CHU_4", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pr_GD_CHI_TIET_GIAO_KH_Insert", iD_QUYET_DINHParameter, iD_DON_VIParameter, iD_CONG_TRINHParameter, sO_TIEN_QUY_BTParameter, sO_TIEN_NSParameter, iD_CHUONGParameter, iD_KHOANParameter, iD_MUCParameter, gHI_CHUParameter, iD_TIEU_MUCParameter, sO_TIEN_NAM_TRUOC_CHUYEN_SANGParameter, iD_LOAI_NHIEM_VUParameter, iD_DU_ANParameter, tU_CHU_YNParameter, gHI_CHU_1Parameter, gHI_CHU_2Parameter, gHI_CHU_3Parameter, gHI_CHU_4Parameter, iD);
+            var tONG_MUC_DAU_TUParameter = tONG_MUC_DAU_TU.HasValue ?
+                new ObjectParameter("TONG_MUC_DAU_TU", tONG_MUC_DAU_TU) :
+                new ObjectParameter("TONG_MUC_DAU_TU", typeof(decimal));
+    
+            var tHOI_GIAN_THUC_HIENParameter = tHOI_GIAN_THUC_HIEN.HasValue ?
+                new ObjectParameter("THOI_GIAN_THUC_HIEN", tHOI_GIAN_THUC_HIEN) :
+                new ObjectParameter("THOI_GIAN_THUC_HIEN", typeof(decimal));
+    
+            var lOAI_CONG_TRINHParameter = lOAI_CONG_TRINH != null ?
+                new ObjectParameter("LOAI_CONG_TRINH", lOAI_CONG_TRINH) :
+                new ObjectParameter("LOAI_CONG_TRINH", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pr_GD_CHI_TIET_GIAO_KH_Insert", iD_QUYET_DINHParameter, iD_DON_VIParameter, iD_CONG_TRINHParameter, sO_TIEN_QUY_BTParameter, sO_TIEN_NSParameter, iD_CHUONGParameter, iD_KHOANParameter, iD_MUCParameter, gHI_CHUParameter, iD_TIEU_MUCParameter, sO_TIEN_NAM_TRUOC_CHUYEN_SANGParameter, iD_LOAI_NHIEM_VUParameter, iD_DU_ANParameter, tU_CHU_YNParameter, gHI_CHU_1Parameter, gHI_CHU_2Parameter, gHI_CHU_3Parameter, gHI_CHU_4Parameter, tONG_MUC_DAU_TUParameter, tHOI_GIAN_THUC_HIENParameter, lOAI_CONG_TRINHParameter, iD);
         }
     
-        public virtual int pr_GD_CHI_TIET_GIAO_KH_Update(Nullable<decimal> iD, Nullable<decimal> iD_QUYET_DINH, Nullable<decimal> iD_DON_VI, Nullable<decimal> iD_CONG_TRINH, Nullable<decimal> sO_TIEN_QUY_BT, Nullable<decimal> sO_TIEN_NS, Nullable<decimal> iD_CHUONG, Nullable<decimal> iD_KHOAN, Nullable<decimal> iD_MUC, string gHI_CHU, Nullable<decimal> iD_TIEU_MUC, Nullable<decimal> sO_TIEN_NAM_TRUOC_CHUYEN_SANG, Nullable<decimal> iD_LOAI_NHIEM_VU, Nullable<decimal> iD_DU_AN, string tU_CHU_YN, string gHI_CHU_1, string gHI_CHU_2, string gHI_CHU_3, string gHI_CHU_4)
+        public virtual int pr_GD_CHI_TIET_GIAO_KH_Update(Nullable<decimal> iD, Nullable<decimal> iD_QUYET_DINH, Nullable<decimal> iD_DON_VI, Nullable<decimal> iD_CONG_TRINH, Nullable<decimal> sO_TIEN_QUY_BT, Nullable<decimal> sO_TIEN_NS, Nullable<decimal> iD_CHUONG, Nullable<decimal> iD_KHOAN, Nullable<decimal> iD_MUC, string gHI_CHU, Nullable<decimal> iD_TIEU_MUC, Nullable<decimal> sO_TIEN_NAM_TRUOC_CHUYEN_SANG, Nullable<decimal> iD_LOAI_NHIEM_VU, Nullable<decimal> iD_DU_AN, string tU_CHU_YN, string gHI_CHU_1, string gHI_CHU_2, string gHI_CHU_3, string gHI_CHU_4, Nullable<decimal> tONG_MUC_DAU_TU, Nullable<decimal> tHOI_GIAN_THUC_HIEN, string lOAI_CONG_TRINH)
         {
             var iDParameter = iD.HasValue ?
                 new ObjectParameter("ID", iD) :
@@ -3013,7 +3037,19 @@ namespace SQLDataAccess
                 new ObjectParameter("GHI_CHU_4", gHI_CHU_4) :
                 new ObjectParameter("GHI_CHU_4", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pr_GD_CHI_TIET_GIAO_KH_Update", iDParameter, iD_QUYET_DINHParameter, iD_DON_VIParameter, iD_CONG_TRINHParameter, sO_TIEN_QUY_BTParameter, sO_TIEN_NSParameter, iD_CHUONGParameter, iD_KHOANParameter, iD_MUCParameter, gHI_CHUParameter, iD_TIEU_MUCParameter, sO_TIEN_NAM_TRUOC_CHUYEN_SANGParameter, iD_LOAI_NHIEM_VUParameter, iD_DU_ANParameter, tU_CHU_YNParameter, gHI_CHU_1Parameter, gHI_CHU_2Parameter, gHI_CHU_3Parameter, gHI_CHU_4Parameter);
+            var tONG_MUC_DAU_TUParameter = tONG_MUC_DAU_TU.HasValue ?
+                new ObjectParameter("TONG_MUC_DAU_TU", tONG_MUC_DAU_TU) :
+                new ObjectParameter("TONG_MUC_DAU_TU", typeof(decimal));
+    
+            var tHOI_GIAN_THUC_HIENParameter = tHOI_GIAN_THUC_HIEN.HasValue ?
+                new ObjectParameter("THOI_GIAN_THUC_HIEN", tHOI_GIAN_THUC_HIEN) :
+                new ObjectParameter("THOI_GIAN_THUC_HIEN", typeof(decimal));
+    
+            var lOAI_CONG_TRINHParameter = lOAI_CONG_TRINH != null ?
+                new ObjectParameter("LOAI_CONG_TRINH", lOAI_CONG_TRINH) :
+                new ObjectParameter("LOAI_CONG_TRINH", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pr_GD_CHI_TIET_GIAO_KH_Update", iDParameter, iD_QUYET_DINHParameter, iD_DON_VIParameter, iD_CONG_TRINHParameter, sO_TIEN_QUY_BTParameter, sO_TIEN_NSParameter, iD_CHUONGParameter, iD_KHOANParameter, iD_MUCParameter, gHI_CHUParameter, iD_TIEU_MUCParameter, sO_TIEN_NAM_TRUOC_CHUYEN_SANGParameter, iD_LOAI_NHIEM_VUParameter, iD_DU_ANParameter, tU_CHU_YNParameter, gHI_CHU_1Parameter, gHI_CHU_2Parameter, gHI_CHU_3Parameter, gHI_CHU_4Parameter, tONG_MUC_DAU_TUParameter, tHOI_GIAN_THUC_HIENParameter, lOAI_CONG_TRINHParameter);
         }
     
         public virtual int pr_GD_CHI_TIET_GIAO_VON_Delete(Nullable<decimal> iD)
@@ -3511,7 +3547,7 @@ namespace SQLDataAccess
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pr_GD_KHOI_LUONG_DeleteAllWID_DON_VILogic", iD_DON_VIParameter);
         }
     
-        public virtual int pr_GD_KHOI_LUONG_Insert(Nullable<System.DateTime> nGAY_THANG, Nullable<decimal> iD_DON_VI, Nullable<decimal> iD_LOAI_NHIEM_VU, Nullable<decimal> iD_CONG_TRINH, Nullable<decimal> iD_DU_AN, Nullable<decimal> sO_TIEN_DA_NGHIEM_THU, Nullable<decimal> sO_TIEN_CHUA_GIAI_NGAN, string gHI_CHU_1, string gHI_CHU_2, string gHI_CHU_3, string gHI_CHU_4, ObjectParameter iD)
+        public virtual int pr_GD_KHOI_LUONG_Insert(Nullable<System.DateTime> nGAY_THANG, Nullable<decimal> iD_DON_VI, Nullable<decimal> iD_LOAI_NHIEM_VU, Nullable<decimal> iD_CONG_TRINH, Nullable<decimal> iD_DU_AN, Nullable<decimal> sO_TIEN_DA_NGHIEM_THU, Nullable<decimal> sO_TIEN_CHUA_GIAI_NGAN, string gHI_CHU_1, string gHI_CHU_2, string gHI_CHU_3, string gHI_CHU_4, Nullable<decimal> sO_TIEN_DA_NGHIEM_THU_NS, ObjectParameter iD)
         {
             var nGAY_THANGParameter = nGAY_THANG.HasValue ?
                 new ObjectParameter("NGAY_THANG", nGAY_THANG) :
@@ -3557,7 +3593,11 @@ namespace SQLDataAccess
                 new ObjectParameter("GHI_CHU_4", gHI_CHU_4) :
                 new ObjectParameter("GHI_CHU_4", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pr_GD_KHOI_LUONG_Insert", nGAY_THANGParameter, iD_DON_VIParameter, iD_LOAI_NHIEM_VUParameter, iD_CONG_TRINHParameter, iD_DU_ANParameter, sO_TIEN_DA_NGHIEM_THUParameter, sO_TIEN_CHUA_GIAI_NGANParameter, gHI_CHU_1Parameter, gHI_CHU_2Parameter, gHI_CHU_3Parameter, gHI_CHU_4Parameter, iD);
+            var sO_TIEN_DA_NGHIEM_THU_NSParameter = sO_TIEN_DA_NGHIEM_THU_NS.HasValue ?
+                new ObjectParameter("SO_TIEN_DA_NGHIEM_THU_NS", sO_TIEN_DA_NGHIEM_THU_NS) :
+                new ObjectParameter("SO_TIEN_DA_NGHIEM_THU_NS", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pr_GD_KHOI_LUONG_Insert", nGAY_THANGParameter, iD_DON_VIParameter, iD_LOAI_NHIEM_VUParameter, iD_CONG_TRINHParameter, iD_DU_ANParameter, sO_TIEN_DA_NGHIEM_THUParameter, sO_TIEN_CHUA_GIAI_NGANParameter, gHI_CHU_1Parameter, gHI_CHU_2Parameter, gHI_CHU_3Parameter, gHI_CHU_4Parameter, sO_TIEN_DA_NGHIEM_THU_NSParameter, iD);
         }
     
         public virtual int pr_gd_khoi_luong_insert_from_gd_giao_kh(Nullable<System.DateTime> ip_dat_tu_ngay, Nullable<System.DateTime> ip_dat_den_ngay, Nullable<decimal> ip_dc_id_don_vi, Nullable<System.DateTime> ip_dat_ngay_nhap)
@@ -3581,7 +3621,7 @@ namespace SQLDataAccess
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pr_gd_khoi_luong_insert_from_gd_giao_kh", ip_dat_tu_ngayParameter, ip_dat_den_ngayParameter, ip_dc_id_don_viParameter, ip_dat_ngay_nhapParameter);
         }
     
-        public virtual int pr_GD_KHOI_LUONG_Update(Nullable<decimal> iD, Nullable<System.DateTime> nGAY_THANG, Nullable<decimal> iD_DON_VI, Nullable<decimal> iD_LOAI_NHIEM_VU, Nullable<decimal> iD_CONG_TRINH, Nullable<decimal> iD_DU_AN, Nullable<decimal> sO_TIEN_DA_NGHIEM_THU, Nullable<decimal> sO_TIEN_CHUA_GIAI_NGAN, string gHI_CHU_1, string gHI_CHU_2, string gHI_CHU_3, string gHI_CHU_4)
+        public virtual int pr_GD_KHOI_LUONG_Update(Nullable<decimal> iD, Nullable<System.DateTime> nGAY_THANG, Nullable<decimal> iD_DON_VI, Nullable<decimal> iD_LOAI_NHIEM_VU, Nullable<decimal> iD_CONG_TRINH, Nullable<decimal> iD_DU_AN, Nullable<decimal> sO_TIEN_DA_NGHIEM_THU, Nullable<decimal> sO_TIEN_CHUA_GIAI_NGAN, string gHI_CHU_1, string gHI_CHU_2, string gHI_CHU_3, string gHI_CHU_4, Nullable<decimal> sO_TIEN_DA_NGHIEM_THU_NS)
         {
             var iDParameter = iD.HasValue ?
                 new ObjectParameter("ID", iD) :
@@ -3631,7 +3671,11 @@ namespace SQLDataAccess
                 new ObjectParameter("GHI_CHU_4", gHI_CHU_4) :
                 new ObjectParameter("GHI_CHU_4", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pr_GD_KHOI_LUONG_Update", iDParameter, nGAY_THANGParameter, iD_DON_VIParameter, iD_LOAI_NHIEM_VUParameter, iD_CONG_TRINHParameter, iD_DU_ANParameter, sO_TIEN_DA_NGHIEM_THUParameter, sO_TIEN_CHUA_GIAI_NGANParameter, gHI_CHU_1Parameter, gHI_CHU_2Parameter, gHI_CHU_3Parameter, gHI_CHU_4Parameter);
+            var sO_TIEN_DA_NGHIEM_THU_NSParameter = sO_TIEN_DA_NGHIEM_THU_NS.HasValue ?
+                new ObjectParameter("SO_TIEN_DA_NGHIEM_THU_NS", sO_TIEN_DA_NGHIEM_THU_NS) :
+                new ObjectParameter("SO_TIEN_DA_NGHIEM_THU_NS", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pr_GD_KHOI_LUONG_Update", iDParameter, nGAY_THANGParameter, iD_DON_VIParameter, iD_LOAI_NHIEM_VUParameter, iD_CONG_TRINHParameter, iD_DU_ANParameter, sO_TIEN_DA_NGHIEM_THUParameter, sO_TIEN_CHUA_GIAI_NGANParameter, gHI_CHU_1Parameter, gHI_CHU_2Parameter, gHI_CHU_3Parameter, gHI_CHU_4Parameter, sO_TIEN_DA_NGHIEM_THU_NSParameter);
         }
     
         public virtual int pr_GD_UY_NHIEM_CHI_Delete(Nullable<decimal> iD)

@@ -16,15 +16,15 @@ namespace SQLDataAccess
     {
         public DM_CONG_TRINH_DU_AN_GOI_THAU()
         {
-            this.DM_CONG_TRINH_DU_AN_GOI_THAU1 = new HashSet<DM_CONG_TRINH_DU_AN_GOI_THAU>();
+            this.DM_CONG_TRINH_DU_AN_GOI_THAU_CHILDREN = new HashSet<DM_CONG_TRINH_DU_AN_GOI_THAU>();
             this.GD_CHI_TIET_GIAI_NGAN_CONG_TRINH = new HashSet<GD_CHI_TIET_GIAI_NGAN>();
             this.GD_CHI_TIET_GIAI_NGAN_DU_AN = new HashSet<GD_CHI_TIET_GIAI_NGAN>();
-            this.GD_CHI_TIET_GIAO_KH = new HashSet<GD_CHI_TIET_GIAO_KH>();
-            this.GD_CHI_TIET_GIAO_KH1 = new HashSet<GD_CHI_TIET_GIAO_KH>();
-            this.GD_CHI_TIET_GIAO_VON = new HashSet<GD_CHI_TIET_GIAO_VON>();
-            this.GD_CHI_TIET_GIAO_VON1 = new HashSet<GD_CHI_TIET_GIAO_VON>();
-            this.GD_KHOI_LUONG = new HashSet<GD_KHOI_LUONG>();
-            this.GD_KHOI_LUONG1 = new HashSet<GD_KHOI_LUONG>();
+            this.GD_CHI_TIET_GIAO_KH_CONG_TRINH = new HashSet<GD_CHI_TIET_GIAO_KH>();
+            this.GD_CHI_TIET_GIAO_KH_DU_AN = new HashSet<GD_CHI_TIET_GIAO_KH>();
+            this.GD_CHI_TIET_GIAO_VON_CONG_TRINH = new HashSet<GD_CHI_TIET_GIAO_VON>();
+            this.GD_CHI_TIET_GIAO_VON_DU_AN = new HashSet<GD_CHI_TIET_GIAO_VON>();
+            this.GD_KHOI_LUONG_DU_AN = new HashSet<GD_KHOI_LUONG>();
+            this.GD_KHOI_LUONG_CONG_TRINH = new HashSet<GD_KHOI_LUONG>();
         }
     
         public decimal ID { get; set; }
@@ -37,16 +37,16 @@ namespace SQLDataAccess
         public Nullable<decimal> ID_LOAI { get; set; }
         public Nullable<decimal> ID_DON_VI { get; set; }
     
-        public virtual ICollection<DM_CONG_TRINH_DU_AN_GOI_THAU> DM_CONG_TRINH_DU_AN_GOI_THAU1 { get; set; }
+        public virtual ICollection<DM_CONG_TRINH_DU_AN_GOI_THAU> DM_CONG_TRINH_DU_AN_GOI_THAU_CHILDREN { get; set; }
         public virtual DM_CONG_TRINH_DU_AN_GOI_THAU DM_CONG_TRINH_DU_AN_GOI_THAU_PARENT { get; set; }
         public virtual DM_DON_VI DM_DON_VI { get; set; }
         public virtual ICollection<GD_CHI_TIET_GIAI_NGAN> GD_CHI_TIET_GIAI_NGAN_CONG_TRINH { get; set; }
         public virtual ICollection<GD_CHI_TIET_GIAI_NGAN> GD_CHI_TIET_GIAI_NGAN_DU_AN { get; set; }
-        public virtual ICollection<GD_CHI_TIET_GIAO_KH> GD_CHI_TIET_GIAO_KH { get; set; }
-        public virtual ICollection<GD_CHI_TIET_GIAO_KH> GD_CHI_TIET_GIAO_KH1 { get; set; }
-        public virtual ICollection<GD_CHI_TIET_GIAO_VON> GD_CHI_TIET_GIAO_VON { get; set; }
-        public virtual ICollection<GD_CHI_TIET_GIAO_VON> GD_CHI_TIET_GIAO_VON1 { get; set; }
-        public virtual ICollection<GD_KHOI_LUONG> GD_KHOI_LUONG { get; set; }
-        public virtual ICollection<GD_KHOI_LUONG> GD_KHOI_LUONG1 { get; set; }
+        public virtual ICollection<GD_CHI_TIET_GIAO_KH> GD_CHI_TIET_GIAO_KH_CONG_TRINH { get; set; }
+        public virtual ICollection<GD_CHI_TIET_GIAO_KH> GD_CHI_TIET_GIAO_KH_DU_AN { get; set; }
+        public virtual ICollection<GD_CHI_TIET_GIAO_VON> GD_CHI_TIET_GIAO_VON_CONG_TRINH { get; set; }
+        public virtual ICollection<GD_CHI_TIET_GIAO_VON> GD_CHI_TIET_GIAO_VON_DU_AN { get; set; }
+        public virtual ICollection<GD_KHOI_LUONG> GD_KHOI_LUONG_DU_AN { get; set; }
+        public virtual ICollection<GD_KHOI_LUONG> GD_KHOI_LUONG_CONG_TRINH { get; set; }
     }
 }

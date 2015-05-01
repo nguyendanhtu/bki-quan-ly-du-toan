@@ -27,10 +27,18 @@ namespace SQLDataAccess
         public string GHI_CHU_3 { get; set; }
         public string GHI_CHU_4 { get; set; }
         public Nullable<decimal> SO_TIEN_DA_NGHIEM_THU_NS { get; set; }
+        public Nullable<decimal> ID_CHUONG { get; set; }
+        public Nullable<decimal> ID_KHOAN { get; set; }
+        public Nullable<decimal> ID_MUC { get; set; }
+        public Nullable<decimal> ID_TIEU_MUC { get; set; }
     
         public virtual CM_DM_TU_DIEN CM_DM_TU_DIEN { get; set; }
-        public virtual DM_CONG_TRINH_DU_AN_GOI_THAU DM_CONG_TRINH_DU_AN_GOI_THAU { get; set; }
-        public virtual DM_CONG_TRINH_DU_AN_GOI_THAU DM_CONG_TRINH_DU_AN_GOI_THAU1 { get; set; }
+        public virtual DM_CONG_TRINH_DU_AN_GOI_THAU DM_CONG_TRINH_DU_AN_GOI_THAU_DU_AN { get; set; }
+        public virtual DM_CONG_TRINH_DU_AN_GOI_THAU DM_CONG_TRINH_DU_AN_GOI_THAU_CONG_TRINH { get; set; }
         public virtual DM_DON_VI DM_DON_VI { get; set; }
+        public virtual DM_CHUONG_LOAI_KHOAN_MUC DM_CHUONG_LOAI_KHOAN_MUC_CHUONG { get; set; }
+        public virtual DM_CHUONG_LOAI_KHOAN_MUC DM_CHUONG_LOAI_KHOAN_MUC_KHOAN { get; set; }
+        public virtual DM_CHUONG_LOAI_KHOAN_MUC DM_CHUONG_LOAI_KHOAN_MUC_MUC { get; set; }
+        public virtual DM_CHUONG_LOAI_KHOAN_MUC DM_CHUONG_LOAI_KHOAN_MUC_TIEU_MUC { get; set; }
     }
 }

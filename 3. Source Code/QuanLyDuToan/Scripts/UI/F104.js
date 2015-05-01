@@ -392,16 +392,16 @@ var F104 = {
 		//tao list data submit to server
 		$('#loading').show();
 		var lst_data = [];
-		var lst_td = $(".lnv[id_giao_dich!='-1']");
+		var lst_td = $('.muc, .du_an, .tieu_muc');
 		for (var i = 0; i < lst_td.length; i++) {
 			var item_data = {
 				ID: $(lst_td[i]).attr('id_giao_dich'),
-				SO_KM: $(lst_td[i]).parent().find('.so_km').val(),
-				KP_NAM_TRUOC_CHUYEN_SANG: $(lst_td[i]).parent().find('.kinh_phi_nam_truoc_chuyen_sang').val(),
-				KP_NGAN_SACH: $(lst_td[i]).parent().find('.kinh_phi_ngan_sach').val(),
-				KP_QUY_BT: $(lst_td[i]).parent().find('.kinh_phi_quy_bao_tri').val(),
-				TONG_MUC_DAU_TU: $(lst_td[i]).parent().find('.tong_mu_dau_tu').val(),
-				THOI_GIAN_THUC_HIEN: $(lst_td[i]).parent().find('.thoi_gian_thuc_hien').val()
+				SO_KM: $(lst_td[i]).find('.so_km').val(),
+				KP_NAM_TRUOC_CHUYEN_SANG: $(lst_td[i]).find('.kinh_phi_nam_truoc_chuyen_sang').val(),
+				KP_NGAN_SACH: $(lst_td[i]).find('.kinh_phi_ngan_sach').val(),
+				KP_QUY_BT: $(lst_td[i]).find('.kinh_phi_quy_bao_tri').val(),
+				TONG_MUC_DAU_TU: $(lst_td[i]).find('.tong_muc_dau_tu').val(),
+				THOI_GIAN_THUC_HIEN: $(lst_td[i]).find('.thoi_gian_thuc_hien').val()
 			}
 			lst_data.push(item_data);
 		}
