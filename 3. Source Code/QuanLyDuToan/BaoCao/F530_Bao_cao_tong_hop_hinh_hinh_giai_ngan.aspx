@@ -254,10 +254,8 @@
 									<ItemTemplate>
 										<font class='a<%# Eval(GRID_GIAI_NGAN.ID)%>'><%# 
 														CIPConvert.ToStr(
-														CCommonFunction.getMoney_number(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_NTCS_QBT))
-                                                +		CCommonFunction.getMoney_number( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_QBT))
-												+		CCommonFunction.getMoney_number(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_NTCS_NS))
-                                                +		CCommonFunction.getMoney_number( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_NS)), "#,###") %></font>
+														CCommonFunction.getMoney_number(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_NTCS_NS))
+														+CCommonFunction.getMoney_number(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_NS)), "#,###") %></font>
 									</ItemTemplate>
 									<HeaderStyle Height="10px" HorizontalAlign="Center" />
 									<ItemStyle HorizontalAlign="Right" Width="120px" />
@@ -266,7 +264,9 @@
 									<ItemTemplate>
 										<font class='a<%# Eval(GRID_GIAI_NGAN.ID)%>'><%# 
 														CIPConvert.ToStr(
-														CCommonFunction.getMoney_number(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_NTCS_NS))
+														CCommonFunction.getMoney_number(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_NTCS_QBT))
+                                                +		CCommonFunction.getMoney_number( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_QBT))
+												+		CCommonFunction.getMoney_number(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_NTCS_NS))
                                                 +		CCommonFunction.getMoney_number( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_NS)), "#,###") %></font>
 									</ItemTemplate>
 									<HeaderStyle Height="10px" HorizontalAlign="Center" />
@@ -441,11 +441,8 @@
 								<asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="25=9-19" HeaderStyle-Height="10px" HeaderStyle-Width="120px">
 									<ItemTemplate>
 										<font class='a<%# Eval(GRID_GIAI_NGAN.ID)%>'><%# CIPConvert.ToStr(  
-														CCommonFunction.getMoney_number(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_NTCS_QBT))
-                                                +		CCommonFunction.getMoney_number( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_QBT))
-												+		CCommonFunction.getMoney_number(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_NTCS_NS))
-                                                +		CCommonFunction.getMoney_number( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_NS))
-												+
+														CCommonFunction.getMoney_number(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_NTCS_NS))
+														+CCommonFunction.getMoney_number(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_NS))
 												-		(CCommonFunction.getMoney_number(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_NS_LUY_KE))
                                                 +		CCommonFunction.getMoney_number( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_NS_TRONG_THANG))), "#,###") %></font>
 									</ItemTemplate>
@@ -458,17 +455,14 @@
 														CCommonFunction.getMoney_number(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_NTCS_QBT))
                                                 +		CCommonFunction.getMoney_number( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_QBT))
 												-		(CCommonFunction.getMoney_number(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_QBT_LUY_KE))
-                                                +		CCommonFunction.getMoney_number( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_QBT_TRONG_THANG))
+                                                +		CCommonFunction.getMoney_number( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_QBT_TRONG_THANG)))
 												+
-														CCommonFunction.getMoney_number(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_NTCS_QBT))
-                                                +		CCommonFunction.getMoney_number( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_QBT))
-												+		CCommonFunction.getMoney_number(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_NTCS_NS))
-                                                +		CCommonFunction.getMoney_number( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_NS))
-												+
+														CCommonFunction.getMoney_number(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_NTCS_NS))
+														+CCommonFunction.getMoney_number(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_NS))
 												-		(CCommonFunction.getMoney_number(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_NS_LUY_KE))
-                                                +		CCommonFunction.getMoney_number( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_NS_TRONG_THANG))
+                                                +		CCommonFunction.getMoney_number( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_NS_TRONG_THANG)))
 													   
-													   )) , "#,###") %></font>
+													   , "#,###") %></font>
 									</ItemTemplate>
 									<HeaderStyle Height="10px" HorizontalAlign="Center" />
 									<ItemStyle HorizontalAlign="Right" Width="120px" />
