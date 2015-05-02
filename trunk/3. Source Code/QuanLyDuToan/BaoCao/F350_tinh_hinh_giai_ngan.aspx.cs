@@ -30,10 +30,6 @@ namespace QuanLyDuToan.BaoCao
 			m_i_stt++;
 			return m_i_stt.ToString();
 		}
-		public override void VerifyRenderingInServerForm(Control control)
-		{
-			//base.VerifyRenderingInServerForm(control);
-		}
 		public decimal format_so_tien(object ip_str_so_tien)
 		{
 			decimal op_dc_so_tien = 0;
@@ -313,7 +309,10 @@ namespace QuanLyDuToan.BaoCao
 				CSystemLog_301.ExceptionHandle(this, v_e);
 			}
 		}
-
+		public override void VerifyRenderingInServerForm(Control control)
+		{
+			//base.VerifyRenderingInServerForm(control);
+		}
 		protected void m_cmd_xem_bao_cao_Click(object sender, EventArgs e)
 		{
 			try

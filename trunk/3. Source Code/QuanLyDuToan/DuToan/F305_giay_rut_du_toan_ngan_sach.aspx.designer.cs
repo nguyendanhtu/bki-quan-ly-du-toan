@@ -497,5 +497,14 @@ namespace QuanLyDuToan.DuToan {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink m_cmd_print;
+        
+        /// <summary>
+        /// m_cmd_export_excel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button m_cmd_export_excel;
     }
 }

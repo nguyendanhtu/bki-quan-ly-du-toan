@@ -15,17 +15,17 @@
 		<td colspan="2" align="center">10/01/2013 của Bộ Tài chính</td>
 	</tr>
 	<tr>
-		<td colspan="5"><b>Đơn vị trả tiền: Sở Giao thông vận tải <donvi></b></td>
-		<td colspan="2">Số:</td>
+		<td colspan="5"><b>Đơn vị trả tiền: <donvi></b></td>
+		<td colspan="2">Số: <so_unc></td>
 	</tr>
 	<tr>
-		<td colspan="7">Địa chỉ: 79 Bạch Đăngf - TP Hải Dương</td>
+		<td colspan="7">Địa chỉ: <dia_chi></td>
 	</tr>
 	<tr>
-		<td colspan="7">Tại Kho bạc Nhà nước (NH): Kho Bạc Nhà nước tỉnh <donvi></td>
+		<td colspan="7">Tại Kho bạc Nhà nước (NH): <kho_bac_nha_nuoc></td>
 	</tr>
 	<tr>
-		<td colspan="7">Mã TKKT: 3741.0.1044548  Mã ĐVQHNS: 1044548  Mã CTMT, DA và HTCT: 91057</td>
+		<td colspan="7">Mã TKKT: <ma_tkkt>  Mã ĐVQHNS: <ma_dvqhns>  Mã CTMT, DA và HTCT: <ma_ctmt_da_htct></td>
 	</tr>
 </table>
 <table border="1px" cellspacing="0px">

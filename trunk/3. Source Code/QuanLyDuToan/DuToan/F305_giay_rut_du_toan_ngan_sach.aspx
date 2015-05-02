@@ -745,7 +745,9 @@
 									<asp:Button ID="m_cmd_save_info_unc" Text="Lưu thông tin" runat="server" CssClass="btn btn-sm btn-success"
 										OnClick="m_cmd_save_info_unc_Click" />
 									<asp:HyperLink ID="m_cmd_print" runat="server" CssClass="btn btn-sm btn-primary" ForeColor="White"
-										Target="_blank" Text="Xem bản in" Visible="false"></asp:HyperLink></td>
+										Target="_blank" Text="Xem bản in" Visible="false"></asp:HyperLink>
+									<asp:Button Visible="true" ID="m_cmd_export_excel" runat="server" Text="Xuất excel" CssClass="btn btn-sm btn-success" OnClick="m_cmd_export_excel_Click" />
+								</td>
 							</tr>
 						</table>
 					</td>
@@ -756,6 +758,7 @@
 
 		</ContentTemplate>
 		<Triggers>
+			<asp:PostBackTrigger ControlID="m_cmd_export_excel" />
 		</Triggers>
 	</asp:UpdatePanel>
 	<%--<asp:UpdateProgress ID="UpdateProgress1" runat="server">

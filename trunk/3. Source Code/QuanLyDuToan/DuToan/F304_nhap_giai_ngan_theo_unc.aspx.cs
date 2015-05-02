@@ -11,6 +11,9 @@ using IP.Core.IPCommon;
 using System.Data;
 using QuanLyDuToan.App_Code;
 using Framework.Extensions;
+using System.Globalization;
+using QuanLyDuToan.UserControls;
+
 namespace QuanLyDuToan.DuToan
 {
 	public partial class F304_nhap_giai_ngan_theo_unc : System.Web.UI.Page
@@ -25,6 +28,51 @@ namespace QuanLyDuToan.DuToan
 			}
 
 			return op_result;
+		}
+		public string get_tong_tien(string ip_str_nop_thue, string ip_str_tt_cho_dv_huong)
+		{
+			string op_str = "0";
+			decimal v_dc_nop_thue = 0;
+			decimal v_dc_tt_cho_dv_huong = 0;
+			if (ip_str_nop_thue.Trim().Equals("") | ip_str_nop_thue.Trim().Equals("0"))
+			{
+				v_dc_nop_thue = 0;
+			}
+			else v_dc_nop_thue = CIPConvert.ToDecimal(ip_str_nop_thue);
+			if (ip_str_tt_cho_dv_huong.Trim().Equals("") | ip_str_tt_cho_dv_huong.Trim().Equals("0"))
+			{
+				v_dc_tt_cho_dv_huong = 0;
+			}
+			else v_dc_tt_cho_dv_huong = CIPConvert.ToDecimal(ip_str_tt_cho_dv_huong);
+			if (v_dc_nop_thue + v_dc_tt_cho_dv_huong == 0)
+			{
+				op_str = "0";
+			}
+			else
+			{
+				CultureInfo elGR = CultureInfo.CreateSpecificCulture("el-GR");
+				op_str = String.Format(elGR, "{0:0,0}", v_dc_tt_cho_dv_huong + v_dc_nop_thue);
+				//op_str = CIPConvert.ToStr(v_dc_nop_thue + v_dc_tt_cho_dv_huong, "{0:0,0}");
+			}
+			return op_str;
+		}
+		public string format_so_tien(string ip_str_so_tien)
+		{
+			string op_str = "0";
+			decimal v_dc_so_tien = 0;
+			if (ip_str_so_tien.Trim().Equals("") | ip_str_so_tien.Trim().Equals("0"))
+			{
+				op_str = "0";
+			}
+			else
+			{
+				v_dc_so_tien = CIPConvert.ToDecimal(ip_str_so_tien);
+				CultureInfo elGR = CultureInfo.CreateSpecificCulture("el-GR");
+				op_str = String.Format(elGR, "{0:0,0}", v_dc_so_tien);
+				//op_str = CIPConvert.ToStr(v_dc_so_tien, "{0:0,0}");
+			}
+
+			return op_str;
 		}
 		#endregion
 
@@ -511,6 +559,7 @@ namespace QuanLyDuToan.DuToan
 			load_data_to_grid_chi_tiet_uy_nhiem_chi();
 			format_control_print_and_save_info();
 		}
+
 		#endregion
 
 		#region Events
@@ -699,6 +748,7 @@ namespace QuanLyDuToan.DuToan
 			{
 				m_grv_unc.Columns[5].Visible = true;
 			}
+
 		}
 
 		private void data_to_ddl_du_an_cong_trinh_grid(DropDownList op_ddl, eCHI_TX_YN ip_e_chi_tx_yn)
@@ -1585,5 +1635,16 @@ namespace QuanLyDuToan.DuToan
 		}
 
 		#endregion
+		public override void VerifyRenderingInServerForm(Control control)
+		{
+			//base.VerifyRenderingInServerForm(control);
+		}
+		protected void m_cmd_export_excel_Click(object sender, EventArgs e)
+		{
+			
+			decimal v_dc_id_giai_ngan=CIPConvert.ToDecimal(m_ddl_dm_giai_ngan.SelectedValue);
+			decimal v_dc_id_don_vi=CIPConvert.ToDecimal(m_ddl_don_vi.SelectedValue);
+			WebformReport.F304ExportExcel(v_dc_id_giai_ngan, v_dc_id_don_vi);
+		}
 	}
 }

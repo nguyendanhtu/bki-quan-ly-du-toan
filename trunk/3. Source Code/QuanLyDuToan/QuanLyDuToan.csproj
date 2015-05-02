@@ -94,6 +94,12 @@
     <Content Include="DuToan\F104_nhap_du_toan.aspx" />
     <Content Include="DuToan\F305_giay_rut_du_toan_ngan_sach.aspx" />
     <Content Include="DuToan\F505_DuToanThuChiPhiPha.aspx" />
+    <Content Include="Images\Mau C2-02-NS_9437_image001.png" />
+    <Content Include="Images\Mau C2-02-NS_9437_image002.png" />
+    <Content Include="Images\Mau C2-02-NS_9437_image003.png" />
+    <Content Include="Images\Mau C2-02-NS_9437_image004.png" />
+    <Content Include="Images\Mau C2-02-NS_9437_image005.png" />
+    <Content Include="Images\Mau C2-02-NS_9437_image006.png" />
     <Content Include="packages.config" />
     <Content Include="Quantri\F816_ghi_log_qldt.aspx" />
     <Content Include="QuyetToan\PL03_thuc_hien_xu_ly_kien_nghi_cua_kiem_toan_thanh_tra_tai_chinh.aspx" />
@@ -137,8 +143,11 @@
     <Content Include="Styles\jquery-ui.theme.min.css" />
     <Content Include="Styles\jquery.dataTables.min.css" />
     <Content Include="Template\TPL_F304.txt" />
+    <Content Include="Test\t.aspx" />
     <Content Include="Test\tudm.aspx" />
     <Content Include="UserControls\F104Grid.ascx" />
+    <Content Include="UserControls\F304Print.ascx" />
+    <Content Include="UserControls\F305Print.ascx" />
     <Content Include="UserControls\F404Grid.ascx" />
     <Content Include="UserControls\TableGiaoKH.ascx" />
     <Content Include="WebMethod\F104.asmx" />
@@ -787,6 +796,13 @@
     <Compile Include="QuyetToan\PL05_DanhMucGiaTriCongTrinhHoanThanhGiamTruThanhToan.aspx.designer.cs">
       <DependentUpon>PL05_DanhMucGiaTriCongTrinhHoanThanhGiamTruThanhToan.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Test\t.aspx.cs">
+      <DependentUpon>t.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Test\t.aspx.designer.cs">
+      <DependentUpon>t.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Test\tudm.aspx.cs">
       <DependentUpon>tudm.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -800,6 +816,20 @@
     </Compile>
     <Compile Include="UserControls\F104Grid.ascx.designer.cs">
       <DependentUpon>F104Grid.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\F304Print.ascx.cs">
+      <DependentUpon>F304Print.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\F304Print.ascx.designer.cs">
+      <DependentUpon>F304Print.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\F305Print.ascx.cs">
+      <DependentUpon>F305Print.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\F305Print.ascx.designer.cs">
+      <DependentUpon>F305Print.ascx</DependentUpon>
     </Compile>
     <Compile Include="UserControls\F404Grid.ascx.cs">
       <DependentUpon>F404Grid.ascx</DependentUpon>

@@ -6,6 +6,7 @@ using System.IO;
 using System.Web.UI.WebControls;
 using System.Collections.Generic;
 using System.Web.UI;
+using QuanLyDuToan.UserControls;
 
 /// <summary>
 /// Summary description for WinformReport
@@ -125,6 +126,43 @@ public class WebformReport
 			HttpContext.Current.Response.Flush();
 			HttpContext.Current.Response.End();
 		}
+	}
+
+	public static void F304ExportExcel(decimal ip_dc_id_dm_giai_ngan, decimal ip_dc_id_don_vi)
+	{
+		HttpContext.Current.Response.Clear();
+		//Response.Buffer = true;
+		HttpContext.Current.Response.AddHeader("content-disposition", "attachment;filename=" + "UyNhiemChi.xls");
+		HttpContext.Current.Response.Charset = "UTF-8";
+		HttpContext.Current.Response.ContentEncoding = System.Text.Encoding.UTF8;
+		HttpContext.Current.Response.ContentType = "application/vnd.ms-excel";
+		HttpContext.Current.Response.Cache.SetCacheability(System.Web.HttpCacheability.NoCache);
+
+		string v_str_result = F304Print.RenderToString(ip_dc_id_dm_giai_ngan, ip_dc_id_don_vi);
+		//string style = @"<style> .textmode { mso-number-format:\@; } </style>";
+		//HttpContext.Current.Response.Write(style);
+		HttpContext.Current.Response.Output.Write(v_str_result);
+		//Response.Write(sw.ToString());
+		HttpContext.Current.Response.Flush();
+		HttpContext.Current.Response.End();
+	}
+	public static void F305ExportExcel(decimal ip_dc_id_dm_giai_ngan, decimal ip_dc_id_don_vi)
+	{
+		HttpContext.Current.Response.Clear();
+		//Response.Buffer = true;
+		HttpContext.Current.Response.AddHeader("content-disposition", "attachment;filename=" + "GiayRutDuToanNganSach.xls");
+		HttpContext.Current.Response.Charset = "UTF-8";
+		HttpContext.Current.Response.ContentEncoding = System.Text.Encoding.UTF8;
+		HttpContext.Current.Response.ContentType = "application/vnd.ms-excel";
+		HttpContext.Current.Response.Cache.SetCacheability(System.Web.HttpCacheability.NoCache);
+
+		string v_str_result = F305Print.RenderToString(ip_dc_id_dm_giai_ngan, ip_dc_id_don_vi);
+		//string style = @"<style> .textmode { mso-number-format:\@; } </style>";
+		//HttpContext.Current.Response.Write(style);
+		HttpContext.Current.Response.Output.Write(v_str_result);
+		//Response.Write(sw.ToString());
+		HttpContext.Current.Response.Flush();
+		HttpContext.Current.Response.End();
 	}
 
 	/*
