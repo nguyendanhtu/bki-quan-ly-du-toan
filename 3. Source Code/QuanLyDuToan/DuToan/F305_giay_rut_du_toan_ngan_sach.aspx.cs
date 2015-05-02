@@ -1596,5 +1596,16 @@ namespace QuanLyDuToan.DuToan
 		}
 
 		#endregion
+		public override void VerifyRenderingInServerForm(Control control)
+		{
+			//base.VerifyRenderingInServerForm(control);
+		}
+		protected void m_cmd_export_excel_Click(object sender, EventArgs e)
+		{
+
+			decimal v_dc_id_giai_ngan = CIPConvert.ToDecimal(m_ddl_dm_giai_ngan.SelectedValue);
+			decimal v_dc_id_don_vi = CIPConvert.ToDecimal(m_ddl_don_vi.SelectedValue);
+			WebformReport.F305ExportExcel(v_dc_id_giai_ngan, v_dc_id_don_vi);
+		}
 	}
 }

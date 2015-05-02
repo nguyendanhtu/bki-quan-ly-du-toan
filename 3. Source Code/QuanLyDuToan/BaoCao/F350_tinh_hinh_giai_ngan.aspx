@@ -243,11 +243,11 @@
 							<div style="width: 100px; margin: 0px auto; float: left;">
 								<asp:Button ID="m_cmd_xem_bao_cao" Text="Xem báo cáo" OnClick="m_cmd_xem_bao_cao_Click" runat="server" CssClass="btn btn-sm btn-primary" />
 							</div>
-							<div id="downloadify" style="width: 100px; margin: 0px auto; float: left;">
-								You must have Flash 10 installed to download this file.
+							<div style="width: 100px; margin: 0px auto; float: left;">
+								<asp:Button ID="m_cmd_xuat_excel" Visible="true" Text="Xuất file excel" OnClick="m_cmd_xuat_excel_Click" runat="server" CssClass="btn btn-sm btn-success" />
 							</div>
 						</div>
-						<asp:Button ID="m_cmd_xuat_excel" Visible="false" Text="Xuất file excel" OnClick="m_cmd_xuat_excel_Click" runat="server" CssClass="btn btn-sm btn-primary" />
+						
 					</td>
 				</tr>
 				<tr>
@@ -451,7 +451,7 @@
 								</asp:TemplateField>
 								<asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="18" HeaderStyle-Height="10px" HeaderStyle-Width="120px">
 									<ItemTemplate>
-										<<a class='a<%# Eval(GRID_GIAI_NGAN.ID)%>' href="<%#FormInfo.FormName.F357.ToString()%><%# format_link_to_chi_tiet_trong_thang(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.REPORT_LEVEL)
+										<a class='a<%# Eval(GRID_GIAI_NGAN.ID)%>' href="<%#FormInfo.FormName.F357.ToString()%><%# format_link_to_chi_tiet_trong_thang(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.REPORT_LEVEL)
                                                   ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID_DON_VI)
                                                     ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID_LOAI_NHIEM_VU)
                                                     ,Eval(RPT_BC_TINH_HINH_GIAI_NGAN.ID_CONG_TRINH_KHOAN)

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="F304_nhap_giai_ngan_theo_unc.aspx.cs" Inherits="QuanLyDuToan.DuToan.F304_nhap_giai_ngan_theo_unc" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="F304_nhap_giai_ngan_theo_unc.aspx.cs" Inherits="QuanLyDuToan.DuToan.F304_nhap_giai_ngan_theo_unc" EnableEventValidation ="false" %>
 
 <%@ Import Namespace="IP.Core.IPCommon" %>
 <%@ Import Namespace="WebUS" %>
@@ -36,6 +36,21 @@
 	<script>
 		function pageLoad(sender, args) {
 			if (args.get_isPartialLoad()) {
+				//var m = new Map();
+				//var today = new Date();
+				//var mm = today.getMonth() + 1; //January is 0!
+				//var yyyy = today.getFullYear();
+				//var day = today.getDay();
+				//m.set("<year>", yyyy);
+				//m.set("<month>", mm);
+				//m.set("<dat>", day);
+				//m.set("<so_unc>", m_txt_so_unc.value);
+				//m.set("<dia_chi>", m_ddl_don_vi.value);
+				//m.set("<kho_bac_nha_nuoc>", m_ddl_don_vi.value);
+				////m.set("<ma_tkkt>", m_ddl_don_vi.value);
+				//m.set("<ma_dvqhns>", m_txt_ma_ctmt_da_htct.value);
+				////m.set("<ma_ctmt_da_htct>", m_ddl_don_vi.value);
+				//getData("TPL_F304", "m_grv_prind", "Bao_cao_quyet_dinh_giao_von", m);
                 <%-- $("#<%=m_ddl_loai_nv.ClientID%>").select2();
                 $("#<%=m_ddl_cong_trinh.ClientID%>").select2();--%>
 
@@ -47,7 +62,22 @@
 
 			 }
 		 }
-		 $(document).ready(function () {
+		$(document).ready(function () {
+			//var m = new Map();
+			//var today = new Date();
+			//var mm = today.getMonth() + 1; //January is 0!
+			//var yyyy = today.getFullYear();
+			//var day = today.getDay();
+			//m.set("<year>", yyyy);
+			//m.set("<month>", mm);
+			//m.set("<dat>", day);
+			//m.set("<so_unc>", m_txt_so_unc.value);87ui00	
+			//m.set("<dia_chi>", m_ddl_don_vi.value);
+			//m.set("<kho_bac_nha_nuoc>", m_ddl_don_vi.value);
+			////m.set("<ma_tkkt>", m_ddl_don_vi.value);
+			//m.set("<ma_dvqhns>", m_txt_ma_ctmt_da_htct.value);
+			////m.set("<ma_ctmt_da_htct>", m_ddl_don_vi.value);
+			//getData("TPL_F304", "m_grv_prind", "Bao_cao_quyet_dinh_giao_von", m);
             <%--  $("#<%=m_ddl_loai_nv.ClientID%>").select2();
             $("#<%=m_ddl_cong_trinh.ClientID%>").select2();
             $("#<%=m_ddl_du_an.ClientID%>").select2();--%>
@@ -527,7 +557,9 @@
 									<asp:Button ID="m_cmd_save_info_unc" Text="Lưu thông tin" runat="server" CssClass="btn btn-sm btn-success"
 										OnClick="m_cmd_save_info_unc_Click" />
 									<asp:HyperLink ID="m_cmd_print" runat="server" CssClass="btn btn-sm btn-primary" ForeColor="White"
-										Target="_blank" Text="Xem bản in" Visible="false"></asp:HyperLink></td>
+										Target="_blank" Text="Xem bản in" Visible="false"></asp:HyperLink>
+									<asp:Button Visible="true" ID="m_cmd_export_excel" runat="server" Text="Xuất excel" CssClass="btn btn-sm btn-success" OnClick="m_cmd_export_excel_Click" />
+								</td>
 							</tr>
 						</table>
 					</td>
@@ -539,9 +571,9 @@
 			
 			</table>
 
-
 		</ContentTemplate>
 		<Triggers>
+			<asp:PostBackTrigger ControlID="m_cmd_export_excel" />
 		</Triggers>
 	</asp:UpdatePanel>
 	<asp:UpdateProgress ID="UpdateProgress1" runat="server">
