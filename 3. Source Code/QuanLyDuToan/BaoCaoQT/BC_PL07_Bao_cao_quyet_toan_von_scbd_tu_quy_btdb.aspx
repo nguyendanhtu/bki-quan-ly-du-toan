@@ -207,7 +207,7 @@
                      <%-- 3. Ke hoach nam truoc chuyen sang --%>
 				    <td class='text-right str_money'>
 					    <%=lst_giao_kh
-						    .Where(x=>x.CM_DM_TU_DIEN.TEN.ToUpper()==ten_loai_nhiem_vu.TEN_LOAI_NHIEM_VU.ToUpper()
+						    .Where(x=>x.CM_DM_TU_DIEN_LOAI_NHIEM_VU.TEN==ten_loai_nhiem_vu.TEN_LOAI_NHIEM_VU.ToUpper()
 							    )
 						    .Select(x=>x.SO_TIEN_NAM_TRUOC_CHUYEN_SANG)
 						    .ToList()
@@ -223,7 +223,7 @@
                                   .ToList())%>
 				    <%{%>
 				    <td class='text-right str_money'><%=lst_giao_kh
-						    .Where(x=>x.ID_QUYET_DINH==qd	&&x.CM_DM_TU_DIEN.TEN.ToUpper()==ten_loai_nhiem_vu.TEN_LOAI_NHIEM_VU.ToUpper())
+						    .Where(x=>x.ID_QUYET_DINH==qd	&&x.CM_DM_TU_DIEN_LOAI_NHIEM_VU.TEN.ToUpper()==ten_loai_nhiem_vu.TEN_LOAI_NHIEM_VU.ToUpper())
 						    .Select(x=>x.SO_TIEN_QUY_BT)
 						    .ToList()
 						    .Sum()
@@ -233,7 +233,7 @@
 				    <td class='text-right str_money QDDCCC'>
 					    <%=lst_giao_kh
 						    .Where(x=>x.DM_QUYET_DINH.ID_LOAI_QUYET_DINH_GIAO==WebUS.ID_LOAI_GIAO_DICH.DIEU_CHINH
-							    &&x.CM_DM_TU_DIEN.TEN.ToUpper()==ten_loai_nhiem_vu.TEN_LOAI_NHIEM_VU.ToUpper()
+							    &&x.CM_DM_TU_DIEN_LOAI_NHIEM_VU.TEN.ToUpper()==ten_loai_nhiem_vu.TEN_LOAI_NHIEM_VU.ToUpper()
 							    )
 						    .Select(x=>x.SO_TIEN_NAM_TRUOC_CHUYEN_SANG)
 						    .ToList()
@@ -279,7 +279,7 @@
 				    <td class='text-right str_money KHCDCN  <%=ten_loai_nhiem_vu.TEN_LOAI_NHIEM_VU.Replace(" ","") %>' ma_so="<%="lnv_"+LnvIndex %>"><%=
 						    lst_giao_kh
 							    .Where(x=>x.DM_QUYET_DINH.ID_LOAI_QUYET_DINH_GIAO==WebUS.ID_LOAI_GIAO_DICH.DIEU_CHINH
-								    &&x.CM_DM_TU_DIEN.TEN.ToUpper()==ten_loai_nhiem_vu.TEN_LOAI_NHIEM_VU.ToUpper()
+								    &&x.CM_DM_TU_DIEN_LOAI_NHIEM_VU.TEN.ToUpper()==ten_loai_nhiem_vu.TEN_LOAI_NHIEM_VU.ToUpper()
 								    )
 							    .Select(x=>x.SO_TIEN_NAM_TRUOC_CHUYEN_SANG)
 							    .ToList()
