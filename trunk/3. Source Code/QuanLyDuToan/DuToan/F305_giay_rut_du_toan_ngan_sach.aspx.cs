@@ -77,18 +77,34 @@ namespace QuanLyDuToan.DuToan
 					, STR_NGUON.NGAN_SACH
 					);
 			//Them Ma Chuong, Ma Loai, Ma Khoan vao dataset
-
+			if (v_ds.Tables.Count>0)
+			{
+				decimal v_dc_so_tien_thanh_toan_cho_don_vi_huong = 0;
+				decimal v_dc_so_tien_nop_thue = 0;
+				for (int i = 0; i < v_ds.Tables[0].Rows.Count; i++)
+				{
+					if (!v_ds.Tables[0].Rows[i].IsNull(GRID_GIAI_NGAN.ID)
+						& !v_ds.Tables[0].Rows[i].ToString().Trim().Equals("-1"))
+					{
+						v_dc_so_tien_thanh_toan_cho_don_vi_huong += CIPConvert.ToDecimal(v_ds.Tables[0].Rows[i][GRID_GIAI_NGAN.SO_TIEN_TTCDVH].ToString());
+						v_dc_so_tien_nop_thue += CIPConvert.ToDecimal(v_ds.Tables[0].Rows[i][GRID_GIAI_NGAN.SO_TIEN_NT].ToString());
+					}
+				}
+				m_txt_nt_so_tien_nop_thue.Text = IP.Core.IPCommon.CRead.ChuyenSo(v_dc_so_tien_nop_thue.ToString());
+				m_txt_ttdvh_so_tien_thanh_toan.Text = IP.Core.IPCommon.CRead.ChuyenSo(v_dc_so_tien_thanh_toan_cho_don_vi_huong.ToString());
+			}
+		
 			m_grv_unc.DataSource = v_ds.Tables[0];
 			m_grv_unc.DataBind();
 
 			//Nếu đang xem UNC của đơn vị khác thì không được sửa dữ liệu
 			if (m_ddl_don_vi.SelectedValue != Person.get_id_don_vi().ToString())
 			{
-				m_grv_unc.Columns[5].Visible = false;//Cột thao tác
+				m_grv_unc.Columns[8].Visible = false;//Cột thao tác
 			}
 			else
 			{
-				m_grv_unc.Columns[5].Visible = true;
+				m_grv_unc.Columns[8].Visible = true;
 			}
 		}
 
@@ -595,10 +611,14 @@ namespace QuanLyDuToan.DuToan
 		private void format_control_print_and_save_info()
 		{
 			if (m_hdf_id_dm_giai_ngan.Value.Trim().Equals("") | m_hdf_id_dm_giai_ngan.Value.Trim().Equals("-1"))
+			{
 				m_cmd_save_info_unc.Visible = false;
+				m_cmd_export_excel.Visible = false;
+			}
 			else
 			{
 				m_cmd_save_info_unc.Visible = true;
+				m_cmd_export_excel.Visible = true;
 				m_cmd_print.NavigateUrl = CCommonFunction.genQueryString(
 						FormInfo.FormRedirect.F601
 						, new CParaQueryString[]{

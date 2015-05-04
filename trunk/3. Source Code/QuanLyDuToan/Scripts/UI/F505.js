@@ -7,6 +7,9 @@ var F505 = {
 		this.autoComputed();
 		this.autoFormatInitialValue();
 		//this.FormatTable();
+		//format by form_mode
+		$('.giao_kh, .thuc_hien').hide();
+		$('.' + form_mode).show();
 	},
 	Message: function (message) {
 		alert(message);

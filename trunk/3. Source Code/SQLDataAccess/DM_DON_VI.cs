@@ -32,6 +32,7 @@ namespace SQLDataAccess
             this.HT_USER_GROUP = new HashSet<HT_USER_GROUP>();
             this.GD_DU_TOAN_THU_CHI_PHI_PHA = new HashSet<GD_DU_TOAN_THU_CHI_PHI_PHA>();
             this.GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN = new HashSet<GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN>();
+            this.DM_PHA = new HashSet<DM_PHA>();
         }
     
         public decimal ID { get; set; }
@@ -61,5 +62,6 @@ namespace SQLDataAccess
         public virtual ICollection<HT_USER_GROUP> HT_USER_GROUP { get; set; }
         public virtual ICollection<GD_DU_TOAN_THU_CHI_PHI_PHA> GD_DU_TOAN_THU_CHI_PHI_PHA { get; set; }
         public virtual ICollection<GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN> GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN { get; set; }
+        public virtual ICollection<DM_PHA> DM_PHA { get; set; }
     }
 }

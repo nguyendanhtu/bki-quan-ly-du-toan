@@ -73,6 +73,9 @@
     <Compile Include="DM_GIAI_NGAN.cs">
       <DependentUpon>QuanLyDuToan.tt</DependentUpon>
     </Compile>
+    <Compile Include="DM_PHA.cs">
+      <DependentUpon>QuanLyDuToan.tt</DependentUpon>
+    </Compile>
     <Compile Include="DM_QUYET_DINH.cs">
       <DependentUpon>QuanLyDuToan.tt</DependentUpon>
     </Compile>

@@ -19,10 +19,21 @@ namespace QuanLyDuToan.WebMethod
 	// [System.Web.Script.Services.ScriptService]
 	public class F505 : System.Web.Services.WebService
 	{
-		public string genMaSO(string ip_str_ma_so_parent)
+		public string getMaSoChildrenByMaSoParent(string ip_str_ma_so_parent, List<GD_DU_TOAN_THU_CHI_PHI_PHA> ip_lst_children)
 		{
 			string v_str_ma_so = "";
-
+			Int32 v_i_max_sufix;
+			//Neu chua co children
+			if (ip_lst_children.Count() == 0)
+			{
+				v_i_max_sufix = 101;
+			}
+			else
+			{
+				//Neu da co children
+				v_i_max_sufix = ip_lst_children.Select(x => Convert.ToInt32(x.MA_SO.Replace(ip_str_ma_so_parent, ""))).Max() + 1;
+			}
+			v_str_ma_so = ip_str_ma_so_parent + v_i_max_sufix.ToString();
 			return v_str_ma_so;
 		}
 
@@ -42,7 +53,7 @@ namespace QuanLyDuToan.WebMethod
 		{
 			BKI_QLDTEntities db = new BKI_QLDTEntities();
 			var m_lst_du_toan_thu_chi_phi_pha = db.GD_DU_TOAN_THU_CHI_PHI_PHA
-											.Where(x => x.ID_DON_VI == ip_dc_id_don_vi &&x.ID_QUYET_DINH==ip_dc_id_quyet_dinh)
+											.Where(x => x.ID_DON_VI == ip_dc_id_don_vi && x.ID_QUYET_DINH == ip_dc_id_quyet_dinh)
 											.OrderBy(x => x.MA_SO.Substring(0, 4))
 											.ThenBy(x => x.MA_SO_PARENT)
 											.ThenBy(x => x.TT)
@@ -82,8 +93,7 @@ namespace QuanLyDuToan.WebMethod
 		[WebMethod]
 		public void InsertItem(decimal ip_dc_id_quyet_dinh
 			, decimal ip_dc_id_don_vi
-			, string ip_str_ma_so_parent
-			, string ip_str_ma_so
+			, decimal ip_dc_id_parent
 			, string ip_str_tt
 			, string ip_str_hang_muc
 			, string ip_str_kinh_phi_giao
@@ -95,22 +105,30 @@ namespace QuanLyDuToan.WebMethod
 			, string ip_str_GHI_CHU_QUY_I
 			, string ip_str_GHI_CHU_QUY_II
 			, string ip_str_GHI_CHU_QUY_III
-			, string ip_str_GHI_CHU_QUY_IV)
+			, string ip_str_GHI_CHU_QUY_IV
+			, string ip_str_PHAN_BO_QUI_I
+			, string ip_str_PHAN_BO_QUY_II
+			, string ip_str_PHAN_BO_QUY_III
+			, string ip_str_PHAN_BO_QUY_IV
+			, string ip_str_GHI_CHU_PHAN_BO_QUY_I
+			, string ip_str_GHI_CHU_PHAN_BO_QUY_II
+			, string ip_str_GHI_CHU_PHAN_BO_QUY_III
+			, string ip_str_GHI_CHU_PHAN_BO_QUY_IV
+)
 		{
 			BKI_QLDTEntities db = new BKI_QLDTEntities();
-			var qd = db.DM_QUYET_DINH.First(x => x.ID == ip_dc_id_quyet_dinh);
-			int v_i_ma_so = db.GD_DU_TOAN_THU_CHI_PHI_PHA
-					.Where(x => x.ID_QUYET_DINH == ip_dc_id_quyet_dinh
-						&& x.ID_DON_VI == ip_dc_id_don_vi
-						&& (x.MA_SO_PARENT == ip_str_ma_so_parent || x.MA_SO == ip_str_ma_so_parent))
-						.ToList()
-						.Select(x => new { MaSo = Convert.ToInt16(x.MA_SO) })
-						.Max(x => x.MaSo);
+			var qd = db.DM_QUYET_DINH.FirstOrDefault(x => x.ID == ip_dc_id_quyet_dinh);
+			var gd_parent = db.GD_DU_TOAN_THU_CHI_PHI_PHA.FirstOrDefault(x => x.ID == ip_dc_id_parent);
+			var lst_children = db.GD_DU_TOAN_THU_CHI_PHI_PHA
+									.Where(x => x.ID_QUYET_DINH == ip_dc_id_quyet_dinh
+											&& x.ID_DON_VI == ip_dc_id_don_vi
+											&& x.MA_SO_PARENT == gd_parent.MA_SO)
+									.ToList();
 			GD_DU_TOAN_THU_CHI_PHI_PHA gd = new GD_DU_TOAN_THU_CHI_PHI_PHA();
 			gd.ID_DON_VI = ip_dc_id_don_vi;
 			gd.ID_QUYET_DINH = ip_dc_id_quyet_dinh;
-			gd.MA_SO = genMaSO(ip_str_ma_so_parent);
-			gd.MA_SO_PARENT = ip_str_ma_so_parent;
+			gd.MA_SO = getMaSoChildrenByMaSoParent(gd_parent.MA_SO, lst_children);
+			gd.MA_SO_PARENT = gd_parent.MA_SO; ;
 			gd.TT = ip_str_tt;
 			gd.HANG_MUC = ip_str_hang_muc;
 			gd.KINH_PHI_GIAO_KH = getMoney_number(ip_str_kinh_phi_giao.Replace(",", "").Replace(".", ""));
@@ -123,8 +141,20 @@ namespace QuanLyDuToan.WebMethod
 			gd.GHI_CHU_QUY_II = ip_str_GHI_CHU_QUY_II;
 			gd.GHI_CHU_QUY_III = ip_str_GHI_CHU_QUY_III;
 			gd.GHI_CHU_QUY_IV = ip_str_GHI_CHU_QUY_IV;
+
+			gd.PHAN_BO_QUI_I = getMoney_number(ip_str_PHAN_BO_QUI_I.Replace(",", "").Replace(".", "")); ;
+			gd.PHAN_BO_QUY_II = getMoney_number(ip_str_PHAN_BO_QUY_II.Replace(",", "").Replace(".", "")); ;
+			gd.PHAN_BO_QUY_III = getMoney_number(ip_str_PHAN_BO_QUY_III.Replace(",", "").Replace(".", "")); ;
+			gd.PHAN_BO_QUY_IV = getMoney_number(ip_str_PHAN_BO_QUY_IV.Replace(",", "").Replace(".", "")); ;
+			gd.GHI_CHU_PHAN_BO_QUY_I = ip_str_GHI_CHU_PHAN_BO_QUY_I;
+			gd.GHI_CHU_PHAN_BO_QUY_II = ip_str_GHI_CHU_PHAN_BO_QUY_II;
+			gd.GHI_CHU_PHAN_BO_QUY_III = ip_str_GHI_CHU_PHAN_BO_QUY_III;
+			gd.GHI_CHU_PHAN_BO_QUY_IV = ip_str_GHI_CHU_PHAN_BO_QUY_IV;
+
+
 			gd.NAM = (decimal)qd.NGAY_THANG.Year;
 			gd.IS_FIX = false;
+			//gd.ID_PHA==?;
 			db.GD_DU_TOAN_THU_CHI_PHI_PHA.Add(gd);
 			db.SaveChanges();
 		}
@@ -136,7 +166,23 @@ namespace QuanLyDuToan.WebMethod
 			, string ip_str_tt
 			, string ip_str_hang_muc
 			, string ip_str_kinh_phi_giao
-			, string ip_str_GHI_CHU_GIAO_KH)
+			, string ip_str_KLTH_QUY_I
+			, string ip_str_KLTH_QUY_II
+			, string ip_str_KLTH_QUY_III
+			, string ip_str_KLTH_QUY_IV
+			, string ip_str_GHI_CHU_GIAO_KH
+			, string ip_str_GHI_CHU_QUY_I
+			, string ip_str_GHI_CHU_QUY_II
+			, string ip_str_GHI_CHU_QUY_III
+			, string ip_str_GHI_CHU_QUY_IV
+			, string ip_str_PHAN_BO_QUI_I
+			, string ip_str_PHAN_BO_QUY_II
+			, string ip_str_PHAN_BO_QUY_III
+			, string ip_str_PHAN_BO_QUY_IV
+			, string ip_str_GHI_CHU_PHAN_BO_QUY_I
+			, string ip_str_GHI_CHU_PHAN_BO_QUY_II
+			, string ip_str_GHI_CHU_PHAN_BO_QUY_III
+			, string ip_str_GHI_CHU_PHAN_BO_QUY_IV)
 		{
 			BKI_QLDTEntities db = new BKI_QLDTEntities();
 			var gd = db.GD_DU_TOAN_THU_CHI_PHI_PHA.First(x => x.ID == ip_dc_id_giao_dich);
@@ -144,7 +190,24 @@ namespace QuanLyDuToan.WebMethod
 			gd.TT = ip_str_tt;
 			gd.HANG_MUC = ip_str_hang_muc;
 			gd.KINH_PHI_GIAO_KH = getMoney_number(ip_str_kinh_phi_giao.Replace(",", "").Replace(".", ""));
+			gd.KLTH_QUY_I = getMoney_number(ip_str_KLTH_QUY_I.Replace(",", "").Replace(".", ""));
+			gd.KLTH_QUY_II = getMoney_number(ip_str_KLTH_QUY_II.Replace(",", "").Replace(".", ""));
+			gd.KLTH_QUY_III = getMoney_number(ip_str_KLTH_QUY_III.Replace(",", "").Replace(".", ""));
+			gd.KLTH_QUY_IV = getMoney_number(ip_str_KLTH_QUY_IV.Replace(",", "").Replace(".", ""));
 			gd.GHI_CHU_GIAO_KH = ip_str_GHI_CHU_GIAO_KH;
+			gd.GHI_CHU_QUY_I = ip_str_GHI_CHU_QUY_I;
+			gd.GHI_CHU_QUY_II = ip_str_GHI_CHU_QUY_II;
+			gd.GHI_CHU_QUY_III = ip_str_GHI_CHU_QUY_III;
+			gd.GHI_CHU_QUY_IV = ip_str_GHI_CHU_QUY_IV;
+
+			gd.PHAN_BO_QUI_I = getMoney_number(ip_str_PHAN_BO_QUI_I.Replace(",", "").Replace(".", "")); ;
+			gd.PHAN_BO_QUY_II = getMoney_number(ip_str_PHAN_BO_QUY_II.Replace(",", "").Replace(".", "")); ;
+			gd.PHAN_BO_QUY_III = getMoney_number(ip_str_PHAN_BO_QUY_III.Replace(",", "").Replace(".", "")); ;
+			gd.PHAN_BO_QUY_IV = getMoney_number(ip_str_PHAN_BO_QUY_IV.Replace(",", "").Replace(".", "")); ;
+			gd.GHI_CHU_PHAN_BO_QUY_I = ip_str_GHI_CHU_PHAN_BO_QUY_I;
+			gd.GHI_CHU_PHAN_BO_QUY_II = ip_str_GHI_CHU_PHAN_BO_QUY_II;
+			gd.GHI_CHU_PHAN_BO_QUY_III = ip_str_GHI_CHU_PHAN_BO_QUY_III;
+			gd.GHI_CHU_PHAN_BO_QUY_IV = ip_str_GHI_CHU_PHAN_BO_QUY_IV;
 			db.SaveChanges();
 		}
 

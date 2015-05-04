@@ -31,6 +31,33 @@ namespace QuanLyDuToan.DuToan {
         protected global::System.Web.UI.UpdatePanel UpdatePanel1;
         
         /// <summary>
+        /// m_cmd_save_info_unc control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button m_cmd_save_info_unc;
+        
+        /// <summary>
+        /// m_cmd_print control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink m_cmd_print;
+        
+        /// <summary>
+        /// m_cmd_export_excel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button m_cmd_export_excel;
+        
+        /// <summary>
         /// m_txt_ngay_thang control.
         /// </summary>
         /// <remarks>
@@ -380,33 +407,6 @@ namespace QuanLyDuToan.DuToan {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox m_txt_ttdvh_so_tien_thanh_toan;
-        
-        /// <summary>
-        /// m_cmd_save_info_unc control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button m_cmd_save_info_unc;
-        
-        /// <summary>
-        /// m_cmd_print control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink m_cmd_print;
-        
-        /// <summary>
-        /// m_cmd_export_excel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button m_cmd_export_excel;
         
         /// <summary>
         /// UpdateProgress1 control.

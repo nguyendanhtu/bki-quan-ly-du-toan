@@ -119,6 +119,9 @@
         <AssociationConnector Association="BKI_QLDTModel.FK_GD_KHOI_LUONG_DM_CHUONG_LOAI_KHOAN_MUC1" />
         <AssociationConnector Association="BKI_QLDTModel.FK_GD_KHOI_LUONG_DM_CHUONG_LOAI_KHOAN_MUC2" />
         <AssociationConnector Association="BKI_QLDTModel.FK_GD_KHOI_LUONG_DM_CHUONG_LOAI_KHOAN_MUC3" />
+        <EntityTypeShape EntityType="BKI_QLDTModel.DM_PHA" Width="1.5" PointX="2.9141792482296838" PointY="16.915300347337173" />
+        <AssociationConnector Association="BKI_QLDTModel.FK_DM_PHA_DM_DON_VI" />
+        <AssociationConnector Association="BKI_QLDTModel.FK_GD_DU_TOAN_THU_CHI_PHI_PHA_DM_PHA" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

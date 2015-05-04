@@ -130,7 +130,13 @@
 		<ContentTemplate>
 			<table style="margin: auto">
 				<tr>
-					<td style="border: 1px solid gray; width: 20%">Không ghi vào khu vực này</td>
+					<td style=" width: 20%"> 
+						<div class="col-sm-12">
+							<asp:Button ID="m_cmd_save_info_unc" runat="server" CssClass="btn btn-sm btn-success" OnClick="m_cmd_save_info_unc_Click" Text="Lưu thông tin" Width="100px" />
+							<asp:HyperLink ID="m_cmd_print" runat="server" CssClass="btn btn-sm btn-primary" ForeColor="White" Target="_blank" Text="Xem bản in" Visible="false" Width="100px"></asp:HyperLink>
+							<asp:Button ID="m_cmd_export_excel" runat="server" CssClass="btn btn-sm btn-success" OnClick="m_cmd_export_excel_Click" Text="Xuất excel" Visible="true" Width="100px" />
+						</div>
+					</td>
 					<td style="font-weight: bold; font-size: 24px; text-align: center; width: 60%">GIẤY RÚT DỰ TOÁN NGÂN SÁCH</td>
 					<td style="border: 1px solid gray; width: 20%; text-align: center">Mẫu C2-02/NS		
 						<br />
@@ -498,7 +504,7 @@
 															</ItemTemplate>
 															<FooterTemplate>
 																<asp:LinkButton ID="lbtnAdd" runat="server" CssClass="btn btn-sm btn-success" CommandName="Add" ForeColor="White"
-																	Text="Thêm mới" />
+																	Text="Lưu" />
 															</FooterTemplate>
 														</asp:TemplateField>
 													</Columns>
@@ -741,13 +747,7 @@
 							</tr>
 
 							<tr>
-								<td colspan="6" style="text-align: center">
-									<asp:Button ID="m_cmd_save_info_unc" Text="Lưu thông tin" runat="server" CssClass="btn btn-sm btn-success"
-										OnClick="m_cmd_save_info_unc_Click" />
-									<asp:HyperLink ID="m_cmd_print" runat="server" CssClass="btn btn-sm btn-primary" ForeColor="White"
-										Target="_blank" Text="Xem bản in" Visible="false"></asp:HyperLink>
-									<asp:Button Visible="true" ID="m_cmd_export_excel" runat="server" Text="Xuất excel" CssClass="btn btn-sm btn-success" OnClick="m_cmd_export_excel_Click" />
-								</td>
+								<td colspan="6" style="text-align: center">&nbsp;</td>
 							</tr>
 						</table>
 					</td>
