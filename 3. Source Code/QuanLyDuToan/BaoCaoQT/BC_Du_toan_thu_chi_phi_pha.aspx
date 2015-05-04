@@ -16,6 +16,20 @@
         }
 
     </script>
+      <style>
+        #tbl_gd_du_toan_thu_chi_pha > thead > tr > th {
+			border: 1px solid #000;
+		}
+          #tbl_gd_du_toan_thu_chi_pha > tbody > tr > td {
+			border: 1px solid #000;
+		}
+        .so_tien {
+            text-align:right;
+        }
+        #tbl_gd_du_toan_thu_chi_pha {
+        background-color:white;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <h3 class="h3 text-center">BẢNG TỔNG HỢP DỰ TOÁN THU, CHI PHÍ PHÀ</h3>
@@ -31,7 +45,7 @@
         <label class="text-right">Đơn vị tính: đồng</label>
     </div>
     <div>
-        <table style="min-width: 1200px">
+        <table id="tbl_gd_du_toan_thu_chi_pha" style="min-width: 1200px" class="table-hover">
             <thead>
                 <tr>
                     <th rowspan="2" style="text-align: center">TT</th>
@@ -58,27 +72,27 @@
                     <%-- Tên phà --%>
                     <td><%=pha.TEN_PHA%></td>
                     <%-- Dự toán thu --%>
-                    <td><%=lst_gd_phi_pha.Where(x=>x.ID_PHA==pha.ID_PHA && x.MA_SO==LoaiMa.DU_TOAN_THU)
+                    <td class="so_tien"><%=lst_gd_phi_pha.Where(x=>x.ID_PHA==pha.ID_PHA && x.MA_SO==LoaiMa.DU_TOAN_THU)
                                            .Select(x=>x.KINH_PHI_GIAO_KH)
                                            .Sum()%></td>
                     <%-- Chi thường xuyên --%>
-                    <td><%=lst_gd_phi_pha.Where(x=>x.ID_PHA==pha.ID_PHA && x.MA_SO == LoaiMa.CHI_THUONG_XUYEN)
+                    <td class="so_tien"><%=lst_gd_phi_pha.Where(x=>x.ID_PHA==pha.ID_PHA && x.MA_SO == LoaiMa.CHI_THUONG_XUYEN)
                                            .Select(x=>x.KINH_PHI_GIAO_KH)
                                            .Sum()%></td>
                     <%-- Chi không thường xuyên --%>
-                    <td><%=lst_gd_phi_pha.Where(x=>x.ID_PHA==pha.ID_PHA && x.MA_SO == LoaiMa.CHI_KHONG_THUONG_XUYEN)
+                    <td class="so_tien"><%=lst_gd_phi_pha.Where(x=>x.ID_PHA==pha.ID_PHA && x.MA_SO == LoaiMa.CHI_KHONG_THUONG_XUYEN)
                                            .Select(x=>x.KINH_PHI_GIAO_KH)
                                            .Sum()%></td>
                     <%-- Quỹ khen thưởng --%>
-                    <td><%=lst_gd_phi_pha.Where(x=>x.ID_PHA==pha.ID_PHA && x.MA_SO == LoaiMa.QUY_KHEN_THUONG)
+                    <td class="so_tien"><%=lst_gd_phi_pha.Where(x=>x.ID_PHA==pha.ID_PHA && x.MA_SO == LoaiMa.QUY_KHEN_THUONG)
                                            .Select(x=>x.KINH_PHI_GIAO_KH)
                                            .Sum()%></td>
                     <%-- Tổng cộng --%>
-                    <td><%=lst_gd_phi_pha.Where(x=>x.ID_PHA==pha.ID_PHA && x.MA_SO == LoaiMa.DU_TOAN_CHI)
+                    <td class="so_tien"><%=lst_gd_phi_pha.Where(x=>x.ID_PHA==pha.ID_PHA && x.MA_SO == LoaiMa.DU_TOAN_CHI)
                                            .Select(x=>x.KINH_PHI_GIAO_KH)
                                            .Sum()%></td>
                     <%-- Chênh lệch thu-chi --%>
-                    <td><%=lst_gd_phi_pha.Where(x=>x.ID_PHA==pha.ID_PHA && x.MA_SO == LoaiMa.CHENH_LECH_THU_CHI)
+                    <td class="so_tien"><%=lst_gd_phi_pha.Where(x=>x.ID_PHA==pha.ID_PHA && x.MA_SO == LoaiMa.CHENH_LECH_THU_CHI)
                                            .Select(x=>x.KINH_PHI_GIAO_KH)
                                            .Sum()%></td>
                 </tr>
@@ -90,27 +104,27 @@
                     <%-- Tên phà --%>
                     <td>Tổng cộng</td>
                       <%-- Dự toán thu --%>
-                    <td><%=lst_gd_phi_pha.Where(x=>x.MA_SO==LoaiMa.DU_TOAN_THU)
+                    <td class="so_tien"><%=lst_gd_phi_pha.Where(x=>x.MA_SO==LoaiMa.DU_TOAN_THU)
                                            .Select(x=>x.KINH_PHI_GIAO_KH)
                                            .Sum()%></td>
                     <%-- Chi thường xuyên --%>
-                    <td><%=lst_gd_phi_pha.Where(x=>x.MA_SO == LoaiMa.CHI_THUONG_XUYEN)
+                    <td class="so_tien"><%=lst_gd_phi_pha.Where(x=>x.MA_SO == LoaiMa.CHI_THUONG_XUYEN)
                                            .Select(x=>x.KINH_PHI_GIAO_KH)
                                            .Sum()%></td>
                     <%-- Chi không thường xuyên --%>
-                    <td><%=lst_gd_phi_pha.Where(x=>x.MA_SO == LoaiMa.CHI_KHONG_THUONG_XUYEN)
+                    <td class="so_tien"><%=lst_gd_phi_pha.Where(x=>x.MA_SO == LoaiMa.CHI_KHONG_THUONG_XUYEN)
                                            .Select(x=>x.KINH_PHI_GIAO_KH)
                                            .Sum()%></td>
                     <%-- Quỹ khen thưởng --%>
-                    <td><%=lst_gd_phi_pha.Where(x=>x.MA_SO == LoaiMa.QUY_KHEN_THUONG)
+                    <td class="so_tien"><%=lst_gd_phi_pha.Where(x=>x.MA_SO == LoaiMa.QUY_KHEN_THUONG)
                                            .Select(x=>x.KINH_PHI_GIAO_KH)
                                            .Sum()%></td>
                     <%-- Tổng cộng --%>
-                    <td><%=lst_gd_phi_pha.Where(x=>x.MA_SO == LoaiMa.DU_TOAN_CHI)
+                    <td class="so_tien"><%=lst_gd_phi_pha.Where(x=>x.MA_SO == LoaiMa.DU_TOAN_CHI)
                                            .Select(x=>x.KINH_PHI_GIAO_KH)
                                            .Sum()%></td>
                     <%-- Chênh lệch thu-chi --%>
-                    <td><%=lst_gd_phi_pha.Where(x=>x.MA_SO == LoaiMa.CHENH_LECH_THU_CHI)
+                    <td class="so_tien"><%=lst_gd_phi_pha.Where(x=>x.MA_SO == LoaiMa.CHENH_LECH_THU_CHI)
                                            .Select(x=>x.KINH_PHI_GIAO_KH)
                                            .Sum()%></td>
                 </tr>
