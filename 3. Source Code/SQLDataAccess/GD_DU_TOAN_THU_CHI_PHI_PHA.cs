@@ -34,8 +34,18 @@ namespace SQLDataAccess
         public string CONG_THUC { get; set; }
         public bool IS_FIX { get; set; }
         public Nullable<decimal> ID_QUYET_DINH { get; set; }
+        public Nullable<decimal> ID_PHA { get; set; }
+        public Nullable<decimal> PHAN_BO_QUI_I { get; set; }
+        public Nullable<decimal> PHAN_BO_QUY_II { get; set; }
+        public Nullable<decimal> PHAN_BO_QUY_III { get; set; }
+        public Nullable<decimal> PHAN_BO_QUY_IV { get; set; }
+        public string GHI_CHU_PHAN_BO_QUY_I { get; set; }
+        public string GHI_CHU_PHAN_BO_QUY_II { get; set; }
+        public string GHI_CHU_PHAN_BO_QUY_III { get; set; }
+        public string GHI_CHU_PHAN_BO_QUY_IV { get; set; }
     
         public virtual DM_DON_VI DM_DON_VI { get; set; }
         public virtual DM_QUYET_DINH DM_QUYET_DINH { get; set; }
+        public virtual DM_PHA DM_PHA { get; set; }
     }
 }

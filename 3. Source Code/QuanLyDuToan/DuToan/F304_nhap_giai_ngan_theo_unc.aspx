@@ -1,15 +1,16 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="F304_nhap_giai_ngan_theo_unc.aspx.cs" Inherits="QuanLyDuToan.DuToan.F304_nhap_giai_ngan_theo_unc" EnableEventValidation ="false" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="F304_nhap_giai_ngan_theo_unc.aspx.cs" Inherits="QuanLyDuToan.DuToan.F304_nhap_giai_ngan_theo_unc" EnableEventValidation="false" %>
 
 <%@ Import Namespace="IP.Core.IPCommon" %>
 <%@ Import Namespace="WebUS" %>
 <%@ Import Namespace="WebDS.CDBNames" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="Server">
 	<style type="text/css">
-	label {
+		label {
 			white-space: nowrap;
 			width: 200px;
 			padding-right: 3px;
 		}
+
 		.radioButtonList {
 			list-style: none;
 			margin: 0px 0px 0px 12px;
@@ -60,8 +61,8 @@
 					$("#<%=m_ddl_don_vi.ClientID%>").parent().find('.select2-selection__arrow').addClass('hidden');
 				}
 
-			 }
-		 }
+			}
+		}
 		$(document).ready(function () {
 			//var m = new Map();
 			//var today = new Date();
@@ -81,12 +82,12 @@
             <%--  $("#<%=m_ddl_loai_nv.ClientID%>").select2();
             $("#<%=m_ddl_cong_trinh.ClientID%>").select2();
             $("#<%=m_ddl_du_an.ClientID%>").select2();--%>
-		 	$(".select2").select2();
-		 	$("#<%=m_txt_ngay_thang.ClientID%>").datepicker({ format: 'dd/mm/yyyy', language: 'vi' });
-		 	if ($("#<%=m_ddl_don_vi.ClientID%> option").length < 2) {
-		 		$("#<%=m_ddl_don_vi.ClientID%>").parent().find('.select2-selection__arrow').addClass('hidden');
+			$(".select2").select2();
+			$("#<%=m_txt_ngay_thang.ClientID%>").datepicker({ format: 'dd/mm/yyyy', language: 'vi' });
+			if ($("#<%=m_ddl_don_vi.ClientID%> option").length < 2) {
+				$("#<%=m_ddl_don_vi.ClientID%>").parent().find('.select2-selection__arrow').addClass('hidden');
 			}
-		 }
+		}
        )
 	</script>
 </asp:Content>
@@ -95,23 +96,42 @@
 	</asp:ScriptManager>
 	<asp:UpdatePanel ID="UpdatePanel1" runat="server">
 		<ContentTemplate>
-			<table style="margin: auto">
-				<tr>
-					<td style="font-weight: bold; font-size: 24px; text-align: center">UỶ NHIỆM CHI</td>
-				</tr>
-				<tr>
-					<td style="text-align: center">CHUYỂN KHOẢN, CHUYỂN TIỀN ĐIỆN TỬ</td>
-				</tr>
+			<table style="margin: auto; width: 900px">
 				<tr>
 					<td style="text-align: center">
-						<div id="datetimepicker1" class="input-group date datepicker" style="white-space: nowrap; margin: 0 auto;">
-							<label for="m_txt_ngay_thang" style="float: left; width: 95px; margin-top: 4px;">Lập ngày (*): </label>
-							<asp:TextBox ID="m_txt_ngay_thang" placeholder="dd/MM/yyyy" runat="server" CssClass="cssTextBox form-control" Height="30px" Width="164px">
-							</asp:TextBox>
-							<span class="input-group-addon"><span class="glyphicon-calendar glyphicon"></span>
-							</span>
+						<div class="col-sm-12">
+							<div class="col-sm-2 text-center">
+								<asp:Button ID="m_cmd_save_info_unc" Text="Lưu thông tin" runat="server" CssClass="btn btn-sm btn-success"
+									OnClick="m_cmd_save_info_unc_Click" Style="width: 100px" />
+								<asp:HyperLink ID="m_cmd_print" runat="server" CssClass="btn btn-sm btn-primary" ForeColor="White"
+									Target="_blank" Text="Xem bản in" Visible="false" Style="width: 100px"></asp:HyperLink>
+								<asp:Button Visible="true" ID="m_cmd_export_excel" runat="server" Text="Xuất excel" CssClass="btn btn-sm btn-success" OnClick="m_cmd_export_excel_Click" Style="width: 100px" />
+							</div>
+							<div class="col-sm-10">
+								<div class="col-sm-12" style="font-weight: bold; font-size: 24px; ">UỶ NHIỆM CHI</div>
+								<div class="col-sm-12">CHUYỂN KHOẢN, CHUYỂN TIỀN ĐIỆN TỬ</div>
+								<div class="col-sm-12">
+									<div style="white-space: nowrap; margin: 0 auto;">
+										<div class="col-sm-4 text-right" style="margin-top:5px">
+											Lập ngày (*):
+										</div>
+										<div class="col-sm-8" style="text-align:left">
+											<asp:TextBox ID="m_txt_ngay_thang" placeholder="dd/MM/yyyy" runat="server" CssClass="cssTextBox" Height="30px" Width="164px " style="float:left">
+											</asp:TextBox>
+											<span class="input-group-addon" style="width:15px"><span class="glyphicon-calendar glyphicon"></span>
+											</span>
+										</div>
+									</div>
+								</div>
+							</div>
 						</div>
 					</td>
+				</tr>
+				<tr>
+					<td style="text-align: center"></td>
+				</tr>
+				<tr>
+					<td style="text-align: center"></td>
 				</tr>
 				<tr>
 					<td style="width: 900px;">
@@ -194,8 +214,8 @@
 											<td style="text-align: right">
 												<span>&nbsp;&nbsp; Mã ĐVQHNS:</span>
 											</td>
-											<td colspan="2" style="display:table-row">
-												
+											<td colspan="2" style="display: table-row">
+
 												<asp:RadioButton ID="m_rdb_ma_dvqhns" Checked="true" runat="server" GroupName="madvqhns" />
 												<asp:RadioButton ID="m_rdb_ma_dvqhns_1" runat="server" GroupName="madvqhns" />
 												<asp:RadioButton ID="m_rdb_ma_dvqhns_2" runat="server" GroupName="madvqhns" />
@@ -205,7 +225,7 @@
 										<tr>
 											<td></td>
 											<td style="margin: auto;">
-												<asp:Button ID="m_cmd_luu_unc" runat="server" CssClass="btn btn-sm btn-success" OnClick="m_cmd_luu_unc_Click" Text="Lưu Uỷ nhiệm chi" />
+												<asp:Button ID="m_cmd_luu_unc" runat="server" CssClass="btn btn-sm btn-success" OnClick="m_cmd_luu_unc_Click" Text="Lưu Số UNC" />
 											</td>
 										</tr>
 										<tr>
@@ -353,7 +373,7 @@
 															</ItemTemplate>
 															<FooterTemplate>
 																<asp:LinkButton ID="lbtnAdd" runat="server" CssClass="btn btn-sm btn-success" CommandName="Add" ForeColor="White"
-																	Text="Thêm mới" />
+																	Text="Lưu" />
 															</FooterTemplate>
 														</asp:TemplateField>
 													</Columns>
@@ -553,13 +573,7 @@
 								</td>
 							</tr>
 							<tr>
-								<td colspan="6" style="text-align: center">
-									<asp:Button ID="m_cmd_save_info_unc" Text="Lưu thông tin" runat="server" CssClass="btn btn-sm btn-success"
-										OnClick="m_cmd_save_info_unc_Click" />
-									<asp:HyperLink ID="m_cmd_print" runat="server" CssClass="btn btn-sm btn-primary" ForeColor="White"
-										Target="_blank" Text="Xem bản in" Visible="false"></asp:HyperLink>
-									<asp:Button Visible="true" ID="m_cmd_export_excel" runat="server" Text="Xuất excel" CssClass="btn btn-sm btn-success" OnClick="m_cmd_export_excel_Click" />
-								</td>
+								<td colspan="6" style="text-align: center"></td>
 							</tr>
 						</table>
 					</td>

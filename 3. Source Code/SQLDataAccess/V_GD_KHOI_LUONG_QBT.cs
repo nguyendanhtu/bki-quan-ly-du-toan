@@ -29,5 +29,9 @@ namespace SQLDataAccess
         public string TEN_CONG_TRINH { get; set; }
         public string TEN_DU_AN { get; set; }
         public Nullable<decimal> SO_TIEN_DA_NGHIEM_THU_NS { get; set; }
+        public Nullable<decimal> ID_CHUONG { get; set; }
+        public Nullable<decimal> ID_KHOAN { get; set; }
+        public Nullable<decimal> ID_MUC { get; set; }
+        public Nullable<decimal> ID_TIEU_MUC { get; set; }
     }
 }

@@ -16,8 +16,9 @@ namespace QuanLyDuToan.DuToan
 		{
 			if (!IsPostBack)
 			{
+				m_dc_id_don_vi = 91;// Person.get_id_don_vi();
 				set_initial_form_load();
-				m_dc_id_don_vi = Person.get_id_don_vi();
+				
 			}
 		}
 
@@ -36,7 +37,7 @@ namespace QuanLyDuToan.DuToan
 		#region Private Methods
 		private void set_initial_form_load()
 		{
-			decimal v_dc_id_don_vi = Person.get_id_don_vi();
+			decimal v_dc_id_don_vi = m_dc_id_don_vi;
 			decimal v_dc_nam = 2015;
 			BKI_QLDTEntities db = new BKI_QLDTEntities();
 			load_data_to_lst_du_toan_thu_chi_phi_pha(db, v_dc_id_don_vi, v_dc_nam);

@@ -13,6 +13,7 @@
           <EntitySet Name="DM_CONG_TRINH_DU_AN_GOI_THAU" EntityType="BKI_QLDTModel.Store.DM_CONG_TRINH_DU_AN_GOI_THAU" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="DM_DON_VI" EntityType="BKI_QLDTModel.Store.DM_DON_VI" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="DM_GIAI_NGAN" EntityType="BKI_QLDTModel.Store.DM_GIAI_NGAN" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="DM_PHA" EntityType="BKI_QLDTModel.Store.DM_PHA" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="DM_QUYET_DINH" EntityType="BKI_QLDTModel.Store.DM_QUYET_DINH" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="DM_THONG_TIN_DON_VI" EntityType="BKI_QLDTModel.Store.DM_THONG_TIN_DON_VI" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="DOC_COLUMN_COMMENT" EntityType="BKI_QLDTModel.Store.DOC_COLUMN_COMMENT" store:Type="Tables" store:Schema="dbo" store:Name="DOC_COLUMN_COMMENT">
@@ -422,6 +423,10 @@
       [V_GD_KHOI_LUONG_QBT].[GHI_CHU_3] AS [GHI_CHU_3], 
       [V_GD_KHOI_LUONG_QBT].[GHI_CHU_4] AS [GHI_CHU_4], 
       [V_GD_KHOI_LUONG_QBT].[SO_TIEN_DA_NGHIEM_THU_NS] AS [SO_TIEN_DA_NGHIEM_THU_NS], 
+      [V_GD_KHOI_LUONG_QBT].[ID_CHUONG] AS [ID_CHUONG], 
+      [V_GD_KHOI_LUONG_QBT].[ID_KHOAN] AS [ID_KHOAN], 
+      [V_GD_KHOI_LUONG_QBT].[ID_MUC] AS [ID_MUC], 
+      [V_GD_KHOI_LUONG_QBT].[ID_TIEU_MUC] AS [ID_TIEU_MUC], 
       [V_GD_KHOI_LUONG_QBT].[TEN_CONG_TRINH] AS [TEN_CONG_TRINH], 
       [V_GD_KHOI_LUONG_QBT].[TEN_DU_AN] AS [TEN_DU_AN]
       FROM [dbo].[V_GD_KHOI_LUONG_QBT] AS [V_GD_KHOI_LUONG_QBT]</DefiningQuery>
@@ -470,6 +475,10 @@
           <AssociationSet Name="FK_DM_NGUON_DM_NGUON" Association="BKI_QLDTModel.Store.FK_DM_NGUON_DM_NGUON">
             <End Role="DM_CHUONG_LOAI_KHOAN_MUC" EntitySet="DM_CHUONG_LOAI_KHOAN_MUC" />
             <End Role="DM_CHUONG_LOAI_KHOAN_MUC1" EntitySet="DM_CHUONG_LOAI_KHOAN_MUC" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DM_PHA_DM_DON_VI" Association="BKI_QLDTModel.Store.FK_DM_PHA_DM_DON_VI">
+            <End Role="DM_DON_VI" EntitySet="DM_DON_VI" />
+            <End Role="DM_PHA" EntitySet="DM_PHA" />
           </AssociationSet>
           <AssociationSet Name="FK_DM_QUYET_DINH_CM_DM_TU_DIEN1" Association="BKI_QLDTModel.Store.FK_DM_QUYET_DINH_CM_DM_TU_DIEN1">
             <End Role="CM_DM_TU_DIEN" EntitySet="CM_DM_TU_DIEN" />
@@ -521,6 +530,10 @@
           </AssociationSet>
           <AssociationSet Name="FK_GD_DU_TOAN_THU_CHI_PHI_PHA_DM_DON_VI" Association="BKI_QLDTModel.Store.FK_GD_DU_TOAN_THU_CHI_PHI_PHA_DM_DON_VI">
             <End Role="DM_DON_VI" EntitySet="DM_DON_VI" />
+            <End Role="GD_DU_TOAN_THU_CHI_PHI_PHA" EntitySet="GD_DU_TOAN_THU_CHI_PHI_PHA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GD_DU_TOAN_THU_CHI_PHI_PHA_DM_PHA" Association="BKI_QLDTModel.Store.FK_GD_DU_TOAN_THU_CHI_PHI_PHA_DM_PHA">
+            <End Role="DM_PHA" EntitySet="DM_PHA" />
             <End Role="GD_DU_TOAN_THU_CHI_PHI_PHA" EntitySet="GD_DU_TOAN_THU_CHI_PHI_PHA" />
           </AssociationSet>
           <AssociationSet Name="FK_GD_DU_TOAN_THU_CHI_PHI_PHA_DM_QUYET_DINH" Association="BKI_QLDTModel.Store.FK_GD_DU_TOAN_THU_CHI_PHI_PHA_DM_QUYET_DINH">
@@ -789,6 +802,16 @@
           <Property Name="NGUOI_NHAN_TIEN_NOI_CAP" Type="nvarchar" MaxLength="250" />
           <Property Name="MA_TKKT" Type="nvarchar" MaxLength="35" />
         </EntityType>
+        <EntityType Name="DM_PHA">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="numeric" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ID_DON_VI" Type="numeric" />
+          <Property Name="PHA" Type="nvarchar" MaxLength="250" />
+          <Property Name="GHI_CHU_1" Type="nvarchar" MaxLength="250" />
+          <Property Name="GHI_CHU_2" Type="nvarchar" MaxLength="250" />
+        </EntityType>
         <EntityType Name="DM_QUYET_DINH">
           <Key>
             <PropertyRef Name="ID" />
@@ -940,6 +963,15 @@
           <Property Name="CONG_THUC" Type="nvarchar" MaxLength="250" />
           <Property Name="IS_FIX" Type="bit" Nullable="false" />
           <Property Name="ID_QUYET_DINH" Type="numeric" />
+          <Property Name="ID_PHA" Type="numeric" />
+          <Property Name="PHAN_BO_QUI_I" Type="numeric" Precision="21" />
+          <Property Name="PHAN_BO_QUY_II" Type="numeric" Precision="21" />
+          <Property Name="PHAN_BO_QUY_III" Type="numeric" Precision="21" />
+          <Property Name="PHAN_BO_QUY_IV" Type="numeric" Precision="21" />
+          <Property Name="GHI_CHU_PHAN_BO_QUY_I" Type="nvarchar" MaxLength="250" />
+          <Property Name="GHI_CHU_PHAN_BO_QUY_II" Type="nvarchar" MaxLength="250" />
+          <Property Name="GHI_CHU_PHAN_BO_QUY_III" Type="nvarchar" MaxLength="250" />
+          <Property Name="GHI_CHU_PHAN_BO_QUY_IV" Type="nvarchar" MaxLength="250" />
         </EntityType>
         <EntityType Name="GD_KHOI_LUONG">
           <Key>
@@ -1703,6 +1735,10 @@
           <Property Name="GHI_CHU_3" Type="nvarchar" MaxLength="250" />
           <Property Name="GHI_CHU_4" Type="nvarchar" MaxLength="250" />
           <Property Name="SO_TIEN_DA_NGHIEM_THU_NS" Type="numeric" Precision="21" />
+          <Property Name="ID_CHUONG" Type="numeric" />
+          <Property Name="ID_KHOAN" Type="numeric" />
+          <Property Name="ID_MUC" Type="numeric" />
+          <Property Name="ID_TIEU_MUC" Type="numeric" />
           <Property Name="TEN_CONG_TRINH" Type="nvarchar" Nullable="false" MaxLength="250" />
           <Property Name="TEN_DU_AN" Type="nvarchar" Nullable="false" MaxLength="250" />
         </EntityType>
@@ -1819,6 +1855,18 @@
             </Principal>
             <Dependent Role="DM_CHUONG_LOAI_KHOAN_MUC1">
               <PropertyRef Name="ID_CHA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DM_PHA_DM_DON_VI">
+          <End Role="DM_DON_VI" Type="BKI_QLDTModel.Store.DM_DON_VI" Multiplicity="0..1" />
+          <End Role="DM_PHA" Type="BKI_QLDTModel.Store.DM_PHA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DM_DON_VI">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="DM_PHA">
+              <PropertyRef Name="ID_DON_VI" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1975,6 +2023,18 @@
             </Principal>
             <Dependent Role="GD_DU_TOAN_THU_CHI_PHI_PHA">
               <PropertyRef Name="ID_DON_VI" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GD_DU_TOAN_THU_CHI_PHI_PHA_DM_PHA">
+          <End Role="DM_PHA" Type="BKI_QLDTModel.Store.DM_PHA" Multiplicity="0..1" />
+          <End Role="GD_DU_TOAN_THU_CHI_PHI_PHA" Type="BKI_QLDTModel.Store.GD_DU_TOAN_THU_CHI_PHI_PHA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DM_PHA">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="GD_DU_TOAN_THU_CHI_PHI_PHA">
+              <PropertyRef Name="ID_PHA" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -6495,6 +6555,15 @@
             <End Role="DM_CHUONG_LOAI_KHOAN_MUC" EntitySet="DM_CHUONG_LOAI_KHOAN_MUC" />
             <End Role="GD_KHOI_LUONG" EntitySet="GD_KHOI_LUONG" />
           </AssociationSet>
+          <EntitySet Name="DM_PHA" EntityType="BKI_QLDTModel.DM_PHA" />
+          <AssociationSet Name="FK_DM_PHA_DM_DON_VI" Association="BKI_QLDTModel.FK_DM_PHA_DM_DON_VI">
+            <End Role="DM_DON_VI" EntitySet="DM_DON_VI" />
+            <End Role="DM_PHA" EntitySet="DM_PHA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GD_DU_TOAN_THU_CHI_PHI_PHA_DM_PHA" Association="BKI_QLDTModel.FK_GD_DU_TOAN_THU_CHI_PHI_PHA_DM_PHA">
+            <End Role="DM_PHA" EntitySet="DM_PHA" />
+            <End Role="GD_DU_TOAN_THU_CHI_PHI_PHA" EntitySet="GD_DU_TOAN_THU_CHI_PHI_PHA" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="CM_COMPANY_INFO">
           <Key>
@@ -6617,6 +6686,7 @@
           <NavigationProperty Name="HT_USER_GROUP" Relationship="BKI_QLDTModel.FK_HT_USER_GROUP_DM_DON_VI" FromRole="DM_DON_VI" ToRole="HT_USER_GROUP" />
           <NavigationProperty Name="GD_DU_TOAN_THU_CHI_PHI_PHA" Relationship="BKI_QLDTModel.FK_GD_DU_TOAN_THU_CHI_PHI_PHA_DM_DON_VI" FromRole="DM_DON_VI" ToRole="GD_DU_TOAN_THU_CHI_PHI_PHA" />
           <NavigationProperty Name="GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN" Relationship="BKI_QLDTModel.FK_GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN_DM_DON_VI" FromRole="DM_DON_VI" ToRole="GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN" />
+          <NavigationProperty Name="DM_PHA" Relationship="BKI_QLDTModel.FK_DM_PHA_DM_DON_VI" FromRole="DM_DON_VI" ToRole="DM_PHA" />
         </EntityType>
         <EntityType Name="DM_GIAI_NGAN">
           <Key>
@@ -7447,6 +7517,10 @@
           <Property Name="TEN_CONG_TRINH" Type="String" Nullable="false" MaxLength="250" Unicode="true" FixedLength="false" />
           <Property Name="TEN_DU_AN" Type="String" Nullable="false" MaxLength="250" Unicode="true" FixedLength="false" />
           <Property Type="Decimal" Name="SO_TIEN_DA_NGHIEM_THU_NS" Precision="21" Scale="0" />
+          <Property Type="Decimal" Name="ID_CHUONG" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="ID_KHOAN" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="ID_MUC" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="ID_TIEU_MUC" Precision="18" Scale="0" />
         </EntityType>
         <EntityType Name="V_HT_NGUOI_SU_DUNG">
           <Key>
@@ -8793,6 +8867,16 @@
           <Property Type="Boolean" Name="IS_FIX" Nullable="false" />
           <Property Type="Decimal" Name="ID_QUYET_DINH" Precision="18" Scale="0" />
           <NavigationProperty Name="DM_QUYET_DINH" Relationship="BKI_QLDTModel.FK_GD_DU_TOAN_THU_CHI_PHI_PHA_DM_QUYET_DINH" FromRole="GD_DU_TOAN_THU_CHI_PHI_PHA" ToRole="DM_QUYET_DINH" />
+          <Property Type="Decimal" Name="ID_PHA" Precision="18" Scale="0" />
+          <NavigationProperty Name="DM_PHA" Relationship="BKI_QLDTModel.FK_GD_DU_TOAN_THU_CHI_PHI_PHA_DM_PHA" FromRole="GD_DU_TOAN_THU_CHI_PHI_PHA" ToRole="DM_PHA" />
+          <Property Type="Decimal" Name="PHAN_BO_QUI_I" Precision="21" Scale="0" />
+          <Property Type="Decimal" Name="PHAN_BO_QUY_II" Precision="21" Scale="0" />
+          <Property Type="Decimal" Name="PHAN_BO_QUY_III" Precision="21" Scale="0" />
+          <Property Type="Decimal" Name="PHAN_BO_QUY_IV" Precision="21" Scale="0" />
+          <Property Type="String" Name="GHI_CHU_PHAN_BO_QUY_I" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="GHI_CHU_PHAN_BO_QUY_II" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="GHI_CHU_PHAN_BO_QUY_III" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="GHI_CHU_PHAN_BO_QUY_IV" MaxLength="250" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK_GD_DU_TOAN_THU_CHI_PHI_PHA_DM_DON_VI">
           <End Type="BKI_QLDTModel.DM_DON_VI" Role="DM_DON_VI" Multiplicity="0..1" />
@@ -8948,6 +9032,42 @@
             </Principal>
             <Dependent Role="GD_KHOI_LUONG">
               <PropertyRef Name="ID_TIEU_MUC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="DM_PHA">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Decimal" Name="ID" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Decimal" Name="ID_DON_VI" Precision="18" Scale="0" />
+          <Property Type="String" Name="PHA" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="GHI_CHU_1" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="GHI_CHU_2" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="DM_DON_VI" Relationship="BKI_QLDTModel.FK_DM_PHA_DM_DON_VI" FromRole="DM_PHA" ToRole="DM_DON_VI" />
+          <NavigationProperty Name="GD_DU_TOAN_THU_CHI_PHI_PHA" Relationship="BKI_QLDTModel.FK_GD_DU_TOAN_THU_CHI_PHI_PHA_DM_PHA" FromRole="DM_PHA" ToRole="GD_DU_TOAN_THU_CHI_PHI_PHA" />
+        </EntityType>
+        <Association Name="FK_DM_PHA_DM_DON_VI">
+          <End Type="BKI_QLDTModel.DM_DON_VI" Role="DM_DON_VI" Multiplicity="0..1" />
+          <End Type="BKI_QLDTModel.DM_PHA" Role="DM_PHA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DM_DON_VI">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="DM_PHA">
+              <PropertyRef Name="ID_DON_VI" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GD_DU_TOAN_THU_CHI_PHI_PHA_DM_PHA">
+          <End Type="BKI_QLDTModel.DM_PHA" Role="DM_PHA" Multiplicity="0..1" />
+          <End Type="BKI_QLDTModel.GD_DU_TOAN_THU_CHI_PHI_PHA" Role="GD_DU_TOAN_THU_CHI_PHI_PHA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DM_PHA">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="GD_DU_TOAN_THU_CHI_PHI_PHA">
+              <PropertyRef Name="ID_PHA" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -9728,6 +9848,10 @@
           <EntitySetMapping Name="V_GD_KHOI_LUONG_QBT">
             <EntityTypeMapping TypeName="BKI_QLDTModel.V_GD_KHOI_LUONG_QBT">
               <MappingFragment StoreEntitySet="V_GD_KHOI_LUONG_QBT">
+                <ScalarProperty Name="ID_TIEU_MUC" ColumnName="ID_TIEU_MUC" />
+                <ScalarProperty Name="ID_MUC" ColumnName="ID_MUC" />
+                <ScalarProperty Name="ID_KHOAN" ColumnName="ID_KHOAN" />
+                <ScalarProperty Name="ID_CHUONG" ColumnName="ID_CHUONG" />
                 <ScalarProperty Name="SO_TIEN_DA_NGHIEM_THU_NS" ColumnName="SO_TIEN_DA_NGHIEM_THU_NS" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="NGAY_THANG" ColumnName="NGAY_THANG" />
@@ -10748,6 +10872,15 @@
           <EntitySetMapping Name="GD_DU_TOAN_THU_CHI_PHI_PHA">
             <EntityTypeMapping TypeName="BKI_QLDTModel.GD_DU_TOAN_THU_CHI_PHI_PHA">
               <MappingFragment StoreEntitySet="GD_DU_TOAN_THU_CHI_PHI_PHA">
+                <ScalarProperty Name="GHI_CHU_PHAN_BO_QUY_IV" ColumnName="GHI_CHU_PHAN_BO_QUY_IV" />
+                <ScalarProperty Name="GHI_CHU_PHAN_BO_QUY_III" ColumnName="GHI_CHU_PHAN_BO_QUY_III" />
+                <ScalarProperty Name="GHI_CHU_PHAN_BO_QUY_II" ColumnName="GHI_CHU_PHAN_BO_QUY_II" />
+                <ScalarProperty Name="GHI_CHU_PHAN_BO_QUY_I" ColumnName="GHI_CHU_PHAN_BO_QUY_I" />
+                <ScalarProperty Name="PHAN_BO_QUY_IV" ColumnName="PHAN_BO_QUY_IV" />
+                <ScalarProperty Name="PHAN_BO_QUY_III" ColumnName="PHAN_BO_QUY_III" />
+                <ScalarProperty Name="PHAN_BO_QUY_II" ColumnName="PHAN_BO_QUY_II" />
+                <ScalarProperty Name="PHAN_BO_QUI_I" ColumnName="PHAN_BO_QUI_I" />
+                <ScalarProperty Name="ID_PHA" ColumnName="ID_PHA" />
                 <ScalarProperty Name="ID_QUYET_DINH" ColumnName="ID_QUYET_DINH" />
                 <ScalarProperty Name="IS_FIX" ColumnName="IS_FIX" />
                 <ScalarProperty Name="CONG_THUC" ColumnName="CONG_THUC" />
@@ -10844,6 +10977,17 @@
                 <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
                 <ScalarProperty Name="principal_id" ColumnName="principal_id" />
                 <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DM_PHA">
+            <EntityTypeMapping TypeName="BKI_QLDTModel.DM_PHA">
+              <MappingFragment StoreEntitySet="DM_PHA">
+                <ScalarProperty Name="GHI_CHU_2" ColumnName="GHI_CHU_2" />
+                <ScalarProperty Name="GHI_CHU_1" ColumnName="GHI_CHU_1" />
+                <ScalarProperty Name="PHA" ColumnName="PHA" />
+                <ScalarProperty Name="ID_DON_VI" ColumnName="ID_DON_VI" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
