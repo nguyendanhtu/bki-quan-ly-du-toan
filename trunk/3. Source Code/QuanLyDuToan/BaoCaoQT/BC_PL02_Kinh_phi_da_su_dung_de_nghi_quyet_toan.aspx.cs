@@ -300,6 +300,7 @@ namespace QuanLyDuToan.BaoCaoQT {
         private void load_ddl_chon_nam() { 
             using (BKI_QLDTEntities db = new BKI_QLDTEntities()) {
                 lst_nam = db.GD_PL02_KINH_PHI_DA_SU_DUNG_DE_NGHI_QUYET_TOAN
+                                            .Where(x=>x.NAM!=null)
                                             .Select(x => x.NAM)
                                             .Distinct()
                                             .OrderByDescending(x => x)
