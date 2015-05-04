@@ -20,9 +20,6 @@
         #tbl_gd_du_toan_thu_chi_pha > thead > tr > th {
 			border: 1px solid #000;
 		}
-          #tbl_gd_du_toan_thu_chi_pha > tbody > tr > td {
-			border: 1px solid #000;
-		}
         .so_tien {
             text-align:right;
         }
@@ -45,7 +42,7 @@
         <label class="text-right">Đơn vị tính: đồng</label>
     </div>
     <div>
-        <table id="tbl_gd_du_toan_thu_chi_pha" style="min-width: 1200px" class="table-hover">
+        <table id="tbl_gd_du_toan_thu_chi_pha" style="min-width: 1200px" class="col-sm-12 table table-hover table-bordered">
             <thead>
                 <tr>
                     <th rowspan="2" style="text-align: center">TT</th>
