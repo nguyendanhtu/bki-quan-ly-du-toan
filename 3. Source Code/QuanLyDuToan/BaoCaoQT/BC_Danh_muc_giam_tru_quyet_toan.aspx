@@ -42,7 +42,7 @@
     </div>
     <br />
     <div style="width: 500px">
-        <label class="text-right">Đơn vị: đồng</label>
+        <label class="text-right">Đơn vị tính: đồng</label>
     </div>
     <table class="table table-hover table-bordered" style="width: 1200px" id="tblPL05">
         <thead>

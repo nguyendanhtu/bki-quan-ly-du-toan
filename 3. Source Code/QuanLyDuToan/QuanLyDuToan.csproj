@@ -71,6 +71,7 @@
   <ItemGroup>
     <Content Include="Account\Login.aspx" />
     <Content Include="Account\Logout.aspx" />
+    <Content Include="BaoCaoQT\BC_Du_toan_thu_chi_phi_pha.aspx" />
     <Content Include="BaoCaoQT\BC_PL01_Tong_hop_tinh_hinh_kinh_phi_quyet_toan.aspx" />
     <Content Include="BaoCaoQT\BC_PL02_Kinh_phi_da_su_dung_de_nghi_quyet_toan.aspx" />
     <Content Include="BaoCaoQT\BC_PL03_Bao_cao_thuc_hien_xu_ly_kien_nghi_cua_kiem_toan_thanh_tra_tai_chinh.aspx" />
@@ -719,6 +720,13 @@
       <DependentUpon>Logout.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Code\UIUtil.cs" />
+    <Compile Include="BaoCaoQT\BC_Du_toan_thu_chi_phi_pha.aspx.cs">
+      <DependentUpon>BC_Du_toan_thu_chi_phi_pha.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BaoCaoQT\BC_Du_toan_thu_chi_phi_pha.aspx.designer.cs">
+      <DependentUpon>BC_Du_toan_thu_chi_phi_pha.aspx</DependentUpon>
+    </Compile>
     <Compile Include="BaoCaoQT\BC_PL02_Kinh_phi_da_su_dung_de_nghi_quyet_toan.aspx.cs">
       <DependentUpon>BC_PL02_Kinh_phi_da_su_dung_de_nghi_quyet_toan.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
