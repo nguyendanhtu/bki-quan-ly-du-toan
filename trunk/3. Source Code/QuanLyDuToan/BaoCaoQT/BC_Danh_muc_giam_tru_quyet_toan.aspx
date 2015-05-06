@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="BC_Danh_muc_giam_tru_quyet_toan.aspx.cs" Inherits="QuanLyDuToan.BaoCaoQT.BC_PL05_Danh_muc_giam_tru_quyet_toan" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="BC_Danh_muc_giam_tru_quyet_toan.aspx.cs" Inherits="QuanLyDuToan.BaoCaoQT.BC_PL04_Danh_muc_giam_tru_quyet_toan" %>
 
 <%@ Import Namespace="SQLDataAccess" %>
 <%@ Import Namespace="WebUS" %>

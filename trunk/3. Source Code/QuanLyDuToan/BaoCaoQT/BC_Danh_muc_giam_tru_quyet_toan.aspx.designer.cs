@@ -10,7 +10,7 @@
 namespace QuanLyDuToan.BaoCaoQT {
     
     
-    public partial class BC_PL05_Danh_muc_giam_tru_quyet_toan {
+    public partial class BC_PL04_Danh_muc_giam_tru_quyet_toan {
         
         /// <summary>
         /// m_ddl_chon_nam control.
