@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Services;
+using QuanLyDuToan.UserControls;
 
 namespace QuanLyDuToan.WebMethod
 {
@@ -42,6 +43,18 @@ namespace QuanLyDuToan.WebMethod
 			{
 				Context.Response.Output.Write("false");
 			}
+		}
+
+		[WebMethod]
+		public void genGrid(decimal ip_dc_id_don_vi, int ip_i_nam)
+		{
+			BKI_QLDTEntities db = new BKI_QLDTEntities();
+			var lst_pl01 = db.GD_PL01_TONG_HOP_TINH_HINH_KINH_PHI_VA_QUYET_TOAN_CHI
+					.Where(x => x.NAM == ip_i_nam && x.ID_DON_VI == ip_dc_id_don_vi).ToList();
+
+			string op_str_grid = "";
+			op_str_grid = QT_QBT_GRID_PL01.RenderToString(lst_pl01);
+			Context.Response.Write(op_str_grid);
 		}
 
 		

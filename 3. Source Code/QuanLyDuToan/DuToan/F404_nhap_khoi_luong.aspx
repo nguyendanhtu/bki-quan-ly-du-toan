@@ -46,7 +46,7 @@
 					</div>
 					<div class="col-sm-2 text-right text-middle">Ngày tháng</div>
 					<div class="col-sm-3">
-						<input type="text" id="m_txt_ngay_nhap" placeholder="dd/MM/yyyy" runat="server" class="date-start  datepicker" />
+						<input type="text" id="m_txt_ngay_nhap" placeholder="dd/MM/yyyy" runat="server" class="date-start  datepicker" value='<%# IP.Core.IPCommon.CIPConvert.ToStr(DateTime.Now,"dd/MM/yyyy")%>' />
 					</div>
 					<div class="col-sm-3">
 						<input type="button" class="btn btn-sm btn-primary" value="Tải dữ liệu"  onclick="F404.reloadGrid()"  />

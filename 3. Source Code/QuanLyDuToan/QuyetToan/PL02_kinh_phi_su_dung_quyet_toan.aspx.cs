@@ -6,6 +6,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using WebUS;
+using WebDS;
+using Framework.Extensions;
+using QuanLyDuToan.App_Code;
 
 namespace QuanLyDuToan.QuyetToan
 {
@@ -39,273 +42,64 @@ namespace QuanLyDuToan.QuyetToan
 		public List<GD_PL02_KINH_PHI_DA_SU_DUNG_DE_NGHI_QUYET_TOAN> lst_pl02;
 		public List<ItemCLKM> lst_clkm;
 		public List<string> lst_NDC = new List<string>();
-
+		public decimal m_dc_id_don_vi;
+		public List<DBClassModel.DM_DON_VI> m_lst_don_vi;
 
 		#endregion
 
 		#region Private Methods
-		public string genGrid()
+
+		private void load_data_to_lst_clkm(BKI_QLDTEntities ip)
 		{
-			string result = "";
-			result += @"<table class='table table-hover' style='width:900px; margin:auto'>
-						<thead style='vertical-align: middle'>
-							<tr class='text-center'>
-								<th rowspan='2' class='clkm'>Loại</th>
-								<th rowspan='2' class='clkm'>Khoản</th>
-								<th rowspan='2' class='clkm'>Mục</th>
-								<th rowspan='2' class='clkm'>Tiểu mục</th>
-								<th rowspan='2' style='width:200px'>Nội dung chi</th>
-								<th colspan='3'>Tổng cộng</th>
-							</tr>
-							<tr class='text-center'>
-								<th rowspan='1' colspan='1' class='so_tien'>Số báo cáo</th>
-								<th rowspan='1' colspan='1'  class='so_tien'>Số phê duyệt</th>
-								<th rowspan='1' colspan='1'  class='so_tien'>Chênh lệch</th>
-							</tr>
-							<tr>
-								<td>Nhập mới</td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td><label><input type='radio' name='loai_NDC' />I. Kinh phí năm quyết toán năm nay:</label>
-									<br />
-									<label><input type='radio'  name='loai_NDC' />II. KP năm trước chưa QT, quyết toán năm nay</label>
-									<br /></td>
-							</tr>
-							<tr>
-								<td><input type='text' id='txt_loai' class='clkm'/></td>
-								<td><input type='text' id='txt_khoan'  class='clkm'/></td>
-								<td><input type='text' id='txt_muc'  class='clkm'/></td>
-								<td><input type='text' id='txt_tieu_muc'  class='clkm'/></td>
-								<td><span id='lbl_noi_dung_chi'  style='width:100%'></span></td>
-								<td><input type='text' id='txt_so_bao_cao'  class='so_tien'/></td>
-								<td><input type='text' id='txt_so_xet_duyet'  class='so_tien'/></td>
-								<td><span id='lbl_chenh_lech' class='so_tien'>0</span></td>
-							</tr>
-						</thead>
-						<tbody>";
-			foreach (var loai_ndc in lst_NDC)
-			{
-				result += @"
-							<tr style='font-weight:bold; font-style:italic'>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td>" + loai_ndc + @"</td>
-								<td>" + lst_pl02
-								.Where(x => x.LOAI == loai_ndc)
-								.Select(x => (x.SO_BAO_CAO))
-								.ToList()
-								.Sum() + @"</td>
-								<td>" + lst_pl02
-								.Where(x => x.LOAI == loai_ndc)
-								.Select(x => (x.SO_XET_DUYET))
-								.ToList()
-								.Sum() + @"</td>
-								<td>" + lst_pl02
-								.Where(x => x.LOAI == loai_ndc)
-								.Select(x => (x.SO_BAO_CAO - x.SO_XET_DUYET))
-								.ToList()
-								.Sum() + @"</td>
-							</tr>
-							<!--Loai-->";
-				foreach (var ma_loai in lst_pl02
-										.Where(x => x.LOAI == loai_ndc)
-										.Select(x => x.MA_LOAI)
-										.Distinct()
-										.ToList())
-				{
-					result +=
-				@"<tr style='font-weight: bold'>
-								<td>" + ma_loai + @"</td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td>" + lst_clkm
-										.Where(x => x.MaSo == ma_loai)
-										.Select(x => x.Ten)
-										.FirstOrDefault() + @"</td>
-								<td>" + lst_pl02
-										.Where(x => x.MA_LOAI == ma_loai && x.LOAI == loai_ndc)
-										.Select(x => x.SO_BAO_CAO)
-										.ToList()
-										.Sum() + @"</td>
-								<td>" + lst_pl02
-										.Where(x => x.MA_LOAI == ma_loai && x.LOAI == loai_ndc)
-										.Select(x => x.SO_XET_DUYET)
-										.ToList()
-										.Sum() + @"</td>
-								<td>" + lst_pl02
-										.Where(x => x.MA_LOAI == ma_loai && x.LOAI == loai_ndc)
-										.Select(x => (x.SO_BAO_CAO - x.SO_XET_DUYET))
-										.ToList()
-										.Sum() + @"</td>
-							</tr>
-						<!--Khoan-->";
-					foreach (var ma_khoan in lst_pl02
-									 .Where(x => x.MA_LOAI == ma_loai && x.LOAI == loai_ndc)
-									 .Select(x => x.MA_KHOAN)
-									 .Distinct()
-									 .ToList())
-					{
-						result +=
-						@"<tr style='font-weight: bold'>
-							<td></td>
-							<td>" + ma_khoan + @"</td>
-							<td></td>
-							<td></td>
-							<td>" + lst_clkm.Where(x => x.MaSo == ma_khoan).Select(x => x.Ten).FirstOrDefault() + @"</td>
-							<td>" + lst_pl02
-													.Where(x => x.MA_KHOAN == ma_khoan && x.MA_LOAI == ma_loai && x.LOAI == loai_ndc)
-													.Select(x => x.SO_BAO_CAO)
-													.ToList()
-													.Sum() + @"</td>
-							<td>" + lst_pl02
-													.Where(x => x.MA_KHOAN == ma_khoan && x.MA_LOAI == ma_loai && x.LOAI == loai_ndc)
-													.Select(x => x.SO_XET_DUYET)
-													.ToList()
-													.Sum() + @"</td>
-							<td>" + lst_pl02
-													.Where(x => x.MA_KHOAN == ma_khoan && x.MA_LOAI == ma_loai && x.LOAI == loai_ndc)
-													.Select(x => (x.SO_BAO_CAO - x.SO_XET_DUYET))
-													.ToList()
-													.Sum() + @"</td>
-						</tr>
-						<!--Muc-->";
-						foreach (var ma_muc in lst_pl02
-									 .Where(x => x.MA_KHOAN == ma_khoan && x.MA_LOAI == ma_loai && x.LOAI == loai_ndc)
-									 .Select(x => x.MA_MUC)
-									 .Distinct()
-									 .ToList())
-						{
-							result +=
-							@"<tr style='font-weight: bold'>
-							<td></td>
-							<td></td>
-							<td>" + ma_muc + @"</td>
-							<td></td>
-							<td>" + lst_clkm.Where(x => x.MaSo == ma_muc).Select(x => x.Ten).FirstOrDefault() + @"</td>
-							<td>" + lst_pl02
-															.Where(x => x.MA_KHOAN == ma_khoan && x.MA_LOAI == ma_loai && x.MA_MUC == ma_muc && x.LOAI == loai_ndc)
-															.Select(x => x.SO_BAO_CAO)
-															.ToList()
-															.Sum() + @"</td>
-							<td>" + lst_pl02
-															.Where(x => x.MA_KHOAN == ma_khoan && x.MA_LOAI == ma_loai && x.MA_MUC == ma_muc && x.LOAI == loai_ndc)
-															.Select(x => x.SO_XET_DUYET)
-															.ToList()
-															.Sum() + @"</td>
-							<td>" + lst_pl02
-															.Where(x => x.MA_KHOAN == ma_khoan && x.MA_LOAI == ma_loai && x.MA_MUC == ma_muc && x.LOAI == loai_ndc)
-															.Select(x => (x.SO_BAO_CAO - x.SO_XET_DUYET))
-															.ToList()
-															.Sum() + @"</td>
-						</tr>
-						<!--Tieu Muc-->";
-							foreach (var ma_tieu_muc in lst_pl02
-							 .Where(x => x.MA_MUC == ma_muc && x.MA_KHOAN == ma_khoan && x.MA_LOAI == ma_loai && x.LOAI == loai_ndc)
-							 .ToList())
-							{
-								result +=
-						@"<tr>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td>" + ma_tieu_muc.MA_TIEU_MUC + @"</td>
-							<td>" + lst_clkm.Where(x => x.MaSo == ma_tieu_muc.MA_TIEU_MUC).Select(x => x.Ten).FirstOrDefault() + @"</td>
-							<td>" + ma_tieu_muc.SO_BAO_CAO + @"</td>
-							<td>" + ma_tieu_muc.SO_XET_DUYET + @"</td>
-							<td>" + (ma_tieu_muc.SO_BAO_CAO - ma_tieu_muc.SO_XET_DUYET) + @"</td>
-						</tr>";
-							}
-						}
-					}
-				}
-			}
-			result +=
-						@"<tr style='font-weight:bold; font-style:italic'>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td>Tổng cộng</td>
-							<td>" + lst_pl02
-										.Select(x => (x.SO_BAO_CAO))
-										.ToList()
-										.Sum() + @"</td>
-							<td>" + lst_pl02
-										.Select(x => (x.SO_XET_DUYET))
-										.ToList()
-										.Sum() + @"</td>
-							<td>" + lst_pl02
-										.Select(x => (x.SO_BAO_CAO - x.SO_XET_DUYET))
-										.ToList()
-										.Sum() + @"</td>
-						</tr>
-					</tbody>
-					<tfoot>
-					</tfoot>
-				</table>";
-			return result;
+			lst_clkm = ip
+					   .DM_CHUONG_LOAI_KHOAN_MUC
+					   .Select(x => new
+					   ItemCLKM
+					   {
+						   MaSo = x.MA_SO
+						   ,
+						   Ten = x.TEN
+						   ,
+						   IdLoai = x.ID_LOAI
+						   ,
+						   MaSoParent = x.DM_CHUONG_LOAI_KHOAN_MUC_PARENT.MA_SO
+					   })
+					   .ToList();
+
 		}
-		public string getLoaiCLKM(object ip_obj_id_loai)
+
+		private void load_data_to_lst_noi_dung_chi()
 		{
-			decimal v_dc_id_loai = Convert.ToDecimal(ip_obj_id_loai);
-			if (v_dc_id_loai == ID_CHUONG_LOAI_KHOAN_MUC.CHUONG)
-			{
-				return "C";
-			}
-			else if (v_dc_id_loai == ID_CHUONG_LOAI_KHOAN_MUC.KHOAN)
-			{
-				return "K";
-			}
-			else if (v_dc_id_loai == ID_CHUONG_LOAI_KHOAN_MUC.LOAI)
-			{
-				return "L";
-			}
-			else if (v_dc_id_loai == ID_CHUONG_LOAI_KHOAN_MUC.MUC)
-			{
-				return "M";
-			}
-			else if (v_dc_id_loai == ID_CHUONG_LOAI_KHOAN_MUC.TIEU_MUC)
-			{
-				return "TM";
-			}
-			return "C";
+			lst_NDC = new List<string>();
+			lst_NDC.Add("I. Kinh phí năm quyết toán năm nay:");
+			lst_NDC.Add("II. KP năm trước chưa QT, quyết toán năm nay");
+		}
+
+		private void load_data_to_lst_pl02(BKI_QLDTEntities ip_db)
+		{
+			lst_pl02 = ip_db.GD_PL02_KINH_PHI_DA_SU_DUNG_DE_NGHI_QUYET_TOAN
+							.Where(x => x.ID_DON_VI == 145 && x.NAM == 2014)
+							.ToList();
+		}
+		private void load_data_to_lst_don_vi(BKI_QLDTEntities ip_db, decimal ip_dc_id_don_vi)
+		{
+			DS_DM_DON_VI v_ds = new DS_DM_DON_VI();
+			US_DM_DON_VI v_us = new US_DM_DON_VI();
+			v_us.load_danh_sach_don_vi_X_duoc_xem_du_lieu(ip_dc_id_don_vi, v_ds);
+			m_lst_don_vi = v_ds.Tables[0].ToList<DBClassModel.DM_DON_VI>()
+				.ToList();
 		}
 		#endregion
 
 		#region Events
 		protected void Page_Load(object sender, EventArgs e)
 		{
-			lst_NDC = new List<string>();
-			lst_NDC.Add("I. Kinh phí năm quyết toán năm nay:");
-			lst_NDC.Add("II. KP năm trước chưa QT, quyết toán năm nay");
-			using (BKI_QLDTEntities db = new BKI_QLDTEntities())
-			{
-				lst_pl02 = db.GD_PL02_KINH_PHI_DA_SU_DUNG_DE_NGHI_QUYET_TOAN
-							.Where(x => x.ID_DON_VI == 145 && x.NAM == 2014)
-							.ToList();
-				var lst_dm_clkm = db.DM_CHUONG_LOAI_KHOAN_MUC.ToList();
-				lst_clkm = db
-					.DM_CHUONG_LOAI_KHOAN_MUC
-					.Select(x => new
-					ItemCLKM
-					{
-						MaSo = x.MA_SO
-						,
-						Ten = x.TEN
-						,
-						IdLoai =x.ID_LOAI
-						,
-						MaSoParent = x.DM_CHUONG_LOAI_KHOAN_MUC_PARENT.MA_SO
-					})
-					.ToList();
-					 
-					
-			}
+			load_data_to_lst_noi_dung_chi();
+			BKI_QLDTEntities db = new BKI_QLDTEntities();
+			load_data_to_lst_don_vi(db, Person.get_id_don_vi());
+			load_data_to_lst_clkm(db);
 		}
+
 		#endregion
 	}
 }
