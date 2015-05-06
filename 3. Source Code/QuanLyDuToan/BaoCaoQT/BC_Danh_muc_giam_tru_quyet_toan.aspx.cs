@@ -10,7 +10,7 @@ using QuanLyDuToan.App_Code;
 
 namespace QuanLyDuToan.BaoCaoQT
 {
-    public partial class BC_PL05_Danh_muc_giam_tru_quyet_toan : System.Web.UI.Page
+    public partial class BC_PL04_Danh_muc_giam_tru_quyet_toan : System.Web.UI.Page
     {
         #region Public Function
         #endregion
