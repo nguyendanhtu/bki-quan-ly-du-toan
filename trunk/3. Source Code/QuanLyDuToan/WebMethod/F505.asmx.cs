@@ -6,6 +6,7 @@ using System.Web.Services;
 using SQLDataAccess;
 using QuanLyDuToan.App_Code;
 using IP.Core.IPCommon;
+using System.Web.Script.Serialization;
 
 namespace QuanLyDuToan.WebMethod
 {
@@ -219,6 +220,85 @@ namespace QuanLyDuToan.WebMethod
 			if (gd == null) return;
 			db.GD_DU_TOAN_THU_CHI_PHI_PHA.Remove(gd);
 			db.SaveChanges();
+		}
+
+		[WebMethod]
+		public void UpdateAll(string ip_str_arr)
+		{
+			try
+			{
+				JavaScriptSerializer js = new JavaScriptSerializer();
+				ItemF505[] ip_arr = js.Deserialize<ItemF505[]>(ip_str_arr);
+				BKI_QLDTEntities db = new BKI_QLDTEntities();
+				for (int i = 0; i < ip_arr.Length; i++)
+				{
+					decimal id_gd = ip_arr[i].ip_dc_id_giao_dich;
+					var gd = db.GD_DU_TOAN_THU_CHI_PHI_PHA.FirstOrDefault(x => x.ID == id_gd);
+					if (gd == null) continue;
+					gd.TT = ip_arr[i].ip_str_tt;
+					gd.HANG_MUC = ip_arr[i].ip_str_hang_muc;
+					gd.KINH_PHI_GIAO_KH = convertToDecimal(ip_arr[i].ip_str_kinh_phi_giao);
+					gd.KLTH_QUY_I = convertToDecimal(ip_arr[i].ip_str_KLTH_QUY_I);
+					gd.KLTH_QUY_II = convertToDecimal(ip_arr[i].ip_str_KLTH_QUY_II);
+					gd.KLTH_QUY_III = convertToDecimal(ip_arr[i].ip_str_KLTH_QUY_III);
+					gd.KLTH_QUY_IV = convertToDecimal(ip_arr[i].ip_str_KLTH_QUY_IV);
+					gd.GHI_CHU_GIAO_KH = ip_arr[i].ip_str_GHI_CHU_GIAO_KH;
+					gd.GHI_CHU_QUY_I = ip_arr[i].ip_str_GHI_CHU_QUY_I;
+					gd.GHI_CHU_QUY_II = ip_arr[i].ip_str_GHI_CHU_QUY_II;
+					gd.GHI_CHU_QUY_III = ip_arr[i].ip_str_GHI_CHU_QUY_III;
+					gd.GHI_CHU_QUY_IV = ip_arr[i].ip_str_GHI_CHU_QUY_IV;
+
+					gd.PHAN_BO_QUI_I = convertToDecimal(ip_arr[i].ip_str_PHAN_BO_QUY_I); ;
+					gd.PHAN_BO_QUY_II = convertToDecimal(ip_arr[i].ip_str_PHAN_BO_QUY_II); ;
+					gd.PHAN_BO_QUY_III = convertToDecimal(ip_arr[i].ip_str_PHAN_BO_QUY_III); ;
+					gd.PHAN_BO_QUY_IV = convertToDecimal(ip_arr[i].ip_str_PHAN_BO_QUY_IV); ;
+					gd.GHI_CHU_PHAN_BO_QUY_I = ip_arr[i].ip_str_GHI_CHU_PHAN_BO_QUY_I;
+					gd.GHI_CHU_PHAN_BO_QUY_II = ip_arr[i].ip_str_GHI_CHU_PHAN_BO_QUY_II;
+					gd.GHI_CHU_PHAN_BO_QUY_III = ip_arr[i].ip_str_GHI_CHU_PHAN_BO_QUY_III;
+					gd.GHI_CHU_PHAN_BO_QUY_IV = ip_arr[i].ip_str_GHI_CHU_PHAN_BO_QUY_IV;
+					db.SaveChanges();
+				}
+			}
+			catch (Exception v_e)
+			{
+				Context.Response.Write(v_e.Message);
+			}
+		}
+
+		public class ItemF505
+		{
+			public decimal ip_dc_id_giao_dich { get; set; }
+			public string ip_str_tt { set; get; }
+			public string ip_str_hang_muc { get; set; }
+			public string ip_str_kinh_phi_giao { get; set; }
+			public string ip_str_KLTH_QUY_I { get; set; }
+			public string ip_str_KLTH_QUY_II { get; set; }
+			public string ip_str_KLTH_QUY_III{get;set;}
+			public string ip_str_KLTH_QUY_IV { get; set; }
+			public string ip_str_GHI_CHU_GIAO_KH { get; set; }
+			public string ip_str_GHI_CHU_QUY_I { get; set; }
+			public string ip_str_GHI_CHU_QUY_II { get; set; }
+			public string ip_str_GHI_CHU_QUY_III { get; set; }
+			public string ip_str_GHI_CHU_QUY_IV { get; set; }
+			public string ip_str_PHAN_BO_QUY_I { get; set; }
+			public string ip_str_PHAN_BO_QUY_II { get; set; }
+			public string ip_str_PHAN_BO_QUY_III { get; set; }
+			public string ip_str_PHAN_BO_QUY_IV { get; set; }
+			public string ip_str_GHI_CHU_PHAN_BO_QUY_I { get; set; }
+			public string ip_str_GHI_CHU_PHAN_BO_QUY_II { get; set; }
+			public string ip_str_GHI_CHU_PHAN_BO_QUY_III { get; set; }
+			public string ip_str_GHI_CHU_PHAN_BO_QUY_IV { get; set; }
+
+		}
+
+		public decimal convertToDecimal(string ip_str)
+		{
+			decimal op = 0;
+			if (!string.IsNullOrEmpty(ip_str))
+			{
+				op=CIPConvert.ToDecimal(ip_str.Trim().Replace(",", "").Replace(".", ""));
+			}
+			return op;
 		}
 	}
 }

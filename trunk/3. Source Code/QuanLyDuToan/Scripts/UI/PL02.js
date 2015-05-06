@@ -10,29 +10,45 @@
 		$('#btnCapNhat').attr('id_giao_dich', '-1');
 		$('#I').prop('checked', 'checked')
 	},
+	check_validate_input: function () {
+		return true;
+	},
 	reloadGrid: function updateGrid() {
 
-		$.ajax({
-			url: '../WebMethod/PL02.asmx/genGrid',
-			type: 'post',
-			data: {},
-			dataType: 'text',
-			error: function () {
-				alert('Xảy ra lỗi trong quá trình thực hiện, Bạn vui lòng thực hiện lại thao tác!');
-			},
-			success: function (data) {
-				$('#tblPL02 tbody').hide();
-				$('#tblPL02').empty();
-				$('#tblPL02').append(data);
-				gdPL02.autoValidateInput();
-			}
-		});
+		var v_id_don_vi = $('#m_ddl_don_vi').val();
+		var v_i_nam = $('#m_txt_nam').val();
+		if (this.check_validate_input()) {
+			$('#loading').show();
+			$.ajax({
+				url: '../WebMethod/PL02.asmx/genGrid',
+				type: 'post',
+				data: {
+					ip_dc_id_don_vi: v_id_don_vi
+					, ip_i_nam: v_i_nam
+				},
+				dataType: 'text',
+				error: function () {
+					$('#loading').hide();
+					alert('Xảy ra lỗi trong quá trình thực hiện, Bạn vui lòng thực hiện lại thao tác!');
+				},
+				success: function (data) {
+					$('#loading').hide();
+					$('#grid').empty().append(data);
+					gdPL02.autoValidateInput();
+				}
+			});
+		}
 	},
 	autoValidateInput: function initialRelation() {
 		var lst_str = $('.str_money');
 		for (var i = 0; i < lst_str.length; i++) {
 			$(lst_str[i]).text(getFormatedNumberString($(lst_str[i]).text()));
 		}
+		$(".format_so_tien").keyup(function (e) {
+			if (e.keyCode != 17 && e.keyCode != 16 && e.keyCode != 37 && e.keyCode != 39 && e.keyCode != 36) {
+				$(this).val(formatString($(this).val()));
+			}
+		});
 		$('#txt_so_bao_cao, #txt_so_xet_duyet').bind("keypress keyup keydown change blur", function () {
 			$('#lbl_chenh_lech').text(getFormatedNumberString(
 				parseFloat($('#txt_so_bao_cao').val().split(',').join('').split('.').join(''))
@@ -132,6 +148,7 @@
 			v_str_loai = strLDC_II;
 		}
 		if (gdPL02.isCheckValidateDataOk()) {
+			$('#loading').show();
 			$.ajax({
 				url: '../WebMethod/PL02.asmx/UpdateGiaoDich',
 				type: 'post',
@@ -145,14 +162,16 @@
 					, ip_str_so_xet_duyet: $('#txt_so_xet_duyet').val().trim()
 					, ip_str_noi_dung_chi: $('#lbl_noi_dung_chi').text().trim()
 					, ip_str_loai: v_str_loai.trim()
-					, ip_dc_id_don_vi: IdDonVi
-					, ip_dc_nam: Nam
+					, ip_dc_id_don_vi: $('#m_ddl_don_vi').val()
+					, ip_dc_nam: $('#m_txt_nam').val()
 				},
 				dataType: 'text',
 				error: function () {
+					$('#loading').hide();
 					alert('Xảy ra lỗi trong quá trình thực hiện, Bạn vui lòng thực hiện lại thao tác!');
 				},
 				success: function () {
+					$('#loading').hide();
 					gdPL02.reloadGrid();
 				}
 			});
@@ -229,10 +248,19 @@
 			}
 		});
 		new $.fn.dataTable.FixedHeader(table);
-	}
+	},
+	load_data_to_ddl_don_vi: function (lst) {
+		var html_don_vi = "";
+		for (var i = 0; i < lst.length; i++) {
+			html_don_vi += "<option value='" + lst[i].ID + "'>" + lst[i].TEN_DON_VI + "</option>";
+		}
+		$('#m_ddl_don_vi').empty().append(html_don_vi).select2();
+		//.change() event to call reloadGrid()
+	},
 }
 $(document).ready(function () {
 	var IdGiaoDich = -1;
+	gdPL02.load_data_to_ddl_don_vi(m_lst_don_vi);
 	gdPL02.autoValidateInput();
-	//gdPL02.formatTable();
+	gdPL02.reloadGrid();
 })

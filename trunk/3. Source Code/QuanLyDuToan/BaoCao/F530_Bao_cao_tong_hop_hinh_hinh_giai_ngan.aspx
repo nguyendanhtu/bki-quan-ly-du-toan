@@ -492,7 +492,7 @@
 										<font class='a<%# Eval(GRID_GIAI_NGAN.ID)%>'>
 											<%# CIPConvert.ToStr(
 														CCommonFunction.getMoney_number(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.GIA_TRI_THUC_HIEN_QBT))
-												+		CCommonFunction.getMoney_number(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.GIA_TRI_THUC_HIEN_QBT))
+												+		CCommonFunction.getMoney_number(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.GIA_TRI_THUC_HIEN_NS))
 													   , "#,###") %></font>
 									</ItemTemplate>
 									<HeaderStyle Height="10px" HorizontalAlign="Center" />

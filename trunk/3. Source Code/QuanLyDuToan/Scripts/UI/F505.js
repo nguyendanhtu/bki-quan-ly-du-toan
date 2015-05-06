@@ -153,16 +153,63 @@ var F505 = {
 		});
 	},
 	saveAllData: function () {
-		var lstBtnSave = $('.cap_nhat');
-		for (var i = 0; i < lstBtnSave.length; i++) {
-			$(lstBtnSave[i]).click();
+		var id_don_vi = m_dc_id_don_vi;//$('#m_ddl_don_vi').val();
+		var lst_tr = $("#F505 tbody tr[loai='data'");
+		var lst_item = [];
+		for (var i = 0; i < lst_tr.length; i++) {
+			var item = {
+				ip_dc_id_don_vi: id_don_vi
+			, ip_dc_id_giao_dich: $(lst_tr[i]).attr('id_giao_dich')
+			, ip_str_tt: $(lst_tr[i]).find('.tt').val()
+			, ip_str_hang_muc: $(lst_tr[i]).find('.hang_muc').val()
+			, ip_str_kinh_phi_giao: $(lst_tr[i]).find('.kinh_phi_giao').val()
+			, ip_str_KLTH_QUY_I: $(lst_tr[i]).find('.thuc_hien_quy_i').val()
+			, ip_str_KLTH_QUY_II: $(lst_tr[i]).find('.thuc_hien_quy_ii').val()
+			, ip_str_KLTH_QUY_III: $(lst_tr[i]).find('.thuc_hien_quy_iii').val()
+			, ip_str_KLTH_QUY_IV: $(lst_tr[i]).find('.thuc_hien_quy_iv').val()
+			, ip_str_GHI_CHU_GIAO_KH: ''
+			, ip_str_GHI_CHU_QUY_I: ''
+			, ip_str_GHI_CHU_QUY_II: ''
+			, ip_str_GHI_CHU_QUY_III: ''
+			, ip_str_GHI_CHU_QUY_IV: ''
+			, ip_str_PHAN_BO_QUI_I: $(lst_tr[i]).find('.phan_bo_quy_i').val()
+			, ip_str_PHAN_BO_QUY_II: $(lst_tr[i]).find('.phan_bo_quy_ii').val()
+			, ip_str_PHAN_BO_QUY_III: $(lst_tr[i]).find('.phan_bo_quy_iii').val()
+			, ip_str_PHAN_BO_QUY_IV: $(lst_tr[i]).find('.phan_bo_quy_iv').val()
+			, ip_str_GHI_CHU_PHAN_BO_QUY_I: ''
+			, ip_str_GHI_CHU_PHAN_BO_QUY_II: ''
+			, ip_str_GHI_CHU_PHAN_BO_QUY_III: ''
+			, ip_str_GHI_CHU_PHAN_BO_QUY_IV: ''
+			}
+			lst_item.push(item);
 		}
-		this.reloadGrid();
+		console.log(lst_item);
+		$.ajax({
+			url: '../WebMethod/F505.asmx/UpdateAll',
+			type: 'post',
+			data: { ip_str_arr: JSON.stringify(lst_item) },
+			dataType: "text",
+			error: function (data) {
+				alert('Xảy ra lỗi trong quá trình thực hiện, Bạn vui lòng thực hiện lại thao tác!');
+				//reload grid
+			},
+			success: function (data) {
+				console.log('success');
+				//reload grid
+				//F104.reloadGrid();
+			}
+		})
 	},
 	autoComputed: function () {
-		var lst_ma_so = Enumerable.From($('.kinh_phi_giao')).Select(function (x) { return $(x).attr('ma_so') }).ToArray();
+		var lstClass = ['kinh_phi_giao', 'phan_bo_quy_i', 'phan_bo_quy_ii', 'phan_bo_quy_iii', 'phan_bo_quy_iv', 'thuc_hien_quy_i', 'thuc_hien_quy_ii', 'thuc_hien_quy_iii', 'thuc_hien_quy_iv'];
+		for (var i = 0; i < lstClass.length; i++) {
+			this.autoComputedByClass(lstClass[i]);
+		}
+	},
+	autoComputedByClass: function (className) {
+		var lst_ma_so = Enumerable.From($('.'+className)).Select(function (x) { return $(x).attr('ma_so') }).ToArray();
 		for (var i = 0; i < lst_ma_so.length; i++) {
-			F505.autoComputedChildren(lst_ma_so[i], 'kinh_phi_giao');
+			F505.autoComputedChildren(lst_ma_so[i], className);
 		}
 	},
 	autoComputedChildren: function (ma_so_parent, classCongThuc) {

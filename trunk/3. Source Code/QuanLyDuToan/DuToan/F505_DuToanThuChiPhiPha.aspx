@@ -90,7 +90,7 @@
 				<tbody>
 					<%foreach (var gd in m_lst_du_toan_thu_chi_phi_pha)%>
 					<%{%>
-					<tr>
+					<tr  id_giao_dich="<%=gd.ID %>" loai="data"  ma_so='<%=gd.MA_SO %>' ma_so_parent='<%=gd.MA_SO_PARENT %>' >
 						<td>
 							<!--TT-->
 							<input type='text' class='form-control tt text-center' value='<%=gd.TT %>' style='width: 50px' />
@@ -103,7 +103,7 @@
 						</td>
 						<td class="giao_kh thuc_hien">
 							<!--Kinh phi giao-->
-							<input type='text' class='text-right form-control kinh_phi_giao format_so_tien ' value='<%=gd.KINH_PHI_GIAO_KH %>' ma_so='<%=gd.MA_SO %>' ma_so_parent='<%=gd.MA_SO_PARENT %>' />
+							<input type='text' class='text-right form-control kinh_phi_giao format_so_tien ' value='<%=gd.KINH_PHI_GIAO_KH %>'/>
 						</td>
 						<td class="giao_kh">
 							<!--Phan bo Quy I-->

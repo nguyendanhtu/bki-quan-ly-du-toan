@@ -14,52 +14,36 @@
 		}
 
 		.form-control {
-			background-color:white;
+			background-color: white;
+			width:110px;
 		}
 	</style>
 	<script type="text/javascript">
 		var m_lst_loai = <%= Newtonsoft.Json.JsonConvert.SerializeObject(lst_loai)%>;
+		var m_lst_don_vi=<%= Newtonsoft.Json.JsonConvert.SerializeObject(m_lst_don_vi)%>;
 	</script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-
-	<table class=' table table-hover' id='tblPL01' style='width: 900px; margin: auto'>
-		<thead>
-			<tr class='text-center'>
-				<th class='col-sm-1' style='height: 50px;'>Mã số</th>
-				<th class='col-sm-3'>Nội dung chi</th>
-				<th class='col-sm-1'>Số báo cáo</th>
-				<th class='col-sm-1'>Số xét duyệt</th>
-				<%--<th class='col-sm-1'>Công thức</th>--%>
-				<th class='col-sm-1'>
-					<input type='button' class='btn btn-sm btn-success' value='Lưu dữ liệu' onclick='luu_du_lieu()' /></th>
-			</tr>
-		</thead>
-		<tbody>
-			<%foreach (var item in lst_pl01)
-	 { %>
-			<tr>
-				<td class='col-sm-1 text-center'>
-					<span class=' ma_so <%= item.MA_SO %>'><%= item.MA_SO %></span>
-				</td>
-				<td class='col-sm-3'>
-					<strong class='ma_so_parent <%= item.MA_SO_PARENT %>'><%= item.CHI_TIEU %></strong>
-				</td>
-				<td class='col-sm-1'>
-					<input type='text' id_giao_dich='<%=item.ID %>' class='form-control format_so_tien so_bao_cao <%= formatClass(item.MA_SO) %>' value='<%= item.SO_BAO_CAO %>' />
-				</td>
-				<td class='col-sm-1'>
-					<input type='text' class='form-control  format_so_tien so_xet_duyet <%=formatClass(item.MA_SO) %>' value='<%= item.SO_XET_DUYET %>' />
-				</td>
-				<%--<td class='col-sm-1 text-center'>
-					<span class=' ma_so <%= item.MA_SO %> cong_thuc' ><%=formatCongThuc( item.CONG_THUC) %></span>
-				</td>--%>
-				<td class='col-sm-1 text-center'>
-					<input type='button' class='btn btn-sm btn-success cap_nhat' value='Đã cập nhật' onclick='cap_nhat(this)' />
-				</td>
-			</tr>
-			<%} %>
-		</tbody>
-	</table>
-
+	<div>
+		<div class="col-sm-12">
+			<h3 class="text-center">TỔNG HỢP TÌNH HÌNH KINH PHÍ VÀ QUYẾT TOÁN CHI QUỸ BẢO TRÌ ĐƯỜNG BỘ</h3>
+			<div class="col-sm-12 text-center">
+				<select id="m_ddl_don_vi"></select>
+			<input type="text" class="form-control" id="m_txt_nam" value="<%=DateTime.Now.Year %>" />	
+				<input type="button" value="Tải dữ liệu" class="btn btn-sm btn-success" onclick="PL01.load_data_to_grid()" />
+			</div>
+			
+		</div>
+		<div class="col-sm-12" id="grid">
+			
+		</div>
+		<div class="cssLoadWapper" style="display: none; z-index: 99999999" id="loading">
+		<div class="cssLoadContent">
+			<img src="../Images/loadingBar.gif" alt="" />
+			<p>
+				Đang gửi yêu cầu, hãy đợi ...
+			</p>
+		</div>
+	</div>
+	</div>
 </asp:Content>
