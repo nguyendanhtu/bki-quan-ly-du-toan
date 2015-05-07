@@ -48,7 +48,7 @@
             <asp:DropDownList ID="m_ddl_chon_nam" runat="server" Width="80px" AutoPostBack="True" CssClass="select2" OnSelectedIndexChanged="m_ddl_chon_nam_SelectedIndexChanged"></asp:DropDownList>
     </div>
     <h4 class="h4 text-center"><i>(Dùng cho đơn vị dự toán: cấp I, cấp II và cấp III)</i></h4>
-    <table class="table table-hover table-bordered" style="width: 2200px" id="tblPL03">
+    <table class="table table-hover table-bordered cssTable" style="width: 1200px" id="tblPL03">
 
         <thead style="border: 2px; border-radius: initial; border-bottom-color: black; border-bottom-style: double">
             <tr class="text-center">
