@@ -153,6 +153,8 @@
     <Content Include="UserControls\F404Grid.ascx" />
     <Content Include="UserControls\QT_QBT_GRID_PL01.ascx" />
     <Content Include="UserControls\QT_QBT_GRID_PL02.ascx" />
+    <Content Include="UserControls\QT_QBT_GRID_PL03.ascx" />
+    <Content Include="UserControls\QT_QBT_GRID_PL04.ascx" />
     <Content Include="UserControls\TableGiaoKH.ascx" />
     <Content Include="WebMethod\F104.asmx" />
     <Content Include="WebMethod\F404.asmx" />
@@ -869,6 +871,20 @@
     </Compile>
     <Compile Include="UserControls\QT_QBT_GRID_PL02.ascx.designer.cs">
       <DependentUpon>QT_QBT_GRID_PL02.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\QT_QBT_GRID_PL03.ascx.cs">
+      <DependentUpon>QT_QBT_GRID_PL03.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\QT_QBT_GRID_PL03.ascx.designer.cs">
+      <DependentUpon>QT_QBT_GRID_PL03.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\QT_QBT_GRID_PL04.ascx.cs">
+      <DependentUpon>QT_QBT_GRID_PL04.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\QT_QBT_GRID_PL04.ascx.designer.cs">
+      <DependentUpon>QT_QBT_GRID_PL04.ascx</DependentUpon>
     </Compile>
     <Compile Include="UserControls\TableGiaoKH.ascx.cs">
       <DependentUpon>TableGiaoKH.ascx</DependentUpon>
