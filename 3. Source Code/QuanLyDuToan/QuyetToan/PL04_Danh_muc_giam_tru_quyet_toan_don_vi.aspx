@@ -97,7 +97,7 @@
                 </td>
                 <%-- GTGTTT --%>
                 <td  class="so_tien">
-                    <label class="so_tien"><%=lst_PL04.Where(x=>x.TEN_LOAI_NHIEM_VU==loai_nhiem_vu.Ten_nhiem_vu)
+                    <label><%=lst_PL04.Where(x=>x.TEN_LOAI_NHIEM_VU==loai_nhiem_vu.Ten_nhiem_vu)
                                       .Select(x=>(x.GIA_TRI_CTHT_NAM_NAY 
                                                 + x.GIA_TRI_CTHT_NAM_TRUOC_CON_NO_CHUYEN_NAM_NAY
                                                 +x.GIA_TRI_DE_NGHI_QUYET_TOAN_TRONG_NAM
@@ -121,14 +121,14 @@
                 <td style="font-style: italic; font-weight: bold"><%=cong_trinh.Ten_cong_trinh%></td>
                 <%-- GTKLCTHT --%>
                 <td class="so_tien">
-                    <label"><%=lst_PL04.Where(x=>x.TEN_LOAI_NHIEM_VU==loai_nhiem_vu.Ten_nhiem_vu&&x.CONG_TRINH==cong_trinh.Ten_cong_trinh)
+                    <label><%=lst_PL04.Where(x=>x.TEN_LOAI_NHIEM_VU==loai_nhiem_vu.Ten_nhiem_vu&&x.CONG_TRINH==cong_trinh.Ten_cong_trinh)
                                        .Select(x=>(x.GIA_TRI_CTHT_NAM_NAY 
                                                  + x.GIA_TRI_CTHT_NAM_TRUOC_CON_NO_CHUYEN_NAM_NAY))
                                        .ToList().Sum()%></label>
                 </td>
                 <%-- GTKLQT --%>
                 <td class="so_tien">
-                    <label ><%=lst_PL04.Where(x=>x.TEN_LOAI_NHIEM_VU==loai_nhiem_vu.Ten_nhiem_vu&&x.CONG_TRINH==cong_trinh.Ten_cong_trinh)
+                    <label><%=lst_PL04.Where(x=>x.TEN_LOAI_NHIEM_VU==loai_nhiem_vu.Ten_nhiem_vu&&x.CONG_TRINH==cong_trinh.Ten_cong_trinh)
                                        .Select(x=>x.GIA_TRI_DE_NGHI_QUYET_TOAN_TRONG_NAM)
                                        .ToList().Sum()%></label>
                 </td>
