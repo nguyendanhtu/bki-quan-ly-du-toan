@@ -84,7 +84,7 @@
                 <td style="font-weight: bold; width:300px"><%=loai_nhiem_vu.Ten_nhiem_vu%></td>
                 <%-- GTKLCTHT --%>
                 <td class="so_tien">
-                    <label ><%=lst_PL04.Where(x=>x.TEN_LOAI_NHIEM_VU==loai_nhiem_vu.Ten_nhiem_vu)
+                    <label><%=lst_PL04.Where(x=>x.TEN_LOAI_NHIEM_VU==loai_nhiem_vu.Ten_nhiem_vu)
                                        .Select(x=>(x.GIA_TRI_CTHT_NAM_NAY 
                                                  + x.GIA_TRI_CTHT_NAM_TRUOC_CON_NO_CHUYEN_NAM_NAY))
                                         .ToList().Sum()%></label>
@@ -97,7 +97,7 @@
                 </td>
                 <%-- GTGTTT --%>
                 <td  class="so_tien">
-                    <label><%=lst_PL04.Where(x=>x.TEN_LOAI_NHIEM_VU==loai_nhiem_vu.Ten_nhiem_vu)
+                    <label class="so_tien"><%=lst_PL04.Where(x=>x.TEN_LOAI_NHIEM_VU==loai_nhiem_vu.Ten_nhiem_vu)
                                       .Select(x=>(x.GIA_TRI_CTHT_NAM_NAY 
                                                 + x.GIA_TRI_CTHT_NAM_TRUOC_CON_NO_CHUYEN_NAM_NAY
                                                 +x.GIA_TRI_DE_NGHI_QUYET_TOAN_TRONG_NAM
@@ -106,7 +106,8 @@
                 </td>
                 <%-- Ghi chú --%>
                 <td>
-                    <label><% %></label></td>
+                    <label><%=lst_PL04.FirstOrDefault(x=>x.TEN_LOAI_NHIEM_VU==loai_nhiem_vu.Ten_nhiem_vu)
+                                      .GHI_CHU%></label></td>
             </tr>
             <%-- level 2: Theo Công trình --%>
             <%foreach (var cong_trinh in lst_PL04.Where(x => x.TEN_LOAI_NHIEM_VU == loai_nhiem_vu.Ten_nhiem_vu)
@@ -119,7 +120,7 @@
                 <%-- Nội dung --%>
                 <td style="font-style: italic; font-weight: bold"><%=cong_trinh.Ten_cong_trinh%></td>
                 <%-- GTKLCTHT --%>
-                <td class="so_tien>
+                <td class="so_tien">
                     <label"><%=lst_PL04.Where(x=>x.TEN_LOAI_NHIEM_VU==loai_nhiem_vu.Ten_nhiem_vu&&x.CONG_TRINH==cong_trinh.Ten_cong_trinh)
                                        .Select(x=>(x.GIA_TRI_CTHT_NAM_NAY 
                                                  + x.GIA_TRI_CTHT_NAM_TRUOC_CON_NO_CHUYEN_NAM_NAY))
@@ -130,21 +131,24 @@
                     <label ><%=lst_PL04.Where(x=>x.TEN_LOAI_NHIEM_VU==loai_nhiem_vu.Ten_nhiem_vu&&x.CONG_TRINH==cong_trinh.Ten_cong_trinh)
                                        .Select(x=>x.GIA_TRI_DE_NGHI_QUYET_TOAN_TRONG_NAM)
                                        .ToList().Sum()%></label>
-                </td class="so_tien">
+                </td>
                 <%-- GTGTTT --%>
-                <td>
-                    <label><%=lst_PL04.Where(x=>x.TEN_LOAI_NHIEM_VU==loai_nhiem_vu.Ten_nhiem_vu&&x.CONG_TRINH==cong_trinh.Ten_cong_trinh)
+                <td class="so_tien">
+                    <label><%=lst_PL04.Where(x=>x.TEN_LOAI_NHIEM_VU==loai_nhiem_vu.Ten_nhiem_vu
+                                              &&x.CONG_TRINH==cong_trinh.Ten_cong_trinh)
                                       .Select(x=>(x.GIA_TRI_CTHT_NAM_NAY 
                                                 + x.GIA_TRI_CTHT_NAM_TRUOC_CON_NO_CHUYEN_NAM_NAY
-                                                +x.GIA_TRI_DE_NGHI_QUYET_TOAN_TRONG_NAM-x.GIA_TRI_DE_NGHI_QUYET_TOAN_TRONG_NAM))
+                                                + x.GIA_TRI_DE_NGHI_QUYET_TOAN_TRONG_NAM-x.GIA_TRI_DE_NGHI_QUYET_TOAN_TRONG_NAM))
                                       .ToList().Sum()%></label>
                 </td>
                 <%-- Ghi chú --%>
                 <td>
-                    <label></label></td>
+                    <label><%=lst_PL04.FirstOrDefault(x=>x.TEN_LOAI_NHIEM_VU==loai_nhiem_vu.Ten_nhiem_vu
+                                                        &&x.CONG_TRINH==cong_trinh.Ten_cong_trinh)
+                                      .GHI_CHU%></label></td>
             </tr>
             <%-- level 3: Theo dự án --%>
-            <%foreach (var du_an in lst_PL04.Where(x => x.TEN_LOAI_NHIEM_VU == loai_nhiem_vu.Ten_nhiem_vu 
+            <%foreach (var du_an in lst_PL04.Where(x => x.TEN_LOAI_NHIEM_VU == loai_nhiem_vu.Ten_nhiem_vu
                                                      && x.CONG_TRINH == cong_trinh.Ten_cong_trinh)
                                             .Select(x => new { Ten_du_an = x.DU_AN, STT = x.TT, NOI_DUNG = x.GHI_CHU })
                                             .Distinct())
@@ -172,8 +176,8 @@
                                       .ToList().Sum()%></label>
                 </td>
                 <%-- GTGTTT --%>
-                <td>
-                    <label class="so_tien"><%=lst_PL04.Where(x=>x.TEN_LOAI_NHIEM_VU==loai_nhiem_vu.Ten_nhiem_vu
+                <td class="so_tien">
+                    <label><%=lst_PL04.Where(x=>x.TEN_LOAI_NHIEM_VU==loai_nhiem_vu.Ten_nhiem_vu
                                                               &&x.CONG_TRINH==cong_trinh.Ten_cong_trinh
                                                               &&x.DU_AN==du_an.Ten_du_an)
                                                       .Select(x=>(x.GIA_TRI_CTHT_NAM_NAY 
@@ -186,7 +190,8 @@
                 <td>
                     <label><%=lst_PL04.FirstOrDefault(x=>x.TEN_LOAI_NHIEM_VU==loai_nhiem_vu.Ten_nhiem_vu
                                                          &&x.CONG_TRINH==cong_trinh.Ten_cong_trinh
-                                                         &&x.DU_AN==du_an.Ten_du_an).GHI_CHU%></label></td>
+                                                         &&x.DU_AN==du_an.Ten_du_an)
+                                      .GHI_CHU%></label></td>
 
             </tr>
             <%} %>
