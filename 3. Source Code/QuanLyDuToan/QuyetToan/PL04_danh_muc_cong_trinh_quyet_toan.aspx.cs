@@ -8,6 +8,8 @@ using IP.Core.IPCommon;
 using SQLDataAccess;
 using QuanLyDuToan.App_Code;
 using WebUS;
+using WebDS;
+using Framework.Extensions;
 
 namespace QuanLyDuToan.QuyetToan
 {
@@ -30,6 +32,7 @@ namespace QuanLyDuToan.QuyetToan
 		public List<ItemLNV> lst_loai_nhiem_vu;
 		public List<DM_CONG_TRINH_DU_AN_GOI_THAU> lst_du_an;
 		public List<GD_CHI_TIET_GIAO_KH> lst_giao_kh;
+		public List<DBClassModel.DM_DON_VI> m_lst_don_vi;
 		#endregion
 
 		#region Private Methods
@@ -96,6 +99,15 @@ namespace QuanLyDuToan.QuyetToan
 			}
 
 		}
+
+		private void load_data_to_lst_don_vi(BKI_QLDTEntities ip_db, decimal ip_dc_id_don_vi)
+		{
+			DS_DM_DON_VI v_ds = new DS_DM_DON_VI();
+			US_DM_DON_VI v_us = new US_DM_DON_VI();
+			v_us.load_danh_sach_don_vi_X_duoc_xem_du_lieu(ip_dc_id_don_vi, v_ds);
+			m_lst_don_vi = v_ds.Tables[0].ToList<DBClassModel.DM_DON_VI>()
+				.ToList();
+		}
 		#endregion
 
 		#region Events
@@ -113,6 +125,7 @@ namespace QuanLyDuToan.QuyetToan
 							.OrderBy(x => x.GHI_CHU)
 							.Select(x => new ItemLNV { Ten = x.GHI_CHU + " - " + x.TEN, Value = x.TEN })
 							.ToList();
+				load_data_to_lst_don_vi(db, Person.get_id_don_vi());
 			}
 		}
 		#endregion

@@ -1,4 +1,5 @@
 ﻿/// <reference path="../jquery-1.4.1.js" />
+/// <reference path="../../QuyetToan/PL04_danh_muc_cong_trinh_quyet_toan.aspx" />
 /// <reference path="../script.js" />
 //function autoFormatInitData() {
 //	var lst_str = $('.str_money');
@@ -6,7 +7,7 @@
 //		$(lst_str[i]).text(getFormatedNumberString($(lst_str[i]).text()));
 //	}
 //}
-var lstParaClass = [".GTDTCTDD", ".GTCTHTNTCNCNN", ".GTCTHTNN", ".DTDNQTTN", ".GTCTHTDQTLKDNBC", ".GTCTHTCNSQT", ".KHCDCN",".cong"];
+var lstParaClass = [".GTDTCTDD", ".GTCTHTNTCNCNN", ".GTCTHTNN", ".DTDNQTTN", ".GTCTHTDQTLKDNBC", ".GTCTHTCNSQT", ".KHCDCN", ".cong"];
 var gdPL04 = {
 	cancel: function xoa_trang() {
 		$('#txtCongTrinh').val('');
@@ -98,7 +99,7 @@ var gdPL04 = {
 				var tong = 0;
 				for (var j = 0; j < lstCT.length; j++) {
 					var elementValue = $(lstCT[j]).text();
-					if ($(lstCT[j]).text()=="") {
+					if ($(lstCT[j]).text() == "") {
 						elementValue = $(lstCT[j]).val();
 					}
 					tong = parseFloat(tong) + parseFloat(elementValue.split(',').join('').split('.').join(''));
@@ -125,29 +126,74 @@ var gdPL04 = {
 			});
 		}
 	},
+	check_validate_input: function () {
+		return true;
+	},
 	reloadGrid: function updateGrid() {
+		var v_dc_id_don_vi = $('#m_ddl_don_vi').val();
+		var v_i_nam = $('#m_txt_nam').val();
+		if (this.check_validate_input()) {
+			$('#loading').show();
+			$.ajax({
+				url: '../WebMethod/PL04.asmx/genGrid',
+				type: 'post',
+				data: {
+					ip_dc_id_don_vi: v_dc_id_don_vi
+					, ip_i_nam: v_i_nam
+				},
+				dataType: 'text',
+				error: function () {
+					$('#loading').hide();
+					alert('Xảy ra lỗi trong quá trình thực hiện, Bạn vui lòng thực hiện lại thao tác!');
+				},
+				success: function (data) {
+					$('#loading').hide();
+					var grid = data.split("*****")[0];
+					MaxLNV = data.split("*****")[1];
+					MaxCT = data.split("*****")[2];
+					
+					$('#grid').empty().append(grid);
+					$('#grid').doubleScroll();
+					$('#tblPL04').scrollbarTable();
+					
+					gdPL04.autoValidateInput();
+					gdPL04.isChangeDataNeedToUpdate();
+					for (var i = 0; i < MaxRecord; i++) {
+						gdPL04.autoComputedByRow(i);
+					}
 
-		$.ajax({
-			url: '../WebMethod/PL02.asmx/genGrid',
-			type: 'post',
-			data: {},
-			dataType: 'text',
-			error: function () {
-				alert('Xảy ra lỗi trong quá trình thực hiện, Bạn vui lòng thực hiện lại thao tác!');
-			},
-			success: function (data) {
-				$('#tbl tbody').hide();
-				$('#tbl').empty();
-				$('#tbl').append(data);
-				//gdPL02.autoValidateInput();
-			}
-		});
+					for (var para = 0; para < lstParaClass.length; para++) {
+						for (var j = 1; j <= MaxCT; j++) {
+							gdPL04.autoComputedCongTrinhByDuAn(j, lstParaClass[para]);
+						}
+						for (var i = 1; i <= MaxLNV; i++) {
+							gdPL04.autoComputedLoaiNhiemVuByCongTrinh(i, lstParaClass[para]);
+						}
+					}
+
+				}
+			});
+		}
+
 	},
 	autoValidateInput: function initialRelation() {
 		var lst_str = $('.format_so_tien');
 		for (var i = 0; i < lst_str.length; i++) {
 			$(lst_str[i]).val(getFormatedNumberString($(lst_str[i]).val()));
 		}
+		$('.format_so_tien').bind("change blur keyup focus", function (e) {
+			var arr_keyCode_comma = [110, 188, 190];
+
+
+			if ((e.keyCode >= 48 && e.keyCode <= 57)
+				|| (e.keyCode >= 96 && e.keyCode <= 105)
+				|| Enumerable.From(arr_keyCode_comma)
+					.Where(function (x) { return x == e.keyCode })
+					.ToArray().length > 0) {
+				var str_format = getFormatedNumberString($(this).val().split(",").join("").split(".").join());
+				$(this).val(str_format);
+			}
+		});
 		var lst_str = $('.str_money');
 		for (var i = 0; i < lst_str.length; i++) {
 			$(lst_str[i]).text(getFormatedNumberString($(lst_str[i]).text()));
@@ -323,24 +369,18 @@ var gdPL04 = {
 		for (var i = 0; i < lstBtnCapNhat.length; i++) {
 			$(lstBtnCapNhat[i]).click();
 		}
-	}
+	},
+	load_data_to_ddl_don_vi: function (lst) {
+		var html_don_vi = "";
+		for (var i = 0; i < lst.length; i++) {
+			html_don_vi += "<option value='" + lst[i].ID + "'>" + lst[i].TEN_DON_VI + "</option>";
+		}
+		$('#m_ddl_don_vi').empty().append(html_don_vi).select2();
+		//.change() event to call reloadGrid()
+	},
 }
 $(document).ready(function () {
-	//autoFormatInitData();
-	gdPL04.autoValidateInput();
-	gdPL04.isChangeDataNeedToUpdate();
-	for (var i = 0; i < MaxRecord; i++) {
-		gdPL04.autoComputedByRow(i);
-	}
-
-	for (var para = 0; para < lstParaClass.length; para++) {
-		for (var j = 1; j <= MaxCT; j++) {
-			gdPL04.autoComputedCongTrinhByDuAn(j, lstParaClass[para]);
-		}
-		for (var i = 1; i <= MaxLNV; i++) {
-			gdPL04.autoComputedLoaiNhiemVuByCongTrinh(i, lstParaClass[para]);
-		}
-	}
-
-
+	gdPL04.load_data_to_ddl_don_vi(m_lst_don_vi);
+	gdPL04.reloadGrid();
+	
 })

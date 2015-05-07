@@ -1,5 +1,18 @@
 ﻿var lstClassPara = [".SKNKTNN", ".SKNCQTC", ".SDNKTNN", ".SDNCQTC"];
 var PL03 = {
+	initialFormLoad: function () {
+		PL03.load_data_to_ddl_don_vi(m_lst_don_vi);
+		PL03.reloadGrid();
+		PL03.autoFormatInitialDataDisplay();
+		PL03.isChangeDataNeedToUpdate();
+		for (var ma_so = 0; ma_so < 20; ma_so++) {
+
+			PL03.autoComputedByRow(ma_so);
+			for (var i = 0; i < lstClassPara.length; i++) {
+				PL03.autoComputedParentByMaSo(ma_so, lstClassPara[i]);
+			}
+		}
+	},
 	autoComputedParentByMaSo: function (index, paraClassValue) {
 		var strparent = paraClassValue + "[ma_so='" + index + "\'";
 		var strChildren = paraClassValue + "[ma_so_parent='" + index + "\'";
@@ -21,11 +34,11 @@ var PL03 = {
 	autoFormatInitialDataDisplay: function initialRelation() {
 		var lst_str = $('.format_so_tien');
 		for (var i = 0; i < lst_str.length; i++) {
-			$(lst_str[i]).val(getFormatedNumberString($(lst_str[i]).val()));
+			$(lst_str[i]).val(getFormatedNumberString($(lst_str[i]).val().split(",").join("").split(".").join()));
 		}
 		var lst_str = $('.str_money');
 		for (var i = 0; i < lst_str.length; i++) {
-			$(lst_str[i]).text(getFormatedNumberString($(lst_str[i]).text()));
+			$(lst_str[i]).text(getFormatedNumberString($(lst_str[i]).text().split(",").join("").split(".").join()));
 		}
 	},
 	autoComputedByRow: function (index) {
@@ -165,16 +178,51 @@ var PL03 = {
 			$(lstBtnCapNhat[i]).click();
 		}
 	},
+	check_validate_input: function () {
+		return true;
+	},
+	load_data_to_ddl_don_vi: function (lst) {
+		var html_don_vi = "";
+		for (var i = 0; i < lst.length; i++) {
+			html_don_vi += "<option value='" + lst[i].ID + "'>" + lst[i].TEN_DON_VI + "</option>";
+		}
+		$('#m_ddl_don_vi').empty().append(html_don_vi).select2();
+		//.change() event to call reloadGrid()
+	},
+	reloadGrid: function () {
+		if (this.check_validate_input()) {
+			$('#loading').show();
+			var v_dc_id_don_vi = $('#m_ddl_don_vi').val();
+			var v_i_nam = $('#m_txt_nam').val();
+			$.ajax({
+				url: '../WebMethod/PL03.asmx/genGrid',
+				type: 'post',
+				data: {
+					ip_dc_id_don_vi: v_dc_id_don_vi
+					, ip_i_nam: v_i_nam
+				},
+				success: function (data) {
+					$('#loading').hide();
+					$('#grid').empty().append(data);
+					PL03.autoFormatInitialDataDisplay();
+					PL03.isChangeDataNeedToUpdate();
+					for (var ma_so = 0; ma_so < 20; ma_so++) {
+
+						PL03.autoComputedByRow(ma_so);
+						for (var i = 0; i < lstClassPara.length; i++) {
+							PL03.autoComputedParentByMaSo(ma_so, lstClassPara[i]);
+						}
+					}
+				},
+				error: function (data) {
+					$('#loading').hide();
+					alert('Đã có lỗi xảy ra trong quá trình thực hiện, Bạn vui lòng thực hiện lại thao tác!');
+				}
+			})
+		}
+	}
 }
 
 $(document).ready(function () {
-	PL03.autoFormatInitialDataDisplay();
-	PL03.isChangeDataNeedToUpdate();
-	for (var ma_so = 0; ma_so < 20; ma_so++) {
-
-		PL03.autoComputedByRow(ma_so);
-		for (var i = 0; i < lstClassPara.length; i++) {
-			PL03.autoComputedParentByMaSo(ma_so, lstClassPara[i]);
-		}
-	}
+	PL03.initialFormLoad();
 })

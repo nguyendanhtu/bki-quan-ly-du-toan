@@ -83,7 +83,7 @@ namespace QuanLyDuToan.WebMethod
 				}
 			}
 			//Xoa nhung muc, tieu muc KHONG co trong GD_GIAO_KH
-			foreach (var pl02 in lst_pl02)
+			foreach (var pl02 in lst_pl02.Where(x => x.LOAI.Contains("I. Kinh phí năm quyết toán năm nay")).ToList())
 			{
 				if (!lst_gd_giao_kh.Exists(x=>x.DM_CHUONG_LOAI_KHOAN_MUC_KHOAN.MA_SO==pl02.MA_KHOAN
 					&&x.DM_CHUONG_LOAI_KHOAN_MUC_MUC.MA_SO==pl02.MA_MUC
