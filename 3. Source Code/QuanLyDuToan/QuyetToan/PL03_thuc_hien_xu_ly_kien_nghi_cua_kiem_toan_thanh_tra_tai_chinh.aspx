@@ -7,12 +7,22 @@
 		#tblPL03 > thead > tr > th {
 			border: 1px solid #000;
 		}
+
+		#tblPL03 > tbody > tr > td {
+			border-right: 1px solid #ddd;
+		}
+
+		#tblPL03 {
+			border-left: 1px solid #ddd;
+		}
+
 		.form-control, .format_so_tien {
 			width: 90px;
 			text-align: right;
 			padding: 3px 2px;
 			font-size: 11px;
 		}
+
 		.text-right {
 			width: 90px;
 		}
@@ -34,7 +44,6 @@ KIẾN NGHỊ CỦA KIỂM TOÁN, THANH TRA, TÀI CHÍNH</h3>
 
 	</div>
 	<div class="col-sm-12" id="grid">
-		
 	</div>
 	<div class="cssLoadWapper" style="display: none; z-index: 99999999" id="loading">
 		<div class="cssLoadContent">
@@ -44,6 +53,6 @@ KIẾN NGHỊ CỦA KIỂM TOÁN, THANH TRA, TÀI CHÍNH</h3>
 			</p>
 		</div>
 	</div>
-	
+
 
 </asp:Content>

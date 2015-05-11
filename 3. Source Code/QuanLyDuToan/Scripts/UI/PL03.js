@@ -213,6 +213,13 @@ var PL03 = {
 							PL03.autoComputedParentByMaSo(ma_so, lstClassPara[i]);
 						}
 					}
+
+					if (m_dc_id_don_vi == $('#m_ddl_don_vi').val()) {
+						$('.thao_tac').show();
+					}
+					else {
+						$('.thao_tac').hide();
+					}
 				},
 				error: function (data) {
 					$('#loading').hide();

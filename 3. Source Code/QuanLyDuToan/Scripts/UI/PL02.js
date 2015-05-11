@@ -35,6 +35,13 @@
 					$('#loading').hide();
 					$('#grid').empty().append(data);
 					gdPL02.autoValidateInput();
+
+					if (m_dc_id_don_vi == $('#m_ddl_don_vi').val()) {
+						$('.thao_tac').show();
+					}
+					else {
+						$('.thao_tac').hide();
+					}
 				}
 			});
 		}

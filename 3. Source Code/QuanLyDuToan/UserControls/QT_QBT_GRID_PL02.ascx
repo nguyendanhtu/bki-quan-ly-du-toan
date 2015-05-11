@@ -15,41 +15,7 @@
 					<th rowspan='1' colspan='1' class='so_tien'>Số phê duyệt</th>
 					<th rowspan='1' colspan='1' class='so_tien'>Chênh lệch</th>
 				</tr>
-				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td>
-						<label>
-							<input type='radio' checked='checked' name='loai_NDC' id='I' />I. Kinh phí năm quyết toán năm nay:</label>
-						<br />
-						<label>
-							<input type='radio' name='loai_NDC' id='II' />II. KP năm trước chưa QT, quyết toán năm nay</label>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<input type='text' id='txt_loai' class='clkm' /></td>
-					<td>
-						<input type='text' id='txt_khoan' class='clkm' /></td>
-					<td>
-						<input type='text' id='txt_muc' class='clkm' /></td>
-					<td>
-						<input type='text' id='txt_tieu_muc' class='clkm' /></td>
-					<td>
-						<span id='lbl_noi_dung_chi' style='width: 100%'></span>
-					</td>
-					<td class='text-right'>
-						<input type='text' id='txt_so_bao_cao' value='0' class='so_tien format_so_tien text-right' /></td>
-					<td class='text-right'>
-						<input type='text' id='txt_so_xet_duyet' value='0' class='so_tien format_so_tien  text-right' /></td>
-					<td class='text-right'><span id='lbl_chenh_lech' class='so_tien'>0</span></td>
-					<td class='text-center'>
-						<input type='button' id='btnCapNhat' style='width: 91px' class='btn btn-sm btn-success' value='Ghi dữ liệu' onclick='gdPL02.update()' />
-						<input type='button' id='btnCancel' class='btn btn-sm btn-default' value='Huỷ thao tác' onclick='gdPL02.cancel()' />
-					</td>
-				</tr>
+				
 			</thead>
 			<tbody>
 				<%foreach (var loai_ndc in lst_NDC)%>
@@ -219,5 +185,44 @@
 				</tr>
 			</tbody>
 			<tfoot>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td>
+						<label>
+							<input type='radio' checked='checked' name='loai_NDC' id='I' />I. Kinh phí năm quyết toán năm nay:</label>
+						<br />
+						<label>
+							<input type='radio' name='loai_NDC' id='II' />II. KP năm trước chưa QT, quyết toán năm nay</label>
+					</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>
+						<input type='text' id='txt_loai' class='clkm' /></td>
+					<td>
+						<input type='text' id='txt_khoan' class='clkm' /></td>
+					<td>
+						<input type='text' id='txt_muc' class='clkm' /></td>
+					<td>
+						<input type='text' id='txt_tieu_muc' class='clkm' /></td>
+					<td>
+						<span id='lbl_noi_dung_chi' style='width: 100%'></span>
+					</td>
+					<td class='text-right'>
+						<input type='text' id='txt_so_bao_cao' value='0' class='so_tien format_so_tien text-right' /></td>
+					<td class='text-right'>
+						<input type='text' id='txt_so_xet_duyet' value='0' class='so_tien format_so_tien  text-right' /></td>
+					<td class='text-right'><span id='lbl_chenh_lech' class='so_tien'>0</span></td>
+					<td class='text-center'>
+						<input type='button' id='btnCapNhat' style='width: 91px' class='btn btn-sm btn-success' value='Ghi dữ liệu' onclick='gdPL02.update()' />
+						<input type='button' id='btnCancel' class='btn btn-sm btn-default' value='Huỷ thao tác' onclick='gdPL02.cancel()' />
+					</td>
+				</tr>
 			</tfoot>
 		</table>

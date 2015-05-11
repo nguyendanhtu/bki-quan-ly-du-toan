@@ -3,11 +3,24 @@
 /// <reference path="../script.js" />
 /// <reference path="../jquery-1.4.1.js" />
 var PL01 = {
+	//defineEvent: function () {
+	//	$('#m_ddl_don_vi').bind("change", function () {
+	//		PL01.load_data_to_grid();
+	//		if (m_dc_id_don_vi == $('#m_ddl_don_vi').val()) {
+	//			$('.thao_tac').show();
+	//		}
+	//		else {
+	//			$('.thao_tac').hide();
+	//		}
+	//	});
+	//},
 	initialFormLoad: function () {
+		//PL01.defineEvent();
 		PL01.load_data_to_ddl_don_vi(m_lst_don_vi);
 		PL01.load_data_to_grid();
 		PL01.autoTinhTong(70);
 		PL01.formatInputMoneyInit();
+		
 		//$('.cap_nhat').each(function () {
 		//	PL01.DaCapNhat(this);
 		//});
@@ -224,6 +237,13 @@ var PL01 = {
 					$('#grid').empty().append(data);
 					PL01.autoTinhTong(70);
 					PL01.formatInputMoneyInit();
+
+					if (m_dc_id_don_vi == $('#m_ddl_don_vi').val()) {
+						$('.thao_tac').show();
+					}
+					else {
+						$('.thao_tac').hide();
+					}
 				}
 			})
 		}

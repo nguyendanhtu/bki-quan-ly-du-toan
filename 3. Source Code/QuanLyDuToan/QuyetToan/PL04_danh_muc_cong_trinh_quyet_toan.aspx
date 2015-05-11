@@ -3,10 +3,19 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 	<script src="../Scripts/UI/PL04.js"></script>
 	<style type="text/css">
-		#tblPL04 > thead > tr > th,#tblPL04 > tbody > tr > td  {
+		
+		#tblPL04 > thead > tr > th {
 			border: 1px solid #000;
 		}
-		
+
+		#tblPL04 > tbody > tr > td {
+			border-right: 1px solid #ddd;
+		}
+
+		#tblPL04 {
+			border-left: 1px solid #ddd;
+		}
+
 
 		.so_tien {
 			width: 82px;
@@ -44,6 +53,10 @@
 		.table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
 			padding-left: 2px;
 		}
+
+		.table {
+			margin-bottom: 0px;
+		}
 	</style>
 	<script type="text/javascript">
 		var MaxRecord =<%=lst_pl04.Count%> +'';
@@ -66,7 +79,7 @@ KIẾN NGHỊ CỦA KIỂM TOÁN, THANH TRA, TÀI CHÍNH</h3>
 
 	</div>
 	<div class="col-sm-12">
-		<div id="grid" style="margin: auto">
+		<div id="grid" style="">
 		</div>
 	</div>
 	<div class="cssLoadWapper" style="display: none; z-index: 99999999" id="loading">

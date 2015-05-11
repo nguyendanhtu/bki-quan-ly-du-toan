@@ -7,7 +7,7 @@
 						<th class='col-sm-1'>Số báo cáo</th>
 						<th class='col-sm-1'>Số xét duyệt</th>
 						<%--<th class='col-sm-1'>Công thức</th>--%>
-						<th class='col-sm-1'>
+						<th class='col-sm-1 thao_tac'>
 							<input type='button' class='btn btn-sm btn-success' value='Lưu dữ liệu' onclick='PL01.luu_du_lieu()' /></th>
 					</tr>
 				</thead>
@@ -30,7 +30,7 @@
 						<%--<td class='col-sm-1 text-center'>
 					<span class=' ma_so <%= item.MA_SO %> cong_thuc' ><%=formatCongThuc( item.CONG_THUC) %></span>
 				</td>--%>
-						<td class='col-sm-1 text-center'>
+						<td class='col-sm-1 text-center thao_tac'>
 							<input type='button' class='btn btn-sm btn-success cap_nhat' value='Đã cập nhật' onclick='PL01.cap_nhat(this)' style="display:none"/>
 						</td>
 					</tr>

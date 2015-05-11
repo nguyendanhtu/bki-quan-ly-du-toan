@@ -41,6 +41,7 @@ namespace QuanLyDuToan.QuyetToan
 		public List<GD_PL01_TONG_HOP_TINH_HINH_KINH_PHI_VA_QUYET_TOAN_CHI> lst_pl01;
 		public List<ItemCLKM> lst_loai;
 		public List<DBClassModel.DM_DON_VI> m_lst_don_vi;
+		public decimal m_dc_id_don_vi;
 		#endregion
 
 		#region Private Methods
@@ -53,6 +54,7 @@ namespace QuanLyDuToan.QuyetToan
 			if (!IsPostBack)
 			{
 				BKI_QLDTEntities db = new BKI_QLDTEntities();
+				m_dc_id_don_vi = Person.get_id_don_vi();
 				load_data_to_lst_don_vi(db,245);
 				load_data_to_lst_loai(db);
 				load_data_to_lst_pl01(db, 245, 2014);
