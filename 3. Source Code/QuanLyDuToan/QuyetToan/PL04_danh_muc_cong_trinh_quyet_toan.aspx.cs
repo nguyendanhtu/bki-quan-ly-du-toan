@@ -33,6 +33,7 @@ namespace QuanLyDuToan.QuyetToan
 		public List<DM_CONG_TRINH_DU_AN_GOI_THAU> lst_du_an;
 		public List<GD_CHI_TIET_GIAO_KH> lst_giao_kh;
 		public List<DBClassModel.DM_DON_VI> m_lst_don_vi;
+		public decimal m_dc_id_don_vi;
 		#endregion
 
 		#region Private Methods
@@ -114,6 +115,7 @@ namespace QuanLyDuToan.QuyetToan
 		protected void Page_Load(object sender, EventArgs e)
 		{
 			//InsertDataDuToanToQuyetToan(Person.get_id_don_vi(),"2014");
+			m_dc_id_don_vi = Person.get_id_don_vi();
 			using (BKI_QLDTEntities db = new BKI_QLDTEntities())
 			{
 				InsertDataDuToanToQuyetToan(241, 2014);

@@ -151,6 +151,7 @@ var gdPL04 = {
 					var grid = data.split("*****")[0];
 					MaxLNV = data.split("*****")[1];
 					MaxCT = data.split("*****")[2];
+					MaxRecord = data.split("*****")[3];
 					
 					$('#grid').empty().append(grid);
 					$('#grid').doubleScroll();

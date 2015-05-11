@@ -30,6 +30,7 @@
 	<script src="../Scripts/UI/PL03.js"></script>
 	<script type="text/javascript">
 		var m_lst_don_vi=<%= Newtonsoft.Json.JsonConvert.SerializeObject(m_lst_don_vi)%>;
+		var m_dc_id_don_vi=<%= m_dc_id_don_vi%>;
 	</script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">

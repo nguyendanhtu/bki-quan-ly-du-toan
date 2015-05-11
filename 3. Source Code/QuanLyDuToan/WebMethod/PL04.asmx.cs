@@ -147,7 +147,8 @@ namespace QuanLyDuToan.WebMethod
 				.Distinct()
 				.ToList()
 				.Count.ToString();
-			Context.Response.Write(v_str_grid+"*****"+MaxLNV+"*****"+MaxCT);
+			string MaxRecord = lst_pl04.Count.ToString();
+			Context.Response.Write(v_str_grid + "*****" + MaxLNV + "*****" + MaxCT + "*****" + MaxRecord);
 		}
 	}
 }

@@ -7,7 +7,7 @@
 				<th colspan="3">Số kiến nghị của</th>
 				<th colspan="3">Số đã nộp trả Quỹ BTĐB TW trong năm nay</th>
 				<th colspan="3">Số còn phải nộp Quỹ BTĐB TW</th>
-				<th rowspan="3"><input type="button" class="btn btn-sm btn-primary" value="Cập nhật" style="height:70px"
+				<th rowspan="3" class="thao_tac"><input type="button" class="btn btn-sm btn-primary " value="Cập nhật" style="height:70px"
 					onclick="PL03.updateAll()" /></th>
 			</tr>
 			<tr>
@@ -76,7 +76,7 @@
 					<%=(gd.SO_KIEN_NGHI_CO_QUAN_TAI_CHINH.HasValue?gd.SO_KIEN_NGHI_CO_QUAN_TAI_CHINH:0)
 					 -(gd.SO_DA_NOP_TRA_CO_QUAN_TAI_CHINH.HasValue?gd.SO_DA_NOP_TRA_CO_QUAN_TAI_CHINH:0)%>
 				</td>
-				<td class="text-center">
+				<td class="text-center thao_tac">
 					<input type="button" value="Đã cập nhật" class="btn btn-sm btn-success cap_nhat" onclick="PL03.updateGiaoDich(this)" style="display:none"/>
 				</td>
 			</tr>
