@@ -56,6 +56,7 @@ namespace QuanLyDuToan.BaoCaoQT
             using (BKI_QLDTEntities db = new BKI_QLDTEntities())
             {
                 lst_nam = db.GD_PL04_DANH_MUC_CONG_TRINH_QUYET_TOAN
+                                            .Where(x => x.NAM != null)
                                             .Select(x => x.NAM)
                                             .Distinct()
                                             .OrderByDescending(x => x)
