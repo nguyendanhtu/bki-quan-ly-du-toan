@@ -377,6 +377,7 @@ var gdPL04 = {
 		for (var i = 0; i < lstBtnCapNhat.length; i++) {
 			$(lstBtnCapNhat[i]).click();
 		}
+		CCommon.thong_bao('Bạn đã cập nhật dữ liệu thành công!', 'success');
 	},
 	load_data_to_ddl_don_vi: function (lst) {
 		var html_don_vi = "";

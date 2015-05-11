@@ -11,6 +11,7 @@
 	<link href="~/Styles/jquery-ui.css" rel="stylesheet" type="text/css" />
 	<link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
 	<link href="~/Styles/Admin.css" rel="stylesheet" type="text/css" />
+	<%--<link href="~/Styles/style.css" rel="stylesheet" />--%>
 	<!--Bootstrap-->
 	<link href="~/bootstrap-3.2.0-dist/css/bootstrap.css" rel="stylesheet" type="text/css" />
 	<link href="~/bootstrap-3.2.0-dist/css/bootstrap-theme.css" rel="stylesheet" type="text/css" />
@@ -97,6 +98,12 @@
 					</li>
 				</ul>
 			</div>
+			<div class="alerts" style="text-align:right">
+				<div class="alert-message warning" id="m_message_notification">
+					<a class="close" onclick="$('#m_message_notification').hide()">×</a>
+					<p id="m_lbl_message_content">sdfdsfds</p>
+				</div>
+			</div>
 			<div class="main">
 				<asp:ContentPlaceHolder ID="MainContent" runat="server" />
 			</div>
@@ -105,6 +112,7 @@
 		</div>
 		<div class="footer">
 		</div>
+
 	</form>
 </body>
 </html>

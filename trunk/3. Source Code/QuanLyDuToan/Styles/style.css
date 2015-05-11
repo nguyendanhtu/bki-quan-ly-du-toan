@@ -290,3 +290,6 @@ label {
     position: relative;
 }
 
+.alerts {
+  margin: 20px;
+}
