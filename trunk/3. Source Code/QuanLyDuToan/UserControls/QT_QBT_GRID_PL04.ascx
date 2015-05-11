@@ -1,5 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="QT_QBT_GRID_PL04.ascx.cs" Inherits="QuanLyDuToan.UserControls.QT_QBT_GRID_PL04" %>
-<table class="table table-hover " style="margin: auto; width: <%=(lst_giao_kh
+<table class="table table-hover " style=" width: <%=(lst_giao_kh
 							.Where(x=>x.DM_QUYET_DINH.ID_LOAI_QUYET_DINH_GIAO!=WebUS.ID_LOAI_GIAO_DICH.DIEU_CHINH)
 							.Select(x => new { x.DM_QUYET_DINH.NGAY_THANG, x.DM_QUYET_DINH.SO_QUYET_DINH })
 							.Distinct()			

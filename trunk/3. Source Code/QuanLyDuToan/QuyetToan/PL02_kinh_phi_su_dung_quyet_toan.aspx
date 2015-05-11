@@ -21,6 +21,19 @@
 			max-height: 60px;
 			overflow: auto;
 		}
+		#tblPL02 > thead > tr > th{
+			border: 1px solid #000;
+		}
+		#tblPL02 > tbody > tr > td {
+			border-right: 1px solid #ddd;
+			
+		}
+		#tblPL02 > tfoot > tr {
+			background-color:#ddd;
+		}
+		#tblPL02  {
+		border-left: 1px solid #ddd;
+		}
 	</style>
 	<script type="text/javascript">
 		var idChuong =<%= ID_CHUONG_LOAI_KHOAN_MUC.CHUONG.ToString()%> +"";
@@ -41,7 +54,7 @@
 	<div class="col-sm-12">
 		<h3 class="text-center">Phần II:  Kinh phí đã sử dụng đề nghị quyết toán</h3>
 		<div class="col-sm-12 text-center">
-			<select id="m_ddl_don_vi"></select>
+			<select id="m_ddl_don_vi" style="width:250px"></select>
 			<input type="text" class="form-control" id="m_txt_nam" value="<%=DateTime.Now.Year %>" />
 			<input type="button" value="Tải dữ liệu" class="btn btn-sm btn-success" onclick="gdPL02.reloadGrid()" />
 		</div>
