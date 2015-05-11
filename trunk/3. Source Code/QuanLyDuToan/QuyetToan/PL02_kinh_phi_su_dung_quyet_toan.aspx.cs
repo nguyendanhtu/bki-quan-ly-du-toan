@@ -94,6 +94,7 @@ namespace QuanLyDuToan.QuyetToan
 		#region Events
 		protected void Page_Load(object sender, EventArgs e)
 		{
+			m_dc_id_don_vi = Person.get_id_don_vi();
 			load_data_to_lst_noi_dung_chi();
 			BKI_QLDTEntities db = new BKI_QLDTEntities();
 			load_data_to_lst_don_vi(db, Person.get_id_don_vi());

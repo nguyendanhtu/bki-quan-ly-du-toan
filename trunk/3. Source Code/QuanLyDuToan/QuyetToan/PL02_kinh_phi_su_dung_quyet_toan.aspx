@@ -29,7 +29,7 @@
 			
 		}
 		#tblPL02 > tfoot > tr {
-			background-color:#ddd;
+			background-color:lightblue;
 		}
 		#tblPL02  {
 		border-left: 1px solid #ddd;
@@ -46,6 +46,7 @@
 		var strLDC_II=<%="\'"+lst_NDC[1]+"\'"%>;
 		var m_lst_clkm = <%= Newtonsoft.Json.JsonConvert.SerializeObject(lst_clkm)%>;
 		var m_lst_don_vi=<%= Newtonsoft.Json.JsonConvert.SerializeObject(m_lst_don_vi)%>;
+		var m_dc_id_don_vi=<%= m_dc_id_don_vi%>;
 		
 	</script>
 	<script src="../Scripts/UI/PL02.js"></script>

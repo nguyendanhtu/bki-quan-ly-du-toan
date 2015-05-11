@@ -8,7 +8,7 @@
 					<th rowspan='2' class='clkm'>Tiểu mục</th>
 					<th rowspan='2' style='width: 300px'>Nội dung chi</th>
 					<th colspan='3'>Tổng cộng</th>
-					<th rowspan='2' style='width: 160px'>Thao tác</th>
+					<th rowspan='2' style='width: 160px' class="thao_tac">Thao tác</th>
 				</tr>
 				<tr class='text-center'>
 					<th rowspan='1' colspan='1' class='so_tien'>Số báo cáo</th>
@@ -41,7 +41,7 @@
 							.Select(x => (x.SO_BAO_CAO-x.SO_XET_DUYET))
 							.ToList()
 							.Sum()%></td>
-					<td></td>
+					<td class="thao_tac"></td>
 				</tr>
 				<!--Loai-->
 				<%foreach (var ma_loai in lst_pl02
@@ -75,7 +75,7 @@
 							.Select(x => (x.SO_BAO_CAO-x.SO_XET_DUYET))
 							.ToList()
 							.Sum()%></td>
-					<td></td>
+					<td class="thao_tac"></td>
 				</tr>
 				<!--Khoan-->
 				<%foreach (var ma_khoan in lst_pl02
@@ -106,7 +106,7 @@
 							.Select(x => (x.SO_BAO_CAO-x.SO_XET_DUYET))
 							.ToList()
 							.Sum()%></td>
-					<td></td>
+					<td class="thao_tac"></td>
 				</tr>
 				<!--Muc-->
 				<%foreach (var ma_muc in lst_pl02
@@ -137,7 +137,7 @@
 							.Select(x => (x.SO_BAO_CAO-x.SO_XET_DUYET))
 							.ToList()
 							.Sum()%></td>
-					<td></td>
+					<td class="thao_tac"></td>
 				</tr>
 				<!--Tieu Muc-->
 				<%foreach (var ma_tieu_muc in lst_pl02
@@ -153,7 +153,7 @@
 					<td class='text-right '><span class='so_bao_cao str_money'><%=ma_tieu_muc.SO_BAO_CAO %></span></td>
 					<td class='text-right '><span class='so_xet_duyet str_money'><%=ma_tieu_muc.SO_XET_DUYET %></span></td>
 					<td class='text-right '><span class='str_money'><%=ma_tieu_muc.SO_BAO_CAO - ma_tieu_muc.SO_XET_DUYET%></span></td>
-					<td class='text-center'>
+					<td class='text-center thao_tac'>
 						<input type='button' value='Sửa' class='btn btn-sm btn-primary' onclick='gdPL02.editItem(this)' />
 						<input type='button' value='Xoá' class='btn btn-sm btn-danger' onclick='gdPL02.deleteItem(this)' />
 					</td>
@@ -181,10 +181,10 @@
 							.Select(x => (x.SO_BAO_CAO-x.SO_XET_DUYET))
 							.ToList()
 							.Sum()%></td>
-					<td></td>
+					<td class="thao_tac"></td>
 				</tr>
 			</tbody>
-			<tfoot>
+			<tfoot class="thao_tac">
 				<tr>
 					<td></td>
 					<td></td>
@@ -219,7 +219,7 @@
 					<td class='text-right'>
 						<input type='text' id='txt_so_xet_duyet' value='0' class='so_tien format_so_tien  text-right' /></td>
 					<td class='text-right'><span id='lbl_chenh_lech' class='so_tien'>0</span></td>
-					<td class='text-center'>
+					<td class='text-center thao_tac'>
 						<input type='button' id='btnCapNhat' style='width: 91px' class='btn btn-sm btn-success' value='Ghi dữ liệu' onclick='gdPL02.update()' />
 						<input type='button' id='btnCancel' class='btn btn-sm btn-default' value='Huỷ thao tác' onclick='gdPL02.cancel()' />
 					</td>

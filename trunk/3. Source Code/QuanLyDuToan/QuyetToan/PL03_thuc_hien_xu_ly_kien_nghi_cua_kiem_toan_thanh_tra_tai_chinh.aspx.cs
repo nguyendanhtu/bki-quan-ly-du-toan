@@ -19,6 +19,7 @@ namespace QuanLyDuToan.QuyetToan
 			BKI_QLDTEntities db = new BKI_QLDTEntities();
 			//InsertFromTemplate(145, 2014);
 			//load_data_to_list(Person.get_id_don_vi(), 2014, db);
+			m_dc_id_don_vi = Person.get_id_don_vi();
 			load_data_to_lst_don_vi(db, Person.get_id_don_vi()); 
 		}
 
@@ -26,6 +27,7 @@ namespace QuanLyDuToan.QuyetToan
 		#region Members
 		public List<GD_PL03_THUC_HIEN_XU_LY_KIEN_NGHI_CUA_KIEM_TOAN_THANH_TRA_TAI_CHINH> lst_pl03;
 		public List<DBClassModel.DM_DON_VI> m_lst_don_vi;
+		public decimal m_dc_id_don_vi;
 		#endregion
 
 		#region Private Methods
