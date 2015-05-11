@@ -126,20 +126,34 @@
 						.Sum()
 					%></td>
 					<%}%>
-					<td class='text-right str_money QDDCCC gia_tri'>
-						<%=lst_giao_kh
+					<!--Tinh gia tri QD dieu chinh cuoi cung, neu khong co thi tinh tong cac qd khac-->
+				<%decimal? tong_lnv = 0;
+		if (lst_giao_kh
+						.Count(x => x.DM_QUYET_DINH.ID_LOAI_QUYET_DINH_GIAO == WebUS.ID_LOAI_GIAO_DICH.DIEU_CHINH
+							&& x.CM_DM_TU_DIEN_LOAI_NHIEM_VU.TEN.ToUpper() == ten_loai_nhiem_vu.TEN_LOAI_NHIEM_VU.ToUpper()
+							)==0)
+		{
+			tong_lnv = lst_giao_kh
+						.Where(x =>x.CM_DM_TU_DIEN_LOAI_NHIEM_VU.TEN.ToUpper() == ten_loai_nhiem_vu.TEN_LOAI_NHIEM_VU.ToUpper())
+						.Select(x => x.SO_TIEN_QUY_BT)
+						.ToList()
+						.Sum();
+			}
+		else tong_lnv = lst_giao_kh
 						.Where(x=>x.DM_QUYET_DINH.ID_LOAI_QUYET_DINH_GIAO==WebUS.ID_LOAI_GIAO_DICH.DIEU_CHINH
 							&&x.CM_DM_TU_DIEN_LOAI_NHIEM_VU.TEN.ToUpper()==ten_loai_nhiem_vu.TEN_LOAI_NHIEM_VU.ToUpper()
 							)
-						.Select(x=>x.SO_TIEN_NAM_TRUOC_CHUYEN_SANG)
+						.Select(x=>x.SO_TIEN_QUY_BT)
 						.ToList()
-						.Sum()
+						.Sum();
+		
+				%>
+					<td class='text-right str_money QDDCCC gia_tri'>
+						
+						<%=tong_lnv
 						%>
 					</td>
-					<td class='text-right str_money GTDTCTDD gia_tri <%=ten_loai_nhiem_vu.TEN_LOAI_NHIEM_VU.Replace(" ","") %>' ma_so="<%="lnv_"+LnvIndex %>"><%= lst_pl04
-							.Where(x=>x.TEN_LOAI_NHIEM_VU==ten_loai_nhiem_vu.TEN_LOAI_NHIEM_VU)
-							.Select(x=>x.GIA_TRI_DU_TOAN_CONG_TRINH_DUOC_DUYET)
-							.ToList().Sum()%></td>
+					<td class='text-right str_money GTDTCTDD gia_tri <%=ten_loai_nhiem_vu.TEN_LOAI_NHIEM_VU.Replace(" ","") %>' ma_so="<%="lnv_"+LnvIndex %>"><%= tong_lnv%></td>
 					<td class='text-right str_money GTCTHTNTCNCNN gia_tri <%=ten_loai_nhiem_vu.TEN_LOAI_NHIEM_VU.Replace(" ","") %>' ma_so="<%="lnv_"+LnvIndex %>"><%= lst_pl04
 							.Where(x=>x.TEN_LOAI_NHIEM_VU==ten_loai_nhiem_vu.TEN_LOAI_NHIEM_VU)
 							.Select(x=>x.GIA_TRI_CTHT_NAM_TRUOC_CON_NO_CHUYEN_NAM_NAY)
@@ -218,15 +232,34 @@
 						.Sum()
 					%></td>
 					<%}%>
-					<td class='text-right str_money QDDCCC'>
-						<%=lst_giao_kh
-						.Where(x=>x.DM_QUYET_DINH.ID_LOAI_QUYET_DINH_GIAO==WebUS.ID_LOAI_GIAO_DICH.DIEU_CHINH
-							&&x.CM_DM_TU_DIEN_LOAI_NHIEM_VU.TEN.ToUpper()==ten_loai_nhiem_vu.TEN_LOAI_NHIEM_VU.ToUpper()
-							&&x.DM_CONG_TRINH_DU_AN_GOI_THAU_CONG_TRINH.TEN.ToUpper()==cong_trinh.ToUpper()
+					<!--Tinh gia tri QD dieu chinh cuoi cung, neu khong co thi tinh tong cac qd khac-->
+				<%decimal? tong_ct = 0;
+		if (lst_giao_kh
+						.Count(x => x.DM_QUYET_DINH.ID_LOAI_QUYET_DINH_GIAO == WebUS.ID_LOAI_GIAO_DICH.DIEU_CHINH
+							&& x.CM_DM_TU_DIEN_LOAI_NHIEM_VU.TEN.ToUpper() == ten_loai_nhiem_vu.TEN_LOAI_NHIEM_VU.ToUpper()
+							&& x.DM_CONG_TRINH_DU_AN_GOI_THAU_CONG_TRINH.TEN.ToUpper() == cong_trinh.ToUpper()
+							)==0)
+		{
+			tong_ct = lst_giao_kh
+						.Where(x => x.CM_DM_TU_DIEN_LOAI_NHIEM_VU.TEN.ToUpper() == ten_loai_nhiem_vu.TEN_LOAI_NHIEM_VU.Trim().ToUpper()
+							&& x.DM_CONG_TRINH_DU_AN_GOI_THAU_CONG_TRINH.TEN.Trim().ToUpper() == cong_trinh.Trim().ToUpper()
+
 							)
-						.Select(x=>x.SO_TIEN_NAM_TRUOC_CHUYEN_SANG)
+						.Select(x => x.SO_TIEN_QUY_BT)
+						.Sum();
+			}
+		else tong_ct = lst_giao_kh
+						.Where(x => x.DM_QUYET_DINH.ID_LOAI_QUYET_DINH_GIAO == WebUS.ID_LOAI_GIAO_DICH.DIEU_CHINH
+							&& x.CM_DM_TU_DIEN_LOAI_NHIEM_VU.TEN.ToUpper() == ten_loai_nhiem_vu.TEN_LOAI_NHIEM_VU.ToUpper()
+							&& x.DM_CONG_TRINH_DU_AN_GOI_THAU_CONG_TRINH.TEN.ToUpper() == cong_trinh.ToUpper()
+							)
+						.Select(x=>x.SO_TIEN_QUY_BT)
 						.ToList()
-						.Sum()
+						.Sum();
+		
+				%>
+					<td class='text-right str_money QDDCCC'>
+						<%=tong_ct
 						%>
 					</td>
 					<td class='text-right str_money lnv GTDTCTDD gia_tri <%= ten_loai_nhiem_vu.TEN_LOAI_NHIEM_VU.Replace(" ","")%>' ma_so="<%="ct_"+CtIndex %>" ma_so_parent="<%="lnv_"+LnvIndex %>"><%= lst_pl04
@@ -316,16 +349,36 @@
 						.Sum()
 					%></td>
 					<%}%>
-					<td class='text-right str_money QDDCCC <%=classIndex %>'>
-						<%=lst_giao_kh
+					<!--Tinh gia tri QD dieu chinh cuoi cung, neu khong co thi tinh tong cac qd khac-->
+				<%decimal? tong_da = 0;
+		if (lst_giao_kh
+						.Count(x=>x.CM_DM_TU_DIEN_LOAI_NHIEM_VU.TEN.ToUpper()==ten_loai_nhiem_vu.TEN_LOAI_NHIEM_VU.Trim().ToUpper()
+							&&x.DM_CONG_TRINH_DU_AN_GOI_THAU_CONG_TRINH.TEN.Trim().ToUpper()==cong_trinh.Trim().ToUpper()
+							&&x.DM_CONG_TRINH_DU_AN_GOI_THAU_DU_AN.TEN.Trim().ToUpper()==du_an.DU_AN.Trim().ToUpper()
+							&&x.DM_QUYET_DINH.ID_LOAI_QUYET_DINH_GIAO==WebUS.ID_LOAI_GIAO_DICH.DIEU_CHINH
+							)==0)
+		{
+			tong_da = lst_giao_kh
+						.Where(x=>x.CM_DM_TU_DIEN_LOAI_NHIEM_VU.TEN.ToUpper()==ten_loai_nhiem_vu.TEN_LOAI_NHIEM_VU.Trim().ToUpper()
+							&&x.DM_CONG_TRINH_DU_AN_GOI_THAU_CONG_TRINH.TEN.Trim().ToUpper()==cong_trinh.Trim().ToUpper()
+							&&x.DM_CONG_TRINH_DU_AN_GOI_THAU_DU_AN.TEN.Trim().ToUpper()==du_an.DU_AN.Trim().ToUpper()
+							)
+						.Select(x => x.SO_TIEN_QUY_BT)
+						.Sum();
+			}
+		else tong_da = lst_giao_kh
 						.Where(x=>x.DM_QUYET_DINH.ID_LOAI_QUYET_DINH_GIAO==WebUS.ID_LOAI_GIAO_DICH.DIEU_CHINH
 							&&x.CM_DM_TU_DIEN_LOAI_NHIEM_VU.TEN.ToUpper()==ten_loai_nhiem_vu.TEN_LOAI_NHIEM_VU.Trim().ToUpper()
 							&&x.DM_CONG_TRINH_DU_AN_GOI_THAU_CONG_TRINH.TEN.Trim().ToUpper()==cong_trinh.Trim().ToUpper()
 							&&x.DM_CONG_TRINH_DU_AN_GOI_THAU_DU_AN.TEN.Trim().ToUpper()==du_an.DU_AN.Trim().ToUpper()
 							)
-						.Select(x=>x.SO_TIEN_NAM_TRUOC_CHUYEN_SANG)
+						.Select(x=>x.SO_TIEN_QUY_BT)
 						.ToList()
-						.Sum()
+						.Sum();
+		
+				%>
+					<td class='text-right str_money QDDCCC <%=classIndex %>'>
+						<%=tong_da
 						%>
 					</td>
 					<td class='text-right '>
