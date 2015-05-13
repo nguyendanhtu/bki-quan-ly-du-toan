@@ -98,7 +98,7 @@
 					</li>
 				</ul>
 			</div>
-			<div class="alerts" style="text-align:right">
+			<div class="alerts" style="text-align:right;display:none">
 				<div class="alert-message warning" id="m_message_notification">
 					<a class="close" onclick="$('#m_message_notification').hide()">×</a>
 					<p id="m_lbl_message_content">sdfdsfds</p>

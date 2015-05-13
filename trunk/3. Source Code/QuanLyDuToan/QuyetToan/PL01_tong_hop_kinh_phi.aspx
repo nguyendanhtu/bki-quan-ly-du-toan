@@ -15,7 +15,8 @@
 
 		.form-control {
 			background-color: white;
-			width:110px;
+			/*width:110px;*/
+			width:100%;
 		}
 		#tblPL01 > thead > tr > th{
 			border: 1px solid #000;
@@ -40,7 +41,7 @@
 			<h3 class="text-center">TỔNG HỢP TÌNH HÌNH KINH PHÍ VÀ QUYẾT TOÁN CHI QUỸ BẢO TRÌ ĐƯỜNG BỘ</h3>
 			<div class="col-sm-12 text-center">
 				<select id="m_ddl_don_vi" style="width:250px"></select>
-			<input type="text" class="form-control" id="m_txt_nam" value="<%=DateTime.Now.Year %>" />	
+			<input type="text" class="form-control" id="m_txt_nam" value="<%=DateTime.Now.Year %>" style="width:110px"/>	
 				<input type="button" value="Tải dữ liệu" class="btn btn-sm btn-success" onclick="PL01.load_data_to_grid()" />
 			</div>
 			
