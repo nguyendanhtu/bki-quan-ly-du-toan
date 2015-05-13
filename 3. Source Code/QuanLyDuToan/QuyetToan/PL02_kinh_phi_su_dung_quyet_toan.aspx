@@ -21,18 +21,25 @@
 			max-height: 60px;
 			overflow: auto;
 		}
-		#tblPL02 > thead > tr > th{
+
+		#tblPL02 > thead > tr > th {
 			border: 1px solid #000;
 		}
+
 		#tblPL02 > tbody > tr > td {
 			border-right: 1px solid #ddd;
-			
 		}
+
 		#tblPL02 > tfoot > tr {
-			background-color:lightblue;
+			background-color: lightblue;
 		}
-		#tblPL02  {
-		border-left: 1px solid #ddd;
+
+		#tblPL02 {
+			border-left: 1px solid #ddd;
+		}
+
+		.form-control {
+			background-color: white;
 		}
 	</style>
 	<script type="text/javascript">
@@ -55,14 +62,13 @@
 	<div class="col-sm-12">
 		<h3 class="text-center">Phần II:  Kinh phí đã sử dụng đề nghị quyết toán</h3>
 		<div class="col-sm-12 text-center">
-			<select id="m_ddl_don_vi" style="width:250px"></select>
+			<select id="m_ddl_don_vi" style="width: 250px"></select>
 			<input type="text" class="form-control" id="m_txt_nam" value="<%=DateTime.Now.Year %>" />
 			<input type="button" value="Tải dữ liệu" class="btn btn-sm btn-success" onclick="gdPL02.reloadGrid()" />
 		</div>
 
 	</div>
 	<div class="col-sm-12" id="grid">
-		
 	</div>
 	<div class="cssLoadWapper" style="display: none; z-index: 99999999" id="loading">
 		<div class="cssLoadContent">

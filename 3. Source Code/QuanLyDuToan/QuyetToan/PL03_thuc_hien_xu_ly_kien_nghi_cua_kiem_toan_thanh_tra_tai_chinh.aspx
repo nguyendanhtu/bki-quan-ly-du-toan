@@ -22,7 +22,9 @@
 			padding: 3px 2px;
 			font-size: 11px;
 		}
-
+		.form-control {
+			background-color: white;
+		}
 		.text-right {
 			width: 90px;
 		}
@@ -39,7 +41,7 @@
 KIẾN NGHỊ CỦA KIỂM TOÁN, THANH TRA, TÀI CHÍNH</h3>
 		<div class="col-sm-12 text-center">
 			<select id="m_ddl_don_vi"></select>
-			<input type="text" class="form-control" id="m_txt_nam" value="<%=DateTime.Now.Year %>" />
+			<input type="text" class="form-control" style="text-align:left" id="m_txt_nam" value="<%=DateTime.Now.Year %>" />
 			<input type="button" value="Tải dữ liệu" class="btn btn-sm btn-success" onclick="PL03.reloadGrid()" />
 		</div>
 

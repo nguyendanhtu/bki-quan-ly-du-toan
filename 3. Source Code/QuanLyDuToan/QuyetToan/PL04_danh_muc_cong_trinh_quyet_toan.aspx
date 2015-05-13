@@ -32,7 +32,9 @@
 			padding: 3px 2px;
 			font-size: 11px;
 		}
-
+		.form-control {
+			background-color: white;
+		}
 		.table {
 			max-width: 300%;
 			background: white;
@@ -74,7 +76,7 @@
 KIẾN NGHỊ CỦA KIỂM TOÁN, THANH TRA, TÀI CHÍNH</h3>
 		<div class="col-sm-12 text-center">
 			<select id="m_ddl_don_vi" style="width:250px"></select>
-			<input type="text" class="form-control" id="m_txt_nam" value="<%=DateTime.Now.Year %>" />
+			<input type="text" class="form-control" style="width:110px" id="m_txt_nam" value="<%=DateTime.Now.Year %>" />
 			<input type="button" value="Tải dữ liệu" class="btn btn-sm btn-success" onclick="gdPL04.reloadGrid()" />
 		</div>
 

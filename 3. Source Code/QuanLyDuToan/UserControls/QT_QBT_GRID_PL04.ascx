@@ -31,7 +31,7 @@
 					<th rowspan="2" class="gia_tri">Giá trị CTHT đã quyết toán LK đến năm báo cáo </th>
 					<th rowspan="2" class="gia_tri">Giá trị CTHT chuyển năm sau QT</th>
 					<th rowspan="2" class="gia_tri">Kế hoạch còn dư cuối năm</th>
-					<th rowspan="3" style="width: 100px">
+					<th rowspan="3" style="width: 100px" class="thao_tac">
 						<input type="button" class="btn btn-primary btn-sm" style="height: 77px" value="Cập nhật" onclick="gdPL04.updateAll()" /></th>
 				</tr>
 				<tr>
@@ -193,7 +193,7 @@
 							.Where(x=>x.TEN_LOAI_NHIEM_VU==ten_loai_nhiem_vu.TEN_LOAI_NHIEM_VU)
 							.Select(x=>x.GIA_TRI_DE_NGHI_QUYET_TOAN_TRONG_NAM)
 							.ToList().Sum()%></td>
-					<td style="width:100px"></td>
+					<td style="width:100px" class="thao_tac"></td>
 				</tr>
 				<!--Cong trinh-->
 				<%int i = 1; %>
@@ -206,7 +206,7 @@
 				<%CtIndex++; %>
 				<tr style="font-weight: bold">
 					<td class="text-center"><%=i++%></td>
-					<td ><%=cong_trinh%></td>
+					<td class="cong_trinh_hang_muc"><%=cong_trinh%></td>
 					<td class='text-right str_money %>'>
 						<%=lst_giao_kh
 						.Where(x=>x.CM_DM_TU_DIEN_LOAI_NHIEM_VU.TEN.ToUpper()==ten_loai_nhiem_vu.TEN_LOAI_NHIEM_VU.ToUpper()
@@ -306,7 +306,7 @@
 							.Where(x=>x.TEN_LOAI_NHIEM_VU==ten_loai_nhiem_vu.TEN_LOAI_NHIEM_VU&&x.CONG_TRINH==cong_trinh)
 							.Select(x=>x.GIA_TRI_DE_NGHI_QUYET_TOAN_TRONG_NAM)
 							.ToList().Sum()%></td>
-					<td></td>
+					<td class="thao_tac"></td>
 				</tr>
 
 				<%foreach (var du_an in lst_pl04.Where(x => x.TEN_LOAI_NHIEM_VU == ten_loai_nhiem_vu.TEN_LOAI_NHIEM_VU && x.CONG_TRINH == cong_trinh)
@@ -319,7 +319,7 @@
 				<!--Du an-->
 				<tr>
 					<td class="text-center">-</td>
-					<td><span class="du_an"
+					<td class="cong_trinh_hang_muc"><span class="du_an"
 						cong_trinh="<%=cong_trinh%>"
 						ten_loai_nhiem_vu="<%=ten_loai_nhiem_vu.TEN_LOAI_NHIEM_VU%>"
 						id_giao_dich="<%=du_an.ID %>"><%=du_an.DU_AN%></span></td>
@@ -452,7 +452,7 @@
 								&& x.ID == du_an.ID)
 							.Select(x => x.GIA_TRI_DE_NGHI_QUYET_TOAN_TRONG_NAM)
 							.ToList().Sum()%></td>
-					<td class="text-center">
+					<td class="text-center thao_tac">
 						<input type="button" class="btn btn-sm btn-success cap_nhat" value="Đã cập nhật" onclick="gdPL04.update(this)" style="display:none" />
 					</td>
 				</tr>
