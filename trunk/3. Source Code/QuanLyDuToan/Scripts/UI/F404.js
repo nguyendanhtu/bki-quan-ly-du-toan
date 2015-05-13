@@ -66,6 +66,7 @@ var F404 = {
 				$(this).val(str_format);
 			}
 		});
+		
 	},
 	formatInitialSoTien: function () {
 		var lst = $('.format_so_tien, .grid_tong');
@@ -164,8 +165,18 @@ var F404 = {
 					F404.formatInitialSoTien();
 					F404.formatControlSoTien();
 
+					
 					F404.formatControlByNguon();
+					
 					F404.formatControlBYRole();
+
+					//format label .so_tien
+					var v_lst = $('.so_tien');
+					for (var i = 0; i < v_lst.length; i++) {
+						var str_format = getFormatedNumberString($(v_lst[i]).text().split(',').join('').split('.').join(''));
+						$(v_lst[i]).text(str_format);
+						//console.log(str_format);
+					}
 					$('#loading').hide();
 				}
 			});

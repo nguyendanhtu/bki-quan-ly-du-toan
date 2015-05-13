@@ -29,7 +29,7 @@ namespace QuanLyDuToan.WebMethod
 		}
 		#endregion
 
-		#region Private Methods
+		 #region Private Methods
 		private List<GD_KHOI_LUONG> load_data_to_grid_by_nguon(
 			string ip_str_nguon_ns
 			, decimal ip_dc_id_don_vi
@@ -172,21 +172,34 @@ namespace QuanLyDuToan.WebMethod
             List<GD_KHOI_LUONG> v_lst_gd_khoi_luong = new List<GD_KHOI_LUONG>();
             DateTime v_dat_dau_nam = CCommonFunction.getDate_dau_nam_from_date(ip_dat_ngay_nhap_khoi_luong);
 			DateTime v_dat_cuoi_nam = CCommonFunction.getDate_cuoi_nam_form_date(ip_dat_ngay_nhap_khoi_luong);
+			
             //kiem tra nguon
-            if(ip_str_nguon_ns == "Y")
-            {   
-                v_lst_gd_khoi_luong = db.GD_KHOI_LUONG.Where(x => x.ID_DON_VI == ip_dc_id_don_vi
-                                                            && x.SO_TIEN_DA_NGHIEM_THU == 0
-                                                            && x.NGAY_THANG >= v_dat_dau_nam
-                                                            && x.NGAY_THANG <= ip_dat_ngay_nhap_khoi_luong).ToList();
-            }
-            else if (ip_str_nguon_ns == "N")
-            {
-                v_lst_gd_khoi_luong = db.GD_KHOI_LUONG.Where(x => x.ID_DON_VI == ip_dc_id_don_vi
-                                                            && x.SO_TIEN_DA_NGHIEM_THU_NS == 0
-                                                            && x.NGAY_THANG >= v_dat_dau_nam
-                                                            && x.NGAY_THANG <= ip_dat_ngay_nhap_khoi_luong).ToList();
-            }
+			v_lst_gd_khoi_luong = db.GD_KHOI_LUONG.Where(x => x.ID_DON_VI == ip_dc_id_don_vi
+															//&& x.SO_TIEN_DA_NGHIEM_THU == 0
+															&& x.NGAY_THANG >= v_dat_dau_nam
+															&& x.NGAY_THANG <= ip_dat_ngay_nhap_khoi_luong).ToList();
+			if (ip_str_nguon_ns == "Y")
+			{
+				//v_lst_gd_khoi_luong = db.GD_KHOI_LUONG.Where(x => x.ID_DON_VI == ip_dc_id_don_vi
+				//											&& x.SO_TIEN_DA_NGHIEM_THU == 0
+				//											&& x.NGAY_THANG >= v_dat_dau_nam
+				//											&& x.NGAY_THANG <= ip_dat_ngay_nhap_khoi_luong).ToList();
+				foreach (var item in v_lst_gd_khoi_luong)
+				{
+					item.SO_TIEN_DA_NGHIEM_THU = 0;//Phuc vu cho render grid se lay tong SO_TIEN_DA_NGHIEM_THU +SO_TIEN_DA_NGHIEM_THU_NS cho de dang
+				}
+			}
+			else if (ip_str_nguon_ns == "N")
+			{
+				foreach (var item in v_lst_gd_khoi_luong)
+				{
+					item.SO_TIEN_DA_NGHIEM_THU_NS = 0;//Phuc vu cho render grid se lay tong SO_TIEN_DA_NGHIEM_THU +SO_TIEN_DA_NGHIEM_THU_NS cho de dang
+				}
+				//v_lst_gd_khoi_luong = db.GD_KHOI_LUONG.Where(x => x.ID_DON_VI == ip_dc_id_don_vi
+				//											&& x.SO_TIEN_DA_NGHIEM_THU_NS == 0
+				//											&& x.NGAY_THANG >= v_dat_dau_nam
+				//											&& x.NGAY_THANG <= ip_dat_ngay_nhap_khoi_luong).ToList();
+			}
             return v_lst_gd_khoi_luong;
         }
 		#endregion
