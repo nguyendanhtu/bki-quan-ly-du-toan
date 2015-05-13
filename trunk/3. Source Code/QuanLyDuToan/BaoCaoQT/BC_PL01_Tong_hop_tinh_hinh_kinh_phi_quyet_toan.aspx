@@ -37,7 +37,7 @@
                 <th>Chỉ tiêu</th>
                 <%foreach (var don_vi in lst_don_vi.OrderBy(x => x.TEN_DON_VI
 )) {%>
-                <th class="col-sm-1 text-center"><span><%=don_vi.TEN_DON_VI%></span></th>
+                <th class="col-sm-1 text-center" style="width:150px"><span><%=don_vi.TEN_DON_VI%></span></th>
                 <%}%>
             </tr>
         </thead>
@@ -53,7 +53,7 @@
                 </td>
                 <%foreach (var don_vi in lst_don_vi.OrderBy(x => x.TEN_DON_VI
 )) {%>
-                <td style="text-align: right">
+                <td style="text-align: right; width:150px">
                     <span class="so_tien"><%=lst_PL01.Where(x=>x.ID_DON_VI==don_vi.ID_DON_VI&&x.MA_SO==item.MaSo).Select(x=>x.SO_BAO_CAO).FirstOrDefault() %></span>
                 </td>
                 <%}%>
