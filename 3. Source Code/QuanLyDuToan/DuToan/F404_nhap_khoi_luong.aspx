@@ -59,8 +59,9 @@
 				<thead>
 					<tr>
 						<th>Nhiệm vụ chi</th>
-						<th style="width: 100px" class="qbt">Giá trị thực hiện đã nghiệm thu A-B</th>
-						<th style="width: 100px" class="ns">Giá trị thực hiện đã nghiệm thu A-B</th>
+						<th style="width: 100px" class="qbt">Phát sinh trong kỳ báo cáo</th>
+						<th style="width: 100px" class="ns">Phát sinh trong kỳ báo cáo</th>
+                        <th style="width: 100px">Lũy kế đến trước kỳ báo cáo</th>
 					</tr>
 				</thead>
 				<tbody>

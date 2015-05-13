@@ -18,13 +18,15 @@ namespace QuanLyDuToan.UserControls
 
 		}
 		public List<GD_KHOI_LUONG> m_lst_gd;
+        public List<GD_KHOI_LUONG> m_lst_gd_luy_ke;
 		
-		public static string RenderToString(List<GD_KHOI_LUONG> ip_lst_gd)
+		public static string RenderToString(List<GD_KHOI_LUONG> ip_lst_gd, List<GD_KHOI_LUONG> ip_lst_gd_luy_ke)
 		{
 			return UIUtil.RenderUserControl<F404Grid>("~/UserControls/F404Grid.ascx",
 				uc =>
 				{
 					uc.m_lst_gd = ip_lst_gd;
+                    uc.m_lst_gd_luy_ke = ip_lst_gd_luy_ke; 
 				});
 		}
 	}

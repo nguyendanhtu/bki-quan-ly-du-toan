@@ -163,6 +163,32 @@ namespace QuanLyDuToan.WebMethod
 																	&& y.ID_DU_AN == x.ID_DU_AN).Count() > 0)
 							).ToList();
 		}
+        private List<GD_KHOI_LUONG> load_data_to_grid_luy_ke_by_nguon(
+            string ip_str_nguon_ns
+            , decimal ip_dc_id_don_vi
+            ,DateTime ip_dat_ngay_nhap_khoi_luong)
+        {
+            BKI_QLDTEntities db = new BKI_QLDTEntities();
+            List<GD_KHOI_LUONG> v_lst_gd_khoi_luong = new List<GD_KHOI_LUONG>();
+            DateTime v_dat_dau_nam = CCommonFunction.getDate_dau_nam_from_date(ip_dat_ngay_nhap_khoi_luong);
+			DateTime v_dat_cuoi_nam = CCommonFunction.getDate_cuoi_nam_form_date(ip_dat_ngay_nhap_khoi_luong);
+            //kiem tra nguon
+            if(ip_str_nguon_ns == "Y")
+            {   
+                v_lst_gd_khoi_luong = db.GD_KHOI_LUONG.Where(x => x.ID_DON_VI == ip_dc_id_don_vi
+                                                            && x.SO_TIEN_DA_NGHIEM_THU == 0
+                                                            && x.NGAY_THANG >= v_dat_dau_nam
+                                                            && x.NGAY_THANG <= ip_dat_ngay_nhap_khoi_luong).ToList();
+            }
+            else if (ip_str_nguon_ns == "N")
+            {
+                v_lst_gd_khoi_luong = db.GD_KHOI_LUONG.Where(x => x.ID_DON_VI == ip_dc_id_don_vi
+                                                            && x.SO_TIEN_DA_NGHIEM_THU_NS == 0
+                                                            && x.NGAY_THANG >= v_dat_dau_nam
+                                                            && x.NGAY_THANG <= ip_dat_ngay_nhap_khoi_luong).ToList();
+            }
+            return v_lst_gd_khoi_luong;
+        }
 		#endregion
 
 		[WebMethod]
@@ -188,11 +214,13 @@ namespace QuanLyDuToan.WebMethod
 		{
 			DateTime v_dat_ngay_nhap=IP.Core.IPCommon.CIPConvert.ToDatetime(ip_str_ngay_nhap,"dd/MM/yyyy");
 			List<GD_KHOI_LUONG> v_lst_khoi_luong = new List<GD_KHOI_LUONG>();
+            List<GD_KHOI_LUONG> v_lst_khoi_luong_luy_ke = new List<GD_KHOI_LUONG>();
 			v_lst_khoi_luong=load_data_to_grid_by_nguon(ip_str_nguon_ns, ip_dc_id_don_vi, v_dat_ngay_nhap);
+            v_lst_khoi_luong_luy_ke = load_data_to_grid_luy_ke_by_nguon(ip_str_nguon_ns, ip_dc_id_don_vi, v_dat_ngay_nhap);
 			string result = "";
 			if (v_lst_khoi_luong!=null)
 			{
-				result = F404Grid.RenderToString(v_lst_khoi_luong);
+				result = F404Grid.RenderToString(v_lst_khoi_luong, v_lst_khoi_luong_luy_ke);
 			}
 			Context.Response.Write(result);
 		}
