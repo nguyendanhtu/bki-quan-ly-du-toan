@@ -24,8 +24,8 @@
 		<input type="text" class="gia_tri_thuc_hien_ns form-control text-right format_so_tien" value="<%=m_lst_gd.Select(x=>Convert.ToDecimal(x.SO_TIEN_DA_NGHIEM_THU_NS))
 						.Sum() %>" />
 	</td>
-    <td>
-        <label><%=m_lst_gd_luy_ke.Select(x=> Convert.ToDecimal(x.SO_TIEN_DA_NGHIEM_THU + x.SO_TIEN_DA_NGHIEM_THU_NS)).Sum() %></label>
+    <td class="text-right">
+        <label class="so_tien"><%=m_lst_gd_luy_ke.Select(x=> Convert.ToDecimal(x.SO_TIEN_DA_NGHIEM_THU + x.SO_TIEN_DA_NGHIEM_THU_NS)).Sum() %></label>
     </td>
 </tr>
 <%var lst_lnv = m_lst_gd.Select(x => new { ID_LOAI_NHIEM_VU = x.ID_LOAI_NHIEM_VU, TEN = x.CM_DM_TU_DIEN.TEN, GHI_CHU = x.CM_DM_TU_DIEN.GHI_CHU }).Distinct().OrderBy(x => x.GHI_CHU).ToList();%>
@@ -51,8 +51,8 @@
 						 .Select(x=>x.SO_TIEN_DA_NGHIEM_THU_NS)
 						 .Sum() %>" />
 	</td>
-    <td>
-        <label><%=m_lst_gd_luy_ke
+    <td class="text-right">
+        <label class="so_tien"><%=m_lst_gd_luy_ke
                    .Where(x=>x.ID_LOAI_NHIEM_VU==lnv.ID_LOAI_NHIEM_VU)
                    .Select(x=> Convert.ToDecimal(x.SO_TIEN_DA_NGHIEM_THU + x.SO_TIEN_DA_NGHIEM_THU_NS)).Sum() %></label>
     </td>
@@ -81,8 +81,8 @@
 								.Select(x=>x.SO_TIEN_DA_NGHIEM_THU_NS)
 								.Sum()%>" />
 	</td>
-     <td>
-        <label><%=m_lst_gd_luy_ke
+     <td class="text-right">
+        <label class="so_tien"><%=m_lst_gd_luy_ke
                    .Where(x=>x.ID_LOAI_NHIEM_VU==lnv.ID_LOAI_NHIEM_VU
                           &&x.ID_CONG_TRINH==cong_trinh.ID_CONG_TRINH)
                    .Select(x=> Convert.ToDecimal(x.SO_TIEN_DA_NGHIEM_THU + x.SO_TIEN_DA_NGHIEM_THU_NS)).Sum() %></label>
@@ -105,8 +105,8 @@
 		<!--Giá trị thực hiện đã nghiệm thu A-B-->
 		<input type="text" class="gia_tri_thuc_hien_ns form-control text-right format_so_tien" value="<%=du_an.SO_TIEN_DA_NGHIEM_THU_NS%>" />
 	</td>
-     <td>
-        <label><%=m_lst_gd_luy_ke
+     <td class="text-right">
+        <label class="so_tien"><%=m_lst_gd_luy_ke
                    .Where(x=>x.ID_LOAI_NHIEM_VU==lnv.ID_LOAI_NHIEM_VU
                           &&x.ID_CONG_TRINH==cong_trinh.ID_CONG_TRINH
                           &&x.ID_DU_AN==du_an.ID_DU_AN)
@@ -146,8 +146,8 @@
 								.Select(x=>x.SO_TIEN_DA_NGHIEM_THU_NS)
 								.Sum()%>" />
 	</td>
-     <td>
-        <label><%=m_lst_gd_luy_ke
+     <td class="text-right">
+        <label class="so_tien"><%=m_lst_gd_luy_ke
                    .Where(x=>x.ID_LOAI_NHIEM_VU==lnv.ID_LOAI_NHIEM_VU
                           &&x.ID_KHOAN==khoan.ID_KHOAN)
                    .Select(x=> Convert.ToDecimal(x.SO_TIEN_DA_NGHIEM_THU + x.SO_TIEN_DA_NGHIEM_THU_NS)).Sum() %></label>
@@ -170,8 +170,8 @@
 		<!--Giá trị thực hiện đã nghiệm thu A-B-->
 		<input type="text" class="gia_tri_thuc_hien_ns form-control text-right format_so_tien" value="<%=muc.SO_TIEN_DA_NGHIEM_THU_NS%>" />
 	</td>
-     <td>
-        <label><%=m_lst_gd_luy_ke
+     <td class="text-right">
+        <label class="so_tien"><%=m_lst_gd_luy_ke
                    .Where(x=>x.ID_LOAI_NHIEM_VU==lnv.ID_LOAI_NHIEM_VU
                           &&x.ID_KHOAN==khoan.ID_KHOAN
                           &&x.ID_MUC==muc.ID_MUC)
@@ -196,8 +196,8 @@
 		<!--Giá trị thực hiện đã nghiệm thu A-B-->
 		<input type="text" class="gia_tri_thuc_hien_ns form-control text-right format_so_tien" value="<%=tieu_muc.SO_TIEN_DA_NGHIEM_THU_NS%>" />
 	</td>
-     <td>
-        <label><%=m_lst_gd_luy_ke
+    <td class="text-right">
+        <label class="so_tien"><%=m_lst_gd_luy_ke
                    .Where(x=>x.ID_LOAI_NHIEM_VU==lnv.ID_LOAI_NHIEM_VU
                           &&x.ID_KHOAN==khoan.ID_KHOAN
                           &&x.ID_TIEU_MUC==tieu_muc.ID_TIEU_MUC)
