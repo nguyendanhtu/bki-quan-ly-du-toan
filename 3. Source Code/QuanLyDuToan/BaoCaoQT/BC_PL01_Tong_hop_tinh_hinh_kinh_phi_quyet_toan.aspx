@@ -37,15 +37,15 @@
     <br />
     <div style="margin: 0px auto; width:1200px">
         <div style="width: 1200px" id="double-scroll">
-            <table class="table-hover table-bordered" id="btlPL01" style="width:<%=with_table%>">
+            <table class="table-hover table-bordered" id="btlPL01" style="width:<%=with_table%>px">
                 <thead>
                     <tr class="text-center">
-                        <th style="width: 150px">Mã số</th>
+                        <th style="width: 80px">Mã số</th>
                         <th style="width: 350px">Chỉ tiêu</th>
                         <%foreach (var don_vi in lst_don_vi.OrderBy(x => x.TEN_DON_VI
 ))
                           {%>
-                        <th class="text-center" style="width: 250px"><span><%=don_vi.TEN_DON_VI%></span></th>
+                        <th class="text-center" style="width: 200px"><span><%=don_vi.TEN_DON_VI%></span></th>
                         <%}%>
                     </tr>
                 </thead>
@@ -53,7 +53,7 @@
                     <%foreach (var item in lst_PL01.Select(x => new { ChiTieu = x.CHI_TIEU, MaSo = x.MA_SO }).Distinct().ToList())
                       {%>
                     <tr>
-                        <td class="text-center" style="width: 150px">
+                        <td class="text-center" style="width: 80px">
                             <span class=" ma_so <%= item.MaSo %>"><%= item.MaSo %></span>
                         </td>
                         <td class="" style="width: 350px">
@@ -62,7 +62,7 @@
                         <%foreach (var don_vi in lst_don_vi.OrderBy(x => x.TEN_DON_VI
 ))
                           {%>
-                        <td style="text-align: right; width: 250px">
+                        <td style="text-align: right; width: 200px">
                             <span class="so_tien"><%=lst_PL01.Where(x=>x.ID_DON_VI==don_vi.ID_DON_VI&&x.MA_SO==item.MaSo).Select(x=>x.SO_BAO_CAO).FirstOrDefault() %></span>
                         </td>
                         <%}%>
