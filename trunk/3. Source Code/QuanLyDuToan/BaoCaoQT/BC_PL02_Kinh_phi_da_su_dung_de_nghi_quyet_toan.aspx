@@ -49,10 +49,10 @@
         })
         function pageLoad(sender, args) {
             if (args.get_isPartialLoad()) {
-                $('#tblPL02').each(function () {
-                    $(this).prepend('<thead></thead>')
-                    $(this).find('thead').append($(this).find("tr:eq(0)"));
-                });
+                //$('#tblPL02').each(function () {
+                //    $(this).prepend('<thead></thead>')
+                //    $(this).find('thead').append($(this).find("tr:eq(0)"));
+                //});
 
                 $('#tblPL02').scrollbarTable();
                 $('#double-scroll').doubleScroll();
