@@ -47,19 +47,12 @@
             }
             $("#<%=m_ddl_chon_nam.ClientID%>").select2();
         })
-        function pageLoad(sender, args) {
-            if (args.get_isPartialLoad()) {
-                //$('#tblPL02').each(function () {
-                //    $(this).prepend('<thead></thead>')
-                //    $(this).find('thead').append($(this).find("tr:eq(0)"));
-                //});
 
-                $('#tblPL02').scrollbarTable();
-                $('#double-scroll').doubleScroll();
-            }
-        }
+        $('#tblPL02').scrollbarTable();
+        $('#double-scroll').doubleScroll();
+
         var idChuong =<%= ID_CHUONG_LOAI_KHOAN_MUC.CHUONG.ToString()%> +"";
-        var idLoai =<%= ID_CHUONG_LOAI_KHOAN_MUC.LOAI.ToString()%> +"";
+                var idLoai =<%= ID_CHUONG_LOAI_KHOAN_MUC.LOAI.ToString()%> +"";
         var idKhoan =<%= ID_CHUONG_LOAI_KHOAN_MUC.KHOAN.ToString()%> +"";
         var idMuc =<%= ID_CHUONG_LOAI_KHOAN_MUC.MUC.ToString()%> +"";
         var idTieuMuc =<%=ID_CHUONG_LOAI_KHOAN_MUC.TIEU_MUC.ToString()%> +"";
@@ -76,8 +69,8 @@
         </div>
     </div>
     <br />
-    <div style="width:1200px; margin: 0px auto" id="double-scroll">
-        <table class='table table-hover table-bordered' style='width: 900px; margin: auto' id="tblPL02">
+    <div style="width: 1200px; margin: 0px auto" id="double-scroll">
+        <table class='table table-hover table-bordered' style='width: 1200px; margin: auto' id="tblPL02">
             <thead style='vertical-align: middle'>
                 <tr class='text-center'>
                     <th rowspan='2' class='clkm'>Loại</th>
