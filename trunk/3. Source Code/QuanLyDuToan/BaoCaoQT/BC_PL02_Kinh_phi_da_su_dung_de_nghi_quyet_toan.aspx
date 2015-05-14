@@ -52,12 +52,9 @@
                 $('#tblPL02').each(function () {
                     $(this).prepend('<thead></thead>')
                     $(this).find('thead').append($(this).find("tr:eq(0)"));
-                    $(this).find('thead').append($(this).find("tr:eq(1)"));
-                    $(this).find('thead').append($(this).find("tr:eq(2)"));
-                    $(this).find('thead').append($(this).find("tr:eq(3)"));
                 });
 
-                $('table#m_grv').scrollbarTable();
+                $('#tblPL02').scrollbarTable();
                 $('#double-scroll').doubleScroll();
             }
         }
