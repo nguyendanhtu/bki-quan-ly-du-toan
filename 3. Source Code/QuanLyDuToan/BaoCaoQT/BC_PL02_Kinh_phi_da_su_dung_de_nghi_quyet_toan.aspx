@@ -24,31 +24,49 @@
             width: 100%;
             z-index: 100;
         }
-          #tblPL02 > thead > tr > th {
-			border: 1px solid #000;
-		}
-        .so_tien {
-            text-align:right;
+
+        #tblPL02 > thead > tr > th {
+            border: 1px solid #000;
         }
+
+        .so_tien {
+            text-align: right;
+        }
+
         #tblPL02 {
-        background-color:white;
+            background-color: white;
         }
     </style>
+    <script src="../Scripts/jquery.doubleScroll.js"></script>
+    <script src="../Scripts/fixHeader.js"></script>
     <script type="text/javascript">
-       $(document).ready(function () {
-           var lst = $('.so_tien');
-           for (var i = 0; i < lst.length; i++) {
-               $(lst[i]).text(formatString($(lst[i]).text()));
-               $("#<%=m_ddl_chon_nam.ClientID%>").select2();
+        $(document).ready(function () {
+            var lst = $('.so_tien');
+            for (var i = 0; i < lst.length; i++) {
+                $(lst[i]).text(formatString($(lst[i]).text()));
             }
+            $("#<%=m_ddl_chon_nam.ClientID%>").select2();
         })
+        function pageLoad(sender, args) {
+            if (args.get_isPartialLoad()) {
+                $('#tblPL02').each(function () {
+                    $(this).prepend('<thead></thead>')
+                    $(this).find('thead').append($(this).find("tr:eq(0)"));
+                    $(this).find('thead').append($(this).find("tr:eq(1)"));
+                    $(this).find('thead').append($(this).find("tr:eq(2)"));
+                    $(this).find('thead').append($(this).find("tr:eq(3)"));
+                });
+
+                $('table#m_grv').scrollbarTable();
+                $('#double-scroll').doubleScroll();
+            }
+        }
         var idChuong =<%= ID_CHUONG_LOAI_KHOAN_MUC.CHUONG.ToString()%> +"";
         var idLoai =<%= ID_CHUONG_LOAI_KHOAN_MUC.LOAI.ToString()%> +"";
         var idKhoan =<%= ID_CHUONG_LOAI_KHOAN_MUC.KHOAN.ToString()%> +"";
         var idMuc =<%= ID_CHUONG_LOAI_KHOAN_MUC.MUC.ToString()%> +"";
         var idTieuMuc =<%=ID_CHUONG_LOAI_KHOAN_MUC.TIEU_MUC.ToString()%> +"";
         var m_lst_clkm = <%= Newtonsoft.Json.JsonConvert.SerializeObject(lst_clkm)%>;
-		
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
@@ -61,275 +79,205 @@
         </div>
     </div>
     <br />
-    <table class='table table-hover table-bordered' style='width: 900px; margin: auto' id="tblPL02">
-        <thead style='vertical-align: middle'>
-            <tr class='text-center'>
-                <th rowspan='2' class='clkm'>Loại</th>
-                <th rowspan='2' class='clkm'>Khoản</th>
-                <th rowspan='2' class='clkm'>Mục</th>
-                <th rowspan='2' class='clkm'>Tiểu mục</th>
-                <th rowspan='2' style='width: 200px'>Nội dung chi</th>
-                <%foreach (var dvct in new String[] { "Sở GTVT", "Cục QLĐB", "Ban QLDA" }) {%>
-                <th class="col-sm-1 text-center"><span><%=dvct%></span></th>
-                <%foreach (var don_vi in lst_don_vi.Where(x => x.TEN_DON_VI.Contains(dvct.Split(' ')[0])).OrderBy(x => x.TEN_DON_VI)) {%>
-                <th class="col-sm-1 text-center"><span><%=don_vi.TEN_DON_VI%></span></th>
-                <%}%>
-                <%}%>
-            </tr>
-            <%--	<tr>
-				<td>Nhập mới</td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td>
-					<label>
-						<input type='radio' checked="checked" name='loai_NDC' />I. Kinh phí năm quyết toán năm nay:</label>
-					<br />
-					<label>
-						<input type='radio' name='loai_NDC' />II. KP năm trước chưa QT, quyết toán năm nay</label>
-					<br />
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<input type='text' id='txt_loai' class='clkm' /></td>
-				<td>
-					<input type='text' id='txt_khoan' class='clkm' /></td>
-				<td>
-					<input type='text' id='txt_muc' class='clkm' /></td>
-				<td>
-					<input type='text' id='txt_tieu_muc' class='clkm' /></td>
-				<td>
-					<span id='lbl_noi_dung_chi' style='width: 100%'></span>
-				</td>
-				<td>
-					<input type='text' id='txt_so_bao_cao' class='so_tien' /></td>
-				<td>
-					<input type='text' id='txt_so_xet_duyet' class='so_tien' /></td>
-				<td><span id='lbl_chenh_lech' class='so_tien'>0</span></td>
-			</tr>--%>
-        </thead>
-        <tbody>
-            <%foreach (var loai_ndc in lst_NDC)%>
-            <%{%>
-            <tr style='font-weight: bold; font-style: italic'>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td><%=loai_ndc %></td>
+    <div style="width:1200px; margin: 0px auto" id="double-scroll">
+        <table class='table table-hover table-bordered' style='width: 900px; margin: auto' id="tblPL02">
+            <thead style='vertical-align: middle'>
+                <tr class='text-center'>
+                    <th rowspan='2' class='clkm'>Loại</th>
+                    <th rowspan='2' class='clkm'>Khoản</th>
+                    <th rowspan='2' class='clkm'>Mục</th>
+                    <th rowspan='2' class='clkm'>Tiểu mục</th>
+                    <th rowspan='2' style='width: 200px'>Nội dung chi</th>
+                    <%foreach (var dvct in new String[] { "Sở GTVT", "Cục QLĐB", "Ban QLDA" })
+                      {%>
+                    <th class="col-sm-1 text-center"><span><%=dvct%></span></th>
+                    <%foreach (var don_vi in lst_don_vi.Where(x => x.TEN_DON_VI.Contains(dvct.Split(' ')[0])).OrderBy(x => x.TEN_DON_VI))
+                      {%>
+                    <th class="col-sm-1 text-center"><span><%=don_vi.TEN_DON_VI%></span></th>
+                    <%}%>
+                    <%}%>
+                </tr>
+            </thead>
+            <tbody>
+                <%foreach (var loai_ndc in lst_NDC)%>
+                <%{%>
+                <tr style='font-weight: bold; font-style: italic'>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><%=loai_ndc %></td>
 
-                <%foreach (var dvct in new String[] { "Sở GTVT", "Cục QLĐB", "Ban QLDA" }) {%>
-                <td class="so_tien"><%=lst_pl02
+                    <%foreach (var dvct in new String[] { "Sở GTVT", "Cục QLĐB", "Ban QLDA" })
+                      {%>
+                    <td class="so_tien"><%=lst_pl02
 							    .Where(x => x.LOAI==loai_ndc&&x.DM_DON_VI.TEN_DON_VI.Contains(dvct.Split(' ')[0]))
 							    .Select(x => (x.SO_BAO_CAO))
 							    .ToList()
 							    .Sum()%></td>
-                <%foreach (var donvi in lst_don_vi.Where(x => x.TEN_DON_VI.Contains(dvct.Split(' ')[0])).OrderBy(x => x.TEN_DON_VI)) {%>
-                <td class="so_tien"><%=lst_pl02
+                    <%foreach (var donvi in lst_don_vi.Where(x => x.TEN_DON_VI.Contains(dvct.Split(' ')[0])).OrderBy(x => x.TEN_DON_VI))
+                      {%>
+                    <td class="so_tien"><%=lst_pl02
 							    .Where(x => x.LOAI==loai_ndc&&x.ID_DON_VI==donvi.ID_DON_VI)
 							    .Select(x => (x.SO_BAO_CAO))
 							    .ToList()
 							    .Sum()%></td>
-                <%} %>
-                <% }%>
+                    <%} %>
+                    <% }%>
+                </tr>
+                <!--Loai-->
 
-                <%--				<td><%=lst_pl02
-							.Where(x => x.LOAI==loai_ndc)
-							.Select(x => (x.SO_XET_DUYET))
-							.ToList()
-							.Sum()%></td>
-				<td><%=lst_pl02
-							.Where(x => x.LOAI==loai_ndc)
-							.Select(x => (x.SO_BAO_CAO-x.SO_XET_DUYET))
-							.ToList()
-							.Sum()%></td>--%>
-            </tr>
-            <!--Loai-->
-
-            <%foreach (var ma_loai in lst_pl02
+                <%foreach (var ma_loai in lst_pl02
                                         .Where(x => x.LOAI == loai_ndc)
                                         .Select(x => x.MA_LOAI)
                                         .Distinct()
                                         .ToList())%>
-            <%{%>
-            <tr style='font-weight: bold'>
-                <td><%=ma_loai %></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td><%=lst_clkm
+                <%{%>
+                <tr style='font-weight: bold'>
+                    <td><%=ma_loai %></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><%=lst_clkm
 							.Where(x=>x.MaSo==ma_loai)
 							.Select(x=>x.Ten)
 							.FirstOrDefault() %></td>
-                <%foreach (var dvct in new String[] { "Sở GTVT", "Cục QLĐB", "Ban QLDA" }) {%>
-                <td class="so_tien"><%=lst_pl02
+                    <%foreach (var dvct in new String[] { "Sở GTVT", "Cục QLĐB", "Ban QLDA" })
+                      {%>
+                    <td class="so_tien"><%=lst_pl02
                                 .Where(x => x.LOAI==loai_ndc&&x.DM_DON_VI.TEN_DON_VI.Contains(dvct.Split(' ')[0]))
 							    .Select(x => (x.SO_BAO_CAO))
 							    .ToList()
 							    .Sum()%></td>
-                <%foreach (var donvi in lst_don_vi.Where(x => x.TEN_DON_VI.Contains(dvct.Split(' ')[0])).OrderBy(x => x.TEN_DON_VI)) {%>
-                <td class="so_tien"><%=lst_pl02
+                    <%foreach (var donvi in lst_don_vi.Where(x => x.TEN_DON_VI.Contains(dvct.Split(' ')[0])).OrderBy(x => x.TEN_DON_VI))
+                      {%>
+                    <td class="so_tien"><%=lst_pl02
 							.Where(x => x.MA_LOAI == ma_loai&&x.LOAI==loai_ndc&&x.ID_DON_VI == donvi.ID_DON_VI)
 							.Select(x => x.SO_BAO_CAO)
 							.ToList()
 							.Sum()%></td>
 
-                <%} %>
-                <%} %>
-
-                <%--				<td><%=lst_pl02
-							.Where(x => x.MA_LOAI == ma_loai&&x.LOAI==loai_ndc)
-							.Select(x => x.SO_XET_DUYET)
-							.ToList()
-							.Sum()%></td>
-				<td><%=lst_pl02
-							.Where(x => x.MA_LOAI == ma_loai&&x.LOAI==loai_ndc)
-							.Select(x => (x.SO_BAO_CAO-x.SO_XET_DUYET))
-							.ToList()
-							.Sum()%></td>--%>
-            </tr>
-            <!--Khoan-->
-            <%foreach (var ma_khoan in lst_pl02
+                    <%} %>
+                    <%} %>
+                </tr>
+                <!--Khoan-->
+                <%foreach (var ma_khoan in lst_pl02
                                      .Where(x => x.MA_LOAI == ma_loai && x.LOAI == loai_ndc)
                                      .Select(x => x.MA_KHOAN)
                                      .Distinct()
                                      .ToList())%>
-            <%{%>
-            <tr style='font-weight: bold'>
-                <td></td>
-                <td><%=ma_khoan %></td>
-                <td></td>
-                <td></td>
-                <td><%=lst_clkm.Where(x=>x.MaSo==ma_khoan).Select(x=>x.Ten).FirstOrDefault() %></td>
-                <%foreach (var dvct in new String[] { "Sở GTVT", "Cục QLĐB", "Ban QLDA" }) {%>
-                <td class="so_tien"><%=lst_pl02
+                <%{%>
+                <tr style='font-weight: bold'>
+                    <td></td>
+                    <td><%=ma_khoan %></td>
+                    <td></td>
+                    <td></td>
+                    <td><%=lst_clkm.Where(x=>x.MaSo==ma_khoan).Select(x=>x.Ten).FirstOrDefault() %></td>
+                    <%foreach (var dvct in new String[] { "Sở GTVT", "Cục QLĐB", "Ban QLDA" })
+                      {%>
+                    <td class="so_tien"><%=lst_pl02
                                 .Where(x => x.LOAI==loai_ndc&&x.MA_KHOAN==ma_khoan&&x.DM_DON_VI.TEN_DON_VI.Contains(dvct.Split(' ')[0]))
 							    .Select(x => (x.SO_BAO_CAO))
 							    .ToList()
 							    .Sum()%></td>
-                <%foreach (var donvi in lst_don_vi.Where(x => x.TEN_DON_VI.Contains(dvct.Split(' ')[0])).OrderBy(x => x.TEN_DON_VI)) {%>
-                <td class="so_tien"><%=lst_pl02
+                    <%foreach (var donvi in lst_don_vi.Where(x => x.TEN_DON_VI.Contains(dvct.Split(' ')[0])).OrderBy(x => x.TEN_DON_VI))
+                      {%>
+                    <td class="so_tien"><%=lst_pl02
 							.Where(x => x.MA_KHOAN == ma_khoan&&x.MA_LOAI==ma_loai&&x.LOAI==loai_ndc&&x.ID_DON_VI==donvi.ID_DON_VI)
 							.Select(x => x.SO_BAO_CAO)
 							.ToList()
 							.Sum()%></td>
-                <%} %>
-                <%} %>
-                <%--		<td><%=lst_pl02
-							.Where(x => x.MA_KHOAN == ma_khoan&&x.MA_LOAI==ma_loai&&x.LOAI==loai_ndc)
-							.Select(x => x.SO_XET_DUYET)
-							.ToList()
-							.Sum()%></td>
-				<td><%=lst_pl02
-							.Where(x => x.MA_KHOAN == ma_khoan&&x.MA_LOAI==ma_loai&&x.LOAI==loai_ndc)
-							.Select(x => (x.SO_BAO_CAO-x.SO_XET_DUYET))
-							.ToList()
-							.Sum()%></td>--%>
-            </tr>
-            <!--Muc-->
-            <%foreach (var ma_muc in lst_pl02
+                    <%} %>
+                    <%} %>
+                </tr>
+                <!--Muc-->
+                <%foreach (var ma_muc in lst_pl02
                                      .Where(x => x.MA_KHOAN == ma_khoan && x.MA_LOAI == ma_loai && x.LOAI == loai_ndc)
                                      .Select(x => x.MA_MUC)
                                      .Distinct()
                                      .ToList())%>
-            <%{%>
-            <tr style='font-weight: bold'>
-                <td></td>
-                <td></td>
-                <td><%=ma_muc %></td>
-                <td></td>
-                <td><%=lst_clkm.Where(x=>x.MaSo==ma_muc).Select(x=>x.Ten).FirstOrDefault() %></td>
-                <%foreach (var dvct in new String[] { "Sở GTVT", "Cục QLĐB", "Ban QLDA" }) {%>
-                <td class="so_tien"><%=lst_pl02
+                <%{%>
+                <tr style='font-weight: bold'>
+                    <td></td>
+                    <td></td>
+                    <td><%=ma_muc %></td>
+                    <td></td>
+                    <td><%=lst_clkm.Where(x=>x.MaSo==ma_muc).Select(x=>x.Ten).FirstOrDefault() %></td>
+                    <%foreach (var dvct in new String[] { "Sở GTVT", "Cục QLĐB", "Ban QLDA" })
+                      {%>
+                    <td class="so_tien"><%=lst_pl02
                                 .Where(x => x.LOAI==loai_ndc&&x.MA_KHOAN == ma_khoan && x.MA_LOAI == ma_loai&&x.DM_DON_VI.TEN_DON_VI.Contains(dvct.Split(' ')[0]))
 							    .Select(x => (x.SO_BAO_CAO))
 							    .ToList()
 							    .Sum()%></td>
-                <%foreach (var donvi in lst_don_vi.Where(x => x.TEN_DON_VI.Contains(dvct.Split(' ')[0])).OrderBy(x => x.TEN_DON_VI)) {%>
-                <td class="so_tien"><%=lst_pl02
+                    <%foreach (var donvi in lst_don_vi.Where(x => x.TEN_DON_VI.Contains(dvct.Split(' ')[0])).OrderBy(x => x.TEN_DON_VI))
+                      {%>
+                    <td class="so_tien"><%=lst_pl02
 							.Where(x => x.MA_KHOAN == ma_khoan&&x.MA_LOAI==ma_loai&&x.MA_MUC==ma_muc&&x.LOAI==loai_ndc&&x.ID_DON_VI==donvi.ID_DON_VI)
 							.Select(x => x.SO_BAO_CAO)
 							.ToList()
 							.Sum()%></td>
-                <%} %>
-                <%} %>
-                <%--				<td><%=lst_pl02
-							.Where(x => x.MA_KHOAN == ma_khoan&&x.MA_LOAI==ma_loai&&x.MA_MUC==ma_muc&&x.LOAI==loai_ndc)
-							.Select(x => x.SO_XET_DUYET)
-							.ToList()
-							.Sum()%></td>
-				<td><%=lst_pl02
-							.Where(x => x.MA_KHOAN == ma_khoan&&x.MA_LOAI==ma_loai&&x.MA_MUC==ma_muc&&x.LOAI==loai_ndc)
-							.Select(x => (x.SO_BAO_CAO-x.SO_XET_DUYET))
-							.ToList()
-							.Sum()%></td>--%>
-            </tr>
-            <!--Tieu Muc-->
-            <%foreach (var ma_tieu_muc in lst_pl02
+                    <%} %>
+                    <%} %>
+                    <%foreach (var ma_tieu_muc in lst_pl02
                              .Where(x => x.MA_MUC == ma_muc && x.MA_KHOAN == ma_khoan && x.MA_LOAI == ma_loai && x.LOAI == loai_ndc)
                              .Select(x => x.MA_TIEU_MUC)
                              .Distinct()
                              .ToList())%>
-            <%{%>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td><%=ma_tieu_muc %></td>
-                <td><%=lst_clkm.Where(x=>x.MaSo==ma_tieu_muc).Select(x=>x.Ten).FirstOrDefault() %></td>
-                <%foreach (var dvct in new String[] { "Sở GTVT", "Cục QLĐB", "Ban QLDA" }) {%>
-                <td class="so_tien"><%=lst_pl02
+                    <%{%>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><%=ma_tieu_muc %></td>
+                        <td><%=lst_clkm.Where(x=>x.MaSo==ma_tieu_muc).Select(x=>x.Ten).FirstOrDefault() %></td>
+                        <%foreach (var dvct in new String[] { "Sở GTVT", "Cục QLĐB", "Ban QLDA" })
+                          {%>
+                        <td class="so_tien"><%=lst_pl02
                                 .Where(x => x.LOAI==loai_ndc&& x.MA_KHOAN == ma_khoan&&x.MA_LOAI==ma_loai&&x.MA_MUC==ma_muc&&x.DM_DON_VI.TEN_DON_VI.Contains(dvct.Split(' ')[0]))
 							    .Select(x => (x.SO_BAO_CAO))
 							    .ToList()
 							    .Sum()%></td>
-                <%foreach (var donvi in lst_don_vi.Where(x => x.TEN_DON_VI.Contains(dvct.Split(' ')[0])).OrderBy(x => x.TEN_DON_VI)) {%>
-                <td class="so_tien"><%=lst_pl02
+                        <%foreach (var donvi in lst_don_vi.Where(x => x.TEN_DON_VI.Contains(dvct.Split(' ')[0])).OrderBy(x => x.TEN_DON_VI))
+                          {%>
+                        <td class="so_tien"><%=lst_pl02
                             .Where(x=>x.ID_DON_VI==donvi.ID_DON_VI&&x.MA_TIEU_MUC==ma_tieu_muc).Distinct()
                             .Select(x=>x.SO_BAO_CAO)
                             .ToList()
                             .Sum() %></td>
-                <%} %>
-                <%} %>
-                <%--				<td><%=ma_tieu_muc.SO_XET_DUYET %></td>
-				<td><%=ma_tieu_muc.SO_BAO_CAO - ma_tieu_muc.SO_XET_DUYET%></td>--%>
-            </tr>
-            <%}%>
-            <%}%>
-            <%}%>
-            <%}%>
-            <%}%>
-            <tr style='font-weight: bold; font-style: italic"'>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>Tổng cộng</td>
-                <%foreach (var dvct in new String[] { "Sở GTVT", "Cục QLĐB", "Ban QLDA" }) {%>
-                <td class="so_tien"><%=lst_pl02
+                        <%} %>
+                        <%} %>
+                    </tr>
+                    <%}%>
+                    <%}%>
+                    <%}%>
+                    <%}%>
+                    <%}%>
+                    <tr style='font-weight: bold; font-style: italic"'>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>Tổng cộng</td>
+                        <%foreach (var dvct in new String[] { "Sở GTVT", "Cục QLĐB", "Ban QLDA" })
+                          {%>
+                        <td class="so_tien"><%=lst_pl02
                                 .Where(x => x.DM_DON_VI.TEN_DON_VI.Contains(dvct.Split(' ')[0]))
 							    .Select(x => (x.SO_BAO_CAO))
 							    .ToList()
 							    .Sum()%></td>
-                <%foreach (var donvi in lst_don_vi.Where(x => x.TEN_DON_VI.Contains(dvct.Split(' ')[0])).OrderBy(x => x.TEN_DON_VI)) {%>
-                <td class="so_tien"><%=lst_pl02.Where(x=>x.ID_DON_VI==donvi.ID_DON_VI)
+                        <%foreach (var donvi in lst_don_vi.Where(x => x.TEN_DON_VI.Contains(dvct.Split(' ')[0])).OrderBy(x => x.TEN_DON_VI))
+                          {%>
+                        <td class="so_tien"><%=lst_pl02.Where(x=>x.ID_DON_VI==donvi.ID_DON_VI)
 							.Select(x => (x.SO_BAO_CAO))
 							.ToList()
 							.Sum()%></td>
-                <%} %>
-                <%} %>
-                <%--				<td><%=lst_pl02
-							.Select(x => (x.SO_XET_DUYET))
-							.ToList()
-							.Sum()%></td>
-				<td><%=lst_pl02
-							.Select(x => (x.SO_BAO_CAO-x.SO_XET_DUYET))
-							.ToList()
-							.Sum()%></td>--%>
-            </tr>
-        </tbody>
-        <tfoot>
-        </tfoot>
-    </table>
+                        <%} %>
+                        <%} %>
+                    </tr>
+            </tbody>
+            <tfoot>
+            </tfoot>
+        </table>
+    </div>
 </asp:Content>
