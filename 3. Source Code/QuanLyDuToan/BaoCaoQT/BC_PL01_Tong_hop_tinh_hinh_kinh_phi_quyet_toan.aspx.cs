@@ -22,6 +22,8 @@ namespace QuanLyDuToan.BaoCaoQT {
         public List<GD_PL01_TONG_HOP_TINH_HINH_KINH_PHI_VA_QUYET_TOAN_CHI> lst_so;
         public List<GD_PL01_TONG_HOP_TINH_HINH_KINH_PHI_VA_QUYET_TOAN_CHI> lst_ban;
         public decimal ini_nam = CIPConvert.ToDecimal(DateTime.Now.Year);
+        //width table
+        public decimal with_table = 500;
         #endregion
 
         #region Data Structure
@@ -42,12 +44,11 @@ namespace QuanLyDuToan.BaoCaoQT {
                 lst_PL01 = db.GD_PL01_TONG_HOP_TINH_HINH_KINH_PHI_VA_QUYET_TOAN_CHI
                                         .Where(x => x.NAM == v_dc_nam)
                                         .ToList();
-
                 lst_don_vi = db.GD_PL01_TONG_HOP_TINH_HINH_KINH_PHI_VA_QUYET_TOAN_CHI
                                         .Select(x => new ItemBaoCaoDonVi { ID_DON_VI = x.DM_DON_VI.ID, TEN_DON_VI = x.DM_DON_VI.TEN_DON_VI })
                                         .Distinct()
                                         .ToList();
-
+                with_table = with_table + 250 * lst_don_vi.Count;
                 //add list cuc
                 add_list_cuc();
 
@@ -115,7 +116,6 @@ namespace QuanLyDuToan.BaoCaoQT {
 
                  })
                  .ToList();
-
             }
         }
 
@@ -149,7 +149,6 @@ namespace QuanLyDuToan.BaoCaoQT {
                      DM_DON_VI = new DM_DON_VI { TEN_DON_VI = "SỞ GTVT", ID = 20000 }
                  })
                  .ToList();
-
             }
         }
 
@@ -181,7 +180,6 @@ namespace QuanLyDuToan.BaoCaoQT {
                         DM_DON_VI = new DM_DON_VI { TEN_DON_VI = "Cục QLĐB", ID = 10000 }
                     })
                     .ToList();
-
             }
         }
 
@@ -190,14 +188,17 @@ namespace QuanLyDuToan.BaoCaoQT {
             if (lst_cuc != null) {
                 lst_PL01.AddRange(lst_cuc);
                 lst_don_vi.Add(new ItemBaoCaoDonVi { ID_DON_VI = 10000, TEN_DON_VI = "CỤC QLĐB" });
+                with_table = with_table + 250;
             }
             if (lst_so != null) {
                 lst_PL01.AddRange(lst_so);
                 lst_don_vi.Add(new ItemBaoCaoDonVi { ID_DON_VI = 20000, TEN_DON_VI = "SỞ GTVT" });
+                with_table = with_table + 250;
             }
             if (lst_ban != null) {
                 lst_PL01.AddRange(lst_ban);
                 lst_don_vi.Add(new ItemBaoCaoDonVi { ID_DON_VI = 30000, TEN_DON_VI = "BAN QLDA" });
+                with_table = with_table + 250;
             }
         }
         #endregion
