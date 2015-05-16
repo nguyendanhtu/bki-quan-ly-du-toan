@@ -31,7 +31,7 @@ namespace QuanLyDuToan.BaoCaoQT {
         public List<ItemBaoCaoDonVi> lst_don_vi;
         public List<decimal?> lst_nam;
         public decimal m_dc_nam;
-        public decimal width = 1100;
+        public decimal width = 1150;
         public List<GD_PL03_THUC_HIEN_XU_LY_KIEN_NGHI_CUA_KIEM_TOAN_THANH_TRA_TAI_CHINH> lst_cuc;
         public List<GD_PL03_THUC_HIEN_XU_LY_KIEN_NGHI_CUA_KIEM_TOAN_THANH_TRA_TAI_CHINH> lst_so;
         public List<GD_PL03_THUC_HIEN_XU_LY_KIEN_NGHI_CUA_KIEM_TOAN_THANH_TRA_TAI_CHINH> lst_ban;

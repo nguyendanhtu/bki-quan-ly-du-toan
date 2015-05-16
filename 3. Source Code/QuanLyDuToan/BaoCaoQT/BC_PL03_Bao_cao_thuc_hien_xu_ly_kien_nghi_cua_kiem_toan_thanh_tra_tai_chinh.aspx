@@ -56,11 +56,11 @@
     <h4 class="h4 text-center"><i>(Dùng cho đơn vị dự toán: cấp I, cấp II và cấp III)</i></h4>
     <div style="width:1200px; margin:0px auto">
     <div id="double-scroll" width: 1200px">
-        <table class="table table-hover table-bordered cssTable" style="width:<%=width%>px" id="tblPL03">
+        <table class="table-hover table-bordered cssTable" style="width:<%=width%>px" id="tblPL03">
             <thead style="border: 2px; border-radius: initial; border-bottom-color: black; border-bottom-style: double">
                 <tr class="text-center">
                     <th rowspan="2" style="width:50px">TT</th>
-                    <th style="width: 150px" rowspan="2">Nội dung</th>
+                    <th style="width: 200px" rowspan="2">Nội dung</th>
                     <th colspan="3" style="width:300px">Số kiến nghị của</th>
                     <th colspan="3" style="width:300px">Số đã nộp trả Quỹ BTĐB TW trong năm nay</th>
                     <th colspan="3" style="width:300px">Số còn phải nộp Quỹ BTĐB TW</th>
@@ -112,7 +112,7 @@
                     </td>
                     <% string noi_dung; if (item.TT != null) { noi_dung = item.TT + "- " + item.NoiDung; }
                        else { noi_dung = item.TT + " " + item.NoiDung; }%>
-                    <td class="col-sm-3" style="width:150px">
+                    <td class="col-sm-3" style="width:200px">
                         <strong class="ma_so_parent <%=item.NoiDung%>"><%=noi_dung%></strong>
                     </td>
                     <%-- 2) Gen columns Số kiến nghị --%>
