@@ -1,7 +1,15 @@
-﻿/// <reference path="../../DuToan/F104_nhap_du_toan_ke_hoach.aspx" />
+﻿/// <reference path="../../DuToan/F505_DuToanThuChiPhiPha.aspx" />
 /// <reference path="../linq.js" />
 /// <reference path="../jquery.linq.js" />
 var F505 = {
+	initialFormLoad: function () {
+		$('#m_ddl_quyet_dinh').change(function () {
+			var id_quyet_dinh = $('#m_ddl_quyet_dinh').val();
+			var id_don_vi = m_dc_id_don_vi;
+			F505.reloadGrid(id_quyet_dinh, id_don_vi);
+		});
+		$('#m_ddl_quyet_dinh').change();
+	},
 	initialControl: function () {
 		$('#m_ddl_quyet_dinh').select2();
 		this.autoComputed();
@@ -28,8 +36,7 @@ var F505 = {
 				F505.Message('Xảy ra lỗi trong quá trình thực hiện, Bạn vui lòng thực hiện lại thao tác!');
 			},
 			success: function (data) {
-				$('#F505 tbody').empty();
-				$('#F505').append(data);
+				$('#grid').empty().append(data);
 				F505.initialControl();
 			}
 		});
@@ -53,7 +60,10 @@ var F505 = {
 		return true;
 	},
 	addSubItem: function (button, ma_so_parent) {
-		$('#ThongTinChung').attr('ma_so_parent', ma_so_parent).bPopup();
+		var v_dc_id_parent = $(button).parent().parent().attr('id_giao_dich');
+		$('#ThongTinChung').attr('ma_so_parent', ma_so_parent)
+							.attr('ip_dc_id_parent', v_dc_id_parent)
+							.bPopup();
 		//reset value control
 		$('#tt').val('').focus();
 		$('#hang_muc').val('');
@@ -117,7 +127,7 @@ var F505 = {
 		var id_quyet_dinh = $('#m_ddl_quyet_dinh').val();
 		var tt = $('#tt').val();
 		var hang_muc = $('#hang_muc').val();
-		var ma_so_parent = $('#ThongTinChung').attr('ma_so_parent');
+		var v_dc_id_parent = $('#ThongTinChung').attr('ip_dc_id_parent');
 		var kinh_phi_giao = $('#kinh_phi_giao').val();
 		//insert to database
 		$.ajax({
@@ -126,8 +136,7 @@ var F505 = {
 			data: {
 				ip_dc_id_quyet_dinh: id_quyet_dinh
 				, ip_dc_id_don_vi: m_dc_id_don_vi
-				, ip_str_ma_so_parent: ma_so_parent
-				, ip_str_ma_so: ''
+				, ip_dc_id_parent: v_dc_id_parent
 				, ip_str_tt: tt
 				, ip_str_hang_muc: hang_muc
 				, ip_str_kinh_phi_giao: kinh_phi_giao
@@ -140,7 +149,14 @@ var F505 = {
 				, ip_str_GHI_CHU_QUY_II: ''
 				, ip_str_GHI_CHU_QUY_III: ''
 				, ip_str_GHI_CHU_QUY_IV: ''
-
+				, ip_str_PHAN_BO_QUI_I: 0
+				, ip_str_PHAN_BO_QUY_II: 0
+				, ip_str_PHAN_BO_QUY_III: 0
+				, ip_str_PHAN_BO_QUY_IV: 0
+				, ip_str_GHI_CHU_PHAN_BO_QUY_I: ''
+				, ip_str_GHI_CHU_PHAN_BO_QUY_II: ''
+				, ip_str_GHI_CHU_PHAN_BO_QUY_III: ''
+				, ip_str_GHI_CHU_PHAN_BO_QUY_IV: ''
 			},
 			dataType: 'text',
 			error: function () {
@@ -207,7 +223,7 @@ var F505 = {
 		}
 	},
 	autoComputedByClass: function (className) {
-		var lst_ma_so = Enumerable.From($('.'+className)).Select(function (x) { return $(x).attr('ma_so') }).ToArray();
+		var lst_ma_so = Enumerable.From($('.' + className)).Select(function (x) { return $(x).attr('ma_so') }).ToArray();
 		for (var i = 0; i < lst_ma_so.length; i++) {
 			F505.autoComputedChildren(lst_ma_so[i], className);
 		}
@@ -282,5 +298,6 @@ var F505 = {
 }
 
 $(document).ready(function () {
+	F505.initialFormLoad();
 	F505.initialControl();
 });
