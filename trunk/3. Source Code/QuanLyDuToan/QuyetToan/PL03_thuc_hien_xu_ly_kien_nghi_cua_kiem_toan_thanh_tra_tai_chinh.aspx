@@ -14,6 +14,7 @@
 
 		#tblPL03 {
 			border-left: 1px solid #ddd;
+			border-bottom: 1px solid #ddd;
 		}
 
 		.form-control, .format_so_tien {

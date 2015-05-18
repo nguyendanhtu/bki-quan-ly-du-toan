@@ -14,6 +14,7 @@
 
 		#tblPL04 {
 			border-left: 1px solid #ddd;
+			border-bottom: 1px solid #ddd;
 		}
 
 
@@ -66,6 +67,7 @@
 		var MaxCT =<%=lst_pl04.Select(x => new { x.CONG_TRINH, x.TEN_LOAI_NHIEM_VU}).Distinct().ToList().Count%> +'';
 		var m_lst_don_vi=<%= Newtonsoft.Json.JsonConvert.SerializeObject(m_lst_don_vi)%>;
 		var m_dc_id_don_vi=<%= m_dc_id_don_vi%>;
+		var form_mode="<%=m_str_form_mode%>";
 	</script>
 	<script src="../Scripts/jquery.doubleScroll.js"></script>
 	<script src="../Scripts/fixHeader.js"></script>

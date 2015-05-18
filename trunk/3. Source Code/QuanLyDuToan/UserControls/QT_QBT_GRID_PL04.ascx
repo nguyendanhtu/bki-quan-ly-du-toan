@@ -27,7 +27,8 @@
 							.ToList().Count+2)*65%>px">Kế hoạch được giao trong năm</th>
 					<th rowspan="2" class="gia_tri">Giá trị dự toán công trình được duyệt</th>
 					<th colspan="3" class="gia_tri">Giá trị công trình hoàn thành</th>
-					<th rowspan="2" class="gia_tri">Giá trị đề nghị quyết toán trong năm</th>
+					<th rowspan="2" class="gia_tri don_vi">Giá trị đề nghị quyết toán trong năm</th>
+					<th rowspan="2" class="gia_tri thanh_tra">Giá trị quyết toán</th>
 					<th rowspan="2" class="gia_tri">Giá trị CTHT đã quyết toán LK đến năm báo cáo </th>
 					<th rowspan="2" class="gia_tri">Giá trị CTHT chuyển năm sau QT</th>
 					<th rowspan="2" class="gia_tri">Kế hoạch còn dư cuối năm</th>
@@ -169,9 +170,13 @@
 							.Where(x=>x.TEN_LOAI_NHIEM_VU==ten_loai_nhiem_vu.TEN_LOAI_NHIEM_VU)
 							.Select(x=>x.GIA_TRI_CTHT_NAM_NAY+x.GIA_TRI_CTHT_NAM_TRUOC_CON_NO_CHUYEN_NAM_NAY)
 							.ToList().Sum()%></td>
-					<td class='text-right str_money DTDNQTTN gia_tri <%=ten_loai_nhiem_vu.TEN_LOAI_NHIEM_VU.Replace(" ","") %>' ma_so="<%="lnv_"+LnvIndex %>"><%= lst_pl04
+					<td class='text-right str_money GTDNQTTN gia_tri don_vi <%=ten_loai_nhiem_vu.TEN_LOAI_NHIEM_VU.Replace(" ","") %>' ma_so="<%="lnv_"+LnvIndex %>"><%= lst_pl04
 							.Where(x=>x.TEN_LOAI_NHIEM_VU==ten_loai_nhiem_vu.TEN_LOAI_NHIEM_VU)
 							.Select(x=>x.GIA_TRI_DE_NGHI_QUYET_TOAN_TRONG_NAM)
+							.ToList().Sum()%></td>
+					<td class='text-right str_money GTQT gia_tri thanh_tra <%=ten_loai_nhiem_vu.TEN_LOAI_NHIEM_VU.Replace(" ","") %>' ma_so="<%="lnv_"+LnvIndex %>"><%= lst_pl04
+							.Where(x=>x.TEN_LOAI_NHIEM_VU==ten_loai_nhiem_vu.TEN_LOAI_NHIEM_VU)
+							.Select(x=>x.GIA_TRI_CTHT_DA_QUYET_TOAN_LK_DEN_NAM_BAO_CAO)
 							.ToList().Sum()%></td>
 					<td class='text-right str_money GTCTHTDQTLKDNBC gia_tri <%=ten_loai_nhiem_vu.TEN_LOAI_NHIEM_VU.Replace(" ","") %>' ma_so="<%="lnv_"+LnvIndex %>"><%= lst_pl04
 							.Where(x=>x.TEN_LOAI_NHIEM_VU==ten_loai_nhiem_vu.TEN_LOAI_NHIEM_VU)
@@ -281,9 +286,13 @@
 							.Where(x=>x.TEN_LOAI_NHIEM_VU==ten_loai_nhiem_vu.TEN_LOAI_NHIEM_VU&&x.CONG_TRINH==cong_trinh)
 							.Select(x=>x.GIA_TRI_CTHT_NAM_NAY+x.GIA_TRI_CTHT_NAM_TRUOC_CON_NO_CHUYEN_NAM_NAY)
 							.ToList().Sum()%></td>
-					<td class='text-right str_money DTDNQTTN' ma_so="<%="ct_"+CtIndex %>" ma_so_parent="<%="lnv_"+LnvIndex %>"><%=lst_pl04
+					<td class='text-right str_money GTDNQTTN don_vi' ma_so="<%="ct_"+CtIndex %>" ma_so_parent="<%="lnv_"+LnvIndex %>"><%=lst_pl04
 							.Where(x=>x.TEN_LOAI_NHIEM_VU==ten_loai_nhiem_vu.TEN_LOAI_NHIEM_VU&&x.CONG_TRINH==cong_trinh)
 							.Select(x=>x.GIA_TRI_DE_NGHI_QUYET_TOAN_TRONG_NAM)
+							.ToList().Sum()%></td>
+					<td class='text-right str_money GTQT thanh_tra' ma_so="<%="ct_"+CtIndex %>" ma_so_parent="<%="lnv_"+LnvIndex %>"><%=lst_pl04
+							.Where(x=>x.TEN_LOAI_NHIEM_VU==ten_loai_nhiem_vu.TEN_LOAI_NHIEM_VU&&x.CONG_TRINH==cong_trinh)
+							.Select(x=>x.GIA_TRI_CTHT_DA_QUYET_TOAN_LK_DEN_NAM_BAO_CAO)
 							.ToList().Sum()%></td>
 					<td class='text-right str_money GTCTHTDQTLKDNBC' ma_so="<%="ct_"+CtIndex %>" ma_so_parent="<%="lnv_"+LnvIndex %>"><%=lst_pl04
 							.Where(x=>x.TEN_LOAI_NHIEM_VU==ten_loai_nhiem_vu.TEN_LOAI_NHIEM_VU&&x.CONG_TRINH==cong_trinh)
@@ -420,14 +429,24 @@
 							.Select(x => x.GIA_TRI_CTHT_NAM_NAY + x.GIA_TRI_CTHT_NAM_TRUOC_CON_NO_CHUYEN_NAM_NAY)
 							.ToList().Sum()%>
 						</span></td>
-					<td class='text-right '>
+					<td class='text-right don_vi'>
 						<input type="text" value="<%=lst_pl04
 							.Where(x => x.TEN_LOAI_NHIEM_VU == ten_loai_nhiem_vu.TEN_LOAI_NHIEM_VU 
 								&& x.CONG_TRINH == cong_trinh 
 								&& x.ID == du_an.ID)
 							.Select(x => x.GIA_TRI_DE_NGHI_QUYET_TOAN_TRONG_NAM)
 							.ToList().Sum()%>"
-							class="so_tien form-control input_control format_so_tien DTDNQTTN GiaTriDeNghiQuyetToanTrongNam <%=classIndex %>" ma_so_parent='<%="ct_"+CtIndex %>' />
+							class="so_tien form-control input_control format_so_tien GTDNQTTN GiaTriDeNghiQuyetToanTrongNam <%=classIndex %>" ma_so_parent='<%="ct_"+CtIndex %>' />
+
+					</td>
+					<td class='text-right thanh_tra'>
+						<input type="text" value="<%=lst_pl04
+							.Where(x => x.TEN_LOAI_NHIEM_VU == ten_loai_nhiem_vu.TEN_LOAI_NHIEM_VU 
+								&& x.CONG_TRINH == cong_trinh 
+								&& x.ID == du_an.ID)
+							.Select(x => x.GIA_TRI_QUYET_TOAN)
+							.ToList().Sum()%>"
+							class="so_tien form-control input_control format_so_tien GTQT GiaTriQuyetToan <%=classIndex %>" ma_so_parent='<%="ct_"+CtIndex %>' />
 
 					</td>
 					<td class='text-right'>

@@ -104,6 +104,7 @@ namespace QuanLyDuToan.WebMethod
 			, string ip_str_cong_trinh
 			, string ip_str_du_an
 			, string ip_str_GTDTCongTrinhDuocDuyet
+			, string ip_str_GiaTriQuyetToan
 			, string ip_str_GTCTHTNamTruocConNoChuyenSangNamNay
 			, string ip_str_GTCTHTNamNay
 			, string ip_str_GTDNQTTrongNam
@@ -122,6 +123,7 @@ namespace QuanLyDuToan.WebMethod
 			gd.GIA_TRI_CTHT_NAM_NAY = CIPConvert.ToDecimal(ip_str_GTCTHTNamNay.Trim().Replace(",", "").Replace(".", ""));
 			gd.GIA_TRI_DE_NGHI_QUYET_TOAN_TRONG_NAM = CIPConvert.ToDecimal(ip_str_GTDNQTTrongNam.Trim().Replace(",", "").Replace(".", ""));
 			gd.GIA_TRI_CTHT_DA_QUYET_TOAN_LK_DEN_NAM_BAO_CAO = CIPConvert.ToDecimal(ip_str_GTCTHTDQTLKDenNamBaoCao.Trim().Replace(",", "").Replace(".", ""));
+			gd.GIA_TRI_QUYET_TOAN = CIPConvert.ToDecimal(ip_str_GiaTriQuyetToan.Trim().Replace(",", "").Replace(".", ""));
 			db.SaveChanges();
 
 		}

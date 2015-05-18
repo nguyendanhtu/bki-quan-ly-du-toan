@@ -17,10 +17,19 @@
 			background-color: white;
 		}
 
-		#F505 {
+		
+		#F505 > thead > tr > th {
 			border: 1px solid #000;
 		}
 
+		#F505 > tbody > tr > td {
+			border-right: 1px solid #ddd;
+		}
+
+		#F505 {
+			border-left: 1px solid #ddd;
+			border-bottom: 1px solid #ddd;
+		}
 		.text-bold {
 			font-weight: bolder;
 			font-style: italic;
@@ -48,13 +57,13 @@
 			})
 			
 			 .ToList())%>;
-		var form_mode="giao_kh";
+		var form_mode="<%=m_str_form_mode%>";
 	</script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 	<div class='row'>
 		<div class='col-sm-12'>
-			<div class='col-sm-4 text-right'>
+			<div class='col-sm-4 text-right' style="margin-top:6px">
 				<label>Chọn quyết định</label>
 			</div>
 			<div class='col-sm-4'>
