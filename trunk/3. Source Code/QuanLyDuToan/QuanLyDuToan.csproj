@@ -151,6 +151,7 @@
     <Content Include="UserControls\F304Print.ascx" />
     <Content Include="UserControls\F305Print.ascx" />
     <Content Include="UserControls\F404Grid.ascx" />
+    <Content Include="UserControls\F505Grid.ascx" />
     <Content Include="UserControls\QT_QBT_GRID_PL01.ascx" />
     <Content Include="UserControls\QT_QBT_GRID_PL02.ascx" />
     <Content Include="UserControls\QT_QBT_GRID_PL03.ascx" />
@@ -857,6 +858,13 @@
     </Compile>
     <Compile Include="UserControls\F404Grid.ascx.designer.cs">
       <DependentUpon>F404Grid.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\F505Grid.ascx.cs">
+      <DependentUpon>F505Grid.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\F505Grid.ascx.designer.cs">
+      <DependentUpon>F505Grid.ascx</DependentUpon>
     </Compile>
     <Compile Include="UserControls\QT_QBT_GRID_PL01.ascx.cs">
       <DependentUpon>QT_QBT_GRID_PL01.ascx</DependentUpon>
