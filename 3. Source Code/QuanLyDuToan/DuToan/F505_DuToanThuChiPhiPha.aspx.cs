@@ -14,6 +14,7 @@ namespace QuanLyDuToan.DuToan
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
+			m_str_form_mode = WebformFunctions.getValue_from_query_string<string>(this, "form_mode", "giao_kh");
 			if (!IsPostBack)
 			{
 				m_dc_id_don_vi = 91;// Person.get_id_don_vi();
@@ -31,6 +32,7 @@ namespace QuanLyDuToan.DuToan
 		public List<GD_DU_TOAN_THU_CHI_PHI_PHA> m_lst_du_toan_thu_chi_phi_pha;
 		public List<DM_QUYET_DINH> m_lst_quyet_dinh;
 		public decimal m_dc_id_don_vi;
+		public string m_str_form_mode;
 
 		#endregion
 

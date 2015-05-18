@@ -36,6 +36,7 @@
 
 		#tblPL02 {
 			border-left: 1px solid #ddd;
+			border-bottom: 1px solid #ddd;
 		}
 
 		.form-control {

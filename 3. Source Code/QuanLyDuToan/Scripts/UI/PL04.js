@@ -152,11 +152,11 @@ var gdPL04 = {
 					MaxLNV = data.split("*****")[1];
 					MaxCT = data.split("*****")[2];
 					MaxRecord = data.split("*****")[3];
-					
+
 					$('#grid').empty().append(grid);
 					$('#grid').doubleScroll();
 					$('#tblPL04').scrollbarTable();
-					
+
 					gdPL04.autoValidateInput();
 					gdPL04.isChangeDataNeedToUpdate();
 					for (var i = 0; i < MaxRecord; i++) {
@@ -178,6 +178,10 @@ var gdPL04 = {
 					else {
 						$('.thao_tac').hide();
 					}
+
+					//format by form_mode: don_vi or thanh_tra
+					$('.don_vi, .thanh_tra').hide();
+					$('.' + form_mode).show();
 
 				}
 			});
@@ -265,6 +269,7 @@ var gdPL04 = {
 		txtGTCTHTNamNay = $(button).parent().parent().find('.GiaTriCTHTNamNay');
 		txtGTDNQTTrongNam = $(button).parent().parent().find('.GiaTriDeNghiQuyetToanTrongNam');
 		txtGTCTHTDQTLKDenNamBaoCao = $(button).parent().parent().find('.GiaTriCTHTDaQuyetToanLKDenNamBaoCao');
+		txtGiaTriQuyetToan = $(button).parent().parent().find('.GiaTriQuyetToan');
 
 		if (gdPL04.isCheckValidateDataOk(
 			$(txtGTDTCongTrinhDuocDuyet).val()
@@ -287,6 +292,7 @@ var gdPL04 = {
 					, ip_str_GTCTHTNamNay: $(txtGTCTHTNamNay).val()
 					, ip_str_GTDNQTTrongNam: $(txtGTDNQTTrongNam).val()
 					, ip_str_GTCTHTDQTLKDenNamBaoCao: $(txtGTCTHTDQTLKDenNamBaoCao).val()
+					, ip_str_GiaTriQuyetToan: $(txtGiaTriQuyetToan).val()
 
 				},
 				dataType: 'text',
@@ -391,5 +397,5 @@ var gdPL04 = {
 $(document).ready(function () {
 	gdPL04.load_data_to_ddl_don_vi(m_lst_don_vi);
 	gdPL04.reloadGrid();
-	
+
 })

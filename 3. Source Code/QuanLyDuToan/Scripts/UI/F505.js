@@ -3,6 +3,7 @@
 /// <reference path="../jquery.linq.js" />
 var F505 = {
 	initialFormLoad: function () {
+		$('#m_ddl_quyet_dinh').select2();
 		$('#m_ddl_quyet_dinh').change(function () {
 			var id_quyet_dinh = $('#m_ddl_quyet_dinh').val();
 			var id_don_vi = m_dc_id_don_vi;
@@ -11,7 +12,7 @@ var F505 = {
 		$('#m_ddl_quyet_dinh').change();
 	},
 	initialControl: function () {
-		$('#m_ddl_quyet_dinh').select2();
+		
 		this.autoComputed();
 		this.autoFormatInitialValue();
 		//this.FormatTable();

@@ -34,6 +34,7 @@ namespace QuanLyDuToan.QuyetToan
 		public List<GD_CHI_TIET_GIAO_KH> lst_giao_kh;
 		public List<DBClassModel.DM_DON_VI> m_lst_don_vi;
 		public decimal m_dc_id_don_vi;
+		public string m_str_form_mode;
 		#endregion
 
 		#region Private Methods
@@ -114,7 +115,7 @@ namespace QuanLyDuToan.QuyetToan
 		#region Events
 		protected void Page_Load(object sender, EventArgs e)
 		{
-			//InsertDataDuToanToQuyetToan(Person.get_id_don_vi(),"2014");
+			m_str_form_mode = WebformFunctions.getValue_from_query_string<string>(this, "form_mode", "don_vi");
 			m_dc_id_don_vi = Person.get_id_don_vi();
 			using (BKI_QLDTEntities db = new BKI_QLDTEntities())
 			{
