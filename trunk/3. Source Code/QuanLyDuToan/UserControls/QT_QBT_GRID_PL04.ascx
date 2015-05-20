@@ -298,11 +298,11 @@
 							.Where(x=>x.TEN_LOAI_NHIEM_VU==ten_loai_nhiem_vu.TEN_LOAI_NHIEM_VU&&x.CONG_TRINH==cong_trinh)
 							.Select(x=>x.GIA_TRI_CTHT_DA_QUYET_TOAN_LK_DEN_NAM_BAO_CAO)
 							.ToList().Sum()%></td>
-					<td class='text-right str_money' ma_so="<%="ct_"+CtIndex %>" ma_so_parent="<%="lnv_"+LnvIndex %>"><%=lst_pl04
+					<td class='text-right str_money GTCTHTCNSQT ' ma_so="<%="ct_"+CtIndex %>" ma_so_parent="<%="lnv_"+LnvIndex %>"><%=lst_pl04
 							.Where(x=>x.TEN_LOAI_NHIEM_VU==ten_loai_nhiem_vu.TEN_LOAI_NHIEM_VU&&x.CONG_TRINH==cong_trinh)
 							.Select(x=>x.GIA_TRI_CTHT_NAM_NAY+x.GIA_TRI_CTHT_NAM_TRUOC_CON_NO_CHUYEN_NAM_NAY-x.GIA_TRI_DE_NGHI_QUYET_TOAN_TRONG_NAM)
 							.ToList().Sum()%></td>
-					<td class='text-right str_money' ma_so="<%="ct_"+CtIndex %>" ma_so_parent="<%="lnv_"+LnvIndex %>"><%=
+					<td class='text-right str_money KHCDCN ' ma_so="<%="ct_"+CtIndex %>" ma_so_parent="<%="lnv_"+LnvIndex %>"><%=
 						lst_giao_kh
 							.Where(x=>x.DM_QUYET_DINH.ID_LOAI_QUYET_DINH_GIAO==WebUS.ID_LOAI_GIAO_DICH.DIEU_CHINH
 								&&x.CM_DM_TU_DIEN_LOAI_NHIEM_VU.TEN.ToUpper()==ten_loai_nhiem_vu.TEN_LOAI_NHIEM_VU.ToUpper()
@@ -459,13 +459,13 @@
 							class="so_tien form-control input_control format_so_tien GiaTriCTHTDaQuyetToanLKDenNamBaoCao GTCTHTDQTLKDNBC <%=classIndex %>" ma_so_parent='<%="ct_"+CtIndex %>' />
 
 					</td>
-					<td class='text-right str_money GTCTHTCNSQT <%=classIndex %>'><%=lst_pl04
+					<td class='text-right str_money GTCTHTCNSQT <%=classIndex %>' ma_so_parent='<%="ct_"+CtIndex %>' ><%=lst_pl04
 							.Where(x => x.TEN_LOAI_NHIEM_VU == ten_loai_nhiem_vu.TEN_LOAI_NHIEM_VU 
 								&& x.CONG_TRINH == cong_trinh 
 								&& x.ID == du_an.ID)
 							.Select(x => x.GIA_TRI_CTHT_NAM_NAY + x.GIA_TRI_CTHT_NAM_TRUOC_CON_NO_CHUYEN_NAM_NAY - x.GIA_TRI_DE_NGHI_QUYET_TOAN_TRONG_NAM)
 							.ToList().Sum()%></td>
-					<td class='text-right str_money KHCDCN <%=classIndex %>'><%=0 - lst_pl04
+					<td class='text-right str_money KHCDCN <%=classIndex %>' ma_so_parent='<%="ct_"+CtIndex %>' ><%=0 - lst_pl04
 							.Where(x => x.TEN_LOAI_NHIEM_VU == ten_loai_nhiem_vu.TEN_LOAI_NHIEM_VU 
 								&& x.CONG_TRINH == cong_trinh 
 								&& x.ID == du_an.ID)
