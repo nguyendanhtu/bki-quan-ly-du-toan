@@ -8,7 +8,7 @@
 //		$(lst_str[i]).text(getFormatedNumberString($(lst_str[i]).text()));
 //	}
 //}
-var lstParaClass = [".GTDTCTDD", ".GTCTHTNTCNCNN", ".GTCTHTNN", ".GTDNQTTN", ".GTCTHTDQTLKDNBC", ".GTCTHTCNSQT", ".KHCDCN", ".cong",".GTQT"];
+var lstParaClass = [".GTDTCTDD", ".GTCTHTNTCNCNN", ".GTCTHTNN", ".GTDNQTTN", ".GTCTHTDQTLKDNBC", ".GTCTHTCNSQT", ".KHCDCN", ".cong", ".GTQT"];
 var gdPL04 = {
 	cancel: function xoa_trang() {
 		$('#txtCongTrinh').val('');
@@ -105,7 +105,7 @@ var gdPL04 = {
 					}
 					tong = parseFloat(tong) + parseFloat(elementValue.split(',').join('').split('.').join(''));
 				}
-				$(strLNV).text(getFormatedNumberString(tong));
+				$(strLNV).text(getFormatedNumberString(tong)).change();
 			});
 		}
 	},
@@ -173,6 +173,7 @@ var gdPL04 = {
 						}
 					}
 
+					
 					if (m_dc_id_don_vi == $('#m_ddl_don_vi').val()) {
 						$('.thao_tac').show();
 					}
@@ -217,7 +218,7 @@ var gdPL04 = {
 					getFormatedNumberString(
 				parseFloat($('#txtGiaTriCTHTNamTruocConNoChuyenSangNamNay').val().split(',').join('').split('.').join(''))
 				+ parseFloat($('#txtGiaTriCTHTNamNay').val().split(',').join('').split('.').join(''))
-				+ ''));
+				+ '')).change();
 			});
 
 		$('#txtGiaTriDeNghiQuyetToanTrongNam, #lblCong')
@@ -226,7 +227,7 @@ var gdPL04 = {
 					getFormatedNumberString(
 				parseFloat($('#lblCong').text().split(',').join('').split('.').join(''))
 				- parseFloat($('#txtGiaTriDeNghiQuyetToanTrongNam').val().split(',').join('').split('.').join(''))
-				+ ''));
+				+ '')).change();
 			});
 		$('#lblQuyetDinhDieuChinhCuoiCung, #txtGiaTriDeNghiQuyetToanTrongNam')
 			.bind("keypress keyup keydown change blur", function () {
@@ -234,7 +235,7 @@ var gdPL04 = {
 					getFormatedNumberString(
 				parseFloat($('#lblQuyetDinhDieuChinhCuoiCung').text().split(',').join('').split('.').join(''))
 				- parseFloat($('#txtGiaTriDeNghiQuyetToanTrongNam').val().split(',').join('').split('.').join(''))
-				+ ''));
+				+ '')).change();
 			});
 
 	},
