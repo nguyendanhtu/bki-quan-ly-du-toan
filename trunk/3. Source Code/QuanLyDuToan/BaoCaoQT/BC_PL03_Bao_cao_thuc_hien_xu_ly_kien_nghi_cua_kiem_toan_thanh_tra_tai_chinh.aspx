@@ -106,6 +106,7 @@
                     <th class="col-sm-1 text-center" style="width:100px"><span>Cơ quan tài chính</span></th>
                     <%foreach (var don_vi in lst_don_vi.Where(x => x.TEN_DON_VI.ToUpper().Contains(dvct.ToUpper().Split(' ')[0])).OrderBy(x => x.TEN_DON_VI))
                       {
+                          //Nhung cot cua chi cuc se khong duoc hien thi
                           if (don_vi.TEN_DON_VI.ToUpper().Contains("CHI CỤC")) { class_cuc = "chi-cuc"; } else class_cuc = "khac";%>
                     <th class="col-sm-1 text-center <%=genClassCSS(don_vi.TEN_DON_VI,"tong")%> header-<%=class_cuc %>" style="width:100px"><span>Tổng số</span></th>
                     <th class="col-sm-1 text-center <%=genClassCSS(don_vi.TEN_DON_VI,"ktnc")%> header-<%=class_cuc %>" style="width:100px"><span>Kiểm toán nhà nước</span></th>
