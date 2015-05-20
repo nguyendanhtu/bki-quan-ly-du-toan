@@ -1,13 +1,14 @@
 ﻿/// <reference path="../jquery-1.4.1.js" />
 /// <reference path="../../QuyetToan/PL04_danh_muc_cong_trinh_quyet_toan.aspx" />
 /// <reference path="../script.js" />
+/// <reference path="../script.js" />
 //function autoFormatInitData() {
 //	var lst_str = $('.str_money');
 //	for (var i = 0; i < lst_str.length; i++) {
 //		$(lst_str[i]).text(getFormatedNumberString($(lst_str[i]).text()));
 //	}
 //}
-var lstParaClass = [".GTDTCTDD", ".GTCTHTNTCNCNN", ".GTCTHTNN", ".DTDNQTTN", ".GTCTHTDQTLKDNBC", ".GTCTHTCNSQT", ".KHCDCN", ".cong"];
+var lstParaClass = [".GTDTCTDD", ".GTCTHTNTCNCNN", ".GTCTHTNN", ".GTDNQTTN", ".GTCTHTDQTLKDNBC", ".GTCTHTCNSQT", ".KHCDCN", ".cong",".GTQT"];
 var gdPL04 = {
 	cancel: function xoa_trang() {
 		$('#txtCongTrinh').val('');
@@ -144,7 +145,7 @@ var gdPL04 = {
 				dataType: 'text',
 				error: function () {
 					$('#loading').hide();
-					alert('Xảy ra lỗi trong quá trình thực hiện, Bạn vui lòng thực hiện lại thao tác!');
+					CCommon.thong_bao('Xảy ra lỗi trong quá trình thực hiện, Bạn vui lòng thực hiện lại thao tác!','error');
 				},
 				success: function (data) {
 					$('#loading').hide();
@@ -197,7 +198,7 @@ var gdPL04 = {
 			var arr_keyCode_comma = [110, 188, 190];
 
 
-			if ((e.keyCode >= 48 && e.keyCode <= 57)
+			if ((e.keyCode >= 48 && e.keyCode <= 90)
 				|| (e.keyCode >= 96 && e.keyCode <= 105)
 				|| Enumerable.From(arr_keyCode_comma)
 					.Where(function (x) { return x == e.keyCode })
@@ -297,11 +298,12 @@ var gdPL04 = {
 				},
 				dataType: 'text',
 				error: function () {
-					alert('Xảy ra lỗi trong quá trình thực hiện, Bạn vui lòng thực hiện lại thao tác!');
+					CCommon.thong_bao('Xảy ra lỗi trong quá trình thực hiện, Bạn vui lòng thực hiện lại thao tác!', 'error');
 				},
 				success: function () {
 					//gdPL02.reloadGrid();
-					$(button).val("Đã cập nhật").removeClass("btn-primary").addClass("btn-success");
+					//$(button).val("Đã cập nhật").removeClass("btn-primary").addClass("btn-success");
+					//CCommon.thong_bao('Đã cập nhật thành công', 'success');
 				}
 			});
 		}
@@ -380,10 +382,15 @@ var gdPL04 = {
 	},
 	updateAll: function () {
 		var lstBtnCapNhat = $('.cap_nhat');
-		for (var i = 0; i < lstBtnCapNhat.length; i++) {
-			$(lstBtnCapNhat[i]).click();
+		try {
+			for (var i = 0; i < lstBtnCapNhat.length; i++) {
+				$(lstBtnCapNhat[i]).click();
+			}
+			CCommon.thong_bao('Bạn đã cập nhật dữ liệu thành công!', 'success');
+		} catch (e) {
+
 		}
-		CCommon.thong_bao('Bạn đã cập nhật dữ liệu thành công!', 'success');
+		
 	},
 	load_data_to_ddl_don_vi: function (lst) {
 		var html_don_vi = "";

@@ -13,9 +13,7 @@
 			<div class="col-sm-4">Chuong</div>
 			<div class="col-sm-8">
 				<select id="m_ddl_chuong">
-					
 				</select>
-
 			</div>
 		</div>
 		<div class="col-sm-12">

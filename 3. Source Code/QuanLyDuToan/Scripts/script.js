@@ -24,7 +24,7 @@
 		var arr_keyCode_comma = [110, 188, 190];
 
 
-		if ((e.keyCode >= 48 && e.keyCode <= 57)
+		if ((e.keyCode >= 48 && e.keyCode <= 90)
 			|| (e.keyCode >= 96 && e.keyCode <= 105)
 			|| Enumerable.From(arr_keyCode_comma)
 				.Where(function (x) { return x == e.keyCode })
@@ -173,11 +173,7 @@ function pageLoad(sender, args) {
 
 var CCommon = {
 	thong_bao: function (text, className) {
-		//className: warning, error, success, info
-		$('#m_message_notification').removeClass().addClass('alert-message').addClass(className);
-		$('#m_lbl_message_content').text(text);
-		$("#m_message_notification").show().fadeTo(3000, 500).slideToggle(1000, function () {
-			$("m_message_notification").hide();
-		});
+		//className: warn, error, success, info
+		$.notify(text, className);
 	}
 }
