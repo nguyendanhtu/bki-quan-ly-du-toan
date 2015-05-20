@@ -33,6 +33,12 @@ namespace QuanLyDuToan.BaoCaoQT {
             public decimal? ID_DON_VI;
             public string TEN_DON_VI;
         }
+        public class LoaiDonVi
+        {
+            public const string SO = "Sở GTVT";
+            public const string CUC = "Cục QLDB";
+            public const string BAN = "Ban QLDA";
+        }
         #endregion
 
         #region Members

@@ -147,6 +147,7 @@
     <Content Include="Styles\jquery-ui.theme.min.css" />
     <Content Include="Styles\jquery.dataTables.min.css" />
     <Content Include="Template\TPL_F304.txt" />
+    <Content Include="Test\Huytd.aspx" />
     <Content Include="Test\t.aspx" />
     <Content Include="Test\tudm.aspx" />
     <Content Include="UserControls\F104Grid.ascx" />
@@ -818,6 +819,13 @@
     </Compile>
     <Compile Include="QuyetToan\PL05_DanhMucGiaTriCongTrinhHoanThanhGiamTruThanhToan.aspx.designer.cs">
       <DependentUpon>PL05_DanhMucGiaTriCongTrinhHoanThanhGiamTruThanhToan.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Test\Huytd.aspx.cs">
+      <DependentUpon>Huytd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Test\Huytd.aspx.designer.cs">
+      <DependentUpon>Huytd.aspx</DependentUpon>
     </Compile>
     <Compile Include="Test\t.aspx.cs">
       <DependentUpon>t.aspx</DependentUpon>
