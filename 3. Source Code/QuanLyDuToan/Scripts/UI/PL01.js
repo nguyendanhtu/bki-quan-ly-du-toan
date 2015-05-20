@@ -57,7 +57,7 @@ var PL01 = {
 			dataType: 'text',
 			error: function () {
 				$('#loading').hide();
-				alert('Xảy ra lỗi trong quá trình thực hiện, Bạn vui lòng thực hiện lại thao tác!');
+				CCommon.thong_bao('Xảy ra lỗi trong quá trình thực hiện, Bạn vui lòng thực hiện lại thao tác!','error');
 			},
 			success: function (data) {
 				$('#loading').hide();
@@ -79,6 +79,7 @@ var PL01 = {
 		for (var i = 0; i < stack_update.length; i++) {
 			$(stack_update[i]).click();
 		}
+		CCommon.thong_bao('Đã cập nhật dữ liệu thành công', 'success');
 	},
 	formatInputMoneyInit: function () {
 		var lst_SoXetDuyet = $('.so_xet_duyet');
