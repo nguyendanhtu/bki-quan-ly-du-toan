@@ -28,11 +28,13 @@
 	<script type="text/javascript" src='<%=ResolveClientUrl("~/Scripts/script.js")%>'></script>
 	<%--<script type="text/javascript" src='<%=ResolveClientUrl("~/Scripts/jquery.min.js")%>'></script>--%>
 	<script type="text/javascript" src='<%=ResolveClientUrl("~/Scripts/jquery-ui.js")%>'></script>
+
 	<script type="text/javascript" src='<%=ResolveClientUrl("~/bootstrap-3.2.0-dist/js/bootstrap.js") %>'></script>
 	<script type="text/javascript" src='<%=ResolveClientUrl("~/Scripts/plugins/datepicker/bootstrap-datepicker.js")%>'></script>
 	<script type="text/javascript" src='<%=ResolveClientUrl("~/Scripts/plugins/select2-select2-ng/dist/js/select2.js")%>'></script>
 	<script type="text/javascript" src='<%=ResolveClientUrl("~/Downloadify/js/swfobject.js")%>'></script>
 	<script type="text/javascript" src='<%=ResolveClientUrl("~/Downloadify/js/downloadify.min.js")%>'></script>
+	<script src='<%=ResolveClientUrl("~/Scripts/notify.js")%>'></script>
 	<script type="text/javascript" src='<%=ResolveClientUrl("~/Scripts/ExportExcel.js")%>'></script>
 	<!-- Knockoutjs-->
 	<asp:ContentPlaceHolder ID="HeadContent" runat="server">
@@ -98,12 +100,7 @@
 					</li>
 				</ul>
 			</div>
-			<div class="alerts" style="text-align:right;display:none">
-				<div class="alert-message warning" id="m_message_notification">
-					<a class="close" onclick="$('#m_message_notification').hide()">×</a>
-					<p id="m_lbl_message_content">sdfdsfds</p>
-				</div>
-			</div>
+			
 			<div class="main">
 				<asp:ContentPlaceHolder ID="MainContent" runat="server" />
 			</div>

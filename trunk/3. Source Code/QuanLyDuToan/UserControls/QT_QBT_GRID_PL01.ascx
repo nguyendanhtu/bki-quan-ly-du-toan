@@ -14,7 +14,7 @@
 				<tbody>
 					<%foreach (var item in lst_pl01)
 	   { %>
-					<tr>
+					<tr >
 						<td class='col-sm-1 text-center'>
 							<span class=' ma_so <%= item.MA_SO %>'><%= item.MA_SO %></span>
 						</td>
@@ -22,14 +22,14 @@
 							<strong class='ma_so_parent <%= item.MA_SO_PARENT %>'><%= item.CHI_TIEU %></strong>
 						</td>
 						<td class='col-sm-1'>
-							<input type='text' id_giao_dich='<%=item.ID %>' class='form-control format_so_tien so_bao_cao <%= formatClass(item.MA_SO) %>' value='<%= item.SO_BAO_CAO %>' />
+							<input type='text' id_giao_dich='<%=item.ID %>' class='form-control format_so_tien so_bao_cao <%= formatClass(item.MA_SO) %> ' value='<%= item.SO_BAO_CAO %>' <%=(item.CONG_THUC!=null||lst_pl01.Count(x=>x.MA_SO_PARENT==item.MA_SO)>0)?"disabled='disabled' ":""%>/>
 						</td>
 						<td class='col-sm-1'>
-							<input type='text' class='form-control  format_so_tien so_xet_duyet <%=formatClass(item.MA_SO) %>' value='<%= item.SO_XET_DUYET %>' />
+							<input type='text' class='form-control  format_so_tien so_xet_duyet <%=formatClass(item.MA_SO) %> ' <%=(item.CONG_THUC!=null||lst_pl01.Count(x=>x.MA_SO_PARENT==item.MA_SO)>0)?"disabled='disabled' ":""%>/>
 						</td>
-						<%--<td class='col-sm-1 text-center'>
-					<span class=' ma_so <%= item.MA_SO %> cong_thuc' ><%=formatCongThuc( item.CONG_THUC) %></span>
-				</td>--%>
+						<td class='col-sm-1 ' style="display:none">
+					<span class=' ma_so <%= item.MA_SO %> cong_thuc' ><%=item.CONG_THUC %></span>
+				</td>
 						<td class='col-sm-1 text-center thao_tac'>
 							<input type='button' class='btn btn-sm btn-success cap_nhat' value='Đã cập nhật' onclick='PL01.cap_nhat(this)' style="display:none"/>
 						</td>

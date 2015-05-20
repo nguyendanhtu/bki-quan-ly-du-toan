@@ -18,9 +18,9 @@ var PL01 = {
 		//PL01.defineEvent();
 		PL01.load_data_to_ddl_don_vi(m_lst_don_vi);
 		PL01.load_data_to_grid();
-		PL01.autoTinhTong(70);
+
 		PL01.formatInputMoneyInit();
-		
+
 		//$('.cap_nhat').each(function () {
 		//	PL01.DaCapNhat(this);
 		//});
@@ -130,11 +130,9 @@ var PL01 = {
 			}
 			if (strClass != '') {
 				tong = tong + parseFloat(
-										$('.' + classCongThuc + '.' + strClass).val()
+										$('.' + classCongThuc + '.' + strClass).val().split(',').join('').split('.').join('')
 										) * heSo;
-				//console.log(i + ':' + strClass + ':' + parseFloat(
-				//						$('.' + classCongThuc + '.' + strClass).val()
-				//						) * heSo);
+
 			}
 		}
 		return tong;
@@ -160,10 +158,10 @@ var PL01 = {
 			if (strClass != '') {
 				$('.' + classCongThuc + '.' + strClass).bind("keypress keyup keydown change", (function (e) {
 					$('.' + classCongThuc + '.' + ma_so_parent)
-						.val(computedValueByFormula(lstFormula, classCongThuc));
+						.val(getFormatedNumberString(PL01.computedValueByFormula(lstFormula, classCongThuc)));
 
 				}));
-				CouldUpdate($('.' + classCongThuc + '.' + strClass).parent().parent().find('.cap_nhat'));
+				//CouldUpdate($('.' + classCongThuc + '.' + strClass).parent().parent().find('.cap_nhat'));
 			}
 
 

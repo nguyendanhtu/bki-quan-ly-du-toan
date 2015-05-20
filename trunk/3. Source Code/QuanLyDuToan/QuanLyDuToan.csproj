@@ -117,6 +117,7 @@
     <Content Include="Scripts\jquery.linq.js" />
     <Content Include="Scripts\jquery.min.js" />
     <Content Include="Scripts\linq.js" />
+    <Content Include="Scripts\notify.js" />
     <Content Include="Scripts\Test\tudm.js" />
     <Content Include="Scripts\UI\F104_test.js" />
     <Content Include="Scripts\UI\F104.js" />
