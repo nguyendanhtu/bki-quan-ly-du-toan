@@ -15,7 +15,7 @@ namespace QuanLyDuToan.BaoCaoQT {
             if (v_str_loai_don_vi=="SỞ") {
                 result += "so_";
             }
-            if (v_str_loai_don_vi == "CỤC") {
+            if (v_str_loai_don_vi == "CỤC" || v_str_loai_don_vi == "CHI") {
                 result += "cuc_";
             }
             if (v_str_loai_don_vi == "BAN") {
@@ -32,6 +32,8 @@ namespace QuanLyDuToan.BaoCaoQT {
         public List<decimal?> lst_nam;
         public decimal m_dc_nam;
         public decimal width = 1150;
+        public string class_cuc;
+        public decimal colspan;
         public List<GD_PL03_THUC_HIEN_XU_LY_KIEN_NGHI_CUA_KIEM_TOAN_THANH_TRA_TAI_CHINH> lst_cuc;
         public List<GD_PL03_THUC_HIEN_XU_LY_KIEN_NGHI_CUA_KIEM_TOAN_THANH_TRA_TAI_CHINH> lst_so;
         public List<GD_PL03_THUC_HIEN_XU_LY_KIEN_NGHI_CUA_KIEM_TOAN_THANH_TRA_TAI_CHINH> lst_ban;
@@ -50,8 +52,8 @@ namespace QuanLyDuToan.BaoCaoQT {
         }
         public class LoaiDonvi {
             public const string SO = "Sở GTVT";
-            public const string CUC = "CỤC QLĐB";
-            public const string BAN = "BAN QLDA";
+            public const string CUC = "Cục QLĐB";
+            public const string BAN = "Ban QLDA";
         }
         #endregion
 
@@ -75,6 +77,8 @@ namespace QuanLyDuToan.BaoCaoQT {
         {
                 decimal count_cuc = lst_don_vi.Where(x => x.TEN_DON_VI.ToUpper().Contains("CỤC QLDB")).ToList().Count;
                 width = width + count_cuc * 300 + 300;
+                decimal count_chi_cuc = lst_don_vi.Where(x => x.TEN_DON_VI.ToUpper().Contains("CHI CỤC")).ToList().Count;
+                width = width + count_chi_cuc * 300;
                 decimal count_so = lst_don_vi.Where(x => x.TEN_DON_VI.ToUpper().Contains("SỞ GTVT")).ToList().Count;
                 width = width + count_so * 100 + 300;
                 decimal count_ban = lst_don_vi.Where(x => x.TEN_DON_VI.ToUpper().Contains("BAN QLDA")).ToList().Count;
