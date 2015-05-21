@@ -1,4 +1,5 @@
-﻿/// <reference path="../../DuToan/F505_DuToanThuChiPhiPha.aspx" />
+﻿/// <reference path="../script.js" />
+/// <reference path="../../DuToan/F505_DuToanThuChiPhiPha.aspx" />
 /// <reference path="../linq.js" />
 /// <reference path="../jquery.linq.js" />
 var F505 = {
@@ -83,7 +84,7 @@ var F505 = {
 				F505.Message('Xảy ra lỗi trong quá trình thực hiện, Bạn vui lòng thực hiện lại thao tác!');
 			},
 			success: function (data) {
-				console.log('deleteItem, id_giao_dich=' + id_giao_dich);
+				//console.log('deleteItem, id_giao_dich=' + id_giao_dich);
 				//delete row in table
 				$(button).parent().parent().remove();
 				F505.reloadGrid();
@@ -200,7 +201,7 @@ var F505 = {
 			}
 			lst_item.push(item);
 		}
-		console.log(lst_item);
+		//console.log(lst_item);
 		$.ajax({
 			url: '../WebMethod/F505.asmx/UpdateAll',
 			type: 'post',
@@ -211,7 +212,7 @@ var F505 = {
 				//reload grid
 			},
 			success: function (data) {
-				console.log('success');
+				//console.log('success');
 				//reload grid
 				//F104.reloadGrid();
 			}
@@ -222,9 +223,16 @@ var F505 = {
 		for (var i = 0; i < lstClass.length; i++) {
 			this.autoComputedByClass(lstClass[i]);
 		}
+
+		CCommon.format_so_tien();
 	},
 	autoComputedByClass: function (className) {
-		var lst_ma_so = Enumerable.From($('.' + className)).Select(function (x) { return $(x).attr('ma_so') }).ToArray();
+		var lst_ma_so = Enumerable.From($('.' + className))
+			.Select(function (x) {
+				//console.log($(x).parent().parent().attr('ma_so'));
+				return $(x).attr('ma_so');
+			})
+			.ToArray();
 		for (var i = 0; i < lst_ma_so.length; i++) {
 			F505.autoComputedChildren(lst_ma_so[i], className);
 		}
@@ -232,21 +240,24 @@ var F505 = {
 	autoComputedChildren: function (ma_so_parent, classCongThuc) {
 		var strClassParent = "." + classCongThuc + "[ma_so='" + ma_so_parent + "']";
 		var strClassChildren = "." + classCongThuc + "[ma_so_parent='" + ma_so_parent + "']";
+		//console.log(strClassParent);
+		//console.log(strClassChildren);
 		var lstChildren = $(strClassChildren);
 		for (var i = 0; i < lstChildren.length; i++) {
 
 			$(lstChildren[i]).bind("keypress keyup keydown change", (function (e) {
+				var tong = 0.0;
+				for (var j = 0; j < lstChildren.length; j++) {
+					tong += parseFloat($(lstChildren[j]).val()
+										.split(',').join('').split('.').join(''));
+				}
+				$(strClassParent).val(getFormatedNumberString(tong)).change();
 				if (e.keyCode != 17
 					&& e.keyCode != 16
 					&& e.keyCode != 37
 					&& e.keyCode != 39
 					&& e.keyCode != 36) {
-					var tong = 0.0;
-					for (var j = 0; j < lstChildren.length; j++) {
-						tong += parseFloat($(lstChildren[j]).val()
-											.split(',').join('').split('.').join(''));
-					}
-					$(strClassParent).val(getFormatedNumberString(tong)).change();
+					
 				}
 			}));
 		}

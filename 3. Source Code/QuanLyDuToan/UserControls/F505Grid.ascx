@@ -20,7 +20,7 @@
 				<tbody>
 					<%foreach (var gd in m_lst_du_toan_thu_chi_phi_pha)%>
 					<%{%>
-					<tr  id_giao_dich="<%=gd.ID %>" loai="data"  ma_so='<%=gd.MA_SO %>' ma_so_parent='<%=gd.MA_SO_PARENT %>' >
+					<tr  id_giao_dich="<%=gd.ID %>" loai="data"  >
 						<td>
 							<!--TT-->
 							<input type='text' class='form-control tt text-center' value='<%=gd.TT %>' style='width: 50px' />
@@ -33,39 +33,39 @@
 						</td>
 						<td class="giao_kh thuc_hien">
 							<!--Kinh phi giao-->
-							<input type='text' class='text-right form-control kinh_phi_giao format_so_tien ' value='<%=gd.KINH_PHI_GIAO_KH %>'/>
+							<input type='text' class='text-right form-control kinh_phi_giao format_so_tien ' value='<%=gd.KINH_PHI_GIAO_KH %>'  ma_so='<%=gd.MA_SO %>' ma_so_parent='<%=gd.MA_SO_PARENT %>'/>
 						</td>
 						<td class="giao_kh">
 							<!--Phan bo Quy I-->
-							<input type="text" class="text-right form-control phan_bo_quy_i format_so_tien" value="<%=gd.PHAN_BO_QUI_I %>" />
+							<input type="text" class="text-right form-control phan_bo_quy_i format_so_tien" value="<%=gd.PHAN_BO_QUI_I %>"  ma_so='<%=gd.MA_SO %>' ma_so_parent='<%=gd.MA_SO_PARENT %>'/>
 						</td>
 						<td class="giao_kh">
 							<!--Phan bo Quy II-->
-							<input type="text" class="text-right form-control phan_bo_quy_ii format_so_tien" value="<%=gd.PHAN_BO_QUY_II %>" />
+							<input type="text" class="text-right form-control phan_bo_quy_ii format_so_tien" value="<%=gd.PHAN_BO_QUY_II %>"  ma_so='<%=gd.MA_SO %>' ma_so_parent='<%=gd.MA_SO_PARENT %>'/>
 						</td>
 						<td class="giao_kh">
 							<!--Phan bo Quy III-->
-							<input type="text" class="text-right form-control phan_bo_quy_iii format_so_tien" value="<%=gd.PHAN_BO_QUY_III %>" />
+							<input type="text" class="text-right form-control phan_bo_quy_iii format_so_tien" value="<%=gd.PHAN_BO_QUY_III %>"  ma_so='<%=gd.MA_SO %>' ma_so_parent='<%=gd.MA_SO_PARENT %>'/>
 						</td>
 						<td class="giao_kh">
 							<!--Phan bo Quy IV-->
-							<input type="text" class="text-right form-control phan_bo_quy_iv format_so_tien" value="<%=gd.PHAN_BO_QUY_IV %>" />
+							<input type="text" class="text-right form-control phan_bo_quy_iv format_so_tien" value="<%=gd.PHAN_BO_QUY_IV %>"  ma_so='<%=gd.MA_SO %>' ma_so_parent='<%=gd.MA_SO_PARENT %>'/>
 						</td>
 						<td class="thuc_hien">
 							<!--Thuc hien Quy I-->
-							<input type="text" class="text-right form-control thuc_hien_quy_i format_so_tien" value="<%=gd.KLTH_QUY_I %>" />
+							<input type="text" class="text-right form-control thuc_hien_quy_i format_so_tien" value="<%=gd.KLTH_QUY_I %>"  ma_so='<%=gd.MA_SO %>' ma_so_parent='<%=gd.MA_SO_PARENT %>'/>
 						</td>
 						<td class="thuc_hien">
 							<!--Thuc hien Quy II-->
-							<input type="text" class="text-right form-control thuc_hien_quy_ii format_so_tien" value="<%=gd.KLTH_QUY_II %>" />
+							<input type="text" class="text-right form-control thuc_hien_quy_ii format_so_tien" value="<%=gd.KLTH_QUY_II %>"  ma_so='<%=gd.MA_SO %>' ma_so_parent='<%=gd.MA_SO_PARENT %>'/>
 						</td>
 						<td class="thuc_hien">
 							<!--Thuc hien Quy III-->
-							<input type="text" class="text-right form-control thuc_hien_quy_iii format_so_tien" value="<%=gd.KLTH_QUY_III %>" />
+							<input type="text" class="text-right form-control thuc_hien_quy_iii format_so_tien" value="<%=gd.KLTH_QUY_III %>"  ma_so='<%=gd.MA_SO %>' ma_so_parent='<%=gd.MA_SO_PARENT %>'/>
 						</td>
 						<td class="thuc_hien">
 							<!--Thuc hien Quy IV-->
-							<input type="text" class="text-right form-control thuc_hien_quy_iv format_so_tien" value="<%=gd.KLTH_QUY_IV %>" />
+							<input type="text" class="text-right form-control thuc_hien_quy_iv format_so_tien" value="<%=gd.KLTH_QUY_IV %>"  ma_so='<%=gd.MA_SO %>' ma_so_parent='<%=gd.MA_SO_PARENT %>'/>
 						</td>
 						<td class='text-center' style='width: 150px'>
 							<!--Thao tac-->
