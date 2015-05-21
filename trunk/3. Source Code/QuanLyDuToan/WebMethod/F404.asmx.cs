@@ -26,31 +26,32 @@ namespace QuanLyDuToan.WebMethod
 			public decimal ID { get; set; }
 			public string GIA_TRI_THUC_HIEN_QBT { get; set; }
 			public string GIA_TRI_THUC_HIEN_NS { get; set; }
+			public string NHU_CAU_VON_KY_TIEP_THEO { get; set; }
 		}
 		#endregion
 
-		 #region Private Methods
+		#region Private Methods
 		private List<GD_KHOI_LUONG> load_data_to_grid_by_nguon(
 			string ip_str_nguon_ns
 			, decimal ip_dc_id_don_vi
 			, DateTime ip_dat_ngay_nhap_khoi_luong
+			, BKI_QLDTEntities ip_db
 			)
 		{
-			BKI_QLDTEntities db = new BKI_QLDTEntities();
 
 			//Tính toán các biến sử dụng
 			DateTime v_dat_dau_nam = CCommonFunction.getDate_dau_nam_from_date(ip_dat_ngay_nhap_khoi_luong);
 			DateTime v_dat_cuoi_nam = CCommonFunction.getDate_cuoi_nam_form_date(ip_dat_ngay_nhap_khoi_luong);
 
 			//Get list GD_GIAO_KH của năm
-			var v_lst_gd_giao_kh = db.GD_CHI_TIET_GIAO_KH
+			var v_lst_gd_giao_kh = ip_db.GD_CHI_TIET_GIAO_KH
 										.Where(x => x.ID_DON_VI == ip_dc_id_don_vi
 											&& x.DM_QUYET_DINH.NGAY_THANG >= v_dat_dau_nam
 											&& x.DM_QUYET_DINH.NGAY_THANG <= v_dat_cuoi_nam)
 										.ToList();
 
 			//Get list GD_KHOI_LUONG cua ngày nhập
-			var v_lst_gd_khoi_luong = db.GD_KHOI_LUONG
+			var v_lst_gd_khoi_luong = ip_db.GD_KHOI_LUONG
 											.Where(x => x.ID_DON_VI == ip_dc_id_don_vi
 												&& x.NGAY_THANG == ip_dat_ngay_nhap_khoi_luong.Date)
 											.ToList();
@@ -73,11 +74,12 @@ namespace QuanLyDuToan.WebMethod
 						gd_kl.ID_DU_AN = kh.ID_DU_AN;
 						gd_kl.SO_TIEN_DA_NGHIEM_THU = 0;
 						gd_kl.SO_TIEN_DA_NGHIEM_THU_NS = 0;
-						db.GD_KHOI_LUONG.Add(gd_kl);
-						db.SaveChanges();
+						gd_kl.NHU_CAU_VON_KY_TIEP_THEO = 0;
+						ip_db.GD_KHOI_LUONG.Add(gd_kl);
+						ip_db.SaveChanges();
 
 						//reload list khối lượng
-						v_lst_gd_khoi_luong = db.GD_KHOI_LUONG
+						v_lst_gd_khoi_luong = ip_db.GD_KHOI_LUONG
 											.Where(x => x.ID_DON_VI == ip_dc_id_don_vi
 												&& x.NGAY_THANG == ip_dat_ngay_nhap_khoi_luong.Date)
 											.ToList();
@@ -100,11 +102,12 @@ namespace QuanLyDuToan.WebMethod
 						gd_kl.ID_TIEU_MUC = kh.ID_TIEU_MUC;
 						gd_kl.SO_TIEN_DA_NGHIEM_THU = 0;
 						gd_kl.SO_TIEN_DA_NGHIEM_THU_NS = 0;
-						db.GD_KHOI_LUONG.Add(gd_kl);
-						db.SaveChanges();
+						gd_kl.NHU_CAU_VON_KY_TIEP_THEO = 0;
+						ip_db.GD_KHOI_LUONG.Add(gd_kl);
+						ip_db.SaveChanges();
 
 						//reload list khối lượng
-						v_lst_gd_khoi_luong = db.GD_KHOI_LUONG
+						v_lst_gd_khoi_luong = ip_db.GD_KHOI_LUONG
 											.Where(x => x.ID_DON_VI == ip_dc_id_don_vi
 												&& x.NGAY_THANG == ip_dat_ngay_nhap_khoi_luong.Date)
 											.ToList();
@@ -120,8 +123,8 @@ namespace QuanLyDuToan.WebMethod
 					if (v_lst_gd_giao_kh.Where(x => x.ID_CONG_TRINH == kl.ID_CONG_TRINH
 						&& x.ID_DU_AN == kl.ID_DU_AN).Count() == 0)
 					{
-						db.GD_KHOI_LUONG.Remove(kl);
-						db.SaveChanges();
+						ip_db.GD_KHOI_LUONG.Remove(kl);
+						ip_db.SaveChanges();
 					}
 				}
 				else if (kl.ID_KHOAN != null)
@@ -130,13 +133,13 @@ namespace QuanLyDuToan.WebMethod
 						&& x.ID_MUC == kl.ID_MUC
 						&& x.ID_TIEU_MUC == kl.ID_TIEU_MUC).Count() == 0)
 					{
-						db.GD_KHOI_LUONG.Remove(kl);
-						db.SaveChanges();
+						ip_db.GD_KHOI_LUONG.Remove(kl);
+						ip_db.SaveChanges();
 					}
 				}
 			}
 			//reload list khối lượng
-			v_lst_gd_khoi_luong = db.GD_KHOI_LUONG
+			v_lst_gd_khoi_luong = ip_db.GD_KHOI_LUONG
 								.Where(x => x.ID_DON_VI == ip_dc_id_don_vi
 									&& x.NGAY_THANG == ip_dat_ngay_nhap_khoi_luong.Date)
 								.ToList();
@@ -163,19 +166,19 @@ namespace QuanLyDuToan.WebMethod
 																	&& y.ID_DU_AN == x.ID_DU_AN).Count() > 0)
 							).ToList();
 		}
-        private List<GD_KHOI_LUONG> load_data_to_grid_luy_ke_by_nguon(
-            string ip_str_nguon_ns
-            , decimal ip_dc_id_don_vi
-            ,DateTime ip_dat_ngay_nhap_khoi_luong)
-        {
-            BKI_QLDTEntities db = new BKI_QLDTEntities();
-            List<GD_KHOI_LUONG> v_lst_gd_khoi_luong = new List<GD_KHOI_LUONG>();
-            DateTime v_dat_dau_nam = CCommonFunction.getDate_dau_nam_from_date(ip_dat_ngay_nhap_khoi_luong);
-			DateTime v_dat_cuoi_nam = CCommonFunction.getDate_cuoi_nam_form_date(ip_dat_ngay_nhap_khoi_luong);
-			
-            //kiem tra nguon
-			v_lst_gd_khoi_luong = db.GD_KHOI_LUONG.Where(x => x.ID_DON_VI == ip_dc_id_don_vi
-															//&& x.SO_TIEN_DA_NGHIEM_THU == 0
+		private List<GD_KHOI_LUONG> load_data_to_grid_luy_ke_by_nguon(
+			string ip_str_nguon_ns
+			, decimal ip_dc_id_don_vi
+			, DateTime ip_dat_ngay_nhap_khoi_luong
+			, BKI_QLDTEntities ip_db)
+		{
+			List<GD_KHOI_LUONG> v_lst_gd_khoi_luong = new List<GD_KHOI_LUONG>();
+			DateTime v_dat_dau_nam = CCommonFunction.getDate_dau_nam_from_date(ip_dat_ngay_nhap_khoi_luong);
+			//DateTime v_dat_cuoi_nam = CCommonFunction.getDate_cuoi_nam_form_date(ip_dat_ngay_nhap_khoi_luong);
+
+			//kiem tra nguon
+			v_lst_gd_khoi_luong = ip_db.GD_KHOI_LUONG.Where(x => x.ID_DON_VI == ip_dc_id_don_vi
+				//&& x.SO_TIEN_DA_NGHIEM_THU == 0
 															&& x.NGAY_THANG >= v_dat_dau_nam
 															&& x.NGAY_THANG <= ip_dat_ngay_nhap_khoi_luong).ToList();
 			if (ip_str_nguon_ns == "Y")
@@ -200,8 +203,8 @@ namespace QuanLyDuToan.WebMethod
 				//											&& x.NGAY_THANG >= v_dat_dau_nam
 				//											&& x.NGAY_THANG <= ip_dat_ngay_nhap_khoi_luong).ToList();
 			}
-            return v_lst_gd_khoi_luong;
-        }
+			return v_lst_gd_khoi_luong;
+		}
 		#endregion
 
 		[WebMethod]
@@ -217,21 +220,39 @@ namespace QuanLyDuToan.WebMethod
 				if (gd == null) continue;
 				gd.SO_TIEN_DA_NGHIEM_THU = Convert.ToDecimal(ip_arr[i].GIA_TRI_THUC_HIEN_QBT.Replace(",", "").Replace(".", ""));
 				gd.SO_TIEN_DA_NGHIEM_THU_NS = Convert.ToDecimal(ip_arr[i].GIA_TRI_THUC_HIEN_NS.Replace(",", "").Replace(".", ""));
+				gd.NHU_CAU_VON_KY_TIEP_THEO =Convert.ToDecimal(ip_arr[i].NHU_CAU_VON_KY_TIEP_THEO.Replace(",", "").Replace(".", ""));
 				db.SaveChanges();
 			}
 
 		}
 
 		[WebMethod]
-		public void genGrid(string ip_str_nguon_ns, decimal ip_dc_id_don_vi, string ip_str_ngay_nhap)
+		public void genGrid(
+			string ip_str_nguon_ns
+			, decimal ip_dc_id_don_vi
+			, int ip_dc_thang
+			, int ip_dc_ky_bao_cao
+			, int ip_dc_nam)
 		{
-			DateTime v_dat_ngay_nhap=IP.Core.IPCommon.CIPConvert.ToDatetime(ip_str_ngay_nhap,"dd/MM/yyyy");
+			BKI_QLDTEntities db = new BKI_QLDTEntities();
+			//2 kỳ báo cáo: kỳ 1 <=> ngày 1, kỳ 2 <=> ngày 15
+			int v_i_ngay_bao_cao = 1;
+			if (ip_dc_ky_bao_cao == 2)
+			{
+				v_i_ngay_bao_cao = 15;
+			}
+			DateTime v_dat_ngay_nhap = new DateTime(ip_dc_nam, ip_dc_thang, v_i_ngay_bao_cao);
 			List<GD_KHOI_LUONG> v_lst_khoi_luong = new List<GD_KHOI_LUONG>();
-            List<GD_KHOI_LUONG> v_lst_khoi_luong_luy_ke = new List<GD_KHOI_LUONG>();
-			v_lst_khoi_luong=load_data_to_grid_by_nguon(ip_str_nguon_ns, ip_dc_id_don_vi, v_dat_ngay_nhap);
-            v_lst_khoi_luong_luy_ke = load_data_to_grid_luy_ke_by_nguon(ip_str_nguon_ns, ip_dc_id_don_vi, v_dat_ngay_nhap);
+			List<GD_KHOI_LUONG> v_lst_khoi_luong_luy_ke = new List<GD_KHOI_LUONG>();
+			v_lst_khoi_luong = load_data_to_grid_by_nguon(
+								ip_str_nguon_ns
+								, ip_dc_id_don_vi, v_dat_ngay_nhap, db);
+			v_lst_khoi_luong_luy_ke = load_data_to_grid_luy_ke_by_nguon(
+								ip_str_nguon_ns
+								, ip_dc_id_don_vi
+								, v_dat_ngay_nhap, db);
 			string result = "";
-			if (v_lst_khoi_luong!=null)
+			if (v_lst_khoi_luong != null)
 			{
 				result = F404Grid.RenderToString(v_lst_khoi_luong, v_lst_khoi_luong_luy_ke);
 			}

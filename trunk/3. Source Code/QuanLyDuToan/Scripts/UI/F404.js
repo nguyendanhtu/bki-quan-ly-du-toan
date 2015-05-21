@@ -3,11 +3,12 @@
 /// <reference path="../jquery.linq.js" />>
 var F404 = {
 	initialFormLoad: function () {
-		$('#m_txt_ngay_nhap').val(m_str_now);
-		$(".datepicker").datepicker({ format: 'dd/mm/yyyy' });
+		$('#m_txt_nam').val(m_str_now);
+		$('#m_ddl_thang').select2();
+		//$(".datepicker").datepicker({ format: 'dd/mm/yyyy' });
 		F404.defineEvent();
 		F404.load_data_to_ddl_don_vi(m_lst_don_vi);
-		
+
 		F404.formatControlByNguon();
 		F404.formatControlBYRole();
 
@@ -66,7 +67,7 @@ var F404 = {
 				$(this).val(str_format);
 			}
 		});
-		
+
 	},
 	formatInitialSoTien: function () {
 		var lst = $('.format_so_tien, .grid_tong');
@@ -77,8 +78,17 @@ var F404 = {
 	},
 	/*endregion Events*/
 	check_validate_load_grid: function () {
-		if ($('#m_txt_ngay_nhap').val()=="") {
-			alert("Bạn phải nhập Ngày tháng!");
+		if ($('#m_txt_nam').val() == "") {
+			CCommon.thong_bao("Bạn phải nhập Năm báo cáo!", "error");
+			return false;
+		}
+		if (isNaN($('#m_txt_nam').val())) {
+			CCommon.thong_bao("Bạn phải nhập Năm báo cáo!", "error");
+			return false;
+		}
+		var v_dc_nam = parseInt($('#m_txt_nam').val());
+		if (v_dc_nam < 2000) {
+			CCommon.thong_bao("Bạn phải nhập Năm báo cáo!", "error");
 			return false;
 		}
 		return true;
@@ -95,7 +105,7 @@ var F404 = {
 				ID: $(lst_td[i]).attr('id_giao_dich'),
 				GIA_TRI_THUC_HIEN_QBT: $(lst_td[i]).find('.gia_tri_thuc_hien_qbt').val(),
 				GIA_TRI_THUC_HIEN_NS: $(lst_td[i]).find('.gia_tri_thuc_hien_ns').val(),
-
+				NHU_CAU_VON_KY_TIEP_THEO: $(lst_td[i]).find('.nhu_cau_von_ky_tiep_theo').val()
 			}
 			lst_data.push(item_data);
 		}
@@ -107,11 +117,12 @@ var F404 = {
 			data: { ip_str_arr: JSON.stringify(lst_data) },
 			dataType: "text",
 			error: function (data) {
-				alert('Xảy ra lỗi trong quá trình thực hiện, Bạn vui lòng thực hiện lại thao tác!');
+				CCommon.thong_bao('Xảy ra lỗi trong quá trình thực hiện, Bạn vui lòng thực hiện lại thao tác!','error');
 				//reload grid
 			},
 			success: function (data) {
 				//reload grid
+				CCommon.thong_bao('Đã cập nhật dữ liệu thành công!', 'success');
 				F404.reloadGrid();
 			}
 		});
@@ -134,29 +145,37 @@ var F404 = {
 
 	reloadGrid: function () {
 		var id_don_vi = $('#m_ddl_don_vi').val();
-		var v_str_ngay_nhap = $('#m_txt_ngay_nhap').val();
+		var v_dc_nam = $('#m_txt_nam').val();
+		var v_dc_thang = $('#m_ddl_thang').val();
+		var v_ky_bao_cao = 1;
+		if ($('#m_rdb_ky_2').is(':checked')) {
+			v_ky_bao_cao = 2;
+		}
 		if (F404.check_validate_load_grid()) {
 			$('#loading').show();
 			$.ajax({
 				url: '../WebMethod/F404.asmx/genGrid',
 				type: 'post',
 				data: {
-					ip_dc_ID_DON_VI: id_don_vi
-					, ip_str_nguon_ns: m_str_nguon_ns
-					, ip_str_ngay_nhap: v_str_ngay_nhap
+					ip_str_nguon_ns: m_str_nguon_ns
+					,ip_dc_id_don_vi: id_don_vi
+					, ip_dc_thang: v_dc_thang
+					, ip_dc_ky_bao_cao: v_ky_bao_cao
+					, ip_dc_nam: v_dc_nam
 				},
 				dataType: "text",
 				error: function (data) {
 					$('#loading').hide();
-					//alert('Xảy ra lỗi trong quá trình thực hiện, Bạn vui lòng thực hiện lại thao tác!');
-					F404.reloadGrid();
+					CCommon.thong_bao('Xảy ra lỗi trong quá trình thực hiện, Bạn vui lòng thực hiện lại thao tác!', 'error');
+					$('#F404 tbody').empty()
+					//F404.reloadGrid();
 					//reload grid
 				},
 				success: function (data) {
 					//reload grid
 					$('#F404 tbody').empty().append(data);
 					//computed event in grid
-					
+
 
 					//computed event in grid
 					F404.autoComputedBYLoaiNhiemVuCongTrinhDuAn();
@@ -165,9 +184,9 @@ var F404 = {
 					F404.formatInitialSoTien();
 					F404.formatControlSoTien();
 
-					
+
 					F404.formatControlByNguon();
-					
+
 					F404.formatControlBYRole();
 
 					//format label .so_tien
@@ -236,13 +255,14 @@ var F404 = {
 		var tr_parent = $('#F404 tbody tr').find("[ma_so='" + ma_so_parent + "']").parent();
 		var txt_parent_gia_tri_thuc_hien_qbt = $(tr_parent).find('.gia_tri_thuc_hien_qbt');
 		var txt_parent_gia_tri_thuc_hien_ns = $(tr_parent).find('.gia_tri_thuc_hien_ns');
+		var txt_parent_gia_nhu_cau_von_ky_tiep_theo = $(tr_parent).find('.nhu_cau_von_ky_tiep_theo');
 		//foreach children
 		var lst_children = $('#F404 tbody tr').find("[ma_so_parent='" + ma_so_parent + "']");
 		for (var i = 0; i < lst_children.length; i++) {
 			//var v_lst_children = $('#F404 tbody tr').find("[ma_so_parent='" + ma_so_parent + "']");
 			var txt_children_gia_tri_thuc_hien_qbt = $(lst_children[i]).parent().find('.gia_tri_thuc_hien_qbt');
 			var txt_children_gia_tri_thuc_hien_ns = $(lst_children[i]).parent().find('.gia_tri_thuc_hien_ns');
-
+			var txt_children_gia_nhu_cau_von_ky_tiep_theo = $(lst_children[i]).parent().find('.nhu_cau_von_ky_tiep_theo');
 			//define event
 			//Quy bao tri
 			$(txt_children_gia_tri_thuc_hien_qbt).bind("change keyup keydown", function () {
@@ -259,6 +279,14 @@ var F404 = {
 					tong += parseFloat($(lst_children[j]).parent().find('.gia_tri_thuc_hien_ns').val().split(',').join('').split('.').join(''));
 				}
 				$(txt_parent_gia_tri_thuc_hien_ns).val(getFormatedNumberString(tong)).change();
+				console.log(tong);
+			});
+			$(txt_children_gia_nhu_cau_von_ky_tiep_theo).bind("change keyup keydown", function () {
+				var tong = 0;
+				for (var j = 0; j < lst_children.length; j++) {
+					tong += parseFloat($(lst_children[j]).parent().find('.nhu_cau_von_ky_tiep_theo').val().split(',').join('').split('.').join(''));
+				}
+				$(txt_parent_gia_nhu_cau_von_ky_tiep_theo).val(getFormatedNumberString(tong)).change();
 				console.log(tong);
 			});
 		}

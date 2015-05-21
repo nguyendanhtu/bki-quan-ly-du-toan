@@ -31,6 +31,7 @@ namespace SQLDataAccess
         public Nullable<decimal> ID_KHOAN { get; set; }
         public Nullable<decimal> ID_MUC { get; set; }
         public Nullable<decimal> ID_TIEU_MUC { get; set; }
+        public Nullable<decimal> NHU_CAU_VON_KY_TIEP_THEO { get; set; }
     
         public virtual CM_DM_TU_DIEN CM_DM_TU_DIEN { get; set; }
         public virtual DM_CONG_TRINH_DU_AN_GOI_THAU DM_CONG_TRINH_DU_AN_GOI_THAU_DU_AN { get; set; }

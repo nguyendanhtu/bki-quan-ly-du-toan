@@ -269,7 +269,7 @@
 								</th>
 								<th rowspan="2">Nhiệm vụ chi</th>
 								<th rowspan="2" style="width: 50px">Chiều dài tuyến (km)</th>
-								<th rowspan="2" style="width: 100px">Tổng mức đầu tư</th>
+								<th rowspan="2" style="width: 100px">Tổng mức đầu tư/Tổng dự toán</th>
 								<th rowspan="2" style="width: 50px">Thời gian thực hiện</th>
 								<th rowspan="1" style="width: 100px">Kinh phí năm trước chuyển sang</th>
 								<th rowspan="1" style="width: 100px">Kinh phí Ngân sách</th>
