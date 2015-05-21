@@ -88,16 +88,19 @@ public class WebformReport
 					{
 						cell.BackColor = ip_grv.RowStyle.BackColor;
 					}
-					cell.CssClass = "textmode";
+					cell.CssClass = "numbermode";
 
-					List<Control> controls = new List<Control>();
+					//List<Control> controls = new List<Control>();
 
-					//Add controls to be removed to Generic List
+					////Add controls to be removed to Generic List
 					//foreach (Control control in cell.Controls)
 					//{
 					//	switch (control.GetType().Name)
 					//	{
 					//		case "HyperLink":
+					//			cell.Controls.Remove(control);
+					//			break;
+					//		case "a":
 					//			cell.Controls.Remove(control);
 					//			break;
 					//		case "TextBox":
