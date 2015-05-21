@@ -994,6 +994,7 @@
           <Property Name="ID_KHOAN" Type="numeric" />
           <Property Name="ID_MUC" Type="numeric" />
           <Property Name="ID_TIEU_MUC" Type="numeric" />
+          <Property Name="NHU_CAU_VON_KY_TIEP_THEO" Type="numeric" Precision="21" />
         </EntityType>
         <EntityType Name="GD_PL01_TONG_HOP_TINH_HINH_KINH_PHI_VA_QUYET_TOAN_CHI">
           <Key>
@@ -6914,6 +6915,7 @@
           <NavigationProperty Name="DM_CHUONG_LOAI_KHOAN_MUC_KHOAN" Relationship="BKI_QLDTModel.FK_GD_KHOI_LUONG_DM_CHUONG_LOAI_KHOAN_MUC1" FromRole="GD_KHOI_LUONG" ToRole="DM_CHUONG_LOAI_KHOAN_MUC" />
           <NavigationProperty Name="DM_CHUONG_LOAI_KHOAN_MUC_MUC" Relationship="BKI_QLDTModel.FK_GD_KHOI_LUONG_DM_CHUONG_LOAI_KHOAN_MUC2" FromRole="GD_KHOI_LUONG" ToRole="DM_CHUONG_LOAI_KHOAN_MUC" />
           <NavigationProperty Name="DM_CHUONG_LOAI_KHOAN_MUC_TIEU_MUC" Relationship="BKI_QLDTModel.FK_GD_KHOI_LUONG_DM_CHUONG_LOAI_KHOAN_MUC3" FromRole="GD_KHOI_LUONG" ToRole="DM_CHUONG_LOAI_KHOAN_MUC" />
+          <Property Type="Decimal" Name="NHU_CAU_VON_KY_TIEP_THEO" Precision="21" Scale="0" />
         </EntityType>
         <EntityType Name="GD_PL01_TONG_HOP_TINH_HINH_KINH_PHI_VA_QUYET_TOAN_CHI">
           <Key>
@@ -9319,6 +9321,7 @@
           <EntitySetMapping Name="GD_KHOI_LUONG">
             <EntityTypeMapping TypeName="BKI_QLDTModel.GD_KHOI_LUONG">
               <MappingFragment StoreEntitySet="GD_KHOI_LUONG">
+                <ScalarProperty Name="NHU_CAU_VON_KY_TIEP_THEO" ColumnName="NHU_CAU_VON_KY_TIEP_THEO" />
                 <ScalarProperty Name="ID_TIEU_MUC" ColumnName="ID_TIEU_MUC" />
                 <ScalarProperty Name="ID_MUC" ColumnName="ID_MUC" />
                 <ScalarProperty Name="ID_KHOAN" ColumnName="ID_KHOAN" />
