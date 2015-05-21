@@ -51,11 +51,7 @@
 		for (var i = 0; i < lst_str.length; i++) {
 			$(lst_str[i]).text(getFormatedNumberString($(lst_str[i]).text()));
 		}
-		$(".format_so_tien").keyup(function (e) {
-			if (e.keyCode != 17 && e.keyCode != 16 && e.keyCode != 37 && e.keyCode != 39 && e.keyCode != 36) {
-				$(this).val(formatString($(this).val()));
-			}
-		});
+		CCommon.format_so_tien();
 		$('#txt_so_bao_cao, #txt_so_xet_duyet').bind("keypress keyup keydown change blur", function () {
 			$('#lbl_chenh_lech').text(getFormatedNumberString(
 				parseFloat($('#txt_so_bao_cao').val().split(',').join('').split('.').join(''))

@@ -195,19 +195,7 @@ var gdPL04 = {
 		for (var i = 0; i < lst_str.length; i++) {
 			$(lst_str[i]).val(getFormatedNumberString($(lst_str[i]).val()));
 		}
-		$('.format_so_tien').bind("change blur keyup focus", function (e) {
-			var arr_keyCode_comma = [110, 188, 190];
-
-
-			if ((e.keyCode >= 48 && e.keyCode <= 90)
-				|| (e.keyCode >= 96 && e.keyCode <= 105)
-				|| Enumerable.From(arr_keyCode_comma)
-					.Where(function (x) { return x == e.keyCode })
-					.ToArray().length > 0) {
-				var str_format = getFormatedNumberString($(this).val().split(",").join("").split(".").join());
-				$(this).val(str_format);
-			}
-		});
+		CCommon.format_so_tien();
 		var lst_str = $('.str_money');
 		for (var i = 0; i < lst_str.length; i++) {
 			$(lst_str[i]).text(getFormatedNumberString($(lst_str[i]).text()));

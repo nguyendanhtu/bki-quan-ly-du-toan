@@ -20,7 +20,7 @@
 	//    blur: function () { $(this).val(getFormatedNumberString($(this).val())); },
 	//    focus: function () { $(this).val(getNumber($(this).val())); }
 	//});
-	$('.format_so_tien').bind("change blur keyup focus", function (e) {
+	$('.format_so_tien').bind("change blur keyup focus keydown", function (e) {
 		var arr_keyCode_comma = [110, 188, 190];
 
 
@@ -29,7 +29,7 @@
 			|| Enumerable.From(arr_keyCode_comma)
 				.Where(function (x) { return x == e.keyCode })
 				.ToArray().length > 0) {
-			var str_format = getFormatedNumberString($(this).val().split(",").join("").split(".").join());
+			var str_format = getFormatedNumberString(parseFloat($(this).val().split(",").join("").split(".").join()));
 			$(this).val(str_format);
 		}
 	});
@@ -73,6 +73,9 @@
 //    return (((sign) ? '' : '-') + ip_str_number + v_digits);
 //}
 function format_input(input) {
+	if (isNaN(input)&&input!='-') {
+		return '0';
+	}
 	// If the regex doesn't match, `replace` returns the string unmodified
 	return (input.toString()).replace(
 	  // Each parentheses group (or 'capture') in this regex becomes an argument 
@@ -102,16 +105,19 @@ function format_input(input) {
 	);
 };
 function getFormatedNumberString(ip_str_number) {
-	ip_str_number = ip_str_number.toString().replace(/\$|\,/g, '');
+	ip_str_number = ip_str_number.toString().split(',').join('').split(',').join('');
+	
 	if (isNaN(ip_str_number))
 		ip_str_number = "0";
+	
 	sign = (ip_str_number == (ip_str_number = Math.abs(ip_str_number)));
 	ip_str_number = Math.floor(ip_str_number * 100 + 0.50000000001);
 	ip_str_number = Math.floor(ip_str_number / 100).toString();
 	for (var i = 0; i < Math.floor((ip_str_number.length - (1 + i)) / 3) ; i++)
 		ip_str_number = ip_str_number.substring(0, ip_str_number.length - (4 * i + 3)) + ',' +
             ip_str_number.substring(ip_str_number.length - (4 * i + 3));
-	return (((sign) ? ip_str_number : '-' + ip_str_number));
+	//console.log((sign) ? ip_str_number : '-' + ip_str_number);
+	return (sign) ? ip_str_number : '-' + ip_str_number;
 }
 function formatNumber(num) {
 	return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")
@@ -175,5 +181,21 @@ var CCommon = {
 	thong_bao: function (text, className) {
 		//className: warn, error, success, info
 		$.notify(text, className);
+	},
+	format_so_tien: function () {
+		$('.format_so_tien').bind("change blur keyup focus keydown", function (e) {
+
+			var arr_keyCode_comma = [110, 188, 190];
+
+			if ((e.keyCode >= 48 && e.keyCode <= 57)
+				|| (e.keyCode >= 96 && e.keyCode <= 105)
+				|| Enumerable.From(arr_keyCode_comma)
+					.Where(function (x) { return x == e.keyCode })
+					.ToArray().length > 0) {
+				var str_format = format_input($(this).val().split(",").join("").split(".").join()) + '';
+				console.log(str_format);
+				$(this).val(str_format);
+			}
+		});
 	}
 }
