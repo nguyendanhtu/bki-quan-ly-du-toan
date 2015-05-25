@@ -162,55 +162,58 @@ namespace QuanLyDuToan.WebMethod
 			gd.SO_TIEN_NAM_TRUOC_CHUYEN_SANG_NS = ip_dc_SO_TIEN_NAM_TRUOC_CHUYEN_SANG_NS;
 			gd.ID_LOAI_NHIEM_VU = ip_dc_ID_LOAI_NHIEM_VU;
 
-			//Xu ly du lieu, lay id cong trinh, id du an
-			DM_CONG_TRINH_DU_AN_GOI_THAU v_cong_trinh = db.DM_CONG_TRINH_DU_AN_GOI_THAU
-				.FirstOrDefault(x => x.TEN.Trim() == ip_str_CONG_TRINH.Trim());
-			//&& x.DM_CONG_TRINH_DU_AN_GOI_THAU_CHILDREN.Where(y => y.TEN == ip_str_DU_AN
-			//).Count() > 0)
-			;
-
-
-			//Neu cong trinh khong co trong csdl thi insert vao 
-			if (v_cong_trinh == null)
+			if (!ip_str_CONG_TRINH.Trim().Equals(""))
 			{
-				v_cong_trinh = new DM_CONG_TRINH_DU_AN_GOI_THAU();
-				v_cong_trinh.ID_DON_VI = ip_dc_ID_DON_VI;
-				v_cong_trinh.ID_LOAI = WebUS.ID_LOAI_CONG_TRINH_DU_AN_GOI_THAU.CONG_TRINH;
-				v_cong_trinh.TEN = ip_str_CONG_TRINH;
-				db.DM_CONG_TRINH_DU_AN_GOI_THAU.Add(v_cong_trinh);
+				//Xu ly du lieu, lay id cong trinh, id du an
+				DM_CONG_TRINH_DU_AN_GOI_THAU v_cong_trinh = db.DM_CONG_TRINH_DU_AN_GOI_THAU
+					.FirstOrDefault(x => x.TEN.Trim() == ip_str_CONG_TRINH.Trim());
+				//&& x.DM_CONG_TRINH_DU_AN_GOI_THAU_CHILDREN.Where(y => y.TEN == ip_str_DU_AN
+				//).Count() > 0)
+				;
+
+
+				//Neu cong trinh khong co trong csdl thi insert vao 
+				if (v_cong_trinh == null)
+				{
+					v_cong_trinh = new DM_CONG_TRINH_DU_AN_GOI_THAU();
+					v_cong_trinh.ID_DON_VI = ip_dc_ID_DON_VI;
+					v_cong_trinh.ID_LOAI = WebUS.ID_LOAI_CONG_TRINH_DU_AN_GOI_THAU.CONG_TRINH;
+					v_cong_trinh.TEN = ip_str_CONG_TRINH;
+					db.DM_CONG_TRINH_DU_AN_GOI_THAU.Add(v_cong_trinh);
+					db.SaveChanges();
+					v_cong_trinh = db.DM_CONG_TRINH_DU_AN_GOI_THAU.FirstOrDefault(x => x.TEN.Trim() == ip_str_CONG_TRINH.Trim());
+				}
+				DM_CONG_TRINH_DU_AN_GOI_THAU v_du_an = db.DM_CONG_TRINH_DU_AN_GOI_THAU
+					.FirstOrDefault(x => x.TEN.Trim() == ip_str_DU_AN.Trim()
+						&& x.ID_CHA == v_cong_trinh.ID
+						);
+				if (v_du_an == null)
+				{
+					v_du_an = new DM_CONG_TRINH_DU_AN_GOI_THAU();
+					v_du_an.ID_CHA = v_cong_trinh.ID;
+					v_du_an.TEN = ip_str_DU_AN;
+					v_du_an.ID_LOAI = WebUS.ID_LOAI_CONG_TRINH_DU_AN_GOI_THAU.DU_AN;
+					db.DM_CONG_TRINH_DU_AN_GOI_THAU.Add(v_du_an);
+					db.SaveChanges();
+					v_du_an = db.DM_CONG_TRINH_DU_AN_GOI_THAU.FirstOrDefault(x => x.TEN.Trim() == ip_str_DU_AN.Trim());
+				}
+				gd.ID_CONG_TRINH = v_cong_trinh.ID;
+				gd.ID_DU_AN = v_du_an.ID;
+				gd.TU_CHU_YN = (ip_str_TU_CHU_YN.Equals("-1") ? null : ip_str_TU_CHU_YN);
+				gd.GHI_CHU_1 = (ip_str_GHI_CHU_1.Equals("-1") ? null : ip_str_GHI_CHU_1);
+				//Xu ly du lieu so KM
+				decimal v_so_km = 0;
+				decimal.TryParse(ip_str_GHI_CHU_2.Replace(",", ""), out v_so_km);
+				gd.GHI_CHU_2 = v_so_km.ToString();
+
+				gd.GHI_CHU_3 = (ip_str_GHI_CHU_3.Equals("-1") ? null : ip_str_GHI_CHU_3);
+				gd.GHI_CHU_4 = (ip_str_GHI_CHU_4.Equals("-1") ? null : ip_str_GHI_CHU_4);
+				if (ip_dc_ID == -1)
+				{
+					db.GD_CHI_TIET_GIAO_KH.Add(gd);
+				}
 				db.SaveChanges();
-				v_cong_trinh = db.DM_CONG_TRINH_DU_AN_GOI_THAU.FirstOrDefault(x => x.TEN.Trim() == ip_str_CONG_TRINH.Trim());
 			}
-			DM_CONG_TRINH_DU_AN_GOI_THAU v_du_an = db.DM_CONG_TRINH_DU_AN_GOI_THAU
-				.FirstOrDefault(x => x.TEN.Trim() == ip_str_DU_AN.Trim()
-					&& x.ID_CHA == v_cong_trinh.ID
-					);
-			if (v_du_an == null)
-			{
-				v_du_an = new DM_CONG_TRINH_DU_AN_GOI_THAU();
-				v_du_an.ID_CHA = v_cong_trinh.ID;
-				v_du_an.TEN = ip_str_DU_AN;
-				v_du_an.ID_LOAI = WebUS.ID_LOAI_CONG_TRINH_DU_AN_GOI_THAU.DU_AN;
-				db.DM_CONG_TRINH_DU_AN_GOI_THAU.Add(v_du_an);
-				db.SaveChanges();
-				v_du_an = db.DM_CONG_TRINH_DU_AN_GOI_THAU.FirstOrDefault(x => x.TEN.Trim() == ip_str_DU_AN.Trim());
-			}
-			gd.ID_CONG_TRINH = v_cong_trinh.ID;
-			gd.ID_DU_AN = v_du_an.ID;
-			gd.TU_CHU_YN = (ip_str_TU_CHU_YN.Equals("-1") ? null : ip_str_TU_CHU_YN);
-			gd.GHI_CHU_1 = (ip_str_GHI_CHU_1.Equals("-1") ? null : ip_str_GHI_CHU_1);
-			//Xu ly du lieu so KM
-			decimal v_so_km = 0;
-			decimal.TryParse(ip_str_GHI_CHU_2.Replace(",", ""), out v_so_km);
-			gd.GHI_CHU_2 = v_so_km.ToString();
-
-			gd.GHI_CHU_3 = (ip_str_GHI_CHU_3.Equals("-1") ? null : ip_str_GHI_CHU_3);
-			gd.GHI_CHU_4 = (ip_str_GHI_CHU_4.Equals("-1") ? null : ip_str_GHI_CHU_4);
-			if (ip_dc_ID == -1)
-			{
-				db.GD_CHI_TIET_GIAO_KH.Add(gd);
-			}
-			db.SaveChanges();
 		}
 
 		[WebMethod]
