@@ -49,10 +49,16 @@
 					value="<%=m_lst_gd.Select(x=>x.THOI_GIAN_THUC_HIEN)
 						.Sum() %>" />
 			</td>
-			<td>
-				<!--Kinh phi nam truoc chuyen sang-->
-				<input type="text" class="kinh_phi_nam_truoc_chuyen_sang form-control text-right format_so_tien"
+			<td class="qbt">
+				<!--Kinh phi nam truoc chuyen sang QBT-->
+				<input type="text" class="kinh_phi_nam_truoc_chuyen_sang_qbt form-control text-right format_so_tien"
 					value="<%=m_lst_gd.Select(x=>x.SO_TIEN_NAM_TRUOC_CHUYEN_SANG)
+						.Sum() %>" />
+			</td>
+			<td class="ns">
+				<!--Kinh phi nam truoc chuyen sang NS-->
+				<input type="text" class="kinh_phi_nam_truoc_chuyen_sang_ns form-control text-right format_so_tien"
+					value="<%=m_lst_gd.Select(x=>x.SO_TIEN_NAM_TRUOC_CHUYEN_SANG_NS)
 						.Sum() %>" />
 			</td>
 			<td>
@@ -124,12 +130,20 @@
 						 .Select(x=>x.THOI_GIAN_THUC_HIEN)
 						 .Sum() %>" />
 			</td>
-			<td>
-				<!--Kinh phi nam truoc chuyen sang-->
-				<input type="text" class="kinh_phi_nam_truoc_chuyen_sang form-control text-right format_so_tien"
+			<td class="qbt">
+				<!--Kinh phi nam truoc chuyen sang QBT-->
+				<input type="text" class="kinh_phi_nam_truoc_chuyen_sang_qbt form-control text-right format_so_tien"
 					value="<%=m_lst_gd
 						 .Where(x=>x.ID_LOAI_NHIEM_VU==lnv.ID_LOAI_NHIEM_VU)
 						 .Select(x=>x.SO_TIEN_NAM_TRUOC_CHUYEN_SANG)
+						 .Sum() %>" />
+			</td>
+			<td class="ns">
+				<!--Kinh phi nam truoc chuyen sang NS-->
+				<input type="text" class="kinh_phi_nam_truoc_chuyen_sang_ns form-control text-right format_so_tien"
+					value="<%=m_lst_gd
+						 .Where(x=>x.ID_LOAI_NHIEM_VU==lnv.ID_LOAI_NHIEM_VU)
+						 .Select(x=>x.SO_TIEN_NAM_TRUOC_CHUYEN_SANG_NS)
 						 .Sum() %>" />
 			</td>
 			<td>
@@ -209,12 +223,21 @@
 								.Select(x=>x.THOI_GIAN_THUC_HIEN)
 								.Sum()%>" />
 			</td>
-			<td>
-				<!--Kinh phi nam truoc chuyen sang-->
-				<input type="text" class="kinh_phi_nam_truoc_chuyen_sang form-control text-right format_so_tien"
+			<td class="qbt">
+				<!--Kinh phi nam truoc chuyen sang QBT-->
+				<input type="text" class="kinh_phi_nam_truoc_chuyen_sang_qbt form-control text-right format_so_tien"
 					value="<%=m_lst_gd.Where(x=>x.ID_LOAI_NHIEM_VU==lnv.ID_LOAI_NHIEM_VU
 									&&x.ID_CONG_TRINH==cong_trinh.ID_CONG_TRINH)
 								.Select(x=>x.SO_TIEN_NAM_TRUOC_CHUYEN_SANG)
+								.Sum()%>" />
+
+			</td>
+			<td class="ns">
+				<!--Kinh phi nam truoc chuyen sang NS-->
+				<input type="text" class="kinh_phi_nam_truoc_chuyen_sang_ns form-control text-right format_so_tien"
+					value="<%=m_lst_gd.Where(x=>x.ID_LOAI_NHIEM_VU==lnv.ID_LOAI_NHIEM_VU
+									&&x.ID_CONG_TRINH==cong_trinh.ID_CONG_TRINH)
+								.Select(x=>x.SO_TIEN_NAM_TRUOC_CHUYEN_SANG_NS)
 								.Sum()%>" />
 
 			</td>
@@ -280,10 +303,15 @@
 				<input type="text" class="thoi_gian_thuc_hien form-control text-right format_so_tien"
 					value="<%=du_an.THOI_GIAN_THUC_HIEN%>" />
 			</td>
-			<td>
-				<!--Kinh phi nam truoc chuyen sang-->
-				<input type="text" class="kinh_phi_nam_truoc_chuyen_sang form-control text-right format_so_tien"
+			<td class="qbt">
+				<!--Kinh phi nam truoc chuyen sang QBT-->
+				<input type="text" class="kinh_phi_nam_truoc_chuyen_sang_qbt form-control text-right format_so_tien"
 					value="<%=du_an.SO_TIEN_NAM_TRUOC_CHUYEN_SANG %>" />
+			</td>
+			<td class="ns">
+				<!--Kinh phi nam truoc chuyen sang NS-->
+				<input type="text" class="kinh_phi_nam_truoc_chuyen_sang_ns form-control text-right format_so_tien"
+					value="<%=du_an.SO_TIEN_NAM_TRUOC_CHUYEN_SANG_NS %>" />
 			</td>
 			<td>
 				<!--Kinh phi ngan sach-->
@@ -361,12 +389,20 @@
 								.Select(x=>x.THOI_GIAN_THUC_HIEN)
 								.Sum()%>" />
 			</td>
-			<td>
-				<!--Kinh phi nam truoc chuyen sang-->
-				<input type="text" class="kinh_phi_nam_truoc_chuyen_sang form-control text-right format_so_tien"
+			<td class="qbt">
+				<!--Kinh phi nam truoc chuyen sang QBT-->
+				<input type="text" class="kinh_phi_nam_truoc_chuyen_sang_qbt form-control text-right format_so_tien"
 					value="<%=m_lst_gd.Where(x=>x.ID_LOAI_NHIEM_VU==lnv.ID_LOAI_NHIEM_VU
 										&&x.ID_KHOAN==khoan.ID_KHOAN)
 								.Select(x=>x.SO_TIEN_NAM_TRUOC_CHUYEN_SANG)
+								.Sum()%>" />
+			</td>
+			<td class="ns">
+				<!--Kinh phi nam truoc chuyen sang NS-->
+				<input type="text" class="kinh_phi_nam_truoc_chuyen_sang_ns form-control text-right format_so_tien"
+					value="<%=m_lst_gd.Where(x=>x.ID_LOAI_NHIEM_VU==lnv.ID_LOAI_NHIEM_VU
+										&&x.ID_KHOAN==khoan.ID_KHOAN)
+								.Select(x=>x.SO_TIEN_NAM_TRUOC_CHUYEN_SANG_NS)
 								.Sum()%>" />
 			</td>
 			<td>
@@ -432,10 +468,15 @@
 				<input type="text" class="thoi_gian_thuc_hien form-control text-right format_so_tien"
 					value="<%=muc.THOI_GIAN_THUC_HIEN%>" />
 			</td>
-			<td>
-				<!--Kinh phi nam truoc chuyen sang-->
-				<input type="text" class="kinh_phi_nam_truoc_chuyen_sang form-control text-right format_so_tien"
+			<td class="qbt">
+				<!--Kinh phi nam truoc chuyen sang QBT-->
+				<input type="text" class="kinh_phi_nam_truoc_chuyen_sang_qbt form-control text-right format_so_tien"
 					value="<%=muc.SO_TIEN_NAM_TRUOC_CHUYEN_SANG %>" />
+			</td>
+			<td class="ns">
+				<!--Kinh phi nam truoc chuyen sang NS-->
+				<input type="text" class="kinh_phi_nam_truoc_chuyen_sang_ns form-control text-right format_so_tien"
+					value="<%=muc.SO_TIEN_NAM_TRUOC_CHUYEN_SANG_NS %>" />
 			</td>
 			<td>
 				<!--Kinh phi ngan sach-->
@@ -491,10 +532,15 @@
 				<input type="text" class="thoi_gian_thuc_hien form-control text-right format_so_tien"
 					value="<%=tieu_muc.THOI_GIAN_THUC_HIEN%>" />
 			</td>
-			<td>
-				<!--Kinh phi nam truoc chuyen sang-->
-				<input type="text" class="kinh_phi_nam_truoc_chuyen_sang form-control text-right format_so_tien"
+			<td class="qbt">
+				<!--Kinh phi nam truoc chuyen sang QBT-->
+				<input type="text" class="kinh_phi_nam_truoc_chuyen_sang_qbt form-control text-right format_so_tien"
 					value="<%=tieu_muc.SO_TIEN_NAM_TRUOC_CHUYEN_SANG %>" />
+			</td>
+			<td class="ns">
+				<!--Kinh phi nam truoc chuyen sang NS-->
+				<input type="text" class="kinh_phi_nam_truoc_chuyen_sang_ns form-control text-right format_so_tien"
+					value="<%=tieu_muc.SO_TIEN_NAM_TRUOC_CHUYEN_SANG_NS %>" />
 			</td>
 			<td>
 				<!--Kinh phi ngan sach-->

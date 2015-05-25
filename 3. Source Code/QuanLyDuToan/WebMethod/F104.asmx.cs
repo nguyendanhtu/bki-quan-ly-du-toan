@@ -27,7 +27,7 @@ namespace QuanLyDuToan.WebMethod
 		#region Data Structure
 
 		#endregion
-		 
+
 		#region Public Function
 		public string genClassCSS(pr_F104_nhap_du_toan_ke_hoach_Result ip_gd)
 		{
@@ -123,7 +123,8 @@ namespace QuanLyDuToan.WebMethod
 					, decimal ip_dc_ID_MUC
 					, string ip_str_GHI_CHU
 					, decimal ip_dc_ID_TIEU_MUC
-					, decimal ip_dc_SO_TIEN_NAM_TRUOC_CHUYEN_SANG
+					, decimal ip_dc_SO_TIEN_NAM_TRUOC_CHUYEN_SANG_QBT
+					, decimal ip_dc_SO_TIEN_NAM_TRUOC_CHUYEN_SANG_NS
 					, decimal ip_dc_ID_LOAI_NHIEM_VU
 					, string ip_str_DU_AN
 					, string ip_str_TU_CHU_YN
@@ -157,14 +158,15 @@ namespace QuanLyDuToan.WebMethod
 			gd.GHI_CHU = ip_str_GHI_CHU.Equals("-1") ? null : ip_str_GHI_CHU;
 			if (ip_dc_ID_TIEU_MUC == -1) gd.ID_TIEU_MUC = null;
 			else gd.ID_TIEU_MUC = ip_dc_ID_TIEU_MUC;
-			gd.SO_TIEN_NAM_TRUOC_CHUYEN_SANG = ip_dc_SO_TIEN_NAM_TRUOC_CHUYEN_SANG;
+			gd.SO_TIEN_NAM_TRUOC_CHUYEN_SANG = ip_dc_SO_TIEN_NAM_TRUOC_CHUYEN_SANG_QBT;
+			gd.SO_TIEN_NAM_TRUOC_CHUYEN_SANG_NS = ip_dc_SO_TIEN_NAM_TRUOC_CHUYEN_SANG_NS;
 			gd.ID_LOAI_NHIEM_VU = ip_dc_ID_LOAI_NHIEM_VU;
 
 			//Xu ly du lieu, lay id cong trinh, id du an
 			DM_CONG_TRINH_DU_AN_GOI_THAU v_cong_trinh = db.DM_CONG_TRINH_DU_AN_GOI_THAU
 				.FirstOrDefault(x => x.TEN.Trim() == ip_str_CONG_TRINH.Trim());
-				//&& x.DM_CONG_TRINH_DU_AN_GOI_THAU_CHILDREN.Where(y => y.TEN == ip_str_DU_AN
-				//).Count() > 0)
+			//&& x.DM_CONG_TRINH_DU_AN_GOI_THAU_CHILDREN.Where(y => y.TEN == ip_str_DU_AN
+			//).Count() > 0)
 			;
 
 
@@ -250,7 +252,8 @@ namespace QuanLyDuToan.WebMethod
 		{
 			public decimal ID { get; set; }
 			public string SO_KM { get; set; }
-			public string KP_NAM_TRUOC_CHUYEN_SANG { get; set; }
+			public string KP_NAM_TRUOC_CHUYEN_SANG_QBT { get; set; }
+			public string KP_NAM_TRUOC_CHUYEN_SANG_NS { get; set; }
 			public string KP_NGAN_SACH { get; set; }
 			public string KP_QUY_BT { get; set; }
 			public string TONG_MUC_DAU_TU { get; set; }
@@ -275,7 +278,8 @@ namespace QuanLyDuToan.WebMethod
 					decimal.TryParse(ip_arr[i].SO_KM.Replace(",", ""), out v_so_km);
 					gd.GHI_CHU_2 = v_so_km.ToString();
 
-					gd.SO_TIEN_NAM_TRUOC_CHUYEN_SANG = Convert.ToDecimal(ip_arr[i].KP_NAM_TRUOC_CHUYEN_SANG.Trim().Replace(",", "").Replace(".", ""));
+					gd.SO_TIEN_NAM_TRUOC_CHUYEN_SANG = Convert.ToDecimal(ip_arr[i].KP_NAM_TRUOC_CHUYEN_SANG_QBT.Trim().Replace(",", "").Replace(".", ""));
+					gd.SO_TIEN_NAM_TRUOC_CHUYEN_SANG_NS = Convert.ToDecimal(ip_arr[i].KP_NAM_TRUOC_CHUYEN_SANG_NS.Trim().Replace(",", "").Replace(".", ""));
 					gd.SO_TIEN_NS = Convert.ToDecimal(ip_arr[i].KP_NGAN_SACH.Trim().Replace(",", "").Replace(".", ""));
 					gd.SO_TIEN_QUY_BT = Convert.ToDecimal(ip_arr[i].KP_QUY_BT.Trim().Replace(",", "").Replace(".", ""));
 					gd.TONG_MUC_DAU_TU = Convert.ToDecimal(ip_arr[i].TONG_MUC_DAU_TU.Trim().Replace(",", "").Replace(".", ""));
@@ -331,12 +335,17 @@ namespace QuanLyDuToan.WebMethod
 						v_gd.GHI_CHU_2 = gd_qd1.GHI_CHU_2;
 
 						v_gd.SO_TIEN_NAM_TRUOC_CHUYEN_SANG = 0;
+						v_gd.SO_TIEN_NAM_TRUOC_CHUYEN_SANG_NS = 0;
 						v_gd.SO_TIEN_NS = 0;
 						v_gd.SO_TIEN_QUY_BT = 0;
 						v_gd.TONG_MUC_DAU_TU = 0;
 						v_gd.THOI_GIAN_THUC_HIEN = 0;
 						db.GD_CHI_TIET_GIAO_KH.Add(v_gd);
 						db.SaveChanges();
+						lst_gd_qd_2 = db.GD_CHI_TIET_GIAO_KH
+								.Where(x => x.ID_QUYET_DINH == ip_dc_id_quyet_dinh_2
+									&& x.ID_DON_VI == ip_dc_id_don_vi)
+								.ToList();
 					}
 					//Neu da co roi thi bo qua
 					else
@@ -368,12 +377,17 @@ namespace QuanLyDuToan.WebMethod
 
 						v_gd.TU_CHU_YN = gd_qd1.TU_CHU_YN;
 						v_gd.SO_TIEN_NAM_TRUOC_CHUYEN_SANG = 0;
+						v_gd.SO_TIEN_NAM_TRUOC_CHUYEN_SANG_NS = 0;
 						v_gd.SO_TIEN_NS = 0;
 						v_gd.SO_TIEN_QUY_BT = 0;
 						v_gd.TONG_MUC_DAU_TU = 0;
 						v_gd.THOI_GIAN_THUC_HIEN = 0;
 						db.GD_CHI_TIET_GIAO_KH.Add(v_gd);
 						db.SaveChanges();
+						lst_gd_qd_2 = db.GD_CHI_TIET_GIAO_KH
+								.Where(x => x.ID_QUYET_DINH == ip_dc_id_quyet_dinh_2
+									&& x.ID_DON_VI == ip_dc_id_don_vi)
+								.ToList();
 					}
 					//Neu da co roi thi bo qua
 					else
