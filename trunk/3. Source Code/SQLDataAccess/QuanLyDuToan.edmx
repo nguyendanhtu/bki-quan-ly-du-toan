@@ -916,6 +916,7 @@
           <Property Name="TONG_MUC_DAU_TU" Type="numeric" Precision="21" />
           <Property Name="THOI_GIAN_THUC_HIEN" Type="numeric" Precision="21" />
           <Property Name="LOAI_CONG_TRINH" Type="nvarchar" MaxLength="250" />
+          <Property Name="SO_TIEN_NAM_TRUOC_CHUYEN_SANG_NS" Type="numeric" Precision="21" />
         </EntityType>
         <EntityType Name="GD_CHI_TIET_GIAO_VON">
           <Key>
@@ -6855,6 +6856,7 @@
           <Property Type="Decimal" Name="TONG_MUC_DAU_TU" Precision="21" Scale="0" />
           <Property Type="Decimal" Name="THOI_GIAN_THUC_HIEN" Precision="21" Scale="0" />
           <Property Type="String" Name="LOAI_CONG_TRINH" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Type="Decimal" Name="SO_TIEN_NAM_TRUOC_CHUYEN_SANG_NS" Precision="21" Scale="0" />
         </EntityType>
         <EntityType Name="GD_CHI_TIET_GIAO_VON">
           <Key>
@@ -9270,6 +9272,7 @@
           <EntitySetMapping Name="GD_CHI_TIET_GIAO_KH">
             <EntityTypeMapping TypeName="BKI_QLDTModel.GD_CHI_TIET_GIAO_KH">
               <MappingFragment StoreEntitySet="GD_CHI_TIET_GIAO_KH">
+                <ScalarProperty Name="SO_TIEN_NAM_TRUOC_CHUYEN_SANG_NS" ColumnName="SO_TIEN_NAM_TRUOC_CHUYEN_SANG_NS" />
                 <ScalarProperty Name="LOAI_CONG_TRINH" ColumnName="LOAI_CONG_TRINH" />
                 <ScalarProperty Name="THOI_GIAN_THUC_HIEN" ColumnName="THOI_GIAN_THUC_HIEN" />
                 <ScalarProperty Name="TONG_MUC_DAU_TU" ColumnName="TONG_MUC_DAU_TU" />

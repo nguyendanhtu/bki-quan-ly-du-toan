@@ -325,6 +325,8 @@ namespace DBClassModel
 
 		public decimal SO_TIEN_NAM_TRUOC_CHUYEN_SANG { get; set; }
 
+		public decimal SO_TIEN_NAM_TRUOC_CHUYEN_SANG_NS { get; set; }
+
 		public decimal ID_LOAI_NHIEM_VU { get; set; }
 
 		public decimal ID_DU_AN { get; set; }

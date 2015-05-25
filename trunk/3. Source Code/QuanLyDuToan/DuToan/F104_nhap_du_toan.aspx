@@ -217,10 +217,18 @@
 							<input type="text" id="m_txt_chieu_dai_tuyen" value="0" class="form-control text-right" style="width: 100%" placeholder="vd: 1120.25" title="vd: 1120.25" />
 						</div>
 					</div>
-					<div class="col-sm-12" id="div_kinh_phi_nam_truoc_chuyen_sang">
+					<!--Kinh phi nam truoc chuyen sang QBT-->
+					<div class="col-sm-12 qbt" id="div_kinh_phi_nam_truoc_chuyen_sang">
 						<div class="col-sm-4 text-right">KP năm trước CS</div>
 						<div class="col-sm-8">
-							<input type="text" id="m_txt_kinh_phi_nam_truoc_chuyen_sang" value="0" class="form-control   format_so_tien text-right" style="width: 100%" />
+							<input type="text" id="m_txt_kinh_phi_nam_truoc_chuyen_sang_qbt" value="0" class="form-control   format_so_tien text-right" style="width: 100%" />
+						</div>
+					</div>
+					<!--Kinh phi nam truoc chuyen sang NS-->
+					<div class="col-sm-12 ns" id="div1">
+						<div class="col-sm-4 text-right">KP năm trước CS</div>
+						<div class="col-sm-8">
+							<input type="text" id="m_txt_kinh_phi_nam_truoc_chuyen_sang_ns" value="0" class="form-control   format_so_tien text-right" style="width: 100%" />
 						</div>
 					</div>
 					<div class="col-sm-12 nguon_quy_bao_tri" id="div_kinh_phi_quy_bao_tri">
