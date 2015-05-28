@@ -40,8 +40,7 @@ namespace QuanLyDuToan.ChucNang
 		private void load_content_print(decimal ip_dc_id_dm_unc)
 		{
 			US_DM_GIAI_NGAN v_us = new US_DM_GIAI_NGAN(ip_dc_id_dm_unc);
-			m_lbl_so_unc.Text = v_us.strSO_UNC;
-			m_lbl_so_tien_ghi_bang_chu.Text = v_us.strTTDVH_SO_TIEN;
+			
 			US_V_DM_GIAI_NGAN v_us_v_giai_ngan = new US_V_DM_GIAI_NGAN();
 			DS_V_DM_GIAI_NGAN v_ds = new DS_V_DM_GIAI_NGAN();
 			v_ds.EnforceConstraints = false;
@@ -65,13 +64,18 @@ namespace QuanLyDuToan.ChucNang
 			m_grv.DataBind();
 
 			decimal v_dc_tong_tien=0;
+			decimal v_dc_nop_thue = 0;
+			decimal v_dc_don_vi_huong = 0;
 			for (int i = 0; i < v_ds.V_DM_GIAI_NGAN.Count; i++)
 			{
 			 v_dc_tong_tien+=CIPConvert.ToDecimal( v_ds.Tables[0].Rows[i][V_DM_GIAI_NGAN.SO_TIEN_NOP_THUE])
 				 +CIPConvert.ToDecimal(v_ds.Tables[0].Rows[i][V_DM_GIAI_NGAN.SO_TIEN_TT_CHO_DV_HUONG]);
+			 v_dc_nop_thue += CIPConvert.ToDecimal(v_ds.Tables[0].Rows[i][V_DM_GIAI_NGAN.SO_TIEN_NOP_THUE]);
+			 v_dc_don_vi_huong += CIPConvert.ToDecimal(v_ds.Tables[0].Rows[i][V_DM_GIAI_NGAN.SO_TIEN_TT_CHO_DV_HUONG]);
 			}
 			//load info Don vi tra tien
-			m_lbl_don_vi_tra_tien.Text = v_us_dm_don_vi.strTEN_DON_VI;
+			m_lbl_so_unc.Text = v_us.strSO_UNC;
+			m_lbl_so_tien_ghi_bang_chu.Text = v_us.strTTDVH_SO_TIEN;
 			m_lbl_dia_chi.Text = v_us_thong_tin_don_vi.strDIA_CHI;
 			m_lbl_tai_kho_bac_nha_nuoc.Text = v_us_thong_tin_don_vi.strKHO_BAC;
 			m_lbl_ma_tkkt.Text = v_us.strMA_TKKT ;
@@ -86,7 +90,7 @@ namespace QuanLyDuToan.ChucNang
 			m_lbl_nt_ma_chuong.Text = v_us.strNT_MA_CHUONG;
 			m_lbl_nt_co_quan_quan_ly_thu.Text = v_us.strNT_CQ_QL_THU;
 			m_lbl_nt_ma_cq_thu.Text = v_us.strNT_MA_CQ_THU;
-			m_lbl_nt_so_tien_nop_thue.Text = v_us.strNT_SO_TIEN_NOP_THUE;
+			m_lbl_nt_so_tien_nop_thue.Text = IP.Core.IPCommon.CRead.ChuyenSo(v_dc_nop_thue.ToString()); ;
 			//load info Thanh toan cho don vi huong
 			m_lbl_ttdvh_don_vi_nhan_tien.Text = v_us.strTTDVH_DON_VI_NHAN_TIEN;
 			m_lbl_ttdvh_ma_dvqhns.Text = v_us.strTTDVH_MA_DVQHNS;
@@ -94,7 +98,7 @@ namespace QuanLyDuToan.ChucNang
 			m_lbl_ttdvh_tai_khoan.Text = v_us.strTTDVH_TAI_KHOAN;
 			m_lbl_ttdvh_ma_ctmt_da_htct.Text = v_us.strTTDVH_MA_CTMT_DA_VA_HTCT;
 			m_lbl_ttdvh_tai_kbnn.Text = v_us.strTTDVH_KHO_BAC;
-			m_lbl_ttdvh_so_tien_thanh_toan_dvh.Text = v_us.strTTDVH_SO_TIEN;
+			m_lbl_ttdvh_so_tien_thanh_toan_dvh.Text = IP.Core.IPCommon.CRead.ChuyenSo(v_dc_don_vi_huong.ToString());
 		}
 		private void xoa_trang_info()
 		{

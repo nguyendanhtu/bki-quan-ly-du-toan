@@ -40,6 +40,7 @@ namespace QuanLyDuToan.UserControls
 
 		}
 		public static string RenderToString(decimal ip_dc_id_dm_unc, decimal ip_dc_id_don_vi)
+
 		{
 			return UIUtil.RenderUserControl<F305Print>("~/UserControls/F305Print.ascx",
 				uc =>
