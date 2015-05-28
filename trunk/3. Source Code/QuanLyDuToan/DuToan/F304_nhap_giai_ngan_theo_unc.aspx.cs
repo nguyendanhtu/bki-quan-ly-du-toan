@@ -746,11 +746,13 @@ namespace QuanLyDuToan.DuToan
 				decimal v_dc_so_tien_nop_thue = 0;
 				for (int i = 0; i < v_ds.Tables[0].Rows.Count; i++)
 				{
-					if (!v_ds.Tables[0].Rows[i].IsNull(GRID_GIAI_NGAN.ID)
-						&!v_ds.Tables[0].Rows[i].ToString().Trim().Equals("-1"))
+					if (!v_ds.Tables[0].Rows[i].IsNull(GRID_GIAI_NGAN.ID))
 					{
-						v_dc_so_tien_thanh_toan_cho_don_vi_huong += CIPConvert.ToDecimal(v_ds.Tables[0].Rows[i][GRID_GIAI_NGAN.SO_TIEN_TTCDVH].ToString());
-						v_dc_so_tien_nop_thue += CIPConvert.ToDecimal(v_ds.Tables[0].Rows[i][GRID_GIAI_NGAN.SO_TIEN_NT].ToString());
+						if (!v_ds.Tables[0].Rows[i][GRID_GIAI_NGAN.ID].ToString().Trim().Equals("-1"))
+						{
+							v_dc_so_tien_thanh_toan_cho_don_vi_huong += CIPConvert.ToDecimal(v_ds.Tables[0].Rows[i][GRID_GIAI_NGAN.SO_TIEN_TTCDVH].ToString());
+							v_dc_so_tien_nop_thue += CIPConvert.ToDecimal(v_ds.Tables[0].Rows[i][GRID_GIAI_NGAN.SO_TIEN_NT].ToString());
+						}
 					}
 					
 				}
