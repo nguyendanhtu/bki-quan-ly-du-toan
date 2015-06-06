@@ -101,6 +101,7 @@
     <Content Include="Images\Mau C2-02-NS_9437_image004.png" />
     <Content Include="Images\Mau C2-02-NS_9437_image005.png" />
     <Content Include="Images\Mau C2-02-NS_9437_image006.png" />
+    <Content Include="Images\toanhatongcucduongbo.png" />
     <Content Include="packages.config" />
     <Content Include="Quantri\F816_ghi_log_qldt.aspx" />
     <Content Include="QuyetToan\PL03_thuc_hien_xu_ly_kien_nghi_cua_kiem_toan_thanh_tra_tai_chinh.aspx" />
@@ -127,6 +128,8 @@
     <Content Include="Scripts\UI\PL03.js" />
     <Content Include="Scripts\UI\PL04.js" />
     <Content Include="Scripts\UI\PL05.js" />
+    <Content Include="Services\QuanLyTaiSan.asmx" />
+    <Content Include="Services\QuanLyVon.asmx" />
     <Content Include="Styles\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Styles\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Styles\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -819,6 +822,14 @@
     <Compile Include="QuyetToan\PL05_DanhMucGiaTriCongTrinhHoanThanhGiamTruThanhToan.aspx.designer.cs">
       <DependentUpon>PL05_DanhMucGiaTriCongTrinhHoanThanhGiamTruThanhToan.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Services\QuanLyTaiSan.asmx.cs">
+      <DependentUpon>QuanLyTaiSan.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Services\QuanLyVon.asmx.cs">
+      <DependentUpon>QuanLyVon.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Test\t.aspx.cs">
       <DependentUpon>t.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1377,6 +1388,10 @@
     <ProjectReference Include="..\IPUserService\IPUserService.csproj">
       <Project>{b490ea92-2990-4cbb-b58b-12901afcccb5}</Project>
       <Name>IPUserService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SqlDataAccessQuanLyTaiSan\SqlDataAccessQuanLyTaiSan.csproj">
+      <Project>{6265df98-be97-4f2a-8f86-3ce81b4a2b8e}</Project>
+      <Name>SqlDataAccessQuanLyTaiSan</Name>
     </ProjectReference>
     <ProjectReference Include="..\SQLDataAccess\SQLDataAccess.csproj">
       <Project>{0604a086-d772-4fe7-bf81-24c9c2059ccd}</Project>

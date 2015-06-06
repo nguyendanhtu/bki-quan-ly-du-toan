@@ -1,0 +1,513 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6265DF98-BE97-4F2A-8F86-3CE81B4A2B8E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SqlDataAccessQuanLyTaiSan</RootNamespace>
+    <AssemblyName>SqlDataAccessQuanLyTaiSan</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CM_COMPANY_INFO.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CM_DM_LOAI_TD.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CM_DM_TU_DIEN.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="desc_table_Result.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DM_DAT.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DM_DAT_HISTORY.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DM_DON_VI.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DM_LOAI_TAI_SAN.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DM_LOC_BAO_CAO.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DM_NHA.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DM_NHA_HISTORY.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DM_OTO.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DM_OTO_HISTORY.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DM_TAI_SAN_KHAC.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DM_TAI_SAN_KHAC_HISTORY.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DOC_COLUMN_COMMENT.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DOC_TABLE_COMMENT.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dtproperty.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dt_getpropertiesbyid_Result.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dt_getpropertiesbyid_u_Result.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GD_DE_NGHI.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GD_DE_NGHI_TRANG_CAP_DETAILS.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GD_DE_XUAT_XU_LI_DETAILS.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GD_KHAU_HAO.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GD_TANG_GIAM_TAI_SAN.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HT_BACKUP_HISTORY.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HT_BUSINESS_PROCESS_LOCK.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HT_CHUC_NANG.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HT_LOG_LOGIN.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HT_NGUOI_SU_DUNG.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HT_QUAN_HE_SU_DUNG_DU_LIEU.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HT_QUYEN_GROUP.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HT_QUYEN_USER.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HT_THAM_SO_HE_THONG.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HT_USER_GROUP.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="pr_CM_DM_TU_DIEN_Load_Tu_Dien_By_Loai_Tu_Dien_Result.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_DM_DAT_search_by_id_don_vi_loai_hinh_Result.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_DM_DAT_search_by_id_don_vi_Result.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_DM_DAT_Search_By_ten_Result.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_DM_DAT_Search_Result.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_DM_DON_VI_check_ma_don_vi_Result.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_DM_DON_VI_grid_Result.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_DM_DON_VI_Load_to_grid_danh_muc_by_key_word_Result.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_DM_DON_VI_Load_to_grid_danh_muc_Result.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_DM_DON_VI_loai_hinh_don_vi_Select_by_user_name_Result.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_DM_DON_VI_Select_by_user_name_Result.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_DM_LOC_BAO_CAO_Result.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_DM_NHA_Search_by_name_Result.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_DM_NHA_Search_Result.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_DM_OTO_check_ma_tai_san_khac_Result.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_DM_OTO_get_search_Result.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_DM_OTO_Search_Result.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_DM_TAI_SAN_KHAC_check_ma_tai_san_khac_Result.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_HT_CHUC_NANG_GetQuyenChucNang_Result.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_HT_CHUC_NANG_Select_by_Root_ParentId_Result.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_HT_CHUC_NANG_Select_Chuc_Nang_Max_Vi_Tri_Result.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_HT_CHUC_NANG_select_full_tree_chuc_nang_Result.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_HT_NGUOI_SU_DUNG_fill_data_by_training_Result.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_HT_QUAN_HE_SU_DUNG_DU_LIEU_UpdateQuyen4Group_Result.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_HT_QUYEN_GROUP_fill_data_by_group_id_Result.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_HT_QUYEN_GROUP_UpdateQuyen4Group_Result.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_HT_QUYEN_USER_fill_data_by_user_id_Result.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_RPT_TANG_GIAM_TAI_SAN_chi_tiet_theo_don_vi_Result.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_RPT_TANG_GIAM_TAI_SAN_chi_tiet_theo_loai_hinh_Result.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_RPT_TANG_GIAM_TAI_SAN_tong_hop_chung_Result.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_RPT_TONG_HOP_HIEN_TRANG_OTO_tong_hop_chi_tiet_theo_don_vi_Result.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_RPT_TONG_HOP_HIEN_TRANG_OTO_tong_hop_chung_Result.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_RPT_TONG_HOP_HIEN_TRANG_tong_hop_chi_tiet_theo_don_vi_Result.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_RPT_TONG_HOP_HIEN_TRANG_tong_hop_chi_tiet_theo_loai_hinh_don_vi_Result.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_RPT_TONG_HOP_HIEN_TRANG_tong_hop_chung_Result.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_RPT_TONG_HOP_HIEN_TRANG_TSK_tong_hop_chi_tiet_theo_don_vi_Result.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_RPT_TONG_HOP_HIEN_TRANG_TSK_tong_hop_chung_Result.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_V_BC_THHTSD_NHA_DAT_search_Result.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_V_DM_DAT_HISTORY_search_by_id_don_vi_loai_hinh_tu_khoa_Result.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_V_DM_DAT_HISTORY_Search_Result.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_V_DM_DAT_search_by_id_don_vi_loai_hinh_tu_khoa_Result.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_V_DM_NHA_HISTORY_Load_data_to_grid_by_tu_khoa_Result.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_V_DM_NHA_HISTORY_Search_Result.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_V_DM_NHA_Load_data_to_grid_by_tu_khoa_Result.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_V_DM_NHA_Load_data_to_grid_nha_loai_hinh_Result.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_V_DM_NHA_Load_data_to_grid_nha_Result.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_V_DM_OTO_HISTORY_Search_Result.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_V_DM_OTO_Load_data_to_grid_by_tu_khoa_Result.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_V_DM_OTO_Search_by_Ten_Result.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_V_DM_OTO_Search_Result.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_V_DM_TAI_SAN_KHAC_HISTORY_Search_Result.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_V_DM_TAI_SAN_KHAC_Load_data_to_grid_by_tu_khoa_Result.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_V_DM_TAI_SAN_KHAC_Load_data_to_grid_tai_san_co_nguyen_gia_tren_500_trieu_by_tu_khoa_Result.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_V_DM_TAI_SAN_KHAC_Load_data_to_grid_tai_san_co_nguyen_gia_tren_500_trieu_loai_hinh_Result.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_V_DM_TAI_SAN_KHAC_Load_data_to_grid_tai_san_khac_loai_hinh_Result.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_V_DM_TAI_SAN_KHAC_Load_data_to_grid_tai_san_khac_Result.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_V_DM_TAI_SAN_KHAC_Search_by_name_Result.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_V_DM_TAI_SAN_KHAC_Search_Result.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_V_GD_KHAU_HAO_DM_DAT_Load_data_to_grid_by_tu_khoa_Result.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_V_GD_KHAU_HAO_DM_NHA_Load_data_to_grid_by_tu_khoa_Result.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_V_GD_KHAU_HAO_DM_NHA_Search_By_Dat_Result.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_V_GD_KHAU_HAO_DM_OTO_Load_data_to_grid_by_tu_khoa_Result.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_V_GD_KHAU_HAO_DM_TAI_SAN_KHAC_Load_data_to_grid_by_tu_khoa_Result.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_V_GD_TANG_GIAM_TAI_SAN_DAT_Result.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_V_GD_TANG_GIAM_TAI_SAN_KHAC_Result.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_V_GD_TANG_GIAM_TAI_SAN_NHA_Result.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pr_V_GD_TANG_GIAM_TAI_SAN_OTO_Result.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="QuanLyTaiSan.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuanLyTaiSan.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="QuanLyTaiSan.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="QuanLyTaiSan.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuanLyTaiSan.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="RPT_TANG_GIAM_TAI_SAN.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RPT_TONG_HOP_HIEN_TRANG.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RPT_TONG_HOP_HIEN_TRANG_OTO.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RPT_TONG_HOP_HIEN_TRANG_TSK.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagrams_Result.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_BC_THHTSD_NHA_DAT.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_BC_THHTSD_OTO.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_BC_THHTSD_TS_KHAC.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_CONTACT_PROFILE.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_DM_CONTACT.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_DM_DAT.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_DM_DAT_HISTORY.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_DM_DON_VI.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_DM_NHA.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_DM_NHA_HISTORY.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_DM_OTO.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_DM_OTO_HISTORY.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_DM_TAI_SAN_KHAC.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_DM_TAI_SAN_KHAC_HISTORY.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_GD_KHAU_HAO_DM_DAT.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_GD_KHAU_HAO_DM_NHA.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_GD_KHAU_HAO_DM_OTO.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_GD_KHAU_HAO_DM_TAI_SAN_KHAC.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_GD_TANG_GIAM_TAI_SAN_CO_NGUYEN_GIA_TREN_500_TRIEU.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_GD_TANG_GIAM_TAI_SAN_DAT.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_GD_TANG_GIAM_TAI_SAN_KHAC.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_GD_TANG_GIAM_TAI_SAN_NHA.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_GD_TANG_GIAM_TAI_SAN_OTO.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_NguoiDungTrongNhomTruyCap.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_PhanQuyenChoNhom.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_phan_quyen_cho_nhom.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_phieu_dang_ky.cs">
+      <DependentUpon>QuanLyTaiSan.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="QuanLyTaiSan.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>QuanLyTaiSan.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="packages.config" />
+    <None Include="QuanLyTaiSan.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>QuanLyTaiSan.edmx</DependentUpon>
+      <LastGenOutput>QuanLyTaiSan.Context.cs</LastGenOutput>
+    </None>
+    <None Include="QuanLyTaiSan.edmx.diagram">
+      <DependentUpon>QuanLyTaiSan.edmx</DependentUpon>
+    </None>
+    <None Include="QuanLyTaiSan.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>QuanLyTaiSan.edmx</DependentUpon>
+      <LastGenOutput>QuanLyTaiSan.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
