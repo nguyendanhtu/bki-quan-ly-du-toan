@@ -787,6 +787,7 @@
     <Compile Include="DuToan\F505_DuToanThuChiPhiPha.aspx.designer.cs">
       <DependentUpon>F505_DuToanThuChiPhiPha.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Function\Fn.cs" />
     <Compile Include="Quantri\F816_ghi_log_qldt.aspx.cs">
       <DependentUpon>F816_ghi_log_qldt.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

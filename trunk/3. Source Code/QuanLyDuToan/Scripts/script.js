@@ -119,6 +119,21 @@ function getFormatedNumberString(ip_str_number) {
 	//console.log((sign) ? ip_str_number : '-' + ip_str_number);
 	return (sign) ? ip_str_number : '-' + ip_str_number;
 }
+function getFormatedNumberStringWithDot(ip_str_number) {
+	ip_str_number = ip_str_number.toString().split(',').join('').split(',').join('');
+
+	if (isNaN(ip_str_number))
+		ip_str_number = "0";
+
+	sign = (ip_str_number == (ip_str_number = Math.abs(ip_str_number)));
+	ip_str_number = Math.floor(ip_str_number * 100 + 0.50000000001);
+	ip_str_number = Math.floor(ip_str_number / 100).toString();
+	for (var i = 0; i < Math.floor((ip_str_number.length - (1 + i)) / 3) ; i++)
+		ip_str_number = ip_str_number.substring(0, ip_str_number.length - (4 * i + 3)) + '.' +
+            ip_str_number.substring(ip_str_number.length - (4 * i + 3));
+	//console.log((sign) ? ip_str_number : '-' + ip_str_number);
+	return (sign) ? ip_str_number : '-' + ip_str_number;
+}
 function formatNumber(num) {
 	return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")
 }
