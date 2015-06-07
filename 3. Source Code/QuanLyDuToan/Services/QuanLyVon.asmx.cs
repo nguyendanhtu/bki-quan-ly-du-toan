@@ -49,6 +49,9 @@ namespace QuanLyDuToan.Services
 					//Loại trừ dự án, mục, tiểu mục điều chỉnh
 					.Where(x => !v_lst_kh_dieu_chinh.Exists(y =>
 						y.ID_DON_VI == x.ID_DON_VI
+						&& y.ID_LOAI_NHIEM_VU == x.ID_LOAI_NHIEM_VU
+						&& y.ID_CONG_TRINH == x.ID_CONG_TRINH
+						&& y.ID_KHOAN == x.ID_KHOAN
 						&& (y.ID_DU_AN == x.ID_DU_AN
 						|| (x.ID_TIEU_MUC == null && y.ID_MUC == x.ID_MUC)
 						|| (x.ID_TIEU_MUC != null && y.ID_TIEU_MUC == x.ID_TIEU_MUC))))

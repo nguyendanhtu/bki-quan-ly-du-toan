@@ -4,131 +4,100 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using WebDS;
-using WebUS;
-using WebDS.CDBNames;
 using IP.Core.IPCommon;
 using IP.Core.IPUserService;
 using IP.Core.IPData;
 using QuanLyDuToan.App_Code;
 using System.Data;
-//using System.Collections;
-//using System.Linq;
+using SQLDataAccess;
+
 
 
 namespace QuanLyDuToan.BaoCao
 {
 	public partial class F530_Bao_cao_tong_hop_hinh_hinh_giai_ngan : System.Web.UI.Page
 	{
+		public class GroupDonVi
+		{
+			public string groupKey { get; set; }
+			public string groupText { get; set; }
+
+			public GroupDonVi(string groupKey, string groupText)
+			{
+				this.groupKey = groupKey;
+				this.groupText = groupText;
+			}
+
+		}
+
 		#region Public Functions
 		public string gen_query_string(string ip_str_id_don_vi)
 		{
-			return
-				FormInfo.FormName.F350
-				+ "?" + FormInfo.QueryString.ID_DON_VI + "= "
-				+ ip_str_id_don_vi
-				+ "&" + FormInfo.QueryString.TU_NGAY + "="
-				+ m_txt_tu_ngay.Text
-				+ "&" + FormInfo.QueryString.DEN_NGAY + "="
-				+ m_txt_den_ngay.Text;
-		}
-		public string getSTT(string ip_str_noi_dung)
-		{
-			if (ip_str_noi_dung.Contains("Tổng cộng") || ip_str_noi_dung.Contains("Cục QLĐB")) return "";
-			m_i_stt++;
-			return m_i_stt.ToString();
+			return "";
+				//FormInfo.FormName.F350
+				//+ "?" + FormInfo.QueryString.ID_DON_VI + "= "
+				//+ ip_str_id_don_vi
+				//+ "&" + FormInfo.QueryString.TU_NGAY + "="
+				//+ m_txt_tu_ngay.Text
+				//+ "&" + FormInfo.QueryString.DEN_NGAY + "="
+				//+ m_txt_den_ngay.Text;
 		}
 		#endregion
 
 		#region Member
-		private int m_i_stt = 0;
-		public DataSet m_ds = new DataSet();
+		public DateTime m_dat_tu_ngay;
+		public DateTime m_dat_den_ngay;
+		public DateTime m_dat_dau_nam;
+		public List<DM_DON_VI> m_lst_don_vi;
+		public List<GroupDonVi> m_lst_group_by;
+		public List<DM_DON_VI> m_lst_don_vi_group_by;
 
+
+		public List<SQLDataAccess.GD_CHI_TIET_GIAO_KH> m_lst_giao_kh;
+		public List<SQLDataAccess.GD_CHI_TIET_GIAO_VON> m_lst_giao_von;
+		public List<SQLDataAccess.GD_CHI_TIET_GIAI_NGAN> m_lst_giai_ngan;
+		public List<SQLDataAccess.GD_KHOI_LUONG> m_lst_khoi_luong;
 		#endregion
 
 		#region Private Method
-		private void setPropertiesSumForRow(DataRow op_dr, string ip_str_propertieName, List<DataRow> ip_lstSum)
-		{
-			op_dr[ip_str_propertieName] = ip_lstSum.Select(x => x.Field<decimal?>(ip_str_propertieName) ?? 0).ToList().Sum();
-		}
-		private void addRowSum(DataTable op_dt, string ip_str_fillter_condition, string ip_str_content)
-		{
-			DataRow v_dr = op_dt.NewRow();
-			var lstRowsHaveCondition = op_dt.AsEnumerable()
-				.Where(x => x.Field<string>(WebDS.CDBNames.RPT_BC_TINH_HINH_GIAI_NGAN.NOI_DUNG).ToUpper().Contains(ip_str_fillter_condition.ToUpper())
-					|| (x.Field<string>(WebDS.CDBNames.RPT_BC_TINH_HINH_GIAI_NGAN.NOI_DUNG) + ".").ToUpper().Contains(ip_str_fillter_condition.ToUpper())
-					|| (x.Field<string>(WebDS.CDBNames.RPT_BC_TINH_HINH_GIAI_NGAN.NOI_DUNG) + " - Văn phòng").ToUpper().Contains(ip_str_fillter_condition.Replace(".", " - Văn phòng").ToUpper()))
-				.ToList();
-			foreach (var item in lstRowsHaveCondition)
-			{
-				item[RPT_BC_TINH_HINH_GIAI_NGAN.NOI_DUNG] = "--- " + item[RPT_BC_TINH_HINH_GIAI_NGAN.NOI_DUNG].ToString().Replace("-- ", "");
-				item["HIEN_THI"] = "AAA" + ip_str_content + "-";//"AAA" đảm bảo cho Cục ở trước "Ban quản lý dự án" theo thứ tự order
-			}
-			v_dr[RPT_BC_TINH_HINH_GIAI_NGAN.ID] = 2000;
-			v_dr[RPT_BC_TINH_HINH_GIAI_NGAN.ID_CHA] = -1;
-			v_dr[RPT_BC_TINH_HINH_GIAI_NGAN.ID_CONG_TRINH_KHOAN] = -1;
-			v_dr[RPT_BC_TINH_HINH_GIAI_NGAN.ID_DON_VI] = -1;
-			v_dr[RPT_BC_TINH_HINH_GIAI_NGAN.ID_DU_AN_MUC_TIEU_MUC] = -1;
-			v_dr[RPT_BC_TINH_HINH_GIAI_NGAN.ID_LOAI_NHIEM_VU] = -1;
-			v_dr[RPT_BC_TINH_HINH_GIAI_NGAN.ID_REPORTED_USER] = -1;
-			v_dr["HIEN_THI"] = "AAA" + ip_str_content;
-			v_dr[RPT_BC_TINH_HINH_GIAI_NGAN.NOI_DUNG] = ip_str_content;
-			setPropertiesSumForRow(v_dr, RPT_BC_TINH_HINH_GIAI_NGAN.CN_NS, lstRowsHaveCondition);
-			setPropertiesSumForRow(v_dr, RPT_BC_TINH_HINH_GIAI_NGAN.CN_QBT, lstRowsHaveCondition);
-			setPropertiesSumForRow(v_dr, RPT_BC_TINH_HINH_GIAI_NGAN.DN_NS_LUY_KE, lstRowsHaveCondition);
-			setPropertiesSumForRow(v_dr, RPT_BC_TINH_HINH_GIAI_NGAN.DN_NS_TONG, lstRowsHaveCondition);
-			setPropertiesSumForRow(v_dr, RPT_BC_TINH_HINH_GIAI_NGAN.DN_NS_TRONG_THANG, lstRowsHaveCondition);
-			setPropertiesSumForRow(v_dr, RPT_BC_TINH_HINH_GIAI_NGAN.DN_QBT_LUY_KE, lstRowsHaveCondition);
-			setPropertiesSumForRow(v_dr, RPT_BC_TINH_HINH_GIAI_NGAN.DN_QBT_TONG, lstRowsHaveCondition);
-			setPropertiesSumForRow(v_dr, RPT_BC_TINH_HINH_GIAI_NGAN.DN_QBT_TRONG_THANG, lstRowsHaveCondition);
-			setPropertiesSumForRow(v_dr, RPT_BC_TINH_HINH_GIAI_NGAN.DTT_NS_LUY_KE, lstRowsHaveCondition);
-			setPropertiesSumForRow(v_dr, RPT_BC_TINH_HINH_GIAI_NGAN.DTT_NS_TONG, lstRowsHaveCondition);
-			setPropertiesSumForRow(v_dr, RPT_BC_TINH_HINH_GIAI_NGAN.DTT_NS_TRONG_THANG, lstRowsHaveCondition);
-			setPropertiesSumForRow(v_dr, RPT_BC_TINH_HINH_GIAI_NGAN.DTT_QBT_LUY_KE, lstRowsHaveCondition);
-			setPropertiesSumForRow(v_dr, RPT_BC_TINH_HINH_GIAI_NGAN.DTT_QBT_TONG, lstRowsHaveCondition);
-			setPropertiesSumForRow(v_dr, RPT_BC_TINH_HINH_GIAI_NGAN.DTT_QBT_TRONG_THANG, lstRowsHaveCondition);
-			setPropertiesSumForRow(v_dr, RPT_BC_TINH_HINH_GIAI_NGAN.GIA_TRI_THUC_HIEN, lstRowsHaveCondition);
-			setPropertiesSumForRow(v_dr, RPT_BC_TINH_HINH_GIAI_NGAN.KH_NAM_TRUOC_CHUYEN_SANG, lstRowsHaveCondition);
-			setPropertiesSumForRow(v_dr, RPT_BC_TINH_HINH_GIAI_NGAN.KH_NS, lstRowsHaveCondition);
-			setPropertiesSumForRow(v_dr, RPT_BC_TINH_HINH_GIAI_NGAN.KH_QBT, lstRowsHaveCondition);
-			setPropertiesSumForRow(v_dr, RPT_BC_TINH_HINH_GIAI_NGAN.KH_TONG, lstRowsHaveCondition);
-			setPropertiesSumForRow(v_dr, RPT_BC_TINH_HINH_GIAI_NGAN.SO_CHUA_GN, lstRowsHaveCondition);
-			setPropertiesSumForRow(v_dr, RPT_BC_TINH_HINH_GIAI_NGAN.KH_NTCS_NS, lstRowsHaveCondition);
-			setPropertiesSumForRow(v_dr, RPT_BC_TINH_HINH_GIAI_NGAN.KH_NTCS_QBT, lstRowsHaveCondition);
-			setPropertiesSumForRow(v_dr, RPT_BC_TINH_HINH_GIAI_NGAN.GIA_TRI_THUC_HIEN_NS, lstRowsHaveCondition);
-			setPropertiesSumForRow(v_dr, RPT_BC_TINH_HINH_GIAI_NGAN.GIA_TRI_THUC_HIEN_QBT, lstRowsHaveCondition);
-			setPropertiesSumForRow(v_dr, RPT_BC_TINH_HINH_GIAI_NGAN.TONG_SO_KM, lstRowsHaveCondition);
-			op_dt.Rows.Add(v_dr);
-		}
+		
 		private void load_data_to_grid()
 		{
-			US_RPT_BC_TINH_HINH_GIAI_NGAN v_us = new US_RPT_BC_TINH_HINH_GIAI_NGAN();
-			m_ds = new DataSet();
-			DataTable v_dt = new DataTable();
-			v_dt.Columns.Add("HIEN_THI");
-			m_ds.Tables.Add(v_dt);
-			m_ds.EnforceConstraints = false;
-			v_us.bc_tinh_hinh_giai_ngan_tong_cuc(m_ds
-				, CIPConvert.ToDatetime(m_txt_tu_ngay.Text, "dd/MM/yyyy")
-				, CIPConvert.ToDatetime(m_txt_den_ngay.Text, "dd/MM/yyyy")
-				, WebformControls.get_dau_nam_form_date(CIPConvert.ToDatetime(m_txt_tu_ngay.Text, "dd/MM/yyyy"))
-				, Person.get_user_id()
-				);
-			for (int i = 0; i < v_dt.Rows.Count; i++)
-			{
-				v_dt.Rows[i]["HIEN_THI"] = v_dt.Rows[i]["NOI_DUNG"];
-			}
-			addRowSum(v_dt, "cục quản lý đường bộ I.", "Cục QLĐB I");
-			addRowSum(v_dt, "cục quản lý đường bộ II.", "Cục QLĐB II");
-			addRowSum(v_dt, "cục quản lý đường bộ III.", "Cục QLĐB III");
-			addRowSum(v_dt, "cục quản lý đường bộ IV.", "Cục QLĐB IV");
-			v_dt = v_dt.AsEnumerable()
-								   .OrderBy(x => x.Field<string>("HIEN_THI"))
-								   .CopyToDataTable();
-			m_grv.DataSource = v_dt;
-			m_grv.DataBind();
+			m_dat_tu_ngay = CIPConvert.ToDatetime(m_txt_tu_ngay.Text, "dd/MM/yyyy");
+			m_dat_den_ngay = CIPConvert.ToDatetime(m_txt_tu_ngay.Text, "dd/MM/yyyy");
+			m_dat_dau_nam = WebUS.CCommonFunction.getDate_dau_nam_from_date(m_dat_tu_ngay);
 
-			//List<DBClassModel.HT_NGUOI_SU_DUNG> v_lst_nsd = v_ds.Tables[0].ToList<DBClassModel.HT_NGUOI_SU_DUNG>().OrderBy(x => x.TEN_TRUY_CAP).ThenBy(x => x.TEN_TRUY_CAP).ToList();
+			BKI_QLDTEntities db = new BKI_QLDTEntities();
+			m_lst_don_vi = db.DM_DON_VI
+							.ToList()
+							.OrderBy(x => x.TEN_DON_VI)
+							.ToList();
+
+			m_lst_group_by = new List<GroupDonVi>{
+							new GroupDonVi("cục quản lý đường bộ I.","Cục QLĐB I")
+							,new GroupDonVi("cục quản lý đường bộ II.","Cục QLĐB II")
+							,new GroupDonVi("cục quản lý đường bộ III.","Cục QLĐB III")
+							,new GroupDonVi("cục quản lý đường bộ IV.","Cục QLĐB IV")
+			};
+
+			m_lst_don_vi_group_by = new List<SQLDataAccess.DM_DON_VI>();
+
+			m_lst_giao_kh = db.GD_CHI_TIET_GIAO_KH
+								.Where(x => x.DM_QUYET_DINH.NGAY_THANG >= m_dat_dau_nam
+											&& x.DM_QUYET_DINH.NGAY_THANG <= m_dat_den_ngay)
+								.ToList();
+			m_lst_giao_von = db.GD_CHI_TIET_GIAO_VON
+								.Where(x => x.DM_QUYET_DINH.NGAY_THANG >= m_dat_dau_nam
+											&& x.DM_QUYET_DINH.NGAY_THANG <= m_dat_den_ngay)
+								.ToList();
+			m_lst_giai_ngan = db.GD_CHI_TIET_GIAI_NGAN
+								.Where(x => x.DM_GIAI_NGAN.NGAY_THANG >= m_dat_dau_nam
+											&& x.DM_GIAI_NGAN.NGAY_THANG <= m_dat_den_ngay)
+								.ToList();
+			m_lst_khoi_luong = db.GD_KHOI_LUONG
+								.Where(x => x.NGAY_THANG >= m_dat_dau_nam
+											&& x.NGAY_THANG <= m_dat_den_ngay)
+								.ToList();
 		}
 		private bool check_validate_input_data_is_ok()
 		{
@@ -148,10 +117,10 @@ namespace QuanLyDuToan.BaoCao
 		}
 		private void export_excel()
 		{
-			WebformReport.export_gridview_2_excel(
-			 m_grv
-			 , FormInfo.ExportExcelReportName.F530
-			 );
+			//WebformReport.export_gridview_2_excel(
+			// m_grv
+			// , FormInfo.ExportExcelReportName.F530
+			// );
 		}
 		private void set_inital_form_load()
 		{
@@ -209,94 +178,7 @@ namespace QuanLyDuToan.BaoCao
 
 
 
-		protected void m_grv_RowCreated(object sender, GridViewRowEventArgs e)
-		{
-			const string v_c_str_header_css_class = "HeaderStyle";
-			if (e.Row.RowType == DataControlRowType.Header) // If header created
-			{
-				GridView v_grv = (GridView)sender;
-				//Tao dong 1
-				WebformFunctions.addHeaderRow_to_grid_view(v_grv
-					, 0
-					, v_c_str_header_css_class
-					, new CellInfoHeader[] { 
-						new CellInfoHeader("STT",3,1)
-						,new CellInfoHeader("Nội dung",3,1)
-						,new CellInfoHeader("Số km",3,1)
-						,new CellInfoHeader("Kế hoạch(dự toán) được sử dụng trong năm",1,7)
-						,new CellInfoHeader("Kinh phí đã nhận",1,5)
-						,new CellInfoHeader("Kinh phí đã thanh toán, giải ngân",1,5)
-						,new CellInfoHeader("Số kinh phí chưa GN",1,3)
-						,new CellInfoHeader("Kinh phí còn được nhận",1,3)
-						,new CellInfoHeader("Giá trị thực hiện đã nghiệm thu A-B",1,3)
-						,new CellInfoHeader("Số chưa GN cho nhà thầu theo nghiệm thu A-B",1,3)
-				});
-				//Tao dong 2
-				WebformFunctions.addHeaderRow_to_grid_view(
-					v_grv
-					, 1
-					, v_c_str_header_css_class
-					, new CellInfoHeader[] 
-					{ 
-						//Ke hoach du toan duoc su dung trong nam
-						new CellInfoHeader("Quỹ bảo trì",1,3)
-						,new CellInfoHeader("Ngân sách",1,3)
-						,new CellInfoHeader("Tổng cộng",2,1)
-						//Kinh phi da nhan
-						,new CellInfoHeader("Quỹ bảo trì",1,2)
-						,new CellInfoHeader("Ngân sách",1,2)
-						,new CellInfoHeader("Tổng cộng",2,1)
-						//Kinh phi da thanh toan, giai ngan
-						,new CellInfoHeader("Quỹ bảo trì",1,2)
-						,new CellInfoHeader("Ngân sách",1,2)
-						,new CellInfoHeader("Tổng cộng",2,1)
-						//Kinh phi chua GN
-						,new CellInfoHeader("Quỹ bảo trì",2,1)
-						,new CellInfoHeader("Ngân sách",2,1)
-						,new CellInfoHeader("Tổng cộng",2,1)
-						//Kinh phi con duoc nhan
-						,new CellInfoHeader("Quỹ bảo trì",2,1)
-						,new CellInfoHeader("Ngân sách",2,1)
-						,new CellInfoHeader("Tổng cộng",2,1)
-						//Gia tri thuc hien da nghiem thu
-						,new CellInfoHeader("Quỹ bảo trì",2,1)
-						,new CellInfoHeader("Ngân sách",2,1)
-						,new CellInfoHeader("Tổng cộng",2,1)
-						//So chua giai ngan
-						,new CellInfoHeader("Quỹ bảo trì",2,1)
-						,new CellInfoHeader("Ngân sách",2,1)
-						,new CellInfoHeader("Tổng cộng",2,1)
-					});
-				//Tao dong 3
-				WebformFunctions.addHeaderRow_to_grid_view(
-					v_grv
-					, 2
-					, v_c_str_header_css_class
-					, new CellInfoHeader[] 
-					{ 
-						//Ke hoach - Quy bao tri
-						new CellInfoHeader("Số dư năm trước chuyển sang",1,1)
-						,new CellInfoHeader("Kế hoạch giao trong năm",1,1)
-						,new CellInfoHeader("Cộng",1,1)
-						//Ke hoach - Ngan sach
-						,new CellInfoHeader("Số dư năm trước chuyển sang",1,1)
-						,new CellInfoHeader("Kế hoạch giao trong năm",1,1)
-						,new CellInfoHeader("Cộng",1,1)
-						//Kinh phi da nhan - Quy bao tri
-						,new CellInfoHeader("Trong tháng",1,1)
-						,new CellInfoHeader("Luỹ kế từ đầu năm",1,1)
-						//Kinh phi da nhan - Ngan sach
-						,new CellInfoHeader("Trong tháng",1,1)
-						,new CellInfoHeader("Luỹ kế từ đầu năm",1,1)
-						//Kinh phi da thanh toan, giai ngan - Quy bao tri
-						,new CellInfoHeader("Trong tháng",1,1)
-						,new CellInfoHeader("Luỹ kế từ đầu năm",1,1)
-						//Kinh phi da thanh toan, giai ngan - Ngan sach
-						,new CellInfoHeader("Trong tháng",1,1)
-						,new CellInfoHeader("Luỹ kế từ đầu năm",1,1)
-					});
-			}
-		}
+		
 		#endregion
 	}
 }

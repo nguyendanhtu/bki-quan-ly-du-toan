@@ -1,26 +1,34 @@
 ﻿<%@ Page Title="" Language="C#" EnableEventValidation="false" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="F530_Bao_cao_tong_hop_hinh_hinh_giai_ngan.aspx.cs" Inherits="QuanLyDuToan.BaoCao.F530_Bao_cao_tong_hop_hinh_hinh_giai_ngan" %>
+<%@ Import Namespace="QuanLyDuToan.Function" %>
 
 <%@ Import Namespace="WebDS.CDBNames" %>
 <%@ Import Namespace="IP.Core.IPCommon" %>
 <%@ Import Namespace="QuanLyDuToan.App_Code" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 	<style type="text/css">
-		.cssGrid tr td {
-			padding: 0px;
-		}
-
-		.HeaderStyle {
-			background: #ddd;
-			border-color: #000;
+		
+		.stt {
+			width: 25px;
 			text-align: center;
 		}
 
-		th {
-			text-align: center !important;
-			background: #ddd;
-			border-color: #000;
+		.noi_dung {
+			width: 222px;
 		}
 
+		.so_km {
+			width: 85px;
+			text-align: right;
+		}
+
+		.so_lieu {
+			width: 122px;
+			text-align: right;
+		}
+		.table {
+			margin-top:0px;
+			margin-bottom: 0px;
+		}
 		.lb {
 			width: 100px;
 			float: left;
@@ -28,38 +36,9 @@
 			line-height: 20px;
 		}
 
-		.a1000 {
-			color: maroon !important;
-			font-style: italic;
-			font-weight: bold;
-			pointer-events: none;
-			cursor: default;
-		}
-
-		.a2000 {
-			color: black !important;
-			font-style: italic;
-			font-weight: bold;
-			pointer-events: none;
-			cursor: default;
-		}
-
-		table > thead {
-			border: 1px black solid;
-		}
-
-		table > tbody {
-			border: 1px black solid;
-		}
-
-		table > thead > tr > th {
-			vertical-align: middle;
-			border-right: 1px solid black;
-		}
-
-
-		.text-right {
-			width: 120px;
+		.control {
+			width: 240px;
+			float: left;
 		}
 
 		.datepicker {
@@ -72,26 +51,18 @@
 	<script>
 		function pageLoad(sender, args) {
 			if (args.get_isPartialLoad()) {
-				var m = new Map();
-				var today = new Date();
-				var mm = today.getMonth() + 1; //January is 0!
-				var yyyy = today.getFullYear();
-				m.set("<year>", yyyy);
-				m.set("<month>", mm);
-				m.set("<tu_ngay>", m_txt_tu_ngay.value);
-				m.set("<den_ngay>", m_txt_den_ngay.value);
-				//getData("TPL_F530", "m_grv", "Bao_cao_tong_hop_tinh_hinh_giai_ngan", m);
-
-
+				
 				$("#<%=m_txt_tu_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
 				$("#<%=m_txt_den_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
-				$('#m_grv').each(function () {
-					$(this).prepend('<thead></thead>')
-					$(this).find('thead').append($(this).find("tr:eq(0)"));
-					$(this).find('thead').append($(this).find("tr:eq(1)"));
-					$(this).find('thead').append($(this).find("tr:eq(2)"));
-					$(this).find('thead').append($(this).find("tr:eq(3)"));
-				});
+
+				var v_lst_so_lieu = $('.so_lieu');
+				for (var i = 0; i < v_lst_so_lieu.length; i++) {
+					var value = $(v_lst_so_lieu[i]).text();
+					if (!isNaN(value)) {
+						$(v_lst_so_lieu[i]).text(getFormatedNumberStringWithDot(value));
+					}
+				}
+
 			}
 		}
 
@@ -99,26 +70,25 @@
 	</script>
 	<script type="text/javascript">
 		$(document).ready(function () {
-			var m = new Map();
-			var today = new Date();
-			var mm = today.getMonth() + 1; //January is 0!
-			var yyyy = today.getFullYear();
-			m.set("<year>", yyyy);
-			m.set("<month>", mm);
-			m.set("<tu_ngay>", m_txt_tu_ngay.value);
-			m.set("<den_ngay>", m_txt_den_ngay.value);
-			//getData("TPL_F530", "m_grv", "Bao_cao_tong_hop_tinh_hinh_giai_ngan", m);
-
+			
 			$("#<%=m_txt_tu_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
 			$("#<%=m_txt_den_ngay.ClientID%>").datepicker({ format: 'dd/mm/yyyy' });
 
-			$('#m_grv').each(function () {
-				$(this).prepend('<thead></thead>')
-				$(this).find('thead').append($(this).find("tr:eq(0)"));
-				$(this).find('thead').append($(this).find("tr:eq(1)"));
-				$(this).find('thead').append($(this).find("tr:eq(2)"));
-				$(this).find('thead').append($(this).find("tr:eq(3)"));
-			});
+			var v_lst_so_lieu = $('.so_lieu');
+			for (var i = 0; i < v_lst_so_lieu.length; i++) {
+				var value = $(v_lst_so_lieu[i]).text();
+				if (!isNaN(value)) {
+					$(v_lst_so_lieu[i]).text(getFormatedNumberStringWithDot(value));
+				}
+			}
+			var v_lst_so_km = $('.so_km');
+			for (var i = 0; i < v_lst_so_km.length; i++) {
+				var value = $(v_lst_so_km[i]).text();
+				if (!isNaN(value)) {
+					$(v_lst_so_km[i]).text(value.replace(".",","));
+				}
+			}
+
 
 			$('table#m_grv').scrollbarTable();
 			$('#double-scroll').doubleScroll();
@@ -186,366 +156,885 @@
 			<td colspan="4">
 				<div class="outer">
 					<div style="width: 1200px; margin: auto;" id="double-scroll">
-						<asp:GridView ID="m_grv" runat="server" AutoGenerateColumns="False" ClientIDMode="Static"
-							Width="3900px" class="table-striped" CellPadding="0" ForeColor="Black" AllowSorting="True" PageSize="60"
-							EmptyDataText="Không có dữ liệu phù hợp" OnRowCreated="m_grv_RowCreated" EnableModelValidation="True">
+						<table class="table-bordered table-striped" id="m_grv" style="width: 4139px">
+							<thead>
+								<tr>
+									<!-----------STT------------>
+									<th rowspan="3">STT</th>
+									<!-----------NoiDung------------>
+									<th rowspan="3" class="noi_dung">Nội dung</th>
+									<!-----------SoKmQuanLy------------>
+									<th rowspan="3" class="so_km">Số km quản lý</th>
+									<!-----------TongMucDauTu/TongDuToan------------>
+									<th rowspan="3" class="so_lieu">TMĐT/ TDT </th>
+									<th colspan="7">Kế hoạch(dự toán) được sử dụng trong năm</th>
+									<th colspan="5">Kinh phí đã nhận</th>
+									<th colspan="5">Kinh phí đã thanh toán, giải ngân</th>
+									<th colspan="3">Số kinh phí chưa GN</th>
+									<th colspan="3">Kinh phí còn được nhận</th>
+									<th colspan="4">Giá trị thực hiện đã nghiệm thu A-B</th>
+									<th colspan="3">Số chưa GN cho nhà thầu theo nghiệm thu A-B</th>
+								</tr>
+								<tr>
+									<!--------------------Kế hoạch(dự toán) được sử dụng trong năm------------------------------>
+									<th colspan="3">Quỹ bảo trì</th>
+									<th colspan="3">Ngân sách</th>
+									<th rowspan="2">Tổng cộng</th>
+									<!----------------------Kinh phí đã nhận---------------------------------->
+									<th colspan="2">Quỹ bảo trì</th>
+									<th colspan="2">Ngân sách</th>
+									<th rowspan="2">Tổng cộng</th>
+									<!----------------------Kinh phí đã thanh toán, giải ngân--------------------------------->
+									<th colspan="2">Quỹ bảo trì</th>
+									<th colspan="2">Ngân sách</th>
+									<th rowspan="2">Tổng cộng</th>
+									<!---------------------- Số kinh phí chưa GN---------------------------------->
+									<th rowspan="2">Quỹ bảo trì</th>
+									<th rowspan="2">Ngân sách</th>
+									<th rowspan="2">Tổng cộng</th>
+									<!----------------------Kinh phí còn được nhận---------------------------------->
+									<th rowspan="2">Quỹ bảo trì</th>
+									<th rowspan="2">Ngân sách</th>
+									<th rowspan="2">Tổng cộng</th>
+									<!-----------------------Giá trị thực hiện đã nghiệm thu A-B--------------------------------->
+									<th rowspan="2">Quỹ bảo trì</th>
+									<th rowspan="2">Nhu cầu vốn kỳ tiếp theo</th>
+									<th rowspan="2">Ngân sách</th>
+									<th rowspan="2">Tổng giá trị nghiệm thu AB</th>
+									<!------------------------Số chưa GN cho nhà thầu theo nghiệm thu A-B-------------------------------->
+									<th rowspan="2">Quỹ bảo trì</th>
+									<th rowspan="2">Ngân sách</th>
+									<th rowspan="2">Tổng cộng</th>
+								</tr>
+								<tr>
 
-							<Columns>
-								<asp:TemplateField ItemStyle-HorizontalAlign="Center" HeaderText="1" HeaderStyle-Height="10px" HeaderStyle-CssClass="pinned thpinned" ItemStyle-CssClass=" pinned" ItemStyle-Width="25px" HeaderStyle-Width="25px">
-									<ItemTemplate>
-										<%#getSTT(Eval(GRID_GIAI_NGAN.NOI_DUNG).ToString()) %>
-									</ItemTemplate>
-									<HeaderStyle Height="10px" HorizontalAlign="Center" />
-									<ItemStyle HorizontalAlign="Center" />
-								</asp:TemplateField>
-								<asp:TemplateField ItemStyle-HorizontalAlign="Left" HeaderText="2" HeaderStyle-Height="10px" HeaderStyle-CssClass="pinned thpinned" ItemStyle-CssClass=" pinned" ItemStyle-Width="222px" HeaderStyle-Width="222px">
-									<ItemTemplate>
-										<a style="color: #027;" class='a<%# Eval(GRID_GIAI_NGAN.ID)%>' href='<%# gen_query_string(Eval(GRID_GIAI_NGAN.ID_DON_VI).ToString())%>' title="Xem chi tiết"><%# Eval(GRID_GIAI_NGAN.NOI_DUNG)%></a>
-									</ItemTemplate>
-									<HeaderStyle Height="10px" HorizontalAlign="Center" />
-									<ItemStyle HorizontalAlign="Left" Width="222px" />
-								</asp:TemplateField>
-								<asp:TemplateField ItemStyle-HorizontalAlign="Left" HeaderText="3" HeaderStyle-Height="10px" ItemStyle-Width="80px" HeaderStyle-Width="55px">
-									<ItemTemplate>
-										<font class='a<%# Eval(GRID_GIAI_NGAN.ID)%>'><%#Eval(RPT_BC_TINH_HINH_GIAI_NGAN.TONG_SO_KM,"{0:#.###}")%></font>
-									</ItemTemplate>
-									<HeaderStyle Height="10px" HorizontalAlign="Center" />
-									<ItemStyle HorizontalAlign="Right" Width="80px" />
-								</asp:TemplateField>
-								<asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="4" HeaderStyle-Height="10px" HeaderStyle-Width="120px">
-									<ItemTemplate>
-										<font class='a<%# Eval(GRID_GIAI_NGAN.ID)%>'><%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_NTCS_QBT, "{0:#,##0}")%></font>
-									</ItemTemplate>
-									<HeaderStyle Height="10px" HorizontalAlign="Center" />
-									<ItemStyle HorizontalAlign="Right" Width="120px" />
-								</asp:TemplateField>
-								<asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="5" HeaderStyle-Height="10px" HeaderStyle-Width="120px">
-									<ItemTemplate>
-										<font class='a<%# Eval(GRID_GIAI_NGAN.ID)%>'><%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_QBT, "{0:#,##0}")%></font>
-									</ItemTemplate>
-									<HeaderStyle Height="10px" HorizontalAlign="Center" />
-									<ItemStyle HorizontalAlign="Right" Width="120px" />
-								</asp:TemplateField>
-								<asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="6=4+5" HeaderStyle-Height="10px" HeaderStyle-Width="120px">
-									<ItemTemplate>
-										<font class='a<%# Eval(GRID_GIAI_NGAN.ID)%>'><%# 
-														CIPConvert.ToStr(
-														CCommonFunction.getMoney_number(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_NTCS_QBT))
-                                                +		CCommonFunction.getMoney_number( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_QBT)), "#,###") %></font>
-									</ItemTemplate>
-									<HeaderStyle Height="10px" HorizontalAlign="Center" />
-									<ItemStyle HorizontalAlign="Right" Width="120px" />
-								</asp:TemplateField>
-								<asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="7" HeaderStyle-Height="10px" HeaderStyle-Width="120px">
-									<ItemTemplate>
-										<font class='a<%# Eval(GRID_GIAI_NGAN.ID)%>'><%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_NTCS_NS, "{0:#,##0}")%></font>
-									</ItemTemplate>
-									<HeaderStyle Height="10px" HorizontalAlign="Center" />
-									<ItemStyle HorizontalAlign="Right" Width="120px" />
-								</asp:TemplateField>
-								<asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="8" HeaderStyle-Height="10px" HeaderStyle-Width="120px">
-									<ItemTemplate>
-										<font class='a<%# Eval(GRID_GIAI_NGAN.ID)%>'><%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_NS, "{0:#,##0}")%></font>
-									</ItemTemplate>
-									<HeaderStyle Height="10px" HorizontalAlign="Center" />
-									<ItemStyle HorizontalAlign="Right" Width="120px" />
-								</asp:TemplateField>
-								<asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="9=7+8" HeaderStyle-Height="10px" HeaderStyle-Width="120px">
-									<ItemTemplate>
-										<font class='a<%# Eval(GRID_GIAI_NGAN.ID)%>'><%# 
-														CIPConvert.ToStr(
-														CCommonFunction.getMoney_number(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_NTCS_NS))
-														+CCommonFunction.getMoney_number(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_NS)), "#,###") %></font>
-									</ItemTemplate>
-									<HeaderStyle Height="10px" HorizontalAlign="Center" />
-									<ItemStyle HorizontalAlign="Right" Width="120px" />
-								</asp:TemplateField>
-								<asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="10=6+9" HeaderStyle-Height="10px" HeaderStyle-Width="120px">
-									<ItemTemplate>
-										<font class='a<%# Eval(GRID_GIAI_NGAN.ID)%>'><%# 
-														CIPConvert.ToStr(
-														CCommonFunction.getMoney_number(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_NTCS_QBT))
-                                                +		CCommonFunction.getMoney_number( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_QBT))
-												+		CCommonFunction.getMoney_number(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_NTCS_NS))
-                                                +		CCommonFunction.getMoney_number( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_NS)), "#,###") %></font>
-									</ItemTemplate>
-									<HeaderStyle Height="10px" HorizontalAlign="Center" />
-									<ItemStyle HorizontalAlign="Right" Width="120px" />
-								</asp:TemplateField>
 
-								<asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="11" HeaderStyle-Height="10px" HeaderStyle-Width="120px">
-									<ItemTemplate>
-										<font class='a<%# Eval(GRID_GIAI_NGAN.ID)%>'><%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_QBT_TRONG_THANG, "{0:#,##0}")%></font>
-									</ItemTemplate>
-									<HeaderStyle Height="10px" HorizontalAlign="Center" />
-									<ItemStyle HorizontalAlign="Right" Width="120px" />
-								</asp:TemplateField>
-								<asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="12" HeaderStyle-Height="10px" HeaderStyle-Width="120px">
-									<ItemTemplate>
-										<font class='a<%# Eval(GRID_GIAI_NGAN.ID)%>'>
-											<%# 
-														CIPConvert.ToStr(
-														CCommonFunction.getMoney_number(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_QBT_LUY_KE))
-                                                +		CCommonFunction.getMoney_number( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_QBT_TRONG_THANG)), "#,###") %>
-											</font>
-									</ItemTemplate>
-									<HeaderStyle Height="10px" HorizontalAlign="Center" />
-									<ItemStyle HorizontalAlign="Right" Width="120px" />
-								</asp:TemplateField>
-								<asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="13" HeaderStyle-Height="10px" HeaderStyle-Width="120px">
-									<ItemTemplate>
-										<font class='a<%# Eval(GRID_GIAI_NGAN.ID)%>'><%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_NS_TRONG_THANG, "{0:#,##0}")%></font>
-									</ItemTemplate>
-									<HeaderStyle Height="10px" HorizontalAlign="Center" />
-									<ItemStyle HorizontalAlign="Right" Width="120px" />
-								</asp:TemplateField>
-								<asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="14" HeaderStyle-Height="10px" HeaderStyle-Width="120px">
-									<ItemTemplate>
-										<font class='a<%# Eval(GRID_GIAI_NGAN.ID)%>'>
-											<%# 
-														CIPConvert.ToStr(
-														CCommonFunction.getMoney_number(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_NS_LUY_KE))
-                                                +		CCommonFunction.getMoney_number( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_NS_TRONG_THANG)), "#,###") %>
-											</font>
-									</ItemTemplate>
-									<HeaderStyle Height="10px" HorizontalAlign="Center" />
-									<ItemStyle HorizontalAlign="Right" Width="120px" />
-								</asp:TemplateField>
-								<asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="15=12+14" HeaderStyle-Height="10px" HeaderStyle-Width="120px">
-									<ItemTemplate>
-										<font class='a<%# Eval(GRID_GIAI_NGAN.ID)%>'>
-											<%# 
-														CIPConvert.ToStr(
-														CCommonFunction.getMoney_number(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_QBT_LUY_KE))
-                                                +		CCommonFunction.getMoney_number( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_QBT_TRONG_THANG))
-												+		CCommonFunction.getMoney_number(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_NS_LUY_KE))
-                                                +		CCommonFunction.getMoney_number( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_NS_TRONG_THANG)), "#,###") %>
+									<!-----------KeHoach _ QuyBaoTri _ SoDuNamTruocChuyenSang------------>
+									<th>Số dư năm trước chuyển sang</th>
+									<!-----------KeHoach _ QuyBaoTri _ GiaoTrongNam------------>
+									<th>Kế hoạch giao trong năm</th>
+									<!-----------KeHoach _ QuyBaoTri _ TongCong------------>
+									<th>Cộng</th>
+									<!-----------KeHoach _ NganSach _ SoDuNamTruocChuyenSang------------>
+									<th>Số dư năm trước chuyển sang</th>
+									<!-----------KeHoach _ NganSach _ GiaoTrongNam------------>
+									<th>Kế hoạch giao trong năm</th>
+									<!-----------KeHoach _ NganSach _ TongCong------------>
+									<th>Cộng</th>
 
-										</font>
-									</ItemTemplate>
-									<HeaderStyle Height="10px" HorizontalAlign="Center" />
-									<ItemStyle HorizontalAlign="Right" Width="120px" />
-								</asp:TemplateField>
-								<asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="16" HeaderStyle-Height="10px" HeaderStyle-Width="120px">
-									<ItemTemplate>
-										<font class='a<%# Eval(GRID_GIAI_NGAN.ID)%>'><%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_QBT_TRONG_THANG, "{0:#,##0}")%></font>
-									</ItemTemplate>
-									<HeaderStyle Height="10px" HorizontalAlign="Center" />
-									<ItemStyle HorizontalAlign="Right" Width="120px" />
-								</asp:TemplateField>
-								<asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="17" HeaderStyle-Height="10px" HeaderStyle-Width="120px">
-									<ItemTemplate>
-										<font class='a<%# Eval(GRID_GIAI_NGAN.ID)%>'>
-											<%# 
-														CIPConvert.ToStr(
-														CCommonFunction.getMoney_number(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_QBT_LUY_KE))
-                                                +		CCommonFunction.getMoney_number( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_QBT_TRONG_THANG)), "#,###") %>
-											</font>
-									</ItemTemplate>
-									<HeaderStyle Height="10px" HorizontalAlign="Center" />
-									<ItemStyle HorizontalAlign="Right" Width="120px" />
-								</asp:TemplateField>
-								<asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="18" HeaderStyle-Height="10px" HeaderStyle-Width="120px">
-									<ItemTemplate>
-										<font class='a<%# Eval(GRID_GIAI_NGAN.ID)%>'><%# Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_NS_TRONG_THANG, "{0:#,##0}")%></font>
-									</ItemTemplate>
-									<HeaderStyle Height="10px" HorizontalAlign="Center" />
-									<ItemStyle HorizontalAlign="Right" Width="120px" />
-								</asp:TemplateField>
-								<asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="19" HeaderStyle-Height="10px" HeaderStyle-Width="120px">
-									<ItemTemplate>
-										<font class='a<%# Eval(GRID_GIAI_NGAN.ID)%>'>
-											<%# 
-														CIPConvert.ToStr(
-														CCommonFunction.getMoney_number(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_NS_LUY_KE))
-                                                +		CCommonFunction.getMoney_number( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_NS_TRONG_THANG)), "#,###") %>
-											</font>
-									</ItemTemplate>
-									<HeaderStyle Height="10px" HorizontalAlign="Center" />
-									<ItemStyle HorizontalAlign="Right" Width="120px" />
-								</asp:TemplateField>
-								<asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="20=17+19" HeaderStyle-Height="10px" HeaderStyle-Width="120px">
-									<ItemTemplate>
-										<font class='a<%# Eval(GRID_GIAI_NGAN.ID)%>'>
-											<%# 
-														CIPConvert.ToStr(
-														CCommonFunction.getMoney_number(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_QBT_LUY_KE))
-                                                +		CCommonFunction.getMoney_number( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_QBT_TRONG_THANG))
-												+		CCommonFunction.getMoney_number(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_NS_LUY_KE))
-                                                +		CCommonFunction.getMoney_number( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_NS_TRONG_THANG)), "#,###") %>
+									<!-----------KinhPhiDaNhan _ QuyBaoTri_TrongThang------------>
+									<th>Trong tháng</th>
+									<!-----------KinhPhiDaNhan _ QuyBaoTri_LuyKe------------>
+									<th>Luỹ kế từ đầu năm</th>
+									<!-----------KinhPhiDaNhan _ NganSach_TrongThang------------>
+									<th>Trong tháng</th>
+									<!-----------KinhPhiDaNhan _ NganSach_LuyKe------------>
+									<th>Luỹ kế từ đầu năm</th>
 
-										</font>
-									</ItemTemplate>
-									<HeaderStyle Height="10px" HorizontalAlign="Center" />
-									<ItemStyle HorizontalAlign="Right" Width="120px" />
-								</asp:TemplateField>
-								<asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="21=12-17" HeaderStyle-Height="10px" HeaderStyle-Width="120px">
-									<ItemTemplate>
-										<font class='a<%# Eval(GRID_GIAI_NGAN.ID)%>'>
-											<%# 
-														CIPConvert.ToStr(
-														CCommonFunction.getMoney_number(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_QBT_LUY_KE))
-                                                +		CCommonFunction.getMoney_number( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_QBT_TRONG_THANG))
-												-		(CCommonFunction.getMoney_number(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_QBT_LUY_KE))
-                                                +		CCommonFunction.getMoney_number( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_QBT_TRONG_THANG))), "#,###") %>
+									<!-----------KinhPhiDaThanhToan _ QuyBaoTri_TrongThang------------>
+									<th>Trong tháng</th>
+									<!-----------KinhPhiDaThanhToan _ QuyBaoTri_LuyKe------------>
+									<th>Luỹ kế từ đầu năm</th>
+									<!-----------KinhPhiDaThanhToan _ NganSach_TrongThang------------>
+									<th>Trong tháng</th>
+									<!-----------KinhPhiDaThanhToan _ NganSach_LuyKe------------>
+									<th>Luỹ kế từ đầu năm</th>
+								</tr>
+								<tr>
 
-										</font>
-									</ItemTemplate>
-									<HeaderStyle Height="10px" HorizontalAlign="Center" />
-									<ItemStyle HorizontalAlign="Right" Width="120px" />
-								</asp:TemplateField>
-								<asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="22=14-19" HeaderStyle-Height="10px" HeaderStyle-Width="120px">
-									<ItemTemplate>
-										<font class='a<%# Eval(GRID_GIAI_NGAN.ID)%>'>
-											<%# 
-														CIPConvert.ToStr(
-														CCommonFunction.getMoney_number(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_NS_LUY_KE))
-                                                +		CCommonFunction.getMoney_number( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_NS_TRONG_THANG))
-												-		(CCommonFunction.getMoney_number(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_NS_LUY_KE))
-                                                +		CCommonFunction.getMoney_number( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_NS_TRONG_THANG))), "#,###") %>
+									<!-----------STT-------------------------->
+									<th class="stt">1</th>
+									<!-----------NoiDung-------------------------->
+									<th class="noi_dung">2</th>
+									<!-----------SoKM-------------------------->
+									<th class="so_km">3</th>
+									<!-----------TongMucDauTu/TongDuToan-------------------------->
+									<th class="so_lieu">4</th>
+									<!-----------KeHoach _ QuyBaoTri _ SoDuNamTruocChuyenSang------------>
+									<th class="so_lieu">5</th>
+									<!-----------KeHoach _ QuyBaoTri _ GiaoTrongNam------------>
+									<th class="so_lieu">6</th>
+									<!-----------KeHoach _ QuyBaoTri _ Cong------------>
+									<th class="so_lieu">7=5+6</th>
+									<!-----------KeHoach _ NganSach _ SoDuNamTruocChuyenSang------------>
+									<th class="so_lieu">8</th>
+									<!-----------KeHoach _ NganSach _ GiaoTrongNam------------>
+									<th class="so_lieu">9</th>
+									<!-----------KeHoach _ NganSach _ Cong------------>
+									<th class="so_lieu">10=8+9</th>
+									<!-----------KeHoach _ NganSach _ Cong------------>
+									<th class="so_lieu">11=7+10</th>
 
-										</font>
-									</ItemTemplate>
-									<HeaderStyle Height="10px" HorizontalAlign="Center" />
-									<ItemStyle HorizontalAlign="Right" Width="120px" />
-								</asp:TemplateField>
-								<asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="23=21+22" HeaderStyle-Height="10px" HeaderStyle-Width="120px">
-									<ItemTemplate>
-										<font class='a<%# Eval(GRID_GIAI_NGAN.ID)%>'>
-											<%#CIPConvert.ToStr(
-														CCommonFunction.getMoney_number(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_QBT_LUY_KE))
-                                                +		CCommonFunction.getMoney_number( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_QBT_TRONG_THANG))
-												-		(CCommonFunction.getMoney_number(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_QBT_LUY_KE))
-                                                +		CCommonFunction.getMoney_number( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_QBT_TRONG_THANG)))
-												+
-														CCommonFunction.getMoney_number(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_NS_LUY_KE))
-                                                +		CCommonFunction.getMoney_number( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_NS_TRONG_THANG))
-												-		(CCommonFunction.getMoney_number(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_NS_LUY_KE))
-                                                +		CCommonFunction.getMoney_number( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_NS_TRONG_THANG)))
-												, "#,###") %>
-									</ItemTemplate>
-									<HeaderStyle Height="10px" HorizontalAlign="Center" />
-									<ItemStyle HorizontalAlign="Right" Width="120px" />
-								</asp:TemplateField>
-								<asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="24=6-12" HeaderStyle-Height="10px" HeaderStyle-Width="120px">
-									<ItemTemplate>
-										<font class='a<%# Eval(GRID_GIAI_NGAN.ID)%>'><%# CIPConvert.ToStr( 
-														CCommonFunction.getMoney_number(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_NTCS_QBT))
-                                                +		CCommonFunction.getMoney_number( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_QBT))
-												-		(CCommonFunction.getMoney_number(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_QBT_LUY_KE))
-                                                +		CCommonFunction.getMoney_number( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_QBT_TRONG_THANG))), "#,###") %></font>
-									</ItemTemplate>
-									<HeaderStyle Height="10px" HorizontalAlign="Center" />
-									<ItemStyle HorizontalAlign="Right" Width="120px" />
-								</asp:TemplateField>
-								<asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="25=9-19" HeaderStyle-Height="10px" HeaderStyle-Width="120px">
-									<ItemTemplate>
-										<font class='a<%# Eval(GRID_GIAI_NGAN.ID)%>'><%# CIPConvert.ToStr(  
-														CCommonFunction.getMoney_number(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_NTCS_NS))
-														+CCommonFunction.getMoney_number(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_NS))
-												-		(CCommonFunction.getMoney_number(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_NS_LUY_KE))
-                                                +		CCommonFunction.getMoney_number( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_NS_TRONG_THANG))), "#,###") %></font>
-									</ItemTemplate>
-									<HeaderStyle Height="10px" HorizontalAlign="Center" />
-									<ItemStyle HorizontalAlign="Right" Width="120px" />
-								</asp:TemplateField>
-								<asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="26=24+25" HeaderStyle-Height="10px" HeaderStyle-Width="120px">
-									<ItemTemplate>
-										<font class='a<%# Eval(GRID_GIAI_NGAN.ID)%>'><%# CIPConvert.ToStr(  
-														CCommonFunction.getMoney_number(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_NTCS_QBT))
-                                                +		CCommonFunction.getMoney_number( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_QBT))
-												-		(CCommonFunction.getMoney_number(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_QBT_LUY_KE))
-                                                +		CCommonFunction.getMoney_number( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DN_QBT_TRONG_THANG)))
-												+
-														CCommonFunction.getMoney_number(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_NTCS_NS))
-														+CCommonFunction.getMoney_number(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.KH_NS))
-												-		(CCommonFunction.getMoney_number(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_NS_LUY_KE))
-                                                +		CCommonFunction.getMoney_number( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_NS_TRONG_THANG)))
-													   
-													   , "#,###") %></font>
-									</ItemTemplate>
-									<HeaderStyle Height="10px" HorizontalAlign="Center" />
-									<ItemStyle HorizontalAlign="Right" Width="120px" />
-								</asp:TemplateField>
-								<asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="27" HeaderStyle-Height="10px" HeaderStyle-Width="120px">
-									<ItemTemplate>
-										<font class='a<%# Eval(GRID_GIAI_NGAN.ID)%>'>
-											<%# CIPConvert.ToStr(  
-														CCommonFunction.getMoney_number(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.GIA_TRI_THUC_HIEN_QBT))
-													   , "#,###") %></font>
-									</ItemTemplate>
-									<HeaderStyle Height="10px" HorizontalAlign="Center" />
-									<ItemStyle HorizontalAlign="Right" Width="120px" />
-								</asp:TemplateField>
-								<asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="28" HeaderStyle-Height="10px" HeaderStyle-Width="120px">
-									<ItemTemplate>
-										<font class='a<%# Eval(GRID_GIAI_NGAN.ID)%>'>
-											<%# CIPConvert.ToStr(  
-														CCommonFunction.getMoney_number(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.GIA_TRI_THUC_HIEN_NS))
-													   , "#,###") %></font>
-									</ItemTemplate>
-									<HeaderStyle Height="10px" HorizontalAlign="Center" />
-									<ItemStyle HorizontalAlign="Right" Width="120px" />
-								</asp:TemplateField>
-								<asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="29=27+28" HeaderStyle-Height="10px" HeaderStyle-Width="120px">
-									<ItemTemplate>
-										<font class='a<%# Eval(GRID_GIAI_NGAN.ID)%>'>
-											<%# CIPConvert.ToStr(
-														CCommonFunction.getMoney_number(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.GIA_TRI_THUC_HIEN_QBT))
-												+		CCommonFunction.getMoney_number(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.GIA_TRI_THUC_HIEN_NS))
-													   , "#,###") %></font>
-									</ItemTemplate>
-									<HeaderStyle Height="10px" HorizontalAlign="Center" />
-									<ItemStyle HorizontalAlign="Right" Width="120px" />
-								</asp:TemplateField>
-								<asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="30=27-17" HeaderStyle-Height="10px" HeaderStyle-Width="120px">
-									<ItemTemplate>
-										<font class='a<%# Eval(GRID_GIAI_NGAN.ID)%>'>
-											<%# CIPConvert.ToStr(  
-														CCommonFunction.getMoney_number(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.GIA_TRI_THUC_HIEN_QBT))
-												-		
-														(CCommonFunction.getMoney_number(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_QBT_LUY_KE))
-                                                +		CCommonFunction.getMoney_number( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_QBT_TRONG_THANG)))
-													   , "#,###") %></font>
-									</ItemTemplate>
-									<HeaderStyle Height="10px" HorizontalAlign="Center" />
-									<ItemStyle HorizontalAlign="Right" Width="120px" />
-								</asp:TemplateField>
-								<asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="31=28-19" HeaderStyle-Height="10px" HeaderStyle-Width="120px">
-									<ItemTemplate>
-										<font class='a<%# Eval(GRID_GIAI_NGAN.ID)%>'>
-											<%# CIPConvert.ToStr(  
-														CCommonFunction.getMoney_number(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.GIA_TRI_THUC_HIEN_NS))
-												-		
-														(CCommonFunction.getMoney_number(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_NS_LUY_KE))
-                                                +		CCommonFunction.getMoney_number( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_NS_TRONG_THANG)))
-													   , "#,###") %></font>
-									</ItemTemplate>
-									<HeaderStyle Height="10px" HorizontalAlign="Center" />
-									<ItemStyle HorizontalAlign="Right" Width="120px" />
-								</asp:TemplateField>
-								<asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="32=30+31" HeaderStyle-Height="10px" HeaderStyle-Width="120px">
-									<ItemTemplate>
-										<font class='a<%# Eval(GRID_GIAI_NGAN.ID)%>'>
-											<%# CIPConvert.ToStr(  
-														CCommonFunction.getMoney_number(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.GIA_TRI_THUC_HIEN_QBT))
-												-		
-														(CCommonFunction.getMoney_number(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_QBT_LUY_KE))
-                                                +		CCommonFunction.getMoney_number( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_QBT_TRONG_THANG)))
-												+
-														CCommonFunction.getMoney_number(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.GIA_TRI_THUC_HIEN_NS))
-												-		
-														(CCommonFunction.getMoney_number(Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_NS_LUY_KE))
-                                                +		CCommonFunction.getMoney_number( Eval(RPT_BC_TINH_HINH_GIAI_NGAN.DTT_NS_TRONG_THANG)))
-													   , "#,###") %></font>
-									</ItemTemplate>
-									<HeaderStyle Height="10px" HorizontalAlign="Center" />
-									<ItemStyle HorizontalAlign="Right" Width="120px" />
-								</asp:TemplateField>
-							</Columns>
+									<!-----------KinhPhiDaNhan _ QuyBaoTri_TrongThang------------>
+									<th class="so_lieu">12</th>
+									<!-----------KinhPhiDaNhan _ QuyBaoTri_LuyKe------------>
+									<th class="so_lieu">13</th>
+									<!-----------KinhPhiDaNhan _ NganSach_TrongThang------------>
+									<th class="so_lieu">14</th>
+									<!-----------KinhPhiDaNhan _ NganSach_LuyKe------------>
+									<th class="so_lieu">15</th>
+									<!-----------KinhPhiDaNhan _ TongCong------------>
+									<th class="so_lieu">16=13+15</th>
 
-						</asp:GridView>
-					</div>
+									<!-----------KinhPhiDaThanhToan _ QuyBaoTri_TrongThang------------>
+									<th class="so_lieu">17</th>
+									<!-----------KinhPhiDaThanhToan _ QuyBaoTri_LuyKe------------>
+									<th class="so_lieu">18</th>
+									<!-----------KinhPhiDaThanhToan _ NganSach_TrongThang------------>
+									<th class="so_lieu">19</th>
+									<!-----------KinhPhiDaThanhToan _ NganSach_LuyKe------------>
+									<th class="so_lieu">20</th>
+									<!-----------KinhPhiDaThanhToan _ TongCong------------>
+									<th class="so_lieu">21=18+20</th>
+
+									<!-----------KinhPhiChuaGN _ QuyBaoTri------------>
+									<th class="so_lieu">22=13-18</th>
+									<!-----------KinhPhiChuaGN _ NganSach------------>
+									<th class="so_lieu">23=15-20</th>
+									<!-----------KinhPhiChuaGN _ Tong_cong------------>
+									<th class="so_lieu">24=22+23</th>
+
+									<!-----------KinhPhiConDuocNhan _ QuyBaoTri------------>
+									<th class="so_lieu">25=7-13</th>
+									<!-----------KinhPhiConDuocNhan _ NganSach------------>
+									<th class="so_lieu">26=10-20</th>
+									<!-----------KinhPhiConDuocNhan _ Tong_cong------------>
+									<th class="so_lieu">27=25+26</th>
+
+									<!-----------GiaTriThucHienDaNghiemThuAB _ QuyBaoTri------------>
+									<th class="so_lieu">28</th>
+									<!-----------GiaTriThucHienDaNghiemThuAB _ NhuCauVonKyTiepTheo------------>
+									<th class="so_lieu">29</th>
+									<!-----------GiaTriThucHienDaNghiemThuAB _ NganSach------------>
+									<th class="so_lieu">30</th>
+									<!-----------GiaTriThucHienDaNghiemThuAB _ Tong_cong------------>
+									<th class="so_lieu">31=28+30</th>
+
+									<!-----------SoChuaGNChoNhaThauTheoNghiemThuAB _ QuyBaoTri------------>
+									<th class="so_lieu">32=28-18</th>
+									<!-----------SoChuaGNChoNhaThauTheoNghiemThuAB _ NganSach------------>
+									<th class="so_lieu">33=28-19</th>
+									<!-----------SoChuaGNChoNhaThauTheoNghiemThuAB _ Tong_cong------------>
+									<th class="so_lieu">34=32+33</th>
+
+								</tr>
+							</thead>
+							<tbody>
+								<!------------------------Khai bao bien dung de tinh toan so lieu------------------------------------->
+								<%double v_dc_so_km, v_dc_tong_muc_dau_tu, v_dc_kh_qbt_ntcs, v_dc_kh_qbt_giao, v_dc_kh_ns_ntcs, v_dc_kh_ns_giao, v_dc_giao_von_qbt_trong_thang, v_dc_giao_von_ns_trong_thang, v_dc_giao_von_qbt_luy_ke, v_dc_giao_von_ns_luy_ke, v_dc_da_thanh_toan_qbt_trong_thang, v_dc_da_thanh_toan_qbt_luy_ke, v_dc_da_thanh_toan_ns_trong_thang, v_dc_da_thanh_toan_ns_luy_ke, v_dc_gia_tri_thuc_hien_da_nghiem_thu_ab_qbt, v_dc_gia_tri_thuc_hien_da_nghiem_thu_ab_ns, v_dc_nhu_cau_von_ky_tiep_theo; %>
+								<!-------------------Dòng Tổng cộng---------------------------->
+								<% Fn.F530.get_so_lieu_by_row(m_lst_giao_kh
+											  , m_lst_giao_von
+											  , m_lst_giai_ngan
+											  , m_lst_khoi_luong
+											  , -1
+											  , m_dat_dau_nam
+											  , m_dat_tu_ngay
+											  , m_dat_den_ngay
+											  , Fn.para_F530_Group.Cuc
+											  , ""
+											  , out v_dc_so_km
+											  , out v_dc_tong_muc_dau_tu
+											  , out v_dc_kh_qbt_ntcs
+											  , out v_dc_kh_qbt_giao
+											  , out v_dc_kh_ns_ntcs
+											  , out v_dc_kh_ns_giao
+											  , out v_dc_giao_von_qbt_trong_thang
+											  , out v_dc_giao_von_qbt_luy_ke
+											  , out v_dc_giao_von_ns_trong_thang
+											  , out v_dc_giao_von_ns_luy_ke
+											  , out v_dc_da_thanh_toan_qbt_trong_thang
+											  , out v_dc_da_thanh_toan_qbt_luy_ke
+											  , out v_dc_da_thanh_toan_ns_trong_thang
+											  , out v_dc_da_thanh_toan_ns_luy_ke
+											  , out v_dc_gia_tri_thuc_hien_da_nghiem_thu_ab_qbt
+											  , out v_dc_gia_tri_thuc_hien_da_nghiem_thu_ab_ns
+											  , out v_dc_nhu_cau_von_ky_tiep_theo);%>
+								<tr style="font-weight: bold; color: maroon; font-style: italic">
+									<td class="stt"></td>
+									<td class="noi_dung" style="text-align: center">Tổng cộng</td>
+									<!-----------SoKmQuanLy------------>
+									<td class="so_km">
+										<%=v_dc_so_km %>
+									</td>
+									<!-----------TongMucDauTu/TongDuToan------------>
+									<td class="so_lieu">
+										<%=v_dc_tong_muc_dau_tu %>
+									</td>
+									<!-----------KeHoach _ QuyBaoTri _ SoDuNamTruocChuyenSang------------>
+									<td class="so_lieu">
+										<%=v_dc_kh_qbt_ntcs%>
+									</td>
+									<!-----------KeHoach _ QuyBaoTri _ GiaoTrongNam------------>
+									<td class="so_lieu">
+										<%=v_dc_kh_qbt_giao %>
+									</td>
+									<!-----------KeHoach _ QuyBaoTri _ TongCong------------>
+									<td class="so_lieu">
+										<%=v_dc_kh_qbt_ntcs+v_dc_kh_qbt_giao %>
+									</td>
+									<!-----------KeHoach _ NganSach _ SoDuNamTruocChuyenSang------------>
+									<td class="so_lieu">
+										<%=v_dc_kh_ns_ntcs %>
+									</td>
+									<!-----------KeHoach _ NganSach _ GiaoTrongNam------------>
+									<td class="so_lieu">
+										<%= v_dc_kh_ns_giao%>
+									</td>
+									<!-----------KeHoach _ NganSach _ TongCong------------>
+									<td class="so_lieu">
+										<%= v_dc_kh_ns_ntcs+v_dc_kh_ns_giao%>
+									</td>
+									<!------------KeHoach _ TongCong--------------------------------------->
+									<td class="so_lieu">
+										<%=v_dc_kh_qbt_ntcs+v_dc_kh_qbt_giao +v_dc_kh_ns_ntcs+v_dc_kh_ns_giao%>
+									</td>
+
+									<!-----------KinhPhiDaNhan _ QuyBaoTri_TrongThang------------>
+									<td class="so_lieu">
+										<%=v_dc_giao_von_qbt_trong_thang %>
+									</td>
+									<!-----------KinhPhiDaNhan _ QuyBaoTri_LuyKe------------>
+									<td class="so_lieu">
+										<%=v_dc_giao_von_qbt_luy_ke%>
+									</td>
+									<!-----------KinhPhiDaNhan _ NganSach_TrongThang------------>
+									<td class="so_lieu">
+										<%=v_dc_giao_von_ns_trong_thang %>
+									</td>
+									<!-----------KinhPhiDaNhan _ NganSach_LuyKe------------>
+									<td class="so_lieu">
+										<%=v_dc_giao_von_ns_luy_ke %>
+									</td>
+									<!-----------KinhPhiDaNhan _ TongCong------------>
+									<td class="so_lieu">
+										<%=v_dc_giao_von_qbt_luy_ke+v_dc_giao_von_ns_luy_ke%>
+									</td>
+
+									<!-----------KinhPhiDaThanhToan _ QuyBaoTri_TrongThang------------>
+									<td class="so_lieu">
+										<%=v_dc_da_thanh_toan_qbt_trong_thang %>
+									</td>
+									<!-----------KinhPhiDaThanhToan _ QuyBaoTri_LuyKe------------>
+									<td class="so_lieu">
+										<%=v_dc_da_thanh_toan_qbt_luy_ke %>
+									</td>
+									<!-----------KinhPhiDaThanhToan _ NganSach_TrongThang------------>
+									<td class="so_lieu">
+										<%=v_dc_da_thanh_toan_ns_trong_thang %>
+									</td>
+									<!-----------KinhPhiDaThanhToan _ NganSach_LuyKe------------>
+									<td class="so_lieu">
+										<%=v_dc_da_thanh_toan_ns_luy_ke %>
+									</td>
+									<!-----------KinhPhiDaThanhToan _ TongCong------------>
+									<td class="so_lieu">
+										<%=v_dc_da_thanh_toan_qbt_luy_ke +v_dc_da_thanh_toan_ns_luy_ke %>
+									</td>
+
+									<!-----------KinhPhiChuaGN _ QuyBaoTri------------>
+									<td class="so_lieu">
+										<%=v_dc_giao_von_qbt_luy_ke-v_dc_da_thanh_toan_qbt_luy_ke %>
+									</td>
+									<!-----------KinhPhiChuaGN _ NganSach------------>
+									<td class="so_lieu">
+										<%=v_dc_giao_von_ns_luy_ke-v_dc_da_thanh_toan_ns_luy_ke %>
+									</td>
+									<!-----------KinhPhiChuaGN _ Tong_cong------------>
+									<td class="so_lieu">
+										<%=v_dc_giao_von_qbt_luy_ke-v_dc_da_thanh_toan_qbt_luy_ke 
+					+v_dc_giao_von_ns_luy_ke-v_dc_da_thanh_toan_ns_luy_ke%>
+									</td>
+
+									<!-----------KinhPhiConDuocNhan _ QuyBaoTri------------>
+									<td class="so_lieu">
+										<%=v_dc_kh_qbt_ntcs+v_dc_kh_qbt_giao -v_dc_giao_von_qbt_luy_ke%>
+									</td>
+									<!-----------KinhPhiConDuocNhan _ NganSach------------>
+									<td class="so_lieu">
+										<%= v_dc_kh_ns_ntcs+v_dc_kh_ns_giao-v_dc_da_thanh_toan_ns_luy_ke%>
+									</td>
+									<!-----------KinhPhiConDuocNhan _ Tong_cong------------>
+									<td class="so_lieu">
+										<%=v_dc_kh_qbt_ntcs+v_dc_kh_qbt_giao -v_dc_giao_von_qbt_luy_ke
+				 +v_dc_kh_ns_ntcs+v_dc_kh_ns_giao-v_dc_da_thanh_toan_ns_luy_ke%>
+									</td>
+
+									<!-----------GiaTriThucHienDaNghiemThuAB _ QuyBaoTri------------>
+									<td class="so_lieu">
+										<%=v_dc_gia_tri_thuc_hien_da_nghiem_thu_ab_qbt %>
+									</td>
+									<!-----------GiaTriThucHienDaNghiemThuAB _ NhuCauVonKyTiepTheo------------>
+									<td class="so_lieu">
+										<%=v_dc_nhu_cau_von_ky_tiep_theo %>
+									</td>
+									<!-----------GiaTriThucHienDaNghiemThuAB _ NganSach------------>
+									<td class="so_lieu">
+										<%=v_dc_gia_tri_thuc_hien_da_nghiem_thu_ab_ns %>
+									</td>
+									<!-----------GiaTriThucHienDaNghiemThuAB _ Tong_cong------------>
+									<td class="so_lieu">
+										<%=v_dc_gia_tri_thuc_hien_da_nghiem_thu_ab_qbt+v_dc_gia_tri_thuc_hien_da_nghiem_thu_ab_ns %>
+									</td>
+
+									<!-----------SoChuaGNChoNhaThauTheoNghiemThuAB _ QuyBaoTri------------>
+									<td class="so_lieu">
+										<%= v_dc_gia_tri_thuc_hien_da_nghiem_thu_ab_qbt-v_dc_da_thanh_toan_qbt_luy_ke%>
+									</td>
+									<!-----------SoChuaGNChoNhaThauTheoNghiemThuAB _ NganSach------------>
+									<td class="so_lieu">
+										<%=v_dc_gia_tri_thuc_hien_da_nghiem_thu_ab_ns-v_dc_da_thanh_toan_ns_luy_ke %>
+									</td>
+									<!-----------SoChuaGNChoNhaThauTheoNghiemThuAB _ Tong_cong------------>
+									<td class="so_lieu">
+										<%= v_dc_gia_tri_thuc_hien_da_nghiem_thu_ab_qbt-v_dc_da_thanh_toan_qbt_luy_ke
+				+ v_dc_gia_tri_thuc_hien_da_nghiem_thu_ab_ns-v_dc_da_thanh_toan_ns_luy_ke %>
+									</td>
+								</tr>
+								<!------------------Tạo dòng Group by Cuc QLDB----------------------->
+								<%int v_i_stt = 1; %>
+								<%foreach (var item in m_lst_group_by)%>
+								<%{%>
+								<%var v_lst_don_vi_group_by = m_lst_don_vi
+					.Where(x => x.TEN_DON_VI.ToUpper().Contains(item.groupKey.ToUpper())
+					|| x.TEN_DON_VI.ToUpper().Contains((item.groupKey + ".").ToUpper())
+					|| (x.TEN_DON_VI + " - Văn phòng").ToUpper().Contains(item.groupKey.Replace(".", " - Văn phòng").ToUpper())
+					)
+					.ToList();
+						  if (v_lst_don_vi_group_by != null)
+						  {
+							  m_lst_don_vi_group_by.AddRange(v_lst_don_vi_group_by);
+						  }
+								%>
+								<!----------------Cuc QLDBx---------------------------------->
+								<%Fn.F530.get_so_lieu_by_row(m_lst_giao_kh
+									  , m_lst_giao_von
+									  , m_lst_giai_ngan
+									  , m_lst_khoi_luong
+									  , -1
+									  , m_dat_dau_nam
+									  , m_dat_tu_ngay
+									  , m_dat_den_ngay
+									  , Fn.para_F530_Group.Cuc
+									  , item.groupKey
+									  , out v_dc_so_km
+									  , out v_dc_tong_muc_dau_tu
+									  , out v_dc_kh_qbt_ntcs
+									  , out v_dc_kh_qbt_giao
+									  , out v_dc_kh_ns_ntcs
+									  , out v_dc_kh_ns_giao
+									  , out v_dc_giao_von_qbt_trong_thang
+									  , out v_dc_giao_von_qbt_luy_ke
+									  , out v_dc_giao_von_ns_trong_thang
+									  , out v_dc_giao_von_ns_luy_ke
+									  , out v_dc_da_thanh_toan_qbt_trong_thang
+									  , out v_dc_da_thanh_toan_qbt_luy_ke
+									  , out v_dc_da_thanh_toan_ns_trong_thang
+									  , out v_dc_da_thanh_toan_ns_luy_ke
+									  , out v_dc_gia_tri_thuc_hien_da_nghiem_thu_ab_qbt
+									  , out v_dc_gia_tri_thuc_hien_da_nghiem_thu_ab_ns
+									  , out v_dc_nhu_cau_von_ky_tiep_theo); %>
+								<tr style="font-weight: bold; font-style: italic">
+									<td class="stt"> </td>
+									<td class="noi_dung"><%=item.groupText %></td>
+									<!-----------SoKmQuanLy------------>
+									<td class="so_km">
+										<%=v_dc_so_km %>
+									</td>
+									<!-----------TongMucDauTu/TongDuToan------------>
+									<td class="so_lieu">
+										<%=v_dc_tong_muc_dau_tu %>
+									</td>
+									<!-----------KeHoach _ QuyBaoTri _ SoDuNamTruocChuyenSang------------>
+									<td class="so_lieu">
+										<%=v_dc_kh_qbt_ntcs%>
+									</td>
+									<!-----------KeHoach _ QuyBaoTri _ GiaoTrongNam------------>
+									<td class="so_lieu">
+										<%=v_dc_kh_qbt_giao %>
+									</td>
+									<!-----------KeHoach _ QuyBaoTri _ TongCong------------>
+									<td class="so_lieu">
+										<%=v_dc_kh_qbt_ntcs+v_dc_kh_qbt_giao %>
+									</td>
+									<!-----------KeHoach _ NganSach _ SoDuNamTruocChuyenSang------------>
+									<td class="so_lieu">
+										<%=v_dc_kh_ns_ntcs %>
+									</td>
+									<!-----------KeHoach _ NganSach _ GiaoTrongNam------------>
+									<td class="so_lieu">
+										<%= v_dc_kh_ns_giao%>
+									</td>
+									<!-----------KeHoach _ NganSach _ TongCong------------>
+									<td class="so_lieu">
+										<%= v_dc_kh_ns_ntcs+v_dc_kh_ns_giao%>
+									</td>
+									<!------------KeHoach _ TongCong--------------------------------------->
+									<td class="so_lieu">
+										<%=v_dc_kh_qbt_ntcs+v_dc_kh_qbt_giao +v_dc_kh_ns_ntcs+v_dc_kh_ns_giao%>
+									</td>
+
+									<!-----------KinhPhiDaNhan _ QuyBaoTri_TrongThang------------>
+									<td class="so_lieu">
+										<%=v_dc_giao_von_qbt_trong_thang %>
+									</td>
+									<!-----------KinhPhiDaNhan _ QuyBaoTri_LuyKe------------>
+									<td class="so_lieu">
+										<%=v_dc_giao_von_qbt_luy_ke%>
+									</td>
+									<!-----------KinhPhiDaNhan _ NganSach_TrongThang------------>
+									<td class="so_lieu">
+										<%=v_dc_giao_von_ns_trong_thang %>
+									</td>
+									<!-----------KinhPhiDaNhan _ NganSach_LuyKe------------>
+									<td class="so_lieu">
+										<%=v_dc_giao_von_ns_luy_ke %>
+									</td>
+									<!-----------KinhPhiDaNhan _ TongCong------------>
+									<td class="so_lieu">
+										<%=v_dc_giao_von_qbt_luy_ke+v_dc_giao_von_ns_luy_ke%>
+									</td>
+
+									<!-----------KinhPhiDaThanhToan _ QuyBaoTri_TrongThang------------>
+									<td class="so_lieu">
+										<%=v_dc_da_thanh_toan_qbt_trong_thang %>
+									</td>
+									<!-----------KinhPhiDaThanhToan _ QuyBaoTri_LuyKe------------>
+									<td class="so_lieu">
+										<%=v_dc_da_thanh_toan_qbt_luy_ke %>
+									</td>
+									<!-----------KinhPhiDaThanhToan _ NganSach_TrongThang------------>
+									<td class="so_lieu">
+										<%=v_dc_da_thanh_toan_ns_trong_thang %>
+									</td>
+									<!-----------KinhPhiDaThanhToan _ NganSach_LuyKe------------>
+									<td class="so_lieu">
+										<%=v_dc_da_thanh_toan_ns_luy_ke %>
+									</td>
+									<!-----------KinhPhiDaThanhToan _ TongCong------------>
+									<td class="so_lieu">
+										<%=v_dc_da_thanh_toan_qbt_luy_ke +v_dc_da_thanh_toan_ns_luy_ke %>
+									</td>
+
+									<!-----------KinhPhiChuaGN _ QuyBaoTri------------>
+									<td class="so_lieu">
+										<%=v_dc_giao_von_qbt_luy_ke-v_dc_da_thanh_toan_qbt_luy_ke %>
+									</td>
+									<!-----------KinhPhiChuaGN _ NganSach------------>
+									<td class="so_lieu">
+										<%=v_dc_giao_von_ns_luy_ke-v_dc_da_thanh_toan_ns_luy_ke %>
+									</td>
+									<!-----------KinhPhiChuaGN _ Tong_cong------------>
+									<td class="so_lieu">
+										<%=v_dc_giao_von_qbt_luy_ke-v_dc_da_thanh_toan_qbt_luy_ke 
+					+v_dc_giao_von_ns_luy_ke-v_dc_da_thanh_toan_ns_luy_ke%>
+									</td>
+
+									<!-----------KinhPhiConDuocNhan _ QuyBaoTri------------>
+									<td class="so_lieu">
+										<%=v_dc_kh_qbt_ntcs+v_dc_kh_qbt_giao -v_dc_giao_von_qbt_luy_ke%>
+									</td>
+									<!-----------KinhPhiConDuocNhan _ NganSach------------>
+									<td class="so_lieu">
+										<%= v_dc_kh_ns_ntcs+v_dc_kh_ns_giao-v_dc_da_thanh_toan_ns_luy_ke%>
+									</td>
+									<!-----------KinhPhiConDuocNhan _ Tong_cong------------>
+									<td class="so_lieu">
+										<%=v_dc_kh_qbt_ntcs+v_dc_kh_qbt_giao -v_dc_giao_von_qbt_luy_ke
+				 +v_dc_kh_ns_ntcs+v_dc_kh_ns_giao-v_dc_da_thanh_toan_ns_luy_ke%>
+									</td>
+
+									<!-----------GiaTriThucHienDaNghiemThuAB _ QuyBaoTri------------>
+									<td class="so_lieu">
+										<%=v_dc_gia_tri_thuc_hien_da_nghiem_thu_ab_qbt %>
+									</td>
+									<!-----------GiaTriThucHienDaNghiemThuAB _ NhuCauVonKyTiepTheo------------>
+									<td class="so_lieu">
+										<%=v_dc_nhu_cau_von_ky_tiep_theo %>
+									</td>
+									<!-----------GiaTriThucHienDaNghiemThuAB _ NganSach------------>
+									<td class="so_lieu">
+										<%=v_dc_gia_tri_thuc_hien_da_nghiem_thu_ab_ns %>
+									</td>
+									<!-----------GiaTriThucHienDaNghiemThuAB _ Tong_cong------------>
+									<td class="so_lieu">
+										<%=v_dc_gia_tri_thuc_hien_da_nghiem_thu_ab_qbt+v_dc_gia_tri_thuc_hien_da_nghiem_thu_ab_ns %>
+									</td>
+
+									<!-----------SoChuaGNChoNhaThauTheoNghiemThuAB _ QuyBaoTri------------>
+									<td class="so_lieu">
+										<%= v_dc_gia_tri_thuc_hien_da_nghiem_thu_ab_qbt-v_dc_da_thanh_toan_qbt_luy_ke%>
+									</td>
+									<!-----------SoChuaGNChoNhaThauTheoNghiemThuAB _ NganSach------------>
+									<td class="so_lieu">
+										<%=v_dc_gia_tri_thuc_hien_da_nghiem_thu_ab_ns-v_dc_da_thanh_toan_ns_luy_ke %>
+									</td>
+									<!-----------SoChuaGNChoNhaThauTheoNghiemThuAB _ Tong_cong------------>
+									<td class="so_lieu">
+										<%= v_dc_gia_tri_thuc_hien_da_nghiem_thu_ab_qbt-v_dc_da_thanh_toan_qbt_luy_ke
+				+ v_dc_gia_tri_thuc_hien_da_nghiem_thu_ab_ns-v_dc_da_thanh_toan_ns_luy_ke %>
+									</td>
+								</tr>
+								<!-------------------Chi cuc, van phong cuc--------------------->
+								<%foreach (var don_vi in v_lst_don_vi_group_by)%>
+								<%{%>
+								<%
+			  Fn.F530.get_so_lieu_by_row(m_lst_giao_kh
+					   , m_lst_giao_von
+					   , m_lst_giai_ngan
+					   , m_lst_khoi_luong
+					   , don_vi.ID
+					   , m_dat_dau_nam
+					   , m_dat_tu_ngay
+					   , m_dat_den_ngay
+					   , Fn.para_F530_Group.DonVi
+					   , ""
+					   , out v_dc_so_km
+					   , out v_dc_tong_muc_dau_tu
+					   , out v_dc_kh_qbt_ntcs
+					   , out v_dc_kh_qbt_giao
+					   , out v_dc_kh_ns_ntcs
+					   , out v_dc_kh_ns_giao
+					   , out v_dc_giao_von_qbt_trong_thang
+					   , out v_dc_giao_von_qbt_luy_ke
+					   , out v_dc_giao_von_ns_trong_thang
+					   , out v_dc_giao_von_ns_luy_ke
+					   , out v_dc_da_thanh_toan_qbt_trong_thang
+					   , out v_dc_da_thanh_toan_qbt_luy_ke
+					   , out v_dc_da_thanh_toan_ns_trong_thang
+					   , out v_dc_da_thanh_toan_ns_luy_ke
+					   , out v_dc_gia_tri_thuc_hien_da_nghiem_thu_ab_qbt
+					   , out v_dc_gia_tri_thuc_hien_da_nghiem_thu_ab_ns
+					   , out v_dc_nhu_cau_von_ky_tiep_theo);
+			
+								%>
+								<td class="stt"><%=v_i_stt++ %></td>
+								<td class="noi_dung">
+									<a  href="F350_tinh_hinh_giai_ngan.aspx?ip_dc_id_don_vi=<%=don_vi.ID %>&ip_dat_tu_ngay=<%=m_txt_tu_ngay.Text %>&ip_dat_den_ngay=<%=m_txt_den_ngay.Text %>" title="Xem chi tiết">---<%=don_vi.TEN_DON_VI %></a>
+								</td>
+								<!-----------SoKmQuanLy------------>
+								<td class="so_km">
+									<%=v_dc_so_km %>
+								</td>
+								<!-----------TongMucDauTu/TongDuToan------------>
+								<td class="so_lieu">
+									<%=v_dc_tong_muc_dau_tu %>
+								</td>
+								<!-----------KeHoach _ QuyBaoTri _ SoDuNamTruocChuyenSang------------>
+								<td class="so_lieu">
+									<%=v_dc_kh_qbt_ntcs%>
+								</td>
+								<!-----------KeHoach _ QuyBaoTri _ GiaoTrongNam------------>
+								<td class="so_lieu">
+									<%=v_dc_kh_qbt_giao %>
+								</td>
+								<!-----------KeHoach _ QuyBaoTri _ TongCong------------>
+								<td class="so_lieu">
+									<%=v_dc_kh_qbt_ntcs+v_dc_kh_qbt_giao %>
+								</td>
+								<!-----------KeHoach _ NganSach _ SoDuNamTruocChuyenSang------------>
+								<td class="so_lieu">
+									<%=v_dc_kh_ns_ntcs %>
+								</td>
+								<!-----------KeHoach _ NganSach _ GiaoTrongNam------------>
+								<td class="so_lieu">
+									<%= v_dc_kh_ns_giao%>
+								</td>
+								<!-----------KeHoach _ NganSach _ TongCong------------>
+								<td class="so_lieu">
+									<%= v_dc_kh_ns_ntcs+v_dc_kh_ns_giao%>
+								</td>
+								<!------------KeHoach _ TongCong--------------------------------------->
+								<td class="so_lieu">
+									<%=v_dc_kh_qbt_ntcs+v_dc_kh_qbt_giao +v_dc_kh_ns_ntcs+v_dc_kh_ns_giao%>
+								</td>
+
+								<!-----------KinhPhiDaNhan _ QuyBaoTri_TrongThang------------>
+								<td class="so_lieu">
+									<%=v_dc_giao_von_qbt_trong_thang %>
+								</td>
+								<!-----------KinhPhiDaNhan _ QuyBaoTri_LuyKe------------>
+								<td class="so_lieu">
+									<%=v_dc_giao_von_qbt_luy_ke%>
+								</td>
+								<!-----------KinhPhiDaNhan _ NganSach_TrongThang------------>
+								<td class="so_lieu">
+									<%=v_dc_giao_von_ns_trong_thang %>
+								</td>
+								<!-----------KinhPhiDaNhan _ NganSach_LuyKe------------>
+								<td class="so_lieu">
+									<%=v_dc_giao_von_ns_luy_ke %>
+								</td>
+								<!-----------KinhPhiDaNhan _ TongCong------------>
+								<td class="so_lieu">
+									<%=v_dc_giao_von_qbt_luy_ke+v_dc_giao_von_ns_luy_ke%>
+								</td>
+
+								<!-----------KinhPhiDaThanhToan _ QuyBaoTri_TrongThang------------>
+								<td class="so_lieu">
+									<%=v_dc_da_thanh_toan_qbt_trong_thang %>
+								</td>
+								<!-----------KinhPhiDaThanhToan _ QuyBaoTri_LuyKe------------>
+								<td class="so_lieu">
+									<%=v_dc_da_thanh_toan_qbt_luy_ke %>
+								</td>
+								<!-----------KinhPhiDaThanhToan _ NganSach_TrongThang------------>
+								<td class="so_lieu">
+									<%=v_dc_da_thanh_toan_ns_trong_thang %>
+								</td>
+								<!-----------KinhPhiDaThanhToan _ NganSach_LuyKe------------>
+								<td class="so_lieu">
+									<%=v_dc_da_thanh_toan_ns_luy_ke %>
+								</td>
+								<!-----------KinhPhiDaThanhToan _ TongCong------------>
+								<td class="so_lieu">
+									<%=v_dc_da_thanh_toan_qbt_luy_ke +v_dc_da_thanh_toan_ns_luy_ke %>
+								</td>
+
+								<!-----------KinhPhiChuaGN _ QuyBaoTri------------>
+								<td class="so_lieu">
+									<%=v_dc_giao_von_qbt_luy_ke-v_dc_da_thanh_toan_qbt_luy_ke %>
+								</td>
+								<!-----------KinhPhiChuaGN _ NganSach------------>
+								<td class="so_lieu">
+									<%=v_dc_giao_von_ns_luy_ke-v_dc_da_thanh_toan_ns_luy_ke %>
+								</td>
+								<!-----------KinhPhiChuaGN _ Tong_cong------------>
+								<td class="so_lieu">
+									<%=v_dc_giao_von_qbt_luy_ke-v_dc_da_thanh_toan_qbt_luy_ke 
+					+v_dc_giao_von_ns_luy_ke-v_dc_da_thanh_toan_ns_luy_ke%>
+								</td>
+
+								<!-----------KinhPhiConDuocNhan _ QuyBaoTri------------>
+								<td class="so_lieu">
+									<%=v_dc_kh_qbt_ntcs+v_dc_kh_qbt_giao -v_dc_giao_von_qbt_luy_ke%>
+								</td>
+								<!-----------KinhPhiConDuocNhan _ NganSach------------>
+								<td class="so_lieu">
+									<%= v_dc_kh_ns_ntcs+v_dc_kh_ns_giao-v_dc_da_thanh_toan_ns_luy_ke%>
+								</td>
+								<!-----------KinhPhiConDuocNhan _ Tong_cong------------>
+								<td class="so_lieu">
+									<%=v_dc_kh_qbt_ntcs+v_dc_kh_qbt_giao -v_dc_giao_von_qbt_luy_ke
+				 +v_dc_kh_ns_ntcs+v_dc_kh_ns_giao-v_dc_da_thanh_toan_ns_luy_ke%>
+								</td>
+
+								<!-----------GiaTriThucHienDaNghiemThuAB _ QuyBaoTri------------>
+								<td class="so_lieu">
+									<%=v_dc_gia_tri_thuc_hien_da_nghiem_thu_ab_qbt %>
+								</td>
+								<!-----------GiaTriThucHienDaNghiemThuAB _ NhuCauVonKyTiepTheo------------>
+								<td class="so_lieu">
+									<%=v_dc_nhu_cau_von_ky_tiep_theo %>
+								</td>
+								<!-----------GiaTriThucHienDaNghiemThuAB _ NganSach------------>
+								<td class="so_lieu">
+									<%=v_dc_gia_tri_thuc_hien_da_nghiem_thu_ab_ns %>
+								</td>
+								<!-----------GiaTriThucHienDaNghiemThuAB _ Tong_cong------------>
+								<td class="so_lieu">
+									<%=v_dc_gia_tri_thuc_hien_da_nghiem_thu_ab_qbt+v_dc_gia_tri_thuc_hien_da_nghiem_thu_ab_ns %>
+								</td>
+
+								<!-----------SoChuaGNChoNhaThauTheoNghiemThuAB _ QuyBaoTri------------>
+								<td class="so_lieu">
+									<%= v_dc_gia_tri_thuc_hien_da_nghiem_thu_ab_qbt-v_dc_da_thanh_toan_qbt_luy_ke%>
+								</td>
+								<!-----------SoChuaGNChoNhaThauTheoNghiemThuAB _ NganSach------------>
+								<td class="so_lieu">
+									<%=v_dc_gia_tri_thuc_hien_da_nghiem_thu_ab_ns-v_dc_da_thanh_toan_ns_luy_ke %>
+								</td>
+								<!-----------SoChuaGNChoNhaThauTheoNghiemThuAB _ Tong_cong------------>
+								<td class="so_lieu">
+									<%= v_dc_gia_tri_thuc_hien_da_nghiem_thu_ab_qbt-v_dc_da_thanh_toan_qbt_luy_ke
+				+ v_dc_gia_tri_thuc_hien_da_nghiem_thu_ab_ns-v_dc_da_thanh_toan_ns_luy_ke %>
+								</td>
+		</tr>
+		<%}%>
+		<%}%>
+		<!------------------Ban, Sở,...----------------------->
+		<%var v_lst_don_vi_not_group_by = m_lst_don_vi
+											 .Where(x => !m_lst_don_vi_group_by.Exists(y => y.ID == x.ID))
+											 .ToList();%>
+		<%foreach (var don_vi in v_lst_don_vi_not_group_by)%>
+		<%{%>
+		<tr>
+			<%
+		Fn.F530.get_so_lieu_by_row(m_lst_giao_kh
+					, m_lst_giao_von
+					, m_lst_giai_ngan
+					, m_lst_khoi_luong
+					, don_vi.ID
+					, m_dat_dau_nam
+					, m_dat_tu_ngay
+					, m_dat_den_ngay
+					  , Fn.para_F530_Group.DonVi
+					 , ""
+					, out v_dc_so_km
+					, out v_dc_tong_muc_dau_tu
+					, out v_dc_kh_qbt_ntcs
+					, out v_dc_kh_qbt_giao
+					, out v_dc_kh_ns_ntcs
+					, out v_dc_kh_ns_giao
+					, out v_dc_giao_von_qbt_trong_thang
+					, out v_dc_giao_von_qbt_luy_ke
+					, out v_dc_giao_von_ns_trong_thang
+					, out v_dc_giao_von_ns_luy_ke
+					, out v_dc_da_thanh_toan_qbt_trong_thang
+					, out v_dc_da_thanh_toan_qbt_luy_ke
+					, out v_dc_da_thanh_toan_ns_trong_thang
+					, out v_dc_da_thanh_toan_ns_luy_ke
+					, out v_dc_gia_tri_thuc_hien_da_nghiem_thu_ab_qbt
+					, out v_dc_gia_tri_thuc_hien_da_nghiem_thu_ab_ns
+					, out v_dc_nhu_cau_von_ky_tiep_theo);
+			
+			%>
+			<td class="stt"><%=v_i_stt++ %></td>
+			<td class="noi_dung">
+				<a  href="F350_tinh_hinh_giai_ngan.aspx?ip_dc_id_don_vi=<%=don_vi.ID %>&ip_dat_tu_ngay=<%=m_txt_tu_ngay.Text %>&ip_dat_den_ngay=<%=m_txt_den_ngay.Text %>" title="Xem chi tiết"><%=don_vi.TEN_DON_VI %></a>
+			</td>
+			<!-----------SoKmQuanLy------------>
+			<td class="so_km">
+				<%=v_dc_so_km %>
+			</td>
+			<!-----------TongMucDauTu/TongDuToan------------>
+			<td class="so_lieu">
+				<%=v_dc_tong_muc_dau_tu %>
+			</td>
+			<!-----------KeHoach _ QuyBaoTri _ SoDuNamTruocChuyenSang------------>
+			<td class="so_lieu">
+				<%=v_dc_kh_qbt_ntcs%>
+			</td>
+			<!-----------KeHoach _ QuyBaoTri _ GiaoTrongNam------------>
+			<td class="so_lieu">
+				<%=v_dc_kh_qbt_giao %>
+			</td>
+			<!-----------KeHoach _ QuyBaoTri _ TongCong------------>
+			<td class="so_lieu">
+				<%=v_dc_kh_qbt_ntcs+v_dc_kh_qbt_giao %>
+			</td>
+			<!-----------KeHoach _ NganSach _ SoDuNamTruocChuyenSang------------>
+			<td class="so_lieu">
+				<%=v_dc_kh_ns_ntcs %>
+			</td>
+			<!-----------KeHoach _ NganSach _ GiaoTrongNam------------>
+			<td class="so_lieu">
+				<%= v_dc_kh_ns_giao%>
+			</td>
+			<!-----------KeHoach _ NganSach _ TongCong------------>
+			<td class="so_lieu">
+				<%= v_dc_kh_ns_ntcs+v_dc_kh_ns_giao%>
+			</td>
+			<!------------KeHoach _ TongCong--------------------------------------->
+			<td class="so_lieu">
+				<%=v_dc_kh_qbt_ntcs+v_dc_kh_qbt_giao +v_dc_kh_ns_ntcs+v_dc_kh_ns_giao%>
+			</td>
+
+			<!-----------KinhPhiDaNhan _ QuyBaoTri_TrongThang------------>
+			<td class="so_lieu">
+				<%=v_dc_giao_von_qbt_trong_thang %>
+			</td>
+			<!-----------KinhPhiDaNhan _ QuyBaoTri_LuyKe------------>
+			<td class="so_lieu">
+				<%=v_dc_giao_von_qbt_luy_ke%>
+			</td>
+			<!-----------KinhPhiDaNhan _ NganSach_TrongThang------------>
+			<td class="so_lieu">
+				<%=v_dc_giao_von_ns_trong_thang %>
+			</td>
+			<!-----------KinhPhiDaNhan _ NganSach_LuyKe------------>
+			<td class="so_lieu">
+				<%=v_dc_giao_von_ns_luy_ke %>
+			</td>
+			<!-----------KinhPhiDaNhan _ TongCong------------>
+			<td class="so_lieu">
+				<%=v_dc_giao_von_qbt_luy_ke+v_dc_giao_von_ns_luy_ke%>
+			</td>
+
+			<!-----------KinhPhiDaThanhToan _ QuyBaoTri_TrongThang------------>
+			<td class="so_lieu">
+				<%=v_dc_da_thanh_toan_qbt_trong_thang %>
+			</td>
+			<!-----------KinhPhiDaThanhToan _ QuyBaoTri_LuyKe------------>
+			<td class="so_lieu">
+				<%=v_dc_da_thanh_toan_qbt_luy_ke %>
+			</td>
+			<!-----------KinhPhiDaThanhToan _ NganSach_TrongThang------------>
+			<td class="so_lieu">
+				<%=v_dc_da_thanh_toan_ns_trong_thang %>
+			</td>
+			<!-----------KinhPhiDaThanhToan _ NganSach_LuyKe------------>
+			<td class="so_lieu">
+				<%=v_dc_da_thanh_toan_ns_luy_ke %>
+			</td>
+			<!-----------KinhPhiDaThanhToan _ TongCong------------>
+			<td class="so_lieu">
+				<%=v_dc_da_thanh_toan_qbt_luy_ke +v_dc_da_thanh_toan_ns_luy_ke %>
+			</td>
+
+			<!-----------KinhPhiChuaGN _ QuyBaoTri------------>
+			<td class="so_lieu">
+				<%=v_dc_giao_von_qbt_luy_ke-v_dc_da_thanh_toan_qbt_luy_ke %>
+			</td>
+			<!-----------KinhPhiChuaGN _ NganSach------------>
+			<td class="so_lieu">
+				<%=v_dc_giao_von_ns_luy_ke-v_dc_da_thanh_toan_ns_luy_ke %>
+			</td>
+			<!-----------KinhPhiChuaGN _ Tong_cong------------>
+			<td class="so_lieu">
+				<%=v_dc_giao_von_qbt_luy_ke-v_dc_da_thanh_toan_qbt_luy_ke 
+					+v_dc_giao_von_ns_luy_ke-v_dc_da_thanh_toan_ns_luy_ke%>
+			</td>
+
+			<!-----------KinhPhiConDuocNhan _ QuyBaoTri------------>
+			<td class="so_lieu">
+				<%=v_dc_kh_qbt_ntcs+v_dc_kh_qbt_giao -v_dc_giao_von_qbt_luy_ke%>
+			</td>
+			<!-----------KinhPhiConDuocNhan _ NganSach------------>
+			<td class="so_lieu">
+				<%= v_dc_kh_ns_ntcs+v_dc_kh_ns_giao-v_dc_da_thanh_toan_ns_luy_ke%>
+			</td>
+			<!-----------KinhPhiConDuocNhan _ Tong_cong------------>
+			<td class="so_lieu">
+				<%=v_dc_kh_qbt_ntcs+v_dc_kh_qbt_giao -v_dc_giao_von_qbt_luy_ke
+				 +v_dc_kh_ns_ntcs+v_dc_kh_ns_giao-v_dc_da_thanh_toan_ns_luy_ke%>
+			</td>
+
+			<!-----------GiaTriThucHienDaNghiemThuAB _ QuyBaoTri------------>
+			<td class="so_lieu">
+				<%=v_dc_gia_tri_thuc_hien_da_nghiem_thu_ab_qbt %>
+			</td>
+			<!-----------GiaTriThucHienDaNghiemThuAB _ NhuCauVonKyTiepTheo------------>
+			<td class="so_lieu">
+				<%=v_dc_nhu_cau_von_ky_tiep_theo %>
+			</td>
+			<!-----------GiaTriThucHienDaNghiemThuAB _ NganSach------------>
+			<td class="so_lieu">
+				<%=v_dc_gia_tri_thuc_hien_da_nghiem_thu_ab_ns %>
+			</td>
+			<!-----------GiaTriThucHienDaNghiemThuAB _ Tong_cong------------>
+			<td class="so_lieu">
+				<%=v_dc_gia_tri_thuc_hien_da_nghiem_thu_ab_qbt+v_dc_gia_tri_thuc_hien_da_nghiem_thu_ab_ns %>
+			</td>
+
+			<!-----------SoChuaGNChoNhaThauTheoNghiemThuAB _ QuyBaoTri------------>
+			<td class="so_lieu">
+				<%= v_dc_gia_tri_thuc_hien_da_nghiem_thu_ab_qbt-v_dc_da_thanh_toan_qbt_luy_ke%>
+			</td>
+			<!-----------SoChuaGNChoNhaThauTheoNghiemThuAB _ NganSach------------>
+			<td class="so_lieu">
+				<%=v_dc_gia_tri_thuc_hien_da_nghiem_thu_ab_ns-v_dc_da_thanh_toan_ns_luy_ke %>
+			</td>
+			<!-----------SoChuaGNChoNhaThauTheoNghiemThuAB _ Tong_cong------------>
+			<td class="so_lieu">
+				<%= v_dc_gia_tri_thuc_hien_da_nghiem_thu_ab_qbt-v_dc_da_thanh_toan_qbt_luy_ke
+				+ v_dc_gia_tri_thuc_hien_da_nghiem_thu_ab_ns-v_dc_da_thanh_toan_ns_luy_ke %>
+			</td>
+		</tr>
+		<%}%>
+		</tbody>
+	</table>
+	</div>
 				</div>
 			</td>
 		</tr>

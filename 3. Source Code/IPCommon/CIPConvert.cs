@@ -103,6 +103,14 @@ namespace IP.Core.IPCommon
 				, i_dc_input), m_obj_culture.NumberFormat);
 		}
 
+		public static string ToStr(double i_dc_input, string i_str_format)
+		{
+			return Convert.ToString(string.Format(
+				m_obj_culture.NumberFormat
+				, "{0:" + i_str_format + "}"
+				, i_dc_input), m_obj_culture.NumberFormat);
+		}
+
 		public static string ToStr(DateTime i_dat_Input)
 		{
 			return Convert.ToString(
