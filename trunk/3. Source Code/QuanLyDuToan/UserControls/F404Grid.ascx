@@ -36,7 +36,7 @@
 		<input type="text" class="nhu_cau_von_ky_tiep_theo form-control text-right format_so_tien" value="<%=m_lst_gd.Sum(x=>Convert.ToDecimal(x.NHU_CAU_VON_KY_TIEP_THEO))%>" />
 	</td>
 </tr>
-<%var lst_lnv = m_lst_gd.Select(x => new { ID_LOAI_NHIEM_VU = x.ID_LOAI_NHIEM_VU, TEN = x.CM_DM_TU_DIEN.TEN, GHI_CHU = x.CM_DM_TU_DIEN.GHI_CHU }).Distinct().OrderBy(x => x.GHI_CHU).ToList();%>
+<%var lst_lnv = m_lst_gd.Select(x => new { ID_LOAI_NHIEM_VU = x.ID_LOAI_NHIEM_VU, TEN = x.CM_DM_TU_DIEN.TEN, GHI_CHU = (x.CM_DM_TU_DIEN.GHI_CHU??"") }).Distinct().OrderBy(x => x.GHI_CHU).ToList();%>
 <%foreach (var lnv in lst_lnv)%>
 <%{%>
 <!--Level 1: Loai nhiem vu-->

@@ -166,9 +166,9 @@ var F404 = {
 				dataType: "text",
 				error: function (data) {
 					$('#loading').hide();
-					CCommon.thong_bao('Xảy ra lỗi trong quá trình thực hiện, Bạn vui lòng thực hiện lại thao tác!', 'error');
+					//CCommon.thong_bao('Xảy ra lỗi trong quá trình thực hiện, Bạn vui lòng thực hiện lại thao tác!', 'error');
 					$('#F404 tbody').empty()
-					//F404.reloadGrid();
+					F404.reloadGrid();
 					//reload grid
 				},
 				success: function (data) {
