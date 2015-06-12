@@ -167,6 +167,24 @@ public class WebformReport
 		HttpContext.Current.Response.Flush();
 		HttpContext.Current.Response.End();
 	}
+	public static void F530ExportExcel(DateTime ip_dat_tu_ngay, DateTime ip_dat_den_ngay)
+	{
+		HttpContext.Current.Response.Clear();
+		//Response.Buffer = true;
+		HttpContext.Current.Response.AddHeader("content-disposition", "attachment;filename=" + "BaoCaoTinhHinhGiaiNganCacNguonVon.xls");
+		HttpContext.Current.Response.Charset = "UTF-8";
+		HttpContext.Current.Response.ContentEncoding = System.Text.Encoding.UTF8;
+		HttpContext.Current.Response.ContentType = "application/vnd.ms-excel";
+		HttpContext.Current.Response.Cache.SetCacheability(System.Web.HttpCacheability.NoCache);
+
+		string v_str_result = F530Grid.RenderToString(ip_dat_tu_ngay, ip_dat_den_ngay);
+		//string style = @"<style> .textmode { mso-number-format:\@; } </style>";
+		//HttpContext.Current.Response.Write(style);
+		HttpContext.Current.Response.Output.Write(v_str_result);
+		//Response.Write(sw.ToString());
+		HttpContext.Current.Response.Flush();
+		HttpContext.Current.Response.End();
+	}
 
 	/*
 	* Ví dụ dùng hàm

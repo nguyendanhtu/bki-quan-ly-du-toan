@@ -1,4 +1,5 @@
-﻿function replaceAll(find, replace, str) {
+﻿/// <reference path="script.js" />
+function replaceAll(find, replace, str) {
     return str.replace(new RegExp(find, 'g'), replace);
 }
 
@@ -21,9 +22,9 @@ function LoadButton(str_file_name, content) {
         data: function () {
             return content;//document.getElementById('txt_area').value;
         },
-        onComplete: function () { alert('Báo cáo đã được lưu trên máy tính của bạn!'); },
-        onCancel: function () { alert('Bạn vừa hủy thao tác lưu lại báo cáo'); },
-        onError: function () { alert('Nội dung trong báo cáo không được bỏ trống!'); },
+        onComplete: function () { CCommon.thong_bao('Báo cáo đã được lưu trên máy tính của bạn!','success'); },
+        onCancel: function () {  CCommon.thong_bao('Bạn vừa hủy thao tác lưu lại báo cáo','info'); },
+        onError: function () {  CCommon.thong_bao('Nội dung trong báo cáo không được bỏ trống!','warn'); },
         swf: '../Downloadify/media/downloadify.swf',
         downloadImage: '../Downloadify/images/download.png',
         width: 100,

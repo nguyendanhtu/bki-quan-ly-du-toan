@@ -21,7 +21,15 @@
 			width: 122px;
 			text-align: right;
 		}
+		.table {
+			margin-top:0px;
+			margin-bottom: 0px;
+		}
 	</style>
+	<script src="../Scripts/jquery.dataTables.js"></script>
+	<script src="../Scripts/dataTables.fixedColumns.min.js"></script>
+	<link href="../Styles/dataTables.fixedColumns.css" rel="stylesheet" />
+
 	<script type="text/javascript">
 		$(document).ready(function () {
 			var v_lst_so_lieu = $('.so_lieu');
@@ -31,6 +39,18 @@
 					$(v_lst_so_lieu[i]).text(getFormatedNumberString(value));
 				}
 			}
+
+			var table = $('#m_grv').DataTable({
+				"scrollY": "400px",
+				"scrollX": "100%",
+				"scrollCollapse": true,
+				"paging": false,
+				"sDom": 'T<"clear"><"top">rt<"bottom">',
+				"bSort": false
+			});
+			new $.fn.dataTable.FixedColumns(table, {
+				leftColumns: 2
+			});
 		});
 	</script>
 </asp:Content>
