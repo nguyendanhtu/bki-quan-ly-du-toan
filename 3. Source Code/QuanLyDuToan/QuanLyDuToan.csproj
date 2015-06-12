@@ -108,12 +108,16 @@
     <Content Include="QuyetToan\PL04_danh_muc_cong_trinh_quyet_toan.aspx" />
     <Content Include="QuyetToan\PL04_Danh_muc_giam_tru_quyet_toan_don_vi.aspx" />
     <Content Include="QuyetToan\PL05_DanhMucGiaTriCongTrinhHoanThanhGiamTruThanhToan.aspx" />
+    <Content Include="Scripts\dataTables.fixedColumns.min.js" />
+    <Content Include="Scripts\dataTables.tableTools.js" />
     <Content Include="Scripts\fixHeader.js" />
     <None Include="Scripts\jquery-2.1.3.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.3.js" />
     <Content Include="Scripts\jquery-2.1.3.min.js" />
     <Content Include="Scripts\jquery-ui.js" />
+    <Content Include="Scripts\jquery.battatech.excelexport.js" />
     <Content Include="Scripts\jquery.bpopup.js" />
+    <Content Include="Scripts\jquery.dataTables.js" />
     <Content Include="Scripts\jquery.floatThead.js" />
     <Content Include="Scripts\jquery.linq.js" />
     <Content Include="Scripts\jquery.min.js" />
@@ -130,6 +134,7 @@
     <Content Include="Scripts\UI\PL05.js" />
     <Content Include="Services\QuanLyTaiSan.asmx" />
     <Content Include="Services\QuanLyVon.asmx" />
+    <Content Include="Styles\dataTables.fixedColumns.css" />
     <Content Include="Styles\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Styles\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Styles\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -155,8 +160,10 @@
     <Content Include="UserControls\F104Grid.ascx" />
     <Content Include="UserControls\F304Print.ascx" />
     <Content Include="UserControls\F305Print.ascx" />
+    <Content Include="UserControls\F350Grid.ascx" />
     <Content Include="UserControls\F404Grid.ascx" />
     <Content Include="UserControls\F505Grid.ascx" />
+    <Content Include="UserControls\F530Grid.ascx" />
     <Content Include="UserControls\QT_QBT_GRID_PL01.ascx" />
     <Content Include="UserControls\QT_QBT_GRID_PL02.ascx" />
     <Content Include="UserControls\QT_QBT_GRID_PL03.ascx" />
@@ -193,7 +200,6 @@
     <Content Include="QuyetToan\PL02_kinh_phi_su_dung_quyet_toan.aspx" />
     <Content Include="Scripts\BigInt.js" />
     <Content Include="Scripts\ExportExcel.js" />
-    <Content Include="Scripts\jquery.dataTables.js" />
     <Content Include="Scripts\jquery.dataTables.sorting.js" />
     <Content Include="Scripts\knockout-3.2.0.debug.js" />
     <Content Include="Scripts\knockout-3.2.0.js" />
@@ -866,6 +872,13 @@
     <Compile Include="UserControls\F305Print.ascx.designer.cs">
       <DependentUpon>F305Print.ascx</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\F350Grid.ascx.cs">
+      <DependentUpon>F350Grid.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\F350Grid.ascx.designer.cs">
+      <DependentUpon>F350Grid.ascx</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\F404Grid.ascx.cs">
       <DependentUpon>F404Grid.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -879,6 +892,13 @@
     </Compile>
     <Compile Include="UserControls\F505Grid.ascx.designer.cs">
       <DependentUpon>F505Grid.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\F530Grid.ascx.cs">
+      <DependentUpon>F530Grid.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\F530Grid.ascx.designer.cs">
+      <DependentUpon>F530Grid.ascx</DependentUpon>
     </Compile>
     <Compile Include="UserControls\QT_QBT_GRID_PL01.ascx.cs">
       <DependentUpon>QT_QBT_GRID_PL01.ascx</DependentUpon>

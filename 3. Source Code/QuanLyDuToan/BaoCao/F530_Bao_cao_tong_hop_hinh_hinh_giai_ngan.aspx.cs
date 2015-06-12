@@ -64,7 +64,7 @@ namespace QuanLyDuToan.BaoCao
 		private void load_data_to_grid()
 		{
 			m_dat_tu_ngay = CIPConvert.ToDatetime(m_txt_tu_ngay.Text, "dd/MM/yyyy");
-			m_dat_den_ngay = CIPConvert.ToDatetime(m_txt_tu_ngay.Text, "dd/MM/yyyy");
+			m_dat_den_ngay = CIPConvert.ToDatetime(m_txt_den_ngay.Text, "dd/MM/yyyy");
 			m_dat_dau_nam = WebUS.CCommonFunction.getDate_dau_nam_from_date(m_dat_tu_ngay);
 
 			BKI_QLDTEntities db = new BKI_QLDTEntities();
@@ -117,10 +117,12 @@ namespace QuanLyDuToan.BaoCao
 		}
 		private void export_excel()
 		{
-			//WebformReport.export_gridview_2_excel(
-			// m_grv
-			// , FormInfo.ExportExcelReportName.F530
-			// );
+			if (check_validate_input_data_is_ok())
+			{
+				WebformReport.F530ExportExcel(
+					CIPConvert.ToDatetime(m_txt_tu_ngay.Text, "dd/MM/yyyy"),
+					CIPConvert.ToDatetime(m_txt_den_ngay.Text, "dd/MM/yyyy"));
+			}
 		}
 		private void set_inital_form_load()
 		{
