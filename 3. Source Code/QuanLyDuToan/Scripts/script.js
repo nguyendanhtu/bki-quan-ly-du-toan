@@ -193,9 +193,9 @@ function pageLoad(sender, args) {
 }
 
 var CCommon = {
-	thong_bao: function (text, className) {
+	thong_bao: function (text, className_warn_error_success_info) {
 		//className: warn, error, success, info
-		$.notify(text, className);
+		$.notify(text, className_warn_error_success_info);
 	},
 	format_so_tien: function () {
 		$('.format_so_tien').bind("change blur keyup focus keydown", function (e) {

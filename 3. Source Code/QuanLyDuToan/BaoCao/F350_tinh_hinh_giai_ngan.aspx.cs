@@ -10,6 +10,7 @@ using WebDS.CDBNames;
 using IP.Core.IPCommon;
 using QuanLyDuToan.App_Code;
 using System.Data;
+using SQLDataAccess;
 
 
 namespace QuanLyDuToan.BaoCao
@@ -24,22 +25,6 @@ namespace QuanLyDuToan.BaoCao
 		#endregion
 
 		#region Public Function
-		public string getSTT(string ip_str_noi_dung)
-		{
-			if (ip_str_noi_dung.Contains("Tổng cộng")) return "";
-			m_i_stt++;
-			return m_i_stt.ToString();
-		}
-		public decimal format_so_tien(object ip_str_so_tien)
-		{
-			decimal op_dc_so_tien = 0;
-			if (ip_str_so_tien == DBNull.Value)
-			{
-				op_dc_so_tien = 0;
-			}
-			else op_dc_so_tien = CIPConvert.ToDecimal(ip_str_so_tien);
-			return op_dc_so_tien;
-		}
 
 		public string format_link_to_chi_tiet(
 								object ip_level
@@ -47,11 +32,13 @@ namespace QuanLyDuToan.BaoCao
 								, object ip_id_loai_nhiem_vu
 								, object ip_id_cong_trinh
 								, object ip_id_du_an
-								, string ip_str_nguon_ns)
+								, string ip_str_nguon_ns
+								, string ip_str_form_name
+								, double value)
 		{
-			string v_dat_tu_ngay = CIPConvert.ToStr(WebformControls.get_dau_nam_form_date(CIPConvert.ToDatetime(m_txt_tu_ngay.Text, "dd/MM/yyyy")), "dd/MM/yyyy");
-			string v_dat_den_ngay = m_txt_den_ngay.Text;
-			string v_str_link = "";
+			string v_dat_tu_ngay = CIPConvert.ToStr(WebformControls.get_dau_nam_form_date(CIPConvert.ToDatetime(CIPConvert.ToStr(m_dat_tu_ngay, "dd/MM/yyyy"), "dd/MM/yyyy")), "dd/MM/yyyy");
+			string v_dat_den_ngay = CIPConvert.ToStr(m_dat_den_ngay, "dd/MM/yyyy");
+			string v_str_link = "<a href='" + ip_str_form_name;
 			if (ip_level != DBNull.Value)
 			{
 				if (ip_id_don_vi == DBNull.Value) ip_id_don_vi = -1;
@@ -66,7 +53,7 @@ namespace QuanLyDuToan.BaoCao
 									 + "&ip_dc_id_loai_nhiem_vu=" + CIPConvert.ToStr(ip_id_loai_nhiem_vu)
 									 + "&ip_dc_id_cong_trinh=" + "-1"
 									 + "&ip_dc_id_du_an=" + "-1"
-							//+ "&ip_dat_tu_ngay=" + CIPConvert.ToStr(WinFormControls.get_dau_nam_form_date(CIPConvert.ToDatetime(m_txt_tu_ngay.Text, "dd/MM/yyyy")), "dd/MM/yyyy")
+							//+ "&ip_dat_tu_ngay=" + CIPConvert.ToStr(WinFormControls.get_dau_nam_form_date(CIPConvert.ToDatetime(CIPConvert.ToStr(m_dat_tu_ngay,"dd/MM/yyyy"), "dd/MM/yyyy")), "dd/MM/yyyy")
 									 + "&ip_dat_tu_ngay=" + v_dat_tu_ngay
 									 + "&ip_dat_den_ngay=" + v_dat_den_ngay
 									  + "&ip_dc_id_quyet_dinh =" + "-1";
@@ -87,7 +74,7 @@ namespace QuanLyDuToan.BaoCao
 									 + "&ip_dc_id_loai_nhiem_vu=" + CIPConvert.ToStr(ip_id_loai_nhiem_vu)
 									 + "&ip_dc_id_cong_trinh=" + CIPConvert.ToStr(ip_id_cong_trinh)
 									 + "&ip_dc_id_du_an=" + CIPConvert.ToStr(ip_id_du_an)
-							//+ "&ip_dat_tu_ngay=" + CIPConvert.ToStr(WinFormControls.get_dau_nam_form_date(CIPConvert.ToDatetime(m_txt_tu_ngay.Text, "dd/MM/yyyy")), "dd/MM/yyyy")
+							//+ "&ip_dat_tu_ngay=" + CIPConvert.ToStr(WinFormControls.get_dau_nam_form_date(CIPConvert.ToDatetime(CIPConvert.ToStr(m_dat_tu_ngay,"dd/MM/yyyy"), "dd/MM/yyyy")), "dd/MM/yyyy")
 									  + "&ip_dat_tu_ngay=" + v_dat_tu_ngay
 									 + "&ip_dat_den_ngay=" + v_dat_den_ngay
 									 + "&ip_dc_id_quyet_dinh=" + "-1";
@@ -98,13 +85,13 @@ namespace QuanLyDuToan.BaoCao
 									 + "&ip_dc_id_loai_nhiem_vu=" + CIPConvert.ToStr(ip_id_loai_nhiem_vu)
 									 + "&ip_dc_id_cong_trinh=" + CIPConvert.ToStr(ip_id_cong_trinh)
 									 + "&ip_dc_id_du_an=" + CIPConvert.ToStr(ip_id_du_an)
-							//+ "&ip_dat_tu_ngay=" + CIPConvert.ToStr(WinFormControls.get_dau_nam_form_date(CIPConvert.ToDatetime(m_txt_tu_ngay.Text, "dd/MM/yyyy")), "dd/MM/yyyy")
+							//+ "&ip_dat_tu_ngay=" + CIPConvert.ToStr(WinFormControls.get_dau_nam_form_date(CIPConvert.ToDatetime(CIPConvert.ToStr(m_dat_tu_ngay,"dd/MM/yyyy"), "dd/MM/yyyy")), "dd/MM/yyyy")
 									  + "&ip_dat_tu_ngay=" + v_dat_tu_ngay
 									 + "&ip_dat_den_ngay=" + v_dat_den_ngay
 									 + "&ip_dc_id_quyet_dinh=" + "-1";
 						break;
 				}
-				v_str_link += "&ip_nguon_ns=" + ip_str_nguon_ns;
+				v_str_link += "&ip_nguon_ns=" + ip_str_nguon_ns + "'>" + CIPConvert.ToStr(value, "#,##0");
 			}
 			return v_str_link;
 		}
@@ -115,13 +102,15 @@ namespace QuanLyDuToan.BaoCao
 								, object ip_id_loai_nhiem_vu
 								, object ip_id_cong_trinh
 								, object ip_id_du_an
-								, string ip_str_nguon_ns)
+								, string ip_str_nguon_ns
+								, string ip_str_form_name
+								, double value)
 		{
 			if (ip_id_don_vi == DBNull.Value) ip_id_don_vi = -1;
 			if (ip_id_loai_nhiem_vu == DBNull.Value) ip_id_loai_nhiem_vu = -1;
 			if (ip_id_cong_trinh == DBNull.Value) ip_id_cong_trinh = -1;
 			if (ip_id_du_an == DBNull.Value) ip_id_du_an = 10;
-			string v_str_link = "";
+			string v_str_link = "<a href='" + ip_str_form_name;
 			if (ip_level != DBNull.Value)
 			{
 				switch (CIPConvert.ToStr(ip_level))
@@ -132,8 +121,8 @@ namespace QuanLyDuToan.BaoCao
 									 + "&ip_dc_id_loai_nhiem_vu=" + CIPConvert.ToStr(ip_id_loai_nhiem_vu)
 									 + "&ip_dc_id_cong_trinh=" + "-1"
 									 + "&ip_dc_id_du_an=" + "-1"
-									 + "&ip_dat_tu_ngay=" + m_txt_tu_ngay.Text
-									 + "&ip_dat_den_ngay=" + m_txt_den_ngay.Text
+									 + "&ip_dat_tu_ngay=" + CIPConvert.ToStr(m_dat_tu_ngay, "dd/MM/yyyy")
+									 + "&ip_dat_den_ngay=" + CIPConvert.ToStr(m_dat_den_ngay, "dd/MM/yyyy")
 									 + "&ip_dc_id_quyet_dinh=" + "-1";
 
 						break;
@@ -143,8 +132,8 @@ namespace QuanLyDuToan.BaoCao
 									 + "&ip_dc_id_loai_nhiem_vu=" + CIPConvert.ToStr(ip_id_loai_nhiem_vu)
 									 + "&ip_dc_id_cong_trinh=" + CIPConvert.ToStr(ip_id_cong_trinh)
 									 + "&ip_dc_id_du_an=" + "-1"
-									 + "&ip_dat_tu_ngay=" + m_txt_tu_ngay.Text
-									 + "&ip_dat_den_ngay=" + m_txt_den_ngay.Text
+									 + "&ip_dat_tu_ngay=" + CIPConvert.ToStr(m_dat_tu_ngay, "dd/MM/yyyy")
+									 + "&ip_dat_den_ngay=" + CIPConvert.ToStr(m_dat_den_ngay, "dd/MM/yyyy")
 									 + "&ip_dc_id_quyet_dinh=" + "-1";
 						break;
 					//lv1: get link theo lv du an
@@ -153,8 +142,8 @@ namespace QuanLyDuToan.BaoCao
 									 + "&ip_dc_id_loai_nhiem_vu=" + CIPConvert.ToStr(ip_id_loai_nhiem_vu)
 									 + "&ip_dc_id_cong_trinh=" + CIPConvert.ToStr(ip_id_cong_trinh)
 									 + "&ip_dc_id_du_an=" + CIPConvert.ToStr(ip_id_du_an)
-									  + "&ip_dat_tu_ngay=" + CIPConvert.ToStr(WebformControls.get_dau_nam_form_date(CIPConvert.ToDatetime(m_txt_tu_ngay.Text, "dd/MM/yyyy")), "dd/MM/yyyy")
-									 + "&ip_dat_den_ngay=" + m_txt_den_ngay.Text
+									  + "&ip_dat_tu_ngay=" + CIPConvert.ToStr(m_dat_dau_nam, "dd/MM/yyyy")
+									 + "&ip_dat_den_ngay=" + CIPConvert.ToStr(m_dat_den_ngay, "dd/MM/yyyy")
 									 + "&ip_dc_id_quyet_dinh=" + "-1";
 						break;
 					//get link theo du an
@@ -163,15 +152,16 @@ namespace QuanLyDuToan.BaoCao
 									 + "&ip_dc_id_loai_nhiem_vu=" + CIPConvert.ToStr(ip_id_loai_nhiem_vu)
 									 + "&ip_dc_id_cong_trinh=" + CIPConvert.ToStr(ip_id_cong_trinh)
 									 + "&ip_dc_id_du_an=" + CIPConvert.ToStr(ip_id_du_an)
-									  + "&ip_dat_tu_ngay=" + CIPConvert.ToStr(WebformControls.get_dau_nam_form_date(CIPConvert.ToDatetime(m_txt_tu_ngay.Text, "dd/MM/yyyy")), "dd/MM/yyyy")
-									 + "&ip_dat_den_ngay=" + m_txt_den_ngay.Text
+									  + "&ip_dat_tu_ngay=" + CIPConvert.ToStr(WebformControls.get_dau_nam_form_date(CIPConvert.ToDatetime(CIPConvert.ToStr(m_dat_tu_ngay, "dd/MM/yyyy"), "dd/MM/yyyy")), "dd/MM/yyyy")
+									 + "&ip_dat_den_ngay=" + CIPConvert.ToStr(m_dat_den_ngay, "dd/MM/yyyy")
 									  + "&ip_dc_id_quyet_dinh=" + "-1";
 						break;
 				}
 			}
-			v_str_link += "&ip_nguon_ns=" + ip_str_nguon_ns;
+			v_str_link += "&ip_nguon_ns=" + ip_str_nguon_ns + "'>" + CIPConvert.ToStr(value, "#,##0");
 			return v_str_link;
 		}
+
 
 		public decimal get_random_id_session()
 		{
@@ -192,10 +182,19 @@ namespace QuanLyDuToan.BaoCao
 		#endregion
 
 		#region Data Member
-		private int m_i_stt = 0;
-		decimal m_dc_id_don_vi = -1;
-		DateTime m_dat_tu_ngay;
-		DateTime m_dat_den_ngay;
+		public DateTime m_dat_tu_ngay;
+		public DateTime m_dat_den_ngay;
+		public DateTime m_dat_dau_nam;
+
+		public decimal m_dc_id_don_vi;
+
+
+		public List<SQLDataAccess.GD_CHI_TIET_GIAO_KH> m_lst_giao_kh;
+		public List<SQLDataAccess.GD_CHI_TIET_GIAO_VON> m_lst_giao_von;
+		public List<SQLDataAccess.GD_CHI_TIET_GIAI_NGAN> m_lst_giai_ngan;
+		public List<SQLDataAccess.GD_KHOI_LUONG> m_lst_khoi_luong;
+		public List<SQLDataAccess.CM_DM_TU_DIEN> m_lst_loai_nhiem_vu;
+
 		#endregion
 
 		#region Private Method
@@ -227,9 +226,9 @@ namespace QuanLyDuToan.BaoCao
 			load_data_to_ddl_don_vi();
 
 			//load cac ddl
-			App_Code.WebformControls.load_data_to_ddl_loai_nhiem_vu(m_ddl_loai_nv);
-			App_Code.WebformControls.load_data_to_cbo_cong_trinh_theo_loai_nhiem_vu(CIPConvert.ToDecimal(m_ddl_loai_nv.SelectedValue), m_ddl_cong_trinh, m_dc_id_don_vi);
-			App_Code.WebformControls.load_data_to_cbo_du_an_theo_cong_trinh_va_loai_nhiem_vu(CIPConvert.ToDecimal(m_ddl_cong_trinh.SelectedValue), CIPConvert.ToDecimal(m_ddl_loai_nv.SelectedValue), m_ddl_du_an, m_dc_id_don_vi);
+			//App_Code.WebformControls.load_data_to_ddl_loai_nhiem_vu(m_ddl_loai_nv);
+			//App_Code.WebformControls.load_data_to_cbo_cong_trinh_theo_loai_nhiem_vu(CIPConvert.ToDecimal(m_ddl_loai_nv.SelectedValue), m_ddl_cong_trinh, m_dc_id_don_vi);
+			//App_Code.WebformControls.load_data_to_cbo_du_an_theo_cong_trinh_va_loai_nhiem_vu(CIPConvert.ToDecimal(m_ddl_cong_trinh.SelectedValue), CIPConvert.ToDecimal(m_ddl_loai_nv.SelectedValue), m_ddl_du_an, m_dc_id_don_vi);
 			//load data grid
 			load_data_to_grid();
 		}
@@ -253,23 +252,40 @@ namespace QuanLyDuToan.BaoCao
 			// kiem tra du lieu
 			if (!check_validate_data_is_ok()) return;
 
-			// load data to grid
-			US_RPT_BC_TINH_HINH_GIAI_NGAN v_us = new US_RPT_BC_TINH_HINH_GIAI_NGAN();
-			DS_RPT_BC_TINH_HINH_GIAI_NGAN v_ds = new DS_RPT_BC_TINH_HINH_GIAI_NGAN();
-			v_ds.EnforceConstraints = false;
-			v_us.bc_tinh_hinh_giai_ngan_theo_don_vi(v_ds
-				, CIPConvert.ToDatetime(m_txt_tu_ngay.Text, "dd/MM/yyyy")
-				, CIPConvert.ToDatetime(m_txt_den_ngay.Text, "dd/MM/yyyy")
-				, WebformControls.get_dau_nam_form_date(CIPConvert.ToDatetime(m_txt_tu_ngay.Text, "dd/MM/yyyy"))
-				, CIPConvert.ToDecimal(m_ddl_don_vi.SelectedValue)
-				, Person.get_id_don_vi()    // tránh xóa dữ liệu của 2 người cùng đăng nhập một user
-				, CIPConvert.ToDecimal(m_ddl_du_an.SelectedValue)
-				, CIPConvert.ToDecimal(m_ddl_cong_trinh.SelectedValue)
-				, CIPConvert.ToDecimal(m_ddl_loai_nv.SelectedValue)
-				, m_txt_tim_kiem.Text.Trim()
-				, STR_NGUON.QUY_BAO_TRI);
-			m_grv.DataSource = v_ds.RPT_BC_TINH_HINH_GIAI_NGAN;
-			m_grv.DataBind();
+			m_dat_tu_ngay = CIPConvert.ToDatetime(m_txt_tu_ngay.Text);
+			m_dat_den_ngay = CIPConvert.ToDatetime(m_txt_den_ngay.Text);
+			m_dat_dau_nam = CCommonFunction.getDate_dau_nam_from_date(m_dat_tu_ngay);
+			m_dc_id_don_vi = CIPConvert.ToDecimal(m_ddl_don_vi.SelectedValue);
+
+			BKI_QLDTEntities db = new BKI_QLDTEntities();
+
+			m_lst_loai_nhiem_vu = db.CM_DM_TU_DIEN
+									.Where(x => x.ID_LOAI_TU_DIEN == WebUS.ID_LOAI_TU_DIEN.LOAI_NHIEM_VU
+										|| x.ID == WebUS.ID_LOAI_NHIEM_VU_NS.DU_TOAN_CHI_NS_NN)
+									.OrderBy(x => x.ID_LOAI_TU_DIEN)
+									.ThenBy(x => x.GHI_CHU)
+									.ToList();
+
+			m_lst_giao_kh = db.GD_CHI_TIET_GIAO_KH
+								.Where(x => x.DM_QUYET_DINH.NGAY_THANG >= m_dat_dau_nam
+											&& x.DM_QUYET_DINH.NGAY_THANG <= m_dat_den_ngay
+											&& x.ID_DON_VI == m_dc_id_don_vi)
+								.ToList();
+			m_lst_giao_von = db.GD_CHI_TIET_GIAO_VON
+								.Where(x => x.DM_QUYET_DINH.NGAY_THANG >= m_dat_dau_nam
+											&& x.DM_QUYET_DINH.NGAY_THANG <= m_dat_den_ngay
+											&& x.ID_DON_VI == m_dc_id_don_vi)
+								.ToList();
+			m_lst_giai_ngan = db.GD_CHI_TIET_GIAI_NGAN
+								.Where(x => x.DM_GIAI_NGAN.NGAY_THANG >= m_dat_dau_nam
+											&& x.DM_GIAI_NGAN.NGAY_THANG <= m_dat_den_ngay
+											&& x.ID_DON_VI == m_dc_id_don_vi)
+								.ToList();
+			m_lst_khoi_luong = db.GD_KHOI_LUONG
+								.Where(x => x.NGAY_THANG >= m_dat_dau_nam
+											&& x.NGAY_THANG <= m_dat_den_ngay
+											&& x.ID_DON_VI == m_dc_id_don_vi)
+								.ToList();
 
 		}
 
@@ -332,68 +348,32 @@ namespace QuanLyDuToan.BaoCao
 		{
 			try
 			{
-				US_DM_DON_VI v_us = new US_DM_DON_VI(CIPConvert.ToDecimal(m_ddl_don_vi.SelectedValue));
-				WebformReport.export_gridview_2_excel(
-				m_grv
-				, "[" + ConvertToUnsign3(v_us.strTEN_DON_VI) + "]" + FormInfo.ExportExcelReportName.F350
-				);
-			}
-			catch (Exception v_e)
-			{
-
-				CSystemLog_301.ExceptionHandle(this, v_e);
-			}
-		}
-
-		protected void m_ddl_loai_nv_SelectedIndexChanged(object sender, EventArgs e)
-		{
-			try
-			{
-				if (m_ddl_don_vi.SelectedValue.Equals(""))
+				try
 				{
-					CSystemLog_301.ExceptionHandle(this, new Exception("Không có Đơn vị để thực hiện truy vấn"));
+					if (check_validate_data_is_ok())
+					{
+						WebformReport.F350ExportExcel(
+							CIPConvert.ToDatetime(m_txt_tu_ngay.Text, "dd/MM/yyyy"),
+							CIPConvert.ToDatetime(m_txt_den_ngay.Text, "dd/MM/yyyy"),
+							CIPConvert.ToDecimal(m_ddl_don_vi.SelectedValue));
+					}
 				}
-				App_Code.WebformControls.load_data_to_cbo_cong_trinh_theo_loai_nhiem_vu(
-											CIPConvert.ToDecimal(m_ddl_loai_nv.SelectedValue)
-											, m_ddl_cong_trinh
-											, CIPConvert.ToDecimal(m_ddl_don_vi.SelectedValue)
-											);
-			}
-
-			catch (Exception v_e)
-			{
-
-				CSystemLog_301.ExceptionHandle(this, v_e);
-			}
-
-		}
-		protected void m_ddl_cong_trinh_SelectedIndexChanged(object sender, EventArgs e)
-		{
-			try
-			{
-				if (m_ddl_don_vi.SelectedValue.Equals(""))
+				catch (Exception v_e)
 				{
-					CSystemLog_301.ExceptionHandle(this, new Exception("Không có Đơn vị để thực hiện truy vấn"));
+					CSystemLog_301.ExceptionHandle(this, v_e);
 				}
-				App_Code.WebformControls.load_data_to_cbo_du_an_theo_cong_trinh_va_loai_nhiem_vu(
-												CIPConvert.ToDecimal(m_ddl_cong_trinh.SelectedValue)
-												, CIPConvert.ToDecimal(m_ddl_loai_nv.SelectedValue)
-												, m_ddl_du_an
-												, CIPConvert.ToDecimal(m_ddl_don_vi.SelectedValue)
-												);
 			}
 			catch (Exception v_e)
 			{
 
 				CSystemLog_301.ExceptionHandle(this, v_e);
 			}
-
 		}
+
 		protected void m_ddl_don_vi_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			try
 			{
-				m_ddl_loai_nv_SelectedIndexChanged(null, null);
 				load_data_to_grid();
 			}
 			catch (Exception v_e)
@@ -403,94 +383,7 @@ namespace QuanLyDuToan.BaoCao
 			}
 		}
 
-		protected void m_grv_RowCreated(object sender, GridViewRowEventArgs e)
-		{
-			const string v_c_str_header_css_class = "HeaderStyle";
-			if (e.Row.RowType == DataControlRowType.Header) // If header created
-			{
-				GridView v_grv = (GridView)sender;
-				//Tao dong 1
-				WebformFunctions.addHeaderRow_to_grid_view(v_grv
-					, 0
-					, v_c_str_header_css_class
-					, new CellInfoHeader[] { 
-						new CellInfoHeader("STT",3,1)
-						,new CellInfoHeader("Nội dung",3,1)
-						,new CellInfoHeader("Số km",3,1)
-						,new CellInfoHeader("Kế hoạch(dự toán) được sử dụng trong năm",1,7)
-						,new CellInfoHeader("Kinh phí đã nhận",1,5)
-						,new CellInfoHeader("Kinh phí đã thanh toán, giải ngân",1,5)
-						,new CellInfoHeader("Số kinh phí chưa GN",1,3)
-						,new CellInfoHeader("Kinh phí còn được nhận",1,3)
-						,new CellInfoHeader("Giá trị thực hiện đã nghiệm thu A-B",1,3)
-						,new CellInfoHeader("Số chưa GN cho nhà thầu theo nghiệm thu A-B",1,3)
-				});
-				//Tao dong 2
-				WebformFunctions.addHeaderRow_to_grid_view(
-					v_grv
-					, 1
-					, v_c_str_header_css_class
-					, new CellInfoHeader[] 
-					{ 
-						//Ke hoach du toan duoc su dung trong nam
-						new CellInfoHeader("Quỹ bảo trì",1,3)
-						,new CellInfoHeader("Ngân sách",1,3)
-						,new CellInfoHeader("Tổng cộng",2,1)
-						//Kinh phi da nhan
-						,new CellInfoHeader("Quỹ bảo trì",1,2)
-						,new CellInfoHeader("Ngân sách",1,2)
-						,new CellInfoHeader("Tổng cộng",2,1)
-						//Kinh phi da thanh toan, giai ngan
-						,new CellInfoHeader("Quỹ bảo trì",1,2)
-						,new CellInfoHeader("Ngân sách",1,2)
-						,new CellInfoHeader("Tổng cộng",2,1)
-						//Kinh phi chua GN
-						,new CellInfoHeader("Quỹ bảo trì",2,1)
-						,new CellInfoHeader("Ngân sách",2,1)
-						,new CellInfoHeader("Tổng cộng",2,1)
-						//Kinh phi con duoc nhan
-						,new CellInfoHeader("Quỹ bảo trì",2,1)
-						,new CellInfoHeader("Ngân sách",2,1)
-						,new CellInfoHeader("Tổng cộng",2,1)
-						//Gia tri thuc hien da nghiem thu
-						,new CellInfoHeader("Quỹ bảo trì",2,1)
-						,new CellInfoHeader("Ngân sách",2,1)
-						,new CellInfoHeader("Tổng cộng",2,1)
-						//So chua giai ngan
-						,new CellInfoHeader("Quỹ bảo trì",2,1)
-						,new CellInfoHeader("Ngân sách",2,1)
-						,new CellInfoHeader("Tổng cộng",2,1)
-					});
-				//Tao dong 3
-				WebformFunctions.addHeaderRow_to_grid_view(
-					v_grv
-					, 2
-					, v_c_str_header_css_class
-					, new CellInfoHeader[] 
-					{ 
-						//Ke hoach - Quy bao tri
-						new CellInfoHeader("Số dư năm trước chuyển sang",1,1)
-						,new CellInfoHeader("Kế hoạch giao trong năm",1,1)
-						,new CellInfoHeader("Cộng",1,1)
-						//Ke hoach - Ngan sach
-						,new CellInfoHeader("Số dư năm trước chuyển sang",1,1)
-						,new CellInfoHeader("Kế hoạch giao trong năm",1,1)
-						,new CellInfoHeader("Cộng",1,1)
-						//Kinh phi da nhan - Quy bao tri
-						,new CellInfoHeader("Trong tháng",1,1)
-						,new CellInfoHeader("Luỹ kế từ đầu năm",1,1)
-						//Kinh phi da nhan - Ngan sach
-						,new CellInfoHeader("Trong tháng",1,1)
-						,new CellInfoHeader("Luỹ kế từ đầu năm",1,1)
-						//Kinh phi da thanh toan, giai ngan - Quy bao tri
-						,new CellInfoHeader("Trong tháng",1,1)
-						,new CellInfoHeader("Luỹ kế từ đầu năm",1,1)
-						//Kinh phi da thanh toan, giai ngan - Ngan sach
-						,new CellInfoHeader("Trong tháng",1,1)
-						,new CellInfoHeader("Luỹ kế từ đầu năm",1,1)
-					});
-			}
-		}
+
 	}
 
 		#endregion
