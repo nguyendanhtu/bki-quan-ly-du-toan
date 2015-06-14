@@ -14,6 +14,7 @@
 
 		.noi_dung {
 			width: 222px !important;
+			padding:2px;
 		}
 
 		.so_km {
@@ -37,7 +38,10 @@
 			text-align: right;
 			line-height: 20px;
 		}
-
+		.table > thead > tr > th, .table > tbody > tr > td {
+				padding-right: 0px !important;
+				padding-left: 0px !important;
+			}
 		.control {
 			width: 240px;
 			float: left;
@@ -50,7 +54,7 @@
 	<%--<script src="../Scripts/jquery.doubleScroll.js"></script>
 	<script src="../Scripts/fixHeader.js"></script>--%>
 	<script src="../Scripts/jquery.dataTables.js"></script>
-	<script src="../Scripts/dataTables.fixedColumns.min.js"></script>
+	<script src="../Scripts/dataTables.fixedColumns.js"></script>
 	<%--<script src="../Scripts/ExportExcel.js"></script>--%>
 	<link href="../Styles/dataTables.fixedColumns.css" rel="stylesheet" />
 
@@ -75,10 +79,6 @@
 				}
 			}
 
-
-			//$('table#m_grv').scrollbarTable();
-			//$('#double-scroll').doubleScroll();
-
 			var table = $('#m_grv').DataTable({
 				"scrollY": "400px",
 				"scrollX": "4139px",
@@ -92,22 +92,10 @@
 				leftColumns: 2,
 			});
 
-			$(window).change(function () {
-				
-				$('#m_grv').dataTable().fnDestroy();
-				//$('#m_grv').css('width', '4139px');
-				var table = $('#m_grv').DataTable({
-					"scrollY": "400px",
-					"scrollX": "4139px",
-					"scrollCollapse": true,
-					"paging": false,
-					"sDom": 'T<"clear"><"top">rt<"bottom">',
-					"bSort": false
-
-				});
-				new $.fn.dataTable.FixedColumns(table, {
-					leftColumns: 2,
-				});
+			$(window).resize(function () {
+				location.reload();
+				$('#m_grv_wrapper').hide(30000);
+				CCommon.thong_bao('Giao diện báo cáo bị lỗi hiển thị, Website đang TẠO LẠI BÁO CÁO cho bạn! Xin vui lòng đợi 30s!', 'error');
 			})
 		});
 		
@@ -123,7 +111,7 @@
 		<tr>
 			<td colspan="4" style="text-align: center">
 
-				<span style="font-weight: bold">BÁO CÁO TÌNH HÌNH GIẢI NGÂN CÁC NGUỒN VỐN NĂM  <%=DateTime.Now.Year.ToString()%></span>
+				<h4>BÁO CÁO TÌNH HÌNH GIẢI NGÂN CÁC NGUỒN VỐN NĂM  <%=DateTime.Now.Year.ToString()%></h4>
 			</td>
 		</tr>
 		<tr>
@@ -553,7 +541,7 @@
 									  , out v_dc_nhu_cau_von_ky_tiep_theo); %>
 								<tr style="font-weight: bold; font-style: italic">
 									<td class="stt"></td>
-									<td class="noi_dung"><%=item.groupText %></td>
+									<td><div class="noi_dung"><%=item.groupText %></div></td>
 									<!-----------SoKmQuanLy------------>
 									<td class="so_km">
 										<%=v_dc_so_km %>
@@ -907,8 +895,8 @@
 			
 			%>
 			<td class="stt"><%=v_i_stt++ %></td>
-			<td class="noi_dung">
-				<a href="F350_tinh_hinh_giai_ngan.aspx?ip_dc_id_don_vi=<%=don_vi.ID %>&ip_dat_tu_ngay=<%=m_txt_tu_ngay.Text %>&ip_dat_den_ngay=<%=m_txt_den_ngay.Text %>" title="Xem chi tiết"><%=don_vi.TEN_DON_VI %></a>
+			<td>
+				<div class="noi_dung"><a href="F350_tinh_hinh_giai_ngan.aspx?ip_dc_id_don_vi=<%=don_vi.ID %>&ip_dat_tu_ngay=<%=m_txt_tu_ngay.Text %>&ip_dat_den_ngay=<%=m_txt_den_ngay.Text %>" title="Xem chi tiết"><%=don_vi.TEN_DON_VI %></a></div>
 			</td>
 			<!-----------SoKmQuanLy------------>
 			<td class="so_km">

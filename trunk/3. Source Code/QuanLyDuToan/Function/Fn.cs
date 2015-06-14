@@ -20,8 +20,8 @@ namespace QuanLyDuToan.Function
 				, DateTime ip_dat_tu_ngay
 				, DateTime ip_dat_den_ngay
 				, decimal ip_dc_id_loai_nhiem_vu
-				, decimal ip_dc_id_cong_trinh_khoan
-				, decimal ip_dc_id_du_an_muc_tieu_muc
+				, decimal? ip_dc_id_cong_trinh_khoan
+				, decimal? ip_dc_id_du_an_muc_tieu_muc
 				, para_bao_cao ip_para
 				, para_Level ip_level
 				)
@@ -536,7 +536,7 @@ namespace QuanLyDuToan.Function
 								v_lst_kh_dau_nam_bo_sung = ip_lst_giao_kh
 								   .Where(x => x.DM_QUYET_DINH.ID_LOAI_QUYET_DINH_GIAO != WebUS.ID_LOAI_GIAO_DICH.DIEU_CHINH
 									   && x.ID_LOAI_NHIEM_VU == ip_dc_id_loai_nhiem_vu
-									   && x.ID_KHOAN == ip_dc_id_cong_trinh_khoan
+									   && x.ID_CONG_TRINH == ip_dc_id_cong_trinh_khoan
 									   && x.ID_DU_AN == ip_dc_id_du_an_muc_tieu_muc)
 								   .ToList()
 									//Loại trừ dự án, mục, tiểu mục điều chỉnh
@@ -1955,9 +1955,240 @@ namespace QuanLyDuToan.Function
 
 
 
-			public static void set_so_lieu_by_row()
+			public static void set_so_lieu_by_row(
+				List<GD_CHI_TIET_GIAO_KH> ip_lst_giao_kh
+				, List<GD_CHI_TIET_GIAO_VON> ip_lst_giao_von
+				, List<GD_CHI_TIET_GIAI_NGAN> ip_lst_giai_ngan
+				, List<GD_KHOI_LUONG> ip_lst_khoi_luong
+				, DateTime ip_dat_dau_nam
+				, DateTime ip_dat_tu_ngay
+				, DateTime ip_dat_den_ngay
+				, decimal ip_dc_id_loai_nhiem_vu
+				, decimal? ip_dc_id_cong_trinh_khoan
+				, decimal? ip_dc_id_du_an_muc_tieu_muc
+				, para_Level ip_para
+				, out double ip_dc_so_km
+				, out double ip_dc_tong_muc_dau_tu
+				, out double ip_dc_ke_hoach_qbt_ntcs
+				, out double ip_dc_ke_hoach_qbt_giao
+				, out double ip_dc_ke_hoach_ns_ntcs
+				, out double ip_dc_ke_hoach_ns_giao
+				, out double ip_dc_da_nhan_qbt_trong_thang
+				, out double ip_dc_da_nhan_qbt_luy_ke
+				, out double ip_dc_da_nhan_ns_trong_thang
+				, out double ip_dc_da_nhan_ns_luy_ke
+				, out double ip_dc_da_thanh_toan_qbt_trong_thang
+				, out double ip_dc_da_thanh_toan_qbt_luy_ke
+				, out double ip_dc_da_thanh_toan_ns_trong_thang
+				, out double ip_dc_da_thanh_toan_ns_luy_ke
+				, out double ip_dc_gia_tri_thuc_hien_da_nghiem_thu_ab_qbt
+				, out double ip_dc_gia_tri_thuc_hien_da_nghiem_thu_ab_ns
+				, out double ip_dc_nhu_cau_von_ky_tiep_theo)
 			{
-
+				ip_dc_so_km = F350.getSoLieu(ip_lst_giao_kh
+									, ip_lst_giao_von
+									, ip_lst_giai_ngan
+									, ip_lst_khoi_luong
+									, ip_dat_dau_nam
+									, ip_dat_tu_ngay
+									, ip_dat_den_ngay
+									, ip_dc_id_loai_nhiem_vu
+									, ip_dc_id_cong_trinh_khoan
+									, ip_dc_id_du_an_muc_tieu_muc
+									, para_bao_cao.SoKM
+									, ip_para);
+				ip_dc_tong_muc_dau_tu = F350.getSoLieu(ip_lst_giao_kh
+									, ip_lst_giao_von
+									, ip_lst_giai_ngan
+									, ip_lst_khoi_luong
+									, ip_dat_dau_nam
+									, ip_dat_tu_ngay
+									, ip_dat_den_ngay
+									, ip_dc_id_loai_nhiem_vu
+									, ip_dc_id_cong_trinh_khoan
+									, ip_dc_id_du_an_muc_tieu_muc
+									, para_bao_cao.TongMucDauTu
+									, ip_para);
+				ip_dc_ke_hoach_qbt_ntcs = F350.getSoLieu(ip_lst_giao_kh
+									, ip_lst_giao_von
+									, ip_lst_giai_ngan
+									, ip_lst_khoi_luong
+									, ip_dat_dau_nam
+									, ip_dat_tu_ngay
+									, ip_dat_den_ngay
+									, ip_dc_id_loai_nhiem_vu
+									, ip_dc_id_cong_trinh_khoan
+									, ip_dc_id_du_an_muc_tieu_muc
+									, para_bao_cao.KeHoachNamTruocChuyenSang_QuyBaoTri
+									, ip_para);
+				ip_dc_ke_hoach_qbt_giao = F350.getSoLieu(ip_lst_giao_kh
+									, ip_lst_giao_von
+									, ip_lst_giai_ngan
+									, ip_lst_khoi_luong
+									, ip_dat_dau_nam
+									, ip_dat_tu_ngay
+									, ip_dat_den_ngay
+									, ip_dc_id_loai_nhiem_vu
+									, ip_dc_id_cong_trinh_khoan
+									, ip_dc_id_du_an_muc_tieu_muc
+									, para_bao_cao.KeHoachGiao_QuyBaoTri
+									, ip_para);
+				ip_dc_ke_hoach_ns_ntcs = F350.getSoLieu(ip_lst_giao_kh
+									, ip_lst_giao_von
+									, ip_lst_giai_ngan
+									, ip_lst_khoi_luong
+									, ip_dat_dau_nam
+									, ip_dat_tu_ngay
+									, ip_dat_den_ngay
+									, ip_dc_id_loai_nhiem_vu
+									, ip_dc_id_cong_trinh_khoan
+									, ip_dc_id_du_an_muc_tieu_muc
+									, para_bao_cao.KeHoachNamTruocChuyenSang_NganSach
+									, ip_para);
+				ip_dc_ke_hoach_ns_giao = F350.getSoLieu(ip_lst_giao_kh
+									, ip_lst_giao_von
+									, ip_lst_giai_ngan
+									, ip_lst_khoi_luong
+									, ip_dat_dau_nam
+									, ip_dat_tu_ngay
+									, ip_dat_den_ngay
+									, ip_dc_id_loai_nhiem_vu
+									, ip_dc_id_cong_trinh_khoan
+									, ip_dc_id_du_an_muc_tieu_muc
+									, para_bao_cao.KeHoachGiao_NganSach
+									, ip_para);
+				ip_dc_da_nhan_qbt_trong_thang = F350.getSoLieu(ip_lst_giao_kh
+									, ip_lst_giao_von
+									, ip_lst_giai_ngan
+									, ip_lst_khoi_luong
+									, ip_dat_dau_nam
+									, ip_dat_tu_ngay
+									, ip_dat_den_ngay
+									, ip_dc_id_loai_nhiem_vu
+									, ip_dc_id_cong_trinh_khoan
+									, ip_dc_id_du_an_muc_tieu_muc
+									, para_bao_cao.KinhPhiDaNhan_TrongThang_QuyBaoTri
+									, ip_para);
+				ip_dc_da_nhan_qbt_luy_ke = F350.getSoLieu(ip_lst_giao_kh
+									, ip_lst_giao_von
+									, ip_lst_giai_ngan
+									, ip_lst_khoi_luong
+									, ip_dat_dau_nam
+									, ip_dat_tu_ngay
+									, ip_dat_den_ngay
+									, ip_dc_id_loai_nhiem_vu
+									, ip_dc_id_cong_trinh_khoan
+									, ip_dc_id_du_an_muc_tieu_muc
+									, para_bao_cao.KinhPhiDaNhan_LuyKe_QuyBaoTri
+									, ip_para);
+				ip_dc_da_nhan_ns_trong_thang = F350.getSoLieu(ip_lst_giao_kh
+									, ip_lst_giao_von
+									, ip_lst_giai_ngan
+									, ip_lst_khoi_luong
+									, ip_dat_dau_nam
+									, ip_dat_tu_ngay
+									, ip_dat_den_ngay
+									, ip_dc_id_loai_nhiem_vu
+									, ip_dc_id_cong_trinh_khoan
+									, ip_dc_id_du_an_muc_tieu_muc
+									, para_bao_cao.KinhPhiDaNhan_TrongThang_NganSach
+									, ip_para);
+				ip_dc_da_nhan_ns_luy_ke = F350.getSoLieu(ip_lst_giao_kh
+									, ip_lst_giao_von
+									, ip_lst_giai_ngan
+									, ip_lst_khoi_luong
+									, ip_dat_dau_nam
+									, ip_dat_tu_ngay
+									, ip_dat_den_ngay
+									, ip_dc_id_loai_nhiem_vu
+									, ip_dc_id_cong_trinh_khoan
+									, ip_dc_id_du_an_muc_tieu_muc
+									, para_bao_cao.KinhPhiDaNhan_LuyKe_NganSach
+									, ip_para);
+				ip_dc_da_thanh_toan_qbt_trong_thang = F350.getSoLieu(ip_lst_giao_kh
+									, ip_lst_giao_von
+									, ip_lst_giai_ngan
+									, ip_lst_khoi_luong
+									, ip_dat_dau_nam
+									, ip_dat_tu_ngay
+									, ip_dat_den_ngay
+									, ip_dc_id_loai_nhiem_vu
+									, ip_dc_id_cong_trinh_khoan
+									, ip_dc_id_du_an_muc_tieu_muc
+									, para_bao_cao.KinhPhiDaThanhToan_TrongThang_QuyBaoTri
+									, ip_para);
+				ip_dc_da_thanh_toan_qbt_luy_ke = F350.getSoLieu(ip_lst_giao_kh
+									, ip_lst_giao_von
+									, ip_lst_giai_ngan
+									, ip_lst_khoi_luong
+									, ip_dat_dau_nam
+									, ip_dat_tu_ngay
+									, ip_dat_den_ngay
+									, ip_dc_id_loai_nhiem_vu
+									, ip_dc_id_cong_trinh_khoan
+									, ip_dc_id_du_an_muc_tieu_muc
+									, para_bao_cao.KinhPhiDaThanhToan_LuyKe_QuyBaoTri
+									, ip_para);
+				ip_dc_da_thanh_toan_ns_trong_thang = F350.getSoLieu(ip_lst_giao_kh
+									, ip_lst_giao_von
+									, ip_lst_giai_ngan
+									, ip_lst_khoi_luong
+									, ip_dat_dau_nam
+									, ip_dat_tu_ngay
+									, ip_dat_den_ngay
+									, ip_dc_id_loai_nhiem_vu
+									, ip_dc_id_cong_trinh_khoan
+									, ip_dc_id_du_an_muc_tieu_muc
+									, para_bao_cao.KinhPhiDaThanhToan_TrongThang_NganSach
+									, ip_para);
+				ip_dc_da_thanh_toan_ns_luy_ke = F350.getSoLieu(ip_lst_giao_kh
+									, ip_lst_giao_von
+									, ip_lst_giai_ngan
+									, ip_lst_khoi_luong
+									, ip_dat_dau_nam
+									, ip_dat_tu_ngay
+									, ip_dat_den_ngay
+									, ip_dc_id_loai_nhiem_vu
+									, ip_dc_id_cong_trinh_khoan
+									, ip_dc_id_du_an_muc_tieu_muc
+									, para_bao_cao.KinhPhiDaThanhToan_LuyKe_NganSach
+									, ip_para);
+				ip_dc_gia_tri_thuc_hien_da_nghiem_thu_ab_qbt = F350.getSoLieu(ip_lst_giao_kh
+									, ip_lst_giao_von
+									, ip_lst_giai_ngan
+									, ip_lst_khoi_luong
+									, ip_dat_dau_nam
+									, ip_dat_tu_ngay
+									, ip_dat_den_ngay
+									, ip_dc_id_loai_nhiem_vu
+									, ip_dc_id_cong_trinh_khoan
+									, ip_dc_id_du_an_muc_tieu_muc
+									, para_bao_cao.GiaTriThucHienDaNghiemThuAB_QuyBaoTri
+									, ip_para);
+				ip_dc_gia_tri_thuc_hien_da_nghiem_thu_ab_ns = F350.getSoLieu(ip_lst_giao_kh
+									, ip_lst_giao_von
+									, ip_lst_giai_ngan
+									, ip_lst_khoi_luong
+									, ip_dat_dau_nam
+									, ip_dat_tu_ngay
+									, ip_dat_den_ngay
+									, ip_dc_id_loai_nhiem_vu
+									, ip_dc_id_cong_trinh_khoan
+									, ip_dc_id_du_an_muc_tieu_muc
+									, para_bao_cao.GiaTriThucHienDaNghiemThuAB_NganSach
+									, ip_para);
+				ip_dc_nhu_cau_von_ky_tiep_theo = F350.getSoLieu(ip_lst_giao_kh
+									, ip_lst_giao_von
+									, ip_lst_giai_ngan
+									, ip_lst_khoi_luong
+									, ip_dat_dau_nam
+									, ip_dat_tu_ngay
+									, ip_dat_den_ngay
+									, ip_dc_id_loai_nhiem_vu
+									, ip_dc_id_cong_trinh_khoan
+									, ip_dc_id_du_an_muc_tieu_muc
+									, para_bao_cao.NhuCauVonKyTiepTheo
+									, ip_para);
 			}
 		}
 

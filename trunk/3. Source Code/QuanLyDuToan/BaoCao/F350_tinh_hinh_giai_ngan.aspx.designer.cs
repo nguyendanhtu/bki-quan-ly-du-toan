@@ -8,28 +8,9 @@
 //------------------------------------------------------------------------------
 
 namespace QuanLyDuToan.BaoCao {
-
-
-	public partial class F350_tinh_hinh_giai_ngan
-	{
-        
-        /// <summary>
-        /// ScriptManager1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.ScriptManager ScriptManager1;
-        
-        /// <summary>
-        /// UpdatePanel1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
+    
+    
+    public partial class F350_tinh_hinh_giai_ngan {
         
         /// <summary>
         /// m_ddl_don_vi control.
@@ -39,42 +20,6 @@ namespace QuanLyDuToan.BaoCao {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList m_ddl_don_vi;
-        
-        /// <summary>
-        /// m_txt_tim_kiem control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox m_txt_tim_kiem;
-        
-        /// <summary>
-        /// m_ddl_loai_nv control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList m_ddl_loai_nv;
-        
-        /// <summary>
-        /// m_ddl_cong_trinh control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList m_ddl_cong_trinh;
-        
-        /// <summary>
-        /// m_ddl_du_an control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList m_ddl_du_an;
         
         /// <summary>
         /// m_txt_tu_ngay control.
@@ -120,23 +65,5 @@ namespace QuanLyDuToan.BaoCao {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button m_cmd_xuat_excel;
-        
-        /// <summary>
-        /// m_grv control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView m_grv;
-        
-        /// <summary>
-        /// UpdateProgress1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdateProgress UpdateProgress1;
     }
 }
