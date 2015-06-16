@@ -9,6 +9,37 @@ namespace QuanLyDuToan.Function
 {
 	public class Fn
 	{
+		public static double getDouble(string ip_str_decimal)
+		{
+			//Hàm này sử lý trường hợp xung đột đơn vị giữa csdl và server
+			//Dùng trong xử lý số km trong giao kh, vì nó được lưu trong ghi_chu_2 (nvarchar) nên có thể bị xung đột
+			double op_dc = 0;
+			if (!ip_str_decimal.Trim().Equals("0"))
+			{
+				//Cách tính: cắt chuỗi thành 2 phần: phần trước dầu phẩy hoặc dấu chấm và phần sau
+				//Tính số thập phân từ 2 phần tìm được
+				if (ip_str_decimal.Contains("."))
+				{
+					double v_dc_so_truoc_dau_phay = Convert.ToDouble(ip_str_decimal.Split('.')[0]);
+					string ip_str_so_sau_dau_phay = ip_str_decimal.Split('.')[1];
+					double v_dc_so_sau_dau_phay = Convert.ToDouble(ip_str_decimal.Split('.')[1]);
+					op_dc = v_dc_so_truoc_dau_phay + v_dc_so_sau_dau_phay / (Math.Pow(10, ip_str_so_sau_dau_phay.Count()));
+				}
+				else if (ip_str_decimal.Contains(","))
+				{
+					double v_dc_so_truoc_dau_phay = Convert.ToDouble(ip_str_decimal.Split(',')[0]);
+					string ip_str_so_sau_dau_phay = ip_str_decimal.Split(',')[1];
+					double v_dc_so_sau_dau_phay = Convert.ToDouble(ip_str_decimal.Split(',')[1]);
+					op_dc = v_dc_so_truoc_dau_phay + v_dc_so_sau_dau_phay / (Math.Pow(10, ip_str_so_sau_dau_phay.Count()));
+				}
+				else
+				{
+					//trường hợp không là số thập phân
+					op_dc = Convert.ToDouble(ip_str_decimal);
+				}
+			}
+			return op_dc;
+		}
 		public class F350
 		{
 			public static double getSoLieu(
@@ -39,45 +70,45 @@ namespace QuanLyDuToan.Function
 						switch (ip_level)
 						{
 							case para_Level.TongCong:
-								v_dc_result = ip_lst_giao_kh.Sum(x => Convert.ToDouble(x.GHI_CHU_2 ?? "0"));
+								v_dc_result = ip_lst_giao_kh.Sum(x => getDouble(x.GHI_CHU_2 ?? "0"));
 								break;
 							case para_Level.LoaiNhiemVu:
 								v_dc_result = ip_lst_giao_kh
 												.Where(x => x.ID_LOAI_NHIEM_VU == ip_dc_id_loai_nhiem_vu)
-												.Sum(x => Convert.ToDouble(x.GHI_CHU_2 ?? "0"));
+												.Sum(x => getDouble(x.GHI_CHU_2 ?? "0"));
 								break;
 							case para_Level.CongTrinh:
 								v_dc_result = ip_lst_giao_kh
 												.Where(x => x.ID_LOAI_NHIEM_VU == ip_dc_id_loai_nhiem_vu
 													&& x.ID_CONG_TRINH == ip_dc_id_cong_trinh_khoan)
-												.Sum(x => Convert.ToDouble(x.GHI_CHU_2 ?? "0"));
+												.Sum(x => getDouble(x.GHI_CHU_2 ?? "0"));
 								break;
 							case para_Level.Khoan:
 								v_dc_result = ip_lst_giao_kh
 												.Where(x => x.ID_LOAI_NHIEM_VU == ip_dc_id_loai_nhiem_vu
 													&& x.ID_KHOAN == ip_dc_id_cong_trinh_khoan)
-												.Sum(x => Convert.ToDouble(x.GHI_CHU_2 ?? "0"));
+												.Sum(x => getDouble(x.GHI_CHU_2 ?? "0"));
 								break;
 							case para_Level.DuAn:
 								v_dc_result = ip_lst_giao_kh
 												.Where(x => x.ID_LOAI_NHIEM_VU == ip_dc_id_loai_nhiem_vu
 													&& x.ID_CONG_TRINH == ip_dc_id_cong_trinh_khoan
 													&& x.ID_DU_AN == ip_dc_id_du_an_muc_tieu_muc)
-												.Sum(x => Convert.ToDouble(x.GHI_CHU_2 ?? "0"));
+												.Sum(x => getDouble(x.GHI_CHU_2 ?? "0"));
 								break;
 							case para_Level.Muc:
 								v_dc_result = ip_lst_giao_kh
 												.Where(x => x.ID_LOAI_NHIEM_VU == ip_dc_id_loai_nhiem_vu
 													&& x.ID_KHOAN == ip_dc_id_cong_trinh_khoan
 													&& x.ID_MUC == ip_dc_id_du_an_muc_tieu_muc)
-												.Sum(x => Convert.ToDouble(x.GHI_CHU_2 ?? "0"));
+												.Sum(x => getDouble(x.GHI_CHU_2 ?? "0"));
 								break;
 							case para_Level.TieuMuc:
 								v_dc_result = ip_lst_giao_kh
 												.Where(x => x.ID_LOAI_NHIEM_VU == ip_dc_id_loai_nhiem_vu
 													&& x.ID_KHOAN == ip_dc_id_cong_trinh_khoan
 													&& x.ID_TIEU_MUC == ip_dc_id_du_an_muc_tieu_muc)
-												.Sum(x => Convert.ToDouble(x.GHI_CHU_2 ?? "0"));
+												.Sum(x => getDouble(x.GHI_CHU_2 ?? "0"));
 								break;
 							default:
 								break;
@@ -1582,7 +1613,7 @@ namespace QuanLyDuToan.Function
 										&& x.DM_GIAI_NGAN.IS_NGUON_NS_YN == "N"
 										&& x.ID_LOAI_NHIEM_VU == ip_dc_id_loai_nhiem_vu
 										&& x.ID_CONG_TRINH == ip_dc_id_cong_trinh_khoan
-										&& x.ID_DU_AN == x.ID_DU_AN)
+										&& x.ID_DU_AN == ip_dc_id_du_an_muc_tieu_muc)
 									.Sum(x => x.SO_TIEN_NOP_THUE + (x.SO_TIEN_TT_CHO_DV_HUONG ?? 0)));
 								break;
 							case para_Level.Muc:
@@ -1652,7 +1683,7 @@ namespace QuanLyDuToan.Function
 										&& x.DM_GIAI_NGAN.IS_NGUON_NS_YN == "N"
 										&& x.ID_LOAI_NHIEM_VU == ip_dc_id_loai_nhiem_vu
 										&& x.ID_CONG_TRINH == ip_dc_id_cong_trinh_khoan
-										&& x.ID_DU_AN == x.ID_DU_AN)
+										&& x.ID_DU_AN == ip_dc_id_du_an_muc_tieu_muc)
 									.Sum(x => x.SO_TIEN_NOP_THUE + (x.SO_TIEN_TT_CHO_DV_HUONG ?? 0)));
 								break;
 							case para_Level.Muc:
@@ -1722,7 +1753,7 @@ namespace QuanLyDuToan.Function
 										&& x.DM_GIAI_NGAN.IS_NGUON_NS_YN == "Y"
 										&& x.ID_LOAI_NHIEM_VU == ip_dc_id_loai_nhiem_vu
 										&& x.ID_CONG_TRINH == ip_dc_id_cong_trinh_khoan
-										&& x.ID_DU_AN == x.ID_DU_AN)
+										&& x.ID_DU_AN == ip_dc_id_du_an_muc_tieu_muc)
 									.Sum(x => x.SO_TIEN_NOP_THUE + (x.SO_TIEN_TT_CHO_DV_HUONG ?? 0)));
 								break;
 							case para_Level.Muc:
@@ -1792,7 +1823,7 @@ namespace QuanLyDuToan.Function
 										&& x.DM_GIAI_NGAN.IS_NGUON_NS_YN == "Y"
 										&& x.ID_LOAI_NHIEM_VU == ip_dc_id_loai_nhiem_vu
 										&& x.ID_CONG_TRINH == ip_dc_id_cong_trinh_khoan
-										&& x.ID_DU_AN == x.ID_DU_AN)
+										&& x.ID_DU_AN == ip_dc_id_du_an_muc_tieu_muc)
 									.Sum(x => x.SO_TIEN_NOP_THUE + (x.SO_TIEN_TT_CHO_DV_HUONG ?? 0)));
 								break;
 							case para_Level.Muc:
@@ -2233,7 +2264,7 @@ namespace QuanLyDuToan.Function
 									//Tong cong
 								|| (ip_group == para_F530_Group.TongCong)
 							)
-							.Sum(x => Convert.ToDouble(x.GHI_CHU_2 ?? "0"));
+							.Sum(x => getDouble(x.GHI_CHU_2 ?? "0"));
 						break;
 					case para_bao_cao.TongMucDauTu:
 						v_lst_kh_dieu_chinh = ip_lst_giao_kh

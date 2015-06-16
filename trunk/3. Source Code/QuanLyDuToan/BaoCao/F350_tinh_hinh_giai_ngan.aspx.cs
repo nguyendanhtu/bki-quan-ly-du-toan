@@ -116,7 +116,7 @@ namespace QuanLyDuToan.BaoCao
 				switch (CIPConvert.ToStr(ip_level))
 				{
 					//lv3: get link theo loai nhiem vu
-					case "3":
+					case "1":
 						v_str_link += "?ip_dc_id_don_vi=" + CIPConvert.ToStr(ip_id_don_vi)
 									 + "&ip_dc_id_loai_nhiem_vu=" + CIPConvert.ToStr(ip_id_loai_nhiem_vu)
 									 + "&ip_dc_id_cong_trinh=" + "-1"
@@ -137,7 +137,7 @@ namespace QuanLyDuToan.BaoCao
 									 + "&ip_dc_id_quyet_dinh=" + "-1";
 						break;
 					//lv1: get link theo lv du an
-					case "1":
+					case "3":
 						v_str_link += "?ip_dc_id_don_vi=" + CIPConvert.ToStr(ip_id_don_vi)
 									 + "&ip_dc_id_loai_nhiem_vu=" + CIPConvert.ToStr(ip_id_loai_nhiem_vu)
 									 + "&ip_dc_id_cong_trinh=" + CIPConvert.ToStr(ip_id_cong_trinh)

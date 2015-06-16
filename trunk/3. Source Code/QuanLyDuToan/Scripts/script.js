@@ -107,16 +107,14 @@ function format_input(input) {
 function getFormatedNumberString(ip_str_number) {
 	ip_str_number = ip_str_number.toString().split(',').join('').split(',').join('');
 	
-	if (isNaN(ip_str_number))
+	if (!$.isNumeric(ip_str_number))
 		ip_str_number = "0";
-	
 	sign = (ip_str_number == (ip_str_number = Math.abs(ip_str_number)));
 	ip_str_number = Math.floor(ip_str_number * 100 + 0.50000000001);
 	ip_str_number = Math.floor(ip_str_number / 100).toString();
 	for (var i = 0; i < Math.floor((ip_str_number.length - (1 + i)) / 3) ; i++)
 		ip_str_number = ip_str_number.substring(0, ip_str_number.length - (4 * i + 3)) + ',' +
             ip_str_number.substring(ip_str_number.length - (4 * i + 3));
-	//console.log((sign) ? ip_str_number : '-' + ip_str_number);
 	return (sign) ? ip_str_number : '-' + ip_str_number;
 }
 function getFormatedNumberStringWithDot(ip_str_number) {
@@ -184,11 +182,11 @@ function pageLoad(sender, args) {
 			blur: function () { $(this).val(getFormatedNumberString($(this).val())); },
 			focus: function () { $(this).val(getNumber($(this).val())); }
 		});
-		$(".format_so_tien").keyup(function (e) {
-			if (e.keyCode != 17 && e.keyCode != 16 && e.keyCode != 37 && e.keyCode != 39 && e.keyCode != 36) {
-				$(this).val(formatString($(this).val()));
-			}
-		});
+		//$(".format_so_tien").keyup(function (e) {
+		//	if (e.keyCode != 17 && e.keyCode != 16 && e.keyCode != 37 && e.keyCode != 39 && e.keyCode != 36) {
+		//		$(this).val(formatString($(this).val()));
+		//	}
+		//});
 	}
 }
 
