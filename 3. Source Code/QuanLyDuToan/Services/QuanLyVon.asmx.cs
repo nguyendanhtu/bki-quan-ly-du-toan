@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Services;
 using SQLDataAccess;
 using Newtonsoft.Json;
+using System.Web.Script.Services;
 
 namespace QuanLyDuToan.Services
 {
@@ -20,7 +21,8 @@ namespace QuanLyDuToan.Services
 	{
 
 		[WebMethod]
-		public void getInfo(int ip_i_nam)
+		[ScriptMethod(UseHttpGet = true, ResponseFormat = ResponseFormat.Json)]
+		public void getInfo(int ip_i_nam,string callback)
 		{
 			DateTime v_dat_tu_ngay = new DateTime((int)ip_i_nam, 1, 1);
 			DateTime v_dat_den_ngay = DateTime.Now.Date;
@@ -108,7 +110,10 @@ namespace QuanLyDuToan.Services
 				//7. So chua GN cho nha thau theo nghiem thu A-B = Gia tri thuc hien da nhiem thu A-B - Kinh phi da thanh toan
 				decimal? v_dc_so_chua_giai_ngan_cho_nha_thau_theo_nghiem_thu_A_B = v_dc_giai_tri_thuc_hien_da_nghiem_thu_A_B - v_dc_da_giai_ngan;
 				info.dcSoChuaGNChoNhaThauTheoNghiemThuAB = v_dc_so_chua_giai_ngan_cho_nha_thau_theo_nghiem_thu_A_B;
-				Context.Response.Write(JsonConvert.SerializeObject(info));
+				Context.Response.Clear();
+				Context.Response.ContentType = "application/json";
+				Context.Response.Write(callback+"("+JsonConvert.SerializeObject(info)+")");
+				Context.Response.End();
 			}
 
 		}

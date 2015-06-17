@@ -1,9 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="PL01_tong_hop_kinh_phi.aspx.cs" Inherits="QuanLyDuToan.QuyetToan.PL01_tong_hop_kinh_phi" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
-	<script src="../Scripts/UI/PL01.js"></script>
 	<script src="../Scripts/jquery.dataTables.js"></script>
-	<script src="../Scripts/jquery.fixedheadertable.min.js"></script>
+	<script src="../Scripts/dataTables.bootstrap.js"></script>
+	<script src="../Scripts/dataTables.fixedHeader.js"></script>
+	<link href="../Styles/dataTables.fixedHeader.css" rel="stylesheet" />
+	<script src="../Scripts/UI/PL01.js"></script>
+
 	<style>
 		.format_so_tien {
 			text-align: right;
@@ -49,7 +52,10 @@
 			</div>
 
 		</div>
-		<div class="col-sm-12" id="grid">
+		<div class="col-sm-12">
+			<div style="width:900px; margin:auto" id="grid">
+
+			</div>
 		</div>
 		<div class="cssLoadWapper" style="display: none; z-index: 99999999" id="loading">
 			<div class="cssLoadContent">
