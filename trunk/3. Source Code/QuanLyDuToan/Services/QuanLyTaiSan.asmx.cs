@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Services;
 using SqlDataAccessQuanLyTaiSan;
 using Newtonsoft.Json;
+using System.Web.Script.Services;
 
 namespace QuanLyDuToan.Services
 {
@@ -20,7 +21,8 @@ namespace QuanLyDuToan.Services
 	{
 
 		[WebMethod]
-		public void getInfo()
+		[ScriptMethod(UseHttpGet = true, ResponseFormat = ResponseFormat.Json)]
+		public void getInfo(string callback)
 		{
 			QuanLyTaiSanInfo info = new QuanLyTaiSanInfo();
 			using (BKI_QLTSEntities db=new BKI_QLTSEntities())
@@ -30,7 +32,10 @@ namespace QuanLyDuToan.Services
 				info.dcSoTaiSanKhac = db.DM_TAI_SAN_KHAC.Count(x => x.ID_TRANG_THAI == 588);//Trang thai 1-Đang sử dụng
 				info.dcSoDat = db.DM_DAT.Count(x => x.ID_TRANG_THAI == 597);//Trang thai 1-Đang sử dụng
 			}
-			Context.Response.Write(JsonConvert.SerializeObject(info));
+			Context.Response.Clear();
+			Context.Response.ContentType = "application/json";
+			Context.Response.Write(callback + "(" + JsonConvert.SerializeObject(info) + ")");
+			Context.Response.End();
 		}
 	}
 
