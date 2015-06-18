@@ -70,7 +70,7 @@
                     <th rowspan="2" style="width:50px">TT</th>
                     <th style="width: 200px" rowspan="2">Nội dung</th>
                     <th colspan="3" style="width:300px">Số kiến nghị của</th>
-                    <th colspan="3" style="width:300px">Số 21đã nộp trả Quỹ BTĐB TW trong năm nay</th>
+                    <th colspan="3" style="width:300px">Số đã nộp trả Quỹ BTĐB TW trong năm nay</th>
                     <th colspan="3" style="width:300px">Số còn phải nộp Quỹ BTĐB TW</th>
                     <%foreach (var dvct in LoaiDonVi)
                       {%>
@@ -80,7 +80,7 @@
                           //nhung don vi là cuc or chi cuc de dc set colspan = 3; con lại se duoc set colspan =1
                           //nhung don vi la chi cuc se khong dc hien thi trong quy bao tri
                           if (don_vi.TEN_DON_VI.ToUpper().Contains("CHI CỤC")) { class_cuc = "chi-cuc"; colspan = 3; } else { class_cuc = "khac"; colspan = 1; }%>
-                    <th colspan="<%=colspan%>" class="col-sm-1 text-center header-<%=class_cuc%>"><span><%=don_vi.TEN_DON_VI%></span></th>
+                    <th colspan="<%=colspan%>" class="col-sm-1 text-center header-<%=class_cuc%>" style="width:<%=colspan*100%>px"><span><%=don_vi.TEN_DON_VI%></span></th>
                     <%} %>
                     <%} %>
                 </tr>
@@ -186,17 +186,19 @@
                     <%-- 6) Gen columns theo đơn vị chỉ tính theo số kiến nghị --%>
                     <%foreach (var don_vi in lst_don_vi.Where(x => x.TEN_DON_VI.ToUpper().Contains(dvct.ToUpper().Split(' ')[0])).OrderBy(x => x.TEN_DON_VI)
 )
-                      {%>
+                      {
+                    //Nhung cot cua chi cuc se khong duoc hien thi
+                          if (don_vi.TEN_DON_VI.ToUpper().Contains("CHI CỤC")) { class_cuc = "chi-cuc"; } else class_cuc = "khac";%>
                     <%--a) Tổng số --%>
-                    <td class="<%=genClassCSS(don_vi.TEN_DON_VI,"tong")%>" style="text-align: right; width:100px">
+                    <td class="<%=genClassCSS(don_vi.TEN_DON_VI,"tong")%> header-<%=class_cuc %>" style="text-align: right; width:100px">
                         <span class="so_tien"><%=lst_PL03.Where(x=>x.ID_DON_VI==don_vi.ID_DON_VI&&x.MA_SO==item.MaSo).Select(x=>x.SO_KIEN_NGHI_CO_QUAN_TAI_CHINH+x.SO_KIEN_NGHI_KIEM_TOAN_NHA_NUOC).FirstOrDefault() %></span>
                     </td>
                     <%-- b) Kiểm toám nhà nước --%>
-                    <td class="<%=genClassCSS(don_vi.TEN_DON_VI,"ktnc")%>" style="text-align: right;  width:100px">
+                    <td class="<%=genClassCSS(don_vi.TEN_DON_VI,"ktnc")%> header-<%=class_cuc %>" style="text-align: right;  width:100px">
                         <span class="so_tien"><%=lst_PL03.Where(x=>x.ID_DON_VI==don_vi.ID_DON_VI&&x.MA_SO==item.MaSo).Select(x=>x.SO_KIEN_NGHI_KIEM_TOAN_NHA_NUOC).FirstOrDefault() %></span>
                     </td>
                     <%-- c) Cơ quan tài chính --%>
-                    <td class="<%=genClassCSS(don_vi.TEN_DON_VI,"cqtc")%>" style="text-align: right;  width:100px">
+                    <td class="<%=genClassCSS(don_vi.TEN_DON_VI,"cqtc")%> header-<%=class_cuc %>" style="text-align: right;  width:100px">
                         <span class="so_tien"><%=lst_PL03.Where(x=>x.ID_DON_VI==don_vi.ID_DON_VI&&x.MA_SO==item.MaSo).Select(x=>x.SO_KIEN_NGHI_CO_QUAN_TAI_CHINH).FirstOrDefault() %></span>
                     </td>
                     <%}%>
