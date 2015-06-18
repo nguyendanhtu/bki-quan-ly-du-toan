@@ -2,13 +2,21 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
     <style>
         #tblPL07 > thead > tr > th {
-			border: 1px solid #000;
-		}
+            border: 1px solid #000;
+        }
     </style>
+       <script src="../Scripts/jquery.doubleScroll.js"></script>
+    <script src="../Scripts/fixHeader.js"></script>
      <script type="text/javascript">
          $(document).ready(function () {
-                 $("#<%=m_ddl_chon_nam.ClientID%>").select2();
-          })
+             $("#<%=m_ddl_chon_nam.ClientID%>").select2();
+             var lst = $('.str_money');
+             for (var i = 0; i < lst.length; i++) {
+                 $(lst[i]).text(formatString($(lst[i]).text().split(',').join('').split('.').join('')));
+             }
+             $('#tblPL07').scrollbarTable();
+             $('#double-scroll').doubleScroll();
+         })
      </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
@@ -19,16 +27,17 @@
             <asp:DropDownList ID="m_ddl_chon_nam" runat="server" Width="80px" AutoPostBack="True" CssClass="select2" OnSelectedIndexChanged="m_ddl_chon_nam_SelectedIndexChanged"></asp:DropDownList>
     </div>
     <br />
-
-    <table id="tblPL07" class="table table-hover " style="margin: auto;width:<%=(lst_giao_kh
+     <div style="width:1200px; margin:0px auto">
+    <div id="double-scroll" width: 1200px">
+    <table id="tblPL07" class="table table-hover table-bordered" style="margin: auto;width:<%=(lst_giao_kh
 							.Where(x=>x.DM_QUYET_DINH.ID_LOAI_QUYET_DINH_GIAO!=WebUS.ID_LOAI_GIAO_DICH.DIEU_CHINH)
 							.Select(x => new { x.DM_QUYET_DINH.NGAY_THANG, x.DM_QUYET_DINH.SO_QUYET_DINH })
 							.Distinct()			
-							.ToList().Count+2)*65+950%>px" id="tblPL04">
+							.ToList().Count+2)*65+1200%>px">
 		<thead style="vertical-align: middle">
 			<tr>
-				<th rowspan="2">TT</th>
-				<th rowspan="2" style="width:250px">Công trinh hạng mục</th>
+				<th style="width:50px" rowspan="2">TT</th>
+				<th style="width:250px" rowspan="2">Công trinh hạng mục</th>
 				<th colspan="<%=lst_giao_kh
 							.Where(x=>x.DM_QUYET_DINH.ID_LOAI_QUYET_DINH_GIAO!=WebUS.ID_LOAI_GIAO_DICH.DIEU_CHINH)
 							.Select(x => new { x.DM_QUYET_DINH.NGAY_THANG, x.DM_QUYET_DINH.SO_QUYET_DINH })
@@ -38,12 +47,12 @@
 							.Select(x => new { x.DM_QUYET_DINH.NGAY_THANG, x.DM_QUYET_DINH.SO_QUYET_DINH })
 							.Distinct()			
 							.ToList().Count+2)*65%>px">Kế hoạch được giao trong năm</th>
-				<th rowspan="2">Giá trị dự toán công trình được duyệt</th>
+				<th style="width:100px" rowspan="2">Giá trị dự toán công trình được duyệt</th>
 				<th colspan="3">Giá trị công trình hoàn thành</th>
-				<th rowspan="2">Giá trị đề nghị quyết toán trong năm</th>
-				<th rowspan="2">Giá trị CTHT đã quyết toán LK đến năm báo cáo </th>
-				<th rowspan="2">Giá trị CTHT chuyển năm sau QT</th>
-				<th rowspan="2">Kế hoạch còn dư cuối năm</th>
+				<th style="width:100px" rowspan="2">Giá trị đề nghị quyết toán trong năm</th>
+				<th style="width:100px" rowspan="2">Giá trị CTHT đã quyết toán LK đến năm báo cáo </th>
+				<th style="width:100px" rowspan="2">Giá trị CTHT chuyển năm sau QT</th>
+				<th style="width:100px" rowspan="2">Kế hoạch còn dư cuối năm</th>
 			</tr>
 			<tr>
 				<th>Kế hoạch năm trước chưa chi hết chuyển sang</th>
@@ -54,19 +63,19 @@
                             .Distinct()
                             .ToList())%>
 				<%{%>
-				<th><%="Quyết định số "+qd.SO_QUYET_DINH +" ngày "+IP.Core.IPCommon.CIPConvert.ToStr( qd.NGAY_THANG,"dd/MM/yyyy")%></th>
+				<th style="width:100px"><%="Quyết định số "+qd.SO_QUYET_DINH +" ngày "+IP.Core.IPCommon.CIPConvert.ToStr( qd.NGAY_THANG,"dd/MM/yyyy")%></th>
 				<%}%>
-				<th>Quyết định điều chỉnh cuối cùng </th>
-				<th>Giá trị CTHT năm trước còn nợ chuyển năm nay</th>
-				<th>Giá trị CTHT năm nay</th>
-				<th>Cộng</th>
+				<th style="width:100px">Quyết định điều chỉnh cuối cùng </th>
+				<th style="width:100px">Giá trị CTHT năm trước còn nợ chuyển năm nay</th>
+				<th style="width:100px">Giá trị CTHT năm nay</th>
+				<th style="width:100px">Cộng</th>
 			</tr>
 			<tr>
 				<th>1</th>
 				<th>2</th>
 				<th>3</th>
 				<%int index = 0;
-      for (index = 0; index < lst_giao_kh
+      for (index = 0; index <= lst_giao_kh
                      .Where(x => x.DM_QUYET_DINH.ID_LOAI_QUYET_DINH_GIAO != WebUS.ID_LOAI_GIAO_DICH.DIEU_CHINH)
                      .OrderBy(x => x.DM_QUYET_DINH.NGAY_THANG)
                      .Select(x => x.DM_QUYET_DINH.SO_QUYET_DINH)
@@ -80,11 +89,11 @@
 				<%
                     string strIndexSum = "" + (index + 4);
                     strIndexSum += "=";
-                    for (int j = 0; j < index+1; j++)
+                    for (int j = 0; j < index; j++)
                     {
-                        if (j <= index + 1)
+                        if (j < index)
                         {
-                            strIndexSum += (j + index) + "+";
+                            strIndexSum += (4+j) + "+";
                         }
                     }
                     strIndexSum += "...";
@@ -96,22 +105,22 @@
 				<th><%=index+8 %>=<%=index+6 %>+<%=index+7 %></th>
 				<th><%=index+9 %></th>
 				<th><%=index+10 %></th>
-				<th><%=index+11 %>=<%=index+8 %>-<%=index+9 %></th>
-				<th><%=index+12 %>=<%=index+10 %>-<%=index+11 %></th>
+				<th><%=index+11 %></th>
+				<th><%=index+12 %>=<%=index+4 %>-<%=index+9 %></th>
 			</tr>
 		</thead>
 		<tbody>
             <%decimal STT_don_vi = 1;%>
             <%--Theo don vi --%>
             <%foreach (var donvi in lst_don_vi.OrderBy(x => x.TEN_DON_VI).ToList())
-            { %>
+              { %>
             <tr style="font-weight: bold">
                 <%-- 1. STT --%>
                 <td class="text-center"><%=STT_don_vi++ %></td>
                 <%-- 2. Ten Don vi --%>
                 <td class="text-left"><%=donvi.TEN_DON_VI %></td>
                 <%-- 3. Ke hoach nam truoc chuyen sang --%>
-                <td class='text-right str_money'>
+                <td class="text-right str_money so_tien">
 					<%=lst_giao_kh
 						.Where(x=>x.ID_DON_VI == donvi.ID_DON_VI)
 						.Select(x=>x.SO_TIEN_NAM_TRUOC_CHUYEN_SANG)
@@ -127,7 +136,7 @@
                               .Distinct()
                               .ToList())%>
 				<%{%>
-				<td class='text-right str_money'><%=lst_giao_kh
+				<td class='text-right str_money so_tien'><%=lst_giao_kh
 						.Where(x=>x.ID_QUYET_DINH== qd	&& x.ID_DON_VI == donvi.ID_DON_VI)
 						.Select(x=>x.SO_TIEN_QUY_BT)
 						.ToList()
@@ -135,7 +144,7 @@
 				%></td>
 				<%}%>
                 <%-- 5. Cot Quyet dinh dieu chinh cuoi cung --%>
-				<td class='text-right str_money QDDCCC'>
+				<td class='text-right str_money QDDCCC so_tien'>
 					<%=lst_giao_kh
 						.Where(x=>x.DM_QUYET_DINH.ID_LOAI_QUYET_DINH_GIAO==WebUS.ID_LOAI_GIAO_DICH.DIEU_CHINH&&x.ID_DON_VI == donvi.ID_DON_VI)
 						.Select(x=>x.SO_TIEN_NAM_TRUOC_CHUYEN_SANG)
@@ -144,42 +153,42 @@
 					%>
 				</td>
                  <%-- 6. Gia tri cong trinh duoc duyet --%>
-				<td class='text-right str_money'><%= lst_PL04
+				<td class='text-right str_money so_tien'><%= lst_PL04
 							.Where(x=>x.ID_DON_VI == donvi.ID_DON_VI)
 							.Select(x=>x.GIA_TRI_DU_TOAN_CONG_TRINH_DUOC_DUYET)
 							.ToList().Sum()%></td>
                 <%-- 7. Gia tri cong trinh hoan thanh - Nam truoc con no chuyen sang --%>
-				<td class='text-right str_money'><%= lst_PL04
+				<td class='text-right str_money so_tien'><%= lst_PL04
 							.Where(x=>x.ID_DON_VI==donvi.ID_DON_VI)
 							.Select(x=>x.GIA_TRI_CTHT_NAM_TRUOC_CON_NO_CHUYEN_NAM_NAY)
 							.ToList().Sum()%></td>
                              <%-- 8. GTCTHT - Nam Nay --%>
-				<td class='text-right str_money'><%= lst_PL04
+				<td class='text-right str_money so_tien'><%= lst_PL04
 							.Where(x=>x.ID_DON_VI==donvi.ID_DON_VI)
 							.Select(x=>x.GIA_TRI_CTHT_NAM_NAY)
 							.ToList().Sum()%></td>
                 <%-- 9. CTCTHT - Cong --%>
-				<td class='text-right str_money'><%= lst_PL04
+				<td class='text-right str_money so_tien'><%= lst_PL04
 							.Where(x=>x.ID_DON_VI==donvi.ID_DON_VI)
 							.Select(x=>x.GIA_TRI_CTHT_NAM_NAY+x.GIA_TRI_CTHT_NAM_TRUOC_CON_NO_CHUYEN_NAM_NAY)
 							.ToList().Sum()%></td>
                 <%-- 10. DTDNQTTN --%>
-				<td class='text-right str_money'><%= lst_PL04
+				<td class='text-right str_money str_so_tien'><%= lst_PL04
 							.Where(x=>x.ID_DON_VI==donvi.ID_DON_VI)
 							.Select(x=>x.GIA_TRI_DE_NGHI_QUYET_TOAN_TRONG_NAM)
 							.ToList().Sum()%></td>
                 <%-- 11. GTCTHTDQTLKDNBC --%>
-				<td class='text-right str_money'><%= lst_PL04
+				<td class='text-right str_money so_tien'><%= lst_PL04
 							.Where(x=>x.ID_DON_VI==donvi.ID_DON_VI)
 							.Select(x=>x.GIA_TRI_CTHT_DA_QUYET_TOAN_LK_DEN_NAM_BAO_CAO)
 							.ToList().Sum()%></td>
                 <%-- 12. GTCTHTCNSQT--%>
-				<td class='text-right str_money'><%= lst_PL04
+				<td class='text-right str_money so_tien'><%= lst_PL04
 							.Where(x=>x.ID_DON_VI==donvi.ID_DON_VI)
 							.Select(x=>x.GIA_TRI_CTHT_NAM_NAY+x.GIA_TRI_CTHT_NAM_TRUOC_CON_NO_CHUYEN_NAM_NAY-x.GIA_TRI_DE_NGHI_QUYET_TOAN_TRONG_NAM)
 							.ToList().Sum()%></td>
                 <%-- 13. KHCDCN --%>
-				<td class='text-right str_money'><%=
+				<td class='text-right str_money so_tien'><%=
 						lst_giao_kh
 							.Where(x=>x.DM_QUYET_DINH.ID_LOAI_QUYET_DINH_GIAO==WebUS.ID_LOAI_GIAO_DICH.DIEU_CHINH
 								&&x.ID_DON_VI==donvi.ID_DON_VI
@@ -205,7 +214,7 @@
                     <%-- 2. Ten Don vi --%>
 				    <td><%=ten_loai_nhiem_vu.TEN_LOAI_NHIEM_VU%></td>
                      <%-- 3. Ke hoach nam truoc chuyen sang --%>
-				    <td class='text-right str_money'>
+				    <td class='text-right '>
 					    <%=lst_giao_kh
 						    .Where(x=>x.CM_DM_TU_DIEN_LOAI_NHIEM_VU.TEN==ten_loai_nhiem_vu.TEN_LOAI_NHIEM_VU.ToUpper()
 							    )
@@ -222,7 +231,7 @@
                                   .Distinct()
                                   .ToList())%>
 				    <%{%>
-				    <td class='text-right str_money'><%=lst_giao_kh
+				    <td class='text-right str_money so_tien'><%=lst_giao_kh
 						    .Where(x=>x.ID_QUYET_DINH==qd	&&x.CM_DM_TU_DIEN_LOAI_NHIEM_VU.TEN.ToUpper()==ten_loai_nhiem_vu.TEN_LOAI_NHIEM_VU.ToUpper())
 						    .Select(x=>x.SO_TIEN_QUY_BT)
 						    .ToList()
@@ -241,7 +250,7 @@
 					    %>
 				    </td>
                     <%-- 6. Gia tri cong trinh duoc duyet --%>
-				    <td class='text-right str_money GTDTCTDD <%=ten_loai_nhiem_vu.TEN_LOAI_NHIEM_VU.Replace(" ","") %>' ma_so="<%="lnv_"+LnvIndex %>"><%= lst_PL04
+				    <td class='text-right so_tien str_money GTDTCTDD <%=ten_loai_nhiem_vu.TEN_LOAI_NHIEM_VU.Replace(" ","") %>' ma_so="<%="lnv_"+LnvIndex %>"><%= lst_PL04
 							    .Where(x=>x.TEN_LOAI_NHIEM_VU==ten_loai_nhiem_vu.TEN_LOAI_NHIEM_VU)
 							    .Select(x=>x.GIA_TRI_DU_TOAN_CONG_TRINH_DUOC_DUYET)
 							    .ToList().Sum()%></td>
@@ -297,5 +306,6 @@
 		<tfoot>
 		</tfoot>
 	</table>
-
+        </div>
+         </div>
 </asp:Content>
